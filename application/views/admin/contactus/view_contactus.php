@@ -9,10 +9,10 @@
         <div class="row">
         <div class="col-lg-12">
         <a class="btn btn-info cticket" href="<?php echo base_url() ?>dcadmin/contactus/add_contactus"
-        role="button" style="margin-bottom:12px;"> Add contactus</a>
+        role="button" style="margin-bottom:12px;"> Add Contact Us</a>
         <div class="panel panel-default">
         <div class="panel-heading">
-        <h3 class="panel-title"><i class="fa fa-money fa-fw"></i>View contactus</h3>
+        <h3 class="panel-title"><i class="fa fa-money fa-fw"></i>View Contact Us</h3>
         </div>
         <div class="panel panel-default">
 
@@ -149,7 +149,3 @@
         <!-- <script type="text/javascript" src="<?php echo base_url()
         ?>assets/slider/ajaxupload.3.5.js"></script>
         <script type="text/javascript" src="<?php echo base_url() ?>assets/slider/rs.js"></script> -->
-
-
-
-        

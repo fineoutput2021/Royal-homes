@@ -39,11 +39,16 @@
         <tr>
         <th>#</th>
 
- 	 <th>Product Image</th>
- 	 <th>MRP </th>
+ 	 <th>Product Name</th>
+ 	 <th>Category Name</th>
+ 	 <th>Subcategory Name</th>
+ 	 <th>image</th>
+ 	 <th>image1</th>
+ 	 <th>image2</th>
+ 	 <th>image3</th>
+ 	 <th>Care Instruction</th>
  	 <th>Product Description</th>
- 	 <th>Colours</th>
- 	 <th>Inventry </th>
+ 	 <th>Features</th>
 
 
         <th>Status</th>
@@ -54,7 +59,25 @@
         <?php $i=1; foreach($products_data->result() as $data) { ?>
         <tr>
         <td><?php echo $i ?> </td>
+        <td><?php echo $data->productname?></td>
 
+
+ <?
+            $this->db->select('*');
+$this->db->from('tbl_category');
+$this->db->where('id',$data->category);
+$category_data= $this->db->get()->row();
+$category_name=$category_data->title;
+?>
+ <?
+            $this->db->select('*');
+$this->db->from('tbl_subcategory');
+$this->db->where('id',$data->subcategory);
+$subcategory_data= $this->db->get()->row();
+$subcategory_name=$subcategory_data->subcategory;
+?>
+ 	 <td><?php echo $category_name?></td>
+ 	 <td><?php echo $subcategory_name?></td>
 
         <td>
         <?php if($data->image!=""){ ?>
@@ -65,10 +88,39 @@
         <?php } ?>
         </td>
 
+
+        <td>
+        <?php if($data->image1!=""){ ?>
+        <img id="slide_img_path" height=50 width=100 src="<?php echo base_url().$data->image1
+        ?>" >
+        <?php }else { ?>
+        Sorry No File Found
+        <?php } ?>
+        </td>
+
+
+        <td>
+        <?php if($data->image2!=""){ ?>
+        <img id="slide_img_path" height=50 width=100 src="<?php echo base_url().$data->image2
+        ?>" >
+        <?php }else { ?>
+        Sorry No File Found
+        <?php } ?>
+        </td>
+
+
+        <td>
+        <?php if($data->image3!=""){ ?>
+        <img id="slide_img_path" height=50 width=100 src="<?php echo base_url().$data->image3
+        ?>" >
+        <?php }else { ?>
+        Sorry No File Found
+        <?php } ?>
+        </td>
+
 	 <td><?php echo $data->mrp ?></td>
  	 <td><?php echo $data->productdescription ?></td>
- 	 <td><?php echo $data->colours ?></td>
- 	 <td><?php echo $data->inventry  ?></td>
+ 	 <td><?php echo $data->modelno ?></td>
 
 
 
@@ -162,7 +214,3 @@
         <!-- <script type="text/javascript" src="<?php echo base_url()
         ?>assets/slider/ajaxupload.3.5.js"></script>
         <script type="text/javascript" src="<?php echo base_url() ?>assets/slider/rs.js"></script> -->
-
-
-
-        

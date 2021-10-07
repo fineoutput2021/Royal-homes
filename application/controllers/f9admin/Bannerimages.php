@@ -177,7 +177,7 @@ $img2='image2';
                      {
                          mkdir($image_upload_folder, DIR_WRITE_MODE, true);
                      }
-                     $new_file_name="bannerimages".date("Ymdhms");
+                     $new_file_name="bannerimages2".date("Ymdhms");
                      $this->upload_config = array(
                              'upload_path'   => $image_upload_folder,
                              'file_name' => $new_file_name,
@@ -220,7 +220,7 @@ $img3='image3';
                      {
                          mkdir($image_upload_folder, DIR_WRITE_MODE, true);
                      }
-                     $new_file_name="bannerimages".date("Ymdhms");
+                     $new_file_name="bannerimages3".date("Ymdhms");
                      $this->upload_config = array(
                              'upload_path'   => $image_upload_folder,
                              'file_name' => $new_file_name,
@@ -263,7 +263,7 @@ $img4='image4';
                      {
                          mkdir($image_upload_folder, DIR_WRITE_MODE, true);
                      }
-                     $new_file_name="bannerimages".date("Ymdhms");
+                     $new_file_name="bannerimages4".date("Ymdhms");
                      $this->upload_config = array(
                              'upload_path'   => $image_upload_folder,
                              'file_name' => $new_file_name,
@@ -379,7 +379,7 @@ $img2='image2';
                      {
                          mkdir($image_upload_folder, DIR_WRITE_MODE, true);
                      }
-                     $new_file_name="bannerimages".date("Ymdhms");
+                     $new_file_name="bannerimages2".date("Ymdhms");
                      $this->upload_config = array(
                              'upload_path'   => $image_upload_folder,
                              'file_name' => $new_file_name,
@@ -422,7 +422,7 @@ $img3='image3';
                      {
                          mkdir($image_upload_folder, DIR_WRITE_MODE, true);
                      }
-                     $new_file_name="bannerimages".date("Ymdhms");
+                     $new_file_name="bannerimages3".date("Ymdhms");
                      $this->upload_config = array(
                              'upload_path'   => $image_upload_folder,
                              'file_name' => $new_file_name,
@@ -465,7 +465,7 @@ $img4='image4';
                      {
                          mkdir($image_upload_folder, DIR_WRITE_MODE, true);
                      }
-                     $new_file_name="bannerimages".date("Ymdhms");
+                     $new_file_name="bannerimages4".date("Ymdhms");
                      $this->upload_config = array(
                              'upload_path'   => $image_upload_folder,
                              'file_name' => $new_file_name,
@@ -629,17 +629,17 @@ if(!empty($img)) { if(empty($nnnn4)){ $nnnn4 = $img; } }else{ if(empty($nnnn4)){
 
                        if($this->load->get_var('position')=="Super Admin"){
 
-                     $this->db->select('image');
+                     $this->db->select('*');
                      $this->db->from('tbl_bannerimages');
                      $this->db->where('id',$id);
                      $dsa= $this->db->get();
                      $da=$dsa->row();
-                     $img=$da->image;
+                     // $img=$da->image;
 
  $zapak=$this->db->delete('tbl_bannerimages', array('id' => $id));
  if($zapak!=0){
-        $path = FCPATH .$img;
-          unlink($path);
+        // $path = FCPATH .$img;
+        //   unlink($path);
         redirect("dcadmin/bannerimages/view_bannerimages","refresh");
                 }
                 else

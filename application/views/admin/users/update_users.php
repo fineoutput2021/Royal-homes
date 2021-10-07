@@ -1,86 +1,92 @@
 <div class="content-wrapper">
-<section class="content-header">
-   <h1>
-  Update Users
-  </h1>
+        <section class="content-header">
+           <h1>
+          Add New User
+          </h1>
+          <ol class="breadcrumb">
+           <li><a href="<?php echo base_url() ?>admin/dashboard"><i class="fa fa-dashboard"></i>Home</a></li>
+            <li><a href="<?php echo base_url() ?>admin/college"><i class="fa fa-dashboard"></i> All Users </a></li>
 
-</section>
-<section class="content">
-<div class="row">
-<div class="col-lg-12">
+          </ol>
+        </section>
+    <section class="content">
+    <div class="row">
+       <div class="col-lg-12">
 
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Update Users </h3>
-                    </div>
-
-                             <? if(!empty($this->session->flashdata('smessage'))){  ?>
-                                  <div class="alert alert-success alert-dismissible">
-                              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                              <h4><i class="icon fa fa-check"></i> Alert!</h4>
-                             <? echo $this->session->flashdata('smessage');  ?>
-                            </div>
-                               <? }
-                               if(!empty($this->session->flashdata('emessage'))){  ?>
-                               <div class="alert alert-danger alert-dismissible">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                            <h4><i class="icon fa fa-ban"></i> Alert!</h4>
-                           <? echo $this->session->flashdata('emessage');  ?>
-                          </div>
-                             <? }  ?>
-
-
-                    <div class="panel-body">
-                        <div class="col-lg-10">
-                           <form action=" <?php echo base_url(); ?>dcadmin/users/add_users_data/<? echo base64_encode(2); ?>/<?=$id;?>" method="POST" id="slide_frm" enctype="multipart/form-data">
-                        <div class="table-responsive">
-                            <table class="table table-hover">
-<tr>
-<td> <strong>Name</strong>  <span style="color:red;">*</span></strong> </td>
-<td> <input type="text" name="name"  class="form-control" placeholder=""  value="<?=$users_data->name;?>" />  </td>
-</tr>
-<tr>
-<td> <strong>address</strong>  <span style="color:red;">*</span></strong> </td>
-<td> <input type="text" name="address"  class="form-control" placeholder="" required value="<?=$users_data->address;?>" />  </td>
-</tr>
-<tr>
-<td> <strong>pincode</strong>  <span style="color:red;">*</span></strong> </td>
-<td> <input type="text" name="pincode"  class="form-control" placeholder="" required value="<?=$users_data->pincode;?>" />  </td>
-</tr>
-<tr>
-<td> <strong>password</strong>  <span style="color:red;">*</span></strong> </td>
-<td> <input type="password" name="password"  class="form-control" placeholder="" required value="<?=$users_data->password;?>" />  </td>
-</tr>
-<tr>
-<td> <strong>image</strong>  <span style="color:red;">*</span></strong> </td>
-<td> <input type="file" name="image"  class="form-control" placeholder="" />
-<?php if($users_data->image!=""){ ?> <img id="slide_img_path" height=200 width=300 src="<?php echo base_url().$users_data->image; ?> "> <?php }else{ ?> Sorry No File Found <?php } ?>  </td>
-</tr>
-
-
-                  <tr>
-                    <td colspan="2" >
-                      <input type="submit" class="btn btn-success" value="save">
-                    </td>
-                  </tr>
-                                </table>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Add New User</h3>
                             </div>
 
-                         </form>
+                                    <? if(!empty($this->session->flashdata('smessage'))){ ?>
+                                          <div class="alert alert-success alert-dismissible">
+                                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                      <h4><i class="icon fa fa-check"></i> Alert!</h4>
+                                    <? echo $this->session->flashdata('smessage'); ?>
+                                    </div>
+                                      <? }
+                                       if(!empty($this->session->flashdata('emessage'))){ ?>
+                                       <div class="alert alert-danger alert-dismissible">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    <h4><i class="icon fa fa-ban"></i> Alert!</h4>
+                                  <? echo $this->session->flashdata('emessage'); ?>
+                                  </div>
+                                    <? } ?>
+
+
+                            <div class="panel-body">
+                                <div class="col-lg-10">
+                                   <form action="<?php echo base_url() ?>dcadmin/users/add_user_data/<? echo base64_encode(2); ?>/<?= $id ?>" method="POST" id="slide_frm" enctype="multipart/form-data">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+
+                      <tr>
+                                                <td> <strong>Name</strong>  <span style="color:red;">*</span></strong> </td>
+                                                <td>
+                          <input type="text" name="name"  class="form-control" placeholder="" required value="<?= $user->name; ?>" />
+                                              </td>
+                        </tr>
+                        <tr>
+                                                  <td> <strong>Email</strong>  <span style="color:red;">*</span></strong> </td>
+                                                  <td>
+                            <input type="text" name="email"  class="form-control" placeholder="" required value="<?= $user->email; ?>" />
+                                                </td>
+                          </tr>
+                          <tr>
+                                                    <td> <strong>Phone</strong>  <span style="color:red;">*</span></strong> </td>
+                                                    <td>
+                              <input type="text" name="phone"  class="form-control" placeholder="" required value="<?= $user->phone; ?>" />
+                                                  </td>
+                            </tr>
+                            <tr>
+                                                      <td> <strong>Address</strong>  <span style="color:red;">*</span></strong> </td>
+                                                      <td>
+                                <input type="text" name="address"  class="form-control" placeholder="" required value="<?= $user->address; ?>" />
+                                                    </td>
+                              </tr>
+                          <tr>
+                            <td colspan="2" >
+                              <input type="submit" class="btn btn-success" value="save">
+                            </td>
+                          </tr>
+                                        </table>
+                                    </div>
+
+                                 </form>
+
+                                    </div>
+
+
+
+                                </div>
 
                             </div>
-
-
 
                         </div>
-
-                    </div>
-
-                </div>
-                </div>
-    </section>
-  </div>
+                        </div>
+            </section>
+          </div>
 
 
-<script type="text/javascript" src=" <?php echo base_url()  ?>assets/slider/ajaxupload.3.5.js"></script>
-<link href=" <? echo base_url()  ?>assets/cowadmin/css/jqvmap.css" rel='stylesheet' type='text/css' />
+<script type="text/javascript" src="<?php echo base_url() ?>assets/slider/ajaxupload.3.5.js"></script>
+<link href="<? echo base_url() ?>assets/cowadmin/css/jqvmap.css" rel='stylesheet' type='text/css' />

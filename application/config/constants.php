@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 
-define('SITE_NAME','Create Outdoor');
+define('SITE_NAME','Royal Homes');
 define('ADMIN_URL','dcadmin');
 
 

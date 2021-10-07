@@ -35,25 +35,65 @@
                                           <form action=" <?php echo base_url()  ?>dcadmin/products/add_products_data/<? echo base64_encode(1);  ?>" method="POST" id="slide_frm" enctype="multipart/form-data">
                                        <div class="table-responsive">
                                            <table class="table table-hover">
+
+
   <tr>
-<td> <strong>Product Image</strong>  <span style="color:red;">*</span></strong> </td>
+<td> <strong>Product Name</strong>  <span style="color:red;">*</span></strong> </td>
+<td> <input type="text" name="productname"  class="form-control" placeholder="" required value="" />  </td>
+</tr>
+
+  <tr>
+<td> <strong>Category Name</strong>  <span style="color:red;">*</span></strong> </td>
+<td>
+    <select class="form-control" id="cid" name="category">
+      <option value="">Please select category</option>
+
+      <?
+
+       foreach($category_data->result() as $value) {?>
+         <option value="<?=$value->id;?>"><?=$value->title;?></option>
+       <? }?>
+    </select>
+  </td>
+</tr>
+
+  <tr>
+<td> <strong>Subcategory Name</strong>  <span style="color:red;">*</span></strong> </td>
+<td>
+  <select class="form-control" id="sid" name="sub_category">
+  </select>
+
+
+  </td>
+</tr>
+
+  <tr>
+<td> <strong>image</strong>  <span style="color:red;">*</span></strong> </td>
 <td> <input type="file" name="image"  class="form-control" placeholder="" required value="" />  </td>
 </tr>
   <tr>
-<td> <strong>MRP </strong>  <span style="color:red;">*</span></strong> </td>
-<td> <input type="text" name="mrp"  class="form-control" placeholder="" required value="" />  </td>
+<td> <strong>image1</strong>  <span style="color:red;">*</span></strong> </td>
+<td> <input type="file" name="image1"  class="form-control" placeholder="" required value="" />  </td>
+</tr>
+  <tr>
+<td> <strong>image2</strong>  <span style="color:red;">*</span></strong> </td>
+<td> <input type="file" name="image2"  class="form-control" placeholder="" required value="" />  </td>
+</tr>
+  <tr>
+<td> <strong>image3</strong>  <span style="color:red;">*</span></strong> </td>
+<td> <input type="file" name="image3"  class="form-control" placeholder="" required value="" />  </td>
+</tr>
+  <tr>
+<td> <strong>Care Instruction</strong>  <span style="color:red;">*</span></strong> </td>
+<td> <textarea  class="form-control" name="mrp" rows="4" cols="4"></textarea>  </td>
 </tr>
   <tr>
 <td> <strong>Product Description</strong>  <span style="color:red;">*</span></strong> </td>
-<td> <input type="text" name="productdescription"  class="form-control" placeholder="" required value="" />  </td>
+<td> <textarea  class="form-control" name="productdescription" rows="4" cols="4"></textarea>  </td>
 </tr>
   <tr>
-<td> <strong>Colours</strong>  <span style="color:red;">*</span></strong> </td>
-<td> <input type="color" name="colours"  class="form-control" placeholder="" required value="" />  </td>
-</tr>
-  <tr>
-<td> <strong>Inventory </strong>  <span style="color:red;">*</span></strong> </td>
-<td> <input type="text" name="inventry"  class="form-control" placeholder="" required value="" />  </td>
+<td> <strong>Features</strong>  <span style="color:red;">*</span></strong> </td>
+<td> <textarea  class="form-control" name="modelno" rows="3" cols="3"></textarea> </td>
 </tr>
 
 
@@ -83,3 +123,47 @@
 
 <script type="text/javascript" src=" <?php echo base_url()  ?>assets/slider/ajaxupload.3.5.js"></script>
      <link href=" <? echo base_url()  ?>assets/cowadmin/css/jqvmap.css" rel='stylesheet' type='text/css' />
+<script>
+$(document).ready(function(){
+  	$("#cid").change(function(){
+		var vf=$(this).val();
+    // var yr = $("#year_id option:selected").val();
+		if(vf==""){
+			return false;
+
+		}else{
+			$('#sid option').remove();
+			  var opton="<option value=''>Please Select </option>";
+			$.ajax({
+				url:base_url+"dcadmin/products/getSubcategory?isl="+vf,
+				data : '',
+				type: "get",
+				success : function(html){
+						if(html!="NA")
+						{
+							var s = jQuery.parseJSON(html);
+							$.each(s, function(i) {
+							opton +='<option value="'+s[i]['sub_id']+'">'+s[i]['sub_name']+'</option>';
+							});
+							$('#sid').append(opton);
+							//$('#city').append("<option value=''>Please Select State</option>");
+
+                      //var json = $.parseJSON(html);
+                      //var ayy = json[0].name;
+                      //var ayys = json[0].pincode;
+						}
+						else
+						{
+							alert('No Subcategory Found');
+							return false;
+						}
+
+					}
+
+				})
+		}
+
+
+	})
+  });
+</script>
