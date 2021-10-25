@@ -58,6 +58,13 @@ foreach($category_data->result() as $value) {?>
 <td> <strong>Subcategory Name</strong>  <span style="color:red;">*</span></strong> </td>
 <td>
 <select class="form-control" id="sid" name="subcategory_id">
+  <?
+
+  foreach($subcategory_data->result() as $value) {?>
+  <option value="<?=$value->id;?>"<?php if($products_data->subcategory_id == $value->id){ echo "selected"; } ?>><?=$value->subcategory;?></option>
+  <? }?>
+
+
 </select>
 
 
@@ -82,7 +89,7 @@ foreach($category_data->result() as $value) {?>
 </tr>
 <tr>
 <td> <strong>mrp</strong>  <span style="color:red;">*</span></strong> </td>
-<td> <input type="text" name="mrp"  class="form-control" placeholder="" required value="<?=$products_data->mrp?>" />  </td>
+<td> <input type="number" name="mrp"  class="form-control" placeholder="" required value="<?=$products_data->mrp?>" />  </td>
 </tr>
 <tr>
 <td> <strong>Product Description</strong>  <span style="color:red;">*</span></strong> </td>

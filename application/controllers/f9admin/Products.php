@@ -119,6 +119,11 @@ echo json_encode($igt);
                             // $this->db->where('id',$id);
                             $data['category_data']= $this->db->get();
 
+                                        $this->db->select('*');
+                            $this->db->from('tbl_subcategory');
+                            //$this->db->where('id',$usr);
+                            $data['subcategory_data']= $this->db->get();
+
                      $this->load->view('admin/common/header_view',$data);
                      $this->load->view('admin/products/update_products');
                      $this->load->view('admin/common/footer_view');
@@ -146,11 +151,11 @@ echo json_encode($igt);
                // print_r($this->input->post());
                // exit;
   $this->form_validation->set_rules('productname', 'productname', 'required');
-  $this->form_validation->set_rules('category_id', 'category_id', 'required');
+  $this->form_validation->set_rules('category_id', 'category_id', 'required|trim');
   $this->form_validation->set_rules('subcategory_id', 'subcategory_id', 'required');
-  $this->form_validation->set_rules('mrp', 'mrp', 'required');
-  $this->form_validation->set_rules('productdescription', 'productdescription', 'required');
-  $this->form_validation->set_rules('modelno', 'modelno', 'required');
+  $this->form_validation->set_rules('mrp', 'mrp', 'required|integer');
+  $this->form_validation->set_rules('productdescription', 'productdescription', 'required|customalpha');
+  $this->form_validation->set_rules('modelno', 'modelno', 'required|trim');
 
 
 

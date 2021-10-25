@@ -104,7 +104,7 @@
                // print_r($this->input->post());
                // exit;
   $this->form_validation->set_rules('pincode', 'pincode', 'required');
-  $this->form_validation->set_rules('shippingcharge', 'shippingcharge', 'required');
+  $this->form_validation->set_rules('shippingcharge', 'shippingcharge', 'required|integer');
 
 
 

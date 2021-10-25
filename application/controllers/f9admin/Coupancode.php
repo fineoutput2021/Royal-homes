@@ -103,12 +103,12 @@
              {
                // print_r($this->input->post());
                // exit;
-  $this->form_validation->set_rules('name', 'name', 'required');
+  $this->form_validation->set_rules('name', 'name', 'required|trim|customalpha');
   $this->form_validation->set_rules('startdate', 'startdate', 'required');
   $this->form_validation->set_rules('enddate', 'enddate', 'required');
-  $this->form_validation->set_rules('cartamount', 'cartamount', 'required');
-  $this->form_validation->set_rules('percentageoff', 'percentageoff', 'required');
-  $this->form_validation->set_rules('maximumdiscount', 'maximumdiscount', 'required');
+  $this->form_validation->set_rules('cartamount', 'cartamount', 'required|integer');
+  $this->form_validation->set_rules('percentageoff', 'percentageoff', 'required|integer');
+  $this->form_validation->set_rules('maximumdiscount', 'maximumdiscount', 'required|integer');
 
 
 

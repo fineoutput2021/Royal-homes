@@ -125,12 +125,12 @@ $data['inventory_data']= $this->db->get()->row();
             {
               // print_r($this->input->post());
               // exit;
-              $this->form_validation->set_rules('quantity', 'quantity', 'required|xss_clean');
+              $this->form_validation->set_rules('quantity', 'quantity', 'required|xss_clean|integer');
 
               if($this->form_validation->run()== TRUE)
               {
                 $quantity=$this->input->post('quantity');
-              
+
 
                   $ip = $this->input->ip_address();
           date_default_timezone_set("Asia/Calcutta");

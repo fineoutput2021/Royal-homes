@@ -103,7 +103,7 @@
              {
                // print_r($this->input->post());
                // exit;
-  $this->form_validation->set_rules('heading', 'heading', 'required|trim');
+  $this->form_validation->set_rules('heading', 'heading', 'required|customAlpha|trim');
   $this->form_validation->set_rules('location1', 'location1', 'required|trim');
 
 

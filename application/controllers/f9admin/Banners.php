@@ -78,7 +78,7 @@ public function add_banners(){
             if($this->input->post())
             {
 
-              $this->form_validation->set_rules('redirection_link', 'redirection_link', 'required|xss_clean|trim');
+              $this->form_validation->set_rules('redirection_link', 'redirection_link', 'required|xss_clean|customAlpha|trim');
 
               if($this->form_validation->run()== TRUE)
               {
@@ -144,7 +144,7 @@ public function add_banners(){
           $data_insert = array('redirection_link'=>$redirection,
                     'banner_image'=>$image,
                     'added_by' =>$addedby,
-										'ip'=> $ip, 
+										'ip'=> $ip,
                     'is_active' =>1,
                     'date'=>$cur_date
                     );
