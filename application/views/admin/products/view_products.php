@@ -46,9 +46,9 @@
  	 <th>image1</th>
  	 <th>image2</th>
  	 <th>image3</th>
- 	 <th>Care Instruction</th>
+ 	 <th>MRP</th>
  	 <th>Product Description</th>
- 	 <th>Features</th>
+ 	 <th>Model No.</th>
 
 
         <th>Status</th>
@@ -65,14 +65,14 @@
  <?
             $this->db->select('*');
 $this->db->from('tbl_category');
-$this->db->where('id',$data->category);
+$this->db->where('id',$data->category_id);
 $category_data= $this->db->get()->row();
-$category_name=$category_data->title;
+$category_name=$category_data->categoryname;
 ?>
  <?
             $this->db->select('*');
 $this->db->from('tbl_subcategory');
-$this->db->where('id',$data->subcategory);
+$this->db->where('id',$data->subcategory_id);
 $subcategory_data= $this->db->get()->row();
 $subcategory_name=$subcategory_data->subcategory;
 ?>
@@ -151,6 +151,8 @@ $subcategory_name=$subcategory_data->subcategory;
         <?php } ?>
         <li><a href="<?php echo base_url() ?>dcadmin/products/update_products/<?php echo
         base64_encode($data->id) ?>">Edit</a></li>
+        <!-- <li><a href="<?php echo base_url() ?>dcadmin/product_type/view_type/<?php echo
+        base64_encode($data->id) ?>">Type</a></li> -->
         <li><a href="javascript:;" class="dCnf" mydata="<?php echo $i ?>">Delete</a></li>
         </ul>
         </div>

@@ -39,7 +39,7 @@
         <tr>
         <th>#</th>
 
- 	 <th>name</th>
+ 	 <th>Name</th>
  	 <th>Slider Image</th>
  	 <th>Slider Image1</th>
  	 <th>Slider Image2</th>
@@ -178,7 +178,3 @@
         <!-- <script type="text/javascript" src="<?php echo base_url()
         ?>assets/slider/ajaxupload.3.5.js"></script>
         <script type="text/javascript" src="<?php echo base_url() ?>assets/slider/rs.js"></script> -->
-
-
-
-        

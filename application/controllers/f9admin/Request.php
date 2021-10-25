@@ -289,17 +289,17 @@
 
                        if($this->load->get_var('position')=="Super Admin"){
 
-                     $this->db->select('image');
+                     $this->db->select('*');
                      $this->db->from('tbl_request');
                      $this->db->where('id',$id);
                      $dsa= $this->db->get();
                      $da=$dsa->row();
-                     $img=$da->image;
+                     // $img=$da->image;
 
  $zapak=$this->db->delete('tbl_request', array('id' => $id));
  if($zapak!=0){
-        $path = FCPATH .$img;
-          unlink($path);
+        // $path = FCPATH .$img;
+        //   unlink($path);
         redirect("dcadmin/request/view_request","refresh");
                 }
                 else
@@ -325,4 +325,3 @@
                       }
 
       ?>
-       

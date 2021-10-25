@@ -42,22 +42,22 @@
 <tr>
 <td> <strong>Image</strong>  <span style="color:red;">*</span></strong> </td>
 <td> <input type="file" name="Image"  class="form-control" placeholder="" />
-<?php if($sellerslider_data->image!=""){ ?> <img id="slide_img_path" height=200 width=300 src="<?php echo base_url().$sellerslider_data->image; ?> "> <?php }else{ ?> Sorry No File Found <?php } ?>  </td>
+<?php if($sellerslider_data->Image!=""){ ?> <img id="slide_img_path" height=200 width=300 src="<?php echo base_url().$sellerslider_data->Image; ?> "> <?php }else{ ?> Sorry No File Found <?php } ?>  </td>
 </tr>
 <tr>
 <td> <strong>Image</strong>  <span style="color:red;">*</span></strong> </td>
 <td> <input type="file" name="Image1"  class="form-control" placeholder="" />
-<?php if($sellerslider_data->image!=""){ ?> <img id="slide_img_path" height=200 width=300 src="<?php echo base_url().$sellerslider_data->image; ?> "> <?php }else{ ?> Sorry No File Found <?php } ?>  </td>
+<?php if($sellerslider_data->Image1!=""){ ?> <img id="slide_img_path" height=200 width=300 src="<?php echo base_url().$sellerslider_data->Image1; ?> "> <?php }else{ ?> Sorry No File Found <?php } ?>  </td>
 </tr>
 <tr>
 <td> <strong>Image</strong>  <span style="color:red;">*</span></strong> </td>
 <td> <input type="file" name="Image2"  class="form-control" placeholder="" />
-<?php if($sellerslider_data->image!=""){ ?> <img id="slide_img_path" height=200 width=300 src="<?php echo base_url().$sellerslider_data->image; ?> "> <?php }else{ ?> Sorry No File Found <?php } ?>  </td>
+<?php if($sellerslider_data->Image2!=""){ ?> <img id="slide_img_path" height=200 width=300 src="<?php echo base_url().$sellerslider_data->Image2; ?> "> <?php }else{ ?> Sorry No File Found <?php } ?>  </td>
 </tr>
 <tr>
 <td> <strong>Image</strong>  <span style="color:red;">*</span></strong> </td>
 <td> <input type="file" name="Image3"  class="form-control" placeholder="" />
-<?php if($sellerslider_data->image!=""){ ?> <img id="slide_img_path" height=200 width=300 src="<?php echo base_url().$sellerslider_data->image; ?> "> <?php }else{ ?> Sorry No File Found <?php } ?>  </td>
+<?php if($sellerslider_data->Image3!=""){ ?> <img id="slide_img_path" height=200 width=300 src="<?php echo base_url().$sellerslider_data->Image3; ?> "> <?php }else{ ?> Sorry No File Found <?php } ?>  </td>
 </tr>
 
 

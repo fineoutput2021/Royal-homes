@@ -2,17 +2,17 @@
         <div class="content-wrapper">
         <section class="content-header">
         <h1>
-          View Bannerimages
+          View Banner Images
         </h1>
         </section>
         <section class="content">
         <div class="row">
         <div class="col-lg-12">
         <a class="btn btn-info cticket" href="<?php echo base_url() ?>dcadmin/bannerimages/add_bannerimages"
-        role="button" style="margin-bottom:12px;"> Add bannerimages</a>
+        role="button" style="margin-bottom:12px;"> Add Banner Images</a>
         <div class="panel panel-default">
         <div class="panel-heading">
-        <h3 class="panel-title"><i class="fa fa-money fa-fw"></i>View bannerimages</h3>
+        <h3 class="panel-title"><i class="fa fa-money fa-fw"></i>View Banner Images</h3>
         </div>
         <div class="panel panel-default">
 
@@ -189,7 +189,3 @@
         <!-- <script type="text/javascript" src="<?php echo base_url()
         ?>assets/slider/ajaxupload.3.5.js"></script>
         <script type="text/javascript" src="<?php echo base_url() ?>assets/slider/rs.js"></script> -->
-
-
-
-        

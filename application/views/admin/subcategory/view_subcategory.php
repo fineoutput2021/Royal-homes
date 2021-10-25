@@ -53,9 +53,9 @@
         <?
                    $this->db->select('*');
        $this->db->from('tbl_category');
-       $this->db->where('id',$data->category);
+       $this->db->where('id',$data->category_id);
        $category_data= $this->db->get()->row();
-       $category_name=$category_data->title;
+       $category_name=$category_data->categoryname;
        ?>
 
  	 <td><?php echo $category_name ?></td>

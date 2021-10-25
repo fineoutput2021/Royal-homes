@@ -42,7 +42,7 @@
                                               <tr>
                                                   <th>#</th>
                                                   <th>Image</th>
-                                                  <th>Title</th>
+                                                  <th>Category</th>
                                                   <th>Status</th>
                                                   <th>Action</th>
                                                     </tr>
@@ -58,9 +58,9 @@
                             Sorry No image Found
                             <?php } ?>
                               </td>
-                            <td><?php echo $data->title ?></td>
+                            <td><?php echo $data->categoryname ?></td>
 
-                          
+
 
                               <td><?php if($data->is_active==1){ ?>
         <p class="label bg-green" >Active</p>
@@ -78,9 +78,9 @@
 <ul class="dropdown-menu" role="menu">
 
 <?php if($data->is_active==1){ ?>
-<li><a href="<?php echo base_url() ?>dcadmin/category/updatesubcategoryStatus/<?php echo base64_encode($data->id) ?>/inactive">Inactive</a></li>
+<li><a href="<?php echo base_url() ?>dcadmin/category/updatecategoryStatus/<?php echo base64_encode($data->id) ?>/inactive">Inactive</a></li>
 <?php } else { ?>
-<li><a href="<?php echo base_url() ?>dcadmin/category/updatesubcategoryStatus/<?php echo base64_encode($data->id) ?>/active">Active</a></li>
+<li><a href="<?php echo base_url() ?>dcadmin/category/updatecategoryStatus/<?php echo base64_encode($data->id) ?>/active">Active</a></li>
 <?php		}   ?>
 <li><a href="<?php echo base_url() ?>dcadmin/category/update_category/<?php echo base64_encode($data->id) ?>">Edit</a></li>
 <li><a href="javascript:;" class="dCnf" mydata="<?php echo $i ?>">Delete</a></li>

@@ -52,13 +52,13 @@ if(!empty($this->session->flashdata('emessage'))){ ?>
 <tr>
 <td><?php echo $i ?> </td>
 
-<td><?php  $cid=$data->category;
+<td><?php  $cid=$data->category_id;
 $this->db->select('*');
             $this->db->from('tbl_category');
             $this->db->where('id',$cid);
             $dsa= $this->db->get();
             $da=$dsa->row();
-            echo $da->title;
+            echo $da->categoryname;
 
 ?></td>
 <?

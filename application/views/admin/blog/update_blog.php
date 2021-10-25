@@ -46,7 +46,7 @@
 </tr>
 <tr>
 <td> <strong>Html Editor</strong>  <span style="color:red;">*</span></strong> </td>
-<td> <input type="" name="location1"  class="form-control" placeholder=""  value="<?=$blog_data->location1;?>" />  </td>
+<td> <textarea name="location1" id="editor1" rows="3" cols="80"><?=$blog_data->location1;?></textarea></td>
 </tr>
 
 
@@ -76,3 +76,15 @@
 
 <script type="text/javascript" src=" <?php echo base_url()  ?>assets/slider/ajaxupload.3.5.js"></script>
 <link href=" <? echo base_url()  ?>assets/cowadmin/css/jqvmap.css" rel='stylesheet' type='text/css' />
+ <script src="<?php echo base_url() ?>assets/admin/plugins/ckeditor/ckeditor.js"></script>
+
+<script>
+// Replace the <textarea id="editor1"> with a CKEditor
+
+// instance, using default configuration.
+
+CKEDITOR.replace( 'editor1' );
+// CKEDITOR.replace( 'editor2' );
+// CKEDITOR.replace( 'editor3' );
+//
+</script>

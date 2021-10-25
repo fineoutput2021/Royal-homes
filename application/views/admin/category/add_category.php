@@ -41,9 +41,9 @@
                                     <table class="table table-hover">
 
                       <tr>
-                                                <td> <strong>Title</strong>  <span style="color:red;">*</span></strong> </td>
+                                                <td> <strong>Category</strong>  <span style="color:red;">*</span></strong> </td>
                                                 <td>
-                          <input type="text" name="title"  class="form-control" placeholder="" required value="" />
+                          <input type="text" name="categoryname"  class="form-control" placeholder="" required value="" />
                                               </td>
                         </tr>
                             <tr>

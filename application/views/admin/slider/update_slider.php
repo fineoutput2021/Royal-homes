@@ -36,7 +36,7 @@
                         <div class="table-responsive">
                             <table class="table table-hover">
 <tr>
-<td> <strong>name</strong>  <span style="color:red;">*</span></strong> </td>
+<td> <strong>Name</strong>  <span style="color:red;">*</span></strong> </td>
 <td> <input type="text" name="name"  class="form-control" placeholder="" required value="<?=$slider_data->name;?>" />  </td>
 </tr>
 <tr>
@@ -47,12 +47,12 @@
 <tr>
 <td> <strong>Slider Image1</strong>  <span style="color:red;">*</span></strong> </td>
 <td> <input type="file" name="image1"  class="form-control" placeholder="" />
-<?php if($slider_data->image!=""){ ?> <img id="slide_img_path" height=200 width=300 src="<?php echo base_url().$slider_data->image; ?> "> <?php }else{ ?> Sorry No File Found <?php } ?>  </td>
+<?php if($slider_data->image!=""){ ?> <img id="slide_img_path" height=200 width=300 src="<?php echo base_url().$slider_data->image1; ?> "> <?php }else{ ?> Sorry No File Found <?php } ?>  </td>
 </tr>
 <tr>
 <td> <strong>Slider Image2</strong>  <span style="color:red;">*</span></strong> </td>
 <td> <input type="file" name="image2"  class="form-control" placeholder="" />
-<?php if($slider_data->image!=""){ ?> <img id="slide_img_path" height=200 width=300 src="<?php echo base_url().$slider_data->image; ?> "> <?php }else{ ?> Sorry No File Found <?php } ?>  </td>
+<?php if($slider_data->image!=""){ ?> <img id="slide_img_path" height=200 width=300 src="<?php echo base_url().$slider_data->image2; ?> "> <?php }else{ ?> Sorry No File Found <?php } ?>  </td>
 </tr>
 
 
@@ -82,4 +82,3 @@
 
 <script type="text/javascript" src=" <?php echo base_url()  ?>assets/slider/ajaxupload.3.5.js"></script>
 <link href=" <? echo base_url()  ?>assets/cowadmin/css/jqvmap.css" rel='stylesheet' type='text/css' />
-  

@@ -40,38 +40,38 @@ function __construct()
 
                    }
 
-public function view_subcategory($idd){
-
-							                      if(!empty($this->session->userdata('admin_data'))){
-
-
-							                        $data['user_name']=$this->load->get_var('user_name');
-
-							                        // echo SITE_NAME;
-							                        // echo $this->session->userdata('image');
-							                        // echo $this->session->userdata('position');
-							                        // exit;
-
-							 											       			$this->db->select('*');
-							 											 $this->db->from('tbl_subcategory');
-							 											 $this->db->where('category_id',$idd);
-							 											 $data['subcategory_data']= $this->db->get();
-
-																		 // print_r($data);
-																		 // die;
-
-
-							                        $this->load->view('admin/common/header_view',$data);
-							                        $this->load->view('admin/category/view_subcategory');
-							                        $this->load->view('admin/common/footer_view');
-
-							                    }
-							                    else{
-
-							                       redirect("login/admin_login","refresh");
-							                    }
-
-							                    }
+// public function view_subcategory($idd){
+//
+// 							                      if(!empty($this->session->userdata('admin_data'))){
+//
+//
+// 							                        $data['user_name']=$this->load->get_var('user_name');
+//
+// 							                        // echo SITE_NAME;
+// 							                        // echo $this->session->userdata('image');
+// 							                        // echo $this->session->userdata('position');
+// 							                        // exit;
+//
+// 							 											       			$this->db->select('*');
+// 							 											 $this->db->from('tbl_subcategory');
+// 							 											 $this->db->where('category_id',$idd);
+// 							 											 $data['subcategory_data']= $this->db->get();
+//
+// 																		 // print_r($data);
+// 																		 // die;
+//
+//
+// 							                        $this->load->view('admin/common/header_view',$data);
+// 							                        $this->load->view('admin/category/view_subcategory');
+// 							                        $this->load->view('admin/common/footer_view');
+//
+// 							                    }
+// 							                    else{
+//
+// 							                       redirect("login/admin_login","refresh");
+// 							                    }
+//
+// 							                    }
 
 
 
@@ -116,11 +116,11 @@ public function add_category(){
             if($this->input->post())
             {
 
-              $this->form_validation->set_rules('title', 'title', 'required|xss_clean|trim');
+              $this->form_validation->set_rules('categoryname', 'categoryname', 'required|xss_clean|trim');
 
               if($this->form_validation->run()== TRUE)
               {
-                $title=$this->input->post('title');
+                $categoryname=$this->input->post('categoryname');
 
 								// Load library
 								$this->load->library('upload');
@@ -134,7 +134,7 @@ public function add_category(){
 								  						{
 								  							mkdir($image_upload_folder, DIR_WRITE_MODE, true);
 								  						}
-								  						$new_file_name="team".date("Ymdhms");
+								  						$new_file_name="category".date("Ymdhms");
 								  						$this->upload_config = array(
 								  								'upload_path'   => $image_upload_folder,
 								  								'file_name' => $new_file_name,
@@ -179,7 +179,7 @@ public function add_category(){
           $typ=base64_decode($t);
           if($typ==1){
 
-          $data_insert = array('title'=>$title,
+          $data_insert = array('categoryname'=>$categoryname,
                     'image'=>$image,
                     'added_by' =>$addedby,
                     'is_active' =>1,
@@ -213,7 +213,7 @@ public function add_category(){
 //  }
 //     }
 
-          $data_insert = array('Title'=>$title,
+          $data_insert = array('categoryname'=>$categoryname,
                     'image'=>$image,
                     );
 

@@ -45,13 +45,13 @@
   <tr>
 <td> <strong>Category Name</strong>  <span style="color:red;">*</span></strong> </td>
 <td>
-    <select class="form-control" id="cid" name="category">
+    <select class="form-control" id="cid" name="category_id">
       <option value="">Please select category</option>
 
       <?
 
        foreach($category_data->result() as $value) {?>
-         <option value="<?=$value->id;?>"><?=$value->title;?></option>
+         <option value="<?=$value->id;?>"><?=$value->categoryname;?></option>
        <? }?>
     </select>
   </td>
@@ -60,7 +60,7 @@
   <tr>
 <td> <strong>Subcategory Name</strong>  <span style="color:red;">*</span></strong> </td>
 <td>
-  <select class="form-control" id="sid" name="sub_category">
+  <select class="form-control" id="sid" name="subcategory_id">
   </select>
 
 
@@ -84,16 +84,16 @@
 <td> <input type="file" name="image3"  class="form-control" placeholder="" required value="" />  </td>
 </tr>
   <tr>
-<td> <strong>Care Instruction</strong>  <span style="color:red;">*</span></strong> </td>
-<td> <textarea  class="form-control" name="mrp" rows="4" cols="4"></textarea>  </td>
+<td> <strong>mrp</strong>  <span style="color:red;">*</span></strong> </td>
+<td> <input type="text" name="mrp"  class="form-control" placeholder="" required value="" />  </td>
 </tr>
   <tr>
 <td> <strong>Product Description</strong>  <span style="color:red;">*</span></strong> </td>
-<td> <textarea  class="form-control" name="productdescription" rows="4" cols="4"></textarea>  </td>
+<td> <input type="text" name="productdescription"  class="form-control" placeholder="" required value="" />  </td>
 </tr>
   <tr>
-<td> <strong>Features</strong>  <span style="color:red;">*</span></strong> </td>
-<td> <textarea  class="form-control" name="modelno" rows="3" cols="3"></textarea> </td>
+<td> <strong>Model No.</strong>  <span style="color:red;">*</span></strong> </td>
+<td> <input type="text" name="modelno"  class="form-control" placeholder="" required value="" />  </td>
 </tr>
 
 

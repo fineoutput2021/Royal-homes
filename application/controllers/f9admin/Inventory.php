@@ -65,7 +65,7 @@ public function view_iproducts($idd){
 
             $this->db->select('*');
 $this->db->from('tbl_products');
-$this->db->where('category',$id);
+$this->db->where('category_id',$id);
 $data['product_list']= $this->db->get();
 
 
@@ -130,7 +130,7 @@ $data['inventory_data']= $this->db->get()->row();
               if($this->form_validation->run()== TRUE)
               {
                 $quantity=$this->input->post('quantity');
-                // $passw=$this->input->post('password');
+              
 
                   $ip = $this->input->ip_address();
           date_default_timezone_set("Asia/Calcutta");
@@ -156,7 +156,7 @@ $this->db->select('*');
             $this->db->where('id',$typ);
             $dsa= $this->db->get();
             $da=$dsa->row();
-            $c=$da->category;
+            $c=$da->category_id;
 
                               if($last_id!=0){
 
