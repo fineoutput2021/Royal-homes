@@ -36,7 +36,7 @@
                         <div class="table-responsive">
                             <table class="table table-hover">
 <tr>
-<td> <strong>Firsr Name</strong>  <span style="color:red;">*</span></strong> </td>
+<td> <strong>First Name</strong>  <span style="color:red;">*</span></strong> </td>
 <td> <input type="text" name="fname"  class="form-control" placeholder="" required value="<?=$request_data->fname;?>" />  </td>
 </tr>
 <tr>

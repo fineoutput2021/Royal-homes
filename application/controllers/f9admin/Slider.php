@@ -103,7 +103,7 @@
              {
                // print_r($this->input->post());
                // exit;
-  $this->form_validation->set_rules('name', 'name', 'required|customAlpha');
+  $this->form_validation->set_rules('name', 'name', 'required|customAlpha|trim');
 
 
 

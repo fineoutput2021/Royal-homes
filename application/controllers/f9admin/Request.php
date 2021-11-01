@@ -106,7 +106,7 @@
   $this->form_validation->set_rules('fname', 'fname', 'required|customAlpha|trim');
   $this->form_validation->set_rules('lname', 'lname', 'required|customAlpha|trim');
   $this->form_validation->set_rules('bname', 'bname', 'required|customAlpha|trim');
-  $this->form_validation->set_rules('email', 'email', 'required|valid_email|unique');
+  $this->form_validation->set_rules('email', 'email', 'required|valid_email');
   $this->form_validation->set_rules('message', 'message', 'required|customAlpha');
 
 

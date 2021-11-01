@@ -56,8 +56,8 @@
 
         <td>
         <?php if($data->broacher!=""){ ?>
-        <img id="slide_img_path" height=50 width=100 src="<?php echo base_url().$data->broacher
-        ?>" >
+        <a href="<?php echo base_url() ?>dcadmin/corporatebroacher/download_file/<?php echo base64_encode($data->id) ?>"><?php echo $data->broacher?></a>
+      
         <?php }else { ?>
         Sorry No File Found
         <?php } ?>

@@ -103,7 +103,7 @@
              {
                // print_r($this->input->post());
                // exit;
-  $this->form_validation->set_rules('imagename', 'imagename', 'trim');
+  $this->form_validation->set_rules('imagename', 'imagename', 'trim|customAlpha');
 
 
 

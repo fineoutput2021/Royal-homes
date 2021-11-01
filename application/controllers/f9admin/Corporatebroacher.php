@@ -138,7 +138,7 @@ $img1='broacher';
                      $this->upload_config = array(
                              'upload_path'   => $image_upload_folder,
                              'file_name' => $new_file_name,
-                             'allowed_types' =>'xlsx|csv|xls|pdf|doc|docx|txt|jpg|jpeg|png',
+                             'allowed_types' =>'pdf|doc|jpg|png',
                              'max_size'      => 25000
                      );
                      $this->upload->initialize($this->upload_config);
@@ -208,7 +208,7 @@ $img1='broacher';
                      $this->upload_config = array(
                              'upload_path'   => $image_upload_folder,
                              'file_name' => $new_file_name,
-                             'allowed_types' =>'xlsx|csv|xls|pdf|doc|docx|txt|jpg|jpeg|png',
+                             'allowed_types' =>'pdf|doc|jpg|png',
                              'max_size'      => 25000
                      );
                      $this->upload->initialize($this->upload_config);
@@ -345,6 +345,41 @@ if(!empty($img)) { if(empty($nnnn1)){ $nnnn1 = $img; } }else{ if(empty($nnnn1)){
                       }
 
                       }
+
+                      public function download_file($idd){
+
+                                                                   if(!empty($this->session->userdata('admin_data'))){
+
+
+                                                                     $data['user_name']=$this->load->get_var('user_name');
+
+                                                                     // echo SITE_NAME;
+                                                                     // echo $this->session->userdata('image');
+                                                                     // echo $this->session->userdata('position');
+                                                                     // exit;
+                                                   $id=base64_decode($idd);
+                                                $this->db->select('*');
+                                                            $this->db->from('tbl_corporatebroacher');
+                                                            $this->db->where('id',$id);
+                                                            $dsa= $this->db->get();
+                                                            $da=$dsa->row();
+
+                                                                      $file_url = base_url().$da->broacher ;
+
+                                                header('Content-Type: application/octet-stream');
+                                                header("Content-Transfer-Encoding: Binary");
+                                                header("Content-disposition: attachment; filename=\"" . basename($file_url) . "\"");
+                                                readfile($file_url);
+
+
+
+                                                                 }
+                                                                 else{
+
+                                                                    redirect("login/admin_login","refresh");
+                                                                 }
+
+                                                                 }
 
 
 
