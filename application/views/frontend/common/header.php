@@ -6,26 +6,21 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>orangetree</title>
+  <title>Orange Tree</title>
   <link rel="stylesheet" href="<?=base_url()?>assets/frontend/assets/css/style.css">
   <link rel="stylesheet" href="<?=base_url()?>assets/frontend/assets/css/mainnav.css">
-  <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/frontend/assets/css/new.css">
-  <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/frontend/assets/css/all_product.css">
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-  <!-- <link rel="stylesheet" type="text/css" href="slick/slick.css" /> -->
-  <!-- <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" /> -->
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
   <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet'>
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100&family=Zen+Antique+Soft&family=Zen+Old+Mincho&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100&family=Zen+Antique+Soft&family=Zen+Old+Mincho&display=swap" rel="stylesheet">
   <style>
     @media(max-width:640px) {
       .heimed1 {
@@ -74,11 +69,12 @@
         margin-left: 88px !important;
       }
     }
+
     @media (min-width:300px) {
       .sidenav a {
-         padding: 0px 23px 0px 25px;
-         font-size: 21px;
-  }
+        padding: 0px 23px 0px 25px;
+        font-size: 21px;
+      }
     }
   </style>
   <style>
@@ -95,12 +91,8 @@
       margin-top: 100px
     }
 
-    /* .slick-slide {
-     margin: 10px
- } */
     img {
       width: 100%;
-      /* border: 0px solid #fff */
     }
   </style>
   <style>
@@ -564,14 +556,16 @@
         display: none;
       }
     }
-    @media all and (max-width: 360px){
+
+    @media all and (max-width: 360px) {
       .sidebar a {
         font-size: 17px;
         padding: 7px 21px 13px 38px;
       }
+
       .sidenav a {
         font-size: 18px !important;
-         padding: 0px 8px 4px 36px !important;
+        padding: 0px 8px 4px 36px !important;
       }
     }
   </style>
@@ -711,13 +705,15 @@
         font-size: 18px;
       }
     }
+
     @media all and (max-width: 360px) {
-       .mg{
-         margin-bottom: 20px;
-       }
-       .mj{
-         margin-top: 30px;
-       }
+      .mg {
+        margin-bottom: 20px;
+      }
+
+      .mj {
+        margin-top: 30px;
+      }
     }
   </style>
 </head>
@@ -729,59 +725,32 @@
         <div class="col-md-4 d-sx-none menu change" style="width: 100%;">
           <nav class="navbar">
             <ul class="d-flex">
+              <?php
+            $this->db->select('*');
+            $this->db->from('tbl_category');
+$this->db->where('is_active', 1);
+$category_data= $this->db->get();
+ foreach ($category_data->result() as $data) {
+     ?>
               <li>
-                <a class="headerlinks" href="<?=base_url()?>/Home/all_Product"> Lighting</a>
+                <a class="headerlinks" href="<?base_url()?>Home/all_Product"><?=$data->categoryname?></a>
                 <div class="mega-box">
                   <div class="content">
                     <div class="d-flex">
                       <ul class="mega-links d-flex flex-column">
-                        <li><a href="all product.html">Floor Lamps</a></li>
-                        <li><a href="all product.html">Hanging Lamps</a></li>
-                        <li><a href="all product.html">Table Lamps</a></li>
-                        <li><a href="all product.html">Study Table Lamps</a></li>
-                        <li><a href="all product.html">Wall Lamps</a></li>
-                        <li><a href="all product.html">Lanterns</a></li>
+                        <?php
+     $this->db->select('*');
+     $this->db->from('tbl_subcategory');
+     $this->db->where('category_id', $data->id);
+     $subdata= $this->db->get();
+     foreach ($subdata->result() as $sub) {
+         ?>
+                        <li><a href="allproduct.html"><?php echo $sub->subcategory ?></a></li>
+                        <?php
+     } ?>
                       </ul>
                     </div>
-                    <div class="d-flex">
-                      <ul class="mega-links high d-flex flex-column">
-                        <li><a href="all product.html">Collections</a></li>
-                        <li><a href="all product.html">SantoriniNew</a></li>
-                        <li><a href="all product.html">GiftingNew</a></li>
-                        <li><a href="all product.html">Tribe</a></li>
-                        <li><a href="all product.html">Alchemy</a></li>
-                        <li><a href="all product.html">Architainment</a></li>
-                        <li><a href="all product.html">Japon</a></li>
-                        <li><a href="all product.html">Minoo</a></li>
-
-                      </ul>
-                    </div>
-
-
-                    </div>
-                    <div class="full">
-                      <div>
-                      <img src="<?=base_url()?>assets/frontend/assets/img/img.jpg" class="img1" alt="full">
-                    </div>
-                    <div>
-                      <img src="<?=base_url()?>assets/frontend/assets/img/img.jpg" class="img2" alt="flower">
-                    </div>
-                  </div>
-                </div>
-              </li>
-
-              <li>
-                <a class="headerlinks" href="all product.html"> Decor</a>
-                <div class="mega-box">
-                  <div class="content">
-                    <div class="d-flex">
-                      <ul class="mega-links d-flex flex-column">
-                        <li><a href="all product.html">Wall decors</a></li>
-                        <li><a href="all product.html">Wall mirrors</a></li>
-                        <li><a href="all product.html">Wall Shelves</a></li>
-                      </ul>
-                    </div>
-                    <div class="d-flex">
+                    <!-- <div class="d-flex">
                       <ul class="mega-links high d-flex flex-column">
                         <li><a href="all product.html">Collections</a></li>
                         <li><a href="all product.html">SantoriniNew</a></li>
@@ -792,311 +761,26 @@
                         <li><a href="all product.html">Japon</a></li>
                         <li><a href="all product.html">Minoo</a></li>
                       </ul>
-                    </div>
-
-
-                    </div>
-                    <div class="full">
-                      <div>
-                      <img src="<?=base_url()?>assets/frontend/assets/img/img.jpg" class="img1" alt="full">
-                    </div>
+                    </div> -->
+                  </div>
+                  <div class="full">
                     <div>
-                      <img src="<?=base_url()?>assets/frontend/assets/img/img.jpg" class="img2" alt="flower">
+                      <img src="<?=base_url().$data->image?>" class="img1" alt="full">
                     </div>
+                    <!-- <div>
+                      <img src="<?=base_url()?>assets/frontend/assets/img/img.jpg" class="img2" alt="flower">
+                    </div> -->
                   </div>
                 </div>
               </li>
-              <li>
-                <a class="headerlinks" href="all product.html"> Living</a>
-                <div class="mega-box">
-                  <div class="content">
-                    <div class="d-flex">
-                      <ul class="mega-links d-flex flex-column">
-                        <li><a href="all product.html">Sofas</a></li>
-                        <li><a href="all product.html">Coffee tables</a></li>
-                        <li><a href="all product.html">Side Tables</a></li>
-                        <li><a href="all product.html">Console Tables</a></li>
-                        <li><a href="all product.html">Tv Units</a></li>
-                        <li><a href="all product.html">Lounge Chairs</a></li>
-                        <li><a href="all product.html">Book Shevles</a></li>
-                        <li><a href="all product.html">Study Tables</a></li>
-                        <li><a href="all product.html">Poufs</a></li>
-                        <li><a href="all product.html">Wardrobes</a></li>
-                      </ul>
-                    </div>
-                    <div class="d-flex">
-                      <ul class="mega-links high d-flex flex-column">
-                        <li><a href="all product.html">Collections</a></li>
-                        <li><a href="all product.html">Paolo New</a></li>
-                        <li><a href="all product.html">Navah</a></li>
-                        <li><a href="all product.html">Barcelona</a></li>
-                        <li><a href="all product.html">Bicasso</a></li>
-                        <li><a href="all product.html">Dado</a></li>
-                        <li><a href="all product.html">Dali</a></li>
-                        <li><a href="all product.html">Emperor</a></li>
-                        <li><a href="all product.html">Metric</a></li>
-                        <li><a href="all product.html">Throne</a></li>
-                        <li><a href="all product.html">Toshi</a></li>
-                      </ul>
-                    </div>
-
-
-                    </div>
-                    <div class="full">
-                      <div>
-                      <img src="<?=base_url()?>assets/frontend/assets/img/img.jpg" class="img1" alt="full">
-                    </div>
-                    <div>
-                      <img src="<?=base_url()?>assets/frontend/assets/img/img.jpg" class="img2" alt="flower">
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <a class="headerlinks" href="all product.html"> Dining </a>
-                <div class="mega-box">
-                  <div class="content">
-                    <div class="d-flex">
-                      <ul class="mega-links d-flex flex-column">
-                        <li><a href="all product.html">Dining Table</a></li>
-                        <li><a href="all product.html">Chairs</a></li>
-                        <li><a href="all product.html">Sideboards</a></li>
-                        <li><a href="all product.html">Bar Units</a></li>
-                        <li><a href="all product.html">Bar Carts</a></li>
-                      </ul>
-                    </div>
-                    <div class="d-flex">
-                      <ul class="mega-links high d-flex flex-column">
-                        <li><a href="all product.html">Collections</a></li>
-                        <li><a href="all product.html">Paolo New</a></li>
-                        <li><a href="all product.html">Yoho</a></li>
-                        <li><a href="all product.html">Acme</a></li>
-                        <li><a href="all product.html">Barcelona</a></li>
-                        <li><a href="all product.html">Bicasso</a></li>
-                        <li><a href="all product.html">Ipiano</a></li>
-                        <li><a href="all product.html">Kites</a></li>
-                        <li><a href="all product.html">Mazi</a></li>
-                        <li><a href="all product.html">Metric</a></li>
-                        <li><a href="all product.html">Toshi</a></li>
-                      </ul>
-                    </div>
-
-
-                    </div>
-                    <div class="full">
-                      <div>
-                      <img src="<?=base_url()?>assets/frontend/assets/img/img.jpg" class="img1" alt="full">
-                    </div>
-                    <div>
-                      <img src="<?=base_url()?>assets/frontend/assets/img/img.jpg" class="img2" alt="flower">
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <a class="headerlinks" href="all product.html"> Bedroom</a>
-                <div class="mega-box">
-                  <div class="content">
-                    <div class="d-flex">
-                      <ul class="mega-links d-flex flex-column">
-                        <li><a href="all product.html">Bed</a></li>
-                        <li><a href="all product.html">Bed Side Table</a></li>
-                        <li><a href="all product.html">Chest of Drawers</a></li>
-                        <li><a href="all product.html">Dressers</a></li>
-                        <li><a href="all product.html">Floors Mirrors</a></li>
-                        <!-- <li><a href="all product.html">home</a></li>
-                        <li><a href="all product.html">home</a></li>
-                        <li><a href="all product.html">home</a></li>
-                        <li><a href="all product.html">home</a></li>
-                        <li><a href="all product.html">home</a></li> -->
-                      </ul>
-                    </div>
-                    <div class="d-flex">
-                      <ul class="mega-links high d-flex flex-column">
-                        <li><a href="all product.html">Collections</a></li>
-                        <li><a href="all product.html">Paolo New</a></li>
-                        <li><a href="all product.html">Yoho</a></li>
-                        <li><a href="all product.html">Navah</a></li>
-                        <li><a href="all product.html">Barcelona</a></li>
-                        <li><a href="all product.html">Bicasso</a></li>
-                        <li><a href="all product.html">Dado</a></li>
-                        <li><a href="all product.html">Dali</a></li>
-                        <li><a href="all product.html">Ipiano</a></li>
-                        <li><a href="all product.html">Kabra</a></li>
-                        <li><a href="all product.html">Kites</a></li>
-                        <li><a href="all product.html">Kyoto</a></li>
-                        <li><a href="all product.html">Metricf</a></li>
-                        <li><a href="all product.html">Toshi</a></li>
-                      </ul>
-                    </div>
-
-
-                    </div>
-                    <div class="full">
-                      <div>
-                      <img src="<?=base_url()?>assets/frontend/assets/img/img.jpg" class="img1" alt="full">
-                    </div>
-                    <div>
-                      <img src="<?=base_url()?>assets/frontend/assets/img/img.jpg" class="img2" alt="flower">
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <a class="headerlinks" href="all product.html"> Gifting</a>
-
-              </li>
+              <?php
+ } ?>
             </ul>
           </nav>
-          <!-- <ul>
-
-            <li style="margin-left: 0px;">
-              <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle btn-change btn_change_change" type="button" id="dropdownMenuButton"
-                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                  style="background-color:  #ffffff00; border: 0px; font-size: 12px;">
-                  Lighting
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"
-                  style="margin-left: 66px; margin-top: -10px;">
-                  <div style="text-align: center; margin: -25px;"><strong>Collection</strong></div>
-                  <div>
-                    <ul class="change-2">
-                      <li class="d-flex dropdown-item"><a class="dropdown-item" href="all product.html" style="padding: 3px; margin-top: 64px;">Santorini
-                      </a><a href="all product.html" style="padding: 3px; margin-top: 64px;">Santorini
-                      </a></li>
-
-                      <a class="" href="all product.html" style="padding: 3px;">Gifting</a>
-                      <a class="dropdown-item" href="all product.html" style="padding: 3px;">Tribe</a>
-                      <a class="dropdown-item" href="all product.html" style="padding: 3px;">Alchemy</a>
-                      <a class="dropdown-item" href="all product.html" style="padding: 3px;">Architainment</a>
-                      <a class="dropdown-item" href="all product.html" style="padding: 3px;">Japon</a>
-                      <a class="dropdown-item" href="all product.html" style="padding: 3px;">Minoo</a>
-                      <img
-                        src="https://images.unsplash.com/photo-1604251405903-b8c4e83cdf7c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cmVsYXhhdGlvbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80"
-                        alt="" width="100%" style="padding: 10px;">
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </li>
-
-
-            <li style="margin-right: -25px; margin-left: -83px;">
-              <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle btn_change_change" type="button" id="dropdownMenuButton"
-                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                  style="background-color:  #ffffff00; border: 0px; font-size: 12px;">
-                  Decor
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="margin-top: -10px;">
-                  <div style="text-align: center; margin: -25px;"><strong>Collection</strong></div>
-                  <ul class="change-2">
-                    <a class="dropdown-item" href="all product.html" style="padding: 3px; margin-top: 64px;">Santorini</a>
-                    <a class="dropdown-item" href="all product.html" style="padding: 3px;">Gifting</a>
-                    <a class="dropdown-item" href="all product.html" style="padding: 3px;">Tribe</a>
-                    <a class="dropdown-item" href="all product.html" style="padding: 3px;">Alchemy</a>
-                    <a class="dropdown-item" href="all product.html" style="padding: 3px;">Architainment</a>
-                    <a class="dropdown-item" href="all product.html" style="padding: 3px;">Japon</a>
-                    <a class="dropdown-item" href="all product.html" style="padding: 3px;">Minoo</a>
-                    <img
-                      src="https://images.unsplash.com/photo-1604251405903-b8c4e83cdf7c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cmVsYXhhdGlvbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80"
-                      alt="" width="100%" style="padding: 10px;">
-                  </ul>
-                </div>
-              </div>
-            </li>
-            <li style="margin-left: -62px; margin-right:1px;">
-              <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle btn_change_change" type="button" id="dropdownMenuButton"
-                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                  style="background-color:  #ffffff00; border: 0px; font-size: 12px;">
-                  Living
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="margin-top: -10px;">
-                  <div style="text-align: center; margin: -25px;"><strong>Collection</strong></div>
-                  <ul class="change-2">
-                    <a class="dropdown-item" href="all product.html" style="padding: 3px; margin-top: 170px;">Paolo</a>
-                    <a class="dropdown-item" href="all product.html" style="padding: 3px;">Navah</a>
-                    <a class="dropdown-item" href="all product.html" style="padding: 3px;">Barcelona</a>
-                    <a class="dropdown-item" href="all product.html" style="padding: 3px;">Bicasso</a>
-                    <a class="dropdown-item" href="all product.html" style="padding: 3px;">Dado</a>
-                    <a class="dropdown-item" href="all product.html" style="padding: 3px;">Dali</a>
-                    <a class="dropdown-item" href="all product.html" style="padding: 3px;">Emperor</a>
-                    <a class="dropdown-item" href="all product.html" style="padding: 3px;">Metric</a>
-                    <a class="dropdown-item" href="all product.html" style="padding: 3px;">Throne</a>
-                    <a class="dropdown-item" href="all product.html" style="padding: 3px;">Toshi</a>
-                    <img
-                      src="https://images.unsplash.com/photo-1604251405903-b8c4e83cdf7c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cmVsYXhhdGlvbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80"
-                      alt="" width="100%" style="padding: 10px;">
-                  </ul>
-                </div>
-              </div>
-            </li>
-            <li style="margin-left: -85px; margin-right: -80px;">
-              <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle btn_change_change" type="button" id="dropdownMenuButton"
-                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                  style="background-color:  #ffffff00; border: 0px; font-size: 12px;">
-                  Dining
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="margin-top: -10px;">
-                  <div style="text-align: center; margin: -25px;"><strong>Collection</strong></div>
-                  <ul class="change-2">
-                      <a class="dropdown-item" href="all product.html" style="padding: 3px; margin-top: 179px;">Paolo</a>
-                      <a class="dropdown-item" href="all product.html" style="padding: 3px;">Yaho</a>
-                      <a class="dropdown-item" href="all product.html" style="padding: 3px;">Acme</a>
-                      <a class="dropdown-item" href="all product.html" style="padding: 3px;">Barcelona</a>
-                      <a class="dropdown-item" href="all product.html" style="padding: 3px;">Bicasso</a>
-                      <a class="dropdown-item" href="all product.html" style="padding: 3px;">lpiano</a>
-                      <a class="dropdown-item" href="all product.html" style="padding: 3px;">kites</a>
-                      <a class="dropdown-item" href="all product.html" style="padding: 3px;">mazi</a>
-                      <a class="dropdown-item" href="all product.html" style="padding: 3px;">Metric</a>
-                      <a class="dropdown-item" href="all product.html" style="padding: 3px;">Toshi</a>
-                    <img
-                      src="https://images.unsplash.com/photo-1604251405903-b8c4e83cdf7c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cmVsYXhhdGlvbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80"
-                      alt="" width="100%" style="padding: 10px;">
-                  </ul>
-                </div>
-              </div>
-            </li>
-            <li style="margin-right: 76px; margin-left: -8px;">
-              <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle btn_change_change" type="button" id="dropdownMenuButton"
-                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                  style="background-color:  #ffffff00; border: 0px; font-size: 12px;">
-                  Bedroom
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="margin-top: -10px;">
-                  <div style="text-align: center; margin: -25px;"><strong>Collection</strong></div>
-                  <ul class="change-2">
-                    <a class="dropdown-item" href="all product.html" style="padding: 3px; margin-top: 290px;">Paolo</a>
-                    <a class="dropdown-item" href="all product.html" style="padding: 3px;">Yaho</a>
-                    <a class="dropdown-item" href="all product.html" style="padding: 3px;">Navah</a>
-                    <a class="dropdown-item" href="all product.html" style="padding: 3px;">Barcelona</a>
-                    <a class="dropdown-item" href="all product.html" style="padding: 3px;">Bicasso</a>
-                    <a class="dropdown-item" href="all product.html" style="padding: 3px;">Dado</a>
-                    <a class="dropdown-item" href="all product.html" style="padding: 3px;">Dali</a>
-                    <a class="dropdown-item" href="all product.html" style="padding: 3px;">Ipiano</a>
-                    <a class="dropdown-item" href="all product.html" style="padding: 3px;">Kabra</a>
-                    <a class="dropdown-item" href="all product.html" style="padding: 3px;">Kites</a>
-                    <a class="dropdown-item" href="all product.html" style="padding: 3px;">Kyoto</a>
-                    <a class="dropdown-item" href="all product.html" style="padding: 3px;">Metric</a>
-                    <a class="dropdown-item" href="all product.html" style="padding: 3px;">Toshi</a>
-                    <img
-                      src="https://images.unsplash.com/photo-1604251405903-b8c4e83cdf7c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cmVsYXhhdGlvbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80"
-                      alt="" style="padding: 10px;">
-                  </ul>
-                </div>
-              </div>
-            </li>
-          </ul> -->
         </div>
         <div class="col-md-4 col-xs-6 logch1">
-          <div class="logo  logochan">
-            <a href="/"><img
-                src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/logo_base.png"
-                id="logohed" alt="" style="width: 82%;"></a>
+          <div class="logo logochan">
+            <a href="<?=base_url()?>"><img src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/logo_base.png" id="logohed" alt="" style="width: 82%;"></a>
           </div>
         </div>
         <div class="col-md-4 col-xs-6 menu">
@@ -1110,22 +794,16 @@
                 <a href="all product.html">Dining</a>
                 <a href="all product.html">Bedroom</a>
               </div>
-
               <ul id="mobch13">
                 <span onclick="openNav()">
                   <li class="media_q_change"><button><i class="fa fa-bars"></i></button></li>
                 </span>
               </ul>
-
               <div id="main">
               </div>
             </li>
             <li class="media_q_change1"><i class="fa fa-search" aria-hidden="true"></i></li>
-            <li class="media_q_change1"><a href="wish list.html" style="color: #fff;"><i class="fa fa-heart-o"
-                  aria-hidden="true"></i></a></li>
-
-
-
+            <li class="media_q_change1"><a href="wish list.html" style="color: #fff;"><i class="fa fa-heart-o" aria-hidden="true"></i></a></li>
             <div id="mySidebar" class="sidebar">
               <a href="javascript:void(0)" class="closebtn" id="account_open_close" onclick="closeNav2()">×</a>
               <a href="sign up.html">Sign up</a>
@@ -1136,10 +814,8 @@
               <a href="new my order.html">My Order list</a>
               <a href="/">Log Out</a>
             </div>
-
             <div id="main" class="ch234">
-              <i class="fa fa-user-o openbtn btn_change_change media_q_change2" aria-hidden="true"
-                id="account_open_close" onclick="openNav2()"></i>
+              <i class="fa fa-user-o openbtn btn_change_change media_q_change2" aria-hidden="true" id="account_open_close" onclick="openNav2()"></i>
             </div>
             <li><a href="ADD CART.html" style="color: #fff;"><i class="fa fa-shopping-bag NONE1" aria-hidden="true"></i></a></li>
             <li class="media_q_change1"><a href="#" style="color: #fff;"><i class='fa fa-truck' style='font-size: 19px'></i></a></li>
