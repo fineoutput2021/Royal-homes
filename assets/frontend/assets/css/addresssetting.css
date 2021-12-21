@@ -1,0 +1,33 @@
+.acc{
+    font-size: 22px;
+    text-transform: capitalize;
+    color: #d76a46;
+    margin-bottom: 10px;
+}
+#a1{
+    font-weight: 300;
+    font-size: 40px;
+    color: black;
+}
+#btn{
+    background: #d76a46;
+    border-radius: 25px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+.man{
+    font-size: 22px;
+    color: black;
+}
+.man2{
+    font-size: 22px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: black;
+}
+.links{
+    color: gray;
+    text-decoration: none;
+}

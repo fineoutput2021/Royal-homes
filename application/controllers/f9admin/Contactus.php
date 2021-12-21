@@ -103,9 +103,9 @@
 						 {
 							 // print_r($this->input->post());
 							 // exit;
-	$this->form_validation->set_rules('name', 'name', 'required');
-	$this->form_validation->set_rules('contact', 'contact', '');
-	$this->form_validation->set_rules('email', 'email', 'required');
+	$this->form_validation->set_rules('name', 'name', 'customAlpha|required');
+	$this->form_validation->set_rules('contact', 'contact', 'min_length[10]|max_length[10]|integer|required');
+	$this->form_validation->set_rules('email', 'email', 'required|valid_email');
 
 
 
@@ -281,12 +281,6 @@
 
 											 if($this->load->get_var('position')=="Super Admin"){
 
-										 $this->db->select('*');
-										 $this->db->from('tbl_contactus');
-										 $this->db->where('id',$id);
-										 $dsa= $this->db->get();
-										 $da=$dsa->row();
-										 $img=$da->image;
 
  $zapak=$this->db->delete('tbl_contactus', array('id' => $id));
  if($zapak!=0){

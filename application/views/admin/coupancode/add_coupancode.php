@@ -41,11 +41,11 @@
 </tr>
   <tr>
 <td> <strong>Start Date</strong>  <span style="color:red;">*</span></strong> </td>
-<td> <input type="date" name="startdate"  class="form-control" placeholder="" required value="" />  </td>
+<td> <input type="date" id='date_picker' name="startdate"  class="form-control" placeholder="" required value="" />  </td>
 </tr>
   <tr>
 <td> <strong>End Date</strong>  <span style="color:red;">*</span></strong> </td>
-<td> <input type="date" name="enddate"  class="form-control" placeholder="" required value="" />  </td>
+<td> <input type="date" id='datepicker' name="enddate"  class="form-control" placeholder="" required value="" />  </td>
 </tr>
   <tr>
 <td> <strong>Cart Amount </strong>  <span style="color:red;">*</span></strong> </td>
@@ -87,5 +87,28 @@
 
 <script type="text/javascript" src=" <?php echo base_url()  ?>assets/slider/ajaxupload.3.5.js"></script>
      <link href=" <? echo base_url()  ?>assets/cowadmin/css/jqvmap.css" rel='stylesheet' type='text/css' />
+<!--
+     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
 
-       
+       <script>
+        $(document).ready(function(){
+          var minDate= new Date ();
+        $( "#date_picker" ).datepicker({
+                  numberOfMonth : 1,
+                  minDate: minDate,
+            onclose: function(selectedDate){
+              $("#datepicker").datepicker("option" ,"minDate",selectedDate)
+            }
+          });
+        } );
+        </script> -->
+
+        <!-- <script language="javascript">
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0');
+        var yyyy = today.getFullYear();
+
+        today = yyyy + '-' + mm + '-' + dd;
+        $('#datepicker').attr('min',today);
+    </script> -->

@@ -55,7 +55,7 @@
                           <tr>
                                                     <td> <strong>End Date</strong>  <span style="color:red;">*</span></strong> </td>
                                                     <td>
-                              <input type="date" name="end_date"  class="form-control" placeholder="" required value="" />
+                              <input type="date" name="end_date" id="datepicker"  class="form-control" placeholder="" required value="" />
                                                   </td>
                             </tr>
                             <tr>
@@ -101,4 +101,3 @@
 
 
 <script type="text/javascript" src="<?php echo base_url() ?>assets/slider/ajaxupload.3.5.js"></script>
-<link href="<? echo base_url() ?>assets/cowadmin/css/jqvmap.css" rel='stylesheet' type='text/css' />

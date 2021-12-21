@@ -1,0 +1,161 @@
+/*! CSS Used from: https://www.orangetree.in/pub/static/version1637720459/_cache/merged/0293c49984932c0ed2b06848a1efc351.min.css ; media=all */
+@media all{
+    img{max-width:100%;height:auto;border:0;}
+    h1{font-weight:300;line-height:1.1;font-size:2.6rem;margin-top:0;margin-bottom:2rem;}
+    a{color:#1979c3;text-decoration:none;}
+    a:visited{color:#1979c3;text-decoration:none;}
+    a:hover{color:#006bb4;text-decoration:underline;}
+    a:active{color:#ff5501;text-decoration:underline;}
+    button{background-image:none;background:#f2f2f2;border:1px solid #cdcdcd;color:#333;cursor:pointer;display:inline-block;font-family:'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:700;margin:0;padding:7px 15px;font-size:1.4rem;line-height:1.6rem;box-sizing:border-box;vertical-align:middle;}
+    button:focus,button:active{background:#e2e2e2;border:1px solid #cdcdcd;color:#333;}
+    button:hover{background:#e2e2e2;border:1px solid #cdcdcd;color:#555;}
+    button::-moz-focus-inner{border:0;padding:0;}
+    *:focus{box-shadow:none;outline:0;}
+    button{border-radius:3px;}
+    button:active{box-shadow:inset 0 2px 1px rgba(0,0,0,.12);}
+    .price-container .price{font-size:1.4rem;}
+    .action.skip:focus{background:#f0f0f0;padding:10px;box-sizing:border-box;left:0;position:absolute;text-align:center;top:0;width:100%;z-index:15;}
+    .action-skip-wrapper{height:0;position:relative;}
+    .price-container.weee:before{display:none;}
+    @media only screen and (max-width:767px){
+    .catalog-product-view .product.media{-ms-flex-order:-1;-webkit-order:-1;order:-1;}
+    }
+    *,::after,::before{box-sizing:border-box;}
+    [tabindex="-1"]:focus{outline:0!important;}
+    h1{margin-top:0;margin-bottom:.5rem;}
+    a{color:#007bff;text-decoration:none;background-color:transparent;}
+    a:hover{color:#0056b3;text-decoration:underline;}
+    img{vertical-align:middle;border-style:none;}
+    button{border-radius:0;}
+    button:focus{outline:1px dotted;outline:5px auto -webkit-focus-ring-color;}
+    button{margin:0;font-family:inherit;font-size:inherit;line-height:inherit;}
+    button{overflow:visible;}
+    button{text-transform:none;}
+    button{-webkit-appearance:button;}
+    button::-moz-focus-inner{padding:0;border-style:none;}
+    h1{margin-bottom:.5rem;font-weight:500;line-height:1.2;}
+    h1{font-size:2.5rem;}
+    .container{width:100%;padding-right:15px;padding-left:15px;margin-right:auto;margin-left:auto;}
+    @media (min-width:576px){
+    .container{max-width:540px;}
+    }
+    @media (min-width:768px){
+    .container{max-width:720px;}
+    }
+    @media (min-width:992px){
+    .container{max-width:960px;}
+    }
+    @media (min-width:1200px){
+    .container{max-width:90%;}
+    }
+    .row{display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;margin-right:-15px;margin-left:-15px;}
+    .media{display:-ms-flexbox;display:flex;-ms-flex-align:start;align-items:flex-start;}
+    .pt-4{padding-top:1.5rem!important;}
+    .pb-4{padding-bottom:1.5rem!important;}
+    .text-left{text-align:left!important;}
+    .text-right{text-align:right!important;}
+    @media print{
+    *,::after,::before{text-shadow:none!important;box-shadow:none!important;}
+    a:not(.btn){text-decoration:underline;}
+    img{page-break-inside:avoid;}
+    .container{min-width:992px!important;}
+    }
+    a:hover,a:focus{text-decoration:none;}
+    button:focus{outline:0;}
+    a{color:#006bb4;text-decoration:none;}
+    a:hover,a:focus{text-decoration:none!important;}
+    ::-webkit-scrollbar{display:none;}
+    .price-box.price-final_price{display:flex;}
+    .swiper-container{margin-left:auto;margin-right:auto;position:relative;overflow:hidden;list-style:none;padding:0;z-index:1;}
+    .swiper-container-vertical>.swiper-wrapper{flex-direction:column;}
+    .swiper-wrapper{position:relative;width:100%;height:100%;z-index:1;display:flex;transition-property:transform;box-sizing:content-box;}
+    .swiper-wrapper{transform:translate3d(0px,0,0);}
+    .swiper-slide{flex-shrink:0;width:100%;height:100%;position:relative;transition-property:transform;}
+    .swiper-pagination{position:absolute;text-align:center;transition:.3s opacity;transform:translate3d(0,0,0);z-index:10;}
+    .swiper-pagination-bullets-dynamic{overflow:hidden;font-size:0;}
+    .swiper-pagination-bullets-dynamic .swiper-pagination-bullet{transform:scale(.33);position:relative;}
+    .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active{transform:scale(1);}
+    .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-main{transform:scale(1);}
+    .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev{transform:scale(.66);}
+    .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev-prev{transform:scale(.33);}
+    .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next{transform:scale(.66);}
+    .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next-next{transform:scale(.33);}
+    .swiper-pagination-bullet{width:8px;height:8px;display:inline-block;border-radius:100%;background:#000;opacity:.2;}
+    .swiper-pagination-bullet-active{opacity:1;background:var(--swiper-pagination-color,var(--swiper-theme-color));}
+    .swiper-container-vertical>.swiper-pagination-bullets{right:10px;top:50%;transform:translate3d(0px,-50%,0);}
+    .swiper-container-vertical>.swiper-pagination-bullets .swiper-pagination-bullet{margin:6px 0;display:block;}
+    .swiper-container-vertical>.swiper-pagination-bullets.swiper-pagination-bullets-dynamic{top:50%;transform:translateY(-50%);width:8px;}
+    .swiper-container-vertical>.swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet{display:inline-block;transition:.2s transform,.2s top;}
+    .swiper-container .swiper-notification{position:absolute;left:0;top:0;pointer-events:none;opacity:0;z-index:-1000;}
+    .swiper-container-fade .swiper-slide{pointer-events:none;transition-property:opacity;}
+    .swiper-container-fade .swiper-slide-active{pointer-events:auto;}
+    .price-box.price-final_price span.price{font-weight:400;}
+    @media only screen and (max-width :768px){
+    button:focus{outline:0;}
+    }
+    .gallery-placeholder__image{display:block;margin:auto;}
+    .swiper-container{margin:0 auto;position:relative;overflow:hidden;z-index:1;}
+    .swiper-container-vertical>.swiper-wrapper{-webkit-box-orient:vertical;-moz-box-orient:vertical;-ms-flex-direction:column;-webkit-flex-direction:column;flex-direction:column;}
+    .swiper-wrapper{position:relative;width:100%;height:100%;z-index:1;display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-transition-property:-webkit-transform;-moz-transition-property:-moz-transform;-o-transition-property:-o-transform;-ms-transition-property:-ms-transform;transition-property:transform;-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box;}
+    .swiper-wrapper{-webkit-transform:translate3d(0,0,0);-moz-transform:translate3d(0,0,0);-o-transform:translate(0,0);-ms-transform:translate3d(0,0,0);transform:translate3d(0,0,0);}
+    .swiper-slide{-webkit-flex-shrink:0;-ms-flex:0 0 auto;flex-shrink:0;width:100%;height:100%;position:relative;}
+    .swiper-container .swiper-notification{position:absolute;left:0;top:0;pointer-events:none;opacity:0;z-index:-1000;}
+    .swiper-pagination{position:absolute;text-align:center;-webkit-transition:.3s;-moz-transition:.3s;-o-transition:.3s;transition:.3s;-webkit-transform:translate3d(0,0,0);-ms-transform:translate3d(0,0,0);-o-transform:translate3d(0,0,0);transform:translate3d(0,0,0);z-index:10;}
+    .swiper-pagination-bullet{width:8px;height:8px;display:inline-block;border-radius:100%;background:#000;opacity:.2;}
+    .swiper-pagination-bullet-active{opacity:1;background:#007aff;}
+    .swiper-container-vertical>.swiper-pagination-bullets{right:10px;top:50%;-webkit-transform:translate3d(0,-50%,0);-moz-transform:translate3d(0,-50%,0);-o-transform:translate(0,-50%);-ms-transform:translate3d(0,-50%,0);transform:translate3d(0,-50%,0);}
+    .swiper-container-vertical>.swiper-pagination-bullets .swiper-pagination-bullet{margin:5px 0;display:block;}
+    .swiper-container-fade .swiper-slide{pointer-events:none;-webkit-transition-property:opacity;-moz-transition-property:opacity;-o-transition-property:opacity;transition-property:opacity;}
+    .swiper-container-fade .swiper-slide-active{pointer-events:auto;}
+    .product.media{display:block;position:relative;}
+    .below_stirp .container{max-width:unset;padding:0;}
+    .row{margin:0;}
+    .below_stirp h1.product_name{max-width:220px;}
+    .product_nav_container{max-width:calc(9% + 20px);width:100%;position:fixed;right:6rem;top:100px;max-height:calc(100vh - 200px);overflow:scroll;display:block;z-index:1;}
+    .product_nav_container:hover .product_slick_nav{right:0;}
+    .product_slick_nav{position:relative;right:calc(-100% - 7px);transition:all .5s ease-in-out;}
+    .product_slick_nav .swiper-slide{margin:10px 0;height:100%!important;padding:0 5px;}
+    .product_slick_nav .swiper-slide img.gallery-placeholder__thumbnail{width:100%;box-shadow:0px 0px 5px 1px #656565;}
+    .product.media .product_slick .swiper-slide{background-size:100%;background-position:top center;background-repeat:no-repeat;background-attachment:fixed;cursor:url(https://www.orangetree.in/pub/static/version1637720459/frontend/Digital/desktop/en_US/Magento_Catalog/css/zoom_plus.png) 2 2,auto;}
+    .gallery-placeholder__image{object-fit:cover;display:block;margin:auto;width:100%;}
+    .below_stirp.white_bg{position:absolute;width:auto;top:calc(100vh - 100px);left:40px;max-width:420px;z-index:9;background:#fff;border-radius:50px;padding:10px 15px!important;transform:translateY(-50%);box-shadow:0px 0px 10px 1px #4f4a4a3b;border-bottom:1px solid #d7d7d7;}
+    .below_stirp .row{justify-content:space-between;align-items:center;flex-wrap:nowrap;}
+    .below_stirp.white_bg .product_name h1{font-size:22px;font-family:'questa-grande';vertical-align:middle;display:inline-block;margin:9px 20px 5px 10px;font-weight:300;}
+    .below_stirp.white_bg .customize-scroll.text-right{margin-left:0;}
+    .gallery-placeholder.product_slick{height:100vh;position:fixed;width:100%;}
+    .swiper-container-vertical>.swiper-pagination-bullets.swiper-pagination-bullets-dynamic{right:70px;width:15px;}
+    .swiper-container-vertical>.swiper-pagination-bullets .swiper-pagination-bullet{margin:15px 0;}
+    .swiper-pagination-bullet{border:1px solid #d76a46;width:15px;background:0 0;opacity:1;height:15px;}
+    .swiper-pagination-bullet-active{background:#d76a46;}
+    .product_little_view{display:inline-block;font-family:euclid;font-size:14px;margin:0 40px 0 12px;}
+    .product_little_view span.price{font-size:12px;font-family:'euclid bold';}
+    .below_stirp.white_bg .customize-scroll{display:flex;vertical-align:middle;}
+    .product_little_view{display:inline-block;font-family:euclid;font-size:14px;margin-right:20px;vertical-align:middle;}
+    .product_little_view span.price{font-size:12px;font-family:'euclid bold';}
+    .customize-scroll button.buy{display:inline-block;vertical-align:middle;border:0;background:#e66b47;color:#fff;font-size:12px;font-family:'euclid';letter-spacing:4px;transition:all .3s ease-in-out;text-transform:uppercase;font-weight:400;width:120px;border-radius:18px;margin-right:10px;}
+    .customize-scroll button.buy:hover{background:#000;color:#fff;}
+    }
+    /*! CSS Used from: https://www.orangetree.in/pub/static/version1637720459/frontend/Digital/desktop/en_US/css/print.min.css ; media=print */
+    @media print{
+    @media print{
+    *{-webkit-filter:none!important;background:0 0!important;color:#000!important;filter:none!important;text-shadow:none!important;}
+    a,a:visited{text-decoration:underline!important;}
+    img{page-break-inside:avoid;}
+    img{max-width:100%!important;}
+    }
+    }
+    /*! CSS Used from: https://www.orangetree.in/pub/static/version1637720459/frontend/Digital/desktop/en_US/css/furniture-page-table.min.css ; media=all */
+    @media all{
+    .customize-scroll button.buy{width:134px;letter-spacing:2px;}
+    }
+    /*! CSS Used fontfaces */
+    @font-face{font-family:'Open Sans';src:url('https://www.orangetree.in/pub/static/version1637720459/frontend/Digital/desktop/en_US/fonts/opensans/light/opensans-300.woff2') format('woff2'),url('https://www.orangetree.in/pub/static/version1637720459/frontend/Digital/desktop/en_US/fonts/opensans/light/opensans-300.woff') format('woff');font-weight:300;font-style:normal;font-display:swap;}
+    @font-face{font-family:'Open Sans';src:url('https://www.orangetree.in/pub/static/version1637720459/frontend/Digital/desktop/en_US/fonts/opensans/regular/opensans-400.woff2') format('woff2'),url('https://www.orangetree.in/pub/static/version1637720459/frontend/Digital/desktop/en_US/fonts/opensans/regular/opensans-400.woff') format('woff');font-weight:400;font-style:normal;font-display:swap;}
+    @font-face{font-family:'Open Sans';src:url('https://www.orangetree.in/pub/static/version1637720459/frontend/Digital/desktop/en_US/fonts/opensans/semibold/opensans-600.woff2') format('woff2'),url('https://www.orangetree.in/pub/static/version1637720459/frontend/Digital/desktop/en_US/fonts/opensans/semibold/opensans-600.woff') format('woff');font-weight:600;font-style:normal;font-display:swap;}
+    @font-face{font-family:'Open Sans';src:url('https://www.orangetree.in/pub/static/version1637720459/frontend/Digital/desktop/en_US/fonts/opensans/bold/opensans-700.woff2') format('woff2'),url('https://www.orangetree.in/pub/static/version1637720459/frontend/Digital/desktop/en_US/fonts/opensans/bold/opensans-700.woff') format('woff');font-weight:700;font-style:normal;font-display:swap;}
+    @font-face{font-family:"euclid";src:url("https://www.orangetree.in/pub/static/version1637720459/frontend/Digital/desktop/en_US/fonts/EuclidFlex-Regular.woff2") format("woff2"),url("https://www.orangetree.in/pub/static/version1637720459/frontend/Digital/desktop/en_US/fonts/EuclidFlex-Regular.eot") format("eot"),url("https://www.orangetree.in/pub/static/version1637720459/frontend/Digital/desktop/en_US/fonts/EuclidFlex-Regular.ttf") format("ttf"),url("https://www.orangetree.in/pub/static/version1637720459/frontend/Digital/desktop/en_US/fonts/EuclidFlex-Regular.woff") format("woff");}
+    @font-face{font-family:"euclid bold";src:url("https://www.orangetree.in/pub/static/version1637720459/frontend/Digital/desktop/en_US/fonts/EuclidFlex-SemiBold.woff2") format("woff2"),url("https://www.orangetree.in/pub/static/version1637720459/frontend/Digital/desktop/en_US/fonts/EuclidFlex-SemiBold.eot") format("eot"),url("https://www.orangetree.in/pub/static/version1637720459/frontend/Digital/desktop/en_US/fonts/EuclidFlex-SemiBold.ttf") format("ttf"),url("https://www.orangetree.in/pub/static/version1637720459/frontend/Digital/desktop/en_US/fonts/EuclidFlex-SemiBold.woff") format("woff");}
+    #MatchingEntitiesButtons p button{
+        border: none;
+        outline: none;
+    }

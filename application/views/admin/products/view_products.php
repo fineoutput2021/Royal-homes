@@ -67,14 +67,24 @@
 $this->db->from('tbl_category');
 $this->db->where('id',$data->category_id);
 $category_data= $this->db->get()->row();
-$category_name=$category_data->categoryname;
+if(!empty($category_data)){
+ $category_name=$category_data->categoryname;
+}else{
+  $category_name="";
+}
+
 ?>
  <?
             $this->db->select('*');
 $this->db->from('tbl_subcategory');
 $this->db->where('id',$data->subcategory_id);
 $subcategory_data= $this->db->get()->row();
-$subcategory_name=$subcategory_data->subcategory;
+if(!empty($subcategory_data)){
+  $subcategory_name=$subcategory_data->subcategory;
+}else{
+  $subcategory_name="";
+}
+
 ?>
  	 <td><?php echo $category_name?></td>
  	 <td><?php echo $subcategory_name?></td>

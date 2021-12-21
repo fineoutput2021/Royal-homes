@@ -37,15 +37,15 @@
                                            <table class="table table-hover">
   <tr>
 <td> <strong>Heading</strong>  <span style="color:red;">*</span></strong> </td>
-<td> <input type="text" name="heading"  class="form-control" placeholder=""  value="" />  </td>
+<td> <input type="text" name="heading"  class="form-control" placeholder=""  required  value="" />  </td>
 </tr>
   <tr>
 <td> <strong>Image</strong>  <span style="color:red;">*</span></strong> </td>
-<td> <input type="file" name="image"  class="form-control" placeholder=""  value="" />  </td>
+<td> <input type="file" name="image"  class="form-control" placeholder=""  required value="" />  </td>
 </tr>
   <tr>
 <td> <strong>Html Editor</strong>  <span style="color:red;">*</span></strong> </td>
-<td> <textarea name="location1" id="editor1" rows="3" cols="80"></textarea>
+<td> <textarea name="location1" id="editor1" rows="3" cols="80" required></textarea>
 </tr>
 
 
@@ -79,7 +79,7 @@
 
      <script>
      // Replace the <textarea id="editor1"> with a CKEditor
-     
+
      // instance, using default configuration.
 
      CKEDITOR.replace( 'editor1' );

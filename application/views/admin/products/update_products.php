@@ -73,31 +73,59 @@ foreach($category_data->result() as $value) {?>
 
 <tr>
 <td> <strong>image</strong>  <span style="color:red;">*</span></strong> </td>
-<td> <input type="file" name="image"  class="form-control" placeholder="" required value="<?=$products_data->image?>" />  </td>
+<td> <input type="file" name="image"  class="form-control" placeholder=""  value="<?=$products_data->image?>" />
+  <?php if($products_data->image!=""){ ?>
+  <img id="slide_img_path" height=50 width=100 src="<?php echo base_url().$products_data->image
+  ?>" >
+  <?php }else { ?>
+  Sorry No File Found
+  <?php } ?></td>
 </tr>
 <tr>
 <td> <strong>image1</strong>  <span style="color:red;">*</span></strong> </td>
-<td> <input type="file" name="image1"  class="form-control" placeholder="" required value="<?=$products_data->image1?>" />  </td>
+<td> <input type="file" name="image1"  class="form-control" placeholder=""  value="<?=$products_data->image1?>" />
+  <?php if($products_data->image1!=""){ ?>
+  <img id="slide_img_path" height=50 width=100 src="<?php echo base_url().$products_data->image1
+  ?>" >
+  <?php }else { ?>
+  Sorry No File Found
+  <?php } ?></td>
 </tr>
 <tr>
 <td> <strong>image2</strong>  <span style="color:red;">*</span></strong> </td>
-<td> <input type="file" name="image2"  class="form-control" placeholder="" required value="<?=$products_data->image2?>" />  </td>
+<td> <input type="file" name="image2"  class="form-control" placeholder=""  value="<?=$products_data->image2?>" />
+  <?php if($products_data->image2!=""){ ?>
+  <img id="slide_img_path" height=50 width=100 src="<?php echo base_url().$products_data->image2
+  ?>" >
+  <?php }else { ?>
+  Sorry No File Found
+  <?php } ?>
+
+ </td>
 </tr>
 <tr>
 <td> <strong>image3</strong>  <span style="color:red;">*</span></strong> </td>
-<td> <input type="file" name="image3"  class="form-control" placeholder="" required value="<?=$products_data->image3?>" />  </td>
+<td> <input type="file" name="image3"  class="form-control" placeholder=""  value="<?=$products_data->image3?>" />
+  <?php if($products_data->image3!=""){ ?>
+  <img id="slide_img_path" height=50 width=100 src="<?php echo base_url().$products_data->image3
+  ?>" >
+  <?php }else { ?>
+  Sorry No File Found
+  <?php } ?>
+
+ </td>
 </tr>
 <tr>
 <td> <strong>mrp</strong>  <span style="color:red;">*</span></strong> </td>
-<td> <input type="number" name="mrp"  class="form-control" placeholder="" required value="<?=$products_data->mrp?>" />  </td>
+<td> <input type="number" name="mrp"  class="form-control" placeholder=""  value="<?=$products_data->mrp?>" />  </td>
 </tr>
 <tr>
 <td> <strong>Product Description</strong>  <span style="color:red;">*</span></strong> </td>
-<td> <input type="text" name="productdescription"  class="form-control" placeholder="" required value="<?=$products_data->productdescription?>" />  </td>
+<td> <input type="text" name="productdescription"  class="form-control" placeholder=""  value="<?=$products_data->productdescription?>" />  </td>
 </tr>
 <tr>
 <td> <strong>Model No.</strong>  <span style="color:red;">*</span></strong> </td>
-<td> <input type="text" name="modelno"  class="form-control" placeholder="" required value="<?=$products_data->modelno?>" />  </td>
+<td> <input type="text" name="modelno"  class="form-control" placeholder=""  value="<?=$products_data->modelno?>" />  </td>
 </tr>
 
 

@@ -1,11 +1,11 @@
 <div class="content-wrapper">
         <section class="content-header">
            <h1>
-            Add New Categories
+            Update Category
           </h1>
           <ol class="breadcrumb">
            <li><a href="<?php echo base_url() ?>dcadmin/dashboard"><i class="fa fa-dashboard"></i>Home</a></li>
-            <li><a href="<?php echo base_url() ?>dcadmin/category/view_category"><i class="fa fa-dashboard"></i> Categories List</a></li>
+            <li><a href="<?php echo base_url() ?>dcadmin/category/view_category"><i class="fa fa-dashboard"></i> Category List</a></li>
 
           </ol>
         </section>
@@ -15,7 +15,7 @@
 
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Add New Category </h3>
+                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Updated Category </h3>
                             </div>
 
                                     <? if(!empty($this->session->flashdata('smessage'))){ ?>
@@ -43,13 +43,13 @@
                       <tr>
                                                 <td> <strong>Title</strong>  <span style="color:red;">*</span></strong> </td>
                                                 <td>
-                          <input type="text" name="categoryname"  class="form-control" placeholder="" required value="<?= $category->categoryname; ?>" />
+                          <input type="text" name="categoryname"  class="form-control" placeholder=""  value="<?= $category->categoryname; ?>" />
                                               </td>
                         </tr>
                             <tr>
                                                       <td> <strong>Image</strong>  <span style="color:red;">*</span></strong> </td>
                                                       <td>
-                                <input type="file" name="image"  class="form-control" placeholder="" required value="" />
+                                <input type="file" name="image"  class="form-control" placeholder=""  value="" />
 
                                                         <?php if($category->image!=""){  ?>
                                   <img id="slide_img_path" height=100 width=100  src="<?php echo base_url() ?><?php echo $category->image; ?>">
@@ -57,7 +57,7 @@
                                                     Sorry No image Found
                                                     <?php } ?>
                                                   </td>
-                                                      
+
                               </tr>
                           <tr>
                             <td colspan="2" >

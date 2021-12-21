@@ -1,0 +1,338 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+img{
+    width: 100%;
+}
+body{
+    font-family: 'Muli' sans-serif !important;
+}
+
+
+/* header start */
+
+.menu ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    /* margin-right: 60px;
+    margin-left: 30px; */
+    padding: 0;
+}
+
+.menu ul li {
+    line-height: 3;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    height: 76px;
+    align-items: center;
+}
+.change-2{
+    flex-direction: column;
+    /* min-height:190px;  */
+    overflow: auto;
+    text-align: left;
+    width:300px;
+    height: 400px;
+    line-height: 2 !important;
+}
+.change-2::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+.change-2::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+
+
+/* header and */
+
+
+
+
+.our_cat{
+    text-align: center;
+    padding: 7px 10% 100px;
+    background: #efefef;
+    margin-top: 7px;
+}
+.menu p{
+    text-align: center;
+    font-size: 21px;
+}
+.promis{
+    background-color: #efefef;
+    padding-top: 50px;
+}
+
+.promis ul{
+    list-style: none;
+    display: flex;
+
+}
+.promis .img_1{
+    display: flex;
+    justify-content: center;
+}
+.promis h2{
+    display: flex;
+    justify-content: center;
+}
+.promis p{
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+}
+.n_latter input{
+    width: 385px !important;
+    border-bottom: 2px solid !important;
+    border-top: none !important;
+    border-right: none !important;
+    border-left: none !important;
+    padding: 0 10px !important;
+    margin-top: 20px;
+}
+.new_lunc ul{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+.new_lunc ul li{
+    padding: 0 20px;
+    font-family: "euclid ultra light";
+    color: #373737;
+    font-size: 16px;
+    display: inline-block;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 0 12px;
+}
+
+.new_lunc ul .act{
+    border-bottom: solid 2px #e66c47;
+    cursor: pointer;
+
+}
+.new_lunc  h2{
+    font-size: 38px;
+    font-family: 'Muli' sans-serif !important;
+}
+ .our_cat h2{
+    font-size: 49px;
+    font-family: 'Muli' sans-serif !important;
+}
+.get_look h2{
+    font-size: 49px;
+    font-family: 'Muli' sans-serif !important;
+}
+/* footer */
+
+.footer {
+    background: #1f1f1f;
+    padding-bottom: 25px;
+    position: relative;
+    z-index: 2;
+}
+.eclipse {
+    max-width: 260px;
+    margin: 0 auto;
+    padding: 77px 0;
+}
+.eclipse img {
+    max-width: 80px;
+}
+.footer h5{
+    color: #fff;
+}
+.footer p{
+    color: #fff;
+}
+.footer h5 a {
+    color: #fff;
+}
+.footer ul li a{
+    text-decoration: none;
+    color: #fff;
+}
+.footer ul {
+    list-style: none;
+
+}
+.footer ul li {
+    list-style: none;
+    color: #fff;
+
+
+}
+.footer img{
+    width: 480px;
+}
+button.slick-prev.slick-arrow{
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 31%;
+    z-index: 5;
+}
+button.slick-next.slick-arrow{
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 31%;
+    z-index: 5;
+}
+.say .slick-slide img {
+    display: block;
+    width: 50%;
+}
+ .say .yereone-testimonial-content {
+    padding: 0 25px;
+    position: relative;
+    margin: 0 10px;
+}
+ .say .yereone-testimonial-content:before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 10px;
+    width: 35px;
+    display: block;
+    height: 35px;
+    background-image: url(/img/quote_open.png);
+    background-repeat: no-repeat;
+    background-size: 27px;
+}
+.say .yereone-testimonial-content:after {
+    background-image: url(/img/quote_close.png);
+    position: absolute;
+    right: -5px;
+    content: '';
+    bottom: 10px;
+    width: 35px;
+    display: block;
+    height: 35px;
+    background-repeat: no-repeat;
+    background-size: 27px;
+}
+.say section#Orange-tree_section-8 .yereone-testimonial-content span {
+    font-size: 16px;
+    color: #3e3938;
+    font-weight: 600;
+}
+.yereone-testimonial-content span {
+    font-size: 18px;
+    font-family: 'euclid light';
+    display: inline-block;
+    padding: 10px;
+    position: relative;
+    color: #3e3938;
+}
+.say, .t_slider button.slick-next.slick-arrow{
+    display: none !important;
+}
+.say, .t_slider button.slick-prev.slick-arrow{
+    display: none !important;
+}
+.header{
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: white;
+    text-align: left;
+    position: fixed;
+    width: 100%;
+    transition: .4s all ease-in-out;
+    z-index: 999;
+    background: #00000061;
+}
+.active{
+    background-color:white;
+    color: black;
+}
+@media (max-width: 640px){
+    .change{
+        display: none;
+    }
+}
+.slick-prev{
+    width: 50px;
+    height: 50px;
+    border-radius: 63px;
+    background: url("../img/a.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    left: 17px !important;
+    color: #ffffff00;
+    border: 0px;
+}
+.slick-next{
+    width: 50px;
+    height: 50px;
+    border-radius: 63px;
+    background: url("../img/b.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    right: 17px !important;
+    color: #ffffff00;
+    border: 0px;
+}
+.dropdown:hover>.dropdown-menu {
+    display: block;
+  }
+
+  .dropdown>.dropdown-toggle:active {
+    /*Without this, clicking will make it sticky*/
+      pointer-events: none;
+  }
+  .dropdown-toggle::after {
+      color:  #ffffff00!important;
+  }
+  .black{
+      color: black!important;
+  }
+  #more {display: none;}
+  @media (min-width: 640px){
+    .media_q_change{
+        display: none;
+    }
+  }
+  @media(max-width:640px){
+    .media_q_change1{
+        display: none;
+    }
+  }
+  .header1 {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: white;
+    text-align: left;
+    position: fixed;
+    width: 100%;
+    transition: .4s all ease-in-out;
+    z-index: 999;
+    background: #00000061;
+}
+.dropdown-item:hover{
+    text-decoration: underline!important;
+    text-decoration-color: #d76a46!important;
+    font-weight: 600!important;
+    font-family: 'Lora', serif !important;
+}
+@media all and (max-width: 360px) {
+   button.slick-next.slick-arrow{
+     z-index: 10;
+    width: 34px !important;
+  }
+   button.slick-prev.slick-arrow {
+   z-index: 10;
+   width: 34px !important;
+ }
+}

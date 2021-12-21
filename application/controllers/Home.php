@@ -8,7 +8,17 @@ function __construct()
 		}
 public function index()
 	{
-			$this->load->view('index');
+			$this->load->view('frontend/common/header');
+			$this->load->view('frontend/index');
+			$this->load->view('frontend/common/footer');
+
+	}
+
+	public function all_Product(){
+
+		$this->load->view('frontend/common/header');
+		$this->load->view('frontend/all_product');
+		$this->load->view('frontend/common/footer');
 
 	}
 

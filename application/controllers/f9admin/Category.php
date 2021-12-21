@@ -196,6 +196,11 @@ public function add_category(){
           if($typ==2){
 
    $idw=base64_decode($iw);
+	 $this->db->select('*');
+	             $this->db->from('tbl_category');
+	             $this->db->where('id',$idw);
+	             $dsa= $this->db->get();
+	             $da=$dsa->row();
 
 // $this->db->select('*');
 //     $this->db->from('tbl_minor_category');
@@ -213,8 +218,14 @@ public function add_category(){
 //  }
 //     }
 
+if(!empty($image)){
+	$n1=$image;
+}else{
+	$n1=$da->image;
+}
+
           $data_insert = array('categoryname'=>$categoryname,
-                    'image'=>$image,
+                    'image'=>$n1,
                     );
 
 
@@ -323,6 +334,8 @@ public function delete_category($idd){
         if($this->load->get_var('position')=="Super Admin"){
 
                          									 $zapak=$this->db->delete('tbl_category', array('id' => $id));
+                         									 $zapak2=$this->db->delete('tbl_products', array('category_id' => $id));
+                         									 $zapak2=$this->db->delete('tbl_subcategory', array('category_id' => $id));
                          									 if($zapak!=0){
 
                          								 	redirect("dcadmin/category/view_category","refresh");
