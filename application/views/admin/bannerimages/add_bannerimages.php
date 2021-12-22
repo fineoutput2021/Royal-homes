@@ -44,6 +44,10 @@
 <td> <input type="file" name="image1"  class="form-control" placeholder="" required value="" />  </td>
 </tr>
   <tr>
+<td> <strong>Link </strong>  <span style="color:red;">*</span></strong> </td>
+<td> <input type="text" name="link"  class="form-control" placeholder="" required value="" />  </td>
+</tr>
+  <!-- <tr>
 <td> <strong>Image </strong>  <span style="color:red;">*</span></strong> </td>
 <td> <input type="file" name="image2"  class="form-control" placeholder="" required value="" />  </td>
 </tr>
@@ -54,7 +58,7 @@
   <tr>
 <td> <strong>Image</strong>  <span style="color:red;">*</span></strong> </td>
 <td> <input type="file" name="image4"  class="form-control" placeholder="" required value="" />  </td>
-</tr>
+</tr> -->
 
 
                                  <tr>

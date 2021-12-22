@@ -118,58 +118,55 @@
                    $cur_date=date("Y-m-d H:i:s");
                    $addedby=$this->session->userdata('admin_id');
 
+                   $this->load->library('upload');
+
+        $img1='broacher';
+
+                    $file_check=($_FILES['broacher']['error']);
+                    if($file_check!=4){
+                  	$image_upload_folder = FCPATH . "assets/uploads/broacher/";
+          						if (!file_exists($image_upload_folder))
+          						{
+          							mkdir($image_upload_folder, DIR_WRITE_MODE, true);
+          						}
+          						$new_file_name="broacher".date("Ymdhms");
+          						$this->upload_config = array(
+          								'upload_path'   => $image_upload_folder,
+          								'file_name' => $new_file_name,
+          								'allowed_types' =>'jpg|jpeg|png',
+          								'max_size'      => 25000
+          						);
+          						$this->upload->initialize($this->upload_config);
+          						if (!$this->upload->do_upload($img1))
+          						{
+          							$upload_error = $this->upload->display_errors();
+          							// echo json_encode($upload_error);
+          							echo $upload_error;
+          						}
+          						else
+          						{
+
+          							$file_info = $this->upload->data();
+
+          							$videoNAmePath = "assets/uploads/broacher/".$new_file_name.$file_info['file_ext'];
+          							$file_info['new_name']=$videoNAmePath;
+          							// $this->step6_model->updateappIconImage($imageNAmePath,$appInfoId);
+          							// $nnnn=$file_info['file_name'];
+                        $nnnn1=$videoNAmePath;
+          							// echo json_encode($file_info);
+          						}
+                    }
+
+
            $typ=base64_decode($t);
            $last_id = 0;
            if($typ==1){
 
 
 
-$img1='broacher';
-
-
-
-
-         $image_upload_folder = FCPATH . "assets/uploads/broacher/";
-                     if (!file_exists($image_upload_folder))
-                     {
-                         mkdir($image_upload_folder, DIR_WRITE_MODE, true);
-                     }
-                     $new_file_name="broacher".date("Ymdhms");
-                     $this->upload_config = array(
-                             'upload_path'   => $image_upload_folder,
-                             'file_name' => $new_file_name,
-                             'allowed_types' =>'pdf',
-                             'max_size'      => 25000
-                     );
-                     $this->upload->initialize($this->upload_config);
-                     if (!$this->upload->do_upload($img1))
-                     {
-                         $upload_error = $this->upload->display_errors();
-                         // echo json_encode($upload_error);
-
-           //$this->session->set_flashdata('emessage',$upload_error);
-             //redirect($_SERVER['HTTP_REFERER']);
-                     }
-                     else
-                     {
-
-                         $file_info = $this->upload->data();
-
-                         $videoNAmePath = "assets/uploads/broacher/".$new_file_name.$file_info['file_ext'];
-                         $file_info['new_name']=$videoNAmePath;
-                         // $this->step6_model->updateappIconImage($imageNAmePath,$appInfoId);
-                         $nnnn=$file_info['file_name'];
-                         $nnnn1=$videoNAmePath;
-
-                         // echo json_encode($file_info);
-                     }
-
-
-
-
            $data_insert = array(
                   'name'=>$name,
-  'broacher'=>$nnnn1,
+                  'broacher'=>$nnnn1,
 
                      'ip' =>$ip,
                      'added_by' =>$addedby,
@@ -192,57 +189,16 @@ $img1='broacher';
  $dsa=$this->db->get();
  $da=$dsa->row();
 
+if(!empty($nnnn1)){
+  $n1=$nnnn1;
+}else{
+  $n1=$da->broacher;
+}
 
 
-$img1='broacher';
-
-
-
-
-         $image_upload_folder = FCPATH . "assets/uploads/broacher/";
-                     if (!file_exists($image_upload_folder))
-                     {
-                         mkdir($image_upload_folder, DIR_WRITE_MODE, true);
-                     }
-                     $new_file_name="broacher".date("Ymdhms");
-                     $this->upload_config = array(
-                             'upload_path'   => $image_upload_folder,
-                             'file_name' => $new_file_name,
-                             'allowed_types' =>'pdf',
-                             'max_size'      => 25000
-                     );
-                     $this->upload->initialize($this->upload_config);
-                     if (!$this->upload->do_upload($img1))
-                     {
-                         $upload_error = $this->upload->display_errors();
-                         // echo json_encode($upload_error);
-
-           //$this->session->set_flashdata('emessage',$upload_error);
-             //redirect($_SERVER['HTTP_REFERER']);
-                     }
-                     else
-                     {
-
-                         $file_info = $this->upload->data();
-
-                         $videoNAmePath = "assets/uploads/broacher/".$new_file_name.$file_info['file_ext'];
-                         $file_info['new_name']=$videoNAmePath;
-                         // $this->step6_model->updateappIconImage($imageNAmePath,$appInfoId);
-                         $nnnn=$file_info['file_name'];
-                         $nnnn1=$videoNAmePath;
-
-                         // echo json_encode($file_info);
-                     }
-
-
-
-
- if(!empty($da)){ $img = $da ->broacher;
-if(!empty($img)) { if(empty($nnnn1)){ $nnnn1 = $img; } }else{ if(empty($nnnn1)){ $nnnn1= ""; } } }
-
-           $data_insert = array(
+    $data_insert = array(
                   'name'=>$name,
-  'broacher'=>$nnnn1,
+            'broacher'=>$n1,
 
                      );
              $this->db->where('id', $idw);

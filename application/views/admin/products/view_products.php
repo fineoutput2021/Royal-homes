@@ -48,6 +48,8 @@
  	 <th>image3</th>
  	 <th>MRP</th>
  	 <th>Product Description</th>
+ 	 <th>feature</th>
+ 	 <th>Case Instruction</th>
  	 <th>Model No.</th>
 
 
@@ -130,6 +132,9 @@ if(!empty($subcategory_data)){
 
 	 <td><?php echo $data->mrp ?></td>
  	 <td><?php echo $data->productdescription ?></td>
+ 	 <td><?php echo $data->feature ?></td>
+ 	 <td><?php echo $data->careinstruction ?></td>
+
  	 <td><?php echo $data->modelno ?></td>
 
 

@@ -91,9 +91,30 @@
 <td> <strong>Product Description</strong>  <span style="color:red;">*</span></strong> </td>
 <td> <input type="text" name="productdescription"  class="form-control" placeholder="" required value="" />  </td>
 </tr>
+<tr>
+<td> <strong>FEATURE</strong>  <span style="color:red;">*</span></strong> </td>
+<td> <textarea name="feature" id="editor1" rows="3" cols="80" required></textarea>
+</tr>
+<tr>
+<td> <strong>Care Instruction</strong>  <span style="color:red;">*</span></strong> </td>
+<td> <textarea name="careinstruction" id="editor2" rows="3" cols="80" required></textarea>
+</tr>
   <tr>
 <td> <strong>Model No.</strong>  <span style="color:red;">*</span></strong> </td>
 <td> <input type="text" name="modelno"  class="form-control" placeholder="" required value="" />  </td>
+</tr>
+  <tr>
+<td> <strong>Inventory</strong>  <span style="color:red;">*</span></strong> </td>
+<td> <input type="text" name="inventory"  class="form-control" placeholder="" required value="" />  </td>
+</tr>
+  <tr>
+<td> <strong>Best Seller Product</strong>  <span style="color:red;">*</span></strong> </td>
+<td> <select class="form-control" name="bestsellerproduct" required>
+
+  <option value="1" selected>Please Select</option>
+  <option value="1">Yes</option>
+  <option value="0">No</option>
+</select> </td>
 </tr>
 
 
@@ -166,4 +187,16 @@ $(document).ready(function(){
 
 	})
   });
+</script>
+<script src="<?php echo base_url() ?>assets/admin/plugins/ckeditor/ckeditor.js"></script>
+
+<script>
+// Replace the <textarea id="editor1"> with a CKEditor
+
+// instance, using default configuration.
+
+CKEDITOR.replace( 'editor1' );
+CKEDITOR.replace( 'editor2' );
+// CKEDITOR.replace( 'editor3' );
+//
 </script>

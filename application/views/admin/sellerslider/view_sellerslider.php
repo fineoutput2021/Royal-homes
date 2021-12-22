@@ -2,17 +2,17 @@
         <div class="content-wrapper">
         <section class="content-header">
         <h1>
-          View Seller Slider
+          View Best Seller
         </h1>
         </section>
         <section class="content">
         <div class="row">
         <div class="col-lg-12">
-        <a class="btn btn-info cticket" href="<?php echo base_url() ?>dcadmin/sellerslider/add_sellerslider"
-        role="button" style="margin-bottom:12px;"> Add Seller Slider</a>
+        <!-- <a class="btn btn-info cticket" href="<?php base_url() ?>dcadmin/products/add_products"
+        role="button" style="margin-bottom:12px;"> Add products</a> -->
         <div class="panel panel-default">
         <div class="panel-heading">
-        <h3 class="panel-title"><i class="fa fa-money fa-fw"></i>View Seller Slider</h3>
+        <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> View Best Seller</h3>
         </div>
         <div class="panel panel-default">
 
@@ -39,27 +39,60 @@
         <tr>
         <th>#</th>
 
- 	 <th>Name</th>
- 	 <th>Image</th>
- 	 <th>Image</th>
- 	 <th>Image</th>
- 	 <th>Image</th>
+ 	 <th>Product Name</th>
+ 	 <th>Category Name</th>
+ 	 <th>Subcategory Name</th>
+ 	 <th>image</th>
+ 	 <th>image1</th>
+ 	 <th>image2</th>
+ 	 <th>image3</th>
+ 	 <th>MRP</th>
+ 	 <th>Product Description</th>
+ 	 <th>feature</th>
+ 	 <th>Case Instruction</th>
+ 	 <th>Model No.</th>
 
 
-        <th>Status</th>
-        <th>Action</th>
+    
         </tr>
         </thead>
         <tbody>
-        <?php $i=1; foreach($sellerslider_data->result() as $data) { ?>
+        <?php $i=1; foreach($products_data->result() as $data) { ?>
         <tr>
         <td><?php echo $i ?> </td>
+        <td><?php echo $data->productname?></td>
 
- 	 <td><?php echo $data->name ?></td>
+
+ <?
+            $this->db->select('*');
+$this->db->from('tbl_category');
+$this->db->where('id',$data->category_id);
+$category_data= $this->db->get()->row();
+if(!empty($category_data)){
+ $category_name=$category_data->categoryname;
+}else{
+  $category_name="";
+}
+
+?>
+ <?
+            $this->db->select('*');
+$this->db->from('tbl_subcategory');
+$this->db->where('id',$data->subcategory_id);
+$subcategory_data= $this->db->get()->row();
+if(!empty($subcategory_data)){
+  $subcategory_name=$subcategory_data->subcategory;
+}else{
+  $subcategory_name="";
+}
+
+?>
+ 	 <td><?php echo $category_name?></td>
+ 	 <td><?php echo $subcategory_name?></td>
 
         <td>
-        <?php if($data->Image!=""){ ?>
-        <img id="slide_img_path" height=50 width=100 src="<?php echo base_url().$data->Image
+        <?php if($data->image!=""){ ?>
+        <img id="slide_img_path" height=50 width=100 src="<?php echo base_url().$data->image
         ?>" >
         <?php }else { ?>
         Sorry No File Found
@@ -68,8 +101,8 @@
 
 
         <td>
-        <?php if($data->Image1!=""){ ?>
-        <img id="slide_img_path" height=50 width=100 src="<?php echo base_url().$data->Image1
+        <?php if($data->image1!=""){ ?>
+        <img id="slide_img_path" height=50 width=100 src="<?php echo base_url().$data->image1
         ?>" >
         <?php }else { ?>
         Sorry No File Found
@@ -78,8 +111,8 @@
 
 
         <td>
-        <?php if($data->Image2!=""){ ?>
-        <img id="slide_img_path" height=50 width=100 src="<?php echo base_url().$data->Image2
+        <?php if($data->image2!=""){ ?>
+        <img id="slide_img_path" height=50 width=100 src="<?php echo base_url().$data->image2
         ?>" >
         <?php }else { ?>
         Sorry No File Found
@@ -88,19 +121,25 @@
 
 
         <td>
-        <?php if($data->Image3!=""){ ?>
-        <img id="slide_img_path" height=50 width=100 src="<?php echo base_url().$data->Image3
+        <?php if($data->image3!=""){ ?>
+        <img id="slide_img_path" height=50 width=100 src="<?php echo base_url().$data->image3
         ?>" >
         <?php }else { ?>
         Sorry No File Found
         <?php } ?>
         </td>
 
+	 <td><?php echo $data->mrp ?></td>
+ 	 <td><?php echo $data->productdescription ?></td>
+ 	 <td><?php echo $data->feature ?></td>
+ 	 <td><?php echo $data->careinstruction ?></td>
+
+ 	 <td><?php echo $data->modelno ?></td>
 
 
 
 
-
+<!--
         <td><?php if($data->is_active==1){ ?>
         <p class="label bg-green" >Active</p>
 
@@ -109,8 +148,8 @@
 
 
         <?php } ?>
-        </td>
-        <td>
+        </td> -->
+        <!-- <td>
         <div class="btn-group" id="btns<?php echo $i ?>">
         <div class="btn-group">
         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -118,26 +157,28 @@
         <ul class="dropdown-menu" role="menu">
 
         <?php if($data->is_active==1){ ?>
-        <li><a href="<?php echo base_url() ?>dcadmin/sellerslider/updatesellersliderStatus/<?php echo
+        <li><a href="<?php  base_url() ?>dcadmin/products/updateproductsStatus/<?php
         base64_encode($data->id) ?>/inactive">Inactive</a></li>
         <?php } else { ?>
-        <li><a href="<?php echo base_url() ?>dcadmin/sellerslider/updatesellersliderStatus/<?php echo
+        <li><a href="<?php  base_url() ?>dcadmin/products/updateproductsStatus/<?php
         base64_encode($data->id) ?>/active">Active</a></li>
         <?php } ?>
-        <li><a href="<?php echo base_url() ?>dcadmin/sellerslider/update_sellerslider/<?php echo
-        base64_encode($data->id) ?>">Edit</a></li>
-        <li><a href="javascript:;" class="dCnf" mydata="<?php echo $i ?>">Delete</a></li>
+        <li><a href="<?php  base_url() ?>dcadmin/products/update_products/<?php
+        base64_encode($data->id) ?>">Edit</a></li> -->
+        <!-- <li><a href="<?php  base_url() ?>dcadmin/product_type/view_type/<?php
+        base64_encode($data->id) ?>">Type</a></li> -->
+        <!-- <li><a href="javascript:;" class="dCnf" mydata="<?php  $i ?>">Delete</a></li>
         </ul>
         </div>
         </div>
 
-        <div style="display:none" id="cnfbox<?php echo $i ?>">
+        <div style="display:none" id="cnfbox<?php  $i ?>">
         <p> Are you sure delete this </p>
-        <a href="<?php echo base_url() ?>dcadmin/sellerslider/delete_sellerslider/<?php echo
+        <a href="<?php  base_url() ?>dcadmin/products/delete_products/<?php
         base64_encode($data->id); ?>" class="btn btn-danger" >Yes</a>
-        <a href="javasript:;" class="cans btn btn-default" mydatas="<?php echo $i ?>" >No</a>
+        <a href="javasript:;" class="cans btn btn-default" mydatas="<?php  $i ?>" >No</a>
         </div>
-        </td>
+        </td> -->
         </tr>
         <?php $i++; } ?>
         </tbody>

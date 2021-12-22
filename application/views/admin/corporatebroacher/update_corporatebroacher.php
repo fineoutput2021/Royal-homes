@@ -42,7 +42,7 @@
 <tr>
 <td> <strong>Broacher</strong>  <span style="color:red;">*</span></strong> </td>
 <td> <input type="file" name="broacher"  class="form-control" placeholder="" />
-<?php if($corporatebroacher_data->image!=""){ ?> <img id="slide_img_path" height=200 width=300 src="<?php echo base_url().$corporatebroacher_data->image; ?> "> <?php }else{ ?> Sorry No File Found <?php } ?>  </td>
+<?php if($corporatebroacher_data->broacher!=""){ ?> <img id="slide_img_path" height=200 width=300 src="<?php echo base_url().$corporatebroacher_data->broacher; ?> "> <?php }else{ ?> Sorry No File Found <?php } ?>  </td>
 </tr>
 
 

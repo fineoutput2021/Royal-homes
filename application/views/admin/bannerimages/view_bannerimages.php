@@ -41,9 +41,11 @@
 
  	 <th>Image Name</th>
  	 <th>Image </th>
+ 	 <!-- <th>Image </th>
  	 <th>Image </th>
- 	 <th>Image </th>
- 	 <th>Image</th>
+ 	 <th>Image</th> -->
+ 	 <th>link</th>
+
 
 
         <th>Status</th>
@@ -67,37 +69,37 @@
         </td>
 
 
-        <td>
-        <?php if($data->image2!=""){ ?>
-        <img id="slide_img_path" height=50 width=100 src="<?php echo base_url().$data->image2
+        <!-- <td>
+        <?php //if($data->image2!=""){ ?>
+        <img id="slide_img_path" height=50 width=100 src="<?php  //base_url().$data->image2
         ?>" >
-        <?php }else { ?>
+        <?php //}else { ?>
         Sorry No File Found
-        <?php } ?>
+        <?php //} ?>
         </td>
 
 
         <td>
-        <?php if($data->image3!=""){ ?>
-        <img id="slide_img_path" height=50 width=100 src="<?php echo base_url().$data->image3
+        <?php //if($data->image3!=""){ ?>
+        <img id="slide_img_path" height=50 width=100 src="<?php  //base_url().$data->image3
         ?>" >
-        <?php }else { ?>
+        <?php //}else { ?>
         Sorry No File Found
-        <?php } ?>
+        <?php //} ?>
         </td>
 
 
         <td>
-        <?php if($data->image4!=""){ ?>
-        <img id="slide_img_path" height=50 width=100 src="<?php echo base_url().$data->image4
+        <?php //if($data->image4!=""){ ?>
+        <img id="slide_img_path" height=50 width=100 src="<?php // base_url().$data->image4
         ?>" >
-        <?php }else { ?>
+        <?php //}else { ?>
         Sorry No File Found
-        <?php } ?>
-        </td>
+        <?php //} ?>
+        </td> -->
 
 
-
+        <td><?php echo $data->link;?></td>
 
 
 

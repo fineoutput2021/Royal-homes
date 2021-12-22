@@ -23,10 +23,11 @@
               // echo $this->session->userdata('position');
               // exit;
 
-                           $this->db->select('*');
-               $this->db->from('tbl_sellerslider');
-               //$this->db->where('id',$usr);
-               $data['sellerslider_data']= $this->db->get();
+              $this->db->select('*');
+  $this->db->from('tbl_products');
+  $this->db->where('bestsellerproduct',1);
+  $data['products_data']= $this->db->get();
+
 
               $this->load->view('admin/common/header_view',$data);
               $this->load->view('admin/sellerslider/view_sellerslider');

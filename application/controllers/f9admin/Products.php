@@ -156,6 +156,10 @@ echo json_encode($igt);
   $this->form_validation->set_rules('mrp', 'mrp', 'required|integer');
   $this->form_validation->set_rules('productdescription', 'productdescription', 'required|customalpha');
   $this->form_validation->set_rules('modelno', 'modelno', 'required|trim');
+  $this->form_validation->set_rules('inventory', 'inventory', 'trim');
+  $this->form_validation->set_rules('feature', 'feature', 'required|trim');
+  $this->form_validation->set_rules('careinstruction', 'careinstruction', 'required|trim');
+  $this->form_validation->set_rules('bestsellerproduct', 'bestsellerproduct', 'required|trim');
 
 
 
@@ -169,6 +173,10 @@ echo json_encode($igt);
   $mrp=$this->input->post('mrp');
   $productdescription=$this->input->post('productdescription');
   $modelno=$this->input->post('modelno');
+  $inventory=$this->input->post('inventory');
+  $feature=$this->input->post('feature');
+  $careinstruction=$this->input->post('careinstruction');
+  $bestsellerproduct=$this->input->post('bestsellerproduct');
 
                    $ip = $this->input->ip_address();
                    date_default_timezone_set("Asia/Calcutta");
@@ -364,6 +372,9 @@ $img5='image3';
   'mrp'=>$mrp,
   'productdescription'=>$productdescription,
   'modelno'=>$modelno,
+  'feature'=>$feature,
+  'careinstruction'=>$careinstruction,
+  'bestsellerproduct'=>$bestsellerproduct,
 
                      'ip' =>$ip,
                      'added_by' =>$addedby,
@@ -376,7 +387,7 @@ $img5='image3';
 
           $inventory_data = array(
             'product_id'=> $last_id,
-            'quantity'=>0,
+            'quantity'=>$inventory,
             'ip'=>$ip,
             'date'=>$addedby,
             'added_by'=>$cur_date
@@ -587,6 +598,9 @@ if(!empty($img)) { if(empty($nnnn5)){ $nnnn5 = $img; } }else{ if(empty($nnnn5)){
   'mrp'=>$mrp,
   'productdescription'=>$productdescription,
   'modelno'=>$modelno,
+  'feature'=>$feature,
+  'careinstruction'=>$careinstruction,
+  'bestsellerproduct'=>$bestsellerproduct
 
                      );
              $this->db->where('id', $idw);
