@@ -2,17 +2,17 @@
         <div class="content-wrapper">
         <section class="content-header">
         <h1>
-          View Banner Images
+          View Images-I
         </h1>
         </section>
         <section class="content">
         <div class="row">
         <div class="col-lg-12">
         <a class="btn btn-info cticket" href="<?php echo base_url() ?>dcadmin/bannerimages/add_bannerimages"
-        role="button" style="margin-bottom:12px;"> Add Banner Images</a>
+        role="button" style="margin-bottom:12px;"> Add Images-I</a>
         <div class="panel panel-default">
         <div class="panel-heading">
-        <h3 class="panel-title"><i class="fa fa-money fa-fw"></i>View Banner Images</h3>
+        <h3 class="panel-title"><i class="fa fa-money fa-fw"></i>View Images -I</h3>
         </div>
         <div class="panel panel-default">
 
@@ -39,7 +39,7 @@
         <tr>
         <th>#</th>
 
- 	 <th>Image Name</th>
+ 	 <th>Heading</th>
  	 <th>Image </th>
  	 <!-- <th>Image </th>
  	 <th>Image </th>

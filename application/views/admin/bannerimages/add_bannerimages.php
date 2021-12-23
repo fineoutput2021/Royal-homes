@@ -1,7 +1,7 @@
 <div class="content-wrapper">
                <section class="content-header">
                   <h1>
-                 Add New Bannerimages
+                 Add New Image-I
                  </h1>
 
                </section>
@@ -11,7 +11,7 @@
 
                                <div class="panel panel-default">
                                    <div class="panel-heading">
-                                       <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Add New Bannerimages</h3>
+                                       <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Add New Image-I</h3>
                                    </div>
 
                                             <?php if (!empty($this->session->flashdata('smessage'))) {  ?>
@@ -36,7 +36,7 @@
                                        <div class="table-responsive">
                                            <table class="table table-hover">
   <tr>
-<td> <strong>Image Name</strong>  <span style="color:red;">*</span></strong> </td>
+<td> <strong>Heading</strong>  <span style="color:red;">*</span></strong> </td>
 <td> <input type="text" name="imagename"  class="form-control" placeholder=""  value="" />  </td>
 </tr>
   <tr>
