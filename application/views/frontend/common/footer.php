@@ -629,4 +629,5 @@ function togglediv(id) {
 }
 </script>
 <script src="<?=base_url()?>assets/frontend/assets/js/bootstrap-notify.min.js"></script>
+
 </html>

@@ -1390,18 +1390,17 @@
           <div class="css-1aspwm4 eclstbm5" style="font-size: 30px;font-weight: 700;margin-top:4rem;margin-bottom:2rem;font-family: emoji;">Your Shopping Bag <span class="savecart"></span></div>
 
           <div id="cart_items_tbody">
-            <?if(empty($this->session->userdata('cart_data'))){?>
+            <?if (empty($this->session->userdata('cart_data'))) {?>
             <h2>Your cart is empty! Please add some product</h2>
-            <?}else{
-$cartdata= $this->session->userdata('cart_data');
-$total=0;
-$i=1;
-foreach ($cartdata as $cart) {
-            $this->db->select('*');
-$this->db->from('tbl_products');
-$this->db->where('id',$cart['product_id']);
-$pro_data= $this->db->get()->row();
-    ?>
+            <?} else {
+    $cartdata= $this->session->userdata('cart_data');
+    $total=0;
+    $i=1;
+    foreach ($cartdata as $cart) {
+        $this->db->select('*');
+        $this->db->from('tbl_products');
+        $this->db->where('id', $cart['product_id']);
+        $pro_data= $this->db->get()->row(); ?>
             <div class="cart-item-card css-bi61qn ee3or4p0">
               <div class="css-on8ti6 ee3or4p2">
                 <div>
@@ -1432,16 +1431,14 @@ $pro_data= $this->db->get()->row();
                     </div> -->
                       <div class="cart-item-qty css-1kb8zzg eay09df2"><span style="margin-top: 4px;">Quantity :</span>
                         <span class="css-qhuuwl eay09df1" style="margin-left: -36px;">
-                          <input type="number" id="qty" i="<?=$i?>" value="<?=$cart['quantity']?>" min="1" onchange="updateCartOffline(this)"
-                          product_id="<?=$cart['product_id']?>"
-                          >
+                          <input type="number" id="qty" i="<?=$i?>" value="<?=$cart['quantity']?>" min="1" onchange="updateCartOffline(this)" product_id="<?=$cart['product_id']?>" mrp="<?=$pro_data->mrp?>">
                         </span>
                       </div>
                       <div class="setprice" style="margin-top: -4px;"><span style="font-size:1.7rem;margin-left:3rem;display: flex;font-weight: 300;">
                           <p> Price : </p>
                           <p class="css-mtc8vw cart-item-price">
                             <span id="price_<?=$i?>"> Rs.
-                              <?=$pro_data->mrp?></span>
+                              <?=$mrp =$pro_data->mrp*$cart['quantity']?></span>
                             <span class="discountprice"></span>
                           </p>
                         </span>
@@ -1451,25 +1448,22 @@ $pro_data= $this->db->get()->row();
                   </div>
                 </div>
               </div>
-              <div class="crossbtn" >
-                <a href="" onclick="deleteCartOffline(this)"
-                product_id ="<?=$cart['product_id']?>">
+              <div class="crossbtn">
+                <a href="" onclick="deleteCartOffline(this)" product_id="<?=$cart['product_id']?>">
                   <img src="https://img.icons8.com/external-becris-lineal-becris/25/000000/external-cancel-mintab-for-ios-becris-lineal-becris.png">
                 </a>
               </div>
               <div class="css-di2q33 cart-item-options">
                 <div class="css-1vspfwe e12cosct0">
-                  <a href="#">
-
-                  </a>
-                  <button class="css-c9ymxf e1jmj0hg0">Move to Wishlist</button>
+                  <!-- <button class="css-c9ymxf e1jmj0hg0">Move to Wishlist</button> -->
 
                 </div>
               </div>
             </div>
-            <?$total = $total + $pro_data->mrp;
-            $i++;
-            }}?>
+            <?$total = $total + $mrp;
+        $i++;
+    }
+}?>
 
           </div>
 
@@ -1482,11 +1476,23 @@ $pro_data= $this->db->get()->row();
           <h5 data-name="order-summary-title" class="css-meo3va e1r0aisc1">Order Summary</h5>
 
           <div id="order-summary" data-name="order-summary-box" class="css-ry2i6z e1r0aisc2">
-            <p class="subtotal">Subtotal <span class="price-values">Rs. <span id="subtotal"><?if(empty($this->session->userdata('cart_data'))){echo 0;}else{echo $total;}?></span>
+            <p class="subtotal">Subtotal <span class="price-values">Rs.<span id="subtotal">
+                  <?if (empty($this->session->userdata('cart_data'))) {
+    echo 0;
+} else {
+    echo $total;
+}?>
+                </span>
               </span>
             </p>
             <b>
-              <p class="price-breakup-final">Estimated Total <span class="price-values">Rs. <span id="total_cost"><?if(empty($this->session->userdata('cart_data'))){echo 0;}else{echo $total;}?></span>
+              <p class="price-breakup-final">Estimated Total <span class="price-values">Rs.<span id="total_cost">
+                    <?if (empty($this->session->userdata('cart_data'))) {
+    echo 0;
+} else {
+    echo $total;
+}?>
+                  </span>
                 </span>
               </p>
             </b>
@@ -1507,175 +1513,187 @@ $pro_data= $this->db->get()->row();
   </div>
 </section>
 <script>
-  function deleteCartOffline(obj){
+  function deleteCartOffline(obj) {
     var product_id = $(obj).attr("product_id");
     // alert(product_id);
     var base_path = "<?=base_url();?>";
-       $.ajax({
-       url:'<?=base_url();?>Cart/deleteCartOffline',
-       method: 'post',
-       data: {product_id: product_id},
-       dataType: 'json',
-       success: function(response){
-         if(response.data == true){
-           $.notify({
-                    icon: 'fa fa-check',
-                    title: '',
-                    message: response.data_message
-                  },{
-                    element: 'body',
-                    position: null,
-                    type: "success",
-                    allow_dismiss: true,
-                    newest_on_top: false,
-                    showProgressbar: false,
-                    placement: {
-                      from: "top",
-                      align: "right"
-                    },
-                    offset: 20,
-                    spacing: 10,
-                    z_index: 1031,
-                    delay: 1000,
-                    animate: {
-                      enter: 'animated fadeInDown',
-                      exit: 'animated fadeOutUp'
-                    },
-                    icon_type: 'class',
-                    template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
-                    '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
-                    '<span data-notify="icon"></span> ' +
-                    '<span data-notify="title">{1}</span> ' +
-                    '<span data-notify="message">{2}</span>' +
-                    '<a href="{3}" target="{4}" data-notify="url"></a>' +
-                    '</div>'
-                  });
-                  window.location.reload();
-
-         }else if(response.data == false){
+    $.ajax({
+      url: '<?=base_url();?>Cart/deleteCartOffline',
+      method: 'post',
+      data: {
+        product_id: product_id
+      },
+      dataType: 'json',
+      success: function(response) {
+        if (response.data == true) {
           $.notify({
-                      icon: 'fa fa-cancel',
-                      title: '',
-                      message: response.data_message
-                  },{
-                      element: 'body',
-                      position: null,
-                      type: "danger",
-                      allow_dismiss: true,
-                      newest_on_top: false,
-                      showProgressbar: true,
-                      placement: {
-                          from: "top",
-                          align: "right"
-                      },
-                      offset: 20,
-                      spacing: 10,
-                      z_index: 1031,
-                      delay: 5000,
-                      animate: {
-                          enter: 'animated fadeInDown',
-                          exit: 'animated fadeOutUp'
-                      },
-                      icon_type: 'class',
-                      template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
-                      '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
-                      '<span data-notify="icon"></span> ' +
-                      '<span data-notify="title">{1}</span> ' +
-                      '<span data-notify="message">{2}</span>' +
-                      '<a href="{3}" target="{4}" data-notify="url"></a>' +
-                      '</div>'
-                  });
-                  window.location.reload();
-         }
-       }
-     });
+            icon: 'fa fa-check',
+            title: '',
+            message: response.data_message
+          }, {
+            element: 'body',
+            position: null,
+            type: "success",
+            allow_dismiss: true,
+            newest_on_top: false,
+            showProgressbar: false,
+            placement: {
+              from: "top",
+              align: "right"
+            },
+            offset: 20,
+            spacing: 10,
+            z_index: 1031,
+            delay: 1000,
+            animate: {
+              enter: 'animated fadeInDown',
+              exit: 'animated fadeOutUp'
+            },
+            icon_type: 'class',
+            template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+              '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
+              '<span data-notify="icon"></span> ' +
+              '<span data-notify="title">{1}</span> ' +
+              '<span data-notify="message">{2}</span>' +
+              '<a href="{3}" target="{4}" data-notify="url"></a>' +
+              '</div>'
+          });
+        
+
+        } else if (response.data == false) {
+          $.notify({
+            icon: 'fa fa-cancel',
+            title: '',
+            message: response.data_message
+          }, {
+            element: 'body',
+            position: null,
+            type: "danger",
+            allow_dismiss: true,
+            newest_on_top: false,
+            showProgressbar: true,
+            placement: {
+              from: "top",
+              align: "right"
+            },
+            offset: 20,
+            spacing: 10,
+            z_index: 1031,
+            delay: 5000,
+            animate: {
+              enter: 'animated fadeInDown',
+              exit: 'animated fadeOutUp'
+            },
+            icon_type: 'class',
+            template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+              '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
+              '<span data-notify="icon"></span> ' +
+              '<span data-notify="title">{1}</span> ' +
+              '<span data-notify="message">{2}</span>' +
+              '<a href="{3}" target="{4}" data-notify="url"></a>' +
+              '</div>'
+          });
+          window.location.reload();
+        }
+      }
+    });
   }
-  function updateCartOffline(obj){
+
+  function updateCartOffline(obj) {
     var product_id = $(obj).attr("product_id");
+    var mrp = $(obj).attr("mrp");
     var qty = $(obj).val();
     var i = $(obj).attr("i");
-    // alert(product_id);
+    var price = parseInt(mrp) * parseInt(qty);
     var base_path = "<?=base_url();?>";
-       $.ajax({
-       url:'<?=base_url();?>Cart/updateCartOffline',
-       method: 'post',
-       data: {product_id: product_id,quantity:qty},
-       dataType: 'json',
-       success: function(response){
-         if(response.data == true){
+    $.ajax({
+      url: '<?=base_url();?>Cart/updateCartOffline',
+      method: 'post',
+      data: {
+        product_id: product_id,
+        quantity: qty
+      },
+      dataType: 'json',
+      success: function(response) {
+        if (response.data == true) {
+          document.getElementById('price_' + i).innerHTML = "Rs."+price;
+          document.getElementById('subtotal').innerHTML = response.data_price;
+          document.getElementById('total_cost').innerHTML = response.data_price;
           $.notify({
-                    icon: 'fa fa-check',
-                    title: 'Alert!',
-                    message: response.data_message
-                },{
-                    element: 'body',
-                    position: null,
-                    type: "success",
-                    allow_dismiss: true,
-                    newest_on_top: false,
-                    showProgressbar: true,
-                    placement: {
-                        from: "top",
-                        align: "right"
-                    },
-                    offset: 20,
-                    spacing: 10,
-                    z_index: 1031,
-                    delay: 5000,
-                    animate: {
-                        enter: 'animated fadeInDown',
-                        exit: 'animated fadeOutUp'
-                    },
-                    icon_type: 'class',
-                    template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
-                    '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
-                    '<span data-notify="icon"></span> ' +
-                    '<span data-notify="title">{1}</span> ' +
-                    '<span data-notify="message">{2}</span>' +
-                    // '<div class="progress" data-notify="progressbar">' +
-                    // '<div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
-                    // '</div>' +
-                    '<a href="{3}" target="{4}" data-notify="url"></a>' +
-                    '</div>'
-                });
-         }else if(response.data == false){
-           $.notify({
-                       icon: 'fa fa-cancel',
-                       title: 'Alert!',
-                       message: response.data_message
-                   },{
-                       element: 'body',
-                       position: null,
-                       type: "danger",
-                       allow_dismiss: true,
-                       newest_on_top: false,
-                       showProgressbar: true,
-                       placement: {
-                           from: "top",
-                           align: "right"
-                       },
-                       offset: 20,
-                       spacing: 10,
-                       z_index: 1031,
-                       delay: 5000,
-                       animate: {
-                           enter: 'animated fadeInDown',
-                           exit: 'animated fadeOutUp'
-                       },
-                       icon_type: 'class',
-                       template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
-                       '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
-                       '<span data-notify="icon"></span> ' +
-                       '<span data-notify="title">{1}</span> ' +
-                       '<span data-notify="message">{2}</span>' +
-                       // '<div class="progress" data-notify="progressbar">' +
-                       // '<div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
-                       // '</div>' +
-                       '<a href="{3}" target="{4}" data-notify="url"></a>' +
-                       '</div>'
-                   });
-         }
-       }
-     });
+            icon: 'fa fa-check',
+            title: 'Alert!',
+            message: response.data_message
+          }, {
+            element: 'body',
+            position: null,
+            type: "success",
+            allow_dismiss: true,
+            newest_on_top: false,
+            showProgressbar: true,
+            placement: {
+              from: "top",
+              align: "right"
+            },
+            offset: 20,
+            spacing: 10,
+            z_index: 1031,
+            delay: 5000,
+            animate: {
+              enter: 'animated fadeInDown',
+              exit: 'animated fadeOutUp'
+            },
+            icon_type: 'class',
+            template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+              '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
+              '<span data-notify="icon"></span> ' +
+              '<span data-notify="title">{1}</span> ' +
+              '<span data-notify="message">{2}</span>' +
+              // '<div class="progress" data-notify="progressbar">' +
+              // '<div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
+              // '</div>' +
+              '<a href="{3}" target="{4}" data-notify="url"></a>' +
+              '</div>'
+          });
+
+          // $('#price_'+i).html(price);
+        } else if (response.data == false) {
+          $.notify({
+            icon: 'fa fa-cancel',
+            title: 'Alert!',
+            message: response.data_message
+          }, {
+            element: 'body',
+            position: null,
+            type: "danger",
+            allow_dismiss: true,
+            newest_on_top: false,
+            showProgressbar: true,
+            placement: {
+              from: "top",
+              align: "right"
+            },
+            offset: 20,
+            spacing: 10,
+            z_index: 1031,
+            delay: 5000,
+            animate: {
+              enter: 'animated fadeInDown',
+              exit: 'animated fadeOutUp'
+            },
+            icon_type: 'class',
+            template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+              '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
+              '<span data-notify="icon"></span> ' +
+              '<span data-notify="title">{1}</span> ' +
+              '<span data-notify="message">{2}</span>' +
+              // '<div class="progress" data-notify="progressbar">' +
+              // '<div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
+              // '</div>' +
+              '<a href="{3}" target="{4}" data-notify="url"></a>' +
+              '</div>'
+          });
+        }
+      }
+    });
   }
 </script>

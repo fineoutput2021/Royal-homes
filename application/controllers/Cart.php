@@ -59,8 +59,8 @@ class Cart extends CI_Controller
                                 $respone['data_message'] ="Product is already in your cart";
                                 echo json_encode($respone);
                             } else {
-                                array_push($cart, $cart_item);
-                                $this->session->set_userdata('cart_data', $cart);
+                                array_push($cart_data, $cart_item);
+                                $this->session->set_userdata('cart_data', $cart_data);
                                 $respone['data'] = true;
                                 $response['data_message'] = "Item successfully added in your cart";
                                 echo json_encode($respone);
@@ -160,6 +160,7 @@ public function updateCartOffline(){
   			 $quantity=$this->input->post('quantity');
          $index="-1";
          $cart = $this->session->userdata('cart_data');
+         // $this->session->unset_userdata('cart_data');
          if (!empty($cart)) {
              for ($i = 0; $i < count($cart); $i ++) {
                  if ($cart[$i]['product_id'] == $product_id) {
@@ -168,11 +169,24 @@ public function updateCartOffline(){
              }
          }
          if ($index > -1) {
+
              $cart = $this->session->userdata('cart_data');
-             set($cart[$index]['quantity']=$quantity);
+             $cart[$index]['quantity']=$quantity;
              $this->session->set_userdata('cart_data', $cart);
+            $cart2 = $this->session->userdata('cart_data');
+            $total=0;
+            foreach ($cart2 as $value) {
+              $price=0;
+              $this->db->select('*');
+              $this->db->from('tbl_products');
+              $this->db->where('id',$value['product_id']);
+              $pro_data= $this->db->get()->row();
+              $price = $pro_data->mrp * $value['quantity'];
+              $total= $total + $price;
+            }
              $respone['data'] = true;
              $respone['data_message'] ="Item successfully updated in your cart";
+             $respone['data_price'] =$total;
              echo json_encode($respone);
          } else {
              $respone['data'] = false;
@@ -182,7 +196,7 @@ public function updateCartOffline(){
 
        } else {
            $respone['data'] = false;
-           $respone['data_message'] =validation_errors();
+           $respone['data_message'] = validation_errors();
            echo json_encode($respone);
        }
    } else {

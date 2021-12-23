@@ -36,6 +36,7 @@
     <!-- <script src="<?=base_url()?>assets/frontend/assets/js/bootstrap.js"></script> -->
 <script src="<?=base_url()?>assets/frontend/assets/js/bootstrap-notify.min.js"></script>
   <style>
+
     @media(max-width:640px) {
       .heimed1 {
         height: 1518px !important;
@@ -729,6 +730,62 @@
         margin-top: 30px;
       }
     }
+
+/* ------model class------------ */
+.model{
+  display:none;
+  position:fixed;
+  padding-top: 100px;
+  top:0;
+  left:0;
+  z-index:1;
+  overflow:auto;
+  width: 100%;
+  height: 100%;
+  background-color:rgba(0,0,0,0.4);
+}
+
+.model-content{
+  position: relative;
+  width:80%;
+  margin:auto;
+  background-color:#fff;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+.modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
   </style>
 </head>
 
@@ -829,7 +886,11 @@ $category_data= $this->db->get();
               <a href="/">Log Out</a>
             </div>
             <div id="main" class="ch234">
+              <?if(!empty($this->session->userdata('user_data'))){?>
               <i class="fa fa-user-o openbtn btn_change_change media_q_change2" aria-hidden="true" id="account_open_close" onclick="openNav2()"></i>
+              <?}else{?>
+                <i class="fa fa-user-o openbtn btn_change_change media_q_change2" aria-hidden="true" data-id="model" data-target="#mymodel"></i>
+                <?}?>
             </div>
             <li><a href="<?=base_url()?>Home/view_cart" style="color: #fff;"><i class="fa fa-shopping-bag NONE1" aria-hidden="true"></i></a></li>
             <li class="media_q_change1"><a href="#" style="color: #fff;"><i class='fa fa-truck' style='font-size: 19px'></i></a></li>
