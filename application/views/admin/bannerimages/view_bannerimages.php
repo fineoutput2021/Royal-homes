@@ -8,8 +8,18 @@
         <section class="content">
         <div class="row">
         <div class="col-lg-12">
+          <? $this->db->select('*');
+                      $this->db->from('tbl_bannerimages');
+                      // $this->db->where('_id',$id);
+                      $dsa= $this->db->get();
+                      $da=$dsa->row();
+                      if(empty($da)){
+
+                      ?>
         <a class="btn btn-info cticket" href="<?php echo base_url() ?>dcadmin/bannerimages/add_bannerimages"
         role="button" style="margin-bottom:12px;"> Add Images-I</a>
+
+      <? } ?>
         <div class="panel panel-default">
         <div class="panel-heading">
         <h3 class="panel-title"><i class="fa fa-money fa-fw"></i>View Images -I</h3>

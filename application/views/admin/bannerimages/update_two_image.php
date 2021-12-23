@@ -77,12 +77,12 @@
                       <?php } ?>
                                               </td>
                         </tr>
-                      <tr>
+                      <!-- <tr>
                                                 <td> <strong>Heading-II</strong>  <span style="color:red;">*</span></strong> </td>
                                                 <td>
-                          <input type="text" name="heading_second"  class="form-control" placeholder="" required value="<?=$image_two->heading_two?>" />
+                          <input type="text" name="heading_second"  class="form-control" placeholder="" required value="<? $image_two->heading_two?>" />
                                               </td>
-                        </tr>
+                        </tr> -->
                         <tr>
                                                   <td> <strong>Link-II</strong>  <span style="color:red;">*</span></strong> </td>
                                                   <td>

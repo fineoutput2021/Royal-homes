@@ -64,12 +64,12 @@
                           													<input type="file" name="image_two"  class="form-control" placeholder="" required value="" />
                           	                                            </td>
                               										</tr>
-                          											<tr>
+                          											<!-- <tr>
                                                                           <td> <strong>Heading-II</strong>  <span style="color:red;">*</span></strong> </td>
                                                                           <td>
                           													<input type="text" name="heading_second"  class="form-control" placeholder="" required value="" />
                           	                                            </td>
-                              										</tr>
+                              										</tr> -->
                           											<tr>
                                                                           <td> <strong>Link-II</strong>  <span style="color:red;">*</span></strong> </td>
                                                                           <td>

@@ -733,7 +733,7 @@ $this->db->select('*');
                                 // print_r($this->input->post());
                                 // exit;
                                 $this->form_validation->set_rules('heading_first', 'heading_first', 'required|xss_clean');
-                                $this->form_validation->set_rules('heading_second', 'heading_second', 'required|xss_clean');
+                                // $this->form_validation->set_rules('heading_second', 'heading_second', 'required|xss_clean');
                                 $this->form_validation->set_rules('link_first', 'link_first', 'required|xss_clean');
                                 $this->form_validation->set_rules('link_second', 'link_second', 'required|xss_clean');
 
@@ -741,7 +741,7 @@ $this->db->select('*');
                                 if($this->form_validation->run()== TRUE)
                                 {
                                   $heading_first=$this->input->post('heading_first');
-                                  $heading_second=$this->input->post('heading_second');
+                                  // $heading_second=$this->input->post('heading_second');
                                   $link_first=$this->input->post('link_first');
                                   $link_second=$this->input->post('link_second');
 
@@ -838,7 +838,7 @@ $img2='image_two';
                             $data_insert = array('image_first'=>$nnnn1,
                                       'heading_first'=>$heading_first,
                                       'image_two'=>$nnnn2,
-                                      'heading_two'=>$heading_second,
+                                      // 'heading_two'=>$heading_second,
                                       'link_first'=>$link_first,
                                       'link_second'=>$link_second,
 
@@ -900,7 +900,7 @@ $img2='image_two';
                                                         $data_insert = array('image_first'=>$n1,
                                                                   'heading_first'=>$heading_first,
                                                                   'image_two'=>$n2,
-                                                                  'heading_two'=>$heading_second,
+                                                                  // 'heading_two'=>$heading_second,
                                                                   'link_first'=>$link_first,
                                                                   'link_second'=>$link_second,
 
