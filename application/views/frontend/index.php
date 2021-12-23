@@ -473,12 +473,12 @@
 
 <section class="get_look overflow-hidden">
   <div class="container-fluid">
-    <h2 class="text-center py-5" style="font-family: 'Playfair Display', serif; font-size: 50px;">Get the Look</h2>
+    <h2 class="text-center py-5" style="font-family: 'Playfair Display', serif; font-size: 50px;"><?=$banner_images->imagename?></h2>
     <div class="row">
       <div class="col-md-12">
         <div>
-          <a href="all product.html">
-            <img style="width: 1483px;" src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/furniture/get-look-paolo-desk.jpg" alt="">
+          <a href="<?=$banner_images->link?>">
+            <img style="width: 1483px;" src="<?=base_url().$banner_images->image1?>" alt="">
           </a>
         </div>
 
@@ -497,15 +497,20 @@
         <!-- Swiper -->
 
         <div class="swiper-wrapper autoplay">
+          <? foreach($Best_seller->result() as $seller){  ?>
+
+
           <div class="swiper-slide" style="padding: 15px;">
             <a href="productdetail.html">
-              <img src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base_2_mallawifloorlampwhite.jpg" alt="">
+              <img src="<?=base_url().$seller->image;?>" alt="">
             </a>
             <div class="my-3">
-              <h6>Yoho Dining Table 6 Seater</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
+              <h6><?=$seller->productname;?></h6> <span style="font-weight: bold; font-size: 12px;">₹<?=$seller->mrp;?></span>
             </div>
           </div>
-          <div class="swiper-slide" style="padding: 15px;">
+
+        <? } ?>
+          <!-- <div class="swiper-slide" style="padding: 15px;">
             <a href="productdetail.html">
               <img src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base_2_kyotoconicalhanginglamp.jpg" alt="">
             </a>
@@ -568,7 +573,7 @@
             <div class="my-3">
               <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
             </div>
-          </div>
+          </div> -->
 
         </div>
 
@@ -586,80 +591,81 @@
 
 <section class="new_lunc overflow-hidden t_slider">
   <div class="container-fluid">
-    <h2 class="text-center py-5" style="font-family: 'Playfair Display', serif;">Latest in Lighting</h2>
+    <h2 class="text-center py-5" style="font-family: 'Playfair Display', serif;"><?=$image_two->heading_first;?></h2>
     <div class="row">
       <div class="col-md-12">
         <!-- Swiper -->
 
         <div class="swiper-wrapper decor">
+
           <div class="swiper-slide">
-            <a href="all product.html">
-              <img src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/furniture/paolo1-latest.jpg" alt="">
+            <a href="<?=$image_two->link_first;?>">
+              <img src="<?=base_url().$image_two->image_first?>" alt="">
             </a>
             <!-- <div class="my-3">
               <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
             </div> -->
           </div>
           <div class="swiper-slide">
-            <a href="all product.html">
-              <img src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/furniture/paolo1-latest.jpg" alt="">
+            <a href="<?=$image_two->link_second;?>">
+              <img src="<?=base_url().$image_two->image_two?>" alt="">
             </a>
             <!-- <div class="my-3">
               <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
             </div> -->
           </div>
-          <div class="swiper-slide">
+          <!-- <div class="swiper-slide">
             <a href="all product.html">
               <img src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/furniture/paolo1-latest.jpg" alt="">
-            </a>
+            </a> -->
             <!-- <div class="my-3">
               <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
             </div> -->
-          </div>
+          <!-- </div> -->
+          <!-- <div class="swiper-slide">
+            <a href="all product.html">
+              <img src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/furniture/paolo2-latest.jpg" alt="">
+            </a> -->
+            <!-- <div class="my-3">
+              <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
+            </div> -->
+          <!-- </div> -->
+          <!-- <div class="swiper-slide">
+            <a href="all product.html">
+              <img src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/furniture/paolo1-latest.jpg" alt="">
+            </a> -->
+            <!-- <div class="my-3">
+              <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
+            </div> -->
+          <!-- </div>
           <div class="swiper-slide">
             <a href="all product.html">
               <img src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/furniture/paolo2-latest.jpg" alt="">
-            </a>
+            </a> -->
             <!-- <div class="my-3">
               <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
             </div> -->
-          </div>
+          <!-- </div>
           <div class="swiper-slide">
             <a href="all product.html">
               <img src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/furniture/paolo1-latest.jpg" alt="">
-            </a>
+            </a> -->
             <!-- <div class="my-3">
               <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
             </div> -->
-          </div>
+          <!-- </div>
           <div class="swiper-slide">
             <a href="all product.html">
               <img src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/furniture/paolo2-latest.jpg" alt="">
-            </a>
+            </a> -->
             <!-- <div class="my-3">
               <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
             </div> -->
-          </div>
+          <!-- </div>
           <div class="swiper-slide">
             <a href="all product.html">
               <img src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/furniture/paolo1-latest.jpg" alt="">
-            </a>
-            <!-- <div class="my-3">
-              <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-            </div> -->
-          </div>
-          <div class="swiper-slide">
-            <a href="all product.html">
-              <img src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/furniture/paolo2-latest.jpg" alt="">
-            </a>
-            <!-- <div class="my-3">
-              <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-            </div> -->
-          </div>
-          <div class="swiper-slide">
-            <a href="all product.html">
-              <img src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/furniture/paolo1-latest.jpg" alt="">
-            </a>
+            </a> -->
             <!-- <div class="my-3">
               <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
             </div> -->
@@ -749,7 +755,7 @@
     <br>
     <br>
     <div style="text-align: center; background-color:  #efefef;">
-      <video src="a.mp4" controls width="90%" style="display: inline;"></video>
+      <video src="<?=base_url()?>assets/Online-Class-Funny-WhatsApp-status-Tom-And-Jerry-Cartoon-Video-Status.mp4" controls width="90%" style="display: inline;"></video>
     </div>
     <br>
   </section>
@@ -837,18 +843,24 @@
     </div>
   </div>
   <div class="items">
-    <div><img src="https://st.depositphotos.com/1011643/2348/i/600/depositphotos_23483051-stock-photo-modern-businesswoman-holding-tablet-computer.jpg" style="width: 100%; height:30%; padding: 10px;">
+    <? foreach($data_testimonal->result() as $testimonals){
+  $break_string=chunk_split($testimonals->message,39,"<br>");
+
+
+      ?>
+
+    <div><img src="<?=base_url().$testimonals->image;?>" style="width: 100%; height:30%; padding: 10px;">
       <div class="dfg col-md-2"><i class="fa fa-quote-left"></i></div>
       <div class="dfg" style="width: auto;">
-        <p style="text-align: center; font-size:14px;">Very happy with this unique floor lamp,<br>this has become my
-          favoourit space in the house now!</p>
+        <p style="text-align: center; font-size:14px;">  <?=$break_string; ?></p>
       </div>
       <div class="col-md-10">
         <div class="col-md-2 ii" style="margin-left: 273px;"><i class="fa fa-quote-right"></i></div>
       </div>
 
     </div>
-    <div><img src="https://images.pexels.com/photos/937481/pexels-photo-937481.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" style="width: 100%; height:30%; padding: 10px;">
+  <? } ?>
+    <!-- <div><img src="https://images.pexels.com/photos/937481/pexels-photo-937481.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" style="width: 100%; height:30%; padding: 10px;">
       <div class="dfg col-md-2"><i class="fa fa-quote-left"></i></div>
       <div class="dfg" style="width: auto;">
         <p style="text-align: center; font-size:14px;">Very happy with this unique floor lamp,<br>this has become my
@@ -891,12 +903,12 @@
         <div class="col-md-2 ii" style="margin-left: 273px;"><i class="fa fa-quote-right"></i></div>
       </div>
 
-    </div>
+    </div> -->
     <!-- <div><img ="https://cdn.luxe.digital/media/2019/09/12090457/business-professional-dress-code-men-james-bond-suit-styleluxe-digital.jpg"> -->
     <!-- <div class="dfg col-md-2"><i class="fa fa-quote-left"></i></div>
       <div class="dfg"><p>Very happy with this unique floor lamp,<br>this has become my favoourit space in the house now!</p></div>
     </div> -->
-    <div><img src="https://headshots-inc.com/wp-content/uploads/2020/12/Blog-Images.jpg" style=" width: 100%; height:30%; padding: 10px;">
+    <!-- <div><img src="https://headshots-inc.com/wp-content/uploads/2020/12/Blog-Images.jpg" style=" width: 100%; height:30%; padding: 10px;">
       <div class="dfg col-md-2"><i class="fa fa-quote-left"></i></div>
       <div class="dfg" style="width: auto;">
         <p style="text-align: center; font-size:14px;">Very happy with this unique floor lamp,<br>this has become my
@@ -907,7 +919,7 @@
       </div>
 
 
-    </div>
+    </div> -->
   </div>
 </section>
 
@@ -1004,13 +1016,18 @@
           <p style="font-size: 12px;">Enter your email to stay in the loop on new collections, upcoming events, and
             more.</p>
         </div>
+        <form class="" action="<?=base_url()?>Home/add_news_letter" method="post">
+
         <div class="d-flex justify-content-center">
           <br>
-          <input type="text" placeholder="Email id" style="background-color:  #f5f5f5; outline: none;">
+          <input type="text" name="email" placeholder="Email id" style="background-color:  #f5f5f5; outline: none;">
         </div>
         <br>
         <div style="text-align: center;">
-          <button>Submit</button>
+          <!-- <input type="button" name="button" value="button"> -->
+          <a href="<?=base_url()?>Home/add_news_letter"><button>Submit</button></a>
+        </form>
+
           <br>
           <br>
         </div>

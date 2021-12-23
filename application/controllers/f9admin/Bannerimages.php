@@ -104,7 +104,7 @@
                // print_r($this->input->post());
                // exit;
   $this->form_validation->set_rules('imagename', 'imagename', 'trim|customAlpha');
-  $this->form_validation->set_rules('link', 'link', 'trim|customAlpha');
+  $this->form_validation->set_rules('link', 'link', 'trim');
 
 
 
@@ -507,7 +507,9 @@ if(!empty($img)) { if(empty($nnnn1)){ $nnnn1 = $img; } }else{ if(empty($nnnn1)){
 
            $data_insert = array(
                   'imagename'=>$imagename,
-  'image1'=>$nnnn1
+  'image1'=>$nnnn1,
+  'link'=>$link
+
   // 'image2'=>$nnnn2,
   // 'image3'=>$nnnn3,
   // 'image4'=>$nnnn4,
@@ -904,7 +906,7 @@ $img2='image_two';
                                                                   'link_first'=>$link_first,
                                                                   'link_second'=>$link_second,
 
-                                                                  'heading_two'=>$heading_second
+                                                                  // 'heading_two'=>$heading_second
                                       );
 
 
@@ -920,7 +922,7 @@ $img2='image_two';
 
                                                 $this->session->set_flashdata('smessage','Data inserted successfully');
 
-                                                redirect("dcadmin/Bannerimages/view_Image_two ","refresh");
+                                               redirect("dcadmin/Bannerimages/view_Image_two ","refresh");
 
                                                         }
 
