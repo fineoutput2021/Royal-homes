@@ -258,7 +258,7 @@
           <div class="swiper-wrapper autoplay" id="changenex1">
             <?php $i=1; foreach($new_launch_data->result() as $n_launch) { ?>
             <div class="swiper-slide" style="padding:15px">
-              <a href="productdetail.html">
+              <a href="<?=base_url()?>Home/product_details">
                 <img src="<?=base_url().$n_launch->image?>" alt="">
               </a>
               <div class="my-3">
@@ -683,7 +683,7 @@
       <div class="col-md-3 col-12" style="font-family: 'Playfair Display', serif;">
         <ul>
           <li>
-            <div class="img_1"><img src="img/icn01.jpg" alt="" style="width: 80%;"></div>
+            <div class="img_1"><img src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/furniture/icn01.jpg" alt="" style="width: 80%;"></div>
             <h2 style="text-align: center; font-family: 'Playfair Display', serif; letter-spacing: 2px; font-size: 22px; font-style: italic;">
               Crafted in <br>India</h2>
             <br>

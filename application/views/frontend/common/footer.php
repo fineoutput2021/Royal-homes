@@ -98,6 +98,188 @@
 
 
 </body>
+
+<script>
+$(document).ready(function() {
+<?php if(!empty($this->session->flashdata('emessage'))){ ?>
+ loadErrorNotify("<?=$this->session->flashdata('emessage');?>");
+<?php  } ?>
+
+<?php  if(!empty($this->session->flashdata('validationemessage'))){
+$valid_errors = $this->session->flashdata('validationemessage');
+$valid_errors = substr($valid_errors, 0, -1); ?>
+loadErrorNotify("<?=$valid_errors?>");
+<?php  } ?>
+
+<?php if(!empty($this->session->flashdata('smessage'))){ ?>
+  var succ_message = '<?php echo $this->session->flashdata('smessage');?>';
+  loadSuccessNotify(succ_message);
+ <?php  } ?>
+
+});
+function loadSuccessNotify(succ_message){
+  $.notify({
+             icon: '',
+             title: '',
+             message: succ_message
+         },{
+             element: 'body',
+             position: null,
+             type: "success",
+             allow_dismiss: true,
+             newest_on_top: false,
+             showProgressbar: false,
+             placement: {
+                 from: "top",
+                 align: "right"
+             },
+             offset: 20,
+             spacing: 10,
+             z_index: 1031,
+             delay: 1000,
+             animate: {
+                 enter: 'animated fadeInDown',
+                 exit: 'animated fadeOutUp'
+             },
+             icon_type: 'class',
+             template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+             '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
+             '<span data-notify="icon"></span> ' +
+             '<span data-notify="title">{1}</span> ' +
+             '<span data-notify="message">{2}</span>' +
+             '<div class="progress" data-notify="progressbar">' +
+              '<div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
+                    '</div>' +
+             '<a href="{3}" target="{4}" data-notify="url"></a>' +
+             '</div>'
+         });
+
+}
+
+    function loadErrorNotify(message){
+      $.notify({
+                 icon: '',
+                 title: '',
+                 message: message
+             },{
+                 element: 'body',
+                 position: null,
+                 type: "danger",
+                 allow_dismiss: true,
+                 newest_on_top: false,
+                 showProgressbar: false,
+                 placement: {
+                     from: "top",
+                     align: "right"
+                 },
+                 offset: 20,
+                 spacing: 10,
+                 z_index: 1031,
+                 delay: 1000,
+                 animate: {
+                     enter: 'animated fadeInDown',
+                     exit: 'animated fadeOutUp'
+                 },
+                 icon_type: 'class',
+                 template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+                 '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
+                 '<span data-notify="icon"></span> ' +
+                 '<span data-notify="title">{1}</span> ' +
+                 '<span data-notify="message">{2}</span>' +
+                 '<a href="{3}" target="{4}" data-notify="url"></a>' +
+                 '</div>'
+             });
+
+    }
+
+
+  function addToCartOffline(obj){
+
+    var product_id = $(obj).attr("product_id");
+    var quantity = $(obj).attr("quantity");
+    var base_path = "<?=base_url();?>";
+       $.ajax({
+       url:'<?=base_url();?>Cart/addToCartOffline',
+       method: 'post',
+       data: {product_id: product_id, quantity: quantity},
+       dataType: 'json',
+       success: function(response){
+       if(response.data == true){
+         // alert(response.data_message)
+          // var msg = response.data_message;
+              $.notify({
+                        icon: 'fa fa-check',
+                        title: 'Alert!',
+                        message: "Item successfully added in your cart"
+                    },{
+                        element: 'body',
+                        position: null,
+                        type: "success",
+                        allow_dismiss: true,
+                        newest_on_top: false,
+                        showProgressbar: true,
+                        placement: {
+                            from: "top",
+                            align: "right"
+                        },
+                        offset: 20,
+                        spacing: 10,
+                        z_index: 1031,
+                        delay: 5000,
+                        animate: {
+                            enter: 'animated fadeInDown',
+                            exit: 'animated fadeOutUp'
+                        },
+                        icon_type: 'class',
+                        template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+                        '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
+                        '<span data-notify="icon"></span> ' +
+                        '<span data-notify="title">{1}</span> ' +
+                        '<span data-notify="message">{2}</span>' +
+                        '<a href="{3}" target="{4}" data-notify="url"></a>' +
+                        '</div>'
+                    });
+       }else if(response.data == false){
+         var msg = response.data_message;
+               $.notify({
+                           icon: 'fa fa-cancel',
+                           title: 'Alert!',
+                           message: msg
+                       },{
+                           element: 'body',
+                           position: null,
+                           type: "danger",
+                           allow_dismiss: true,
+                           newest_on_top: false,
+                           showProgressbar: true,
+                           placement: {
+                               from: "top",
+                               align: "right"
+                           },
+                           offset: 20,
+                           spacing: 10,
+                           z_index: 1031,
+                           delay: 5000,
+                           animate: {
+                               enter: 'animated fadeInDown',
+                               exit: 'animated fadeOutUp'
+                           },
+                           icon_type: 'class',
+                           template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+                           '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
+                           '<span data-notify="icon"></span> ' +
+                           '<span data-notify="title">{1}</span> ' +
+                           '<span data-notify="message">{2}</span>' +
+                           '<a href="{3}" target="{4}" data-notify="url"></a>' +
+                           '</div>'
+                       });
+       }
+     }
+       });
+
+  }
+</script>
+
 <script type="text/javascript">
 $(".fa-bars").click(function () {
   $(".side_bar").css({
@@ -226,9 +408,9 @@ $('.say').slick({
 
 
 <script>
-window.onload = () => {
-  document.getElementById("button1").click()
-}
+// window.onload = () => {
+//   document.getElementById("button1").click()
+// }
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
 function openNav() {
   document.getElementById("mySidenav").style.width = "250px";
@@ -446,5 +628,5 @@ function togglediv(id) {
   });
 }
 </script>
-
+<script src="<?=base_url()?>assets/frontend/assets/js/bootstrap-notify.min.js"></script>
 </html>

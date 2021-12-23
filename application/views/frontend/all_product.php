@@ -1,6 +1,3 @@
-
- <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100&family=Zen+Antique+Soft&family=Zen+Old+Mincho&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/frontend/assets/css/new.css">
 <style>
   @media(max-width:640px) {
     .heimed1 {
@@ -327,22 +324,29 @@ color: red;
           <img src="img/1.png" alt="">
 
         </div> -->
+        <div class="col-md-12  col-sm-6">
+          <div class="row">
+          <?php $i=1; foreach($product_data->result() as $product) { ?>
         <div class="col-md-4  col-sm-6">
           <div class="firrr med_mb" id="">
             <!-- <a href="productdetail.html"  ><img src="img/10.jpg" ></a> -->
             <br>
-            <a href="productdetail.html"><img class="my-img" src="img/10.jpg" /></a>
-            <h4><b style="font-family: 'Playfair Display', serif;">Paolo Bar Cart</b> <br></span><br>₹8,999</h4>
-            <button style="border: 1px solid black; border-radius: 2px; background-color: black; color: white;">Add to Cart</button><span><i class="fa fa-heart medmob" style="margin-left: 192px" id="heart"></i></span>
+            <a href="<?=base_url()?>Home/product_details"><img class="my-img" src="<?=base_url().$product->image?>" /></a>
+            <h4><b style="font-family: 'Playfair Display', serif;"><?=$product->productname?></b> <br></span><br>Rs.<?=$product->mrp?></h4>
+            <button style="border: 1px solid black; border-radius: 2px; background-color: black; color: white;"
+            onclick="addToCartOffline(this)"
+            product_id="<?=$product->id?>"
+            quantity="1"
+            >Add to Cart</button><span><i class="fa fa-heart medmob" style="margin-left: 192px" id="heart"></i></span>
             <span><i class="fa fa-heart meddesk" id="heart"></i></span>
             <br>
 
           </div>
-
-
         </div>
-
-        <div class="col-md-4 col-sm-6">
+        <?php $i++; } ?>
+      </div>
+</div>
+        <!-- <div class="col-md-4 col-sm-6">
           <div class="firrr med_mb2">
             <br>
             <a href="productdetail.html"><img class="my-img" src="img/10.jpg" /></a>
@@ -353,9 +357,9 @@ color: red;
           </div>
 
 
-        </div>
+        </div> -->
 
-        <div class="col-md-4 col-sm-6" id="mobnon">
+        <!-- <div class="col-md-4 col-sm-6" id="mobnon">
           <div class="firrrr ">
             <br>
             <a href="productdetail.html"><img class="my-img" src="img/10.jpg" /></a>
@@ -366,7 +370,7 @@ color: red;
           </div>
 
 
-        </div>
+        </div> -->
 
 
 
@@ -378,7 +382,7 @@ color: red;
 
   </section>
   <section >
-    <div class=" center w200" style="position: relative; background-color: white;">
+    <div class=" center w200" style="position: relative; background-color: white; margin-bottom:0px">
       <div class="mjyt" >
         <br>
         <br>

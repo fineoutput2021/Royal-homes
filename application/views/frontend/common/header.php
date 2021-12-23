@@ -9,18 +9,32 @@
   <title>Orange Tree</title>
   <link rel="stylesheet" href="<?=base_url()?>assets/frontend/assets/css/style.css">
   <link rel="stylesheet" href="<?=base_url()?>assets/frontend/assets/css/mainnav.css">
+    <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/frontend/assets/css/new.css">
+    <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/frontend/assets/css/productdetail.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
   <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet'>
-  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> -->
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/jquery.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100&family=Zen+Antique+Soft&family=Zen+Old+Mincho&display=swap" rel="stylesheet">
+
+   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100&family=Zen+Antique+Soft&family=Zen+Old+Mincho&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/frontend/assets/css/animate.css">
+
+<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/frontend/assets/css/bootstrap.css">
+    <!-- <script src="<?=base_url()?>assets/frontend/assets/js/bootstrap.js"></script> -->
+<script src="<?=base_url()?>assets/frontend/assets/js/bootstrap-notify.min.js"></script>
   <style>
     @media(max-width:640px) {
       .heimed1 {
@@ -733,7 +747,7 @@ $category_data= $this->db->get();
  foreach ($category_data->result() as $data) {
      ?>
               <li>
-                <a class="headerlinks" href="<?base_url()?>Home/all_Product"><?=$data->categoryname?></a>
+                <a class="headerlinks" href="<?=base_url()?>Home/all_Product/<?=base64_encode($data->id)?>/<?=base64_encode(1)?>"><?=$data->categoryname?></a>
                 <div class="mega-box">
                   <div class="content">
                     <div class="d-flex">
@@ -745,7 +759,7 @@ $category_data= $this->db->get();
      $subdata= $this->db->get();
      foreach ($subdata->result() as $sub) {
          ?>
-                        <li><a href="allproduct.html"><?php echo $sub->subcategory ?></a></li>
+                        <li><a href="<?=base_url()?>Home/all_Product/<?=base64_encode($data->id)?>/<?=base64_encode(2)?>"><?php echo $sub->subcategory ?></a></li>
                         <?php
      } ?>
                       </ul>
@@ -817,7 +831,7 @@ $category_data= $this->db->get();
             <div id="main" class="ch234">
               <i class="fa fa-user-o openbtn btn_change_change media_q_change2" aria-hidden="true" id="account_open_close" onclick="openNav2()"></i>
             </div>
-            <li><a href="ADD CART.html" style="color: #fff;"><i class="fa fa-shopping-bag NONE1" aria-hidden="true"></i></a></li>
+            <li><a href="<?=base_url()?>Home/view_cart" style="color: #fff;"><i class="fa fa-shopping-bag NONE1" aria-hidden="true"></i></a></li>
             <li class="media_q_change1"><a href="#" style="color: #fff;"><i class='fa fa-truck' style='font-size: 19px'></i></a></li>
           </ul>
         </div>
