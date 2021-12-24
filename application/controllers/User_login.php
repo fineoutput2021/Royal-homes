@@ -92,7 +92,7 @@ class User_login extends CI_Controller
                             }
 
                             $this->session->set_flashdata('emessage', 'Successful Registered');
-                            $this->load->view('Home/index', refresh);
+                            $this->load->view('Home/index', "refresh");
                         } else {
                             $this->session->set_flashdata('emessage', 'Some error occured');
                             redirect($_SERVER['HTTP_REFERER']);
@@ -102,7 +102,7 @@ class User_login extends CI_Controller
                         redirect($_SERVER['HTTP_REFERER']);
                     }
                 } else {
-                    $this->load->view('Home/index', refresh);
+                    $this->load->view('Home/index', "refresh");
                 }
             } else {
                 $this->session->set_flashdata('emessage', validation_errors());
@@ -167,7 +167,7 @@ class User_login extends CI_Controller
                             }
 
                             $this->session->set_flashdata('emessage', 'Successful Logged in!');
-                            $this->load->view('Home/index', refresh);
+                            $this->load->view('Home/index', "refresh");
                         } else {
                             $this->session->set_flashdata('emessage', 'Wrong Password');
                             redirect($_SERVER['HTTP_REFERER']);
@@ -177,7 +177,7 @@ class User_login extends CI_Controller
                         redirect($_SERVER['HTTP_REFERER']);
                     }
                 } else {
-                    $this->load->view('Home/index', refresh);
+                    $this->load->view('Home/index', "refresh");
                 }
             } else {
                 $this->session->set_flashdata('emessage', validation_errors());

@@ -159,45 +159,63 @@ class Cart extends CI_Controller
                 $product_id=$this->input->post('product_id');
                 $quantity=$this->input->post('quantity');
                 $index="-1";
-                $cart = $this->session->userdata('cart_data');
-                // $this->session->unset_userdata('cart_data');
-                if (!empty($cart)) {
-                    for ($i = 0; $i < count($cart); $i ++) {
-                        if ($cart[$i]['product_id'] == $product_id) {
-                            $index= $i;
+
+                $this->db->select('*');
+                $this->db->from('tbl_inventory');
+                $this->db->where('product_id', $product_id);
+                $inventory_data= $this->db->get()->row();
+                //-----check inventory------
+                if (!empty($inventory_data)) {
+                    if ($inventory_data->quantity >= $quantity) {
+                        $cart = $this->session->userdata('cart_data');
+                        // $this->session->unset_userdata('cart_data');
+                        if (!empty($cart)) {
+                            for ($i = 0; $i < count($cart); $i ++) {
+                                if ($cart[$i]['product_id'] == $product_id) {
+                                    $index= $i;
+                                }
+                            }
                         }
-                    }
-                }
-                if ($index > -1) {
-                    $cart = $this->session->userdata('cart_data');
-                    $cart[$index]['quantity']=$quantity;
-                    $this->session->set_userdata('cart_data', $cart);
-                    $cart2 = $this->session->userdata('cart_data');
-                    $total=0;
-                    $shipping=0;
-                    $subtotal = 0;
+                        if ($index > -1) {
+                            $cart = $this->session->userdata('cart_data');
+                            $cart[$index]['quantity']=$quantity;
+                            $this->session->set_userdata('cart_data', $cart);
+                            $cart2 = $this->session->userdata('cart_data');
+                            $total=0;
+                            $shipping=0;
+                            $subtotal = 0;
 
-                    foreach ($cart2 as $value) {
-                        $price=0;
-                        $this->db->select('*');
-                        $this->db->from('tbl_products');
-                        $this->db->where('id', $value['product_id']);
-                        $pro_data= $this->db->get()->row();
-                        $price = $pro_data->mrp * $value['quantity'];
-                        $total= $total + $price;
-                    }
-                    $shipping = $total * SHIPPING / 100;
-                    $subtotal = $total + $shipping;
+                            foreach ($cart2 as $value) {
+                                $price=0;
+                                $this->db->select('*');
+                                $this->db->from('tbl_products');
+                                $this->db->where('id', $value['product_id']);
+                                $pro_data= $this->db->get()->row();
+                                $price = $pro_data->mrp * $value['quantity'];
+                                $total= $total + $price;
+                            }
+                            $shipping = $total * SHIPPING / 100;
+                            $subtotal = $total + $shipping;
 
-                    $respone['data'] = true;
-                    $respone['data_message'] ="Item successfully updated in your cart";
-                    $respone['data_price'] =$total;
-                    $respone['data_shipping'] =$shipping;
-                    $respone['data_subtotal'] =$subtotal;
-                    echo json_encode($respone);
+                            $respone['data'] = true;
+                            $respone['data_message'] ="Item successfully updated in your cart";
+                            $respone['data_price'] =$total;
+                            $respone['data_shipping'] =$shipping;
+                            $respone['data_subtotal'] =$subtotal;
+                            echo json_encode($respone);
+                        } else {
+                            $respone['data'] = false;
+                            $respone['data_message'] ="Some error occured";
+                            echo json_encode($respone);
+                        }
+                    } else {
+                        $respone['data'] = false;
+                        $respone['data_message'] ="Out of stock";
+                        echo json_encode($respone);
+                    }
                 } else {
                     $respone['data'] = false;
-                    $respone['data_message'] ="Some error occured";
+                    $respone['data_message'] ="Out of stock";
                     echo json_encode($respone);
                 }
             } else {
@@ -347,43 +365,61 @@ class Cart extends CI_Controller
                 $quantity=$this->input->post('quantity');
                 $user_id = $this->session->userdata('user_id');
 
-                //----------cart quantity update--------
-                $data_update = array('quantity'=>$quantity);
-                $this->db->where('user_id', $user_id);
+                $this->db->select('*');
+                $this->db->from('tbl_inventory');
                 $this->db->where('product_id', $product_id);
-                $zapak=$this->db->update('tbl_cart', $data_update);
+                $inventory_data= $this->db->get()->row();
+                //-----check inventory------
+                if (!empty($inventory_data)) {
+                    if ($inventory_data->quantity >= $quantity) {
 
-                if (!empty($zapak)) {
+                //----------cart quantity update--------
+                        $data_update = array('quantity'=>$quantity);
+                        $this->db->where('user_id', $user_id);
+                        $this->db->where('product_id', $product_id);
+                        $zapak=$this->db->update('tbl_cart', $data_update);
+
+                        if (!empty($zapak)) {
 
           //--------------cart total calculate---------
-                    $this->db->select('*');
-                    $this->db->from('tbl_cart');
-                    $this->db->where('user_id', $user_id);
-                    $cartInfo= $this->db->get();
-                    $total = 0;
-                    $shipping = 0;
-                    $subtotal = 0;
-                    foreach ($cartInfo->result() as $cart) {
-                        $price=0;
-                        $this->db->select('*');
-                        $this->db->from('tbl_products');
-                        $this->db->where('id', $cart->product_id);
-                        $pro_data= $this->db->get()->row();
-                        $price = $pro_data->mrp * $cart->quantity;
-                        $total= $total + $price;
-                    }
-                    $shipping = $total * SHIPPING / 100;
-                    $subtotal = $total + $shipping;
+                            $this->db->select('*');
+                            $this->db->from('tbl_cart');
+                            $this->db->where('user_id', $user_id);
+                            $cartInfo= $this->db->get();
+                            $total = 0;
+                            $shipping = 0;
+                            $subtotal = 0;
+                            foreach ($cartInfo->result() as $cart) {
+                                $price=0;
+                                $this->db->select('*');
+                                $this->db->from('tbl_products');
+                                $this->db->where('id', $cart->product_id);
+                                $pro_data= $this->db->get()->row();
+                                $price = $pro_data->mrp * $cart->quantity;
+                                $total= $total + $price;
+                            }
+                            $shipping = $total * SHIPPING / 100;
+                            $subtotal = $total + $shipping;
 
-                    $respone['data'] = true;
-                    $respone['data_message'] ="Cart item update successfully";
-                    $respone['data_price'] =$total;
-                    $respone['data_shipping'] =$shipping;
-                    $respone['data_subtotal'] =$subtotal;
-                    echo json_encode($respone);
+                            $respone['data'] = true;
+                            $respone['data_message'] ="Cart item update successfully";
+                            $respone['data_price'] =$total;
+                            $respone['data_shipping'] =$shipping;
+                            $respone['data_subtotal'] =$subtotal;
+                            echo json_encode($respone);
+                        } else {
+                            $respone['data'] = false;
+                            $respone['data_message'] ="Some error occucred";
+                            echo json_encode($respone);
+                        }
+                    } else {
+                        $respone['data'] = false;
+                        $respone['data_message'] ="Out of stock";
+                        echo json_encode($respone);
+                    }
                 } else {
                     $respone['data'] = false;
-                    $respone['data_message'] ="Some error occucred";
+                    $respone['data_message'] ="Out of stock";
                     echo json_encode($respone);
                 }
             } else {
