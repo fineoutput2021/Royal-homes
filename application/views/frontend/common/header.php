@@ -36,6 +36,146 @@
     <!-- <script src="<?=base_url()?>assets/frontend/assets/js/bootstrap.js"></script> -->
 <script src="<?=base_url()?>assets/frontend/assets/js/bootstrap-notify.min.js"></script>
   <style>
+  body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+    cursor: pointer;
+}
+.primary {
+    background: #e66c48;
+    border: 1px solid #e66c48;
+    border-radius: 0;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 2px;
+    transition: all .2s ease-in-out;
+    border-radius: 18px;
+}
+.logoimg{
+  margin-left: 18rem;
+  height:25px!important;
+  width:33px!important;
+  margin-top:1rem;
+}
+text-button{
+  text-align: center;
+}
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+}
+.social{
+  width:8px;
+  height:18px;
+}
+.social1{
+  width:18px;
+  height:18px;
+}
+.button {
+  width:100%;
+  margin-top:20px!important;
+background-color:  #e66c48;
+  border-radius: 18px!important;
+  color: white;
+  padding: 10px 22px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.btn{
+  width:270px;
+  background-color: white;
+}
+.btn1{
+  width:270px;
+  background-color: white;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.formforgot-wrap a {
+    color: #000;
+    font-family: 'euclid light';
+}
+.formforgot-wrap {
+    margin-top:20px;
+    margin-left: 0.5rem;
+    font-size: 12px;
+}
+.logosection{
+  height:135px;
+margin-left:-20px;
+margin-right:-20px;
+  margin-top:-48px;
+  background:gray;
+}
+.close{
+  margin-left:39rem;
+}
+input[type=password], input[type=search], input[type=text], input[type=url] {
+    background: #fff;
+    background-clip: padding-box;
+    border-bottom: 1px solid #c2c2c2;
+    border-radius: 1px;
+    font-size: 14px;
+    height: 32px;
+    line-height: 1.42857143;
+    padding: 0 9px;
+    vertical-align: baseline;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top:  20px;
+}
+input[type=email], input[type=number], input[type=password], input[type=search], input[type=text] input[type=url] {
+    background: #fff;
+    background-clip: padding-box;
+    /* border: 1px solid #c2c2c2; */
+    border-bottom: 1px solid #ccc;
+    border-radius: 1px;
+
+    /* font-size: 14px; */
+    /* height: 32px; */
+    line-height: 1.42857143;
+    padding: 0 9px;
+    vertical-align: baseline;
+    width: 100%;
+    box-sizing: border-box;
+}
 
     @media(max-width:640px) {
       .heimed1 {
@@ -889,7 +1029,87 @@ $category_data= $this->db->get();
               <?if(!empty($this->session->userdata('user_data'))){?>
               <i class="fa fa-user-o openbtn btn_change_change media_q_change2" aria-hidden="true" id="account_open_close" onclick="openNav2()"></i>
               <?}else{?>
-                <i class="fa fa-user-o openbtn btn_change_change media_q_change2" aria-hidden="true" data-id="model" data-target="#mymodel"></i>
+                <i class="fa fa-user-o openbtn btn_change_change media_q_change2" aria-hidden="true" id="myBtn" data-target="#mymodel"></i>
+                <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                 <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="logosection">
+
+                  <div class="logoimg">
+                <img src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/logo.png" alt="Logo" title="Orange tree"></div>
+                <div class="badge  text-black mt-4" style="margin-left:15rem;">
+      SIGN UP TO CONTINUE
+      </div>
+      <div class="row g-3">
+      <div class="col">
+      <button class="btn" style='margin-left:2rem;, width:145px!important;'><img class="social" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/facebook.svg" alt="social" >facebook</button>
+      </div>
+      <div class="col">
+      <button class="btn1"><img  class="social1" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/google.svg" alt="social">google
+
+      </button>
+      </div>
+
+      </div>
+
+                </div>
+                 <form>
+                   <div class="badge  text-black text-wrap" style="margin-left:5rem;">
+  Creating an account has many benefits: check out faster, keep more than one address, track orders and more.
+</div>
+                   <div>
+
+                   </div>
+
+                <div class="row g-3">
+  <div class="col">
+    <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+  </div>
+  <div class="col">
+    <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+  </div>
+
+</div>
+<div class="row g-3">
+<div class="col">
+<input type="text" class="form-control" placeholder="email" aria-label="Email">
+</div>
+<div class="col">
+<input type="text" class="form-control" placeholder="phonumber" aria-label="Phone nnuber">
+</div>
+
+</div>
+<div class="row g-3">
+<div class="col">
+<input type="text" class="form-control" placeholder="password" aria-label=" Password">
+</div>
+<div class="col">
+<input type="text" class="form-control" placeholder="confirm" aria-label="Confirm Password">
+</div>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+  <label class=" form-check-label text-black" for="flexCheckDefault">
+    Sign Up for Newsletter
+  </label>
+</div>
+<div>
+<button class="button">CREATE AN ACCOUNT</button>
+</div>
+<div class="badge  text-black text-wrap" style="margin-left:13rem;">
+Already have an Account ? Sign In
+</div>
+
+
+
+
+
+                 </form>
+                </div>
+
+               </div>
                 <?}?>
             </div>
             <li><a href="<?=base_url()?>Home/view_cart" style="color: #fff;"><i class="fa fa-shopping-bag NONE1" aria-hidden="true"></i></a></li>
@@ -899,3 +1119,31 @@ $category_data= $this->db->get();
       </div>
     </div>
   </header>
+
+  <script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
