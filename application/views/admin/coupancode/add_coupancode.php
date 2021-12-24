@@ -36,23 +36,23 @@
                                        <div class="table-responsive">
                                            <table class="table table-hover">
   <tr>
-<td> <strong>PromoCodeName </strong>  <span style="color:red;">*</span></strong> </td>
+<td> <strong>Name</strong>  <span style="color:red;">*</span></strong> </td>
 <td> <input type="text" name="name"  class="form-control" placeholder="" required value="" />  </td>
 </tr>
-  <tr>
+  <!-- <tr>
 <td> <strong>Start Date</strong>  <span style="color:red;">*</span></strong> </td>
 <td> <input type="date" id='date_picker' name="startdate"  class="form-control" placeholder="" required value="" />  </td>
-</tr>
+</tr> -->
   <tr>
-<td> <strong>End Date</strong>  <span style="color:red;">*</span></strong> </td>
+<td> <strong>Expire Date</strong>  <span style="color:red;">*</span></strong> </td>
 <td> <input type="date" id='datepicker' name="enddate"  class="form-control" placeholder="" required value="" />  </td>
 </tr>
   <tr>
-<td> <strong>Cart Amount </strong>  <span style="color:red;">*</span></strong> </td>
+<td> <strong>Minimum Amount </strong>  <span style="color:red;">*</span></strong> </td>
 <td> <input type="text" name="cartamount"  class="form-control" placeholder="" required value="" />  </td>
 </tr>
   <tr>
-<td> <strong>Percentage Off </strong>  <span style="color:red;">*</span></strong> </td>
+<td> <strong>Gift Percent</strong>  <span style="color:red;">*</span></strong> </td>
 <td> <input type="text" name="percentageoff"  class="form-control" placeholder="" required value="" />  </td>
 </tr>
   <tr>

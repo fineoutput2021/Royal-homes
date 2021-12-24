@@ -1020,12 +1020,12 @@
 
         <div class="d-flex justify-content-center">
           <br>
-          <input type="text" name="email" placeholder="Email id" style="background-color:  #f5f5f5; outline: none;">
+          <input type="email" name="email" placeholder="Email id" style="background-color:  #f5f5f5; outline: none;">
         </div>
         <br>
         <div style="text-align: center;">
           <!-- <input type="button" name="button" value="button"> -->
-          <a href="<?=base_url()?>Home/add_news_letter"><button>Submit</button></a>
+          <button type="submit">Submit</button>
         </form>
 
           <br>

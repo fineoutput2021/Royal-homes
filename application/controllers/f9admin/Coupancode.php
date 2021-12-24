@@ -104,7 +104,7 @@
                // print_r($this->input->post());
                // exit;
   $this->form_validation->set_rules('name', 'name', 'required|trim|customalpha');
-  $this->form_validation->set_rules('startdate', 'startdate', 'required');
+  // $this->form_validation->set_rules('startdate', 'startdate', 'required');
   $this->form_validation->set_rules('enddate', 'enddate', 'required');
   $this->form_validation->set_rules('cartamount', 'cartamount', 'required|integer');
   $this->form_validation->set_rules('percentageoff', 'percentageoff', 'required|integer');
@@ -117,7 +117,7 @@
                if($this->form_validation->run()== TRUE)
                {
   $name=$this->input->post('name');
-  $startdate=$this->input->post('startdate');
+  // $startdate=$this->input->post('startdate');
   $enddate=$this->input->post('enddate');
   $cartamount=$this->input->post('cartamount');
   $percentageoff=$this->input->post('percentageoff');
@@ -136,11 +136,11 @@
 
            $data_insert = array(
                   'name'=>$name,
-  'startdate'=>$startdate,
-  'enddate'=>$enddate,
-  'cartamount'=>$cartamount,
-  'percentageoff'=>$percentageoff,
-  'maximumdiscount'=>$maximumdiscount,
+  // 'startdate'=>$startdate,
+  'expdate'=>$enddate,
+  'minorder'=>$cartamount,
+  'giftpercent'=>$percentageoff,
+  'maxorder'=>$maximumdiscount,
 
                      'ip' =>$ip,
                      'added_by' =>$addedby,
@@ -167,13 +167,13 @@
 
 
 
-           $data_insert = array(
-                  'name'=>$name,
-  'startdate'=>$startdate,
-  'enddate'=>$enddate,
-  'cartamount'=>$cartamount,
-  'percentageoff'=>$percentageoff,
-  'maximumdiscount'=>$maximumdiscount,
+            $data_insert = array(
+                   'name'=>$name,
+   // 'startdate'=>$startdate,
+   'expdate'=>$enddate,
+   'minorder'=>$cartamount,
+   'giftpercent'=>$percentageoff,
+   'maxorder'=>$maximumdiscount
 
                      );
              $this->db->where('id', $idw);

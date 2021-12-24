@@ -36,28 +36,28 @@
                         <div class="table-responsive">
                             <table class="table table-hover">
 <tr>
-<td> <strong>PromoCodeName </strong>  <span style="color:red;">*</span></strong> </td>
+<td> <strong>Name</strong>  <span style="color:red;">*</span></strong> </td>
 <td> <input type="text" name="name"  class="form-control" placeholder="" required value="<?=$coupancode_data->name;?>" />  </td>
 </tr>
-<tr>
+<!-- <tr>
 <td> <strong>Start Date</strong>  <span style="color:red;">*</span></strong> </td>
-<td> <input type="date" name="startdate"  class="form-control" placeholder="" required value="<?=$coupancode_data->startdate;?>" />  </td>
-</tr>
+<td> <input type="date" name="startdate"  class="form-control" placeholder="" required value="<?$coupancode_data->startdate;?>" />  </td>
+</tr> -->
 <tr>
-<td> <strong>End Date</strong>  <span style="color:red;">*</span></strong> </td>
-<td> <input type="date" name="enddate"  class="form-control" placeholder="" required value="<?=$coupancode_data->enddate;?>" />  </td>
+<td> <strong>Expire Date</strong>  <span style="color:red;">*</span></strong> </td>
+<td> <input type="date" name="enddate"  class="form-control" placeholder="" required value="<?=$coupancode_data->expdate;?>" />  </td>
 </tr>
 <tr>
 <td> <strong>Cart Amount </strong>  <span style="color:red;">*</span></strong> </td>
-<td> <input type="text" name="cartamount"  class="form-control" placeholder="" required value="<?=$coupancode_data->cartamount;?>" />  </td>
+<td> <input type="text" name="cartamount"  class="form-control" placeholder="" required value="<?=$coupancode_data->minorder;?>" />  </td>
 </tr>
 <tr>
-<td> <strong>Percentage Off </strong>  <span style="color:red;">*</span></strong> </td>
-<td> <input type="text" name="percentageoff"  class="form-control" placeholder="" required value="<?=$coupancode_data->percentageoff;?>" />  </td>
+<td> <strong>Gift Percent </strong>  <span style="color:red;">*</span></strong> </td>
+<td> <input type="text" name="percentageoff"  class="form-control" placeholder="" required value="<?=$coupancode_data->giftpercent;?>" />  </td>
 </tr>
 <tr>
 <td> <strong>Maximum Discount </strong>  <span style="color:red;">*</span></strong> </td>
-<td> <input type="text" name="maximumdiscount"  class="form-control" placeholder="" required value="<?=$coupancode_data->maximumdiscount;?>" />  </td>
+<td> <input type="text" name="maximumdiscount"  class="form-control" placeholder="" required value="<?=$coupancode_data->maxorder;?>" />  </td>
 </tr>
 
 
