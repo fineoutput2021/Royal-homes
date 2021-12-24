@@ -1,21 +1,21 @@
 <div class="content-wrapper">
         <section class="content-header">
            <h1>
-           Order
+           Accepted Order
           </h1>
           <ol class="breadcrumb">
            <li><a href="<?php echo base_url() ?>admin/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="<?php echo base_url() ?>admin/college"><i class="fa fa-dashboard"></i> All Order </a></li>
-            <li class="active">View Order</li>
+            <li><a href="<?php echo base_url() ?>admin/college"><i class="fa fa-dashboard"></i> All Accepted Order </a></li>
+            <li class="active">View Accepted Order</li>
           </ol>
         </section>
           <section class="content">
           <div class="row">
              <div class="col-lg-12">
-                 <a class="btn btn-info cticket" href="<?php echo base_url() ?>admin/home/add_team" role="button" style="margin-bottom:12px;"> Add Order</a>
+                 <!-- <a class="btn btn-info cticket" href="<?php echo base_url() ?>admin/home/add_team" role="button" style="margin-bottom:12px;"> Add Order</a> -->
                               <div class="panel panel-default">
                                   <div class="panel-heading">
-                                      <h3 class="panel-title"><i class="fa fa-money fa-fw"></i>View order</h3>
+                                      <h3 class="panel-title"><i class="fa fa-money fa-fw"></i>View Accepted Order</h3>
                                   </div>
                                      <div class="panel panel-default">
 
@@ -97,12 +97,12 @@
 
 
                               ?></td>
-                              <td><?php echo $data->address ?></td>
-                              <td><?php echo $data->phone  ?></td>
-                              <td><?php echo $data->city  ?></td>
-                              <td><?php echo $data->state  ?></td>
-                              <td><?php echo $data->pincode  ?></td>
-                            <td><?php echo  $type=$data->payment_type;
+                            <td><?php echo $data->address ?></td>
+                            <td><?php echo $data->phone  ?></td>
+                            <td><?php echo $data->city  ?></td>
+                            <td><?php echo $data->state  ?></td>
+                            <td><?php echo $data->pincode  ?></td>
+                            <td><?php $type=$data->payment_type;
                             $n1="";
                             if($type==1){
                               $n1="COD";
@@ -141,7 +141,7 @@
                               </td>
                             <td><?php $status=$data->order_status;
                             if( $status==1){
-                              $status="New Order";
+                              $status="Placed";
                             }
                             if($status==2){
                               $status="Accepted";
@@ -172,15 +172,8 @@
 
 
 
-
-<li><a href="<?php echo base_url() ?>dcadmin/Orders/update_order_status/<?php echo
-base64_encode($data->id) ?>/accept">Accept order</a></li>
-
-<li><a href="<?php echo base_url() ?>dcadmin/Orders/update_order_status/<?php echo
-base64_encode($data->id) ?>/hold">Hold order</a></li>
-
-<!-- <li><a href="<?php echo base_url() ?>dcadmin/Neworder/update_dispatch_status/<?php echo
-base64_encode($data->id) ?>/dispatch">Dispatch order</a></li> -->
+  <li><a href="<?php echo base_url() ?>dcadmin/Orders/update_dispatch_status/<?php echo
+  base64_encode($data->id) ?>/dispatch">Dispatch order</a></li>
 
 
 
@@ -188,9 +181,9 @@ base64_encode($data->id) ?>/dispatch">Dispatch order</a></li> -->
   base64_encode($data->id) ?>/Cancel">Cancel order</a></li>
 
 
-<li><a href="<?php echo base_url() ?>dcadmin/Orders/view_product_status/<?php echo
+<!-- <li><a href="<?php echo base_url() ?>dcadmin/Neworder/view_product_status/<?php echo
 base64_encode($data->id) ?>">view product</a></li>
-<!-- <li><a href="<?php echo base_url() ?>dcadmin/Neworder/view_order_bill/<?php echo
+<li><a href="<?php echo base_url() ?>dcadmin/Neworder/view_order_bill/<?php echo
 base64_encode($data->id) ?>">view bill</a></li> -->
 
 

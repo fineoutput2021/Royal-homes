@@ -39,11 +39,11 @@
         <tr>
         <th>#</th>
 
- 	 <th>PromoCodeName </th>
- 	 <th>Start Date</th>
- 	 <th>End Date</th>
- 	 <th>Cart Amount </th>
- 	 <th>Percentage Off </th>
+ 	 <th>Name</th>
+ 	 <!-- <th>Start Date</th> -->
+ 	 <th>Expire Date</th>
+ 	 <th> Minimum Amount </th>
+ 	 <th>Giftpercent</th>
  	 <th>Maximum Discount </th>
 
 
@@ -57,11 +57,11 @@
         <td><?php echo $i ?> </td>
 
  	 <td><?php echo $data->name ?></td>
- 	 <td><?php echo $data->startdate ?></td>
- 	 <td><?php echo $data->enddate ?></td>
- 	 <td><?php echo $data->cartamount ?></td>
- 	 <td><?php echo $data->percentageoff ?></td>
- 	 <td><?php echo $data->maximumdiscount ?></td>
+ 	 <!-- <td><?php $data->startdate ?></td> -->
+ 	 <td><?php echo $data->expdate ?></td>
+ 	 <td><?php echo $data->minorder ?></td>
+ 	 <td><?php echo $data->giftpercent ?></td>
+ 	 <td><?php echo $data->maxorder ?></td>
 
 
 
@@ -155,7 +155,3 @@
         <!-- <script type="text/javascript" src="<?php echo base_url()
         ?>assets/slider/ajaxupload.3.5.js"></script>
         <script type="text/javascript" src="<?php echo base_url() ?>assets/slider/rs.js"></script> -->
-
-
-
-        
