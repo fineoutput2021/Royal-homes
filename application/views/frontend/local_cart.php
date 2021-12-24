@@ -1502,7 +1502,7 @@
               <!-- <p>$ <span>200.00</span></p>
                   <a class="css-1usgn1r epypi6q4"> VIEW DETAILS</a> -->
             </div>
-            <a href="https://www.fineoutput.co.in/jewellery2/public/open_login">
+            <a href="<?=base_url()?>Home/checkout">
               <button class="epypi6q0 e1jmj0hg1 css-17fmasb e1jmj0hg0" style="font-size: 14px;"><span class="erq4t6042 css-5whwel efp5dbi0"></span>Checkout Securely</button>
               <label class="ml-5" style="color:red;font-size: 13px;">Please login/Register for checkout</label>
             </a>
@@ -1558,7 +1558,7 @@
               '<a href="{3}" target="{4}" data-notify="url"></a>' +
               '</div>'
           });
-        
+
 
         } else if (response.data == false) {
           $.notify({

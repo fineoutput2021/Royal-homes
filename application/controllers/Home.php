@@ -194,7 +194,37 @@ class Home extends CI_Controller
               }
 
 
+public function checkout(){
 
+                 if(!empty($this->session->userdata('admin_data'))){
+
+
+                   $data['user_name']=$this->load->get_var('user_name');
+
+                   // echo SITE_NAME;
+                   // echo $this->session->userdata('image');
+                   // echo $this->session->userdata('position');
+                   // exit;
+
+            $this->db->select('*');
+$this->db->from('tbl_coupancode');
+//$this->db->where('id',$usr);
+$data['coupan_code']= $this->db->get();
+
+
+
+
+                   $this->load->view('frontend/common/header',$data);
+                   $this->load->view('frontend/checkout.php');
+                   $this->load->view('frontend/common/footer');
+
+               }
+               else{
+
+                  redirect("login/admin_login","refresh");
+               }
+
+               }
 
 
 
@@ -202,4 +232,5 @@ class Home extends CI_Controller
     {
         $this->load->view('errors/error404');
     }
+
 }
