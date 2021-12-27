@@ -122,7 +122,7 @@ class Order extends CI_Controller
             $data['order_data']= $this->db->get()->row();
 
             $this->load->view('frontend/common/header', $data);
-            $this->load->view('frontend/checkout');
+            $this->load->view('frontend/checkout2');
             $this->load->view('frontend/common/footer');
         } else {
             redirect("Home/index", "refresh");
