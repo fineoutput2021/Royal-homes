@@ -153,9 +153,9 @@ ul#wizardStatus li.current:before{display:none;}
 .check_button ul li{margin:20px 20px 20px 20px;}
 .subtotal{float:left;display:block;width:100%;}
 .cart_page .col-md-3{top:0;padding:0;}
-.cart_page{overflow-x:auto;}
+.cart_page{overflow-x:hidden;}
 .bd_seprate{width:1000px!important;}
-ul#wizardStatus{width:1000px!important;}
+ul#wizardStatus{width:622px!important;}
 .check_button{width:1000px!important;}
 }
 a,button{cursor:pointer;}
@@ -283,10 +283,25 @@ a,a:hover,a:active{text-decoration:none;color:inherit;}
 button.chek_btn{background:#e98927;color:#fff;border:none;font-size:17px;padding:12px 20px 12px 20px;background-position:10px 14px;}
 /*! CSS Used fontfaces */
 @font-face{font-family:'FontAwesome';src:url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.eot?v=4.7.0');src:url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.eot#iefix&v=4.7.0') format('embedded-opentype'),url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0') format('woff2'),url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff?v=4.7.0') format('woff'),url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.ttf?v=4.7.0') format('truetype'),url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg');font-weight:normal;font-style:normal;}
+
+.setposition{
+  padding-top: 7rem;
+}
+input{
+  overflow: hidden;
+}
+@media (max-width:360px) {
+  .cart .form-control{
+    width: 26%;
+  }
+  .check_button{
+     width: 19rem !important;
+  }
+}
 </style>
 
-<section class="mt-5 mb-5 cart">
-<div class="container-fluid pl-lg-5 pr-lg-5">
+<section class="mb-5 cart">
+<div class="container-fluid pl-lg-5 pr-lg-5 setposition">
 <div class="row accordion" id="accordionExample">
 <div class="cart_page">
 <div class="col-md-9 cart_display  ">
@@ -311,7 +326,7 @@ button.chek_btn{background:#e98927;color:#fff;border:none;font-size:17px;padding
          <label for="phone">Mobile No. <span style="color:red;">*</span></label><!----><!----><input class="form-control input_vg ng-untouched ng-pristine ng-valid" id="phone" name="phone" placeholder="" type="text" value="8387039990" required="" minlengh="10" maxlength="10" pattern="\d{10}" title="Please enter exactly 10 digits" onkeyup="saveValue(this);">
       </div>
       <div class="form-group col-md-4 col-sm-4">
-         <label for="gst">GST Number </label><!----><!----><input class="form-control input_vg ng-untouched ng-pristine ng-valid" id="gst" name="gst" placeholder="" type="text" onkeyup="saveValue(this);" value="">
+         <label for="gst">Postal Code </label><input class="form-control input_vg ng-untouched ng-pristine ng-valid" id="gst" name="gst" placeholder="" type="text" onkeyup="saveValue(this);" value="">
       </div>
    </div>
    <div class="">

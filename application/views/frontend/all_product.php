@@ -1,4 +1,27 @@
 <style>
+@media (max-width:360px) {
+  .firrr h4 {
+  text-align: inherit;
+}
+.meddesk{
+      margin-left: 13rem;
+}
+.my-img{
+      width: 21rem !important;
+}
+.pres{
+  font-size: 17px;
+}
+.section{
+   /* margin: 0px; */
+}
+
+}
+.hovee a:hover{
+  background: #d76a46;
+color: #fff;
+cursor: pointer;
+}
   @media(max-width:640px) {
     .heimed1 {
       height: 1518px !important;
@@ -128,7 +151,7 @@
 <style>
 @media(max-width:640px){
   .desmed{
-    display: none;
+    display: none !important ;
   }
 }
 @media (min-width:640px){
@@ -172,7 +195,9 @@ margin-left: -300px; /*half the width*/
 }
 
 .my-img:hover {
-  content: url('img/13.jpg');
+  /* content: url('img/13.jp'); */
+  content: url('https://images.unsplash.com/photo-1508919801845-fc2ae1bc2a28?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aW1nfGVufDB8fDB8fA%3D%3D&w=1000&q=80');
+
 }
 @media (max-width: 640px){
   .media_mobile{
@@ -212,9 +237,9 @@ color: red;
       <!-- desktop section -->
       <div style="display: flex; border: 1px solid gray; margin-left: 270px;" class="desktophm">
         <div style="padding: 37px;">
-        <h1 style="font-weight: 300; font-family: 'Playfair Display', serif; font-size: 31px; color: #1f1b1b;">Santorini</h1>
+        <h1 style="font-family: 'questa-grande';font-weight: 300;font-size: 35px;margin-bottom: 30px;color: #1f1b1b;">Santorini</h1>
         <br>
-        <span><p style="font-weight: 400; font-family: 'Ubuntu', sans-serif; color: #1f1b1b;">We all lust after a life and home style that radiates and speaks of simplicity and a relaxed way of living, a slower pace that is more in tune with nature.  Through Satorini collection we bring the classic mediterranean style right to yourr home for you all to enjoy. Design combines boldness, simplicity and convenience in light and warm color scheme, with extensive use of natural materials such as ceramics, wood, iron, cane, glass and cotton.</p></span>
+        <span><p style="font-family: 'euclid light';font-size: 14px;letter-spacing: 0px;line-height: 1.6;">We all lust after a life and home style that radiates and speaks of simplicity and a relaxed way of living, a slower pace that is more in tune with nature.  Through Satorini collection we bring the classic mediterranean style right to yourr home for you all to enjoy. Design combines boldness, simplicity and convenience in light and warm color scheme, with extensive use of natural materials such as ceramics, wood, iron, cane, glass and cotton.</p></span>
         </div>
         <img src="img/10.jpg" alt="">
       </div>
@@ -224,25 +249,45 @@ color: red;
         <img src="img/10.jpg" alt="">
         <h1 style="font-weight: 300; font-family: 'Playfair Display', serif; font-size: 31px; color: #1f1b1b; text-align: center;">Santorini</h1>
         <br>
-        <span><p style="font-weight: 400; font-family: 'Ubuntu', sans-serif; color: #1f1b1b; padding: 10px;">We all lust after a life and home style that radiates and speaks of simplicity and a relaxed way of living, a slower pace that is more in tune with nature.  Through Satorini collection we bring the classic mediterranean style right to yourr home for you all to enjoy. Design combines boldness, simplicity and convenience in light and warm color scheme, with extensive use of natural materials such as ceramics, wood, iron, cane, glass and cotton.</p></span>
+        <span><p style="font-family: 'euclid light';font-size: 14px;letter-spacing: 0px;line-height: 1.6;">We all lust after a life and home style that radiates and speaks of simplicity and a relaxed way of living, a slower pace that is more in tune with nature.  Through Satorini collection we bring the classic mediterranean style right to yourr home for you all to enjoy. Design combines boldness, simplicity and convenience in light and warm color scheme, with extensive use of natural materials such as ceramics, wood, iron, cane, glass and cotton.</p></span>
         <br>
         </div>
       </div>
       <br>
-      <h1 class="desmed" style="font-family: 'Playfair Display', serif; margin-left: 275px; font-size: 27px;">Santorini</h1>
+      <h1 class="desmed" style="margin-left: 275px;    font-size: 35px;
+    font-family: 'questa-grande';
+    font-weight: 300;
+    white-space: nowrap;
+    color: #4e4e4e;
+    display: inline-block;">Santorini</h1>
       <span class=" col-md-6 text-end">
         <div class="gtre" style="margin-top: -76px;">
 
-          <p>SORTED BY:
+          <p style="margin-bottom:-3.5rem;"><span style="    margin: 0;
+    font-family: 'gotham';
+    font-size: 11px;
+    text-transform: uppercase;">SORTED BY:</span>
             <!-- <b>Position <i class="fas fa-chevron-down"></i></b></p></div> -->
             <span class="dropdown">
-              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
-                style="background-color: transparent; color: #111; text-align: center; margin-top: 24px; border: 0;">
+              <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"
+                style="font-family: 'euclid bold';
+    text-transform: uppercase;
+    font-size: 11px;
+    margin: 0 0 0 5px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    position: relative;margin-top: 33px; border:0;background:none;">
                 <b>POSITION <i class="fa fa-chevron-down"></i></b>
           </p>
           </button>
 
-          <span class="dropdown-menu" style="margin-left: -64px;;">
+          <span class="dropdown-menu hovee" style="margin-left: -64px;    text-align: left;
+    padding: 10px 0 10px 20px;
+    margin: 0;
+    font-family: 'euclid light';
+    font-size: 11px;
+    text-transform: uppercase;
+    transition: all .1s ease-in-out;">
             <a class="dropdown-item" href="#">POSITION</a>
             <a class="dropdown-item" href="#">PRODUCTSTATE</a>
             <a class="dropdown-item" href="#">POPULARITY</a>
@@ -267,7 +312,13 @@ color: red;
 
             <div class="bbb">
               <!-- <pre><b>-  Collection</b></pre> -->
-              <button id="Button2" class="roundBtns"  onclick="togglediv('NamesTable')" type="button"> <b>-  Collection</b></button>
+              <!-- <button id="Button2" class="roundBtns"  onclick="togglediv('NamesTable')" type="button" style="font-family: 'gotham medium';
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: 0;
+    cursor: pointer;
+    position: relative;
+    padding: -1px 0 14px 20px;margin: 0 0 10px;line-height: 1.1;border:0; background:none;"> <b>-  Collection</b></button> -->
 
             </div>
             <div class="pp">
@@ -276,7 +327,10 @@ color: red;
 
 
 
-              <div id="NamesTable" class="TableBody" style="display:none;">
+              <div id="NamesTable" class="TableBody" style="display:none;    color: #000;
+    text-decoration: none;
+    font-size: 12px;
+    font-family: 'gotham';">
                 <p><input type="radio" name="1" id=""> (3)</p>
                 <p><input type="radio" controls name="2" id=""> Barceleno(7)</p>
                 <p><input type="radio" name="3" id=""> Biccasso(6)</p>
@@ -302,12 +356,21 @@ color: red;
 
               <div class="bbb">
               <!-- <pre><b>+  Price</b></pre> -->
-              <button id="Button1" class="roundBtns" onclick="togglediv('PhoneTable')" type="button"><b>+  Price</b> </button>
+              <!-- <button id="Button1" class="roundBtns" onclick="togglediv('PhoneTable')" type="button" style="font-family: 'gotham medium';
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: 0;
+    cursor: pointer;
+    position: relative;
+    padding: 14px 0 14px 20px;border:0;background:none;"><b>+  Price</b> </button> -->
             </div>
             <div>
 
-              <div id="PhoneTable" class="TableBody" style="display:none">
-                <p><input type="radio" name="" id=""> ₹10000 and above (5)</p>
+              <div id="PhoneTable" class="TableBody" style="display:none;">
+                <p style="    color: #000;
+    text-decoration: none;
+    font-size: 12px;
+    font-family: 'gotham';"><input type="radio" name="" id=""> ₹10000 and above (5)</p>
                </div>
             </div>
 
@@ -324,7 +387,7 @@ color: red;
           <img src="img/1.png" alt="">
 
         </div> -->
-        <div class="col-md-12  col-sm-6">
+        <div class="col-md-10  col-sm-6">
           <div class="row">
           <?php $i=1; foreach($product_data->result() as $product) { ?>
         <div class="col-md-4  col-sm-6">
@@ -332,24 +395,20 @@ color: red;
             <!-- <a href="productdetail.html"  ><img src="img/10.jpg" ></a> -->
             <br>
             <a href="<?=base_url()?>Home/product_details"><img class="my-img" src="<?=base_url().$product->image?>" /></a>
-            <h4><b style="font-family: 'Playfair Display', serif;"><?=$product->productname?></b> <br></span><br>Rs.<?=$product->mrp?></h4>
-            <?if(empty($this->session->userdata('user_data'))){?>
-            <button style="border: 1px solid black; border-radius: 2px; background-color: black; color: white;"
+            <h4 style="    font-size: 14px;
+    font-family: 'euclid bold';
+    font-weight: 400;"><b style="text-decoration: none;
+    font-family: 'questa-grande';
+    font-weight: 300;
+    font-size: 22px;"><?=$product->productname?></b> <br></span><br>Rs.<?=$product->mrp?></h4>
+
+            <button style="border: 1px solid black; border-radius: 32px; background-color: black; color: white;    font-size: 12px;"
             onclick="addToCartOffline(this)"
             product_id="<?=$product->id?>"
             quantity="1"
-            >Add to Cart</button>
-            <span><i class="fa fa-heart medmob" style="margin-left: 192px" id="heart"></i></span>
+            >Add to Cart</button><span><i class="fa fa-heart medmob" style="margin-left: 116px" id="heart"></i></span>
             <span><i class="fa fa-heart meddesk" id="heart"></i></span>
-            <?}else{?>
-              <button style="border: 1px solid black; border-radius: 2px; background-color: black; color: white;"
-              onclick="addToCartOnline(this)"
-              product_id="<?=$product->id?>"
-              quantity="1"
-              >Add to Cart</button>
-              <span><i class="fa fa-heart medmob" style="margin-left: 192px" id="heart"></i></span>
-              <span><i class="fa fa-heart meddesk" id="heart"></i></span>
-            <?}?>
+
             <br>
 
           </div>
@@ -400,7 +459,7 @@ color: red;
         <h2 style="    font-size: 33px; font-weight: 400; color: #4d3535; font-family: 'Playfair Display', serif;">Sign up for Our newsletter</h2>
         <br>
         <br>
-        <p>Enter your email to stay in the loop on new collection,upcoming events,and more.</p>
+        <p class="pres">Enter your email to stay in the loop on new collection,upcoming events,and more.</p>
         <br>
         <br>
         <input type="text" name="E-mail" placeholder="Email Id" style="background-color: white;">
