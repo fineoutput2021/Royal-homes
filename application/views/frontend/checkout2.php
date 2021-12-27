@@ -1469,6 +1469,19 @@ a{font-size:14.5px;}
     -ms-touch-action: manipulation;
     touch-action: manipulation;
   }
+  .in_prodiv button {
+    position: absolute;
+    top: 121px;
+    padding: 1rem;
+    right: 35px;
+    height: 44px;
+    background: none;
+    border: 0;
+}
+.settype{
+  width: 18rem !important;
+  margin-top: 0px !important;
+}
 </style>
 <style>
   *,
@@ -2474,7 +2487,7 @@ a{font-size:14.5px;}
     cursor: pointer;
     padding: 1px;
     min-height: 80px;
-    max-width: 350px;
+    max-width: 548px;
   }
 
   .street {
@@ -2838,9 +2851,9 @@ a{font-size:14.5px;}
   input[type=text] {
     border: 1px solid #E6E7E8;
     letter-spacing: 1px;
-    height: 50px;
+    /* height: 50px; */
     padding: 0 20px;
-    /* width: 30rem; */
+    /* width: 26rem; */
     border-radius: 0;
     background-clip: padding-box;
     font-weight: 400;
@@ -2880,7 +2893,7 @@ a{font-size:14.5px;}
         </h2>
         <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
           <div class="accordion-body">
-            <div class="css-1gvurk0 ez4e8l00">
+            <div class="css-1gvurk0 ez4e8l00 col-md-12">
               <div>
                 <div class="css-1b1zfbw">
                   <div style="max-height: 251px;overflow: auto;">
@@ -2889,27 +2902,51 @@ a{font-size:14.5px;}
                         <form class="add_address_form" action="https://www.fineoutput.co.in/jewellery2/public/add_address_process" method="post">
       <input type="hidden" name="_token" value="GcoFfbNsCYUBsDsQgAz2wtt2S1K9uQsZTAbrZrNb">	<div class="row pt-5 pb-5">
   			<h4 class="pb-3">Contact Information</h4>
-  			<label>Customer Name</label>
-  			<input type="text" name="customer_name" class="form-control" required="">
-        <label>Customer Email </label>
-        <input type="email" name="customer_email" class="form-control" required="">
-  			<label>Customer Number </label>
-  			<input type="text" name="customer_number" class="form-control" onkeypress="return isNumberKey(event)" pattern="^[0-9]+$" minlength="10" maxlength="10" required="">
+        <div class="d-flex" style="    justify-content: space-between;">
 
+        <div class="">
+  			<label>Customer Name</label>
+  			<input type="text" name="customer_name" placeholder="Enter your Name" class="form-control settype" required="">
+            </div>
+        <div class="">
+        <label>Customer Email </label>
+        <input type="email" name="customer_email" placeholder="Enter your email" class="form-control settype" required="">
+      </div>
+    </div>
+  <div class="d-flex" style="    justify-content: space-between;">
+    <div class="">
+
+  			<label>Customer Number </label>
+  			<input type="text" name="customer_number" class="form-control settype" placeholder="Enter your number" onkeypress="return isNumberKey(event)" pattern="^[0-9]+$" minlength="10" maxlength="10" required="">
+
+      </div>
   		<!-- <div class="col-sm-12 col-md-12 col-lg-12"> -->
+      <div class="">
+
   			<h4 class="pb-3">Address</h4>
 
-  			<label> Address</label>
+  			<!-- <label> Address</label> -->
   			<!-- <input type="text" name=""> -->
-        <textarea type="text" name="address" class="form-control" id="exampleFormControlTextarea1" rows="3" required=""></textarea>
+        <textarea type="text" name="address" class="form-control settype" id="exampleFormControlTextarea1" rows="3" required=""></textarea>
+
+      </div>
+    </div>
+   <div class="d-flex" style="    justify-content: space-between;">
+
+    <div class="">
         <label>Doorflat</label>
-        <input type="text" name="doorflat" class="form-control">
+        <input type="text" name="doorflat" class="form-control settype">
+  </div>
+  <div class="">
 
         <label>Landmark</label>
-        <input type="text" name="landmark" class="form-control">
+        <input type="text" name="landmark" class="form-control settype">
 
+        </div>
+
+      </div>
         <label>Zip/Postal Code</label>
-        <input type="text" name="zipcode" pattern="^[0-9]+$" onkeypress="return isNumberKey(event)" minlength="6" maxlength="6" class="form-control" required="">
+        <input type="text" name="zipcode" pattern="^[0-9]+$" onkeypress="return isNumberKey(event)" minlength="6" maxlength="6" class="form-control settype" required="">
 
   		<!-- </div> -->
   		<div class="d-flex">
