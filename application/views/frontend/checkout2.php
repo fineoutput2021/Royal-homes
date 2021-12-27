@@ -2905,54 +2905,54 @@ a{font-size:14.5px;}
         <div class="d-flex" style="    justify-content: space-between;">
 
         <div class="">
-  			<label>Customer Name</label>
+  			<label>name</label>
   			<input type="text" name="customer_name" placeholder="Enter your Name" class="form-control settype" required="">
             </div>
         <div class="">
-        <label>Customer Email </label>
+        <label>Email </label>
         <input type="email" name="customer_email" placeholder="Enter your email" class="form-control settype" required="">
       </div>
     </div>
   <div class="d-flex" style="    justify-content: space-between;">
     <div class="">
 
-  			<label>Customer Number </label>
+  			<label>Phone</label>
   			<input type="text" name="customer_number" class="form-control settype" placeholder="Enter your number" onkeypress="return isNumberKey(event)" pattern="^[0-9]+$" minlength="10" maxlength="10" required="">
 
       </div>
   		<!-- <div class="col-sm-12 col-md-12 col-lg-12"> -->
       <div class="">
 
-  			<h4 class="pb-3">Address</h4>
-
+  			<!-- <h4 class="pb-3">Address</h4> -->
+       		<label>street</label>
   			<!-- <label> Address</label> -->
   			<!-- <input type="text" name=""> -->
-        <textarea type="text" name="address" class="form-control settype" id="exampleFormControlTextarea1" rows="3" required=""></textarea>
+        <textarea type="text" name="address" class="form-control settype" placeholder="Enter your street"  id="exampleFormControlTextarea1" rows="3" required="" style="height:3rem;"></textarea>
 
       </div>
     </div>
-   <div class="d-flex" style="    justify-content: space-between;">
+   <!-- <div class="d-flex" style="    justify-content: space-between;"> -->
 
     <div class="">
-        <label>Doorflat</label>
-        <input type="text" name="doorflat" class="form-control settype">
+        <label>PinCode</label>
+        <input type="text" name="zipcode" pattern="^[0-9]+$" placeholder="Enter your pincode" onkeypress="return isNumberKey(event)" minlength="6" maxlength="6" class="form-control settype" required="">
   </div>
-  <div class="">
+  <!-- <div class=""> -->
 
-        <label>Landmark</label>
-        <input type="text" name="landmark" class="form-control settype">
+        <!-- <label>Landmark</label> -->
+        <!-- <input type="text" name="landmark" class="form-control settype"> -->
 
-        </div>
+        <!-- </div> -->
 
-      </div>
-        <label>Zip/Postal Code</label>
-        <input type="text" name="zipcode" pattern="^[0-9]+$" onkeypress="return isNumberKey(event)" minlength="6" maxlength="6" class="form-control settype" required="">
+      <!-- </div> -->
+        <!-- <label>Zip/Postal Code</label> -->
+        <!-- <input type="text" name="zipcode" pattern="^[0-9]+$" onkeypress="return isNumberKey(event)" minlength="6" maxlength="6" class="form-control settype" required=""> -->
 
   		<!-- </div> -->
-  		<div class="d-flex">
+  		<!-- <div class="d-flex" style="padding-top:1rem;">
   			<button class="mr-4 save_btn" type="submit">Save Address</button>
   			<a href="https://www.fineoutput.co.in/jewellery2/public/checkout"><button class="back_btn">Go Back</button></a>
-  		</div>
+  		</div> -->
   	</div>
   	</form>
                       </div>
