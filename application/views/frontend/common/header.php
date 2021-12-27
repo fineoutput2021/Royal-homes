@@ -26,7 +26,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100&family=Zen+Antique+Soft&family=Zen+Old+Mincho&display=swap" rel="stylesheet">
 
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100&family=Zen+Antique+Soft&family=Zen+Old+Mincho&display=swap" rel="stylesheet">
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;1,200&family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
   <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/frontend/assets/css/animate.css">
 
@@ -39,12 +41,35 @@
     }
 
     /* The Modal (background) */
-    .modal {
+
+    .modal1 {
       display: none;
       /* Hidden by default */
       position: fixed;
       /* Stay in place */
+      z-index: 3;
+      /* Sit on top */
+      padding-top: 100px;
+      /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%;
+      /* Full width */
+      height: 100%;
+      /* Full height */
+      overflow: auto;
+      /* Enable scroll if needed */
+      background-color: rgb(0, 0, 0);
+      /* Fallback color */
+      background-color: rgba(0, 0, 0, 0.4);
+      /* Black w/ opacity */
+    }
+    .modal {
+      display: none;
       z-index: 1;
+      /* Hidden by default */
+      position: fixed;
+      /* Stay in place */
       /* Sit on top */
       padding-top: 100px;
       /* Location of the box */
@@ -82,10 +107,11 @@
     }
 
     .logoimg {
-      margin-left: 18rem;
+      margin-left: 17rem;
       height: 25px !important;
       width: 33px !important;
-      margin-top: 1rem;
+      margin-top: 0rem;
+      margin-bottom: 2rem;
     }
 
     text-button {
@@ -98,7 +124,7 @@
       /* Hidden by default */
       position: fixed;
       /* Stay in place */
-      z-index: 1;
+      z-index: 3;
       /* Sit on top */
       left: 0;
       top: 0;
@@ -146,7 +172,7 @@
       margin: auto;
       padding: 20px;
       border: 1px solid #888;
-      width: 50%;
+      width: 40%;
     }
 
     .social {
@@ -211,7 +237,7 @@
     }
 
     .logosection {
-      height: 135px;
+      height: 200px;
       margin-left: -20px;
       margin-right: -20px;
       margin-top: -48px;
@@ -1018,6 +1044,9 @@
       background-color: #5cb85c;
       color: white;
     }
+    .form_method_name{
+      padding:14px 24px;
+    }
   </style>
 </head>
 
@@ -1106,9 +1135,12 @@ $category_data= $this->db->get();
               </div>
             </li>
             <li class="media_q_change1"><i class="fa fa-search" aria-hidden="true"></i></li>
-            <li class="media_q_change1"><a href="<?=base_url()?>/Home/checkout2" style="color: #fff;"><i class="fa fa-heart-o" aria-hidden="true"></i></a></li>
+            <li class="media_q_change1"><a href="wish list.html" style="color: #fff;"><i class="fa fa-heart-o" aria-hidden="true"></i></a></li>
             <div id="mySidebar" class="sidebar">
               <a href="javascript:void(0)" class="closebtn" id="account_open_close" onclick="closeNav2()">×</a>
+              <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button> -->
               <a href="addresssetting.html">ACCOUNT SETTINGS</a>
               <a href="My Addresses.html">ADDRESSES</a>
               <a href="Address form.html">ADDRESS Form</a>
@@ -1146,22 +1178,29 @@ $category_data= $this->db->get();
               ?>
             <li><a href="<?=base_url()?>Home/view_cart" style="color: #fff;"><i class="fa fa-shopping-bag NONE1" aria-hidden="true"></i><span><?if(!empty($count)){echo $count;}?></span></a></li>
 
-            <li class="media_q_change1"><a href="#" style="color: #fff;"><i class='fa fa-truck' id="myBtns" style='font-size: 19px'></i></a></li>
+            <li class="media_q_change1"><a href="#" style="color: #fff;"><i class='fa fa-truck' style='font-size: 19px'></i></a></li>
 
           </ul>
         </div>
       </div>
     </div>
   </header>
-  <div id="myModal" class="modal">
+  <div id="myModals1" class="modal1 close3">
     <!-- Modal content -->
     <div class="modal-content">
-      <span class="close">&times;</span>
-      <div class="logosection">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" onclick="myFunction8()">&times;</span>
+          </button>
+      <div class="logosection" style="
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+"   >
         <div class="logoimg">
           <img src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/logo.png" alt="Logo" title="Orange tree">
         </div>
-        <div class="badge  text-black mt-4" style="margin-left:15rem;">
+        <div class="badge  text-black mt-4" style="font-size:18px">
           SIGN UP TO CONTINUE
         </div>
         <div class="row g-3">
@@ -1179,7 +1218,7 @@ $category_data= $this->db->get();
 
       </div>
       <form action="<?=base_url()?>User_login/user_register" method="post" enctype="multipart/form-data">
-        <div class="badge  text-black text-wrap" style="margin-left:5rem;">
+        <div class="badge  text-black text-wrap" style="display:flex;justify-content:center;">
           Creating an account has many benefits: check out faster, keep more than one address, track orders and more.
         </div>
         <div>
@@ -1216,7 +1255,7 @@ $category_data= $this->db->get();
           <button class="button" type="submit">CREATE AN ACCOUNT</button>
         </div>
       </form>
-        <div class="badge  text-black text-wrap" style="margin-left:13rem;">
+        <div class="badge  text-black text-wrap" style="margin-left:13rem;" id="pop_myBtn" >
           Already have an Account ? Sign In
         </div>
 
@@ -1224,23 +1263,31 @@ $category_data= $this->db->get();
     </div>
 
   </div>
-  <div id="myModals" class="modal">
+
+  <!-- second modal -->
+  <div id="myModals" class="modal  close2">
           <!-- Modal content -->
           <div class="modal-content">
-<span class="close" style='margin-left:39rem;'>&times;</span>
-<div class="logosection">
+<span class="close" onclick="myFunction7()" style='margin-left:34rem;'>&times;</span>
+
+<div class="logosection " style="
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+">
 
  <div class="logoimg">
-<img src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/logo.png" alt="Logo" title="Orange tree"></div>
-<div class="badge  text-black mt-4" style="margin-left:15rem;">
+<img src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/logo.png" alt="Logo" title="Orange tree" style="margin-top:1rem"></div>
+<div class="badge  text-black mt-4" style="font-size:18px;font-family:'Miller Display';padding-bottom:2rem;">
 SIGN IN TO CONTINUE
 </div>
-<div class="row g-3">
-<div class="col">
+<div class="row g-3" style="margin-bottom:40px;">
+<div class="col" style="padding-right: 0px;">
 <button class="btn" style='margin-left:2rem;, width:145px!important;'><img class="social" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/facebook.svg" alt="social" >facebook</button>
 </div>
 <div class="col">
-<button class="btn1"><img  class="social1" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/google.svg" alt="social">google
+<button class="btn1" style="border:0px;border-radius:3px;"><img  class="social1" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/google.svg" alt="social">google
 
 </button>
 </div>
@@ -1250,26 +1297,30 @@ SIGN IN TO CONTINUE
 </div>
 <form action="<?=base_url()?>User_login/user_login" method="post" enctype="multipart/form-data">
 
-  <div class="badge  text-black text-wrap" style="margin-left:12rem;">
+  <div class="badge  text-black text-wrap" style="display:flex;justify-content:center;margin: 20px;font-size: 1rem;font-weight:unset;font-family:'euclid light';">
 Sign in with your email address.
 </div>
   <div>
 
   </div>
+<div class="form_method_name">
 
-<div class="field email required"><div class="control">
+
+<div class="field email required"><div class="control" style="margin-top:13px;">
   <input placeholder="Email" name="email" type="email" class="input-text" title="Email" >
 </div></div>
-<div class="field email required"><div class="control">
+<div class="field email required"><div class="control" style="margin-top:13px;">
   <input placeholder="Password" name="password" value="" type="password"></div></div>
-<div class="badge  text-black text-wrap">
-Forget Password
-</div>
-<button class="button" type="submit">SIGN IN</button>
 
+<div class="badge  text-black text-wrap" style="font-size:18px;margin-top:2rem;font-weight:unset;font-family:'euclid light';">
+<span>Forget Password</span>
+</div>
+
+<button class="button" type="submit" style="border-radius:34px !important">SIGN IN</button>
+</div>
 </form>
-<div class="badge  text-black text-wrap" style="margin-left:17rem;">
-New Here?Sign Up
+<div class="badge  text-black text-wrap" style="margin-left:17rem; font-weight:100;margin-bottom:5px;margin-top: 20px; font-size:15px"  id="myBtn1">
+New Here?<span style="cursor:pointer;text-decoration:underline;"> Sign Up</span>
 </div>
 </div>
 
@@ -1280,47 +1331,69 @@ New Here?Sign Up
 
 </form>
 </div>
+
+
+<!-- login script -->
   <script>
+
     // Get the modal
-    var modal = document.getElementById("myModal");
+    var modal1 = document.getElementById("myModals1");
+    var modal = document.getElementById("myModals");
 
     // Get the button that opens the modal
-    var btn = document.getElementById("myBtn");
+    var btn = document.getElementById("myBtn1");
 
     // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
+    var span1 = document.getElementsByClassName("close1")[0];
 
     // When the user clicks the button, open the modal
     btn.onclick = function() {
-      modal.style.display = "block";
+
+      modal1.style.display = "block";
+      modal.style.display = "none";
     }
 
     // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-      modal.style.display = "none";
+    span1.onclick = function() {
+      modal1.style.display = "none";
     }
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
+      if (event.target == modal1) {
+        modal1.style.display = "none";
       }
     }
+</script>
 
+<!-- create account sctript -->
+
+<script>
   //--------sign model------
 
   // Get the modal
  var modal = document.getElementById("myModals");
+   var modal1 = document.getElementById("myModals1");
 
  // Get the button that opens the modal
- var btn1 = document.getElementById("myBtns");
+ var btn1 = document.getElementById("myBtn");
+ var btn2 = document.getElementById("pop_myBtn");
 
  // Get the <span> element that closes the modal
  var span1 = document.getElementsByClassName("close")[0];
 
  // When the user clicks on the button, open the modal
  btn1.onclick = function() {
+
    modal.style.display = "block";
+   modal1.style.display = "none";
+
+ }
+ btn2.onclick = function() {
+
+   modal.style.display = "block";
+   modal1.style.display = "none";
+
  }
 
  // When the user clicks on <span> (x), close the modal
@@ -1334,4 +1407,26 @@ New Here?Sign Up
      modal.style.display = "none";
    }
  }
+  </script>
+  <script type="text/javascript">
+  function myFunction7() {
+  var x = document.querySelector('.close2');
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+  </script>
+  <script type="text/javascript">
+  function myFunction8() {
+  var x = document.querySelector('.close3');
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
   </script>
