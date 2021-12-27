@@ -201,4 +201,140 @@ class Order extends CI_Controller
             redirect($_SERVER['HTTP_REFERER']);
         }
     }
+    //------remove promocode--------
+    public function remove_promocode($idd)
+    {
+        $order_id=base64_decode($idd);
+
+        $data_update = array('promocode_id'=>"",
+              'p_discount'=>""
+            );
+        $this->db->where('id', $order_id);
+        $zapak=$this->db->update('tbl_order1', $data_update);
+        if (!empty($zapak)) {
+            $this->session->set_flashdata('smessage', 'Promocode removed successfully');
+            redirect($_SERVER['HTTP_REFERER']);
+        } else {
+            $this->session->set_flashdata('emessage', 'Some error occured');
+            redirect($_SERVER['HTTP_REFERER']);
+        }
+    }
+
+    //--------checkout----------------
+    public function checkout()
+    {
+        $this->load->helper(array('form', 'url'));
+        $this->load->library('form_validation');
+        $this->load->helper('security');
+        if ($this->input->post()) {
+            $this->form_validation->set_rules('payment_type', 'payment_type', 'required|xss_clean|trim');
+            $this->form_validation->set_rules('name', 'name', 'required|xss_clean|trim');
+            $this->form_validation->set_rules('phone', 'phone', 'required|xss_clean|trim');
+            $this->form_validation->set_rules('pincode', 'pincode', 'required|xss_clean|trim');
+            $this->form_validation->set_rules('plot_no', 'plot_no', 'required|xss_clean|trim');
+            $this->form_validation->set_rules('str_name', 'str_name', 'required|xss_clean|trim');
+            $this->form_validation->set_rules('order_id', 'order_id', 'required|xss_clean|trim');
+
+
+            if ($this->form_validation->run()== true) {
+                $payment_type=$this->input->post('payment_type');
+                $name=$this->input->post('name');
+                $phone=$this->input->post('phone');
+                $pincode=$this->input->post('pincode');
+                $plot_no=$this->input->post('plot_no');
+                $str_name=$this->input->post('str_name');
+
+                $user_id = $this->session->userdata('user_id');
+                $ip = $this->input->ip_address();
+                date_default_timezone_set("Asia/Calcutta");
+                $cur_date=date("Y-m-d H:i:s");
+
+                //----------inventoty check-------------------
+                $this->db->select('*');
+                $this->db->from('tbl_order2');
+                $this->db->where('main_id', $order1);
+                $order2_data= $this->db->get();
+                foreach ($order2_data->result() as $order2) {
+                    $this->db->select('*');
+                    $this->db->from('tbl_products');
+                    $this->db->where('id', $order2->product_id);
+                    $pro_data= $this->db->get()->row();
+                    $this->db->select('*');
+                    $this->db->from('tbl_inventory');
+                    $this->db->where('product_id', $order2->product_id);
+                    $invenoty_data= $this->db->get()->row();
+                    if ($inventory_data->quantity>=$order2->quantity) {
+                    } else {
+                        $this->session->set_flashdata('emessage', ''.$pro_data->productname.' is out of stock');
+                        redirect($_SERVER['HTTP_REFERER']);
+                    }
+                }
+
+                $this->db->select('*');
+                $this->db->from('tbl_order1');
+                $this->db->where('id', $order_id);
+                $order1_data= $this->db->get()->row();
+                //----promocode discount update-----
+                if (!empty($order1_data->promocode_id)) {
+                    $final_amount = $order1_data->final_amount - $order1_data->p_discount;
+                } else {
+                    $final_amount = $order1_data->final_amount;
+                }
+                //----------order placing for COD----------------
+                //----------order1 entry-------------
+                $order1_update = array('payment_type'=>1,
+                                'payment_status'=>1,
+                                'order_status'=>1,
+                                'name'=>$name,
+                                'phone'=>$phone,
+                                'pincode'=>$pincode,
+                                'plot_no'=>$plot_no,
+                                'str_name'=>$str_name,
+                                  );
+                $this->db->where('id', $order_id);
+                $zapak2=$this->db->update('tbl_order1', $order1_update);
+
+
+                if (!empty($zapak2)) {
+
+              //--------------inventory update and cart delete--------
+                    foreach ($order2_data->result() as $ord) {
+                        $this->db->select('*');
+                        $this->db->from('tbl_inventory');
+                        $this->db->where('product_id', $ord->product_id);
+                        $invenoty_data1= $this->db->get()->row();
+                        $updated_inventory  = $inventory_data1->quantity - $ord->quantity;
+
+                        $inventory_update = array('quantity'=>$updated_inventory,
+                   );
+                        $this->db->where('id', $invenoty_data1->id);
+                        $zapak=$this->db->update('tbl_inventory', $inventory_update);
+
+                        //-------cart delete---------
+                        $delete=$this->db->delete('tbl_cart', array('user_id' => $user_id,'product_id',$product_id));
+
+                    }
+              if(!empty($delete)){
+
+                redirect("Order/success","refresh");
+
+              }else{
+                $this->session->set_flashdata('emessage', 'Some error occured!');
+                redirect($_SERVER['HTTP_REFERER']);
+              }
+
+
+                } else {
+                    $this->session->set_flashdata('emessage', 'Some error occured');
+                    redirect($_SERVER['HTTP_REFERER']);
+                }
+            } else {
+                $this->session->set_flashdata('emessage', validation_errors());
+                redirect($_SERVER['HTTP_REFERER']);
+            }
+        } else {
+            $this->session->set_flashdata('emessage', 'Please insert some data, No data available');
+            redirect($_SERVER['HTTP_REFERER']);
+        }
+    }
 }

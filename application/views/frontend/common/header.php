@@ -1106,7 +1106,7 @@ $category_data= $this->db->get();
               </div>
             </li>
             <li class="media_q_change1"><i class="fa fa-search" aria-hidden="true"></i></li>
-            <li class="media_q_change1"><a href="wish list.html" style="color: #fff;"><i class="fa fa-heart-o" aria-hidden="true"></i></a></li>
+            <li class="media_q_change1"><a href="<?=base_url()?>/Home/checkout2" style="color: #fff;"><i class="fa fa-heart-o" aria-hidden="true"></i></a></li>
             <div id="mySidebar" class="sidebar">
               <a href="javascript:void(0)" class="closebtn" id="account_open_close" onclick="closeNav2()">×</a>
               <a href="addresssetting.html">ACCOUNT SETTINGS</a>
