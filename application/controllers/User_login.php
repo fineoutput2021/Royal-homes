@@ -15,6 +15,8 @@ class User_login extends CI_Controller
     ///-------user_register-----------------
     public function user_register()
     {
+      // echo "hi";
+      // exit;
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
         $this->load->helper('security');
@@ -24,10 +26,12 @@ class User_login extends CI_Controller
             $this->form_validation->set_rules('email', 'email', 'required|valid_email|xss_clean|trim');
             $this->form_validation->set_rules('phone', 'phone', 'required|xss_clean|trim');
             $this->form_validation->set_rules('password', 'password', 'required|xss_clean|trim');
-            $this->form_validation->set_rules('confirm_password', 'confirm_password', 'required||matches[password]|xss_clean|trim');
+            $this->form_validation->set_rules('confirm_password', 'confirm_password', 'required|matches[password]|xss_clean|trim');
 
 
             if ($this->form_validation->run()== true) {
+              // echo "hi";
+              // exit;
                 $fname=$this->input->post('fname');
                 $lname=$this->input->post('lname');
                 $email=$this->input->post('email');
@@ -69,6 +73,8 @@ class User_login extends CI_Controller
 
                             //insert cart data into cart table---------
                             $cart_data = $this->session->userdata('cart_data');
+                            // print_r($cart_data);
+                            // exit;
                             if (!empty($cart_data)) {
                                 foreach ($cart_data as $value) {
                                     $this->db->select('*');
@@ -76,13 +82,12 @@ class User_login extends CI_Controller
                                     $this->db->where('user_id', $last_id);
                                     $this->db->where('product_id', $value['product_id']);
                                     $cartInfo= $this->db->get()->row();
-                                    if (!empty($cartInfo)) {
+                                    if (empty($cartInfo)) {
+
                                         $data_insert = array('user_id'=>$last_id,
                                               'product_id'=>$value['product_id'],
                                               'quantity'=>$value['quantity'],
                                               'ip' =>$ip,
-                                              'added_by' =>$addedby,
-                                              'is_active' =>1,
                                               'date'=>$cur_date
                                               );
 
@@ -90,9 +95,10 @@ class User_login extends CI_Controller
                                     }
                                 }
                             }
+                            $this->session->unset_userdata('cart_data');
 
-                            $this->session->set_flashdata('emessage', 'Successful Registered');
-                            $this->load->view('Home/index', "refresh");
+                            $this->session->set_flashdata('smessage', 'Successful Registered');
+                            redirect("Home/index","refresh");
                         } else {
                             $this->session->set_flashdata('emessage', 'Some error occured');
                             redirect($_SERVER['HTTP_REFERER']);
@@ -102,7 +108,7 @@ class User_login extends CI_Controller
                         redirect($_SERVER['HTTP_REFERER']);
                     }
                 } else {
-                    $this->load->view('Home/index', "refresh");
+                  redirect("Home/index","refresh");
                 }
             } else {
                 $this->session->set_flashdata('emessage', validation_errors());
@@ -135,10 +141,16 @@ class User_login extends CI_Controller
                     $this->db->where('is_active', 1);
                     $user_data= $this->db->get()->row();
 
+
+                            $ip = $this->input->ip_address();
+                            date_default_timezone_set("Asia/Calcutta");
+                            $cur_date=date("Y-m-d H:i:s");
+
+                    $user_name  = $user_data->fname." ".$user_data->lname;
                     if (!empty($user_data)) {
                         if ($user_data->password==md5($password)) {
                             $this->session->set_userdata('user_data', 1);
-                            $this->session->set_userdata('user_id', $last_id);
+                            $this->session->set_userdata('user_id', $user_data->id);
                             $this->session->set_userdata('user_name', $user_name);
 
 
@@ -148,16 +160,14 @@ class User_login extends CI_Controller
                                 foreach ($cart_data as $value) {
                                     $this->db->select('*');
                                     $this->db->from('tbl_cart');
-                                    $this->db->where('user_id', $last_id);
+                                    $this->db->where('user_id', $user_data->id);
                                     $this->db->where('product_id', $value['product_id']);
                                     $cartInfo= $this->db->get()->row();
                                     if (!empty($cartInfo)) {
-                                        $data_insert = array('user_id'=>$last_id,
+                                        $data_insert = array('user_id'=> $user_data->id,
                                               'product_id'=>$value['product_id'],
                                               'quantity'=>$value['quantity'],
                                               'ip' =>$ip,
-                                              'added_by' =>$addedby,
-                                              'is_active' =>1,
                                               'date'=>$cur_date
                                               );
 
@@ -165,9 +175,10 @@ class User_login extends CI_Controller
                                     }
                                 }
                             }
+                            $this->session->unset_userdata('cart_data');
 
-                            $this->session->set_flashdata('emessage', 'Successful Logged in!');
-                            $this->load->view('Home/index', "refresh");
+                            $this->session->set_flashdata('smessage', 'Successful Logged in!');
+                            redirect("Home/index","refresh");
                         } else {
                             $this->session->set_flashdata('emessage', 'Wrong Password');
                             redirect($_SERVER['HTTP_REFERER']);
@@ -177,7 +188,7 @@ class User_login extends CI_Controller
                         redirect($_SERVER['HTTP_REFERER']);
                     }
                 } else {
-                    $this->load->view('Home/index', "refresh");
+                  redirect("Home/index","refresh");
                 }
             } else {
                 $this->session->set_flashdata('emessage', validation_errors());
@@ -188,4 +199,19 @@ class User_login extends CI_Controller
             redirect($_SERVER['HTTP_REFERER']);
         }
     }
+
+//-----------user_logout--------------
+public function user_logout(){
+  if(!empty($this->session->userdata('user_data'))){
+    $this->session->unset_userdata('user_data');
+    $this->session->unset_userdata('user_name');
+    $this->session->unset_userdata('user_id');
+
+    $this->session->set_flashdata('smessage', 'Successfully Log out!');
+    redirect($_SERVER['HTTP_REFERER']);
+  }else{
+    $this->load->view('Home/index', "refresh");
+  }
+}
+
 }

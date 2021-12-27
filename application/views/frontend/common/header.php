@@ -9,10 +9,9 @@
   <title>Orange Tree</title>
   <link rel="stylesheet" href="<?=base_url()?>assets/frontend/assets/css/style.css">
   <link rel="stylesheet" href="<?=base_url()?>assets/frontend/assets/css/mainnav.css">
-    <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/frontend/assets/css/new.css">
-    <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/frontend/assets/css/productdetail.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/frontend/assets/css/new.css">
+  <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/frontend/assets/css/productdetail.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -21,198 +20,245 @@
   <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet'>
   <!-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> -->
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/jquery.min.js"></script> -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100&family=Zen+Antique+Soft&family=Zen+Old+Mincho&display=swap" rel="stylesheet">
 
-   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100&family=Zen+Antique+Soft&family=Zen+Old+Mincho&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100&family=Zen+Antique+Soft&family=Zen+Old+Mincho&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" type="text/css"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/frontend/assets/css/animate.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/frontend/assets/css/animate.css">
 
-<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/frontend/assets/css/bootstrap.css">
-    <!-- <script src="<?=base_url()?>assets/frontend/assets/js/bootstrap.js"></script> -->
-<script src="<?=base_url()?>assets/frontend/assets/js/bootstrap-notify.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/frontend/assets/css/bootstrap.css">
+  <!-- <script src="<?=base_url()?>assets/frontend/assets/js/bootstrap.js"></script> -->
+  <script src="<?=base_url()?>assets/frontend/assets/js/bootstrap-notify.min.js"></script>
   <style>
-  body {font-family: Arial, Helvetica, sans-serif;}
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
-    cursor: pointer;
-}
-.primary {
-    background: #e66c48;
-    border: 1px solid #e66c48;
-    border-radius: 0;
-    font-size: 14px;
-    text-transform: uppercase;
-    font-weight: 400;
-    letter-spacing: 2px;
-    transition: all .2s ease-in-out;
-    border-radius: 18px;
-}
-.logoimg{
-  margin-left: 18rem;
-  height:25px!important;
-  width:33px!important;
-  margin-top:1rem;
-}
-text-button{
-  text-align: center;
-}
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
+    /* The Modal (background) */
+    .modal {
+      display: none;
+      /* Hidden by default */
+      position: fixed;
+      /* Stay in place */
+      z-index: 1;
+      /* Sit on top */
+      padding-top: 100px;
+      /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%;
+      /* Full width */
+      height: 100%;
+      /* Full height */
+      overflow: auto;
+      /* Enable scroll if needed */
+      background-color: rgb(0, 0, 0);
+      /* Fallback color */
+      background-color: rgba(0, 0, 0, 0.4);
+      /* Black w/ opacity */
+    }
 
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-}
+    [type=button]:not(:disabled),
+    [type=reset]:not(:disabled),
+    [type=submit]:not(:disabled),
+    button:not(:disabled) {
+      cursor: pointer;
+    }
 
-/* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
+    .primary {
+      background: #e66c48;
+      border: 1px solid #e66c48;
+      border-radius: 0;
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight: 400;
+      letter-spacing: 2px;
+      transition: all .2s ease-in-out;
+      border-radius: 18px;
+    }
 
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-/* Modal Content */
-.modal-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 50%;
-}
-.social{
-  width:8px;
-  height:18px;
-}
-.social1{
-  width:18px;
-  height:18px;
-}
-.button {
-  width:100%;
-  margin-top:20px!important;
-background-color:  #e66c48;
-  border-radius: 18px!important;
-  color: white;
-  padding: 10px 22px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
+    .logoimg {
+      margin-left: 18rem;
+      height: 25px !important;
+      width: 33px !important;
+      margin-top: 1rem;
+    }
 
-/* The Close Button */
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-.btn{
-  width:270px;
-  background-color: white;
-}
-.btn1{
-  width:270px;
-  background-color: white;
-}
+    text-button {
+      text-align: center;
+    }
 
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
-.formforgot-wrap a {
-    color: #000;
-    font-family: 'euclid light';
-}
-.formforgot-wrap {
-    margin-top:20px;
-    margin-left: 0.5rem;
-    font-size: 12px;
-}
-.logosection{
-  height:135px;
-margin-left:-20px;
-margin-right:-20px;
-  margin-top:-48px;
-  background:gray;
-}
-.close{
-  margin-left:39rem;
-}
-input[type=password], input[type=search], input[type=text], input[type=url] {
-    background: #fff;
-    background-clip: padding-box;
-    border-bottom: 1px solid #c2c2c2;
-    border-radius: 1px;
-    font-size: 14px;
-    height: 32px;
-    line-height: 1.42857143;
-    padding: 0 9px;
-    vertical-align: baseline;
-    width: 100%;
-    box-sizing: border-box;
-    margin-top:  20px;
-}
-input[type=email], input[type=number], input[type=password], input[type=search], input[type=text] input[type=url] {
-    background: #fff;
-    background-clip: padding-box;
-    /* border: 1px solid #c2c2c2; */
-    border-bottom: 1px solid #ccc;
-    border-radius: 1px;
+    /* The Modal (background) */
+    .modal {
+      display: none;
+      /* Hidden by default */
+      position: fixed;
+      /* Stay in place */
+      z-index: 1;
+      /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%;
+      /* Full width */
+      height: 100%;
+      /* Full height */
+      overflow: auto;
+      /* Enable scroll if needed */
+      background-color: rgb(0, 0, 0);
+      /* Fallback color */
+      background-color: rgba(0, 0, 0, 0.4);
+      /* Black w/ opacity */
+    }
 
-    /* font-size: 14px; */
-    /* height: 32px; */
-    line-height: 1.42857143;
-    padding: 0 9px;
-    vertical-align: baseline;
-    width: 100%;
-    box-sizing: border-box;
-}
+    /* Modal Content/Box */
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto;
+      /* 15% from the top and centered */
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      /* Could be more or less, depending on screen size */
+    }
+
+    /* The Close Button */
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* Modal Content */
+    .modal-content {
+      background-color: #fefefe;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 50%;
+    }
+
+    .social {
+      width: 8px;
+      height: 18px;
+    }
+
+    .social1 {
+      width: 18px;
+      height: 18px;
+    }
+
+    .button {
+      width: 100%;
+      margin-top: 20px !important;
+      background-color: #e66c48;
+      border-radius: 18px !important;
+      color: white;
+      padding: 10px 22px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+
+    /* The Close Button */
+    .close {
+      color: #aaaaaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .btn {
+      width: 270px;
+      background-color: white;
+    }
+
+    .btn1 {
+      width: 270px;
+      background-color: white;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .formforgot-wrap a {
+      color: #000;
+      font-family: 'euclid light';
+    }
+
+    .formforgot-wrap {
+      margin-top: 20px;
+      margin-left: 0.5rem;
+      font-size: 12px;
+    }
+
+    .logosection {
+      height: 135px;
+      margin-left: -20px;
+      margin-right: -20px;
+      margin-top: -48px;
+      background: #f1f1f1;
+    }
+
+    .close {
+      margin-left: 39rem;
+    }
+
+    input[type=password],
+    input[type=search],
+    input[type=text],
+    input[type=url] {
+      background: #fff;
+      background-clip: padding-box;
+      border-bottom: 1px solid #c2c2c2;
+      border-radius: 1px;
+      font-size: 14px;
+      height: 32px;
+      line-height: 1.42857143;
+      padding: 0 9px;
+      vertical-align: baseline;
+      width: 100%;
+      box-sizing: border-box;
+      margin-top: 20px;
+    }
+
+    input[type=email],
+    input[type=number],
+    input[type=password],
+    input[type=search],
+    input[type=text] input[type=url] {
+      background: #fff;
+      background-clip: padding-box;
+      /* border: 1px solid #c2c2c2; */
+      border-bottom: 1px solid #ccc;
+      border-radius: 1px;
+
+      /* font-size: 14px; */
+      /* height: 32px; */
+      line-height: 1.42857143;
+      padding: 0 9px;
+      vertical-align: baseline;
+      width: 100%;
+      box-sizing: border-box;
+    }
 
     @media(max-width:640px) {
       .heimed1 {
@@ -908,61 +954,70 @@ input[type=email], input[type=number], input[type=password], input[type=search],
       }
     }
 
-/* ------model class------------ */
-.model{
-  display:none;
-  position:fixed;
-  padding-top: 100px;
-  top:0;
-  left:0;
-  z-index:1;
-  overflow:auto;
-  width: 100%;
-  height: 100%;
-  background-color:rgba(0,0,0,0.4);
-}
+    /* ------model class------------ */
+    .model {
+      display: none;
+      position: fixed;
+      padding-top: 100px;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      overflow: auto;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
 
-.model-content{
-  position: relative;
-  width:80%;
-  margin:auto;
-  background-color:#fff;
-  animation-name: animatetop;
-  animation-duration: 0.4s
-}
+    .model-content {
+      position: relative;
+      width: 80%;
+      margin: auto;
+      background-color: #fff;
+      animation-name: animatetop;
+      animation-duration: 0.4s
+    }
 
-@keyframes animatetop {
-    from {top:-300px; opacity:0}
-    to {top:0; opacity:1}
-}
+    @keyframes animatetop {
+      from {
+        top: -300px;
+        opacity: 0
+      }
 
-.close {
-    color: white;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
+      to {
+        top: 0;
+        opacity: 1
+      }
+    }
 
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-.modal-header {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
-}
+    .close {
+      color: black;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
 
-.modal-body {padding: 2px 16px;}
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
 
-.modal-footer {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
-}
+    .modal-header {
+      padding: 2px 16px;
+      background-color: #5cb85c;
+      color: white;
+    }
 
+    .modal-body {
+      padding: 2px 16px;
+    }
+
+    .modal-footer {
+      padding: 2px 16px;
+      background-color: #5cb85c;
+      color: white;
+    }
   </style>
 </head>
 
@@ -1054,134 +1109,229 @@ $category_data= $this->db->get();
             <li class="media_q_change1"><a href="wish list.html" style="color: #fff;"><i class="fa fa-heart-o" aria-hidden="true"></i></a></li>
             <div id="mySidebar" class="sidebar">
               <a href="javascript:void(0)" class="closebtn" id="account_open_close" onclick="closeNav2()">×</a>
-              <a href="sign up.html">Sign up</a>
-              <a href="login.html">login in</a>
               <a href="addresssetting.html">ACCOUNT SETTINGS</a>
               <a href="My Addresses.html">ADDRESSES</a>
               <a href="Address form.html">ADDRESS Form</a>
               <a href="new my order.html">My Order list</a>
-              <a href="/">Log Out</a>
+              <a href="<?=base_url()?>/User_login/user_logout">Log Out</a>
             </div>
             <div id="main" class="ch234">
               <?if(!empty($this->session->userdata('user_data'))){?>
               <i class="fa fa-user-o openbtn btn_change_change media_q_change2" aria-hidden="true" id="account_open_close" onclick="openNav2()"></i>
               <?}else{?>
-                <i class="fa fa-user-o openbtn btn_change_change media_q_change2" aria-hidden="true" id="myBtn" data-target="#mymodel"></i>
-                <div id="myModal" class="modal">
-
-                <!-- Modal content -->
-                 <div class="modal-content">
-                <span class="close">&times;</span>
-                <div class="logosection">
-
-                  <div class="logoimg">
-                <img src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/logo.png" alt="Logo" title="Orange tree"></div>
-                <div class="badge  text-black mt-4" style="margin-left:15rem;">
-      SIGN UP TO CONTINUE
-      </div>
-      <div class="row g-3">
-      <div class="col">
-      <button class="btn" style='margin-left:2rem;, width:145px!important;'><img class="social" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/facebook.svg" alt="social" >facebook</button>
-      </div>
-      <div class="col">
-      <button class="btn1"><img  class="social1" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/google.svg" alt="social">google
-
-      </button>
-      </div>
-
-      </div>
-
-                </div>
-                 <form>
-                   <div class="badge  text-black text-wrap" style="margin-left:5rem;">
-  Creating an account has many benefits: check out faster, keep more than one address, track orders and more.
-</div>
-                   <div>
-
-                   </div>
-
-                <div class="row g-3">
-  <div class="col">
-    <input type="text" class="form-control" placeholder="First name" aria-label="First name">
-  </div>
-  <div class="col">
-    <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
-  </div>
-
-</div>
-<div class="row g-3">
-<div class="col">
-<input type="text" class="form-control" placeholder="email" aria-label="Email">
-</div>
-<div class="col">
-<input type="text" class="form-control" placeholder="phonumber" aria-label="Phone nnuber">
-</div>
-
-</div>
-<div class="row g-3">
-<div class="col">
-<input type="text" class="form-control" placeholder="password" aria-label=" Password">
-</div>
-<div class="col">
-<input type="text" class="form-control" placeholder="confirm" aria-label="Confirm Password">
-</div>
-</div>
-<div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-  <label class=" form-check-label text-black" for="flexCheckDefault">
-    Sign Up for Newsletter
-  </label>
-</div>
-<div>
-<button class="button">CREATE AN ACCOUNT</button>
-</div>
-<div class="badge  text-black text-wrap" style="margin-left:13rem;">
-Already have an Account ? Sign In
-</div>
-
-
-
-
-
-                 </form>
-                </div>
-
-               </div>
-                <?}?>
+              <i class="fa fa-user-o openbtn btn_change_change media_q_change2" aria-hidden="true" id="myBtn"></i>
+              <?}?>
             </div>
-            <li><a href="<?=base_url()?>Home/view_cart" style="color: #fff;"><i class="fa fa-shopping-bag NONE1" aria-hidden="true"></i></a></li>
-             <li class="media_q_change1"><a href="#" style="color: #fff;"><i class='fa fa-truck' id="myBtn" style='font-size: 19px'></i></a></li>
+
+            <?if(empty($this->session->userdata('user_data'))){
+              $cart_data = $this->session->userdata('cart_data');
+              if(!empty($cart_data)){
+                $count = count($cart_data);
+              }else{
+                $count="";
+              }
+            }else{
+              $user_id = $this->session->userdata('user_id');
+              $this->db->select('*');
+              $this->db->from('tbl_cart');
+              $this->db->where('user_id',$user_id);
+              $cart_data= $this->db->count_all_results();
+              if(!empty($cart_data)){
+                $count=$cart_data;
+              }else{
+                $count="";
+
+              }
+            }
+              ?>
+            <li><a href="<?=base_url()?>Home/view_cart" style="color: #fff;"><i class="fa fa-shopping-bag NONE1" aria-hidden="true"></i><span><?if(!empty($count)){echo $count;}?></span></a></li>
+
+            <li class="media_q_change1"><a href="#" style="color: #fff;"><i class='fa fa-truck' id="myBtns" style='font-size: 19px'></i></a></li>
 
           </ul>
         </div>
       </div>
     </div>
   </header>
+  <div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="logosection">
+        <div class="logoimg">
+          <img src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/logo.png" alt="Logo" title="Orange tree">
+        </div>
+        <div class="badge  text-black mt-4" style="margin-left:15rem;">
+          SIGN UP TO CONTINUE
+        </div>
+        <div class="row g-3">
+          <div class="col">
+            <button class="btn" style='margin-left:2rem;, width:145px!important;'><img class="social" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/facebook.svg"
+                alt="social">facebook</button>
+          </div>
+          <div class="col">
+            <button class="btn1"><img class="social1" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/google.svg" alt="social">google
 
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+      <form action="<?=base_url()?>User_login/user_register" method="post" enctype="multipart/form-data">
+        <div class="badge  text-black text-wrap" style="margin-left:5rem;">
+          Creating an account has many benefits: check out faster, keep more than one address, track orders and more.
+        </div>
+        <div>
+        </div>
+        <form>
+
+        <div class="row g-3">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="First name" aria-label="First name" name="fname">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Last name" aria-label="Last name" name="lname">
+          </div>
+
+        </div>
+        <div class="row g-3">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="email" aria-label="Email" name="email">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" placeholder="phonumber" aria-label="Phone nnuber" name="phone">
+          </div>
+
+        </div>
+        <div class="row g-3">
+          <div class="col">
+            <input type="password" class="form-control" placeholder="password" aria-label=" Password" name="password">
+          </div>
+          <div class="col">
+            <input type="password" class="form-control" placeholder="confirm" aria-label="Confirm Password" name="confirm_password">
+          </div>
+        </div>
+        <div>
+          <button class="button" type="submit">CREATE AN ACCOUNT</button>
+        </div>
+      </form>
+        <div class="badge  text-black text-wrap" style="margin-left:13rem;">
+          Already have an Account ? Sign In
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+  <div id="myModals" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content">
+<span class="close" style='margin-left:39rem;'>&times;</span>
+<div class="logosection">
+
+ <div class="logoimg">
+<img src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/logo.png" alt="Logo" title="Orange tree"></div>
+<div class="badge  text-black mt-4" style="margin-left:15rem;">
+SIGN IN TO CONTINUE
+</div>
+<div class="row g-3">
+<div class="col">
+<button class="btn" style='margin-left:2rem;, width:145px!important;'><img class="social" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/facebook.svg" alt="social" >facebook</button>
+</div>
+<div class="col">
+<button class="btn1"><img  class="social1" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/google.svg" alt="social">google
+
+</button>
+</div>
+
+</div>
+
+</div>
+<form action="<?=base_url()?>User_login/user_login" method="post" enctype="multipart/form-data">
+
+  <div class="badge  text-black text-wrap" style="margin-left:12rem;">
+Sign in with your email address.
+</div>
+  <div>
+
+  </div>
+
+<div class="field email required"><div class="control">
+  <input placeholder="Email" name="email" type="email" class="input-text" title="Email" >
+</div></div>
+<div class="field email required"><div class="control">
+  <input placeholder="Password" name="password" value="" type="password"></div></div>
+<div class="badge  text-black text-wrap">
+Forget Password
+</div>
+<button class="button" type="submit">SIGN IN</button>
+
+</form>
+<div class="badge  text-black text-wrap" style="margin-left:17rem;">
+New Here?Sign Up
+</div>
+</div>
+
+
+<div>
+
+</div>
+
+</form>
+</div>
   <script>
-// Get the modal
-var modal = document.getElementById("myModal");
+    // Get the modal
+    var modal = document.getElementById("myModal");
 
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks the button, open the modal
-btn.onclick = function() {
-  modal.style.display = "block";
-}
+    // When the user clicks the button, open the modal
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-</script>
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+  //--------sign model------
+
+  // Get the modal
+ var modal = document.getElementById("myModals");
+
+ // Get the button that opens the modal
+ var btn1 = document.getElementById("myBtns");
+
+ // Get the <span> element that closes the modal
+ var span1 = document.getElementsByClassName("close")[0];
+
+ // When the user clicks on the button, open the modal
+ btn1.onclick = function() {
+   modal.style.display = "block";
+ }
+
+ // When the user clicks on <span> (x), close the modal
+ span1.onclick = function() {
+   modal.style.display = "none";
+ }
+
+ // When the user clicks anywhere outside of the modal, close it
+ window.onclick = function(event) {
+   if (event.target == modal) {
+     modal.style.display = "none";
+   }
+ }
+  </script>

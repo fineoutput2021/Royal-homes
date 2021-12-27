@@ -13,6 +13,7 @@ class Home extends CI_Controller
     }
     public function index()
     {
+      // $this->session->unset_userdata('user_data');
         $this->db->select('*');
         $this->db->from('tbl_Slider');
         $this->db->where('is_active', 1);
@@ -97,7 +98,14 @@ class Home extends CI_Controller
     {
         if(!empty($this->session->userdata('user_data'))){
 
-          $this->load->view('frontend/common/header');
+          $user_id = $this->session->userdata('user_id');
+
+            $this->db->select('*');
+            $this->db->from('tbl_cart');
+            $this->db->where('user_id',$user_id);
+            $data['cart_data']= $this->db->get();
+
+          $this->load->view('frontend/common/header',$data);
           $this->load->view('frontend/cart');
           $this->load->view('frontend/common/footer');
 
@@ -194,37 +202,7 @@ class Home extends CI_Controller
               }
 
 
-public function checkout(){
 
-                 if(!empty($this->session->userdata('admin_data'))){
-
-
-                   $data['user_name']=$this->load->get_var('user_name');
-
-                   // echo SITE_NAME;
-                   // echo $this->session->userdata('image');
-                   // echo $this->session->userdata('position');
-                   // exit;
-
-            $this->db->select('*');
-$this->db->from('tbl_coupancode');
-//$this->db->where('id',$usr);
-$data['coupan_code']= $this->db->get();
-
-
-
-
-                   $this->load->view('frontend/common/header',$data);
-                   $this->load->view('frontend/checkout.php');
-                   $this->load->view('frontend/common/footer');
-
-               }
-               else{
-
-                  redirect("login/admin_login","refresh");
-               }
-
-               }
 
 
 
@@ -232,5 +210,4 @@ $data['coupan_code']= $this->db->get();
     {
         $this->load->view('errors/error404');
     }
-
 }

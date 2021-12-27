@@ -333,12 +333,23 @@ color: red;
             <br>
             <a href="<?=base_url()?>Home/product_details"><img class="my-img" src="<?=base_url().$product->image?>" /></a>
             <h4><b style="font-family: 'Playfair Display', serif;"><?=$product->productname?></b> <br></span><br>Rs.<?=$product->mrp?></h4>
+            <?if(empty($this->session->userdata('user_data'))){?>
             <button style="border: 1px solid black; border-radius: 2px; background-color: black; color: white;"
             onclick="addToCartOffline(this)"
             product_id="<?=$product->id?>"
             quantity="1"
-            >Add to Cart</button><span><i class="fa fa-heart medmob" style="margin-left: 192px" id="heart"></i></span>
+            >Add to Cart</button>
+            <span><i class="fa fa-heart medmob" style="margin-left: 192px" id="heart"></i></span>
             <span><i class="fa fa-heart meddesk" id="heart"></i></span>
+            <?}else{?>
+              <button style="border: 1px solid black; border-radius: 2px; background-color: black; color: white;"
+              onclick="addToCartOnline(this)"
+              product_id="<?=$product->id?>"
+              quantity="1"
+              >Add to Cart</button>
+              <span><i class="fa fa-heart medmob" style="margin-left: 192px" id="heart"></i></span>
+              <span><i class="fa fa-heart meddesk" id="heart"></i></span>
+            <?}?>
             <br>
 
           </div>

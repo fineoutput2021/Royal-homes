@@ -199,9 +199,9 @@ class Cart extends CI_Controller
 
                             $respone['data'] = true;
                             $respone['data_message'] ="Item successfully updated in your cart";
-                            $respone['data_price'] =$total;
-                            $respone['data_shipping'] =$shipping;
-                            $respone['data_subtotal'] =$subtotal;
+                            $respone['data_price'] =round($total);
+                            $respone['data_shipping'] =round($shipping);
+                            $respone['data_subtotal'] =round($subtotal);
                             echo json_encode($respone);
                         } else {
                             $respone['data'] = false;
@@ -403,9 +403,9 @@ class Cart extends CI_Controller
 
                             $respone['data'] = true;
                             $respone['data_message'] ="Cart item update successfully";
-                            $respone['data_price'] =$total;
-                            $respone['data_shipping'] =$shipping;
-                            $respone['data_subtotal'] =$subtotal;
+                            $respone['data_price'] =round($total);
+                            $respone['data_shipping'] =round($shipping);
+                            $respone['data_subtotal'] =round($subtotal);
                             echo json_encode($respone);
                         } else {
                             $respone['data'] = false;

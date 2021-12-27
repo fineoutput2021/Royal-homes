@@ -1390,16 +1390,17 @@
           <div class="css-1aspwm4 eclstbm5" style="font-size: 30px;font-weight: 700;margin-top:4rem;margin-bottom:2rem;font-family: emoji;">Your Shopping Bag <span class="savecart"></span></div>
 
           <div id="cart_items_tbody">
-            <?if (empty($this->session->userdata('cart_data'))) {?>
+            <?
+            $cart_check = $cart_data->row();
+            if (empty($cart_check)) {?>
             <h2>Your cart is empty! Please add some product</h2>
             <?} else {
-    $cartdata= $this->session->userdata('cart_data');
     $total=0;
     $i=1;
-    foreach ($cartdata as $cart) {
+    foreach ($cart_data->result() as $cart) {
         $this->db->select('*');
         $this->db->from('tbl_products');
-        $this->db->where('id', $cart['product_id']);
+        $this->db->where('id', $cart->product_id);
         $pro_data= $this->db->get()->row(); ?>
             <div class="cart-item-card css-bi61qn ee3or4p0">
               <div class="css-on8ti6 ee3or4p2">
@@ -1431,14 +1432,14 @@
                     </div> -->
                       <div class="cart-item-qty css-1kb8zzg eay09df2"><span style="margin-top: 4px;">Quantity :</span>
                         <span class="css-qhuuwl eay09df1" style="margin-left: -36px;">
-                          <input type="number" id="qty" i="<?=$i?>" value="<?=$cart['quantity']?>" min="1" onchange="updateCartOffline(this)" product_id="<?=$cart['product_id']?>" mrp="<?=$pro_data->mrp?>">
+                          <input type="number" id="qty" i="<?=$i?>" value="<?=$cart->quantity?>" min="1" onchange="updateCartOnline(this)" product_id="<?=$cart->product_id?>" mrp="<?=$pro_data->mrp?>">
                         </span>
                       </div>
                       <div class="setprice" style="margin-top: -4px;"><span style="font-size:1.7rem;margin-left:3rem;display: flex;font-weight: 300;">
                           <p> Price : </p>
                           <p class="css-mtc8vw cart-item-price">
                             <span id="price_<?=$i?>"> Rs.
-                              <?=$mrp =$pro_data->mrp*$cart['quantity']?></span>
+                              <?=$mrp =$pro_data->mrp*$cart->quantity?></span>
                             <span class="discountprice"></span>
                           </p>
                         </span>
@@ -1449,7 +1450,7 @@
                 </div>
               </div>
               <div class="crossbtn">
-                <a href="" onclick="deleteCartOffline(this)" product_id="<?=$cart['product_id']?>">
+                <a href="" onclick="deleteCartOnline(this)" product_id="<?=$cart->product_id?>">
                   <img src="https://img.icons8.com/external-becris-lineal-becris/25/000000/external-cancel-mintab-for-ios-becris-lineal-becris.png">
                 </a>
               </div>
@@ -1477,7 +1478,7 @@
 
           <div id="order-summary" data-name="order-summary-box" class="css-ry2i6z e1r0aisc2">
             <p class="subtotal">Subtotal <span class="price-values">Rs.<span id="subtotal">
-                  <?if (empty($this->session->userdata('cart_data'))) {
+                  <?if (empty($cart_check)) {
     echo 0;
 } else {
     echo $total;
@@ -1485,21 +1486,21 @@
                 </span>
               </span>
             </p>
-            <p class="price-breakup-final">Shipping Charges<span class="price-values">Rs.<span id="shipping">
-                  <?if (empty($this->session->userdata('cart_data'))) {
-  echo 0;
+              <p class="price-breakup-final">Shipping Charges<span class="price-values">Rs.<span id="shipping">
+                    <?if (empty($cart_check)) {
+    echo 0;
 } else {
-  echo $shipping = round($total * SHIPPING / 100);
+    echo $shipping = round($total * SHIPPING / 100);
 }?>
+                  </span>
                 </span>
-              </span>
-            </p>
+              </p>
             <b>
               <p class="price-breakup-final">Estimated Total <span class="price-values">Rs.<span id="total_cost">
-                    <?if (empty($this->session->userdata('cart_data'))) {
+                    <?if (empty($cart_check)) {
     echo 0;
 } else {
-    echo $total;
+    echo $total+$shipping;
 }?>
                   </span>
                 </span>
@@ -1511,9 +1512,8 @@
               <!-- <p>$ <span>200.00</span></p>
                   <a class="css-1usgn1r epypi6q4"> VIEW DETAILS</a> -->
             </div>
-            <a href="#">
+            <a href="<?=base_url()?>Order/calculate">
               <button class="epypi6q0 e1jmj0hg1 css-17fmasb e1jmj0hg0" style="font-size: 14px;"><span class="erq4t6042 css-5whwel efp5dbi0"></span>Checkout Securely</button>
-              <label class="ml-5" style="color:red;font-size: 13px;">Please login/Register for checkout</label>
             </a>
           </div>
         </div>
@@ -1522,12 +1522,12 @@
   </div>
 </section>
 <script>
-  function deleteCartOffline(obj) {
+  function deleteCartOnline(obj) {
     var product_id = $(obj).attr("product_id");
     // alert(product_id);
     var base_path = "<?=base_url();?>";
     $.ajax({
-      url: '<?=base_url();?>Cart/deleteCartOffline',
+      url: '<?=base_url();?>Cart/deleteCartOnline',
       method: 'post',
       data: {
         product_id: product_id
@@ -1608,7 +1608,7 @@
     });
   }
 
-  function updateCartOffline(obj) {
+  function updateCartOnline(obj) {
     var product_id = $(obj).attr("product_id");
     var mrp = $(obj).attr("mrp");
     var qty = $(obj).val();
@@ -1616,7 +1616,7 @@
     var price = parseInt(mrp) * parseInt(qty);
     var base_path = "<?=base_url();?>";
     $.ajax({
-      url: '<?=base_url();?>Cart/updateCartOffline',
+      url: '<?=base_url();?>Cart/updateCartOnline',
       method: 'post',
       data: {
         product_id: product_id,

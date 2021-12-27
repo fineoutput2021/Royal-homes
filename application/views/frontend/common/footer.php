@@ -119,8 +119,8 @@ loadErrorNotify("<?=$valid_errors?>");
 });
 function loadSuccessNotify(succ_message){
   $.notify({
-             icon: '',
-             title: '',
+             icon: 'fa fa-check',
+             title: 'Alert!',
              message: succ_message
          },{
              element: 'body',
@@ -158,8 +158,8 @@ function loadSuccessNotify(succ_message){
 
     function loadErrorNotify(message){
       $.notify({
-                 icon: '',
-                 title: '',
+                 icon: 'fa fa-cancel',
+                 title: 'Alert!',
                  message: message
              },{
                  element: 'body',
@@ -200,6 +200,91 @@ function loadSuccessNotify(succ_message){
     var base_path = "<?=base_url();?>";
        $.ajax({
        url:'<?=base_url();?>Cart/addToCartOffline',
+       method: 'post',
+       data: {product_id: product_id, quantity: quantity},
+       dataType: 'json',
+       success: function(response){
+       if(response.data == true){
+         // alert(response.data_message)
+          // var msg = response.data_message;
+              $.notify({
+                        icon: 'fa fa-check',
+                        title: 'Alert!',
+                        message: "Item successfully added in your cart"
+                    },{
+                        element: 'body',
+                        position: null,
+                        type: "success",
+                        allow_dismiss: true,
+                        newest_on_top: false,
+                        showProgressbar: true,
+                        placement: {
+                            from: "top",
+                            align: "right"
+                        },
+                        offset: 20,
+                        spacing: 10,
+                        z_index: 1031,
+                        delay: 5000,
+                        animate: {
+                            enter: 'animated fadeInDown',
+                            exit: 'animated fadeOutUp'
+                        },
+                        icon_type: 'class',
+                        template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+                        '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
+                        '<span data-notify="icon"></span> ' +
+                        '<span data-notify="title">{1}</span> ' +
+                        '<span data-notify="message">{2}</span>' +
+                        '<a href="{3}" target="{4}" data-notify="url"></a>' +
+                        '</div>'
+                    });
+       }else if(response.data == false){
+         var msg = response.data_message;
+               $.notify({
+                           icon: 'fa fa-cancel',
+                           title: 'Alert!',
+                           message: msg
+                       },{
+                           element: 'body',
+                           position: null,
+                           type: "danger",
+                           allow_dismiss: true,
+                           newest_on_top: false,
+                           showProgressbar: true,
+                           placement: {
+                               from: "top",
+                               align: "right"
+                           },
+                           offset: 20,
+                           spacing: 10,
+                           z_index: 1031,
+                           delay: 5000,
+                           animate: {
+                               enter: 'animated fadeInDown',
+                               exit: 'animated fadeOutUp'
+                           },
+                           icon_type: 'class',
+                           template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+                           '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
+                           '<span data-notify="icon"></span> ' +
+                           '<span data-notify="title">{1}</span> ' +
+                           '<span data-notify="message">{2}</span>' +
+                           '<a href="{3}" target="{4}" data-notify="url"></a>' +
+                           '</div>'
+                       });
+       }
+     }
+       });
+
+  }
+  function addToCartOnline(obj){
+
+    var product_id = $(obj).attr("product_id");
+    var quantity = $(obj).attr("quantity");
+    var base_path = "<?=base_url();?>";
+       $.ajax({
+       url:'<?=base_url();?>Cart/addToCartOnline',
        method: 'post',
        data: {product_id: product_id, quantity: quantity},
        dataType: 'json',
