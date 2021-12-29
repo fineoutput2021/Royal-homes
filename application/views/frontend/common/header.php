@@ -1189,7 +1189,7 @@ $category_data= $this->db->get();
     <!-- Modal content -->
     <div class="modal-content">
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true" onclick="myFunction8()">&times;</span>
+            <span aria-hidden="true" onclick="myFunction8()" style='margin-left:34rem;'>&times;</span>
           </button>
       <div class="logosection" style="
     display: flex;
@@ -1198,18 +1198,18 @@ $category_data= $this->db->get();
     justify-content: center;
 "   >
         <div class="logoimg">
-          <img src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/logo.png" alt="Logo" title="Orange tree">
+          <img src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/logo.png" alt="Logo" title="Orange tree" style="margin-top:1rem;">
         </div>
-        <div class="badge  text-black mt-4" style="font-size:18px">
+        <div class="badge  text-black mt-4" style="font-size:18px;font-family:'Miller Display';padding-bottom:2rem;">
           SIGN UP TO CONTINUE
         </div>
-        <div class="row g-3">
-          <div class="col">
+        <div class="row g-3" style="margin-bottom:40px;">
+          <div class="col" style="padding-right: 0px;">
             <button class="btn" style='margin-left:2rem;, width:145px!important;'><img class="social" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/facebook.svg"
-                alt="social">facebook</button>
+                alt="social" >facebook</button>
           </div>
           <div class="col">
-            <button class="btn1"><img class="social1" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/google.svg" alt="social">google
+            <button class="btn1" style="border:0px;border-radius:3px;"><img class="social1" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/google.svg" alt="social">google
 
             </button>
           </div>
@@ -1218,13 +1218,13 @@ $category_data= $this->db->get();
 
       </div>
       <form action="<?=base_url()?>User_login/user_register" method="post" enctype="multipart/form-data">
-        <div class="badge  text-black text-wrap" style="display:flex;justify-content:center;">
+        <div class="badge  text-black text-wrap" style="display:flex;justify-content:center;margin: 20px;font-size: 1rem;font-weight:unset;font-family:'euclid light';">
           Creating an account has many benefits: check out faster, keep more than one address, track orders and more.
         </div>
         <div>
         </div>
         <form>
-
+<div class="form_method_name">
         <div class="row g-3">
           <div class="col">
             <input type="text" class="form-control" placeholder="First name" aria-label="First name" name="fname">
@@ -1254,8 +1254,9 @@ $category_data= $this->db->get();
         <div>
           <button class="button" type="submit">CREATE AN ACCOUNT</button>
         </div>
+      </div>
       </form>
-        <div class="badge  text-black text-wrap" style="margin-left:13rem;" id="pop_myBtn" >
+        <div class="badge  text-black text-wrap" style="margin-left:17rem; font-weight:100;margin-bottom:5px;margin-top: 20px; font-size:15px;" id="pop_myBtn" >
           Already have an Account ? Sign In
         </div>
 
