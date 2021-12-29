@@ -25,7 +25,7 @@
                    $data['Slider_data']= $this->db->get();
 
                    $this->load->view('admin/common/header_view', $data);
-                   $this->load->view('admin/slider/view_Slider');
+                   $this->load->view('admin/slider/view_slider');
                    $this->load->view('admin/common/footer_view');
                } else {
                    redirect("login/admin_login", "refresh");
@@ -36,7 +36,7 @@
            {
                if (!empty($this->session->userdata('admin_data'))) {
                    $this->load->view('admin/common/header_view');
-                   $this->load->view('admin/slider/add_Slider');
+                   $this->load->view('admin/slider/add_slider');
                    $this->load->view('admin/common/footer_view');
                } else {
                    redirect("login/admin_login", "refresh");
@@ -63,7 +63,7 @@
 
 
                    $this->load->view('admin/common/header_view', $data);
-                   $this->load->view('admin/slider/update_Slider');
+                   $this->load->view('admin/slider/update_slider');
                    $this->load->view('admin/common/footer_view');
                } else {
                    redirect("login/admin_login", "refresh");
@@ -209,7 +209,7 @@
                            }
                            if ($last_id!=0) {
                                $this->session->set_flashdata('smessage', 'Data inserted successfully');
-                               redirect("dcadmin/Slider/view_Slider", "refresh");
+                               redirect("dcadmin/slider/view_slider", "refresh");
                            } else {
                                $this->session->set_flashdata('emessage', 'Sorry error occured');
                                redirect($_SERVER['HTTP_REFERER']);
@@ -248,7 +248,7 @@
                        $zapak=$this->db->update('tbl_slider', $data_update);
 
                        if ($zapak!=0) {
-                           redirect("dcadmin/Slider/view_Slider", "refresh");
+                           redirect("dcadmin/slider/view_slider", "refresh");
                        } else {
                            $this->session->set_flashdata('emessage', 'Sorry error occured');
                            redirect($_SERVER['HTTP_REFERER']);
@@ -264,7 +264,7 @@
                        $zapak=$this->db->update('tbl_slider', $data_update);
 
                        if ($zapak!=0) {
-                           redirect("dcadmin/Slider/view_Slider", "refresh");
+                           redirect("dcadmin/slider/view_slider", "refresh");
                        } else {
                            $this->session->set_flashdata('emessage', 'Sorry error occured');
                            redirect($_SERVER['HTTP_REFERER']);
@@ -300,7 +300,7 @@
                        if ($zapak!=0) {
                            // $path = FCPATH .$img;
                            // unlink($path);
-                           redirect("dcadmin/Slider/view_Slider", "refresh");
+                           redirect("dcadmin/slider/view_slider", "refresh");
                        } else {
                            $this->session->set_flashdata('emessage', 'Sorry error occured');
                            redirect($_SERVER['HTTP_REFERER']);
