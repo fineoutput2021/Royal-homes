@@ -68,15 +68,12 @@ class Home extends CI_Controller
         $this->db->select('*');
         $this->db->from('tbl_products');
         if ($id2==1) {
-            $this->db->where('category_id', $id);
+            $this->db->like('category', $id);
         } else {
-            $this->db->where('subcategory_id', $id);
+            $this->db->like('subcategory_id', $id);
         }
         $data['product_data']= $this->db->get();
-        // $product_data= $this->db->get()->row();
-        // print_r($product_data);
-        // exit;
-
+        
         $this->load->view('frontend/common/header', $data);
         $this->load->view('frontend/all_product');
         $this->load->view('frontend/common/footer');
@@ -119,24 +116,17 @@ class Home extends CI_Controller
         $this->load->library('form_validation');
         $this->load->helper('security');
         if ($this->input->post()) {
-
-                  // print_r($this->input->post());
-            // exit;
-            // $this->form_validation->set_rules('name', 'name', 'required|xss_clean');
             $this->form_validation->set_rules('email', 'email', 'required|valid_email|xss_clean');
 
 
             if ($this->form_validation->run()== true) {
                 $email=$this->input->post('email');
-                // $passw=$this->input->post('password');
 
                 $ip = $this->input->ip_address();
                 date_default_timezone_set("Asia/Calcutta");
                 $cur_date=date("Y-m-d H:i:s");
 
                 $addedby=$this->session->userdata('admin_id');
-
-
 
                 $data_insert = array(
                         'email'=>$email,
@@ -147,13 +137,7 @@ class Home extends CI_Controller
 
                         );
 
-
-
-
-
                 $last_id=$this->base_model->insert_table("tbl_newsletter", $data_insert, 1) ;
-
-
 
                 if ($last_id!=0) {
                     $this->session->set_flashdata('smessage', 'Submit Successful');

@@ -129,6 +129,7 @@ class Order extends CI_Controller
         }
     }
 
+
     public function apply_promocode()
     {
         $this->load->helper(array('form', 'url'));
@@ -312,18 +313,13 @@ class Order extends CI_Controller
 
                         //-------cart delete---------
                         $delete=$this->db->delete('tbl_cart', array('user_id' => $user_id,'product_id',$product_id));
-
                     }
-              if(!empty($delete)){
-
-                redirect("Order/success","refresh");
-
-              }else{
-                $this->session->set_flashdata('emessage', 'Some error occured!');
-                redirect($_SERVER['HTTP_REFERER']);
-              }
-
-
+                    if (!empty($delete)) {
+                        redirect("Order/success", "refresh");
+                    } else {
+                        $this->session->set_flashdata('emessage', 'Some error occured!');
+                        redirect($_SERVER['HTTP_REFERER']);
+                    }
                 } else {
                     $this->session->set_flashdata('emessage', 'Some error occured');
                     redirect($_SERVER['HTTP_REFERER']);

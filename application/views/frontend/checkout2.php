@@ -1,253 +1,1134 @@
 <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
 <style media="screen">
-/*! CSS Used from: https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css */
-*,::after,::before{box-sizing:border-box;}
-h3,h4{margin-top:0;margin-bottom:.5rem;}
-a{color:#007bff;text-decoration:none;background-color:transparent;}
-a:hover{color:#0056b3;text-decoration:underline;}
-label{display:inline-block;margin-bottom:.5rem;}
-button{border-radius:0;}
-button:focus{outline:1px dotted;outline:5px auto -webkit-focus-ring-color;}
-button,input,select,textarea{margin:0;font-family:inherit;font-size:inherit;line-height:inherit;}
-button,input{overflow:visible;}
-button,select{text-transform:none;}
-select{word-wrap:normal;}
-[type=submit],button{-webkit-appearance:button;}
-[type=submit]::-moz-focus-inner,button::-moz-focus-inner{padding:0;border-style:none;}
-textarea{overflow:auto;resize:vertical;}
-h3,h4{margin-bottom:.5rem;font-weight:500;line-height:1.2;}
-h3{font-size:1.75rem;}
-h4{font-size:1.5rem;}
-.row{display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;margin-right:-15px;margin-left:-15px;}
-.col-lg-12,.col-lg-6,.col-md-12,.col-md-6,.col-sm-12{position:relative;width:100%;padding-right:15px;padding-left:15px;}
-@media (min-width:576px){
-.col-sm-12{-ms-flex:0 0 100%;flex:0 0 100%;max-width:100%;}
-}
-@media (min-width:768px){
-.col-md-6{-ms-flex:0 0 50%;flex:0 0 50%;max-width:50%;}
-.col-md-12{-ms-flex:0 0 100%;flex:0 0 100%;max-width:100%;}
-}
-@media (min-width:992px){
-.col-lg-6{-ms-flex:0 0 50%;flex:0 0 50%;max-width:50%;}
-.col-lg-12{-ms-flex:0 0 100%;flex:0 0 100%;max-width:100%;}
-}
-.form-control{display:block;width:100%;height:calc(1.5em + .75rem + 2px);padding:.375rem .75rem;font-size:1rem;font-weight:400;line-height:1.5;color:#495057;background-color:#fff;background-clip:padding-box;border:1px solid #ced4da;border-radius:.25rem;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out;}
-@media (prefers-reduced-motion:reduce){
-.form-control{transition:none;}
-}
-.form-control::-ms-expand{background-color:transparent;border:0;}
-.form-control:-moz-focusring{color:transparent;text-shadow:0 0 0 #495057;}
-.form-control:focus{color:#495057;background-color:#fff;border-color:#80bdff;outline:0;box-shadow:0 0 0 .2rem rgba(0,123,255,.25);}
-.form-control::-webkit-input-placeholder{color:#6c757d;opacity:1;}
-.form-control::-moz-placeholder{color:#6c757d;opacity:1;}
-.form-control:-ms-input-placeholder{color:#6c757d;opacity:1;}
-.form-control::-ms-input-placeholder{color:#6c757d;opacity:1;}
-.form-control::placeholder{color:#6c757d;opacity:1;}
-.form-control:disabled{background-color:#e9ecef;opacity:1;}
-textarea.form-control{height:auto;}
-.d-flex{display:-ms-flexbox!important;display:flex!important;}
-.mr-4{margin-right:1.5rem!important;}
-.pb-3{padding-bottom:1rem!important;}
-.pt-5{padding-top:3rem!important;}
-.pb-5{padding-bottom:3rem!important;}
-@media print{
-*,::after,::before{text-shadow:none!important;box-shadow:none!important;}
-a:not(.btn){text-decoration:underline;}
-h3{orphans:3;widows:3;}
-h3{page-break-after:avoid;}
-}
-/*! CSS Used from: https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css */
-a{background-color:transparent;}
-a:active,a:hover{outline:0;}
-button,input,select,textarea{color:inherit;font:inherit;margin:0;}
-button{overflow:visible;}
-button,select{text-transform:none;}
-button{-webkit-appearance:button;cursor:pointer;}
-button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}
-input{line-height:normal;}
-textarea{overflow:auto;}
-@media print{
-*,:after,:before{color:#000!important;text-shadow:none!important;background:0 0!important;-webkit-box-shadow:none!important;box-shadow:none!important;}
-a,a:visited{text-decoration:underline;}
-a[href]:after{content:" (" attr(href) ")";}
-h3{orphans:3;widows:3;}
-h3{page-break-after:avoid;}
-}
-*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
-:after,:before{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
-button,input,select,textarea{font-family:inherit;font-size:inherit;line-height:inherit;}
-a{color:#337ab7;text-decoration:none;}
-a:focus,a:hover{color:#23527c;text-decoration:underline;}
-a:focus{outline:5px auto -webkit-focus-ring-color;outline-offset:-2px;}
-h3,h4{font-family:inherit;font-weight:500;line-height:1.1;color:inherit;}
-h3{margin-top:20px;margin-bottom:10px;}
-h4{margin-top:10px;margin-bottom:10px;}
-h3{font-size:24px;}
-h4{font-size:18px;}
-.row{margin-right:-15px;margin-left:-15px;}
-.col-lg-12,.col-lg-6,.col-md-12,.col-md-6,.col-sm-12{position:relative;min-height:1px;padding-right:15px;padding-left:15px;}
-@media (min-width:768px){
-.col-sm-12{float:left;}
-.col-sm-12{width:100%;}
-}
-@media (min-width:992px){
-.col-md-12,.col-md-6{float:left;}
-.col-md-12{width:100%;}
-.col-md-6{width:50%;}
-}
-@media (min-width:1200px){
-.col-lg-12,.col-lg-6{float:left;}
-.col-lg-12{width:100%;}
-.col-lg-6{width:50%;}
-}
-label{display:inline-block;max-width:100%;margin-bottom:5px;font-weight:700;}
-.form-control{display:block;width:100%;height:34px;padding:6px 12px;font-size:14px;line-height:1.42857143;color:#555;background-color:#fff;background-image:none;border:1px solid #ccc;border-radius:4px;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075);box-shadow:inset 0 1px 1px rgba(0,0,0,.075);-webkit-transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;-o-transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;-webkit-transition:border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;transition:border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;}
-.form-control:focus{border-color:#66afe9;outline:0;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);}
-.form-control::-moz-placeholder{color:#999;opacity:1;}
-.form-control:-ms-input-placeholder{color:#999;}
-.form-control::-webkit-input-placeholder{color:#999;}
-.form-control::-ms-expand{background-color:transparent;border:0;}
-textarea.form-control{height:auto;}
-.row:after,.row:before{display:table;content:" ";}
-.row:after{clear:both;}
-/*! CSS Used from: https://www.fineoutput.co.in/jewellery2/public/frontend/assets/css/style.css */
-a{font-size:13px!important;}
-@media print{
-*,:after,:before{background:0 0!important;color:#000!important;box-shadow:none!important;text-shadow:none!important;}
-a,a:visited{text-decoration:underline;}
-a[href]:after{content:" (" attr(href)")";}
-}
-a{background-color:transparent;}
-a:active,a:hover{outline:0;}
-button,input{color:inherit;font:inherit;margin:0;}
-button{overflow:visible;}
-button{text-transform:none;}
-button{-webkit-appearance:button;cursor:pointer;}
-button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}
-input{line-height:normal;}
-@media print{
-*,:after,:before{background:0 0!important;color:#000!important;box-shadow:none!important;text-shadow:none!important;}
-a,a:visited{text-decoration:underline;}
-a[href]:after{content:" (" attr(href)")";}
-}
-*,:after,:before{box-sizing:border-box;}
-:after{box-sizing:border-box;}
-:after,:before{box-sizing:border-box;}
-select{-webkit-appearance:none;}
-select{text-transform:none;}
-.row{padding-left:20px;margin-right:-5px;padding-top:10px;display:-ms-flexbox;display:flex;-ms-flex:0 1 auto;flex:0 1 auto;-ms-flex-direction:row;flex-direction:row;-ms-flex-wrap:wrap;flex-wrap:wrap;}
-input[type=text],textarea{height:50px;padding:0 20px;width:50px;border-radius:0;}
-input[type=text],textarea{border:1px solid #c3c6cb;letter-spacing:.5px;line-height:20px;height:100px;padding:0 20px;width:100%;border-radius:0;background-clip:padding-box;font-weight:300;font-size:15px;}
-textarea{overflow:auto;}
-textarea{color:inherit;font:inherit;margin-top:0;}
-a{color:#000;background:0 0;overflow:hidden;text-decoration:none;}
-a:hover{color:#1f0b00!important;}
-input[type=text]{border:1px solid #E6E7E8;letter-spacing:1px;height:50px;padding:0 20px;border-radius:0;background-clip:padding-box;font-weight:400;}
-input[type=text]::-moz-placeholder{color:#7b7b7b;opacity:1;}
-input[type=text]:-ms-input-placeholder{color:#7b7b7b;}
-input[type=text]::-webkit-input-placeholder{color:#7b7b7b;}
-@media (max-width: 991px){
-input[type=text]{font-size:14px;}
-}
-@media print{
-a[href]:after{content:"";}
-}
-@media print{
-*,:after,:before{background:0 0!important;color:#000!important;box-shadow:none!important;text-shadow:none!important;}
-a,a:visited{text-decoration:underline;}
-a[href]:after{content:" (" attr(href)")";}
-}
-a{background-color:transparent;}
-a:active,a:hover{outline:0;}
-@media print{
-*,:after,:before{background:0 0!important;color:#000!important;box-shadow:none!important;text-shadow:none!important;}
-a,a:visited{text-decoration:underline;}
-a[href]:after{content:" (" attr(href)")";}
-}
-*,:after,:before{box-sizing:border-box;}
-a{color:#000;background:0 0;overflow:hidden;text-decoration:none;}
-a:hover{color:#1f0b00!important;}
-@media print{
-a[href]:after{content:"";}
-}
-@media print{
-*,:after,:before{background:0 0!important;color:#000!important;box-shadow:none!important;text-shadow:none!important;}
-a,a:visited{text-decoration:underline;}
-a[href]:after{content:" (" attr(href)")";}
-}
-a{background-color:transparent;}
-a:active,a:hover{outline:0;}
-@media print{
-*,:after,:before{background:0 0!important;color:#000!important;box-shadow:none!important;text-shadow:none!important;}
-a,a:visited{text-decoration:underline;}
-a[href]:after{content:" (" attr(href)")";}
-}
-*,:after,:before{box-sizing:border-box;}
-a{color:#000;background:0 0;overflow:hidden;text-decoration:none;}
-a:hover{color:#1f0b00!important;}
-@media print{
-a[href]:after{content:"";}
-}
-@media print{
-*,:after,:before{background:0 0!important;color:#000!important;box-shadow:none!important;text-shadow:none!important;}
-a,a:visited{text-decoration:underline;}
-a[href]:after{content:" (" attr(href)")";}
-h3{orphans:3;widows:3;}
-h3{page-break-after:avoid;}
-}
-a{background-color:transparent;}
-a:active,a:hover{outline:0;}
-@media print{
-*,:after,:before{background:0 0!important;color:#000!important;box-shadow:none!important;text-shadow:none!important;}
-a,a:visited{text-decoration:underline;}
-a[href]:after{content:" (" attr(href)")";}
-h3{orphans:3;widows:3;}
-h3{page-break-after:avoid;}
-}
-h3{font-family:inherit;font-weight:500;line-height:1.1;color:inherit;}
-h3{margin-top:20px;margin-bottom:10px;}
-h3{font-size:24px;}
-*,:after,:before{box-sizing:border-box;}
-a{color:#000;background:0 0;overflow:hidden;text-decoration:none;}
-a:hover{color:#1f0b00!important;}
-@media print{
-a[href]:after{content:"";}
-}
-a{text-decoration:none;color:#929292;}
-a{color:inherit;text-decoration:none!important;}
-@media (min-width:312px) and (max-width:900px){
-.row{margin:0;width:100%;}
-}
-::-moz-selection{background:#ee1f71;color:#fff;text-shadow:none;}
-::-moz-selection{background:#ee1f71;color:#fff;text-shadow:none;}
-::selection{background:#ee1f71;color:#fff;text-shadow:none;}
-@media all{
-::selection{background:rgba(78,84,200,.15);}
-::-moz-selection{background:rgba(78,84,200,.15);}
-::-webkit-scrollbar{width:10px;}
-::-webkit-scrollbar-track{box-shadow:inset 0 0 5px grey;border-radius:10px;}
-::-webkit-scrollbar-thumb{background:#1f0b00;border-radius:10px;}
-::-webkit-scrollbar-thumb:hover{background:#b30000;}
-@media screen, print{
-html *,html :after,html :before{-webkit-box-sizing:inherit;box-sizing:inherit;}
-h3{line-height:35px;}
-@media print{
-*,:after,:before{background:0 0!important;color:#000!important;box-shadow:none!important;text-shadow:none!important;}
-a,a:visited{text-decoration:underline;}
-a[href]:after{content:" (" attr(href) ")";}
-}
-@media print{
-a[href]:after{content:"";}
-}
-}
-}
-/*! CSS Used from: Embedded */
-.add_address_form label{display:block;margin-top:1.05rem;}
-.add_address_form input,select{width:100%;height:40px;border:1px solid lightgrey;}
-.save_btn{border:none;background:#210113;color:#fff;padding:10px 15px;}
-.back_btn{border:none;background:grey;color:#fff;padding:10px 15px;}
-/*! CSS Used from: Embedded */
-a{font-size:14.5px;}
+  /*! CSS Used from: https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css */
+  *,
+  ::after,
+  ::before {
+    box-sizing: border-box;
+  }
+
+  h3,
+  h4 {
+    margin-top: 0;
+    margin-bottom: .5rem;
+  }
+
+  a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+  }
+
+  a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+  }
+
+  label {
+    display: inline-block;
+    margin-bottom: .5rem;
+  }
+
+  button {
+    border-radius: 0;
+  }
+
+  button:focus {
+    outline: 1px dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  button,
+  input {
+    overflow: visible;
+  }
+
+  button,
+  select {
+    text-transform: none;
+  }
+
+  select {
+    word-wrap: normal;
+  }
+
+  [type=submit],
+  button {
+    -webkit-appearance: button;
+  }
+
+  [type=submit]::-moz-focus-inner,
+  button::-moz-focus-inner {
+    padding: 0;
+    border-style: none;
+  }
+
+  textarea {
+    overflow: auto;
+    resize: vertical;
+  }
+
+  h3,
+  h4 {
+    margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+  }
+
+  h4 {
+    font-size: 1.5rem;
+  }
+
+  .row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+
+  .col-lg-12,
+  .col-lg-6,
+  .col-md-12,
+  .col-md-6,
+  .col-sm-12 {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+  @media (min-width:576px) {
+    .col-sm-12 {
+      -ms-flex: 0 0 100%;
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+
+  @media (min-width:768px) {
+    .col-md-6 {
+      -ms-flex: 0 0 50%;
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+
+    .col-md-12 {
+      -ms-flex: 0 0 100%;
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+
+  @media (min-width:992px) {
+    .col-lg-6 {
+      -ms-flex: 0 0 50%;
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+
+    .col-lg-12 {
+      -ms-flex: 0 0 100%;
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+
+  .form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  }
+
+  @media (prefers-reduced-motion:reduce) {
+    .form-control {
+      transition: none;
+    }
+  }
+
+  .form-control::-ms-expand {
+    background-color: transparent;
+    border: 0;
+  }
+
+  .form-control:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #495057;
+  }
+
+  .form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25);
+  }
+
+  .form-control::-webkit-input-placeholder {
+    color: #6c757d;
+    opacity: 1;
+  }
+
+  .form-control::-moz-placeholder {
+    color: #6c757d;
+    opacity: 1;
+  }
+
+  .form-control:-ms-input-placeholder {
+    color: #6c757d;
+    opacity: 1;
+  }
+
+  .form-control::-ms-input-placeholder {
+    color: #6c757d;
+    opacity: 1;
+  }
+
+  .form-control::placeholder {
+    color: #6c757d;
+    opacity: 1;
+  }
+
+  .form-control:disabled {
+    background-color: #e9ecef;
+    opacity: 1;
+  }
+
+  textarea.form-control {
+    height: auto;
+  }
+
+  .d-flex {
+    display: -ms-flexbox !important;
+    display: flex !important;
+  }
+
+  .mr-4 {
+    margin-right: 1.5rem !important;
+  }
+
+  .pb-3 {
+    padding-bottom: 1rem !important;
+  }
+
+  .pt-5 {
+    padding-top: 3rem !important;
+  }
+
+  .pb-5 {
+    padding-bottom: 3rem !important;
+  }
+
+  @media print {
+
+    *,
+    ::after,
+    ::before {
+      text-shadow: none !important;
+      box-shadow: none !important;
+    }
+
+    a:not(.btn) {
+      text-decoration: underline;
+    }
+
+    h3 {
+      orphans: 3;
+      widows: 3;
+    }
+
+    h3 {
+      page-break-after: avoid;
+    }
+  }
+
+  /*! CSS Used from: https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css */
+  a {
+    background-color: transparent;
+  }
+
+  a:active,
+  a:hover {
+    outline: 0;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+  }
+
+  button {
+    overflow: visible;
+  }
+
+  button,
+  select {
+    text-transform: none;
+  }
+
+  button {
+    -webkit-appearance: button;
+    cursor: pointer;
+  }
+
+  button::-moz-focus-inner,
+  input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+
+  input {
+    line-height: normal;
+  }
+
+  textarea {
+    overflow: auto;
+  }
+
+  @media print {
+
+    *,
+    :after,
+    :before {
+      color: #000 !important;
+      text-shadow: none !important;
+      background: 0 0 !important;
+      -webkit-box-shadow: none !important;
+      box-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+      text-decoration: underline;
+    }
+
+    a[href]:after {
+      content: " ("attr(href) ")";
+    }
+
+    h3 {
+      orphans: 3;
+      widows: 3;
+    }
+
+    h3 {
+      page-break-after: avoid;
+    }
+  }
+
+  * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  :after,
+  :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  a {
+    color: #337ab7;
+    text-decoration: none;
+  }
+
+  a:focus,
+  a:hover {
+    color: #23527c;
+    text-decoration: underline;
+  }
+
+  a:focus {
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+  }
+
+  h3,
+  h4 {
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+  }
+
+  h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  h4 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  h3 {
+    font-size: 24px;
+  }
+
+  h4 {
+    font-size: 18px;
+  }
+
+  .row {
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+
+  .col-lg-12,
+  .col-lg-6,
+  .col-md-12,
+  .col-md-6,
+  .col-sm-12 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+  @media (min-width:768px) {
+    .col-sm-12 {
+      float: left;
+    }
+
+    .col-sm-12 {
+      width: 100%;
+    }
+  }
+
+  @media (min-width:992px) {
+
+    .col-md-12,
+    .col-md-6 {
+      float: left;
+    }
+
+    .col-md-12 {
+      width: 100%;
+    }
+
+    .col-md-6 {
+      width: 50%;
+    }
+  }
+
+  @media (min-width:1200px) {
+
+    .col-lg-12,
+    .col-lg-6 {
+      float: left;
+    }
+
+    .col-lg-12 {
+      width: 100%;
+    }
+
+    .col-lg-6 {
+      width: 50%;
+    }
+  }
+
+  label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+  }
+
+  .form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+  }
+
+  .form-control:focus {
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+  }
+
+  .form-control::-moz-placeholder {
+    color: #999;
+    opacity: 1;
+  }
+
+  .form-control:-ms-input-placeholder {
+    color: #999;
+  }
+
+  .form-control::-webkit-input-placeholder {
+    color: #999;
+  }
+
+  .form-control::-ms-expand {
+    background-color: transparent;
+    border: 0;
+  }
+
+  textarea.form-control {
+    height: auto;
+  }
+
+  .row:after,
+  .row:before {
+    display: table;
+    content: " ";
+  }
+
+  .row:after {
+    clear: both;
+  }
+
+  /*! CSS Used from: https://www.fineoutput.co.in/jewellery2/public/frontend/assets/css/style.css */
+  a {
+    font-size: 13px !important;
+  }
+
+  @media print {
+
+    *,
+    :after,
+    :before {
+      background: 0 0 !important;
+      color: #000 !important;
+      box-shadow: none !important;
+      text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+      text-decoration: underline;
+    }
+
+    a[href]:after {
+      content: " ("attr(href)")";
+    }
+  }
+
+  a {
+    background-color: transparent;
+  }
+
+  a:active,
+  a:hover {
+    outline: 0;
+  }
+
+  button,
+  input {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+  }
+
+  button {
+    overflow: visible;
+  }
+
+  button {
+    text-transform: none;
+  }
+
+  button {
+    -webkit-appearance: button;
+    cursor: pointer;
+  }
+
+  button::-moz-focus-inner,
+  input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+
+  input {
+    line-height: normal;
+  }
+
+  @media print {
+
+    *,
+    :after,
+    :before {
+      background: 0 0 !important;
+      color: #000 !important;
+      box-shadow: none !important;
+      text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+      text-decoration: underline;
+    }
+
+    a[href]:after {
+      content: " ("attr(href)")";
+    }
+  }
+
+  *,
+  :after,
+  :before {
+    box-sizing: border-box;
+  }
+
+  :after {
+    box-sizing: border-box;
+  }
+
+  :after,
+  :before {
+    box-sizing: border-box;
+  }
+
+  select {
+    -webkit-appearance: none;
+  }
+
+  select {
+    text-transform: none;
+  }
+
+  .row {
+    padding-left: 20px;
+    margin-right: -5px;
+    padding-top: 10px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+
+  input[type=text],
+  textarea {
+    height: 50px;
+    padding: 0 20px;
+    width: 50px;
+    border-radius: 0;
+  }
+
+  input[type=text],
+  textarea {
+    border: 1px solid #c3c6cb;
+    letter-spacing: .5px;
+    line-height: 20px;
+    height: 100px;
+    padding: 0 20px;
+    width: 100%;
+    border-radius: 0;
+    background-clip: padding-box;
+    font-weight: 300;
+    font-size: 15px;
+  }
+
+  textarea {
+    overflow: auto;
+  }
+
+  textarea {
+    color: inherit;
+    font: inherit;
+    margin-top: 0;
+  }
+
+  a {
+    color: #000;
+    background: 0 0;
+    overflow: hidden;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #1f0b00 !important;
+  }
+
+  input[type=text] {
+    border: 1px solid #E6E7E8;
+    letter-spacing: 1px;
+    height: 50px;
+    padding: 0 20px;
+    border-radius: 0;
+    background-clip: padding-box;
+    font-weight: 400;
+  }
+
+  input[type=text]::-moz-placeholder {
+    color: #7b7b7b;
+    opacity: 1;
+  }
+
+  input[type=text]:-ms-input-placeholder {
+    color: #7b7b7b;
+  }
+
+  input[type=text]::-webkit-input-placeholder {
+    color: #7b7b7b;
+  }
+
+  @media (max-width: 991px) {
+    input[type=text] {
+      font-size: 14px;
+    }
+  }
+
+  @media print {
+    a[href]:after {
+      content: "";
+    }
+  }
+
+  @media print {
+
+    *,
+    :after,
+    :before {
+      background: 0 0 !important;
+      color: #000 !important;
+      box-shadow: none !important;
+      text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+      text-decoration: underline;
+    }
+
+    a[href]:after {
+      content: " ("attr(href)")";
+    }
+  }
+
+  a {
+    background-color: transparent;
+  }
+
+  a:active,
+  a:hover {
+    outline: 0;
+  }
+
+  @media print {
+
+    *,
+    :after,
+    :before {
+      background: 0 0 !important;
+      color: #000 !important;
+      box-shadow: none !important;
+      text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+      text-decoration: underline;
+    }
+
+    a[href]:after {
+      content: " ("attr(href)")";
+    }
+  }
+
+  *,
+  :after,
+  :before {
+    box-sizing: border-box;
+  }
+
+  a {
+    color: #000;
+    background: 0 0;
+    overflow: hidden;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #1f0b00 !important;
+  }
+
+  @media print {
+    a[href]:after {
+      content: "";
+    }
+  }
+
+  @media print {
+
+    *,
+    :after,
+    :before {
+      background: 0 0 !important;
+      color: #000 !important;
+      box-shadow: none !important;
+      text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+      text-decoration: underline;
+    }
+
+    a[href]:after {
+      content: " ("attr(href)")";
+    }
+  }
+
+  a {
+    background-color: transparent;
+  }
+
+  a:active,
+  a:hover {
+    outline: 0;
+  }
+
+  @media print {
+
+    *,
+    :after,
+    :before {
+      background: 0 0 !important;
+      color: #000 !important;
+      box-shadow: none !important;
+      text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+      text-decoration: underline;
+    }
+
+    a[href]:after {
+      content: " ("attr(href)")";
+    }
+  }
+
+  *,
+  :after,
+  :before {
+    box-sizing: border-box;
+  }
+
+  a {
+    color: #000;
+    background: 0 0;
+    overflow: hidden;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #1f0b00 !important;
+  }
+
+  @media print {
+    a[href]:after {
+      content: "";
+    }
+  }
+
+  @media print {
+
+    *,
+    :after,
+    :before {
+      background: 0 0 !important;
+      color: #000 !important;
+      box-shadow: none !important;
+      text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+      text-decoration: underline;
+    }
+
+    a[href]:after {
+      content: " ("attr(href)")";
+    }
+
+    h3 {
+      orphans: 3;
+      widows: 3;
+    }
+
+    h3 {
+      page-break-after: avoid;
+    }
+  }
+
+  a {
+    background-color: transparent;
+  }
+
+  a:active,
+  a:hover {
+    outline: 0;
+  }
+
+  @media print {
+
+    *,
+    :after,
+    :before {
+      background: 0 0 !important;
+      color: #000 !important;
+      box-shadow: none !important;
+      text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+      text-decoration: underline;
+    }
+
+    a[href]:after {
+      content: " ("attr(href)")";
+    }
+
+    h3 {
+      orphans: 3;
+      widows: 3;
+    }
+
+    h3 {
+      page-break-after: avoid;
+    }
+  }
+
+  h3 {
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+  }
+
+  h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  h3 {
+    font-size: 24px;
+  }
+
+  *,
+  :after,
+  :before {
+    box-sizing: border-box;
+  }
+
+  a {
+    color: #000;
+    background: 0 0;
+    overflow: hidden;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #1f0b00 !important;
+  }
+
+  @media print {
+    a[href]:after {
+      content: "";
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: #929292;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none !important;
+  }
+
+  @media (min-width:312px) and (max-width:900px) {
+    .row {
+      margin: 0;
+      width: 100%;
+    }
+  }
+
+  ::-moz-selection {
+    background: #ee1f71;
+    color: #fff;
+    text-shadow: none;
+  }
+
+  ::-moz-selection {
+    background: #ee1f71;
+    color: #fff;
+    text-shadow: none;
+  }
+
+  ::selection {
+    background: #ee1f71;
+    color: #fff;
+    text-shadow: none;
+  }
+
+  @media all {
+    ::selection {
+      background: rgba(78, 84, 200, .15);
+    }
+
+    ::-moz-selection {
+      background: rgba(78, 84, 200, .15);
+    }
+
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px grey;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #1f0b00;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #b30000;
+    }
+
+    @media screen,
+    print {
+
+      html *,
+      html :after,
+      html :before {
+        -webkit-box-sizing: inherit;
+        box-sizing: inherit;
+      }
+
+      h3 {
+        line-height: 35px;
+      }
+
+      @media print {
+
+        *,
+        :after,
+        :before {
+          background: 0 0 !important;
+          color: #000 !important;
+          box-shadow: none !important;
+          text-shadow: none !important;
+        }
+
+        a,
+        a:visited {
+          text-decoration: underline;
+        }
+
+        a[href]:after {
+          content: " ("attr(href) ")";
+        }
+      }
+
+      @media print {
+        a[href]:after {
+          content: "";
+        }
+      }
+    }
+  }
+
+  /*! CSS Used from: Embedded */
+  .add_address_form label {
+    display: block;
+    margin-top: 1.05rem;
+  }
+
+  .add_address_form input,
+  select {
+    width: 100%;
+    height: 40px;
+    border: 1px solid lightgrey;
+  }
+
+  .save_btn {
+    border: none;
+    background: #210113;
+    color: #fff;
+    padding: 10px 15px;
+  }
+
+  .back_btn {
+    border: none;
+    background: grey;
+    color: #fff;
+    padding: 10px 15px;
+  }
+
+  /*! CSS Used from: Embedded */
+  a {
+    font-size: 14.5px;
+  }
+
   .space {
     padding-top: 7rem;
   }
@@ -1469,6 +2350,7 @@ a{font-size:14.5px;}
     -ms-touch-action: manipulation;
     touch-action: manipulation;
   }
+
   .in_prodiv button {
     position: absolute;
     top: 121px;
@@ -1477,11 +2359,12 @@ a{font-size:14.5px;}
     height: 44px;
     background: none;
     border: 0;
-}
-.settype{
-  width: 18rem !important;
-  margin-top: 0px !important;
-}
+  }
+
+  .settype {
+    width: 18rem !important;
+    margin-top: 0px !important;
+  }
 </style>
 <style>
   *,
@@ -2900,61 +3783,62 @@ a{font-size:14.5px;}
                     <div class="css-1mv2nhv">
                       <div class="address-box compact css-1a9sku1" id="2277789" role="presentation">
                         <form class="add_address_form" action="https://www.fineoutput.co.in/jewellery2/public/add_address_process" method="post">
-      <input type="hidden" name="_token" value="GcoFfbNsCYUBsDsQgAz2wtt2S1K9uQsZTAbrZrNb">	<div class="row pt-5 pb-5">
-  			<h4 class="pb-3">Contact Information</h4>
-        <div class="d-flex" style="    justify-content: space-between;">
+                          <input type="hidden" name="_token" value="GcoFfbNsCYUBsDsQgAz2wtt2S1K9uQsZTAbrZrNb">
+                          <div class="row pt-5 pb-5">
+                            <h4 class="pb-3">Contact Information</h4>
+                            <div class="d-flex" style="    justify-content: space-between;">
 
-        <div class="">
-  			<label>name</label>
-  			<input type="text" name="customer_name" placeholder="Enter your Name" class="form-control settype" required="">
-            </div>
-        <div class="">
-        <label>Email </label>
-        <input type="email" name="customer_email" placeholder="Enter your email" class="form-control settype" required="">
-      </div>
-    </div>
-  <div class="d-flex" style="    justify-content: space-between;">
-    <div class="">
+                              <div class="">
+                                <label>name</label>
+                                <input type="text" name="customer_name" placeholder="Enter your Name" class="form-control settype" required="">
+                              </div>
+                              <div class="">
+                                <label>Email </label>
+                                <input type="email" name="customer_email" placeholder="Enter your email" class="form-control settype" required="">
+                              </div>
+                            </div>
+                            <div class="d-flex" style="    justify-content: space-between;">
+                              <div class="">
 
-  			<label>Phone</label>
-  			<input type="text" name="customer_number" class="form-control settype" placeholder="Enter your number" onkeypress="return isNumberKey(event)" pattern="^[0-9]+$" minlength="10" maxlength="10" required="">
+                                <label>Phone</label>
+                                <input type="text" name="customer_number" class="form-control settype" placeholder="Enter your number" onkeypress="return isNumberKey(event)" pattern="^[0-9]+$" minlength="10" maxlength="10" required="">
 
-      </div>
-  		<!-- <div class="col-sm-12 col-md-12 col-lg-12"> -->
-      <div class="">
+                              </div>
+                              <!-- <div class="col-sm-12 col-md-12 col-lg-12"> -->
+                              <div class="">
 
-  			<!-- <h4 class="pb-3">Address</h4> -->
-       		<label>street</label>
-  			<!-- <label> Address</label> -->
-  			<!-- <input type="text" name=""> -->
-        <textarea type="text" name="address" class="form-control settype" placeholder="Enter your street"  id="exampleFormControlTextarea1" rows="3" required="" style="height:3rem;"></textarea>
+                                <!-- <h4 class="pb-3">Address</h4> -->
+                                <label>street</label>
+                                <!-- <label> Address</label> -->
+                                <!-- <input type="text" name=""> -->
+                                <textarea type="text" name="address" class="form-control settype" placeholder="Enter your street" id="exampleFormControlTextarea1" rows="3" required="" style="height:3rem;"></textarea>
 
-      </div>
-    </div>
-   <!-- <div class="d-flex" style="    justify-content: space-between;"> -->
+                              </div>
+                            </div>
+                            <!-- <div class="d-flex" style="    justify-content: space-between;"> -->
 
-    <div class="">
-        <label>PinCode</label>
-        <input type="text" name="zipcode" pattern="^[0-9]+$" placeholder="Enter your pincode" onkeypress="return isNumberKey(event)" minlength="6" maxlength="6" class="form-control settype" required="">
-  </div>
-  <!-- <div class=""> -->
+                            <div class="">
+                              <label>Pincode</label>
+                              <input type="text" name="zipcode" pattern="^[0-9]+$" placeholder="Enter your pincode" onkeypress="return isNumberKey(event)" minlength="6" maxlength="6" class="form-control settype" required="">
+                            </div>
+                            <!-- <div class=""> -->
 
-        <!-- <label>Landmark</label> -->
-        <!-- <input type="text" name="landmark" class="form-control settype"> -->
+                            <!-- <label>Landmark</label> -->
+                            <!-- <input type="text" name="landmark" class="form-control settype"> -->
 
-        <!-- </div> -->
+                            <!-- </div> -->
 
-      <!-- </div> -->
-        <!-- <label>Zip/Postal Code</label> -->
-        <!-- <input type="text" name="zipcode" pattern="^[0-9]+$" onkeypress="return isNumberKey(event)" minlength="6" maxlength="6" class="form-control settype" required=""> -->
+                            <!-- </div> -->
+                            <!-- <label>Zip/Postal Code</label> -->
+                            <!-- <input type="text" name="zipcode" pattern="^[0-9]+$" onkeypress="return isNumberKey(event)" minlength="6" maxlength="6" class="form-control settype" required=""> -->
 
-  		<!-- </div> -->
-  		<!-- <div class="d-flex" style="padding-top:1rem;">
+                            <!-- </div> -->
+                            <!-- <div class="d-flex" style="padding-top:1rem;">
   			<button class="mr-4 save_btn" type="submit">Save Address</button>
   			<a href="https://www.fineoutput.co.in/jewellery2/public/checkout"><button class="back_btn">Go Back</button></a>
   		</div> -->
-  	</div>
-  	</form>
+                          </div>
+                        </form>
                       </div>
                     </div>
 
@@ -2984,8 +3868,9 @@ a{font-size:14.5px;}
         <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
           <div class="accordion-body">
             <div class="in_prodiv mb-5">
-              <input type="text" placeholder="Enter Code Here" id="gift_promo" name="gift_promo">
-              <button class="apply_btn" id="giftPromocode">
+              <input type="hidden" name="order_id" value="<?=base64_encode()?>">
+              <input type="text" placeholder="Enter Code Here" id="promocode" name="promocode" value="">
+              <button class="apply_btn" onclick = applypromocode(this) id="giftPromocode">
                 Apply
               </button>
             </div>
@@ -2993,8 +3878,6 @@ a{font-size:14.5px;}
         </div>
       </div>
     </div>
-
-
 
 
     <div class="css-1abnf4d col-md-4">
@@ -3008,28 +3891,32 @@ a{font-size:14.5px;}
       <div class="css-1bh2wnb">
         <p class="css-yqnuxd">Order Summary</p>
         <div class="css-1wird2e">
+          <?php
+                  $this->db->select('*');
+      $this->db->from('tbl_order2');
+      $this->db->where('main_id', $order_data->id);
+      $order2_data= $this->db->get();
 
+       foreach ($order2_data->result() as $order) {
+           $this->db->select('*');
+           $this->db->from('tbl_products');
+           $this->db->where('id', $order->product_id);
+           $pro_data= $this->db->get()->row(); ?>
           <div class="cart-item">
             <div class="thumbnail">
-              <img src="https://www.fineoutput.co.in/jewellery2/public/uploads/ProductUploads/Product94301614429225.jpg" alt="Laura D Bracelet">
+              <img src="<?=base_url().$pro_data->image?>">
             </div>
             <div class="details">
-              <div class="title">Test Product</div>
-
-              <div class="sku">Sku: <span class="value">1234546a456</span></div>
-              <div class="sku">Color: <span class="value">Blue</span></div>
-              <div class="sku">Quantity: <span class="value">1</span> </div>
-              <!-- <div class="delivery">Expected Delivery -<span>7th to 8th Sep</span>
-           </div> -->
+              <div class="title"><?=$pro_data->productname?></div>
+              <div class="sku">Quantity: <span class="value"><?=$order->quantity?></span> </div>
             </div>
-
-
             <div class="price">
-              <span>$ 1.00 </span>
+              <span>Rs. <?=$order->total_amount?></span>
               <span class=""></span>
             </div>
           </div>
-
+          <?php
+       } ?>
 
 
 
@@ -3037,7 +3924,7 @@ a{font-size:14.5px;}
         <div class="css-18g5l5m">
           <div class="sub-total line-item">
             <div class="label" style="color: black !important;"><b>SUBTOTAL</b></div>
-            <div class="price">$ <span id="subtotal_price">3249.00</span></div>
+            <div class="price">Rs. <span id="subtotal_price"><?=$order_data->total_amount?></span></div>
           </div>
 
           <input type="hidden" name="qntty" id="qntty" value="15">
@@ -3045,7 +3932,7 @@ a{font-size:14.5px;}
 
           <div class="discount line-item">
             <div class="label" style="color: black !important;"><b>PROMOCODE DISSCOUNT</b></div>
-            <div class="price">- $ <span id="discount">0</span></div>
+            <div class="price">- Rs. <span id="discount">0</span></div>
           </div>
           <div class="discount line-item">
             <!-- <div class="label" style="color: black !important;"><b>GIFT DISCOUNT</b></div> -->
@@ -3054,12 +3941,12 @@ a{font-size:14.5px;}
           <div class="shipping-charge line-item">
             <div class="label" style="color: black !important;"><b>SHIPPING CHARGES </b><span class="shipping-type">(Standard)</span>
             </div>
-            <div class="price" id="shiping">$0</div>
+            <div class="price" id="shiping">+Rs. <?=$order_data->delivery_charge?></div>
           </div>
         </div>
         <div class="css-17ss6c3 line-item">
           <div class="label" style="color: black !important;"><b>TOTAL COST</b></div>
-          <div class="price">$ <span id="total_price" class="price">3249.00</span></div>
+          <div class="price">Rs. <span id="total_price" class="price"><?=$order_data->final_amount?></span></div>
         </div>
 
         <div class="css-17ss6c3 line-item">
@@ -3072,7 +3959,7 @@ a{font-size:14.5px;}
           <b> Online Payment</b>
         </div>
         <div class="css-17ss6c3 line-item w-100">
-    <button>Place Order</button>
+          <button>Place Order</button>
         </div>
 
       </div>
@@ -3085,3 +3972,21 @@ a{font-size:14.5px;}
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script>
+function applypromocode(){
+
+  var product_id = $(obj).attr("product_id");
+  var base_path = "<?=base_url();?>";
+     $.ajax({
+     url:'<?=base_url();?>Cart/addToCartOnline',
+     method: 'post',
+     data: {product_id: product_id, quantity: quantity},
+     dataType: 'json',
+     success: function(response){
+     if(response.data == true){
+
+     }
+   }
+ });
+}
+</script>

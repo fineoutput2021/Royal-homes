@@ -376,10 +376,6 @@ color: red;
 
           </div>
         </div>
-
-
-
-
         </div>
         <!-- <div style="width: 100%;">
           <h1>Paolo</h1>
