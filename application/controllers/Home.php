@@ -15,7 +15,7 @@ class Home extends CI_Controller
     {
         // $this->session->unset_userdata('user_data');
         $this->db->select('*');
-        $this->db->from('tbl_Slider');
+        $this->db->from('tbl_slider');
         $this->db->where('is_active', 1);
         $data['slider_data']= $this->db->get();
 
@@ -73,7 +73,7 @@ class Home extends CI_Controller
             $this->db->like('subcategory_id', $id);
         }
         $data['product_data']= $this->db->get();
-        
+
         $this->load->view('frontend/common/header', $data);
         $this->load->view('frontend/all_product');
         $this->load->view('frontend/common/footer');
