@@ -42,17 +42,17 @@
  	 <th>Product Name</th>
  	 <th>Category Name</th>
  	 <th>Subcategory Name</th>
- 	 <th>image</th>
- 	 <th>image1</th>
- 	 <th>image2</th>
- 	 <th>image3</th>
+ 	 <th>Image</th>
+ 	 <th>Image1</th>
+ 	 <th>Image2</th>
+ 	 <th>Image3</th>
  	 <th>MRP</th>
+ 	 <th>Selling Price</th>
  	 <th>Product Description</th>
- 	 <th>feature</th>
+ 	 <th>Feature</th>
  	 <th>Case Instruction</th>
  	 <th>Model No.</th>
-
-
+ 	 <th>Inventory</th>
         <th>Status</th>
         <th>Action</th>
         </tr>
@@ -80,7 +80,7 @@ if(!empty($category_data)){
 }
 ?></td>
  	 <td><?php $subcategory_id=json_decode($data->subcategory);
-
+if(!empty($subcategory_id)){
 foreach($subcategory_id as $value1){
             $this->db->select('*');
 $this->db->from('tbl_subcategory');
@@ -93,6 +93,9 @@ if(!empty($subcategory_data)){
   echo "";
 
 }
+}
+}else{
+  echo "No Subcategory";
 }
 ?></td>
 
@@ -135,12 +138,13 @@ if(!empty($subcategory_data)){
         <?php } ?>
         </td>
 
-	 <td><?php echo $data->mrp ?></td>
+	 <td><?php echo "Rs.".$data->mrp ?></td>
+	 <td><?php echo "Rs.".$data->selling_price ?></td>
  	 <td><?php echo $data->productdescription ?></td>
  	 <td><?php echo $data->feature ?></td>
  	 <td><?php echo $data->careinstruction ?></td>
-
  	 <td><?php echo $data->modelno ?></td>
+ 	 <td><?php echo $data->inventory ?></td>
 
 
 

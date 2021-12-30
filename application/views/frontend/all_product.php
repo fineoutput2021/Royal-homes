@@ -385,7 +385,7 @@ color: red;
         </div> -->
         <div class="col-md-10  col-sm-6">
           <div class="row">
-          <?php $i=1; foreach($product_data->result() as $product) { ?>
+          <?php $i=1; foreach($product_data as $product) { ?>
         <div class="col-md-4  col-sm-6">
           <div class="firrr med_mb" id="">
             <!-- <a href="productdetail.html"  ><img src="img/10.jpg" ></a> -->

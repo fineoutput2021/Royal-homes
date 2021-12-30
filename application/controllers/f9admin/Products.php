@@ -61,19 +61,8 @@
            public function getSubcategory()
               {
 
-                      // $data['user_name']=$this->load->get_var('user_name');
-
-                  // echo SITE_NAME;
-                  // echo $this->session->userdata('image');
-                  // echo $this->session->userdata('position');
-                  // exit;
-
-                  //$id=$_GET['isl'];
                   $id=$_POST['ids'];
                   $new_var=count($id);
-   //
-                  // $arrd=impload(',',$id.ids);
-                  // echo $arrd;
 
                   $this->db->select('*');
                   $this->db->from('tbl_subcategory');
@@ -84,8 +73,7 @@
                       if ($new_var > $i) {
                           $this->db->or_where('category', $value);
                       } else {
-   //       print_r($id);
-                          // echo count($id);
+
                           $this->db->where('category', $value);
 
                           $this->db->or_where('category', $value);
@@ -151,9 +139,11 @@
                        // print_r($this->input->post());
                        // exit;
                        $this->form_validation->set_rules('productname', 'productname', 'required');
+                       $this->form_validation->set_rules('is_category', 'is_category', 'required');
+                       $this->form_validation->set_rules('categorys', 'categorys');
                        $this->form_validation->set_rules('sub_category', 'sub_category');
                        $this->form_validation->set_rules('mrp', 'mrp', 'required|integer');
-                       $this->form_validation->set_rules('productdescription', 'productdescription', 'required|customalpha');
+                       $this->form_validation->set_rules('productdescription', 'productdescription', 'required');
                        $this->form_validation->set_rules('modelno', 'modelno', 'required|trim');
                        $this->form_validation->set_rules('inventory', 'inventory', 'trim');
                        $this->form_validation->set_rules('feature', 'feature', 'required|trim');
@@ -166,8 +156,10 @@
 
                        if ($this->form_validation->run()== true) {
                            $productname=$this->input->post('productname');
-                           // $category_id=$this->input->post('category_id');
+                           $is_category=$this->input->post('is_category');
+                           $categorys=$this->input->post('categorys');
                             $subcategory=$this->input->post('sub_category');
+                            if($is_category==0){
                            $subcategory_data= json_encode($subcategory);
 
                            $this->db->select('*');
@@ -199,11 +191,15 @@
 
 
                            $data_cat=json_encode($category_data);
-
+}else{
+  $data_cat=json_encode($categorys);
+  $subcategory_data= " ";
+}
 
 
 
                            $mrp=$this->input->post('mrp');
+                           $selling_price=$this->input->post('selling_price');
                            $productdescription=$this->input->post('productdescription');
                            $modelno=$this->input->post('modelno');
                            $inventory=$this->input->post('inventory');
@@ -215,7 +211,9 @@
                            date_default_timezone_set("Asia/Calcutta");
                            $cur_date=date("Y-m-d H:i:s");
                            $addedby=$this->session->userdata('admin_id');
-
+                           $nnnn3 = "";
+                           $nnnn4 = "";
+                           $nnnn5 = "";
                            $typ=base64_decode($t);
                            $last_id = 0;
                            if ($typ==1) {
@@ -373,6 +371,7 @@
 
                                $data_insert = array(
                   'productname'=>$productname,
+                  'is_category'=>$is_category,
                   'category'=>$data_cat,
 'subcategory'=>$subcategory_data,
   'image'=>$nnnn2,
@@ -380,11 +379,13 @@
   'image2'=>$nnnn4,
   'image3'=>$nnnn5,
   'mrp'=>$mrp,
+  'selling_price'=>$selling_price,
   'productdescription'=>$productdescription,
   'modelno'=>$modelno,
   'feature'=>$feature,
   'careinstruction'=>$careinstruction,
   'bestsellerproduct'=>$bestsellerproduct,
+  'inventory'=>$inventory,
 
                      'ip' =>$ip,
                      'added_by' =>$addedby,
@@ -394,16 +395,6 @@
 
 
                                $last_id=$this->base_model->insert_table("tbl_products", $data_insert, 1) ;
-
-                               $inventory_data = array(
-            'product_id'=> $last_id,
-            'quantity'=>$inventory,
-            'ip'=>$ip,
-            'date'=>$addedby,
-            'added_by'=>$cur_date
-
-          );
-                               $last_id2=$this->base_model->insert_table("tbl_inventory", $inventory_data, 1) ;
                            }
                            if ($typ==2) {
                                $idw=base64_decode($iw);
@@ -620,6 +611,7 @@
 
                                $data_insert = array(
                   'productname'=>$productname,
+                  'is_category'=>$is_category,
                   'category'=>$data_cat,
   'subcategory'=>$subcategory_data,
   'image'=>$nnnn2,
@@ -627,11 +619,14 @@
   'image2'=>$nnnn4,
   'image3'=>$nnnn5,
   'mrp'=>$mrp,
+  'selling_price'=>$selling_price,
   'productdescription'=>$productdescription,
   'modelno'=>$modelno,
   'feature'=>$feature,
   'careinstruction'=>$careinstruction,
-  'bestsellerproduct'=>$bestsellerproduct
+  'bestsellerproduct'=>$bestsellerproduct,
+  'inventory'=>$inventory
+
 
                      );
                                $this->db->where('id', $idw);

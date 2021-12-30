@@ -39,9 +39,29 @@ Update Products
 <td> <strong>Product Name</strong>  <span style="color:red;">*</span></strong> </td>
 <td> <input type="text" name="productname"  class="form-control" placeholder="" required value="<?=$products_data->productname?>" />  </td>
 </tr>
-
-
 <tr>
+  <td> <strong>Category Wise</strong> <span style="color:red;">*</span></strong> </td>
+  <td>
+    <input type="radio" id="category_y" name="is_category" value="1" <? if($products_data->is_category == 1){echo "checked";} ?>>
+    <label for="category_y"> Yes</label>
+    <input type="radio" id="category_n" name="is_category" value="0" <? if($products_data->is_category == 0){echo "checked";} ?>>
+    <label for="category_n"> No</label><br>
+   </td>
+</tr>
+
+<tr class="desc" id="tr1" <?if($products_data->is_category == 0){echo 'style="display: none;"';}?>>
+  <td> <strong>Category</strong> <span style="color:red;">*</span></strong> </td>
+  <td>
+    <select class="form-control" name="categorys[]">
+      <?php $i=1;
+      $cat = json_decode($products_data->category);
+       foreach($category_data->result() as $data) { ?>
+<option value="<?=$data->id?>" <?if($data->id==$cat[0]){echo "selected";}?>><?=$data->categoryname?></option>
+<?}?>
+</select>
+   </td>
+</tr>
+<tr class="desc" id="tr0" <?if($products_data->is_category == 1){echo 'style="display: none;"';}?>>
 <td> <strong>Subcategory Name</strong>  <span style="color:red;">*</span></strong> </td>
 <td>
 
@@ -75,7 +95,7 @@ Update Products
 </tr>
 
 <tr>
-<td> <strong>image</strong>  <span style="color:red;">*</span></strong> </td>
+<td> <strong>Image</strong>  <span style="color:red;">*</span></strong> </td>
 <td> <input type="file" name="image"  class="form-control" placeholder=""  value="<?=$products_data->image?>" />
   <?php if($products_data->image!=""){ ?>
   <img id="slide_img_path" height=50 width=100 src="<?php echo base_url().$products_data->image
@@ -85,7 +105,7 @@ Update Products
   <?php } ?></td>
 </tr>
 <tr>
-<td> <strong>image1</strong>  <span style="color:red;">*</span></strong> </td>
+<td> <strong>Image1</strong>  <span style="color:red;">*</span></strong> </td>
 <td> <input type="file" name="image1"  class="form-control" placeholder=""  value="<?=$products_data->image1?>" />
   <?php if($products_data->image1!=""){ ?>
   <img id="slide_img_path" height=50 width=100 src="<?php echo base_url().$products_data->image1
@@ -95,7 +115,7 @@ Update Products
   <?php } ?></td>
 </tr>
 <tr>
-<td> <strong>image2</strong>  <span style="color:red;">*</span></strong> </td>
+<td> <strong>Image2</strong>  <span style="color:red;">*</span></strong> </td>
 <td> <input type="file" name="image2"  class="form-control" placeholder=""  value="<?=$products_data->image2?>" />
   <?php if($products_data->image2!=""){ ?>
   <img id="slide_img_path" height=50 width=100 src="<?php echo base_url().$products_data->image2
@@ -107,7 +127,7 @@ Update Products
  </td>
 </tr>
 <tr>
-<td> <strong>image3</strong>  <span style="color:red;">*</span></strong> </td>
+<td> <strong>Image3</strong>  <span style="color:red;">*</span></strong> </td>
 <td> <input type="file" name="image3"  class="form-control" placeholder=""  value="<?=$products_data->image3?>" />
   <?php if($products_data->image3!=""){ ?>
   <img id="slide_img_path" height=50 width=100 src="<?php echo base_url().$products_data->image3
@@ -119,33 +139,41 @@ Update Products
  </td>
 </tr>
 <tr>
-<td> <strong>mrp</strong>  <span style="color:red;">*</span></strong> </td>
-<td> <input type="number" name="mrp"  class="form-control" placeholder=""  value="<?=$products_data->mrp?>" />  </td>
+<td> <strong>MRP</strong>  <span style="color:red;">*</span></strong> </td>
+<td> <input type="text" name="mrp"  class="form-control" placeholder="" onkeypress="return isNumberKey(event)" value="<?=$products_data->mrp?>" />  </td>
+</tr>
+<tr>
+  <td> <strong>Selling Price</strong> <span style="color:red;">*</span></strong> </td>
+  <td> <input type="text" name="selling_price" class="form-control" placeholder="" required value="<?=$products_data->selling_price?>" onkeypress="return isNumberKey(event)"/> </td>
 </tr>
 <tr>
 <td> <strong>Product Description</strong>  <span style="color:red;">*</span></strong> </td>
-<td> <input type="text" name="productdescription"  class="form-control" placeholder=""  value="<?=$products_data->productdescription?>" />  </td>
+<td> <textarea name="productdescription" id="editor1" rows="3" cols="80" required> <?=$products_data->productdescription?></textarea>
 </tr>
 <tr>
-<td> <strong>FEATURE</strong>  <span style="color:red;">*</span></strong> </td>
-<td> <textarea name="feature" id="editor1" rows="3" cols="80" required ><?=$products_data->feature?></textarea>
+<td> <strong>Features</strong>  <span style="color:red;">*</span></strong> </td>
+<td> <textarea name="feature" id="editor2" rows="3" cols="80" required ><?=$products_data->feature?></textarea>
 </tr>
 <tr>
 <td> <strong>Care Instruction</strong>  <span style="color:red;">*</span></strong> </td>
-<td> <textarea name="careinstruction" id="editor2" rows="3" cols="80" required ><?=$products_data->careinstruction?></textarea>
+<td> <textarea name="careinstruction" id="editor3" rows="3" cols="80" required ><?=$products_data->careinstruction?></textarea>
 </tr>
 <tr>
 <td> <strong>Model No.</strong>  <span style="color:red;">*</span></strong> </td>
 <td> <input type="text" name="modelno"  class="form-control" placeholder=""  value="<?=$products_data->modelno?>" />  </td>
 </tr>
 <tr>
+  <td> <strong>Inventory</strong> <span style="color:red;">*</span></strong> </td>
+  <td> <input type="text" name="inventory" class="form-control" placeholder="" required value="<?=$products_data->inventory?>" onkeypress="return isNumberKey(event)"/> </td>
+</tr>
+<tr>
 <td> <strong>Best Seller Product</strong>  <span style="color:red;">*</span></strong> </td>
-<td> <select class="form-control" name="bestsellerproduct" required>
-
-<!-- <option value="1" selected>Please Select</option> -->
-<option value="1" <? if($products_data->bestsellerproduct == 1){echo "selected";} ?>>Yes</option>
-<option value="0" <? if($products_data->bestsellerproduct == 0){echo "selected";} ?>>No</option>
-</select> </td>
+<td>
+  <input type="radio" id="vehicle1" name="bestsellerproduct" value="1" <? if($products_data->bestsellerproduct == 1){echo "checked";} ?>>
+  <label for="vehicle1"> Yes</label>
+  <input type="radio"  id="vehicle2" name="bestsellerproduct" value="0" <? if($products_data->bestsellerproduct == 0){echo "checked";} ?>>
+  <label for="vehicle2"> No</label><br>
+ </td>
 </tr>
 
 
@@ -181,7 +209,16 @@ Update Products
 <script type="text/javascript">
   $('select').selectpicker();
 </script>
+<script>
+$(document).ready(function() {
+  $("input[name$='category']").click(function() {
+      var test = $(this).val();
 
+      $("tr.desc").hide();
+      $("#tr" + test).show();
+  });
+});
+</script>
 <script>
 $(document).ready(function(){
 $("#cid").change(function(){
@@ -235,6 +272,14 @@ return false;
 
 CKEDITOR.replace( 'editor1' );
 CKEDITOR.replace( 'editor2' );
-// CKEDITOR.replace( 'editor3' );
+CKEDITOR.replace( 'editor3' );
 //
+</script>
+<script>
+function isNumberKey(evt){
+    var charCode = (evt.which) ? evt.which : evt.keyCode
+    if (charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+    return true;
+}
 </script>

@@ -36,20 +36,36 @@
                 <div class="table-responsive">
                   <table class="table table-hover">
 
-
                     <tr>
                       <td> <strong>Product Name</strong> <span style="color:red;">*</span></strong> </td>
                       <td> <input type="text" name="productname" class="form-control" placeholder="" required value="" /> </td>
                     </tr>
-
-
                     <tr>
+                      <td> <strong>Category Wise</strong> <span style="color:red;">*</span></strong> </td>
+                      <td>
+                        <input type="radio" id="category_y" name="is_category" value="1">
+                        <label for="category_y"> Yes</label>
+                        <input type="radio" checked id="category_n" name="is_category" value="0">
+                        <label for="category_n"> No</label><br>
+                       </td>
+                    </tr>
+                    <tr class="desc" id="tr1" style="display: none;">
+                      <td> <strong>Category</strong> <span style="color:red;">*</span></strong> </td>
+                      <td>
+                        <select class="form-control" name="categorys[]">
+                          <?php $i=1; foreach($category_data->result() as $data) { ?>
+        <option value="<?=$data->id?>"><?=$data->categoryname?></option>
+      <?}?>
+      </select>
+                       </td>
+                    </tr>
+                    <tr class="desc" id="tr0">
                             <td> <strong>Subcategory Name</strong> <span style="color:red;">*</span></strong> </td>
 
 
                             <td>
 
-                              <select class="selectpicker form-control" multiple data-live-search="true" name="sub_category[]" required>
+                              <select class="selectpicker form-control" multiple data-live-search="true" name="sub_category[]">
                                 <?php foreach ($subcategory_data->result() as $value) {?>
                                 <option value="<?=$value->id;?>"><?=$value->subcategory?></option>
 
@@ -58,36 +74,40 @@
                           </tr>
 
                     <tr>
-                      <td> <strong>image</strong> <span style="color:red;">*</span></strong> </td>
+                      <td> <strong>Image</strong> <span style="color:red;">*</span></strong> </td>
                       <td> <input type="file" name="image" class="form-control" placeholder="" required value="" /> </td>
                     </tr>
                     <tr>
-                      <td> <strong>image1</strong> <span style="color:red;">*</span></strong> </td>
-                      <td> <input type="file" name="image1" class="form-control" placeholder="" required value="" /> </td>
+                      <td> <strong>Image1</strong></td>
+                      <td> <input type="file" name="image1" class="form-control" placeholder=""  value="" /> </td>
                     </tr>
                     <tr>
-                      <td> <strong>image2</strong> <span style="color:red;">*</span></strong> </td>
-                      <td> <input type="file" name="image2" class="form-control" placeholder="" required value="" /> </td>
+                      <td> <strong>Image2</strong></td>
+                      <td> <input type="file" name="image2" class="form-control" placeholder=""  value="" /> </td>
                     </tr>
                     <tr>
-                      <td> <strong>image3</strong> <span style="color:red;">*</span></strong> </td>
-                      <td> <input type="file" name="image3" class="form-control" placeholder="" required value="" /> </td>
+                      <td> <strong>Image3</strong></td>
+                      <td> <input type="file" name="image3" class="form-control" placeholder=""  value="" /> </td>
                     </tr>
                     <tr>
-                      <td> <strong>mrp</strong> <span style="color:red;">*</span></strong> </td>
-                      <td> <input type="number" name="mrp" class="form-control" placeholder="" required value="" /> </td>
+                      <td> <strong>MRP</strong> <span style="color:red;">*</span></strong> </td>
+                      <td> <input type="text" name="mrp" class="form-control" placeholder="" required value="" onkeypress="return isNumberKey(event)"/> </td>
+                    </tr>
+                    <tr>
+                      <td> <strong>Selling Price</strong> <span style="color:red;">*</span></strong> </td>
+                      <td> <input type="text" name="selling_price" class="form-control" placeholder="" required value="" onkeypress="return isNumberKey(event)"/> </td>
                     </tr>
                     <tr>
                       <td> <strong>Product Description</strong> <span style="color:red;">*</span></strong> </td>
-                      <td> <input type="text" name="productdescription" class="form-control" placeholder="" required value="" /> </td>
+                      <td> <textarea name="productdescription" id="editor1" rows="3" cols="80" required></textarea>
                     </tr>
                     <tr>
-                      <td> <strong>FEATURE</strong> <span style="color:red;">*</span></strong> </td>
-                      <td> <textarea name="feature" id="editor1" rows="3" cols="80" required></textarea>
+                      <td> <strong>Features</strong> <span style="color:red;">*</span></strong> </td>
+                      <td> <textarea name="feature" id="editor2" rows="3" cols="80" required></textarea>
                     </tr>
                     <tr>
                       <td> <strong>Care Instruction</strong> <span style="color:red;">*</span></strong> </td>
-                      <td> <textarea name="careinstruction" id="editor2" rows="3" cols="80" required></textarea>
+                      <td> <textarea name="careinstruction" id="editor3" rows="3" cols="80" required></textarea>
                     </tr>
                     <tr>
                       <td> <strong>Model No.</strong> <span style="color:red;">*</span></strong> </td>
@@ -95,14 +115,14 @@
                     </tr>
                     <tr>
                       <td> <strong>Inventory</strong> <span style="color:red;">*</span></strong> </td>
-                      <td> <input type="text" name="inventory" class="form-control" placeholder="" required value="" /> </td>
+                      <td> <input type="text" name="inventory" class="form-control" placeholder="" required value="" onkeypress="return isNumberKey(event)"/> </td>
                     </tr>
                     <tr>
                       <td> <strong>Best Seller Product</strong> <span style="color:red;">*</span></strong> </td>
                       <td>
-                        <input type="checkbox" id="vehicle1" name="bestsellerproduct" value="1">
+                        <input type="radio" id="vehicle1" name="bestsellerproduct" value="1">
                         <label for="vehicle1"> Yes</label>
-                        <input type="checkbox" checked id="vehicle2" name="bestsellerproduct" value="2">
+                        <input type="radio" checked id="vehicle2" name="bestsellerproduct" value="0">
                         <label for="vehicle2"> No</label><br>
                        </td>
                     </tr>
@@ -143,7 +163,16 @@
 <script type="text/javascript">
   $('select').selectpicker();
 </script>
+<script>
+$(document).ready(function() {
+  $("input[name$='is_category']").click(function() {
+      var test = $(this).val();
 
+      $("tr.desc").hide();
+      $("#tr" + test).show();
+  });
+});
+</script>
 <script>
 var cid_obj = {}
 cid_obj.ids = []
@@ -232,6 +261,15 @@ function c_id(e) {
 
   CKEDITOR.replace('editor1');
   CKEDITOR.replace('editor2');
-  // CKEDITOR.replace( 'editor3' );
+  CKEDITOR.replace( 'editor3' );
   //
+</script>
+
+<script>
+function isNumberKey(evt){
+    var charCode = (evt.which) ? evt.which : evt.keyCode
+    if (charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+    return true;
+}
 </script>
