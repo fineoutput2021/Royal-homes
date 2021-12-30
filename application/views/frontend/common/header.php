@@ -38,7 +38,9 @@
   <style>
     body {
       font-family: Arial, Helvetica, sans-serif;
+      scroll-behavior: smooth;
     }
+
 
     /* The Modal (background) */
 
@@ -340,6 +342,7 @@
         margin-left: 88px !important;
       }
     } */
+  }
 
     @media (min-width:300px) {
       .sidenav a {
@@ -391,6 +394,7 @@ border: 0;
 font-weight: 400;
 border-bottom: 1px solid #ccc;
     }
+
 
     @media (max-width:540px) {
       .respns1{

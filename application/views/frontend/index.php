@@ -1,3 +1,21 @@
+<style>
+@media (max-width:1280px) {
+
+/*
+     .respons{
+       width: 200px !important;
+     } */
+    .pres{
+      font-size: 15px;
+    }
+
+     }
+
+
+</style>
+
+
+
 <section class="overflow-hidden t_slider">
   <div class="container-fluid p-0">
     <div class="row">
@@ -257,7 +275,7 @@
         <div id="AddressTable" class="TableBody" style="display:block">
           <div class="swiper-wrapper autoplay" id="changenex1">
             <?php $i=1; foreach($new_launch_data->result() as $n_launch) { ?>
-            <div class="swiper-slide" style="padding:15px">
+            <div class="swiper-slide respons" style="padding:15px;">
               <a href="<?=base_url()?>Home/product_details">
                 <img src="<?=base_url().$n_launch->image?>" alt="">
               </a>
@@ -1222,8 +1240,9 @@
     </div>
     </p>
     <br>
-    <div style="text-align: center; font-size: 20px;"><button onclick="myFunction()" id="myBtn">
-        <p style=" color: #de542d !important;">Read More</p>
+    <div style="text-align: center; font-size: 20px;"><button onclick="myFunction()" id="myBtn" style="    width: 7rem;
+    height: 2.3rem;">
+        <p class="pres" style=" color: #de542d !important;font-size: 15px;">Read More</p>
       </button></div>
     <br>
   </div>
