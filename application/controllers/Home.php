@@ -64,87 +64,24 @@ class Home extends CI_Controller
     public function all_Product($idd,$t)
     {
         $id=base64_decode($idd);
+        $data["id"] = $idd;
         $id2=base64_decode($t);
+        $data["t"] = $t;
+
+
+echo $id;
+exit;
         $this->db->select('*');
         $this->db->from('tbl_products');
         if ($id2==1) {
             $this->db->like('category', $id);
         } else {
-            $this->db->like('subcategory_id', $id);
+            $this->db->like('subcategory', $id);
         }
         $product_data= $this->db->get();
-        $product_check = $product_data->row();
-        if(!empty($product_check)){
-        //---------categorywise product-----------
-          if($idd==1){
-            $product_data1 = [];
-            foreach($product_data->result() as $data) {
-             $cat = json_decode($data->category);
-             $count = count($cat);
-             if($count>1){
-               foreach ($cat as $value) {
-                 if($value==$id){
-                   $product_data1[] = array(
-                     'id' => $data->id,
-                     'name' => $data->productname,
-                     'image' => $data->image,
-                     'mrp' => $data->mrp
-                   );
-                   $data['product_data'] = $product_data;
-                 }
-               }
-             }else{
-               if($cat[0]==$id){
-                 $product_data[] = array(
-                   'id' => $data->id,
-                   'name' => $data->productname,
-                   'image' => $data->image,
-                   'mrp' => $data->mrp
-                 );
-                 $data['product_data'] = $product_data;
-               }
-             }
-
-            }
-          }
-          //-------------subcategorywise product---------------
-          else{
-            $product_data1 = [];
-            foreach($product_data->result() as $data) {
-             $sub = json_decode($data->subcategory);
-             $count = count($sub);
-             if($count>1){
-               foreach ($sub as $value) {
-                 if($value==$id){
-                   $product_data1[] = array(
-                     'id' => $data->id,
-                     'name' => $data->productname,
-                     'image' => $data->image,
-                     'mrp' => $data->mrp
-                   );
-                   $data['product_data'] = $product_data;
-                 }
-               }
-             }else{
-               if($sub[0]==$id){
-                 $product_data[] = array(
-                   'id' => $data->id,
-                   'name' => $data->productname,
-                   'image' => $data->image,
-                   'mrp' => $data->mrp
-                 );
-                 $data['product_data'] = $product_data;
-               }
-             }
-
-            }
-          }
-
-
-        }else{
-          $data['product_data'] = "";
-        }
-
+        print_r($product_data);
+        exit;
+        $data['product_data'] = $product_data;
 
 
         $this->load->view('frontend/common/header', $data);

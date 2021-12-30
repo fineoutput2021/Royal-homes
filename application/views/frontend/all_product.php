@@ -385,22 +385,95 @@ color: red;
         </div> -->
         <div class="col-md-10  col-sm-6">
           <div class="row">
-          <?php $i=1; foreach($product_data as $product) { ?>
+          <?php $i=1;
+          $id=base64_decode($id);
+          $t=base64_decode($t);
+          $product_check = $product_data->row();
+          print_r($product_check);
+          exit;
+          if(!empty($product_check)){
+          //---------categorywise product-----------
+          $product_data1 = [];
+          echo "hi";
+          exit;
+            if($t==1){
+              foreach($product_data->result() as $data) {
+               $cat = json_decode($data->category);
+               $count = count($cat);
+               if($count>1){
+                 foreach ($cat as $value) {
+                   if($value==$id){
+                     $product_data1[] = array(
+                       'id' => $data->id,
+                       'name' => $data->productname,
+                       'image' => $data->image,
+                       'mrp' => $data->mrp
+                     );
+                   }
+                 }
+               }else{
+
+                 if($cat[0]==$id){
+                   $product_data1[] = array(
+                     'id' => $data->id,
+                     'name' => $data->productname,
+                     'image' => $data->image,
+                     'mrp' => $data->mrp
+                   );
+                 }
+               }
+
+              }
+            }
+            //-------------subcategorywise product---------------
+            else{
+              echo "hi";
+              exit;
+              foreach($product_data->result() as $data) {
+               $sub = json_decode($data->subcategory);
+               $count = count($sub);
+               if($count>1){
+                 foreach ($sub as $value) {
+                   if($value==$id){
+                     $product_data1[] = array(
+                       'id' => $data->id,
+                       'name' => $data->productname,
+                       'image' => $data->image,
+                       'mrp' => $data->mrp
+                     );
+                   }
+                 }
+               }else{
+                 if($sub[0]==$id){
+                   $product_data1[] = array(
+                     'id' => $data->id,
+                     'name' => $data->productname,
+                     'image' => $data->image,
+                     'mrp' => $data->mrp
+                   );
+                 }
+               }
+
+              }
+            }
+
+
+           foreach($product_data1 as $product) { ?>
         <div class="col-md-4  col-sm-6">
           <div class="firrr med_mb" id="">
             <!-- <a href="productdetail.html"  ><img src="img/10.jpg" ></a> -->
             <br>
-            <a href="<?=base_url()?>Home/product_details"><img class="my-img" src="<?=base_url().$product->image?>" /></a>
+            <a href="<?=base_url()?>Home/product_details"><img class="my-img" src="<?=base_url().$product['image']?>" /></a>
             <h4 style="    font-size: 14px;
     font-family: 'euclid bold';
     font-weight: 400;"><b style="text-decoration: none;
     font-family: 'questa-grande';
     font-weight: 300;
-    font-size: 22px;"><?=$product->productname?></b> <br></span><br>Rs.<?=$product->mrp?></h4>
+    font-size: 22px;"><?=$product['name']?></b> <br></span><br>Rs.<?=$product['mrp']?></h4>
 
             <button style="border: 1px solid black; border-radius: 32px; background-color: black; color: white;    font-size: 12px;"
             onclick="addToCartOffline(this)"
-            product_id="<?=$product->id?>"
+            product_id="<?=$product['id']?>"
             quantity="1"
             >Add to Cart</button><span><i class="fa fa-heart medmob" style="margin-left: 116px" id="heart"></i></span>
             <span><i class="fa fa-heart meddesk" id="heart"></i></span>
@@ -409,7 +482,7 @@ color: red;
 
           </div>
         </div>
-        <?php $i++; } ?>
+        <?php $i++; }} ?>
       </div>
 </div>
         <!-- <div class="col-md-4 col-sm-6">
