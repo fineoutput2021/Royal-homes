@@ -109,9 +109,9 @@
     .logoimg {
       margin-left: 15rem;
       height: 25px !important;
-      width: 33px !important;
+      width: 32px !important;
       margin-top: 1rem;
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
     }
 
     text-button {
@@ -172,7 +172,7 @@
       margin: auto;
       padding: 20px;
       border: 1px solid #888;
-      width: 40%;
+      width: 38%;
     }
 
     .social {
@@ -209,12 +209,12 @@
     }
 
     .btn {
-      width: 270px;
+      /* width: 270px; */
       background-color: white;
     }
 
     .btn1 {
-      width: 241px;
+      /* width: 241px; */
       background-color: white;
     }
 
@@ -245,7 +245,7 @@
     }
 
     .close {
-      margin-left: 39rem;
+      /* margin-left: 39rem; */
     }
 
     input[type=password],
@@ -300,8 +300,15 @@
       .btmed231 {
         margin-left: 150px;
       }
+      .modal-content{
+        width: 89%;
+      }
     }
-
+    @media (max-width:1024px) {
+     .modal-content{
+           width: 54%;
+     }
+    }
     @media(max-width:640px) {
       .NONE1 {
         display: none;
@@ -347,6 +354,83 @@
       font-family: 'Zen Antique Soft', serif;
       font-family: 'Zen Old Mincho', serif;
     }
+    input[type=email], input[type=number], input[type=password], input[type=search], input[type=text], input[type=url] {
+    background: #fff;
+    background-clip: padding-box;
+    /* border: 1px solid #c2c2c2; */
+    border-radius: 1px;
+    font-size: 14px;
+    height: 32px;
+    line-height: 1.42857143;
+    padding: 0 9px;
+    vertical-align: baseline;
+    width: 100%;
+    box-sizing: border-box;
+}
+    .formset{
+      height: 40px;
+font-size: 14px;
+position: relative;
+font-family: 'euclid light';
+border: 0;
+font-weight: 400;
+border-bottom: 1px solid #ccc;
+    }
+    .setform{
+      width: 100%;
+flex-basis: 100%;
+padding: 25px 40px 30px;
+position: relative;
+    }
+    .setcolumn{
+      height: 40px;
+font-size: 14px;
+position: relative;
+font-family: 'euclid light';
+border: 0;
+font-weight: 400;
+border-bottom: 1px solid #ccc;
+    }
+
+    @media (max-width:540px) {
+      .respns1{
+          width: 20rem;
+      }
+      .respns2{
+        width: 12rem;
+      }
+    }
+    @media (max-width:768px) {
+      .btn1{
+        font-size: 8px !important;
+      }
+      .btn{
+        font-size: 8px !important;
+      }
+      .logoimg{
+            margin-left: 12rem !important;
+      }
+    }
+    @media (max-width: 375px){
+ .logoimg {
+     margin-left: 9rem !important;
+ }
+ .respns1 {
+    width: 8rem;
+}
+}
+@media (max-width: 414px){
+  .modal-content {
+      width: 95%;
+  }
+  .respns1 {
+    width: 8rem;
+}
+.logoimg {
+    margin-left: 11rem;
+}
+}
+
     @media (max-width:576px) {
      /* .btn{
        width:198px !important;
@@ -1081,9 +1165,9 @@
       background-color: #5cb85c;
       color: white;
     }
-    .form_method_name{
+    /* .form_method_name{
       padding:14px 24px;
-    }
+    } */
   </style>
 </head>
 
@@ -1222,12 +1306,12 @@ $category_data= $this->db->get();
       </div>
     </div>
   </header>
-  <div id="myModals1" class="modal1 close3">
+  <div id="myModals1" class="modal1 close3" style="z-index:1000;">
     <!-- Modal content -->
     <div class="modal-content">
-      <div class="container-fluid">
+      <div class="">
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true" onclick="myFunction8()" style='margin-left:34rem;'>&times;</span>
+            <span aria-hidden="true" onclick="myFunction8()" style='margin-left:-2rem;    margin-top: -1rem;'>&times;</span>
           </button>
       <div class="logosection" style="
     display: flex;
@@ -1238,16 +1322,37 @@ $category_data= $this->db->get();
         <div class="logoimg">
           <img src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/logo.png" alt="Logo" title="Orange tree">
         </div>
-        <div class="badge  text-black mt-4 textres" style="font-size:18px;font-family:'Miller Display';padding-bottom:2rem;">
+        <div class="badge  text-black mt-4 textres" style="    text-align: center;
+    font-size: 18px;
+    color: #000;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-family: 'Miller Display';font-weight: 400;">
           SIGN UP TO CONTINUE
         </div>
-        <div class="row g-3" style="margin-bottom:40px;">
-          <div class="col-md-6 col-sm-6" style="padding-right: 0px;">
-            <button class="btn" style='width:250px;'><img class="social" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/facebook.svg"
-                alt="social" >facebook</button>
+        <div class="row g-3 justify-content-center" style="margin-bottom:40px;">
+          <div class="col-md-4 respns1" style="padding-right: 0px;">
+            <button class="btn" style="text-transform: None;
+    font-size: 12px;
+    width: auto;
+    cursor: pointer;
+    font-weight: 400;
+    border: 0;
+    padding: 8px 15px;
+    background: #fff;
+    font-family: 'euclid light';"><img class="social" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/facebook.svg"
+                alt="social" >   Sign In With Facebook</button>
           </div>
-          <div class="col-md-6 col-sm-6">
-            <button class="btn1" style="border:0px;border-radius:3px;"><img class="social1" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/google.svg" alt="social">google
+          <div class="col-md-4 respns2">
+            <button class="btn1" style="    text-transform: None;
+    font-size: 12px;
+    width: auto;
+    cursor: pointer;
+    font-weight: 400;
+    border: 0;
+    padding: 8px 15px;
+    background: #fff;
+    font-family: 'euclid light';"><img class="social1" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/google.svg" alt="social"> Sign In With Google
 
             </button>
           </div>
@@ -1255,8 +1360,18 @@ $category_data= $this->db->get();
         </div>
 
       </div>
-      <form action="<?=base_url()?>User_login/user_register" method="post" enctype="multipart/form-data">
-        <div class="badge  text-black text-wrap textres1 textmar" style="display:flex;justify-content:center;margin: 20px;font-size: 1rem;font-weight:unset;font-family:'euclid light';">
+      <form action="<?=base_url()?>User_login/user_register" method="post" enctype="multipart/form-data" style="    width: 100%;
+    float: none;
+    padding-right: 30px;
+    position: relative;    max-width: 620px;
+    width: 100%;
+    padding: 40px;
+    border: 0;
+    margin: 0;
+    border-radius: 10px;">
+        <div class="badge  text-black text-wrap textres1 textmar" style="display:flex;justify-content:center;    text-align: center;
+    font-size: 14px;
+    margin-bottom: 15px;font-weight:unset;font-family:'euclid light';font-weight:400;    line-height: 2;color:rgba(0,0,0,0);">
           Creating an account has many benefits: check out faster, keep more than one address, track orders and more.
         </div>
         <div>
@@ -1264,39 +1379,58 @@ $category_data= $this->db->get();
         <form>
 <div class="form_method_name">
         <div class="row g-3">
-          <div class="col-sm-12">
-            <input type="text" class="form-control" placeholder="First name" aria-label="First name" name="fname">
+          <div class="col-sm-6">
+            <input type="text" class="form-control formset" placeholder="First name" aria-label="First name" name="fname">
           </div>
-          <div class="col-sm-12">
-            <input type="text" class="form-control" placeholder="Last name" aria-label="Last name" name="lname">
-          </div>
-
-        </div>
-        <div class="row g-3">
-          <div class="col-sm-12">
-            <input type="text" class="form-control" placeholder="email" aria-label="Email" name="email">
-          </div>
-          <div class="col-sm-12">
-            <input type="text" class="form-control" placeholder="phonumber" aria-label="Phone nnuber" name="phone">
+          <div class="col-sm-6">
+            <input type="text" class="form-control formset" placeholder="Last name" aria-label="Last name" name="lname">
           </div>
 
         </div>
         <div class="row g-3">
-          <div class="col-sm-12">
-            <input type="password" class="form-control" placeholder="password" aria-label=" Password" name="password">
+          <div class="col-sm-6">
+            <input type="text" class="form-control formset" placeholder="email" aria-label="Email" name="email">
           </div>
-          <div class="col-sm-12">
-            <input type="password" class="form-control" placeholder="confirm" aria-label="Confirm Password" name="confirm_password">
+          <div class="col-sm-6">
+            <input type="text" class="form-control formset" placeholder="phonumber" aria-label="Phone nnuber" name="phone">
+          </div>
+
+        </div>
+        <div class="row g-3">
+          <div class="col-sm-6">
+            <input type="password" class="form-control formset" placeholder="password" aria-label=" Password" name="password">
+          </div>
+          <div class="col-sm-6">
+            <input type="password" class="form-control formset" placeholder="confirm" aria-label="Confirm Password" name="confirm_password">
           </div>
         </div>
         <div>
-          <button class="button btnres" type="submit">CREATE AN ACCOUNT</button>
+          <button class="button btnres" type="submit" style="font-family: 'euclid light';    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 2px;">CREATE AN ACCOUNT</button>
         </div>
       </div>
+      <div class="badge  text-black text-wrap textresp" style="    color: #000;
+    padding: 0 5px;
+    text-transform: none;
+    font-size: 12px;
+    letter-spacing: 0;
+    margin-top: 20px;font-family: 'euclid light';
+    display: flex;
+    justify-content: center;" id="pop_myBtn" >
+      <span style="    color: #000;
+    padding: 0 5px;
+    text-transform: none;
+    font-size: 12px;
+    letter-spacing: 0;    font-family: 'euclid light';font-weight:400;">  Already have an Account</span> <span style="    text-align: center;
+    font-size: 12px;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    color: #000;     font-family: 'euclid light';font-weight:400;">? Sign In</span>
+      </div>
       </form>
-        <div class="badge  text-black text-wrap textresp" style="margin-left:17rem; font-weight:100;margin-bottom:5px;margin-top: 20px; font-size:15px;" id="pop_myBtn" >
-          Already have an Account ? Sign In
-        </div>
+
 
       </form>
     </div>
@@ -1305,11 +1439,11 @@ $category_data= $this->db->get();
   </div>
 
   <!-- second modal -->
-  <div id="myModals" class="modal  close2">
+  <div id="myModals" class="modal  close2" style="z-index: 1000;">
           <!-- Modal content -->
           <div class="modal-content">
-            <div class="container-fluid">
-<span class="close" onclick="myFunction7()" style='margin-left:34rem;'>&times;</span>
+            <div class="">
+<span class="close" onclick="myFunction7()" style='margin-left:-2rem;    margin-top: -1rem;'>&times;</span>
 
 <div class="logosection " style="
     display: flex;
@@ -1320,15 +1454,37 @@ $category_data= $this->db->get();
 
  <div class="logoimg">
 <img src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/logo.png" alt="Logo" title="Orange tree"></div>
-<div class="badge  text-black mt-4 textres" style="font-size:18px;font-family:'Miller Display';padding-bottom:2rem;">
+<div class="badge  text-black mt-4 textres" style="    text-align: center;
+    font-size: 18px;
+    color: #000;
+    text-transform: uppercase;
+    margin: 20px 0;
+    font-family: 'Miller Display';    font-weight: 400;">
 SIGN IN TO CONTINUE
 </div>
 <div class="row g-3 justify-content-center">
-<div class="col-md-6 col-sm-6" style="padding-right: 0px;">
-<button class="btn" style='width:250px;'><img class="social" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/facebook.svg" alt="social" >facebook</button>
+<div class="col-md-4 respns1" style="padding-right: 0px;">
+<button class="btn" style="
+   text-transform: None;
+    font-size: 12px;
+    width: auto;
+    cursor: pointer;
+    font-weight: 400;
+    border: 0;
+    padding: 8px 15px;
+    background: #fff;
+    font-family: 'euclid light';"><img class="social" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/facebook.svg" alt="social" > Sign In With Facebook</button>
 </div>
-<div class="col-md-6 col-sm-6">
-<button class="btn1" style="border:0px;border-radius:3px;"><img  class="social1" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/google.svg" alt="social">google
+<div class="col-md-4 respns2">
+<button class="btn1" style="border:0px;border-radius:3px;    text-transform: None;
+    font-size: 12px;
+    width: auto;
+    cursor: pointer;
+    font-weight: 400;
+    border: 0;
+    padding: 8px 15px;
+    background: #fff;
+    font-family: 'euclid light';"><img  class="social1" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/google.svg" alt="social"> Sign In With Google
 
 </button>
 </div>
@@ -1336,9 +1492,13 @@ SIGN IN TO CONTINUE
 </div>
 
 </div>
-<form action="<?=base_url()?>User_login/user_login" method="post" enctype="multipart/form-data">
+<form action="<?=base_url()?>User_login/user_login" method="post" enctype="multipart/form-data" class="setform">
 
-  <div class="badge  text-black text-wrap textres1 textmar" style="display:flex;justify-content:center;margin: 20px;font-size: 1rem;font-weight:unset;font-family:'euclid light';">
+  <div class="badge  text-black text-wrap textres1 textmar" style="display:flex;justify-content:center;margin-bottom: 30px;
+    font-size: 12px;
+    text-align: center;
+        font-family: 'euclid light';    font-weight: 400;
+    font-size: 12px;">
 Sign in with your email address.
 </div>
   <div>
@@ -1348,21 +1508,34 @@ Sign in with your email address.
 
 
 <div class="field email required"><div class="control" style="margin-top:13px;">
-  <input placeholder="Email" name="email" type="email" class="input-text" title="Email" >
+  <input placeholder="Email" name="email" type="email" class="input-text setcolumn" title="Email">
 </div></div>
 <div class="field email required"><div class="control" style="margin-top:13px;">
-  <input placeholder="Password" name="password" value="" type="password"></div></div>
+  <input placeholder="Password" name="password" value="" type="password" class="setcolumn"></div></div>
 
-<div class="badge  text-black text-wrap textres" style="font-size:18px;margin-top:2rem;font-weight:unset;font-family:'euclid light';">
+<div class="badge  text-black text-wrap textres" style="font-size:12px;font-weight:400;font-family:'euclid light';    padding-top: 1.5rem;">
 <span>Forget Password</span>
 </div>
 
-<button class="button ressing" type="submit" style="border-radius:34px !important">SIGN IN</button>
+<button class="button ressing" type="submit" style="border-radius:34px !important; font-size:14px;font-family: 'euclid light';">SIGN IN</button>
+</div>
+<div class="d-flex justify-content-center">
+<div class="badge  text-black text-wrap textresp" style="color: #000;
+    padding: 0 5px;
+    text-transform: none;
+    font-size: 12px;
+    letter-spacing: 0;
+    margin-top: 20px;font-weight:400; " id="myBtn1">
+New Here?<span style="cursor:pointer;    color: #000;
+    padding: 0 5px;
+    text-transform: none;
+    font-size: 12px;
+    letter-spacing: 0;
+    margin-top: 20px; font-weight:400;"> Sign Up</span>
+</div>
 </div>
 </form>
-<div class="badge  text-black text-wrap textresp" style="margin-left:17rem; font-weight:100;margin-bottom:5px;margin-top: 20px; font-size:15px"  id="myBtn1">
-New Here?<span style="cursor:pointer;text-decoration:underline;"> Sign Up</span>
-</div>
+
 </div>
 </div>
 
