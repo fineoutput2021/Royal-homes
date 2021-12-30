@@ -389,13 +389,13 @@ color: red;
           $id=base64_decode($id);
           $t=base64_decode($t);
           $product_check = $product_data->row();
-          print_r($product_check);
-          exit;
+          // print_r($product_check);
+          // exit;
           if(!empty($product_check)){
           //---------categorywise product-----------
           $product_data1 = [];
-          echo "hi";
-          exit;
+          // echo "hi";
+          // exit;
             if($t==1){
               foreach($product_data->result() as $data) {
                $cat = json_decode($data->category);
@@ -427,8 +427,8 @@ color: red;
             }
             //-------------subcategorywise product---------------
             else{
-              echo "hi";
-              exit;
+              // echo "hi";
+              // exit;
               foreach($product_data->result() as $data) {
                $sub = json_decode($data->subcategory);
                $count = count($sub);

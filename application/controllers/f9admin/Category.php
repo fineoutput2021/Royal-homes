@@ -160,6 +160,40 @@ public function add_category(){
 								  							// echo json_encode($file_info);
 								  						}
 								            }
+								$img3='image2';
+
+								            $file_check=($_FILES['image2']['error']);
+								            if($file_check!=4){
+								          	$image_upload_folder = FCPATH . "assets/uploads/category/";
+								  						if (!file_exists($image_upload_folder))
+								  						{
+								  							mkdir($image_upload_folder, DIR_WRITE_MODE, true);
+								  						}
+								  						$new_file_name="category1".date("Ymdhms");
+								  						$this->upload_config = array(
+								  								'upload_path'   => $image_upload_folder,
+								  								'file_name' => $new_file_name,
+								  								'allowed_types' =>'jpg|jpeg|png',
+								  								'max_size'      => 25000
+								  						);
+								  						$this->upload->initialize($this->upload_config);
+								  						if (!$this->upload->do_upload($img3))
+								  						{
+								  							$upload_error = $this->upload->display_errors();
+								  							// echo json_encode($upload_error);
+								  							echo $upload_error;
+								  						}
+								  						else
+								  						{
+
+								  							$file_info = $this->upload->data();
+
+								  							$image2 = "assets/uploads/category/".$new_file_name.$file_info['file_ext'];
+								  							// $this->step6_model->updateappIconImage($imageNAmePath,$appInfoId);
+								  							$nnn1=$image2;
+								  							// echo json_encode($file_info);
+								  						}
+								            }
 
                   // $banner = time() . '_' . $_FILES["image"]["name"];
 					        // $liciense_tmp_name = $_FILES["image"]["tmp_name"];
@@ -181,6 +215,7 @@ public function add_category(){
 
           $data_insert = array('categoryname'=>$categoryname,
                     'image'=>$image,
+                    'image2'=>$nnn1,
                     'added_by' =>$addedby,
                     'is_active' =>1,
                     'date'=>$cur_date
@@ -223,9 +258,15 @@ if(!empty($image)){
 }else{
 	$n1=$da->image;
 }
+if(!empty($nnn1)){
+	$n2=$nnn1;
+}else{
+	$n2=$da->image2;
+}
 
           $data_insert = array('categoryname'=>$categoryname,
                     'image'=>$n1,
+                    'image2'=>$n2,
                     );
 
 
@@ -334,8 +375,8 @@ public function delete_category($idd){
         if($this->load->get_var('position')=="Super Admin"){
 
                          									 $zapak=$this->db->delete('tbl_category', array('id' => $id));
-                         									 $zapak2=$this->db->delete('tbl_products', array('category_id' => $id));
-                         									 $zapak2=$this->db->delete('tbl_subcategory', array('category_id' => $id));
+                         									 // $zapak2=$this->db->delete('tbl_products', array('category_id' => $id));
+                         									 // $zapak2=$this->db->delete('tbl_subcategory', array('category_id' => $id));
                          									 if($zapak!=0){
 
                          								 	redirect("dcadmin/category/view_category","refresh");

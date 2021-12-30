@@ -36,12 +36,16 @@
                         <div class="table-responsive">
                             <table class="table table-hover">
 <tr>
-<td> <strong>image</strong>  <span style="color:red;">*</span></strong> </td>
+<td> <strong>Image</strong>  <span style="color:red;">*</span></strong> </td>
 <td> <input type="file" name="image"  class="form-control" placeholder="" />
 <?php if($testimonal_data->image!=""){ ?> <img id="slide_img_path" height=200 width=300 src="<?php echo base_url().$testimonal_data->image; ?> "> <?php }else{ ?> Sorry No File Found <?php } ?>  </td>
 </tr>
 <tr>
-<td> <strong>message</strong>  <span style="color:red;">*</span></strong> </td>
+<td> <strong>Name</strong>  <span style="color:red;">*</span></strong> </td>
+<td> <input type="text" name="name"  class="form-control" placeholder="" required value="<?=$testimonal_data->name;?>" />  </td>
+</tr>
+<tr>
+<td> <strong>Message</strong>  <span style="color:red;">*</span></strong> </td>
 <td> <input type="text" name="message"  class="form-control" placeholder="" required value="<?=$testimonal_data->message;?>" />  </td>
 </tr>
 

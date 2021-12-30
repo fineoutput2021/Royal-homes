@@ -11,7 +11,9 @@
 
      }
 
-
+.bot_line{
+  border-bottom: solid 2px #e66c47;
+}
 </style>
 
 
@@ -39,12 +41,12 @@
 <section>
   <div class="container gallarySection mw-100 ">
     <div class="row mt-4 cat_gory">
-      <?php $i=1; foreach($Category_Data->result() as $cat) { ?>
+      <?php $i=1; foreach($banner_Data->result() as $banner) { ?>
       <div class="col col-md-4 mb-5 text-center">
-        <div><a href="https://fineoutput.co.in/all-product/3">
-            <img src="<?=base_url().$cat->image?>" alt="Sofas" class="img-fluid"></a>
+        <div><a href="<?=$banner->link?>">
+            <img src="<?=base_url().$banner->image?>" alt="Sofas" class="img-fluid"></a>
         </div>
-        <h2 class="text-center p-0 gallarytext" style="font-size: 1.2rem; text-transform: capitalize; margin-top: -2.5rem; z-index: 50; color: black;"><?=$cat->categoryname?></h2>
+        <h2 class="text-center p-0 gallarytext" style="font-size: 1.2rem; text-transform: capitalize; margin-top: -2.5rem; z-index: 50; color: black;"><?=$banner->name?></h2>
       </div>
       <?php $i++; } ?>
     </div>
@@ -56,22 +58,18 @@
     <br>
     <h2 class="text-center py-5" style="margin-bottom: -32px; font-family: 'Playfair Display', serif;">New Launches
     </h2>
-    <!-- <ul style="overflow: hidden;">
+    <ul style="overflow: hidden;">
       <div class="myButtons">
         <div class="btn-group btmed231" id="MatchingEntitiesButtons">
-          <li class="btmed232"><button id="button1" class="roundBtns" onclick="togglediv('NamesTable')" type="button"
-              style="font-family: 'Playfair Display', serif;">Sofas</button></li>
-          <li class="btmed232"><button id="Button2" class="roundBtns" onclick="togglediv('PhoneTable')" type="button"
-              style="font-family: 'Playfair Display', serif;">beds</button></li>
+          <li class="btmed232"><button id="button1" class="roundBtns" onclick="togglediv('NamesTable')" type="button" style="border:none;background: none;">Sofas</button></li>
+          <li class="btmed232"><button id="Button2" class="roundBtns" onclick="togglediv('PhoneTable')" type="button"style="border:none;background: none;">beds</button></li>
           <li class="btmed232"><button id="Button3" class="roundBtns" onclick="togglediv('AddressTable')"
-              type="button" style="font-family: 'Playfair Display', serif;">Tables</button></li>
-          <li class="btmed232"><button id="Button4" class="roundBtns" onclick="togglediv('GradesTable')" type="button"
-              style="font-family: 'Playfair Display', serif;">Lamps & Decor</button></li>
-          <li class="btmed232"><button id="Button5" class="roundBtns" onclick="togglediv('SchoolTable')" type="button"
-              style="font-family: 'Playfair Display', serif;">Cabinets</button></li>
+              type="button" style="border:none;background: none;">Tables</button></li>
+          <li class="btmed232"><button id="Button4" class="roundBtns" onclick="togglediv('GradesTable')" type="button" style="border:none;background: none;">Lamps & Decor</button></li>
+          <li class="btmed232"><button id="Button5" class="roundBtns" onclick="togglediv('SchoolTable')" type="button"style="border:none;background: none;"</button></li>
         </div>
       </div>
-    </ul> -->
+    </ul>
     <div class="row" id="para">
       <div class="col-md-12">
         <!-- Swiper -->
@@ -773,7 +771,7 @@
     <br>
     <br>
     <div style="text-align: center; background-color:  #efefef;">
-      <video src="<?=base_url()?>assets/Online-Class-Funny-WhatsApp-status-Tom-And-Jerry-Cartoon-Video-Status.mp4" controls width="90%" style="display: inline;"></video>
+      <video poster="<?=base_url()?>" src="<?=base_url()?>assets/Online-Class-Funny-WhatsApp-status-Tom-And-Jerry-Cartoon-Video-Status.mp4" controls width="1106px" height="472px" style="display: inline;"></video>
     </div>
     <br>
   </section>
@@ -781,71 +779,25 @@
 
 <!-- video link  -->
 
-<section class="new_lunc overflow-hidden">
+<!-- <section class="new_lunc overflow-hidden">
   <div class="container">
-
     <div class="row">
       <div class="col-md-12">
-        <!-- Swiper -->
-
         <div class="say">
-          <div class=""><img src="https://www.orangetree.in/pub/media/yereone/testimonials/images/catch/390//k/h/khaab_wall_mirror.png" alt="">
-            <div class="yereone-testimonial-content"><span>The classy look of this mirror perfectly fits my fairy tale
-                imaginations. Loved the product! <span class="yereone-testimonial-author">Decode Architecture</span>
-              </span></div>
-          </div>
-          <div class=""><img src="https://www.orangetree.in/pub/media/yereone/testimonials/images/catch/390//7/c/7c2c3d52-0709-4097-a291-395dac38be2e.jpeg" alt="">
-            <div class="yereone-testimonial-content"><span>The classy look of this mirror perfectly fits my fairy tale
-                imaginations. Loved the product! <span class="yereone-testimonial-author">Decode Architecture</span>
-              </span></div>
-          </div>
-          <div class=""><img src="https://www.orangetree.in/pub/media/yereone/testimonials/images/catch/390//n/i/nihita_bajaj_mumbai_wedding_planner.jpg" alt="">
-            <div class="yereone-testimonial-content"><span>The classy look of this mirror perfectly fits my fairy tale
-                imaginations. Loved the product! <span class="yereone-testimonial-author">Decode Architecture</span>
-              </span></div>
-          </div>
-          <div class=""><img src="https://www.orangetree.in/pub/media/yereone/testimonials/images/catch/390//n/a/namrata_soni.jpg" alt="">
-            <div class="yereone-testimonial-content"><span>The classy look of this mirror perfectly fits my fairy tale
-                imaginations. Loved the product! <span class="yereone-testimonial-author">Decode Architecture</span>
-              </span></div>
-          </div>
-          <div class=""><img src="https://www.orangetree.in/pub/media/yereone/testimonials/images/catch/390//t/e/test-2-02.jpg" alt="">
-            <div class="yereone-testimonial-content"><span>The classy look of this mirror perfectly fits my fairy tale
-                imaginations. Loved the product! <span class="yereone-testimonial-author">Decode Architecture</span>
-              </span></div>
-          </div>
-          <div class=""><img src="https://www.orangetree.in/pub/media/yereone/testimonials/images/catch/390//p/r/priyanshu_maheshwari-01-01.jpg" alt="">
-            <div class="yereone-testimonial-content"><span>The classy look of this mirror perfectly fits my fairy tale
-                imaginations. Loved the product! <span class="yereone-testimonial-author">Decode Architecture</span>
-              </span></div>
-          </div>
-          <div class=""><img src="https://www.orangetree.in/pub/media/yereone/testimonials/images/catch/390//b/e/bean_brewer_cafe4.jpg" alt="">
-            <div class="yereone-testimonial-content"><span>The classy look of this mirror perfectly fits my fairy tale
-                imaginations. Loved the product! <span class="yereone-testimonial-author">Decode Architecture</span>
-              </span></div>
-          </div>
-          <div class=""><img src="https://www.orangetree.in/pub/media/yereone/testimonials/images/catch/390//t/i/tina_kakkad.jpg" alt="">
-            <div class="yereone-testimonial-content"><span>The classy look of this mirror perfectly fits my fairy tale
-                imaginations. Loved the product! <span class="yereone-testimonial-author">Decode Architecture</span>
-              </span></div>
-          </div>
-          <div class=""><img src="https://www.orangetree.in/pub/media/yereone/testimonials/images/catch/390//t/e/test-2-03.jpg" alt="">
-            <div class="yereone-testimonial-content"><span>The classy look of this mirror perfectly fits my fairy tale
-                imaginations. Loved the product! <span class="yereone-testimonial-author">Decode Architecture</span>
-              </span></div>
-          </div>
+          <? foreach($data_testimonal->result() as $testimonals){?>
 
+          <div class=""><img src="<?=base_url().$testimonals->image;?>" alt="">
+            <div class="yereone-testimonial-content"><span><?=$testimonals->message?><span class="yereone-testimonial-author"><?=$testimonals->name?></span>
+              </span></div>
+          </div>
+<?php  } ?>
         </div>
-
-        <!-- <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-pagination"></div> -->
       </div>
     </div>
   </div>
   </div>
 
-</section>
+</section> -->
 
 
 
@@ -854,25 +806,22 @@
 <!-- add another section  -->
 
 <section>
-  <div class="container1">
+  <div class="container">
     <div class="w100" style="text-align: center; margin-bottom: -80px;">
       <h2 style="font-size: 35px; font-family: 'Montagu Slab', serif;">What Our Customers Have to Say</h2>
-
     </div>
   </div>
   <div class="items">
     <? foreach($data_testimonal->result() as $testimonals){
   $break_string=chunk_split($testimonals->message,39,"<br>");
-
-
       ?>
-
     <div><img src="<?=base_url().$testimonals->image;?>" style="width: 100%; height:30%; padding: 10px;">
       <div class="dfg col-md-2"><i class="fa fa-quote-left"></i></div>
       <div class="dfg" style="width: auto;">
-        <p style="text-align: center; font-size:14px;">  <?=$break_string; ?></p>
+        <p style="text-align: center; font-size:14px;"><?=$break_string; ?></p>
       </div>
       <div class="col-md-10">
+        <p style="text-align: right; font-size:14px;"><b><?=$testimonals->name?></b></p>
         <div class="col-md-2 ii" style="margin-left: 273px;"><i class="fa fa-quote-right"></i></div>
       </div>
 

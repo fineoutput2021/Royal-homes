@@ -103,6 +103,7 @@
              {
                // print_r($this->input->post());
                // exit;
+  $this->form_validation->set_rules('name', 'name', 'required');
   $this->form_validation->set_rules('message', 'message', 'required');
 
 
@@ -111,6 +112,7 @@
 
                if($this->form_validation->run()== TRUE)
                {
+  $name=$this->input->post('name');
   $message=$this->input->post('message');
 
                    $ip = $this->input->ip_address();
@@ -169,6 +171,7 @@ $img0='image';
 
            $data_insert = array(
                   'image'=>$nnnn0,
+  'name'=>$name,
   'message'=>$message,
 
                      'ip' =>$ip,
@@ -242,6 +245,7 @@ if(!empty($img)) { if(empty($nnnn0)){ $nnnn0 = $img; } }else{ if(empty($nnnn0)){
 
            $data_insert = array(
                   'image'=>$nnnn0,
+                  'name'=>$name,
   'message'=>$message,
 
                      );
@@ -366,7 +370,7 @@ if(!empty($img)) { if(empty($nnnn0)){ $nnnn0 = $img; } }else{ if(empty($nnnn0)){
 
  $zapak=$this->db->delete('tbl_testimonal', array('id' => $id));
  if($zapak!=0){
-        
+
         redirect("dcadmin/testimonal/view_testimonal","refresh");
                 }
                 else

@@ -40,6 +40,7 @@
         <th>#</th>
 
  	 <th>Image</th>
+ 	 <th>Name</th>
  	 <th>Message</th>
 
 
@@ -62,6 +63,7 @@
         <?php } ?>
         </td>
 
+	 <td><?php echo $data->name ?></td>
 	 <td><?php echo $data->message ?></td>
 
 

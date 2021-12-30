@@ -41,6 +41,12 @@
                   <table class="table table-hover">
 
                     <tr>
+                      <td> <strong>Name</strong> <span style="color:red;">*</span></strong> </td>
+                      <td>
+                        <input type="text" name="name" class="form-control" placeholder="" required value="" />
+                      </td>
+                    </tr>
+                    <tr>
                       <td> <strong>Redirection Link</strong> <span style="color:red;">*</span></strong> </td>
                       <td>
                         <input type="text" name="redirection_link" class="form-control" placeholder="" required value="" />

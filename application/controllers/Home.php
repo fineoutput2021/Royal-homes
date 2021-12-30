@@ -20,11 +20,9 @@ class Home extends CI_Controller
         $data['slider_data']= $this->db->get();
 
         $this->db->select('*');
-        $this->db->from('tbl_category');
+        $this->db->from('tbl_banners_six');
         $this->db->where('is_active', 1);
-        $this->db->order_by('rand()');
-        $this->db->limit(6);
-        $data['Category_Data']= $this->db->get();
+        $data['banner_Data']= $this->db->get();
 
         $this->db->select('*');
         $this->db->from('tbl_products');
@@ -69,8 +67,8 @@ class Home extends CI_Controller
         $data["t"] = $t;
 
 
-echo $id;
-exit;
+// echo $id;
+// exit;
         $this->db->select('*');
         $this->db->from('tbl_products');
         if ($id2==1) {
@@ -79,8 +77,8 @@ exit;
             $this->db->like('subcategory', $id);
         }
         $product_data= $this->db->get();
-        print_r($product_data);
-        exit;
+        // print_r($product_data);
+        // exit;
         $data['product_data'] = $product_data;
 
 
