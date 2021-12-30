@@ -107,10 +107,10 @@
     }
 
     .logoimg {
-      margin-left: 17rem;
+      margin-left: 15rem;
       height: 25px !important;
       width: 33px !important;
-      margin-top: 0rem;
+      margin-top: 1rem;
       margin-bottom: 2rem;
     }
 
@@ -214,7 +214,7 @@
     }
 
     .btn1 {
-      width: 270px;
+      width: 241px;
       background-color: white;
     }
 
@@ -328,11 +328,11 @@
         margin-left: 0px !important;
       }
 
-      .logo {
-        width: 47% !important;
+      /* .logo {
+        width: 71% !important;
         margin-left: 88px !important;
       }
-    }
+    } */
 
     @media (min-width:300px) {
       .sidenav a {
@@ -346,6 +346,43 @@
       font-family: 'Montserrat', sans-serif;
       font-family: 'Zen Antique Soft', serif;
       font-family: 'Zen Old Mincho', serif;
+    }
+    @media (max-width:576px) {
+     /* .btn{
+       width:198px !important;
+     }
+     .btn1{
+       width: 198px;
+     }
+     .textres{
+       font-size: 12px !important;
+     }
+     .textres1{
+       font-size: 12px !important;
+     }
+     .textmar{
+       margin-top: 30px !important;
+        }
+        .logoimg{
+          margin-left: 5.5rem;
+          margin-top: 2rem;
+          width: 26px !important;
+          height: 13px !important;
+        }
+        .textresp{
+          margin-left: 1rem !important;
+        }
+        .ressing{
+          font-size: 10px;
+          padding: 5px;
+        }
+        .btnres{
+          padding: 5px;
+          font-size: 8px;
+        } */
+        .modal-content{
+          width: 98%;
+        }
     }
   </style>
   <style>
@@ -1188,6 +1225,7 @@ $category_data= $this->db->get();
   <div id="myModals1" class="modal1 close3">
     <!-- Modal content -->
     <div class="modal-content">
+      <div class="container-fluid">
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true" onclick="myFunction8()" style='margin-left:34rem;'>&times;</span>
           </button>
@@ -1198,17 +1236,17 @@ $category_data= $this->db->get();
     justify-content: center;
 "   >
         <div class="logoimg">
-          <img src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/logo.png" alt="Logo" title="Orange tree" style="margin-top:1rem;">
+          <img src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/logo.png" alt="Logo" title="Orange tree">
         </div>
-        <div class="badge  text-black mt-4" style="font-size:18px;font-family:'Miller Display';padding-bottom:2rem;">
+        <div class="badge  text-black mt-4 textres" style="font-size:18px;font-family:'Miller Display';padding-bottom:2rem;">
           SIGN UP TO CONTINUE
         </div>
         <div class="row g-3" style="margin-bottom:40px;">
-          <div class="col" style="padding-right: 0px;">
-            <button class="btn" style='margin-left:2rem;, width:145px!important;'><img class="social" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/facebook.svg"
+          <div class="col-md-6 col-sm-6" style="padding-right: 0px;">
+            <button class="btn" style='width:250px;'><img class="social" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/facebook.svg"
                 alt="social" >facebook</button>
           </div>
-          <div class="col">
+          <div class="col-md-6 col-sm-6">
             <button class="btn1" style="border:0px;border-radius:3px;"><img class="social1" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/google.svg" alt="social">google
 
             </button>
@@ -1218,7 +1256,7 @@ $category_data= $this->db->get();
 
       </div>
       <form action="<?=base_url()?>User_login/user_register" method="post" enctype="multipart/form-data">
-        <div class="badge  text-black text-wrap" style="display:flex;justify-content:center;margin: 20px;font-size: 1rem;font-weight:unset;font-family:'euclid light';">
+        <div class="badge  text-black text-wrap textres1 textmar" style="display:flex;justify-content:center;margin: 20px;font-size: 1rem;font-weight:unset;font-family:'euclid light';">
           Creating an account has many benefits: check out faster, keep more than one address, track orders and more.
         </div>
         <div>
@@ -1226,41 +1264,42 @@ $category_data= $this->db->get();
         <form>
 <div class="form_method_name">
         <div class="row g-3">
-          <div class="col">
+          <div class="col-sm-12">
             <input type="text" class="form-control" placeholder="First name" aria-label="First name" name="fname">
           </div>
-          <div class="col">
+          <div class="col-sm-12">
             <input type="text" class="form-control" placeholder="Last name" aria-label="Last name" name="lname">
           </div>
 
         </div>
         <div class="row g-3">
-          <div class="col">
+          <div class="col-sm-12">
             <input type="text" class="form-control" placeholder="email" aria-label="Email" name="email">
           </div>
-          <div class="col">
+          <div class="col-sm-12">
             <input type="text" class="form-control" placeholder="phonumber" aria-label="Phone nnuber" name="phone">
           </div>
 
         </div>
         <div class="row g-3">
-          <div class="col">
+          <div class="col-sm-12">
             <input type="password" class="form-control" placeholder="password" aria-label=" Password" name="password">
           </div>
-          <div class="col">
+          <div class="col-sm-12">
             <input type="password" class="form-control" placeholder="confirm" aria-label="Confirm Password" name="confirm_password">
           </div>
         </div>
         <div>
-          <button class="button" type="submit">CREATE AN ACCOUNT</button>
+          <button class="button btnres" type="submit">CREATE AN ACCOUNT</button>
         </div>
       </div>
       </form>
-        <div class="badge  text-black text-wrap" style="margin-left:17rem; font-weight:100;margin-bottom:5px;margin-top: 20px; font-size:15px;" id="pop_myBtn" >
+        <div class="badge  text-black text-wrap textresp" style="margin-left:17rem; font-weight:100;margin-bottom:5px;margin-top: 20px; font-size:15px;" id="pop_myBtn" >
           Already have an Account ? Sign In
         </div>
 
       </form>
+    </div>
     </div>
 
   </div>
@@ -1269,6 +1308,7 @@ $category_data= $this->db->get();
   <div id="myModals" class="modal  close2">
           <!-- Modal content -->
           <div class="modal-content">
+            <div class="container-fluid">
 <span class="close" onclick="myFunction7()" style='margin-left:34rem;'>&times;</span>
 
 <div class="logosection " style="
@@ -1279,15 +1319,15 @@ $category_data= $this->db->get();
 ">
 
  <div class="logoimg">
-<img src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/logo.png" alt="Logo" title="Orange tree" style="margin-top:1rem"></div>
-<div class="badge  text-black mt-4" style="font-size:18px;font-family:'Miller Display';padding-bottom:2rem;">
+<img src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/logo.png" alt="Logo" title="Orange tree"></div>
+<div class="badge  text-black mt-4 textres" style="font-size:18px;font-family:'Miller Display';padding-bottom:2rem;">
 SIGN IN TO CONTINUE
 </div>
-<div class="row g-3" style="margin-bottom:40px;">
-<div class="col" style="padding-right: 0px;">
-<button class="btn" style='margin-left:2rem;, width:145px!important;'><img class="social" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/facebook.svg" alt="social" >facebook</button>
+<div class="row g-3 justify-content-center">
+<div class="col-md-6 col-sm-6" style="padding-right: 0px;">
+<button class="btn" style='width:250px;'><img class="social" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/facebook.svg" alt="social" >facebook</button>
 </div>
-<div class="col">
+<div class="col-md-6 col-sm-6">
 <button class="btn1" style="border:0px;border-radius:3px;"><img  class="social1" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/google.svg" alt="social">google
 
 </button>
@@ -1298,7 +1338,7 @@ SIGN IN TO CONTINUE
 </div>
 <form action="<?=base_url()?>User_login/user_login" method="post" enctype="multipart/form-data">
 
-  <div class="badge  text-black text-wrap" style="display:flex;justify-content:center;margin: 20px;font-size: 1rem;font-weight:unset;font-family:'euclid light';">
+  <div class="badge  text-black text-wrap textres1 textmar" style="display:flex;justify-content:center;margin: 20px;font-size: 1rem;font-weight:unset;font-family:'euclid light';">
 Sign in with your email address.
 </div>
   <div>
@@ -1313,15 +1353,16 @@ Sign in with your email address.
 <div class="field email required"><div class="control" style="margin-top:13px;">
   <input placeholder="Password" name="password" value="" type="password"></div></div>
 
-<div class="badge  text-black text-wrap" style="font-size:18px;margin-top:2rem;font-weight:unset;font-family:'euclid light';">
+<div class="badge  text-black text-wrap textres" style="font-size:18px;margin-top:2rem;font-weight:unset;font-family:'euclid light';">
 <span>Forget Password</span>
 </div>
 
-<button class="button" type="submit" style="border-radius:34px !important">SIGN IN</button>
+<button class="button ressing" type="submit" style="border-radius:34px !important">SIGN IN</button>
 </div>
 </form>
-<div class="badge  text-black text-wrap" style="margin-left:17rem; font-weight:100;margin-bottom:5px;margin-top: 20px; font-size:15px"  id="myBtn1">
+<div class="badge  text-black text-wrap textresp" style="margin-left:17rem; font-weight:100;margin-bottom:5px;margin-top: 20px; font-size:15px"  id="myBtn1">
 New Here?<span style="cursor:pointer;text-decoration:underline;"> Sign Up</span>
+</div>
 </div>
 </div>
 
