@@ -1,22 +1,16 @@
 <style>
-@media (max-width:1280px) {
-
-/*
-     .respons{
-       width: 200px !important;
-     } */
-    .pres{
+  @media (max-width:1280px) {
+    .pres {
       font-size: 15px;
     }
+  }
 
-     }
-
-.bot_line{
-  border-bottom: solid 2px #e66c47;
-}
+  .bot_line {
+    border-bottom: solid 2px #e66c47;
+  }
 </style>
 
-
+<!--Start Slider-->
 
 <section class="overflow-hidden t_slider">
   <div class="container-fluid p-0">
@@ -38,11 +32,15 @@
   </div>
 </section>
 
+<!-- End Slider-->
+
+<!-- Start Banner Six-->
+
 <section>
   <div class="container gallarySection mw-100 ">
     <div class="row mt-4 cat_gory">
       <?php $i=1; foreach($banner_Data->result() as $banner) { ?>
-      <div class="col col-md-4 mb-5 text-center">
+      <div class="col-md-4 col-sm-6 col-6 mb-5 text-center">
         <div><a href="<?=$banner->link?>">
             <img src="<?=base_url().$banner->image?>" alt="Sofas" class="img-fluid"></a>
         </div>
@@ -53,6 +51,8 @@
   </div>
 </section>
 
+<!--End Banner Six-->
+
 <section class="new_lunc overflow-hidden">
   <div class="container-fluid">
     <br>
@@ -61,12 +61,14 @@
     <ul style="overflow: hidden;">
       <div class="myButtons">
         <div class="btn-group btmed231" id="MatchingEntitiesButtons">
-          <li class="btmed232"><button id="button1" class="roundBtns" onclick="togglediv('NamesTable')" type="button" style="border:none;background: none;">Sofas</button></li>
-          <li class="btmed232"><button id="Button2" class="roundBtns" onclick="togglediv('PhoneTable')" type="button"style="border:none;background: none;">beds</button></li>
-          <li class="btmed232"><button id="Button3" class="roundBtns" onclick="togglediv('AddressTable')"
-              type="button" style="border:none;background: none;">Tables</button></li>
+          <?php $i=1; foreach($launch_sub_data->result() as $sub) { ?>
+          <li class="btmed232"><button id="<?=$sub->id?>" class="roundBtns" onclick="togglediv('launch_<?=$sub->id?>')" type="button" style="border:none;background: none;"><?=$sub->subcategory?></button></li>
+          <?php $i++; } ?>
+          <!-- <li class="btmed232"><button id="button1" class="roundBtns" onclick="togglediv('NamesTable')" type="button" style="border:none;background: none;">sofas</button></li>
+          <li class="btmed232"><button id="Button2" class="roundBtns" onclick="togglediv('PhoneTable')" type="button" style="border:none;background: none;">beds</button></li>
+          <li class="btmed232"><button id="Button3" class="roundBtns" onclick="togglediv('AddressTable')" type="button" style="border:none;background: none;">Tables</button></li>
           <li class="btmed232"><button id="Button4" class="roundBtns" onclick="togglediv('GradesTable')" type="button" style="border:none;background: none;">Lamps & Decor</button></li>
-          <li class="btmed232"><button id="Button5" class="roundBtns" onclick="togglediv('SchoolTable')" type="button"style="border:none;background: none;"</button></li>
+          <li class="btmed232"><button id="Button5" class="roundBtns" onclick="togglediv('SchoolTable')" type="button" style="border:none;background: none;" </button></li> -->
         </div>
       </div>
     </ul>
@@ -270,9 +272,19 @@
         </div> -->
 
         <!-- 3... -->
-        <div id="AddressTable" class="TableBody" style="display:block">
-          <div class="swiper-wrapper autoplay" id="changenex1">
-            <?php $i=1; foreach($new_launch_data->result() as $n_launch) { ?>
+        <?php $i=0; foreach($launch_sub_data->result() as $sub2) {
+          $this->db->select('*');
+          $this->db->from('tbl_products');
+          $this->db->like('subcategory', $sub2->id);
+          $this->db->where('is_active', 1);
+          $this->db->order_by('rand()');
+          $this->db->limit(10);
+          $new_launch_data= $this->db->get();
+
+           ?>
+        <div id="launch_<?=$sub2->id?>" class="TableBody" <?if($i==0){echo 'style="display:block"';}else{echo 'style="display:none"';}?>>
+          <div class="swiper-wrapper autoplay" id="changenex<?=$sub2->id?>">
+            <?php  foreach($new_launch_data->result() as $n_launch) { ?>
             <div class="swiper-slide respons" style="padding:15px;">
               <a href="<?=base_url()?>Home/product_details">
                 <img src="<?=base_url().$n_launch->image?>" alt="">
@@ -281,10 +293,10 @@
                 <h6><?=$n_launch->productname?></h6> <span style="font-weight: bold; font-size: 12px;"> Rs.<?=$n_launch->mrp?></span>
               </div>
             </div>
-            <?php $i++; } ?>
+            <?php  } ?>
           </div>
         </div>
-
+<?php $i++; } ?>
         <!-- 4.... -->
         <!-- <div id="GradesTable" class="TableBody" style="display:none">
           <div class="swiper-wrapper autoplay" id="changenex1">
@@ -487,6 +499,8 @@
     </div>
 </section>
 
+<!--Start Get the look-->
+
 <section class="get_look overflow-hidden">
   <div class="container-fluid">
     <h2 class="text-center py-5" style="font-family: 'Playfair Display', serif; font-size: 50px;"><?=$banner_images->imagename?></h2>
@@ -497,13 +511,14 @@
             <img style="width: 1483px;" src="<?=base_url().$banner_images->image1?>" alt="">
           </a>
         </div>
-
       </div>
-
     </div>
-
   </div>
 </section>
+
+<!--End Get the look-->
+
+<!-- Start Best Seller-->
 
 <section class="new_lunc overflow-hidden">
   <div class="container-fluid">
@@ -515,7 +530,6 @@
         <div class="swiper-wrapper autoplay">
           <? foreach($Best_seller->result() as $seller){  ?>
 
-
           <div class="swiper-slide" style="padding: 15px;">
             <a href="productdetail.html">
               <img src="<?=base_url().$seller->image;?>" alt="">
@@ -525,75 +539,8 @@
             </div>
           </div>
 
-        <? } ?>
-          <!-- <div class="swiper-slide" style="padding: 15px;">
-            <a href="productdetail.html">
-              <img src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base_2_kyotoconicalhanginglamp.jpg" alt="">
-            </a>
-            <div class="my-3">
-              <h6>Yoho Dining Table 6 Seater</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-            </div>
-          </div>
-          <div class="swiper-slide" style="padding: 15px;">
-            <a href="productdetail.html">
-              <img src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base_2_kyotodomehanginglamp_1.jpg" alt="">
-            </a>
-            <div class="my-3">
-              <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-            </div>
-          </div>
-          <div class="swiper-slide" style="padding: 15px;">
-            <a href="productdetail.html">
-              <img src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base_2_mallawiwallmirror-buywallstickersonline.jpg" alt="">
-            </a>
-            <div class="my-3">
-              <h6>Yoho Dining Table 6 Seater</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-            </div>
-          </div>
-          <div class="swiper-slide" style="padding: 15px;">
-            <a href="productdetail.html">
-              <img src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base_2_speckletablelampround-buyelectrictablelamponilne.jpg" alt="">
-            </a>
-            <div class="my-3">
-              <h6>Yoho Dining Table 6 Seater</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-            </div>
-          </div>
-          <div class="swiper-slide" style="padding: 15px;">
-            <a href="productdetail.html">
-              <img src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base_2_kilmtfloorlamp-buyfloorlampforlivingroomonline.jpg" alt="">
-            </a>
-            <div class="my-3">
-              <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-            </div>
-          </div>
-          <div class="swiper-slide" style="padding: 15px;">
-            <a href="productdetail.html">
-              <img src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/1/6/1600x1600_3_40.jpg" alt="">
-            </a>
-            <div class="my-3">
-              <h6>Yoho Dining Table 6 Seater</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-            </div>
-          </div>
-          <div class="swiper-slide" style="padding: 15px;">
-            <a href="productdetail.html">
-              <img src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base_2_kyoto-chest-of-drawer-chest-of-drawers-online_1.jpg" alt="">
-            </a>
-            <div class="my-3">
-              <h6>Yoho Dining Table 6 Seater</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-            </div>
-          </div>
-          <div class="swiper-slide" style="padding: 15px;">
-            <a href="productdetail.html">
-              <img src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base_2_kyoto-dresser-dresser-table-with-drawers_1.jpg" alt="">
-            </a>
-            <div class="my-3">
-              <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-            </div>
-          </div> -->
-
+          <? } ?>
         </div>
-
-
       </div>
       <!-- <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
@@ -604,6 +551,11 @@
   </div>
 </section>
 
+<!--ENd Best Seller-->
+
+
+
+<!---Start Latest--->
 
 <section class="new_lunc overflow-hidden t_slider">
   <div class="container-fluid">
@@ -613,7 +565,6 @@
         <!-- Swiper -->
 
         <div class="swiper-wrapper decor">
-
           <div class="swiper-slide">
             <a href="<?=$image_two->link_first;?>">
               <img src="<?=base_url().$image_two->image_first?>" alt="">
@@ -630,73 +581,22 @@
               <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
             </div> -->
           </div>
-          <!-- <div class="swiper-slide">
-            <a href="all product.html">
-              <img src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/furniture/paolo1-latest.jpg" alt="">
-            </a> -->
-            <!-- <div class="my-3">
-              <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-            </div> -->
-          <!-- </div> -->
-          <!-- <div class="swiper-slide">
-            <a href="all product.html">
-              <img src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/furniture/paolo2-latest.jpg" alt="">
-            </a> -->
-            <!-- <div class="my-3">
-              <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-            </div> -->
-          <!-- </div> -->
-          <!-- <div class="swiper-slide">
-            <a href="all product.html">
-              <img src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/furniture/paolo1-latest.jpg" alt="">
-            </a> -->
-            <!-- <div class="my-3">
-              <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-            </div> -->
-          <!-- </div>
-          <div class="swiper-slide">
-            <a href="all product.html">
-              <img src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/furniture/paolo2-latest.jpg" alt="">
-            </a> -->
-            <!-- <div class="my-3">
-              <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-            </div> -->
-          <!-- </div>
-          <div class="swiper-slide">
-            <a href="all product.html">
-              <img src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/furniture/paolo1-latest.jpg" alt="">
-            </a> -->
-            <!-- <div class="my-3">
-              <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-            </div> -->
-          <!-- </div>
-          <div class="swiper-slide">
-            <a href="all product.html">
-              <img src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/furniture/paolo2-latest.jpg" alt="">
-            </a> -->
-            <!-- <div class="my-3">
-              <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-            </div> -->
-          <!-- </div>
-          <div class="swiper-slide">
-            <a href="all product.html">
-              <img src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/furniture/paolo1-latest.jpg" alt="">
-            </a> -->
-            <!-- <div class="my-3">
-              <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-            </div> -->
-          </div>
-
         </div>
 
-        <!-- <div class="swiper-button-next"></div>
+      </div>
+
+      <!-- <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
       <div class="swiper-pagination"></div> -->
-      </div>
     </div>
   </div>
-
+  </div>
 </section>
+
+<!--End Latest-->
+
+<!--Start Promise-->
+
 <section class="promis overflow-hidden">
   <h2 class="text-center py-5" style="color: gray; font-size: 39px; font-family: 'Montserrat', sans-serif; font-weight: bolder;">The Orange Tree
     Promise</h2>
@@ -758,52 +658,25 @@
       </div>
     </div>
   </div>
-  <!-- <div class="container">
-          <div>
-            <video width="400" controls>
-              <source src="blob:https://www.youtube.com/790adb75-614f-4013-9fbe-0a4df92190f6" type="video/mp4">
-              <source src=blob:https://www.youtube.com/790adb75-614f-4013-9fbe-0a4df92190f6" type="video/ogg">
-              Your browser does not support HTML video.
-            </video>
-          </div>
-        </div> -->
+
+<!--End Promise-->
+
+
+  <!--- Start video --->
   <section>
     <br>
     <br>
     <div style="text-align: center; background-color:  #efefef;">
-      <video poster="<?=base_url()?>" src="<?=base_url()?>assets/Online-Class-Funny-WhatsApp-status-Tom-And-Jerry-Cartoon-Video-Status.mp4" controls width="1106px" height="472px" style="display: inline;"></video>
+      <video poster="<?=base_url()?>assets/poster.JPG" src="<?=base_url()?>assets/Online-Class-Funny-WhatsApp-status-Tom-And-Jerry-Cartoon-Video-Status.mp4" controls width="1106px" height="472px" style="display: inline;"></video>
     </div>
     <br>
   </section>
 </section>
 
-<!-- video link  -->
-
-<!-- <section class="new_lunc overflow-hidden">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="say">
-          <? foreach($data_testimonal->result() as $testimonals){?>
-
-          <div class=""><img src="<?=base_url().$testimonals->image;?>" alt="">
-            <div class="yereone-testimonial-content"><span><?=$testimonals->message?><span class="yereone-testimonial-author"><?=$testimonals->name?></span>
-              </span></div>
-          </div>
-<?php  } ?>
-        </div>
-      </div>
-    </div>
-  </div>
-  </div>
-
-</section> -->
+<!-- end video   -->
 
 
-
-
-
-<!-- add another section  -->
+<!-- start Testimonials -->
 
 <section>
   <div class="container">
@@ -815,162 +688,26 @@
     <? foreach($data_testimonal->result() as $testimonals){
   $break_string=chunk_split($testimonals->message,39,"<br>");
       ?>
-    <div><img src="<?=base_url().$testimonals->image;?>" style="width: 100%; height:30%; padding: 10px;">
-      <div class="dfg col-md-2"><i class="fa fa-quote-left"></i></div>
+    <div class="col-md-12">
+      <img src="<?=base_url().$testimonals->image;?>" class="img-fluid center" style="width:50%; display:block;margin-left:auto;margin-right: auto"/>
+      <div class="dfg col-md-2"><i class="fa fa-quote-left" style="font-size:25px;"></i></div>
       <div class="dfg" style="width: auto;">
         <p style="text-align: center; font-size:14px;"><?=$break_string; ?></p>
       </div>
       <div class="col-md-10">
         <p style="text-align: right; font-size:14px;"><b><?=$testimonals->name?></b></p>
-        <div class="col-md-2 ii" style="margin-left: 273px;"><i class="fa fa-quote-right"></i></div>
+        <div class="col-md-2 ii" style="margin-left: 273px;"><i class="fa fa-quote-right" style="font-size:25px;"></i></div>
       </div>
-
     </div>
-  <? } ?>
-    <!-- <div><img src="https://images.pexels.com/photos/937481/pexels-photo-937481.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" style="width: 100%; height:30%; padding: 10px;">
-      <div class="dfg col-md-2"><i class="fa fa-quote-left"></i></div>
-      <div class="dfg" style="width: auto;">
-        <p style="text-align: center; font-size:14px;">Very happy with this unique floor lamp,<br>this has become my
-          favoourit space in the house now!</p>
-      </div>
-      <div class="col-md-10">
-        <div class="col-md-2 ii" style="margin-left: 273px;"><i class="fa fa-quote-right"></i></div>
-      </div>
-
-    </div>
-    <div><img src="https://image.shutterstock.com/image-photo/headshot-cute-asian-woman-professional-260nw-518624602.jpg" style="width: 100%; height:30%; padding: 10px;">
-      <div class="dfg col-md-2"><i class="fa fa-quote-left"></i></div>
-      <div class="dfg" style="width: auto;">
-        <p style="text-align: center; font-size:14px;">Very happy with this unique floor lamp,<br>this has become my
-          favoourit space in the house now!</p>
-      </div>
-      <div class="col-md-10">
-        <div class="col-md-2 ii" style="margin-left: 273px;"><i class="fa fa-quote-right"></i></div>
-      </div>
-
-    </div>
-    <div><img src="https://cdn.corporatefinanceinstitute.com/assets/professional-woman-1024x683.jpg" style="width: 100%; height:30%; padding: 10px;">
-      <div class="dfg col-md-2"><i class="fa fa-quote-left"></i></div>
-      <div class="dfg" style="width: auto;">
-        <p style="text-align: center; font-size:14px;">Very happy with this unique floor lamp,<br>this has become my
-          favoourit space in the house now!</p>
-      </div>
-      <div class="col-md-10">
-        <div class="col-md-2 ii" style="margin-left: 273px;"><i class="fa fa-quote-right"></i></div>
-      </div>
-
-    </div>
-    <div><img src="https://d5t4h5a9.rocketcdn.me/wp-content/uploads/2020/11/Professional-Headshot-Poses-Blog-Post.jpg" style="width: 100%; height:30%; padding: 10px;">
-      <div class="dfg col-md-2"><i class="fa fa-quote-left"></i></div>
-      <div class="dfg" style="width: auto;">
-        <p style="text-align: center; font-size:14px;">Very happy with this unique floor lamp,<br>this has become my
-          favoourit space in the house now!</p>
-      </div>
-      <div class="col-md-10">
-        <div class="col-md-2 ii" style="margin-left: 273px;"><i class="fa fa-quote-right"></i></div>
-      </div>
-
-    </div> -->
-    <!-- <div><img ="https://cdn.luxe.digital/media/2019/09/12090457/business-professional-dress-code-men-james-bond-suit-styleluxe-digital.jpg"> -->
-    <!-- <div class="dfg col-md-2"><i class="fa fa-quote-left"></i></div>
-      <div class="dfg"><p>Very happy with this unique floor lamp,<br>this has become my favoourit space in the house now!</p></div>
-    </div> -->
-    <!-- <div><img src="https://headshots-inc.com/wp-content/uploads/2020/12/Blog-Images.jpg" style=" width: 100%; height:30%; padding: 10px;">
-      <div class="dfg col-md-2"><i class="fa fa-quote-left"></i></div>
-      <div class="dfg" style="width: auto;">
-        <p style="text-align: center; font-size:14px;">Very happy with this unique floor lamp,<br>this has become my
-          favoourit space in the house now!</p>
-      </div>
-      <div class="col-md-10">
-        <div class="col-md-2 ii" style="margin-left: 273px;"><i class="fa fa-quote-right"></i></div>
-      </div>
-
-
-    </div> -->
+    <? } ?>
   </div>
 </section>
 
 
 
-<!-- add new section  -->
+<!-- End testimonals  -->
 
-<!-- <section>
-    <div class="container1">
-      <div class="w100" style="text-align: center;">
-  <h2>What Our Customers Have to Say</h2>
-
-    </div>
-  </div>
-  <div class="container">
-    <div class="lls center">
-  <div class="row">
-
-  <div class="col-md-4 col-sm-12">
-    <div class="pop">
-    <img src="images/5.jpg">
-     </div>
-    <div class="row center">
-      <div class="dfg col-md-2"><i class="fa fa-quote-left"></i></div>
-     <div class="dfg"><p>Very happy with this unique floor lamp,<br>this has become my favoourit space in the house now!</p></div>
-
-
-
-
-    </div>
-   <div class="row">
-     <div class="col-md-10"><p><b>Pooja Thakur,Mumbai</b></p></div>
-      <div class="col-md-2 ii"><i class="fa fa-quote-right"></i></div>
-
-
-   </div>
-
-
-
-  </div>
-  <div class="col-md-4 col-sm-12">
-    <div class="pop">
-    <img src="images/5.jpg">
-     </div>
-    <div class="row center">
-      <div class="dfg col-md-2"><i class="fa fa-quote-left"></i></div>
-     <div class="dfg"><p>Very happy with this unique floor lamp,<br>this has become my favoourit space in the house now!</p></div>
-
-
-
-
-    </div>
-   <div class="row">
-     <div class="col-md-10"><p><b>Pooja Thakur,Mumbai</b></p></div>
-      <div class="col-md-2 ii"><i class="fa fa-quote-right"></i></div>
-
-
-   </div>
-
-
-
-  </div>
-  <div class="col-md-4 col-sm-12">
-    <div class="pop">
-    <img src="images/5.jpg">
-     </div>
-    <div class="row center">
-      <div class="dfg col-md-2"><i class="fa fa-quote-left"></i></div>
-     <div class="dfg"><p>Very happy with this unique floor lamp,<br>this has become my favoourit space in the house now!</p></div>
-
-
-
-
-    </div>
-   <div class="row">
-     <div class="col-md-10"><p><b>Pooja Thakur,Mumbai</b></p></div>
-      <div class="col-md-2 ii"><i class="fa fa-quote-right"></i></div>
-
-
-   </div>
-  </section> -->
-
-
-
+<!--Start Newsletter -->
 <section class="n_latter my-5 overflow-hidden" style=" background:#f5f5f5;">
   <div class="container1">
     <div class="row">
@@ -984,26 +721,23 @@
             more.</p>
         </div>
         <form class="" action="<?=base_url()?>Home/add_news_letter" method="post">
-
-        <div class="d-flex justify-content-center">
+          <div class="d-flex justify-content-center">
+            <br>
+            <input type="email" name="email" placeholder="Email id" style="background-color:  #f5f5f5; outline: none;">
+          </div>
           <br>
-          <input type="email" name="email" placeholder="Email id" style="background-color:  #f5f5f5; outline: none;">
-        </div>
-        <br>
-        <div style="text-align: center;">
-          <!-- <input type="button" name="button" value="button"> -->
-          <button type="submit">Submit</button>
+          <div style="text-align: center;">
+            <button type="submit">Submit</button>
         </form>
-
-          <br>
-          <br>
-        </div>
+        <br>
+        <br>
       </div>
     </div>
   </div>
+  </div>
 </section>
 
-
+<!--End Newsletter-->
 
 <section>
   <p style="font-size:27px; font-weight: bold; margin-left: 30px; margin-right: 30px;">Online Shopping for Wooden

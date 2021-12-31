@@ -24,6 +24,7 @@ body{
 
 .menu ul li {
     line-height: 3;
+    /* line-height: 1; */
 }
 .logo{
     display: flex;

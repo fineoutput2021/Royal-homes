@@ -377,27 +377,7 @@ $(".close_side").click(function () {
   });
 });
 </script>
-<!--
-<script>
-var crl = circlr('product-view', {
-  scroll: true,
-  loader: 'loader'
-});
-var btn = document.getElementById('btn');
-btn.addEventListener('click', function (event) {
-  if (crl) {
-      if (btn.classList.contains('stop')) {
-          crl.stop();
-          btn.classList.remove('stop');
-          btn.textContent = "Start Auto Rotate";
-      } else {
-          crl.play();
-          btn.classList.add('stop');
-          btn.textContent = "Stop Auto Rotate";
-      }
-  }
-});
-</script> -->
+
 <!-- Swiper JS -->
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -452,7 +432,7 @@ $(function () {
       $(".btn_change_change").removeClass("black");
       $(".logochan").removeClass("active");
       $(".headerlinks").css("color", "white")
-      $(".logochan").html('<a href="<?=base_url()?>" style="text-decoration: none;"><img src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/logo_base.png" class="img1111" style="width:80%;"></a>');
+      $(".logochan").html('<a href="<?=base_url()?>" style="text-decoration: none;"><img src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/logo_base.png" class="img1111"></a>');
     }
   });
 });
@@ -466,6 +446,16 @@ $('.autoplay').slick({
   slidesToScroll: 1,
   autoplay: true,
   autoplaySpeed: 2000,
+  responsive: [
+{
+  breakpoint: 768,
+  settings: {
+  slidesToShow: 1,
+  centerMode: false, /* set centerMode to false to show complete slide instead of 3 */
+  slidesToScroll: 1
+  }
+}
+]
 });
 
 $('.decor').slick({
@@ -669,6 +659,16 @@ $(document).ready(function () {
     slidesToScroll: 3,
     prevArrow: null,
     nextArrow: null,
+    responsive: [
+  {
+    breakpoint: 768,
+    settings: {
+    slidesToShow: 1,
+    centerMode: false, /* set centerMode to false to show complete slide instead of 3 */
+    slidesToScroll: 1
+    }
+  }
+  ]
   });
 
 

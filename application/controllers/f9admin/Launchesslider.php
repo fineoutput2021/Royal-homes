@@ -25,7 +25,7 @@
 
                            $this->db->select('*');
                $this->db->from('tbl_subcategory');
-               //$this->db->where('id',$usr);
+               $this->db->where('is_active',1);
                $data['launchesslider_data']= $this->db->get();
 
               $this->load->view('admin/common/header_view',$data);
@@ -61,7 +61,7 @@
                           if($t=="active"){
 
                             $data_update = array(
-                        'is_active'=>1
+                        'new_launches'=>1
 
                         );
 
@@ -79,7 +79,7 @@
                           }
                           if($t=="inactive"){
                             $data_update = array(
-                         'is_active'=>0
+                         'new_launches'=>0
 
                          );
 

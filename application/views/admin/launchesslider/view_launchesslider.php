@@ -56,7 +56,7 @@
 
 
 
-        <td><?php if($data->is_active==1){ ?>
+        <td><?php if($data->new_launches==1){ ?>
         <p class="label bg-green" >Active</p>
 
         <?php } else { ?>
@@ -72,7 +72,7 @@
         Action <span class="caret"></span></button>
         <ul class="dropdown-menu" role="menu">
 
-        <?php if($data->is_active==1){ ?>
+        <?php if($data->new_launches==1){ ?>
         <li><a href="<?php echo base_url() ?>dcadmin/launchesslider/updatelaunchessliderStatus/<?php echo
         base64_encode($data->id) ?>/inactive">Inactive</a></li>
         <?php } else { ?>

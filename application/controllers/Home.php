@@ -25,11 +25,11 @@ class Home extends CI_Controller
         $data['banner_Data']= $this->db->get();
 
         $this->db->select('*');
-        $this->db->from('tbl_products');
+        $this->db->from('tbl_subcategory');
         $this->db->where('is_active', 1);
-        $this->db->order_by('id', 'DESC');
-        $this->db->limit(16);
-        $data['new_launch_data']= $this->db->get();
+        $this->db->where('new_launches', 1);
+        $this->db->limit(5);
+        $data['launch_sub_data']= $this->db->get();
 
         $this->db->select('*');
         $this->db->from('tbl_bannerimages');
@@ -59,7 +59,7 @@ class Home extends CI_Controller
         $this->load->view('frontend/common/footer');
     }
 
-    public function all_Product($idd,$t)
+    public function all_Product($idd, $t)
     {
         $id=base64_decode($idd);
         $data["id"] = $idd;
@@ -67,8 +67,8 @@ class Home extends CI_Controller
         $data["t"] = $t;
 
 
-// echo $id;
-// exit;
+        // echo $id;
+        // exit;
         $this->db->select('*');
         $this->db->from('tbl_products');
         if ($id2==1) {
@@ -165,11 +165,12 @@ class Home extends CI_Controller
         }
     }
 
-public function checkout2(){
-  $this->load->view('frontend/common/header');
-  $this->load->view('frontend/checkout2');
-  $this->load->view('frontend/common/footer');
-}
+    public function checkout2()
+    {
+        $this->load->view('frontend/common/header');
+        $this->load->view('frontend/checkout2');
+        $this->load->view('frontend/common/footer');
+    }
 
     public function error404()
     {

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Orange Tree</title>
+  <title>Royal Homes</title>
   <link rel="stylesheet" href="<?=base_url()?>assets/frontend/assets/css/style.css">
   <link rel="stylesheet" href="<?=base_url()?>assets/frontend/assets/css/mainnav.css">
   <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/frontend/assets/css/new.css">
@@ -288,9 +288,9 @@
       box-sizing: border-box;
     }
 
-    @media(max-width:640px) {
+    @media(max-width:720px) {
       .heimed1 {
-        height: 1518px !important;
+        height: 100% !important;
       }
     }
 
@@ -321,7 +321,8 @@
       }
 
       #mobch13 {
-        margin-right: 30px;
+        /* margin-right: 30px; */
+        margin-right: 200px;
         margin-left: -2px;
         margin-top: -74px;
       }
@@ -332,17 +333,25 @@
         margin-top: -74px;
       }
 
-      .img1111 {
-        width: 102% !important;
-        margin-left: 0px !important;
-      }
-
       /* .logo {
         width: 71% !important;
         margin-left: 88px !important;
       }
     } */
   }
+@media (max-width:720px){
+  .img1111 {
+      /* width: 102% !important; */
+      /* margin-left: 0px !important; */
+      /* padding:0 40px 0 40px; */
+      width: 80% !important;
+    margin-left: 33px !important;
+    }
+    .menu ul li {
+        line-height: 1.5;
+    }
+
+}
 
     @media (min-width:300px) {
       .sidenav a {
@@ -1200,6 +1209,7 @@ $category_data= $this->db->get();
      $this->db->from('tbl_subcategory');
      $this->db->where('category_id', $data->id);
      $subdata= $this->db->get();
+     $subcheck=$subdata->row();
      foreach ($subdata->result() as $sub) {
          ?>
                         <li><a href="<?=base_url()?>Home/all_Product/<?=base64_encode($data->id)?>/<?=base64_encode(2)?>"><?php echo $sub->subcategory ?></a></li>
@@ -1224,9 +1234,9 @@ $category_data= $this->db->get();
                     <div>
                       <img src="<?=base_url().$data->image?>" class="img1" alt="full">
                     </div>
-                    <!-- <div>
-                      <img src="<?=base_url()?>assets/frontend/assets/img/img.jpg" class="img2" alt="flower">
-                    </div> -->
+                    <div>
+                      <img src="<?=base_url().$data->image2?>" class="img2" alt="flower">
+                    </div>
                   </div>
                 </div>
               </li>
@@ -1235,9 +1245,9 @@ $category_data= $this->db->get();
             </ul>
           </nav>
         </div>
-        <div class="col-md-4 col-xs-6 logch1">
+        <div class="col-md-4 col-xs-6 logch1 img1111">
           <div class="logo logochan">
-            <a href="<?=base_url()?>"><img src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/logo_base.png" id="logohed" alt="" style="width: 82%;"></a>
+            <a href="<?=base_url()?>"><img src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/logo_base.png" id="logohed" alt=""></a>
           </div>
         </div>
         <div class="col-md-4 col-xs-6 menu">
@@ -1253,7 +1263,7 @@ $category_data= $this->db->get();
               </div>
               <ul id="mobch13">
                 <span onclick="openNav()">
-                  <li class="media_q_change"><button><i class="fa fa-bars"></i></button></li>
+                  <li class="media_q_change"><button style="background:none;border:none;color:#d76a46;font-size:25px"><i class="fa fa-bars"></i></button></li>
                 </span>
               </ul>
               <div id="main">
