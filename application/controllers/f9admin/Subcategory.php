@@ -157,7 +157,7 @@ $this->load->library('upload');
   'subcategory'=>$subcategory,
   'description'=>$description,
   'image'=>$image,
-  'new_lunches'=>0,
+  'new_launches'=>0,
 
                      'ip' =>$ip,
                      'added_by' =>$addedby,
