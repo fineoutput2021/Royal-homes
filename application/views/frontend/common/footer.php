@@ -713,13 +713,7 @@ function togglediv(id) {
   });
 }
 </script>
-<!-- <script>
-$(document).ready(function(){
-  $("button").click(function(){
-    $("p:first").addClass("bot_line");
-  });
-});
-</script> -->
+
 <script src="<?=base_url()?>assets/frontend/assets/js/bootstrap-notify.min.js"></script>
 
 </html>

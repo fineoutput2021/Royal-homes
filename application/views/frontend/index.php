@@ -8,8 +8,10 @@
   .bot_line {
     border-bottom: solid 2px #e66c47;
   }
-</style>
 
+
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <!--Start Slider-->
 
 <section class="overflow-hidden t_slider">
@@ -53,7 +55,46 @@
 
 <!--End Banner Six-->
 
+<!-- Start subcategory Products -->
+
 <section class="new_lunc overflow-hidden">
+  <div class="container-fluid">
+    <br>
+    <h2 class="text-center py-5" style="margin-bottom: -32px; font-family: 'Playfair Display', serif;">New Launches
+    </h2>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <?php $i=0; foreach($launch_sub_data->result() as $sub) { ?>
+      <li class="nav-item">
+        <a class="nav-link <?if($i==0){echo'active';}?>" id="home_tab_<?=$sub->id?>" data-toggle="tab" href="#home_<?=$sub->id?>" role="tab" aria-controls="home_<?=$sub->id?>" aria-selected="<?if($i==0){echo 'true';}else{echo 'false';}?>"><?=$sub->subcategory?></a>
+      </li>
+      <?$i++;}?>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <?php $i=0; foreach($launch_sub_data->result() as $sub2) {
+        $this->db->select('*');
+        $this->db->from('tbl_products');
+        $this->db->like('subcategory', $sub2->id);
+        $this->db->where('is_active', 1);
+        $this->db->order_by('rand()');
+        $this->db->limit(10);
+        $new_launch_data= $this->db->get();
+
+         ?>
+      <div class="tab-pane fade <?if($i==0){echo "show active";}?>" id="home_<?=$sub2->id?>" role="tabpanel" aria-labelledby="home_tab_<?=$sub2->id?>">
+        <div class="your-class">
+          <?php  foreach($new_launch_data->result() as $n_launch) { ?>
+          <div style="padding:15px">
+            <img src="<?=base_url().$n_launch->image?>" alt="">
+              <h6><?=$n_launch->productname?></h6> <span style="font-weight: bold; font-size: 12px;"> Rs.<?=$n_launch->mrp?></span>
+          </div>
+          <?}?>
+        </div>
+      </div>
+      <?php $i++; } ?>
+    </div>
+</section>
+
+<!-- <section class="new_lunc overflow-hidden">
   <div class="container-fluid">
     <br>
     <h2 class="text-center py-5" style="margin-bottom: -32px; font-family: 'Playfair Display', serif;">New Launches
@@ -64,214 +105,12 @@
           <?php $i=1; foreach($launch_sub_data->result() as $sub) { ?>
           <li class="btmed232"><button id="<?=$sub->id?>" class="roundBtns" onclick="togglediv('launch_<?=$sub->id?>')" type="button" style="border:none;background: none;"><?=$sub->subcategory?></button></li>
           <?php $i++; } ?>
-          <!-- <li class="btmed232"><button id="button1" class="roundBtns" onclick="togglediv('NamesTable')" type="button" style="border:none;background: none;">sofas</button></li>
-          <li class="btmed232"><button id="Button2" class="roundBtns" onclick="togglediv('PhoneTable')" type="button" style="border:none;background: none;">beds</button></li>
-          <li class="btmed232"><button id="Button3" class="roundBtns" onclick="togglediv('AddressTable')" type="button" style="border:none;background: none;">Tables</button></li>
-          <li class="btmed232"><button id="Button4" class="roundBtns" onclick="togglediv('GradesTable')" type="button" style="border:none;background: none;">Lamps & Decor</button></li>
-          <li class="btmed232"><button id="Button5" class="roundBtns" onclick="togglediv('SchoolTable')" type="button" style="border:none;background: none;" </button></li> -->
         </div>
       </div>
     </ul>
     <div class="row" id="para">
       <div class="col-md-12">
-        <!-- Swiper -->
-        <!--
-        <div id="NamesTable" class="TableBody" style="display:none">
-          <div class="swiper-wrapper autoplay" id="changenex1">
 
-            <div class="swiper-slide" style="padding:15px">
-              <a href="productdetail.html">
-                <img
-                  src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base_2_throne-three-seater-sofa-online_3_seater_sofa_1.jpg"
-                  alt="">
-              </a>
-              <div class="my-3">
-                <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-              </div>
-            </div>
-            <div class="swiper-slide" style="padding:15px">
-              <a href="productdetail.html">
-                <img
-                  src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base_2_emperor-three-seater-sofa-3_seater_sofa_online.jpg"
-                  alt="">
-              </a>
-              <div class="my-3">
-                <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-              </div>
-            </div>
-            <div class="swiper-slide" style="padding:15px">
-              <a href="productdetail.html">
-                <img
-                  src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base_2_emperor-two-seater-sofa-sofa_online.jpg"
-                  alt="">
-              </a>
-              <div class="my-3">
-                <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-              </div>
-            </div>
-            <div class="swiper-slide" style="padding:15px">
-              <a href="productdetail.html">
-                <img
-                  src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/g/a/gallery_2_dado-two-seater-sofa-sofa_online_shopping.jpg"
-                  alt="">
-              </a>
-              <div class="my-3">
-                <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-              </div>
-            </div>
-            <div class="swiper-slide" style="padding:15px">
-              <a href="productdetail.html">
-                <img
-                  src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base_2_dado-single-seater-sofa_sofa_online.jpg"
-                  alt="">
-              </a>
-              <div class="my-3">
-                <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-              </div>
-            </div>
-            <div class="swiper-slide" style="padding:15px">
-              <a href="productdetail.html">
-                <img
-                  src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base_2_paola_wooden_sofa_set.jpg"
-                  alt="">
-              </a>
-              <div class="my-3">
-                <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-              </div>
-            </div>
-            <div class="swiper-slide" style="padding:15px">
-              <a href="productdetail.html">
-                <img
-                  src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base_2_navah-_single-seater-_sofa_online_india.jpg"
-                  alt="">
-              </a>
-              <div class="my-3">
-                <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-              </div>
-            </div>
-            <div class="swiper-slide" style="padding:15px">
-              <a href="productdetail.html">
-                <img
-                  src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base_2_throne-single-seater-sofa-sofa_online_shopping.jpg"
-                  alt="">
-              </a>
-              <div class="my-3">
-                <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-              </div>
-            </div>
-            <div class="swiper-slide" style="padding:15px">
-              <a href="productdetail.html">
-                <img
-                  src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base-1_jade_lounge_chair-lounge-chairs-india-online_2.jpg"
-                  alt="">
-              </a>
-              <div class="my-3">
-                <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-              </div>
-            </div>
-          </div>
-        </div> -->
-
-
-
-        <!-- 2.... -->
-        <!-- <div id="PhoneTable" class="TableBody" style="display:none">
-          <div class="swiper-wrapper autoplay" id="changenex1">
-
-            <div class="swiper-slide" style="padding:15px">
-              <a href="productdetail.html">
-                <img
-                  src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base_2_throne-three-seater-sofa-online_3_seater_sofa_1.jpg"
-                  alt="">
-              </a>
-              <div class="my-3">
-                <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-              </div>
-            </div>
-            <div class="swiper-slide" style="padding:15px">
-              <a href="productdetail.html">
-                <img
-                  src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base_2_emperor-three-seater-sofa-3_seater_sofa_online.jpg"
-                  alt="">
-              </a>
-              <div class="my-3">
-                <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-              </div>
-            </div>
-            <div class="swiper-slide" style="padding:15px">
-              <a href="productdetail.html">
-                <img
-                  src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base_2_emperor-two-seater-sofa-sofa_online.jpg"
-                  alt="">
-              </a>
-              <div class="my-3">
-                <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-              </div>
-            </div>
-            <div class="swiper-slide" style="padding:15px">
-              <a href="productdetail.html">
-                <img
-                  src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/g/a/gallery_2_dado-two-seater-sofa-sofa_online_shopping.jpg"
-                  alt="">
-              </a>
-              <div class="my-3">
-                <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-              </div>
-            </div>
-            <div class="swiper-slide" style="padding:15px">
-              <a href="productdetail.html">
-                <img
-                  src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base_2_dado-single-seater-sofa_sofa_online.jpg"
-                  alt="">
-              </a>
-              <div class="my-3">
-                <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-              </div>
-            </div>
-            <div class="swiper-slide" style="padding:15px">
-              <a href="productdetail.html">
-                <img
-                  src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base_2_paola_wooden_sofa_set.jpg"
-                  alt="">
-              </a>
-              <div class="my-3">
-                <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-              </div>
-            </div>
-            <div class="swiper-slide" style="padding:15px">
-              <a href="productdetail.html">
-                <img
-                  src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base_2_navah-_single-seater-_sofa_online_india.jpg"
-                  alt="">
-              </a>
-              <div class="my-3">
-                <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-              </div>
-            </div>
-            <div class="swiper-slide" style="padding:15px">
-              <a href="productdetail.html">
-                <img
-                  src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base_2_throne-single-seater-sofa-sofa_online_shopping.jpg"
-                  alt="">
-              </a>
-              <div class="my-3">
-                <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-              </div>
-            </div>
-            <div class="swiper-slide" style="padding:15px">
-              <a href="productdetail.html">
-                <img
-                  src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base-1_jade_lounge_chair-lounge-chairs-india-online_2.jpg"
-                  alt="">
-              </a>
-              <div class="my-3">
-                <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-              </div>
-            </div>
-          </div>
-        </div> -->
-
-        <!-- 3... -->
         <?php $i=0; foreach($launch_sub_data->result() as $sub2) {
           $this->db->select('*');
           $this->db->from('tbl_products');
@@ -289,7 +128,7 @@
               <a href="<?=base_url()?>Home/product_details">
                 <img src="<?=base_url().$n_launch->image?>" alt="">
               </a>
-              <div class="my-3">
+              <div >
                 <h6><?=$n_launch->productname?></h6> <span style="font-weight: bold; font-size: 12px;"> Rs.<?=$n_launch->mrp?></span>
               </div>
             </div>
@@ -297,207 +136,14 @@
           </div>
         </div>
 <?php $i++; } ?>
-        <!-- 4.... -->
-        <!-- <div id="GradesTable" class="TableBody" style="display:none">
-          <div class="swiper-wrapper autoplay" id="changenex1">
-
-            <div class="swiper-slide" style="padding:15px">
-              <a href="productdetail.html">
-                <img
-                  src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base_2_throne-three-seater-sofa-online_3_seater_sofa_1.jpg"
-                  alt="">
-              </a>
-              <div class="my-3">
-                <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-              </div>
-            </div>
-            <div class="swiper-slide" style="padding:15px">
-              <a href="productdetail.html">
-                <img
-                  src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base_2_emperor-three-seater-sofa-3_seater_sofa_online.jpg"
-                  alt="">
-              </a>
-              <div class="my-3">
-                <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-              </div>
-            </div>
-            <div class="swiper-slide" style="padding:15px">
-              <a href="productdetail.html">
-                <img
-                  src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base_2_emperor-two-seater-sofa-sofa_online.jpg"
-                  alt="">
-              </a>
-              <div class="my-3">
-                <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-              </div>
-            </div>
-            <div class="swiper-slide" style="padding:15px">
-              <a href="productdetail.html">
-                <img
-                  src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/g/a/gallery_2_dado-two-seater-sofa-sofa_online_shopping.jpg"
-                  alt="">
-              </a>
-              <div class="my-3">
-                <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-              </div>
-            </div>
-            <div class="swiper-slide" style="padding:15px">
-              <a href="productdetail.html">
-                <img
-                  src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base_2_dado-single-seater-sofa_sofa_online.jpg"
-                  alt="">
-              </a>
-              <div class="my-3">
-                <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-              </div>
-            </div>
-            <div class="swiper-slide" style="padding:15px">
-              <a href="productdetail.html">
-                <img
-                  src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base_2_paola_wooden_sofa_set.jpg"
-                  alt="">
-              </a>
-              <div class="my-3">
-                <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-              </div>
-            </div>
-            <div class="swiper-slide" style="padding:15px">
-              <a href="productdetail.html">
-                <img
-                  src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base_2_navah-_single-seater-_sofa_online_india.jpg"
-                  alt="">
-              </a>
-              <div class="my-3">
-                <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-              </div>
-            </div>
-            <div class="swiper-slide" style="padding:15px">
-              <a href="productdetail.html">
-                <img
-                  src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base_2_throne-single-seater-sofa-sofa_online_shopping.jpg"
-                  alt="">
-              </a>
-              <div class="my-3">
-                <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-              </div>
-            </div>
-            <div class="swiper-slide" style="padding:15px">
-              <a href="productdetail.html">
-                <img
-                  src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base-1_jade_lounge_chair-lounge-chairs-india-online_2.jpg"
-                  alt="">
-              </a>
-              <div class="my-3">
-                <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-              </div>
-            </div>
-          </div>
-        </div> -->
-        <!-- 5.... -->
-        <!-- <div id="SchoolTable" class="TableBody" style="display:none">
-          <div class="swiper-wrapper autoplay" id="changenex1">
-
-            <div class="swiper-slide" style="padding:15px">
-              <a href="productdetail.html">
-                <img
-                  src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base_2_throne-three-seater-sofa-online_3_seater_sofa_1.jpg"
-                  alt="">
-              </a>
-              <div class="my-3">
-                <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-              </div>
-            </div>
-            <div class="swiper-slide" style="padding:15px">
-              <a href="productdetail.html">
-                <img
-                  src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base_2_emperor-three-seater-sofa-3_seater_sofa_online.jpg"
-                  alt="">
-              </a>
-              <div class="my-3">
-                <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-              </div>
-            </div>
-            <div class="swiper-slide" style="padding:15px">
-              <a href="productdetail.html">
-                <img
-                  src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base_2_emperor-two-seater-sofa-sofa_online.jpg"
-                  alt="">
-              </a>
-              <div class="my-3">
-                <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-              </div>
-            </div>
-            <div class="swiper-slide" style="padding:15px">
-              <a href="productdetail.html">
-                <img
-                  src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/g/a/gallery_2_dado-two-seater-sofa-sofa_online_shopping.jpg"
-                  alt="">
-              </a>
-              <div class="my-3">
-                <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-              </div>
-            </div>
-            <div class="swiper-slide" style="padding:15px">
-              <a href="productdetail.html">
-                <img
-                  src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base_2_dado-single-seater-sofa_sofa_online.jpg"
-                  alt="">
-              </a>
-              <div class="my-3">
-                <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-              </div>
-            </div>
-            <div class="swiper-slide" style="padding:15px">
-              <a href="productdetail.html">
-                <img
-                  src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base_2_paola_wooden_sofa_set.jpg"
-                  alt="">
-              </a>
-              <div class="my-3">
-                <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-              </div>
-            </div>
-            <div class="swiper-slide" style="padding:15px">
-              <a href="productdetail.html">
-                <img
-                  src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base_2_navah-_single-seater-_sofa_online_india.jpg"
-                  alt="">
-              </a>
-              <div class="my-3">
-                <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-              </div>
-            </div>
-            <div class="swiper-slide" style="padding:15px">
-              <a href="productdetail.html">
-                <img
-                  src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base_2_throne-single-seater-sofa-sofa_online_shopping.jpg"
-                  alt="">
-              </a>
-              <div class="my-3">
-                <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-              </div>
-            </div>
-            <div class="swiper-slide" style="padding:15px">
-              <a href="productdetail.html">
-                <img
-                  src="https://www.orangetree.in/pub/media/catalog/product/cache/17b70ed427b22a161e2ec1c8f2bddcd4/b/a/base-1_jade_lounge_chair-lounge-chairs-india-online_2.jpg"
-                  alt="">
-              </a>
-              <div class="my-3">
-                <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
-              </div>
-            </div>
-          </div>
-        </div> -->
-
-        <!-- <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-pagination"></div>
-    < -->
-
       </div>
     </div>
-</section>
+</section> -->
+
+<!--End subcategory Products -->
+
+
+
 
 <!--Start Get the look-->
 
@@ -930,3 +576,27 @@
     <br>
   </div>
 </section>
+<script>
+$(document).ready(function(){
+$('.your-class').slick({
+  infinite: true,
+  slidesToShow: 4,
+  slidesToScroll: 3,
+  responsive: [
+{
+  breakpoint: 768,
+  settings: {
+  slidesToShow: 1,
+  centerMode: false, /* set centerMode to false to show complete slide instead of 3 */
+  slidesToScroll: 1
+  }
+}
+]
+});
+});
+
+$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+$('.your-class').slick('setPosition');
+})
+
+</script>
