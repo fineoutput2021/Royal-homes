@@ -71,7 +71,7 @@
 .img1{
     /* display: flex; */
     height: 7rem;
-    width: 200px; 
+    width: 200px;
     margin-bottom: 1rem;
 }
 .img2{
@@ -95,18 +95,18 @@
    opacity: 1;
    visibility: visible;
    transition: all 0.3s ease;
-} 
+}
 
   li a {
     position: relative;
     color: #000;
     text-decoration: none;
   }
-  
+
   a:hover {
     color: #000;
   }
-  
+
   li a::before {
     content: "";
     position: absolute;
@@ -115,13 +115,11 @@
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: orange;
+    background-color: #d76a46;
     transform: scaleX(0);
     transition: transform 0.3s ease;
   }
-  
+
   a:hover::before {
     transform: scaleX(1);
   }
-
-
