@@ -92,7 +92,7 @@ class Order extends CI_Controller
                         $last_id2=$this->base_model->insert_table("tbl_order2", $order2_insert, 1);
                     }
                     if (!empty($last_id2)) {
-                        redirect("Order/view_checkout", "refresh");
+                        redirect("Order/address", "refresh");
                     } else {
                         $this->session->set_flashdata('emessage', 'Some error occured! Please try again');
                         redirect($_SERVER['HTTP_REFERER']);
@@ -109,6 +109,79 @@ class Order extends CI_Controller
             redirect("Home/index", "refresh");
         }
     }
+    public function address()
+    {
+        if (!empty($this->session->userdata('user_data'))) {
+            $this->db->select('*');
+            $this->db->from('tbl_pincode');
+            $this->db->where('is_active', 1);
+            $data['pincode_data']= $this->db->get();
+
+            $this->load->view('frontend/common/header', $data);
+            $this->load->view('frontend/address');
+            $this->load->view('frontend/common/footer');
+        } else {
+            redirect("Home/index", "refresh");
+        }
+    }
+
+
+    public function add_address()
+    {
+        if (!empty($this->session->userdata('user_data'))) {
+            $this->load->helper(array('form', 'url'));
+            $this->load->library('form_validation');
+            $this->load->helper('security');
+            if ($this->input->post()) {
+                $this->form_validation->set_rules('name', 'name', 'required|xss_clean|trim');
+                $this->form_validation->set_rules('email', 'email', 'required|xss_clean|trim');
+                $this->form_validation->set_rules('phone', 'phone', 'required|xss_clean|trim');
+                $this->form_validation->set_rules('pincode', 'pincode', 'required|xss_clean|trim');
+                $this->form_validation->set_rules('address', 'address', 'required|xss_clean|trim');
+
+
+                if ($this->form_validation->run()== true) {
+                    $name=$this->input->post('name');
+                    $email=$this->input->post('email');
+                    $phone=$this->input->post('phone');
+                    $pincode=$this->input->post('pincode');
+                    $address=$this->input->post('address');
+                    $user_id = $this->session->userdata('user_id');
+                    $this->db->select('*');
+                    $this->db->from('tbl_order1');
+                    $this->db->where('user_id', $user_id);
+                    $this->db->order_by('id', 'DESC');
+                    $order_data= $this->db->get()->row();
+
+                    $data_update = array(
+                 'name'=>$name,
+                 'email'=>$email,
+                 'phone'=>$phone,
+                 'pincode_id'=>$pincode,
+                 'address'=>$address,
+                           );
+                    $this->db->where('id', $order_data->id);
+                    $zapak=$this->db->update('tbl_order1', $data_update);
+
+                    if (!empty($zapak)) {
+                        redirect("Order/view_checkout", "refresh");
+                    } else {
+                        $this->session->set_flashdata('emessage', 'Some error occured! Please try again');
+                        redirect($_SERVER['HTTP_REFERER']);
+                    }
+                } else {
+                    $this->session->set_flashdata('emessage', validation_errors());
+                    redirect($_SERVER['HTTP_REFERER']);
+                }
+            } else {
+                $this->session->set_flashdata('emessage', 'Please insert some data, No data available');
+                redirect($_SERVER['HTTP_REFERER']);
+            }
+        } else {
+            redirect("Home/index", "refresh");
+        }
+    }
+
 
     public function view_checkout()
     {

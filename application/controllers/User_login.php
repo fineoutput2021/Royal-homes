@@ -146,7 +146,10 @@ class User_login extends CI_Controller
                             date_default_timezone_set("Asia/Calcutta");
                             $cur_date=date("Y-m-d H:i:s");
 
-                    $user_name  = $user_data->fname." ".$user_data->lname;
+                    // $user_name  = $user_data->fname." ".$user_data->lname;
+                    $user_name  = $user_data->fname;
+                    // echo $user_name;
+                    // exit;
                     if (!empty($user_data)) {
                         if ($user_data->password==md5($password)) {
                             $this->session->set_userdata('user_data', 1);

@@ -28,6 +28,7 @@ class Cart extends CI_Controller
             if ($this->form_validation->run()== true) {
                 $product_id=$this->input->post('product_id');
                 $quantity=$this->input->post('quantity');
+                $product_id=base64_decode($product_id);
                 $ip = $this->input->ip_address();
                 date_default_timezone_set("Asia/Calcutta");
                 $cur_date=date("Y-m-d H:i:s");
@@ -40,12 +41,12 @@ class Cart extends CI_Controller
                   );
 
                 $this->db->select('*');
-                $this->db->from('tbl_inventory');
-                $this->db->where('product_id', $product_id);
-                $inventory_data= $this->db->get()->row();
+                $this->db->from('tbl_products');
+                $this->db->where('id', $product_id);
+                $pro_data= $this->db->get()->row();
                 //-----check inventory------
-                if (!empty($inventory_data)) {
-                    if ($inventory_data->quantity >= $quantity) {
+                if (!empty($pro_data->inventory)) {
+                    if ($pro_data->inventory >= $quantity) {
                         //------inventory in stock--------
                         $cart_data = $this->session->userdata('cart_data');
                         //----check product in already in cart------
@@ -110,6 +111,7 @@ class Cart extends CI_Controller
             $this->form_validation->set_rules('product_id', 'product_id', 'required|xss_clean|trim');
             if ($this->form_validation->run()== true) {
                 $product_id=$this->input->post('product_id');
+                $product_id=base64_decode($product_id);
 
                 $index="-1";
                 $cart = $this->session->userdata('cart_data');
@@ -158,15 +160,16 @@ class Cart extends CI_Controller
             if ($this->form_validation->run()== true) {
                 $product_id=$this->input->post('product_id');
                 $quantity=$this->input->post('quantity');
+                $product_id=base64_decode($product_id);
                 $index="-1";
 
                 $this->db->select('*');
-                $this->db->from('tbl_inventory');
-                $this->db->where('product_id', $product_id);
-                $inventory_data= $this->db->get()->row();
+                $this->db->from('tbl_products');
+                $this->db->where('id', $product_id);
+                $pro_data= $this->db->get()->row();
                 //-----check inventory------
-                if (!empty($inventory_data)) {
-                    if ($inventory_data->quantity >= $quantity) {
+                if (!empty($pro_data->inventory)) {
+                    if ($pro_data->inventory >= $quantity) {
                         $cart = $this->session->userdata('cart_data');
                         // $this->session->unset_userdata('cart_data');
                         if (!empty($cart)) {
@@ -182,7 +185,6 @@ class Cart extends CI_Controller
                             $this->session->set_userdata('cart_data', $cart);
                             $cart2 = $this->session->userdata('cart_data');
                             $total=0;
-                            $shipping=0;
                             $subtotal = 0;
 
                             foreach ($cart2 as $value) {
@@ -194,8 +196,7 @@ class Cart extends CI_Controller
                                 $price = $pro_data->mrp * $value['quantity'];
                                 $total= $total + $price;
                             }
-                            $shipping = $total * SHIPPING / 100;
-                            $subtotal = $total + $shipping;
+                            $subtotal = $total;
 
                             $respone['data'] = true;
                             $respone['data_message'] ="Item successfully updated in your cart";
@@ -247,6 +248,7 @@ class Cart extends CI_Controller
             if ($this->form_validation->run()== true) {
                 $product_id=$this->input->post('product_id');
                 $quantity=$this->input->post('quantity');
+                $product_id=base64_decode($product_id);
                 $ip = $this->input->ip_address();
                 date_default_timezone_set("Asia/Calcutta");
                 $cur_date=date("Y-m-d H:i:s");
@@ -256,12 +258,12 @@ class Cart extends CI_Controller
                     $user_id = $this->session->userdata('user_id');
 
                     $this->db->select('*');
-                    $this->db->from('tbl_inventory');
-                    $this->db->where('product_id', $product_id);
-                    $inventory_data= $this->db->get()->row();
+                    $this->db->from('tbl_products');
+                    $this->db->where('id', $product_id);
+                    $pro_data= $this->db->get()->row();
                     //-----check inventory------
-                    if (!empty($inventory_data)) {
-                        if ($inventory_data->quantity >= $quantity) {
+                    if (!empty($pro_data->inventory)) {
+                        if ($pro_data->inventory >= $quantity) {
                             $this->db->select('*');
                             $this->db->from('tbl_cart');
                             $this->db->where('user_id', $user_id);
@@ -324,6 +326,7 @@ class Cart extends CI_Controller
             $this->form_validation->set_rules('product_id', 'product_id', 'required|xss_clean|trim');
             if ($this->form_validation->run()== true) {
                 $product_id=$this->input->post('product_id');
+                $product_id=base64_decode($product_id);
                 $response['data'] = '';
                 $response['data_message'] = '';
                 if (!empty($this->session->userdata('user_data'))) {
@@ -362,16 +365,17 @@ class Cart extends CI_Controller
 
             if ($this->form_validation->run()== true) {
                 $product_id=$this->input->post('product_id');
+                $product_id=base64_decode($product_id);
                 $quantity=$this->input->post('quantity');
                 $user_id = $this->session->userdata('user_id');
 
                 $this->db->select('*');
-                $this->db->from('tbl_inventory');
-                $this->db->where('product_id', $product_id);
-                $inventory_data= $this->db->get()->row();
+                $this->db->from('tbl_products');
+                $this->db->where('id', $product_id);
+                $pro_data= $this->db->get()->row();
                 //-----check inventory------
-                if (!empty($inventory_data)) {
-                    if ($inventory_data->quantity >= $quantity) {
+                if (!empty($pro_data->inventory)) {
+                    if ($pro_data->inventory >= $quantity) {
 
                 //----------cart quantity update--------
                         $data_update = array('quantity'=>$quantity);

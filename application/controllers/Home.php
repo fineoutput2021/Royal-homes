@@ -168,7 +168,7 @@ class Home extends CI_Controller
     public function checkout2()
     {
         $this->load->view('frontend/common/header');
-        $this->load->view('frontend/checkout2');
+        $this->load->view('frontend/address');
         $this->load->view('frontend/common/footer');
     }
 

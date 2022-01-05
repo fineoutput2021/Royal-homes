@@ -1,8 +1,42 @@
+
+<!--Start Newsletter -->
+<section class="n_latter my-5 overflow-hidden" style=" background:#f5f5f5;">
+  <div class="container1">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="text-center">
+          <br>
+          <br>
+          <h2 style="font-size: 33px;">Sign up for our newsletter</h2>
+          <br>
+          <p style="font-size: 12px;">Enter your email to stay in the loop on new collections, upcoming events, and
+            more.</p>
+        </div>
+        <form class="" action="<?=base_url()?>Home/add_news_letter" method="post">
+          <div class="d-flex justify-content-center">
+            <br>
+            <input type="email" name="email" placeholder="Email id" style="background-color:  #f5f5f5; outline: none;">
+          </div>
+          <br>
+          <div style="text-align: center;">
+            <button type="submit">Submit</button>
+        </form>
+        <br>
+        <br>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!--End Newsletter-->
+
+<!--footer Start-->
 <section class="footer overflow-hidden heimed1" style="height: 590px;">
   <div class="container-fluid my-5" style="max-width: 90%;">
     <div class="row">
       <div class="col-md-12 text-center  mb-5">
-        <div class="col-5 mx-auto">
+        <div class="col-5 mx-auto mt-3">
           <img src="https://www.orangetree.in/pub/media/wysiwyg/footer-logo.png" alt="">
         </div>
       </div>
@@ -93,9 +127,7 @@
     </div>
 </section>
 
-
-
-
+<!-- End footer-->
 
 </body>
 
@@ -239,6 +271,8 @@ function loadSuccessNotify(succ_message){
                         '<a href="{3}" target="{4}" data-notify="url"></a>' +
                         '</div>'
                     });
+                    window.setTimeout(function(){location.reload()},2000)
+
        }else if(response.data == false){
          var msg = response.data_message;
                $.notify({
@@ -273,6 +307,7 @@ function loadSuccessNotify(succ_message){
                            '<a href="{3}" target="{4}" data-notify="url"></a>' +
                            '</div>'
                        });
+                       window.setTimeout(function(){location.reload()},2000)
        }
      }
        });
@@ -324,6 +359,8 @@ function loadSuccessNotify(succ_message){
                         '<a href="{3}" target="{4}" data-notify="url"></a>' +
                         '</div>'
                     });
+                    window.setTimeout(function(){location.reload()},2000)
+
        }else if(response.data == false){
          var msg = response.data_message;
                $.notify({
@@ -358,6 +395,8 @@ function loadSuccessNotify(succ_message){
                            '<a href="{3}" target="{4}" data-notify="url"></a>' +
                            '</div>'
                        });
+                       window.setTimeout(function(){location.reload()},2000)
+                       
        }
      }
        });
@@ -424,7 +463,7 @@ $(function () {
       $(".header").addClass("active");
       $(".btn_change_change").addClass("black");
       $(".logochan").addClass("active");
-      $(".logochan").html('<a href="<?=base_url()?>" style="text-decoration: none;  text-align: center;"><span style="color: #d76a46; font-size:40px !important;">O</span><span><hr style="font-weight:bold; color: black; border: 1px solid black;"></span></a>');
+      $(".logochan").html('<a href="<?=base_url()?>" style="text-decoration: none;  text-align: center;"><span style="color: #d76a46; font-size:40px !important;border-bottom: 2px solid grey ;">O</span></a>');
       $(".headerlinks").css("color", "black")
     } else {
       //remove the background property so it comes transparent again (defined in your css)
@@ -488,8 +527,8 @@ $('.say').slick({
 // }
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
 function openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "250px";
+  document.getElementById("mySidenav").style.width = "80%";
+  document.getElementById("main").style.marginLeft = "0px";
   document.getElementById("menucloseopen").addEventListener("click", () => { closeNav() });
   document.getElementById("menucloseopen").removeEventListener("click", () => { openNav() });
 }

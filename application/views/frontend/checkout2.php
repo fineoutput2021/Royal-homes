@@ -3868,7 +3868,7 @@
         <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
           <div class="accordion-body">
             <div class="in_prodiv mb-5">
-              <input type="hidden" name="order_id" value="<?=base64_encode()?>">
+              <!-- <input type="hidden" name="order_id" value="<?=base64_encode()?>"> -->
               <input type="text" placeholder="Enter Code Here" id="promocode" name="promocode" value="">
               <button class="apply_btn" onclick = applypromocode(this) id="giftPromocode">
                 Apply

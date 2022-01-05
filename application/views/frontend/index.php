@@ -9,7 +9,14 @@
     border-bottom: solid 2px #e66c47;
   }
 
-
+.new{
+  padding: 2px;
+  color:black;
+  font-weight:400px!important;
+}
+.new:hover{
+  color:black;
+}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <!--Start Slider-->
@@ -65,7 +72,7 @@
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <?php $i=0; foreach($launch_sub_data->result() as $sub) { ?>
       <li class="nav-item">
-        <a class="nav-link <?if($i==0){echo'active';}?>" id="home_tab_<?=$sub->id?>" data-toggle="tab" href="#home_<?=$sub->id?>" role="tab" aria-controls="home_<?=$sub->id?>" aria-selected="<?if($i==0){echo 'true';}else{echo 'false';}?>"><?=$sub->subcategory?></a>
+        <a class=" <?if($i==0){echo'active';}?> new" id="home_tab_<?=$sub->id?>" data-toggle="tab" href="#home_<?=$sub->id?>" role="tab" aria-controls="home_<?=$sub->id?>" aria-selected="<?if($i==0){echo 'true';}else{echo 'false';}?>"><?=$sub->subcategory?></a>
       </li>
       <?$i++;}?>
     </ul>
@@ -93,52 +100,6 @@
       <?php $i++; } ?>
     </div>
 </section>
-
-<!-- <section class="new_lunc overflow-hidden">
-  <div class="container-fluid">
-    <br>
-    <h2 class="text-center py-5" style="margin-bottom: -32px; font-family: 'Playfair Display', serif;">New Launches
-    </h2>
-    <ul style="overflow: hidden;">
-      <div class="myButtons">
-        <div class="btn-group btmed231" id="MatchingEntitiesButtons">
-          <?php $i=1; foreach($launch_sub_data->result() as $sub) { ?>
-          <li class="btmed232"><button id="<?=$sub->id?>" class="roundBtns" onclick="togglediv('launch_<?=$sub->id?>')" type="button" style="border:none;background: none;"><?=$sub->subcategory?></button></li>
-          <?php $i++; } ?>
-        </div>
-      </div>
-    </ul>
-    <div class="row" id="para">
-      <div class="col-md-12">
-
-        <?php $i=0; foreach($launch_sub_data->result() as $sub2) {
-          $this->db->select('*');
-          $this->db->from('tbl_products');
-          $this->db->like('subcategory', $sub2->id);
-          $this->db->where('is_active', 1);
-          $this->db->order_by('rand()');
-          $this->db->limit(10);
-          $new_launch_data= $this->db->get();
-
-           ?>
-        <div id="launch_<?=$sub2->id?>" class="TableBody" <?if($i==0){echo 'style="display:block"';}else{echo 'style="display:none"';}?>>
-          <div class="swiper-wrapper autoplay" id="changenex<?=$sub2->id?>">
-            <?php  foreach($new_launch_data->result() as $n_launch) { ?>
-            <div class="swiper-slide respons" style="padding:15px;">
-              <a href="<?=base_url()?>Home/product_details">
-                <img src="<?=base_url().$n_launch->image?>" alt="">
-              </a>
-              <div >
-                <h6><?=$n_launch->productname?></h6> <span style="font-weight: bold; font-size: 12px;"> Rs.<?=$n_launch->mrp?></span>
-              </div>
-            </div>
-            <?php  } ?>
-          </div>
-        </div>
-<?php $i++; } ?>
-      </div>
-    </div>
-</section> -->
 
 <!--End subcategory Products -->
 
@@ -312,8 +273,10 @@
   <section>
     <br>
     <br>
-    <div style="text-align: center; background-color:  #efefef;">
-      <video poster="<?=base_url()?>assets/poster.JPG" src="<?=base_url()?>assets/Online-Class-Funny-WhatsApp-status-Tom-And-Jerry-Cartoon-Video-Status.mp4" controls width="1106px" height="472px" style="display: inline;"></video>
+    <div align="center" class="embed-responsive embed-responsive-16by9">
+        <video autoplay loop class="embed-responsive-item">
+            <source src="http://techslides.com/demos/sample-videos/small.mp4" controls type="video/mp4">
+        </video>
     </div>
     <br>
   </section>
@@ -353,39 +316,8 @@
 
 <!-- End testimonals  -->
 
-<!--Start Newsletter -->
-<section class="n_latter my-5 overflow-hidden" style=" background:#f5f5f5;">
-  <div class="container1">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="text-center">
-          <br>
-          <br>
-          <h2 style="font-size: 33px;">Sign up for our newsletter</h2>
-          <br>
-          <p style="font-size: 12px;">Enter your email to stay in the loop on new collections, upcoming events, and
-            more.</p>
-        </div>
-        <form class="" action="<?=base_url()?>Home/add_news_letter" method="post">
-          <div class="d-flex justify-content-center">
-            <br>
-            <input type="email" name="email" placeholder="Email id" style="background-color:  #f5f5f5; outline: none;">
-          </div>
-          <br>
-          <div style="text-align: center;">
-            <button type="submit">Submit</button>
-        </form>
-        <br>
-        <br>
-      </div>
-    </div>
-  </div>
-  </div>
-</section>
 
-<!--End Newsletter-->
-
-<section>
+<!-- <section>
   <p style="font-size:27px; font-weight: bold; margin-left: 30px; margin-right: 30px;">Online Shopping for Wooden
     Furniture and Home Decoration & Designer Lights Made Easy at Orange Tree</p>
   <br>
@@ -575,7 +507,10 @@
       </button></div>
     <br>
   </div>
-</section>
+</section> -->
+
+
+
 <script>
 $(document).ready(function(){
 $('.your-class').slick({
