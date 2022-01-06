@@ -1,470 +1,302 @@
 <?php
-if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+if (! defined('BASEPATH')) {
+    exit('No direct script access allowed');
+}
 require_once(APPPATH . 'core/CI_finecontrol.php');
-class Orders extends CI_finecontrol{
-function __construct()
+class Orders extends CI_finecontrol
 {
-parent::__construct();
-$this->load->model("login_model");
-$this->load->model("admin/base_model");
-$this->load->library('user_agent');
-$this->load->library('upload');
-}
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model("login_model");
+        $this->load->model("admin/base_model");
+        $this->load->library('user_agent');
+        $this->load->library('upload');
+    }
 
-public function view_orders(){
+    public function view_new_orders()
+    {
+        if (!empty($this->session->userdata('admin_data'))) {
+            $data['user_name']=$this->load->get_var('user_name');
 
-if(!empty($this->session->userdata('admin_data'))){
+            // echo SITE_NAME;
+            // echo $this->session->userdata('image');
+            // echo $this->session->userdata('position');
+            // exit;
+            $this->db->select('*');
+            $this->db->from('tbl_order1');
+            $this->db->where("order_status", 1);
+            $this->db->order_by("id", "desc");
+            $data['orders_data']= $this->db->get();
 
+            $data['heading'] = "New Orders";
 
-$data['user_name']=$this->load->get_var('user_name');
-
-// echo SITE_NAME;
-// echo $this->session->userdata('image');
-// echo $this->session->userdata('position');
-// exit;
-$this->db->select('*');
-$this->db->from('tbl_order1');
-$this->db->where("order_status",1);
-$this->db->order_by("id", "desc");
-
-
-$data['order_data']= $this->db->get();
-
-$this->load->view('admin/common/header_view',$data);
-$this->load->view('admin/order/view_order');
-$this->load->view('admin/common/footer_view');
-
-}
-else{
-
-redirect("login/admin_login","refresh");
-}
-
-}
-
-public function view_accept_order(){
-
-if(!empty($this->session->userdata('admin_data'))){
+            $this->load->view('admin/common/header_view', $data);
+            $this->load->view('admin/orders/view_orders');
+            $this->load->view('admin/common/footer_view');
+        } else {
+            redirect("login/admin_login", "refresh");
+        }
+    }
 
 
-$data['user_name']=$this->load->get_var('user_name');
+    public function view_accept_orders()
+    {
+        if (!empty($this->session->userdata('admin_data'))) {
+            $data['user_name']=$this->load->get_var('user_name');
 
-// echo SITE_NAME;
-// echo $this->session->userdata('image');
-// echo $this->session->userdata('position');
-// exit;
-$this->db->select('*');
-$this->db->from('tbl_order1');
-$this->db->where('order_status',2);
-$this->db->order_by("id", "desc");
-$data['order_data']= $this->db->get();
+            // echo SITE_NAME;
+            // echo $this->session->userdata('image');
+            // echo $this->session->userdata('position');
+            // exit;
+            $this->db->select('*');
+            $this->db->from('tbl_order1');
+            $this->db->where('order_status', 2);
+            $this->db->order_by("id", "desc");
+            $data['orders_data']= $this->db->get();
 
+            $data['heading'] = "Accepted Orders";
 
-
-$this->load->view('admin/common/header_view',$data);
-$this->load->view('admin/order/view_accept_orders');
-$this->load->view('admin/common/footer_view');
-
-}
-else{
-
-redirect("login/admin_login","refresh");
-}
-
-}
-public function update_order_status($idd,$t){
-
-if(!empty($this->session->userdata('admin_data'))){
+            $this->load->view('admin/common/header_view', $data);
+            $this->load->view('admin/orders/view_orders');
+            $this->load->view('admin/common/footer_view');
+        } else {
+            redirect("login/admin_login", "refresh");
+        }
+    }
 
 
-$data['user_name']=$this->load->get_var('user_name');
 
-// echo SITE_NAME;
-// echo $this->session->userdata('image');
-// echo $this->session->userdata('position');
-// exit;
-$id=base64_decode($idd);
+    public function view_dispatched_orders()
+    {
+        if (!empty($this->session->userdata('admin_data'))) {
+            $data['user_name']=$this->load->get_var('user_name');
 
-if($t=="accept"){
+            // echo SITE_NAME;
+            // echo $this->session->userdata('image');
+            // echo $this->session->userdata('position');
+            // exit;
+            $this->db->select('*');
+            $this->db->from('tbl_order1');
+            $this->db->where('order_status', 3);
+            $this->db->order_by("id", "desc");
+            $data['orders_data']= $this->db->get();
 
-$data_update = array(
+            $data['heading'] = "Dispatched Orders";
+
+
+            $this->load->view('admin/common/header_view', $data);
+            $this->load->view('admin/orders/view_orders');
+            $this->load->view('admin/common/footer_view');
+        } else {
+            redirect("login/admin_login", "refresh");
+        }
+    }
+
+
+
+
+    public function view_completed_orders()
+    {
+        if (!empty($this->session->userdata('admin_data'))) {
+            $data['user_name']=$this->load->get_var('user_name');
+
+            // echo SITE_NAME;
+            // echo $this->session->userdata('image');
+            // echo $this->session->userdata('position');
+            // exit;
+            $this->db->select('*');
+            $this->db->from('tbl_order1');
+            $this->db->where('order_status', 4);
+            $this->db->order_by("id", "desc");
+            $data['orders_data']= $this->db->get();
+
+            $data['heading'] = "Completed Orders";
+
+
+            $this->load->view('admin/common/header_view', $data);
+            $this->load->view('admin/orders/view_orders');
+            $this->load->view('admin/common/footer_view');
+        } else {
+            redirect("login/admin_login", "refresh");
+        }
+    }
+
+    public function view_rejected_orders()
+    {
+        if (!empty($this->session->userdata('admin_data'))) {
+            $data['user_name']=$this->load->get_var('user_name');
+
+
+            $this->db->select('*');
+            $this->db->from('tbl_order1');
+            $this->db->where('order_status', 5);
+            $this->db->order_by("id", "desc");
+            $data['orders_data']= $this->db->get();
+
+            $data['heading'] = "Rejected Orders";
+
+
+            $this->load->view('admin/common/header_view', $data);
+            $this->load->view('admin/orders/view_orders');
+            $this->load->view('admin/common/footer_view');
+        } else {
+            redirect("login/admin_login", "refresh");
+        }
+    }
+
+
+    public function update_order_status($idd, $t)
+    {
+        if (!empty($this->session->userdata('admin_data'))) {
+            $data['user_name']=$this->load->get_var('user_name');
+
+            $id=base64_decode($idd);
+
+            //-----accept------
+
+            if ($t=="accept") {
+                $data_update = array(
 'order_status'=>2
 
 );
+                $this->db->where('id', $id);
+                $zapak=$this->db->update('tbl_order1', $data_update);
 
-$this->db->where('id', $id);
-$zapak=$this->db->update('tbl_order1', $data_update);
+                if ($zapak!=0) {
+                    $this->session->set_flashdata('smessage', 'Status Updated Successfully');
+                    redirect($_SERVER['HTTP_REFERER']);
+                } else {
+                    $this->session->set_flashdata('emessage', 'Some error occured');
+                    redirect($_SERVER['HTTP_REFERER']);
+                }
+            }
 
-if($zapak!=0){
-redirect("dcadmin/Orders/view_accept_order","refresh");
-}
-else
-{
-echo "Error";
-exit;
-}
-}
-if($t=="hold"){
+            //-----dispatch------
 
-$data_update = array(
-'order_status'=>6
-
-);
-
-$this->db->where('id', $id);
-$zapak=$this->db->update('tbl_order1', $data_update);
-
-if($zapak!=0){
-redirect("dcadmin/Orders/view_accept_order","refresh");
-}
-else
-{
-echo "Error";
-exit;
-}
-}
-
-
-
-
-
-}
-else{
-
-$this->load->view('admin/login/index');
-}
-
-}
-public function update_cancel_status($idd,$t){
-
-if(!empty($this->session->userdata('admin_data'))){
-
-
-$data['user_name']=$this->load->get_var('user_name');
-
-// echo SITE_NAME;
-// echo $this->session->userdata('image');
-// echo $this->session->userdata('position');
-// exit;
-$id=base64_decode($idd);
-
-$this->db->select('*');
-$this->db->from('tbl_order2');
-$this->db->where('main_id',$id);
-$data_order1= $this->db->get()->row();
-
-if(!empty($data_order1)){
-    $this->db->select('*');
-                $this->db->from('tbl_inventory');
-                $this->db->where('product_id',$data_order1->product_id);
-                $data_inventory= $this->db->get()->row();
-
-              $total_quantity=$data_order1->quantity + $data_inventory->quantity;
-
-
-
-              $data_update=array(
-                       'quantity'=>$total_quantity
-              );
-              $this->db->where('product_id', $data_order1->product_id);
-              $last_id2=$this->db->update('tbl_inventory', $data_update);
-
-}
-
-
-if($t=="Cancel"){
-
-$data_update = array(
-'order_status'=>5
-
-);
-
-$this->db->where('id', $id);
-$zapak=$this->db->update('tbl_order1', $data_update);
-
-if($zapak!=0){
-redirect("dcadmin/Orders/view_cancel_orders","refresh");
-}
-else
-{
-echo "Error";
-exit;
-}
-}
-
-
-
-
-}
-else{
-
-$this->load->view('admin/login/index');
-}
-
-}
-
-public function update_dispatch_status($idd,$t){
-
-if(!empty($this->session->userdata('admin_data'))){
-
-
-$data['user_name']=$this->load->get_var('user_name');
-
-// echo SITE_NAME;
-// echo $this->session->userdata('image');
-// echo $this->session->userdata('position');
-// exit;
-$id=base64_decode($idd);
-
-if($t=="dispatch"){
-
-$data_update = array(
+            if ($t=="dispatch") {
+                $data_update = array(
 'order_status'=>3
 
 );
 
-$this->db->where('id', $id);
-$zapak=$this->db->update('tbl_order1', $data_update);
+                $this->db->where('id', $id);
+                $zapak=$this->db->update('tbl_order1', $data_update);
 
-if($zapak!=0){
-redirect("dcadmin/Orders/view_dispatched_orders","refresh");
-}
-else
-{
-echo "Error";
-exit;
-}
-}
+                if ($zapak!=0) {
+                    $this->session->set_flashdata('smessage', 'Status Updated Successfully');
+                    redirect($_SERVER['HTTP_REFERER']);
+                } else {
+                    $this->session->set_flashdata('emessage', 'Some error occured');
+                    redirect($_SERVER['HTTP_REFERER']);
+                }
+            }
 
-
-
-
-}
-else{
-
-$this->load->view('admin/login/index');
-}
-
-}
-
-public function update_completed_status($idd,$t){
-
-if(!empty($this->session->userdata('admin_data'))){
-
-
-$data['user_name']=$this->load->get_var('user_name');
-
-// echo SITE_NAME;
-// echo $this->session->userdata('image');
-// echo $this->session->userdata('position');
-// exit;
-$id=base64_decode($idd);
-
-if($t=="completed"){
-
-$data_update = array(
+            //--------delivered---------
+            if ($t=="delivered") {
+                $data_update = array(
 'order_status'=>4
 
 );
 
-$this->db->where('id', $id);
-$zapak=$this->db->update('tbl_order1', $data_update);
+                $this->db->where('id', $id);
+                $zapak=$this->db->update('tbl_order1', $data_update);
 
-if($zapak!=0){
-redirect("dcadmin/Orders/view_completed_orders","refresh");
-}
-else
-{
-echo "Error";
-exit;
-}
-}
+                if ($zapak!=0) {
+                    $this->session->set_flashdata('smessage', 'Status Updated Successfully');
+                    redirect($_SERVER['HTTP_REFERER']);
+                } else {
+                    $this->session->set_flashdata('emessage', 'Some error occured');
+                    redirect($_SERVER['HTTP_REFERER']);
+                }
+            }
 
-}
-else{
+            //-----cancel----------
+            if ($t=="cancel") {
+                $data_update = array(
+'order_status'=>5
 
-$this->load->view('admin/login/index');
-}
+);
 
-}
+                $this->db->where('id', $id);
+                $zapak=$this->db->update('tbl_order1', $data_update);
 
+                //-------update inventory-------
+                $this->db->select('*');
+                $this->db->from('tbl_order2');
+                $this->db->where('main_id', $id);
+                $data_order2= $this->db->get();
 
-
-public function view_product_status($idd){
-
-if(!empty($this->session->userdata('admin_data'))){
-
-
-$data['user_name']=$this->load->get_var('user_name');
-
-// echo SITE_NAME;
-// echo $this->session->userdata('image');
-// echo $this->session->userdata('position');
-// exit;
- $id=base64_decode($idd);
-
-
-
-$this->db->select('*');
-$this->db->from('tbl_order2');
-$this->db->where('main_id',$id);
-$data['status_product']= $this->db->get();
-
-
-$this->load->view('admin/common/header_view',$data);
-$this->load->view('admin/order/view_product_order');
-$this->load->view('admin/common/footer_view');
-
-}
-else{
-
-redirect("login/admin_login","refresh");
-}
-
-}
-public function view_completed_orders(){
-
-             if(!empty($this->session->userdata('admin_data'))){
+                foreach ($data_order2->result() as $data) {
+                    $this->db->select('*');
+                    $this->db->from('tbl_products');
+                    $this->db->where('id', $data->product_id);
+                    $pro_data= $this->db->get()->row();
+                    if (!empty($pro_data)) {
+                        $update_inv = $pro_data->inventory + $data->quantity;
+                        $data_update = array('inventory'=>$update_inv,
+                );
+                        $this->db->where('id', $pro_data->id);
+                        $zapak=$this->db->update('tbl_products', $data_update);
+                    }
+                }
 
 
-               $data['user_name']=$this->load->get_var('user_name');
+                if ($zapak!=0) {
+                    $this->session->set_flashdata('smessage', 'Status Updated Successfully');
+                    redirect($_SERVER['HTTP_REFERER']);
+                } else {
+                    $this->session->set_flashdata('emessage', 'Some error occured');
+                    redirect($_SERVER['HTTP_REFERER']);
+                }
+            }
+        } else {
+            $this->load->view('admin/login/index');
+        }
+    }
 
-               // echo SITE_NAME;
-               // echo $this->session->userdata('image');
-               // echo $this->session->userdata('position');
-               // exit;
+
+    public function view_product_details($idd)
+    {
+        if (!empty($this->session->userdata('admin_data'))) {
+            $data['user_name']=$this->load->get_var('user_name');
+
+            $id=base64_decode($idd);
+
             $this->db->select('*');
-                        $this->db->from('tbl_order1');
-                        $this->db->where('order_status',4);
-
-                        $data['order_data']= $this->db->get();
-
-
-               $this->load->view('admin/common/header_view',$data);
-               $this->load->view('admin/order/view_complete_order');
-               $this->load->view('admin/common/footer_view');
-
-           }
-           else{
-
-              redirect("login/admin_login","refresh");
-           }
-
-           }
-public function view_dispatched_orders(){
-
-                 if(!empty($this->session->userdata('admin_data'))){
+            $this->db->from('tbl_order2');
+            $this->db->where('main_id', $id);
+            $data['order2_data']= $this->db->get();
 
 
-                   $data['user_name']=$this->load->get_var('user_name');
+            $this->load->view('admin/common/header_view', $data);
+            $this->load->view('admin/orders/order_details');
+            $this->load->view('admin/common/footer_view');
+        } else {
+            redirect("login/admin_login", "refresh");
+        }
+    }
 
-                   // echo SITE_NAME;
-                   // echo $this->session->userdata('image');
-                   // echo $this->session->userdata('position');
-                   // exit;
-                   $this->db->select('*');
-                               $this->db->from('tbl_order1');
-                               $this->db->where('order_status',3);
-                                      $this->db->order_by("id", "desc");
-                               $data['order_data']= $this->db->get();
+    public function view_order_bill($main_id)
+    {
+        if (!empty($this->session->userdata('admin_data'))) {
+            $this->db->select('*');
+            $this->db->from('tbl_order1');
+            $this->db->where('id', base64_decode($main_id));
+            $data['order1_data']= $this->db->get()->row();
 
-                   $this->load->view('admin/common/header_view',$data);
-                   $this->load->view('admin/order/view_dispatched_order');
-                   $this->load->view('admin/common/footer_view');
+            $this->db->select('*');
+            $this->db->from('tbl_order2');
+            $this->db->where('main_id', base64_decode($main_id));
+            $data['order2_data']= $this->db->get();
 
-               }
-               else{
-
-                  redirect("login/admin_login","refresh");
-               }
-
-               }
-
-
-
-             public function view_cancel_orders(){
-
-                                if(!empty($this->session->userdata('admin_data'))){
-
-
-                                  $data['user_name']=$this->load->get_var('user_name');
-
-                                  // echo SITE_NAME;
-                                  // echo $this->session->userdata('image');
-                                  // echo $this->session->userdata('position');
-                                  // exit;
-                                  $this->db->select('*');
-                                              $this->db->from('tbl_order1');
-                                              $this->db->where('order_status',5);
-                                              $this->db->order_by("id", "desc");
-                                              $data['order_data']= $this->db->get();
-
-                                  $this->load->view('admin/common/header_view',$data);
-                                  $this->load->view('admin/order/view_cancel_order');
-                                  $this->load->view('admin/common/footer_view');
-
-                              }
-                              else{
-
-                                 redirect("login/admin_login","refresh");
-                              }
-
-                              }
-
-public function view_order_bill($main_id){
-
-if(!empty($this->session->userdata('admin_data'))){
-
-
-$this->db->select('*');
-$this->db->from('tbl_order1');
-$this->db->where('id',base64_decode($main_id));
-$data['order1_data']= $this->db->get()->row();
-
-$this->db->select('*');
-$this->db->from('tbl_order2');
-$this->db->where('main_id',base64_decode($main_id));
-$data['order2_data']= $this->db->get();
-
-//$this->load->view('admin/common/header_view',$data);
-$this->load->view('admin/order/order_bill',$data);
-//$this->load->view('admin/common/footer_view');
-
-}
-else{
-
-redirect("login/admin_login","refresh");
-}
-
-}
-
-//---view hold orders///
-public function view_hold_orders(){
-
-                 if(!empty($this->session->userdata('admin_data'))){
-
-
-                   $data['user_name']=$this->load->get_var('user_name');
-
-
-                          $this->db->select('*');
-              $this->db->from('tbl_order1');
-              $this->db->where('order_status',6);
-              $this->db->order_by("id", "desc");
-              $data['order_data']= $this->db->get();
-
-
-                   $this->load->view('admin/common/header_view',$data);
-                   $this->load->view('admin/order/hold_orders');
-                   $this->load->view('admin/common/footer_view');
-
-               }
-               else{
-
-                  redirect("login/admin_login","refresh");
-               }
-
-               }
-
+            //$this->load->view('admin/common/header_view',$data);
+            $this->load->view('admin/orders/order_bill', $data);
+        //$this->load->view('admin/common/footer_view');
+        } else {
+            redirect("login/admin_login", "refresh");
+        }
+    }
 
 }

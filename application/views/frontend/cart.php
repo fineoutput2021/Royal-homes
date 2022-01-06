@@ -71,15 +71,10 @@ echo 0;
 } else {
 echo $total;
 }?></span></p>
-<p class="subtotal">Shipping Charges <span class="float-right" id="shipping">Rs.<?if (empty($cart_check)) {
-echo 0;
-} else {
-echo $shipping = round($total * SHIPPING / 100);
-}?></span></p>
 <p class="subtotal">Estimated Total <span class="float-right" id="total_cost">Rs.  <?if (empty($cart_check)) {
 echo 0;
 } else {
-echo $total+$shipping;
+echo $total;
 }?></span></p>
   <div class="w-100">
       <a href="<?=base_url()?>Order/calculate">
@@ -208,7 +203,6 @@ echo $total+$shipping;
         if (response.data == true) {
           document.getElementById('price_' + i).innerHTML = "Rs."+price;
           document.getElementById('subtotal').innerHTML = response.data_price;
-          document.getElementById('shipping').innerHTML = response.data_shipping;
           document.getElementById('total_cost').innerHTML = response.data_subtotal;
           $.notify({
             icon: 'fa fa-check',

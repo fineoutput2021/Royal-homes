@@ -402,13 +402,11 @@ class Cart extends CI_Controller
                                 $price = $pro_data->mrp * $cart->quantity;
                                 $total= $total + $price;
                             }
-                            $shipping = $total * SHIPPING / 100;
-                            $subtotal = $total + $shipping;
+                            $subtotal = $total;
 
                             $respone['data'] = true;
                             $respone['data_message'] ="Cart item update successfully";
                             $respone['data_price'] =round($total);
-                            $respone['data_shipping'] =round($shipping);
                             $respone['data_subtotal'] =round($subtotal);
                             echo json_encode($respone);
                         } else {

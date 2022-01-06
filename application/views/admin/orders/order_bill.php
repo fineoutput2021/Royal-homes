@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <html lang="en">
-<input type="hidden" value="<?php if(!empty($order1_data)){ echo $order1_data->total_amount; }?>" id="tot_amnt">
+<input type="hidden" value="<?php if(!empty($order1_data)){ echo $order1_data->final_amount; }?>" id="tot_amnt">
 <head>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,13 +9,14 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <!-- Css file include -->
 <link rel="stylesheet" type="text/css" href="css/style.css">
-	<title>Supremetech Bill</title>
+	<title>Creatoutdoor Bill</title>
 </head>
 <body style="padding-top:75px;">
 <div class="container main_container">
 	<div class="row">
 		<div class="col-sm-6 oswal_logo">
-		<img src="https://www.supremetechnocom.com/application/views/website/themes/supreme/assets/img/logo.png" class="img-fluid" style="width:150px;">
+		<img src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/logo_base.png" class="img-fluid" style="width:150px;">
+    <!-- <span style="color: #d76a46; font-size:40px !important;border-bottom: 2px solid grey ;">0</span> -->
 		</div>
 		<div class="col-sm-6 content_part">Tax Invoice/Bill of Supply/Cash Memo
 			<p>(Original for Recipient)</p>
@@ -25,68 +26,20 @@
 <div class="container">
 	<div class="row">
 		<div class="col-sm-6"><span class="font-weight-bold ">Sold By</span><br>
-<span class="seller_details">Supremetech <br>
+<span class="seller_details">Royal Home <br>
 
-Rajasthan<br>India
+ PO Box 283577<br>Dubai, UAE
 <br><br>
-		www.Supremetech.com<br></span>
+		www.royalhomes.com<br></span>
 		</div>
 
 		<div class="col-sm-6 billing_content"><span class="font-weight-bold ">Billing Address:</span><br>
       <!-- code here -->
-<?php
-
-            $this->db->select('*');
-$this->db->from('tbl_users');
-$this->db->where('id',$order1_data->user_id);
-$usr_dat= $this->db->get()->row();
-
-if(!empty($usr_dat)){
-  $user_name= $usr_dat->name;
-  $user_email= $usr_dat->email;
-  $user_contact= $usr_dat->phone;
-}else{
-  $user_name="";
-  $user_email="";
-  $user_contact="";
-}
-?>
 
 
-User: <?=$user_name;?>
-<br>Email: <?=$user_email;?>
-<br>Contact: <?=$user_contact;?><br>
-
-
-      <?php
-  if(!empty($order1_data)){
-    //             $this->db->select('*');
-    // $this->db->from('tbl_user_address');
-    // $this->db->where('id',$order1_data->address_id);
-    // $address= $this->db->get()->row();
-    //  $addres= $address->address;
-    //  // $location_addres= $address->location_address;
-    //  // $doorflat= $address->doorflat;
-    //  // $landmark= $address->landmark;
-    // if(!empty($addres)){
-  //     echo $addres;
-  //   }else{
-  //     echo "no address";
-  //   }
-  //   $state=$address->state;
-  //   $city=$address->city;
-  //   $zipcode=$address->zipcode;
-  //
-  //
-  // }
-
-    $address=$order1_data->street_address;
-    $state=$order1_data->state;
-    $city=$order1_data->city;
-    $zipcode=$order1_data->pincode;
-  }
-
-      ?>
+User: <?if(!empty($order1_data->name)){echo $order1_data->name;}?>
+<br>Email: <?if(!empty($order1_data->email)){echo $order1_data->email;}?>
+<br>Contact: <?if(!empty($order1_data->phone)){echo $order1_data->phone;}?>
 
 		</div>
 	</div>
@@ -96,23 +49,19 @@ User: <?=$user_name;?>
 	<div class="col-sm-6"></div>
 <div class="col-sm-6 shipping_content"><span class="font-weight-bold ">Shipping Address:</span>	<br>
 
-Address: <?php
-// if(empty($location_addres)){
-//   echo $addres;
-// }else{
-//   echo $doorflat.", ".$landmark.", ".$location_addres;
-// }
+Address: <?if(!empty($order1_data->address)){echo $order1_data->address;}?> <br>
 
-if(!empty($address)){
-  echo $address;
-}else{
-  echo "no address";
-}
-?> <br>
-
-Place of supply: <?php echo $city;?><br>
-Place of delivery: <?php echo $city.", ".$state;?><br>
-Zipcode: <?php echo $zipcode;?><br>
+<!-- Place of supply: <?php echo $city;?><br>
+Place of delivery: <?php echo $city.", ".$state;?><br> -->
+Zipcode: <?if(!empty($order1_data->pincode_id)){
+              $this->db->select('*');
+  $this->db->from('tbl_pincode');
+  $this->db->where('id',$order1_data->pincode_id);
+  $pindata= $this->db->get()->row();
+  if(!empty($pindata)){
+    echo $pindata->pincode;
+  }
+  }?><br>
 </div>
 </div>
 <div class="row">
@@ -125,13 +74,8 @@ Zipcode: <?php echo $zipcode;?><br>
   }?>
 	</div><br> <br>
 
-
-
-
 </div>
 </div>
-
-
 
 
 
@@ -139,23 +83,16 @@ Zipcode: <?php echo $zipcode;?><br>
 
   <table class="table table-black">
     <thead class="product_table">
-
       <tr>
         <th>SNo.</th>
         <th>Product</th>
-        <!-- <th>HSN Code</th> -->
-        <!-- <th>Unit Name</th> -->
-        <th>Unit Price</th>
+        <th>MRP</th>
         <th>Qty</th>
-
         <th>Total Amount</th>
       </tr>
     </thead>
     <tbody>
   <?php
-  $total_weight = 0;
-  $total_gst_percentt = 0;
-  $total_gst_pricee = 0;
 if(!empty($order2_data)){
   $i=1; foreach($order2_data->result() as $data) { ?>
       <tr class="product_table2">
@@ -166,122 +103,48 @@ $this->db->from('tbl_products');
 $this->db->where('id',$data->product_id);
 $product_data= $this->db->get()->row();
 if(!empty($product_data)){
-  // $hsn_code= $product_data->hsn_code;
 echo $product_name= $product_data->productname;
-}else{
-  $product_name= "";
 }
-
         ?></td>
 
-
-        <td>
-          <?
-          if(!empty($product_data)){
-            // $hsn_code= $product_data->hsn_code;
-          echo "Rs.".$product_price= $product_data->sellingprice;
-          }else{
-            $product_price= "";
-          }
-
-?>
-
-        </td>
+        <td >Rs.<?if(!empty($data->mrp)){echo $data->mrp;}?></td>
         <td ><?php echo $data->quantity;?></td>
-        <!-- <td>9%</td>
-        <td>CGST</td>
-        <td>200</td> -->
-        <?php
-        // $this->db->select('*');
-        //  $this->db->from('tbl_user_address');
-        //  $this->db->where('id',$order1_data->address_id);
-        //  $deliver_state= $this->db->get()->row();
-
-
-        ?>
-
-
         <td><?php echo "Rs. ".$data->total_amount;?></td>
       </tr>
   <?php $i++;} }?>
 
-
       <tr>
         <th>Total</th>
+
         <th class="product_table" ><?php if(!empty($order1_data)){ echo ""; }?></th>
         <th class="product_table" colspan="2"><?php if(!empty($order1_data)){ echo ""; }?></th>
 
         <th class="product_table"><?php if(!empty($order1_data)){ echo "Rs. ".$order1_data->total_amount; }?></th>
       </tr>
-
       <tr>
+        <th>Shipping charge:</th>
 
+        <th class="product_table" ><?php if(!empty($order1_data)){ echo ""; }?></th>
+        <th class="product_table" colspan="2"><?php if(!empty($order1_data)){ echo ""; }?></th>
 
+        <th class="product_table"><?php if(!empty($order1_data)){ echo "+Rs. ".$order1_data->delivery_charge; }?></th>
+      </tr>
+      <tr>
+        <th>Promocode discount:</th>
+
+        <th class="product_table" ><?php if(!empty($order1_data)){ echo ""; }?></th>
+        <th class="product_table" colspan="2"><?php if(!empty($order1_data)){ echo ""; }?></th>
+        <th class="product_table"><?php if(!empty($order1_data->promode_id)){ echo "-Rs. ".$order1_data->p_discount; }else{"NA";}?></th>
       </tr>
 
-
-      <?php if(!empty($order1_data->promocode) && $order1_data->promocode != "Apply coupon" ){
-                    $this->db->select('*');
-        $this->db->from('tbl_promocode');
-        $this->db->where('id',$order1_data->promocode);
-        $promo_da= $this->db->get()->row();
-
-        if(!empty($promo_da)){
-          $peomocode_id= $promo_da->id;
-          $promocode_name= $promo_da->promocode;
-        }else{
-          $peomocode_id="";
-          $promocode_name="";
-        }
-        ?>
-        <tr>
-          <th colspan="9">Promocode:<?=$promocode_name;?> </th>
-          <th class="product_table"><?php if(!empty($order1_data)){ echo " "; }?></th>
-          <th class="product_table"><?php if(!empty($order1_data->promocode)){
-                      $this->db->select('*');
-          $this->db->from('tbl_promocode');
-          $this->db->where('id',$order1_data->promocode);
-          $promo_da= $this->db->get()->row();
-          if(!empty($promo_da)){
-            $percent= $promo_da->percent;
-            $db_promocode_maximum_gift_amount= $promo_da->maximum_gift_amount;
-            // $f_amount= $order1_data->total_amount + $order1_data->order_shipping_amount;
-            $f_amount= $order1_data->total_amount ;
-
-            $promocodes_discount= $f_amount * $percent/100;
-            $promo_discount= round($promocodes_discount);
-
-//check maximum gift amount
-            if($promo_discount > $db_promocode_maximum_gift_amount){
-              $promo_discount = $db_promocode_maximum_gift_amount;
-            }
-
-
-          }else{
-            $promo_discount= 0;
-          }
-             "- Rs. ".$promo_discount; }else{ echo "-Rs. 0"; }?>
-
-<!-- from table order1  start-->
-
-<?php if(!empty($order1_data)){ echo "- Rs. ".$order1_data->promo_deduction_amount; }else{ echo "-Rs. 0"; }?>
-
-<!-- from table order1  end-->
-
-          </th>
-
-        </tr>
-      <?php }?>
-
+      <tr>
+      </tr>
 
       <tr>
         <th colspan="4">SubTotal</th>
-        <th class="product_table"><?php if(!empty($order1_data)){ echo "Rs. ".$order1_data->total_amount; }?></th>
+        <th class="product_table">Rs. <?php if(!empty($order1_data)){ echo  $order1_data->final_amount; }?></th>
 
       </tr>
-
-
-
     </tbody>
     </table>
 

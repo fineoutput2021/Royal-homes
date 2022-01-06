@@ -105,6 +105,11 @@
 
   }
 </style>
+<br />
+<br />
+<br />
+<br />
+<br />
 <section class="my_order pb-10">
   <div class="container">
     <center>
@@ -112,20 +117,14 @@
     </center>
     <?php
                     if (!empty($this->session->userdata('user_id'))) {
-                        $user_id = $this->session->userdata('user_id');
-                        $this->db->select('*');
-                        $this->db->from('tbl_order1');
-                        $this->db->where('user_id', $user_id);
-                        $this->db->order_by('id', $desc);
-                        $get_orders= $this->db->get();
-
-
+                        $order_check = $order1_data->row();
+                      if(!empty($order_check)){
                         $i=0;
-                        foreach ($get_orders->result() as $data_order1) {
+                        foreach ($order1_data->result() as $data_order1) {
                             if ($data_order1->order_status != 0) {
                                 $this->db->select('*');
-                                $this->db->from('tbl_coupancodes');
-                                $this->db->where('id', $$data_order1->promocode_id);
+                                $this->db->from('tbl_coupancode');
+                                $this->db->where('id', $data_order1->promocode_id);
                                 $promo_da= $this->db->get()->row();
 
                                 if (!empty($promo_da)) {
@@ -171,20 +170,20 @@
             $this->db->select('*');
                                 $this->db->from('tbl_order2');
                                 $this->db->where('main_id', $data_order1->id);
-                                $d1= $this->db->get();
-                                $d_check = $d1->row();
+                                $order2_data= $this->db->get();
+                                $o2_check = $order2_data->row();
 
-                                if (!empty($d_check)) {
-                                    foreach ($d1->result() as $dd1) {
+                                if (!empty($o2_check)) {
+                                    foreach ($order2_data->result() as $order2) {
                                         $this->db->select('*');
                                         $this->db->from('tbl_products');
-                                        $this->db->where('id', $dd1->product_id);
-                                        $op_da= $this->db->get()->row();
+                                        $this->db->where('id', $order2->product_id);
+                                        $pro_data= $this->db->get()->row();
 
-                                        if (!empty($op_da)) {
-                                            $o_product_name = $op_da->name;
-                                            $sprice = $op_da->mrp;
-                                            $o_product_image = $op_da->image;
+                                        if (!empty($pro_data)) {
+                                            $o_product_name = $pro_data->productname;
+                                            $sprice = $pro_data->mrp;
+                                            $o_product_image = $pro_data->image;
                                         } else {
                                             $o_product_name = "Product Not Found!";
                                             $o_product_image = "";
@@ -197,7 +196,7 @@
             <div class="col-4 col-lg-2 col-md-2">
 
               <?php 	if (!empty($o_product_image)) { ?>
-              <img src="<?php   echo  base_path .$o_product_image;  ?>">
+              <img src="<?php   echo  base_url() .$o_product_image;  ?>">
               <?php } else {
                                             echo "No Image Found!";
                                         } ?>
@@ -206,8 +205,8 @@
             <div class="col-8 col-lg-10 col-md-10">
 
               <h4><?=$o_product_name; ?> </h4>
-              <p>Quantity: <a href="#"> <?=$dd1->quantity; ?></a></p>
-              <p>Price: <a href="#"><?=$sprice*$dd1->quantity; ?></a></p>
+              <p>Quantity: <?=$order2->quantity; ?></p>
+              <p>Price: <?=$order2->total_amount; ?></p>
             </div>
           </div>
         </div>
@@ -244,19 +243,19 @@
 
                 </a></p>
 
-              <h5 class="mb-0 text-small">Promocode Discount <i class="fa fa-rupee"></i><a href="#"><?php
+              <h5 class="mb-0 text-small">Promocode Discount <i class="fa fa-rupee"></i><?php
                             if (!empty($data_order1->p_discount)) {
                                 echo $data_order1->p_discount.'  |';
                             } else {
                                 echo '0  |';
-                            } ?></a></h5>
+                            } ?></h5>
 
 
-              <h5 class="mb-0 text-small">Delivery Charge <i class="fa fa-rupee"></i><a href="#"><?php
-                        echo $data_order1->delivery_charge.'  |'; ?></a></h5>
+              <h5 class="mb-0 text-small">Delivery Charge <i class="fa fa-rupee"></i><?php
+                        echo $data_order1->delivery_charge.'  |'; ?></h5>
 
 
-              <h5 class="mb-0">Total Amount <i class="fa fa-rupee"></i><a href="#"><?=$data_order1->final_amount; ?></a></h5>
+              <h5 class="mb-0">Total Amount <i class="fa fa-rupee"></i><?=$data_order1->final_amount; ?></h5>
             </div>
           </div>
         </div>
@@ -266,7 +265,9 @@
     <?php
                             }
                         }
-                    }?>
+                    }else{?>
+                      <h2>No Orders</h2>
+                    <?}}?>
   </div>
   <br>
 </section>

@@ -1,4 +1,21 @@
-
+<style>
+.btn_s{
+  background: #d76a46;
+  color: white;
+  border: none;
+}
+.btn_s:hover{
+  color: white;
+}
+.btn_c{
+  background: #306b30;
+  color: white!important;
+  border: none;
+}
+.btn_c:hover{
+  color: white;
+}
+</style>
 <section class="section-b-space"style="height:90vh;justify-content:center; align-items:center;display:flex;">
         <div class="container">
             <div class="row">
@@ -9,11 +26,9 @@
                         <p style="color:green;">Order Id = <?=$order_id?> | Amount = Rs.<?=$amount?></p>
 
                       <div class="d-flex justify-content-center align-items-center">
-                        <a  style="margin-right:18px;" href="<?=base_path?>my_orders" class="btn btn-success">View Orders</a>
-                        <a class="btn btn-primary" type="button" href="<?=base_path?>">  Continue to shopping..</a>
+                        <a style="margin-right:18px; background:#d76a46" href="<?=base_url()?>my_orders" class="btn btn_s">View Orders</a>
+                        <a class="btn btn_c" href="<?=base_url()?>">  Continue to shopping..</a>
                       </div>
-
-
 
                     </div>
                 </div>

@@ -1391,9 +1391,11 @@ $category_data= $this->db->get();
             }?>
           </span><i class="fa fa-shopping-bag NONE1 btn_change_change" aria-hidden="true"></i>
               </a></li>
-
-            <li class="media_q_change1 hide"><a href="#" style="color: unset;"><i class='fa fa-truck btn_change_change' style='font-size: 19px'></i></a></li>
-
+<?if(!empty($this->session->userdata('user_data'))){
+  $user_id = $this->session->userdata('user_id');
+  ?>
+            <li class="media_q_change1 hide"><a href="<?=base_url()?>Home/my_orders/<?=base64_encode($user_id)?>" style="color: unset;"><i class='fa fa-truck btn_change_change' style='font-size: 19px'></i></a></li>
+<?}?>
           </ul>
         </div>
       </div>

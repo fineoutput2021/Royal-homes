@@ -11,6 +11,9 @@ class Home extends CI_Controller
         $this->load->model("admin/login_model");
         $this->load->model("admin/base_model");
     }
+
+    //-------index--------------
+
     public function index()
     {
         // $this->session->unset_userdata('user_data');
@@ -59,6 +62,8 @@ class Home extends CI_Controller
         $this->load->view('frontend/common/footer');
     }
 
+    ///--------all product----------------
+
     public function all_Product($idd, $t)
     {
         $id=base64_decode($idd);
@@ -87,6 +92,8 @@ class Home extends CI_Controller
         $this->load->view('frontend/common/footer');
     }
 
+    //------product details-------------
+
     public function product_details()
     {
         $this->db->select('*');
@@ -98,6 +105,8 @@ class Home extends CI_Controller
         $this->load->view('frontend/product_details');
         $this->load->view('frontend/common/footer');
     }
+
+    //-----view cart----------
 
     public function view_cart()
     {
@@ -118,6 +127,9 @@ class Home extends CI_Controller
             $this->load->view('frontend/common/footer');
         }
     }
+
+    //------add newsletter---------
+
     public function add_news_letter()
     {
         $this->load->helper(array('form', 'url'));
@@ -126,7 +138,6 @@ class Home extends CI_Controller
         if ($this->input->post()) {
             $this->form_validation->set_rules('email', 'email', 'required|valid_email|xss_clean');
 
-
             if ($this->form_validation->run()== true) {
                 $email=$this->input->post('email');
 
@@ -134,9 +145,12 @@ class Home extends CI_Controller
                 date_default_timezone_set("Asia/Calcutta");
                 $cur_date=date("Y-m-d H:i:s");
 
-                $addedby=$this->session->userdata('admin_id');
-
-                $data_insert = array(
+                $this->db->select('*');
+                $this->db->from('tbl_newsletter');
+                $this->db->where('email', $email);
+                $news_data= $this->db->get()->row();
+                if (empty($news_data)) {
+                    $data_insert = array(
                         'email'=>$email,
                         'ip' =>$ip,
                         'added_by' =>$addedby,
@@ -145,14 +159,17 @@ class Home extends CI_Controller
 
                         );
 
-                $last_id=$this->base_model->insert_table("tbl_newsletter", $data_insert, 1) ;
+                    $last_id=$this->base_model->insert_table("tbl_newsletter", $data_insert, 1) ;
 
-                if ($last_id!=0) {
-                    $this->session->set_flashdata('smessage', 'Submit Successful');
-
-                    redirect("Home/index", "refresh");
+                    if ($last_id!=0) {
+                        $this->session->set_flashdata('smessage', 'Successfully Subcribed');
+                        redirect($_SERVER['HTTP_REFERER']);
+                    } else {
+                        $this->session->set_flashdata('emessage', 'Some error occured');
+                        redirect($_SERVER['HTTP_REFERER']);
+                    }
                 } else {
-                    $this->session->set_flashdata('emessage', 'please enter vaild email');
+                    $this->session->set_flashdata('emessage', 'Already subcribed to neswletter');
                     redirect($_SERVER['HTTP_REFERER']);
                 }
             } else {
@@ -165,11 +182,27 @@ class Home extends CI_Controller
         }
     }
 
-    public function checkout2()
+    //--------my orders------
+    public function my_orders($idd)
     {
-        $this->load->view('frontend/common/header');
-        $this->load->view('frontend/address');
-        $this->load->view('frontend/common/footer');
+        if (!empty($this->session->userdata('user_data'))) {
+
+           $user_id=base64_decode($idd);
+          $data['id']=$idd;
+
+                      $this->db->select('*');
+          $this->db->from('tbl_order1');
+          $this->db->where('user_id',$user_id);
+          $this->db->order_by('id','DESC');
+          $data['order1_data']= $this->db->get();
+
+          $this->load->view('frontend/common/header', $data);
+          $this->load->view('frontend/my_orders');
+          $this->load->view('frontend/common/footer');
+
+        } else {
+            redirect("Home/Index", "refresh");
+        }
     }
 
     public function error404()

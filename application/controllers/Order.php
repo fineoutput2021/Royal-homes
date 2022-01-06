@@ -36,13 +36,9 @@ class Order extends CI_Controller
                     $this->db->where('id', $cart->product_id);
                     $pro_data= $this->db->get()->row();
 
-                    $this->db->select('*');
-                    $this->db->from('tbl_inventory');
-                    $this->db->where('product_id', $cart->product_id);
-                    $inventory_data= $this->db->get()->row();
                     //-----check inventory------
-                    if (!empty($inventory_data)) {
-                        if ($inventory_data->quantity >= $cart->quantity) {
+                    if (!empty($pro_data->inventory)) {
+                        if ($pro_data->inventory >= $cart->quantity) {
                             $price = $pro_data->mrp * $cart->quantity;
                             $total= $total + $price;
                         } else {
@@ -92,7 +88,7 @@ class Order extends CI_Controller
                         $last_id2=$this->base_model->insert_table("tbl_order2", $order2_insert, 1);
                     }
                     if (!empty($last_id2)) {
-                        redirect("Order/address", "refresh");
+                        redirect("Order/view_address", "refresh");
                     } else {
                         $this->session->set_flashdata('emessage', 'Some error occured! Please try again');
                         redirect($_SERVER['HTTP_REFERER']);
@@ -109,7 +105,7 @@ class Order extends CI_Controller
             redirect("Home/index", "refresh");
         }
     }
-    public function address()
+    public function view_address()
     {
         if (!empty($this->session->userdata('user_data'))) {
             $this->db->select('*');
@@ -147,11 +143,21 @@ class Order extends CI_Controller
                     $pincode=$this->input->post('pincode');
                     $address=$this->input->post('address');
                     $user_id = $this->session->userdata('user_id');
+
                     $this->db->select('*');
                     $this->db->from('tbl_order1');
                     $this->db->where('user_id', $user_id);
                     $this->db->order_by('id', 'DESC');
                     $order_data= $this->db->get()->row();
+
+                    //----calculate shipping charges-----
+                    $this->db->select('*');
+                    $this->db->from('tbl_pincode');
+                    $this->db->where('id', $pincode);
+                    $pin_data= $this->db->get()->row();
+
+                    $shipping = $pin_data->shippingcharge;
+                    $final_amount = $order_data->total_amount + $shipping;
 
                     $data_update = array(
                  'name'=>$name,
@@ -159,6 +165,8 @@ class Order extends CI_Controller
                  'phone'=>$phone,
                  'pincode_id'=>$pincode,
                  'address'=>$address,
+                 'delivery_charge'=>$shipping,
+                 'final_amount'=>$final_amount,
                            );
                     $this->db->where('id', $order_data->id);
                     $zapak=$this->db->update('tbl_order1', $data_update);
@@ -195,7 +203,7 @@ class Order extends CI_Controller
             $data['order_data']= $this->db->get()->row();
 
             $this->load->view('frontend/common/header', $data);
-            $this->load->view('frontend/checkout2');
+            $this->load->view('frontend/checkout');
             $this->load->view('frontend/common/footer');
         } else {
             redirect("Home/index", "refresh");
@@ -246,79 +254,110 @@ class Order extends CI_Controller
                             }
                             // echo $p_discount;
                             // exit;
+                            $final_amount = $order_data->final_amount - $p_discount;
                             //----updating promode_id in tabel order1
 
-                            $data_update = array('promocode_id'=>$promo_data->id,'p_discount'=>$p_discount);
+                            $data_update = array('promocode_id'=>$promo_data->id,'p_discount'=>$p_discount,'final_amount'=>$final_amount);
                             $this->db->where('id', $order_id);
                             $zapak=$this->db->update('tbl_order1', $data_update);
 
-                            $this->session->set_flashdata('smessage', 'Promocode successfully applied');
-                            redirect($_SERVER['HTTP_REFERER']);
+                            if (!empty($zapak)) {
+                                $respone['data'] = true;
+                                $respone['data_message'] ="Promocode successfully applied";
+                                echo json_encode($respone);
+                            } else {
+                                $respone['data'] = false;
+                                $respone['data_message'] ="Some error occured! Please try again ";
+                                echo json_encode($respone);
+                            }
                         } else {
-                            $this->session->set_flashdata('emessage', 'Please add more products for promocode');
-                            redirect($_SERVER['HTTP_REFERER']);
+                            $respone['data'] = false;
+                            $respone['data_message'] ="Please add more products for promocode";
+                            echo json_encode($respone);
                         }
                     } else {
-                        $this->session->set_flashdata('emessage', 'Some error occured');
-                        redirect($_SERVER['HTTP_REFERER']);
+                        $respone['data'] = false;
+                        $respone['data_message'] ="Some error occured";
+                        echo json_encode($respone);
                     }
                 } else {
-                    $this->session->set_flashdata('emessage', 'Invalid Promocode');
-                    redirect($_SERVER['HTTP_REFERER']);
+                    $respone['data'] = false;
+                    $respone['data_message'] ="Invalid Promocode";
+                    echo json_encode($respone);
                 }
             } else {
-                $this->session->set_flashdata('emessage', validation_errors());
-                redirect($_SERVER['HTTP_REFERER']);
+                $respone['data'] = false;
+                $respone['data_message'] = validation_errors();
+                echo json_encode($respone);
             }
         } else {
-            $this->session->set_flashdata('emessage', 'Please insert some data, No data available');
-            redirect($_SERVER['HTTP_REFERER']);
+            $respone['data'] = false;
+            $respone['data_message'] ="Please insert some data, No data available";
+            echo json_encode($respone);
         }
     }
     //------remove promocode--------
-    public function remove_promocode($idd)
+    public function remove_promocode()
     {
-        $order_id=base64_decode($idd);
+        $this->load->helper(array('form', 'url'));
+        $this->load->library('form_validation');
+        $this->load->helper('security');
+        if ($this->input->post()) {
+            $this->form_validation->set_rules('order_id', 'order_id', 'required|xss_clean|trim');
 
-        $data_update = array('promocode_id'=>"",
-              'p_discount'=>""
+
+            if ($this->form_validation->run()== true) {
+                $order_id=$this->input->post('order_id');
+
+                $order_id=base64_decode($order_id);
+                $this->db->select('*');
+                $this->db->from('tbl_order1');
+                $this->db->where('id', $order_id);
+                $orderdata= $this->db->get()->row();
+
+                $final_amount = $orderdata->final_amount + $orderdata->p_discount;
+
+                $data_update = array('promocode_id'=>"",
+              'p_discount'=>"",
+              'final_amount'=>$final_amount
             );
-        $this->db->where('id', $order_id);
-        $zapak=$this->db->update('tbl_order1', $data_update);
-        if (!empty($zapak)) {
-            $this->session->set_flashdata('smessage', 'Promocode removed successfully');
-            redirect($_SERVER['HTTP_REFERER']);
+                $this->db->where('id', $order_id);
+                $zapak=$this->db->update('tbl_order1', $data_update);
+                if (!empty($zapak)) {
+                    $respone['data'] = true;
+                    $respone['data_message'] ="Promocode removed successfully";
+                    echo json_encode($respone);
+                } else {
+                    $respone['data'] = false;
+                    $respone['data_message'] ="Some error occured";
+                    echo json_encode($respone);
+                }
+            } else {
+                $respone['data'] = false;
+                $respone['data_message'] = validation_errors();
+                echo json_encode($respone);
+            }
         } else {
-            $this->session->set_flashdata('emessage', 'Some error occured');
-            redirect($_SERVER['HTTP_REFERER']);
+            $respone['data'] = false;
+            $respone['data_message'] ="Please insert some data, No data available";
+            echo json_encode($respone);
         }
     }
 
     //--------checkout----------------
     public function checkout()
     {
+
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
         $this->load->helper('security');
         if ($this->input->post()) {
-            $this->form_validation->set_rules('payment_type', 'payment_type', 'required|xss_clean|trim');
-            $this->form_validation->set_rules('name', 'name', 'required|xss_clean|trim');
-            $this->form_validation->set_rules('phone', 'phone', 'required|xss_clean|trim');
-            $this->form_validation->set_rules('pincode', 'pincode', 'required|xss_clean|trim');
-            $this->form_validation->set_rules('plot_no', 'plot_no', 'required|xss_clean|trim');
-            $this->form_validation->set_rules('str_name', 'str_name', 'required|xss_clean|trim');
             $this->form_validation->set_rules('order_id', 'order_id', 'required|xss_clean|trim');
 
 
             if ($this->form_validation->run()== true) {
-                $payment_type=$this->input->post('payment_type');
-                $name=$this->input->post('name');
-                $phone=$this->input->post('phone');
-                $pincode=$this->input->post('pincode');
-                $plot_no=$this->input->post('plot_no');
-                $str_name=$this->input->post('str_name');
+                $order_id=base64_decode($this->input->post('order_id'));
 
-                $user_id = $this->session->userdata('user_id');
                 $ip = $this->input->ip_address();
                 date_default_timezone_set("Asia/Calcutta");
                 $cur_date=date("Y-m-d H:i:s");
@@ -333,37 +372,20 @@ class Order extends CI_Controller
                     $this->db->from('tbl_products');
                     $this->db->where('id', $order2->product_id);
                     $pro_data= $this->db->get()->row();
-                    $this->db->select('*');
-                    $this->db->from('tbl_inventory');
-                    $this->db->where('product_id', $order2->product_id);
-                    $invenoty_data= $this->db->get()->row();
-                    if ($inventory_data->quantity>=$order2->quantity) {
+                    if ($pro_data->inventory>=$order2->quantity) {
                     } else {
                         $this->session->set_flashdata('emessage', ''.$pro_data->productname.' is out of stock');
                         redirect($_SERVER['HTTP_REFERER']);
                     }
                 }
 
-                $this->db->select('*');
-                $this->db->from('tbl_order1');
-                $this->db->where('id', $order_id);
-                $order1_data= $this->db->get()->row();
-                //----promocode discount update-----
-                if (!empty($order1_data->promocode_id)) {
-                    $final_amount = $order1_data->final_amount - $order1_data->p_discount;
-                } else {
-                    $final_amount = $order1_data->final_amount;
-                }
-                //----------order placing for COD----------------
+
                 //----------order1 entry-------------
-                $order1_update = array('payment_type'=>1,
+                $order1_update = array(
                                 'payment_status'=>1,
                                 'order_status'=>1,
-                                'name'=>$name,
-                                'phone'=>$phone,
-                                'pincode'=>$pincode,
-                                'plot_no'=>$plot_no,
-                                'str_name'=>$str_name,
+                                'date'=>$cur_date,
+                                'ip'=>$ip,
                                   );
                 $this->db->where('id', $order_id);
                 $zapak2=$this->db->update('tbl_order1', $order1_update);
@@ -374,25 +396,21 @@ class Order extends CI_Controller
               //--------------inventory update and cart delete--------
                     foreach ($order2_data->result() as $ord) {
                         $this->db->select('*');
-                        $this->db->from('tbl_inventory');
-                        $this->db->where('product_id', $ord->product_id);
-                        $invenoty_data1= $this->db->get()->row();
-                        $updated_inventory  = $inventory_data1->quantity - $ord->quantity;
+                        $this->db->from('tbl_products');
+                        $this->db->where('id', $order2->product_id);
+                        $pro_data1= $this->db->get()->row();
+                        $updated_inventory  = $pro_data1->inventory - $ord->quantity;
 
-                        $inventory_update = array('quantity'=>$updated_inventory,
+                        $inventory_update = array('inventory'=>$updated_inventory,
                    );
-                        $this->db->where('id', $invenoty_data1->id);
-                        $zapak=$this->db->update('tbl_inventory', $inventory_update);
+                        $this->db->where('id', $pro_data1->id);
+                        $zapak=$this->db->update('tbl_products', $inventory_update);
 
                         //-------cart delete---------
                         $delete=$this->db->delete('tbl_cart', array('user_id' => $user_id,'product_id',$product_id));
                     }
-                    if (!empty($delete)) {
-                        redirect("Order/success", "refresh");
-                    } else {
-                        $this->session->set_flashdata('emessage', 'Some error occured!');
-                        redirect($_SERVER['HTTP_REFERER']);
-                    }
+                        redirect("Order/order_success", "refresh");
+
                 } else {
                     $this->session->set_flashdata('emessage', 'Some error occured');
                     redirect($_SERVER['HTTP_REFERER']);
@@ -404,6 +422,30 @@ class Order extends CI_Controller
         } else {
             $this->session->set_flashdata('emessage', 'Please insert some data, No data available');
             redirect($_SERVER['HTTP_REFERER']);
+        }
+    }
+
+    public function order_success()
+    {
+        if (!empty($this->session->userdata('user_data'))) {
+
+          $user_id = $this->session->userdata('user_id');
+
+                      $this->db->select('*');
+          $this->db->from('tbl_order1');
+          $this->db->where('user_id',$user_id);
+          $this->db->order_by('id','DESC');
+          $orderdata= $this->db->get()->row();
+
+          $data['order_id'] =$orderdata->id;
+          $data['amount'] =$orderdata->final_amount;
+
+          $this->load->view('frontend/common/header', $data);
+          $this->load->view('frontend/order_success');
+          $this->load->view('frontend/common/footer');
+
+        } else {
+            redirect("Home/index", "refresh");
         }
     }
 }
