@@ -125,6 +125,7 @@ class Cart extends CI_Controller
                 if ($index > -1) {
                     $cart = $this->session->userdata('cart_data');
                     unset($cart[$index]);
+                    $cart = array_values($cart);
                     $this->session->set_userdata('cart_data', $cart);
                     $respone['data'] = true;
                     $respone['data_message'] ="Item successfully deleted in your cart";
@@ -171,6 +172,8 @@ class Cart extends CI_Controller
                 if (!empty($pro_data->inventory)) {
                     if ($pro_data->inventory >= $quantity) {
                         $cart = $this->session->userdata('cart_data');
+                        // echo $product_id;
+                        // print_r($cart);
                         // $this->session->unset_userdata('cart_data');
                         if (!empty($cart)) {
                             for ($i = 0; $i < count($cart); $i ++) {
@@ -201,7 +204,6 @@ class Cart extends CI_Controller
                             $respone['data'] = true;
                             $respone['data_message'] ="Item successfully updated in your cart";
                             $respone['data_price'] =round($total);
-                            $respone['data_shipping'] =round($shipping);
                             $respone['data_subtotal'] =round($subtotal);
                             echo json_encode($respone);
                         } else {

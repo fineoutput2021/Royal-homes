@@ -139,7 +139,7 @@ echo $total;
               '</div>'
           });
 
-          window.setTimeout(function(){location.reload()},3000)
+          window.setTimeout(function(){location.reload()},2000)
 
         } else if (response.data == false) {
           $.notify({
@@ -174,7 +174,7 @@ echo $total;
               '<a href="{3}" target="{4}" data-notify="url"></a>' +
               '</div>'
           });
-          window.setTimeout(function(){location.reload()},3000)
+          window.setTimeout(function(){location.reload()},2000)
         }
       }
     });
@@ -200,6 +200,7 @@ echo $total;
       },
       dataType: 'json',
       success: function(response) {
+        // alert(response)
         if (response.data == true) {
           document.getElementById('price_' + i).innerHTML = "Rs."+price;
           document.getElementById('subtotal').innerHTML = response.data_price;

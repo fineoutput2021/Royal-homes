@@ -103,6 +103,7 @@ echo $total;
       },
       dataType: 'json',
       success: function(response) {
+        // alert(response)
         if (response.data == true) {
           $.notify({
             icon: 'fa fa-check',
@@ -137,7 +138,7 @@ echo $total;
               '</div>'
           });
 
-          window.setTimeout(function(){location.reload()},2000)
+          // window.setTimeout(function(){location.reload()},2000)
 
         } else if (response.data == false) {
           $.notify({
@@ -200,6 +201,7 @@ echo $total;
       },
       dataType: 'json',
       success: function(response) {
+        // alert(response)
         if (response.data == true) {
           document.getElementById('price_' + i).innerHTML = "Rs."+price;
           document.getElementById('subtotal').innerHTML = "Rs."+response.data_price;

@@ -131,8 +131,9 @@ $promo_data= $this->db->get()->row();
       url: url,
       method: 'post',
        data: dataString, // serializes the form's elements.
+       dataType: 'json',
       success: function(response) {
-        alert(response.data)
+        // alert(response)
         if (response.data == true) {
           $.notify({
             icon: 'fa fa-check',
@@ -167,7 +168,7 @@ $promo_data= $this->db->get()->row();
               '</div>'
           });
 
-          window.setTimeout(function(){location.reload()},2000)
+          window.setTimeout(function(){location.reload()},500)
 
         } else if (response.data == false) {
           $.notify({
@@ -254,7 +255,7 @@ $promo_data= $this->db->get()->row();
               '</div>'
           });
 
-          window.setTimeout(function(){location.reload()},3000)
+          window.setTimeout(function(){location.reload()},2000)
 
         } else if (response.data == false) {
           $.notify({
@@ -289,7 +290,7 @@ $promo_data= $this->db->get()->row();
               '<a href="{3}" target="{4}" data-notify="url"></a>' +
               '</div>'
           });
-          window.setTimeout(function(){location.reload()},3000)
+          window.setTimeout(function(){location.reload()},2000)
         }
       }
     });
