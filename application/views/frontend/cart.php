@@ -241,7 +241,7 @@ echo $total;
               '</div>'
           });
 
-          // $('#price_'+i).html(price);
+          window.setTimeout(function(){location.reload()},2000)
         } else if (response.data == false) {
           $.notify({
             icon: 'fa fa-cancel',
@@ -278,6 +278,8 @@ echo $total;
               '<a href="{3}" target="{4}" data-notify="url"></a>' +
               '</div>'
           });
+          window.setTimeout(function(){location.reload()},1000)
+
         }
       }
     });

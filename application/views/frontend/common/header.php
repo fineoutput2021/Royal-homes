@@ -37,9 +37,20 @@
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
   <!-- <script src="<?=base_url()?>assets/frontend/assets/js/bootstrap.js"></script> -->
   <script src="<?=base_url()?>assets/frontend/assets/js/bootstrap-notify.min.js"></script>
+  <script>
+  window.addEventListener("pageshow", function(event) {
+     var historyTraversal = event.persisted ||
+        (typeof window.performance != "undefined" &&
+           window.performance.navigation.type === 2);
+     if (historyTraversal) {
+        // Handle page restore.
+        window.location.reload();
+     }
+  });
+  </script>
   <style>
     body {
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: Brandon Text!important;
       scroll-behavior: smooth;
     }
 
@@ -555,7 +566,7 @@
     /* new style add  */
 
     * {
-      font-family: roboto;
+      font-family: Brandon Text!importants;
     }
 
     *h2 {

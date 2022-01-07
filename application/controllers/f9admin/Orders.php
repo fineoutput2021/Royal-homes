@@ -213,7 +213,7 @@ class Orders extends CI_finecontrol
             }
 
             //-----cancel----------
-            if ($t=="cancel") {
+            if ($t=="reject") {
                 $data_update = array(
 'order_status'=>5
 

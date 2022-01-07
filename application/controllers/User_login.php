@@ -15,8 +15,8 @@ class User_login extends CI_Controller
     ///-------user_register-----------------
     public function user_register()
     {
-      // echo "hi";
-      // exit;
+        // echo "hi";
+        // exit;
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
         $this->load->helper('security');
@@ -30,8 +30,8 @@ class User_login extends CI_Controller
 
 
             if ($this->form_validation->run()== true) {
-              // echo "hi";
-              // exit;
+                // echo "hi";
+                // exit;
                 $fname=$this->input->post('fname');
                 $lname=$this->input->post('lname');
                 $email=$this->input->post('email');
@@ -83,22 +83,30 @@ class User_login extends CI_Controller
                                     $this->db->where('product_id', $value['product_id']);
                                     $cartInfo= $this->db->get()->row();
                                     if (empty($cartInfo)) {
-
-                                        $data_insert = array('user_id'=>$last_id,
+                                        //---------inventory check------------
+                                        $this->db->select('*');
+                                        $this->db->from('tbl_products');
+                                        $this->db->where('id', $value['product_id']);
+                                        $pro_data= $this->db->get()->row();
+                                        if (!empty($pro_data)) {
+                                            if ($pro_data->inventory>=$value['quantity']) {
+                                                $data_insert = array('user_id'=> $user_data->id,
                                               'product_id'=>$value['product_id'],
                                               'quantity'=>$value['quantity'],
                                               'ip' =>$ip,
                                               'date'=>$cur_date
                                               );
 
-                                        $last_id=$this->base_model->insert_table("tbl_cart", $data_insert, 1) ;
+                                                $last_id=$this->base_model->insert_table("tbl_cart", $data_insert, 1) ;
+                                            }
+                                        }///end check innventory
                                     }
                                 }
                             }
                             $this->session->unset_userdata('cart_data');
 
                             $this->session->set_flashdata('smessage', 'Successful Registered');
-                            redirect("Home/index","refresh");
+                            redirect("Home/index", "refresh");
                         } else {
                             $this->session->set_flashdata('emessage', 'Some error occured');
                             redirect($_SERVER['HTTP_REFERER']);
@@ -108,7 +116,7 @@ class User_login extends CI_Controller
                         redirect($_SERVER['HTTP_REFERER']);
                     }
                 } else {
-                  redirect("Home/index","refresh");
+                    redirect("Home/index", "refresh");
                 }
             } else {
                 $this->session->set_flashdata('emessage', validation_errors());
@@ -142,9 +150,9 @@ class User_login extends CI_Controller
                     $user_data= $this->db->get()->row();
 
 
-                            $ip = $this->input->ip_address();
-                            date_default_timezone_set("Asia/Calcutta");
-                            $cur_date=date("Y-m-d H:i:s");
+                    $ip = $this->input->ip_address();
+                    date_default_timezone_set("Asia/Calcutta");
+                    $cur_date=date("Y-m-d H:i:s");
 
                     // $user_name  = $user_data->fname." ".$user_data->lname;
                     $user_name  = $user_data->fname;
@@ -159,6 +167,8 @@ class User_login extends CI_Controller
 
                             //insert cart data into cart table---------
                             $cart_data = $this->session->userdata('cart_data');
+                            // print_r($cart_data);
+                            // exit;
                             if (!empty($cart_data)) {
                                 foreach ($cart_data as $value) {
                                     $this->db->select('*');
@@ -166,22 +176,31 @@ class User_login extends CI_Controller
                                     $this->db->where('user_id', $user_data->id);
                                     $this->db->where('product_id', $value['product_id']);
                                     $cartInfo= $this->db->get()->row();
-                                    if (!empty($cartInfo)) {
-                                        $data_insert = array('user_id'=> $user_data->id,
+                                    if (empty($cartInfo)) {
+                                        //---------inventory check------------
+                                        $this->db->select('*');
+                                        $this->db->from('tbl_products');
+                                        $this->db->where('id', $value['product_id']);
+                                        $pro_data= $this->db->get()->row();
+                                        if (!empty($pro_data)) {
+                                            if ($pro_data->inventory>=$value['quantity']) {
+                                                $data_insert = array('user_id'=> $user_data->id,
                                               'product_id'=>$value['product_id'],
                                               'quantity'=>$value['quantity'],
                                               'ip' =>$ip,
                                               'date'=>$cur_date
                                               );
 
-                                        $last_id=$this->base_model->insert_table("tbl_cart", $data_insert, 1) ;
+                                                $last_id=$this->base_model->insert_table("tbl_cart", $data_insert, 1) ;
+                                            }
+                                        }///end check innventory
                                     }
                                 }
                             }
                             $this->session->unset_userdata('cart_data');
 
                             $this->session->set_flashdata('smessage', 'Successful Logged in!');
-                            redirect("Home/index","refresh");
+                            redirect("Home/index", "refresh");
                         } else {
                             $this->session->set_flashdata('emessage', 'Wrong Password');
                             redirect($_SERVER['HTTP_REFERER']);
@@ -191,7 +210,7 @@ class User_login extends CI_Controller
                         redirect($_SERVER['HTTP_REFERER']);
                     }
                 } else {
-                  redirect("Home/index","refresh");
+                    redirect("Home/index", "refresh");
                 }
             } else {
                 $this->session->set_flashdata('emessage', validation_errors());
@@ -203,18 +222,18 @@ class User_login extends CI_Controller
         }
     }
 
-//-----------user_logout--------------
-public function user_logout(){
-  if(!empty($this->session->userdata('user_data'))){
-    $this->session->unset_userdata('user_data');
-    $this->session->unset_userdata('user_name');
-    $this->session->unset_userdata('user_id');
+    //-----------user_logout--------------
+    public function user_logout()
+    {
+        if (!empty($this->session->userdata('user_data'))) {
+            $this->session->unset_userdata('user_data');
+            $this->session->unset_userdata('user_name');
+            $this->session->unset_userdata('user_id');
 
-    $this->session->set_flashdata('smessage', 'Successfully Log out!');
-    redirect($_SERVER['HTTP_REFERER']);
-  }else{
-    $this->load->view('Home/index', "refresh");
-  }
-}
-
+            $this->session->set_flashdata('smessage', 'Successfully Log out!');
+            redirect($_SERVER['HTTP_REFERER']);
+        } else {
+            $this->load->view('Home/index', "refresh");
+        }
+    }
 }

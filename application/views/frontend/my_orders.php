@@ -48,7 +48,14 @@
     outline: 0 !important;
     border-right: 1px solid lightgrey;
   }
-
+  .can_btn:hover {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: #fff;
+    outline: 0 !important;
+    border-right: 1px solid lightgrey;
+  }
 
   @media(min-width: 312px) and (max-width: 900px) {
     .ordertrack_small {
@@ -71,10 +78,6 @@
       display: block !important;
     }
 
-    .can_btn {
-      border: none;
-      height: 44px;
-    }
 
     .ab_p_h p,
     h5 {
@@ -140,14 +143,14 @@
         <div class="col-12">
           <div class="row">
             <div class="col-6 d-flex align-items-center mb-4 two_btn">
-              <button class="float-left order_small mr-4" style="color:blue">order
-                <a href="#">#<?=$data_order1->id; ?></a>
+              <button class="float-left order_small mr-4" style="color:white;background:#d76a46">order
+              #<?=$data_order1->id; ?>
               </button>
-              <span class="sp_od_web">Order Placed :<a href="#">
+              <span class="sp_od_web" style="color:black">Order Placed :
                   <?php
                                 $newdate = new DateTime($data_order1->date);
                                 echo $newdate->format('j F, Y');   #d-m-Y  // March 10, 2001, 5:16 pm?>
-                </a></span>
+                </span>
             </div>
 
             <div class="col-12 sp_od_mob mb-3 d-none">
@@ -223,27 +226,30 @@
               <?php } elseif ($data_order1->order_status == 4) { ?>
               <button class="can_btn" style="color:green !important;"><i class="fa fa-check pr-2"></i>Delivered</button>
               <?php } elseif ($data_order1->order_status == 5) { ?>
-              <button class="can_btn"><i class="fa fa-times pr-2"></i>Cancelled</button>
+              <button class="can_btn" style="color:red"><i class="fa fa-times pr-2"></i>Cancelled</button>
               <?php } else { ?>
-              <a href="<?=base_path?>cancel_order/<?=base64_encode($data_order1->id);?>">
-                <button class="can_btn" style="color:red"><i class="fa fa-times pr-2"></i>CANCEL ORDER</button>
+              <a href="">
+                <button class="can_btn" onclick=cancel_order('<?=base64_encode($data_order1->id)?>') style="color:red"><i class="fa fa-times pr-2"></i>Cancel Order</button>
               </a>
               <?php } ?>
 
             </div>
             <div class="col-12 col-sm-10 col-md-10 col-lg-10 d-flex align-items-center ab_p_h" style="justify-content: space-between;">
-              <p class="mb-0 text-small">Payment Method : <a href="#">
+              <p class="mb-0 text-small">Promocode :
 
-                  <?php if ($data_order1->payment_type == 1) {
-                                    echo 'COD | ';
-                                } ?>
-                  <?php  if ($data_order1->payment_type == 2) {
-                                    echo 'Online Payment | ';
-                                } ?>
+                  <?php if (!empty($data_order1->promocode_id)) {
+                                $this->db->select('*');
+                    $this->db->from('tbl_coupancode');
+                    $this->db->where('id',$data_order1->promocode_id);
+                    $promodata= $this->db->get()->row();
+                                    echo $promodata->name.' | ';
+                                }else{
+                                  echo 'NA |';
+                                 } ?>
 
-                </a></p>
+                </p>
 
-              <h5 class="mb-0 text-small">Promocode Discount <i class="fa fa-rupee"></i><?php
+              <h5 class="mb-0 text-small">Promocode Discount: <i class="fa fa-rupee"></i><?php
                             if (!empty($data_order1->p_discount)) {
                                 echo $data_order1->p_discount.'  |';
                             } else {
@@ -251,11 +257,11 @@
                             } ?></h5>
 
 
-              <h5 class="mb-0 text-small">Delivery Charge <i class="fa fa-rupee"></i><?php
+              <h5 class="mb-0 text-small">Delivery Charge: <i class="fa fa-rupee"></i><?php
                         echo $data_order1->delivery_charge.'  |'; ?></h5>
 
 
-              <h5 class="mb-0">Total Amount <i class="fa fa-rupee"></i><?=$data_order1->final_amount; ?></h5>
+              <h5 class="mb-0">Total Amount: <i class="fa fa-rupee"></i><?=$data_order1->final_amount; ?></h5>
             </div>
           </div>
         </div>
@@ -266,8 +272,95 @@
                             }
                         }
                     }else{?>
-                      <h2>No Orders</h2>
-                    <?}}?>
+    <h2>No Orders</h2>
+    <?}}?>
   </div>
   <br>
 </section>
+<script>
+function cancel_order(order_id) {
+
+  $.ajax({
+    url: '<?=base_url();?>Home/cancel_order',
+    method: 'post',
+    data: {
+      order_id: order_id
+    },
+    dataType: 'json',
+    success: function(response) {
+      alert(response.data)
+      if (response.data == true) {
+        $.notify({
+          icon: 'fa fa-check',
+          title: '',
+          message: response.data_message
+        }, {
+          element: 'body',
+          position: null,
+          type: "success",
+          allow_dismiss: true,
+          newest_on_top: false,
+          showProgressbar: false,
+          placement: {
+            from: "top",
+            align: "right"
+          },
+          offset: 20,
+          spacing: 10,
+          z_index: 1031,
+          delay: 1000,
+          animate: {
+            enter: 'animated fadeInDown',
+            exit: 'animated fadeOutUp'
+          },
+          icon_type: 'class',
+          template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+            '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
+            '<span data-notify="icon"></span> ' +
+            '<span data-notify="title">{1}</span> ' +
+            '<span data-notify="message">{2}</span>' +
+            '<a href="{3}" target="{4}" data-notify="url"></a>' +
+            '</div>'
+        });
+
+        window.setTimeout(function(){location.reload()},3000)
+
+      } else if (response.data == false) {
+        $.notify({
+          icon: 'fa fa-cancel',
+          title: '',
+          message: response.data_message
+        }, {
+          element: 'body',
+          position: null,
+          type: "danger",
+          allow_dismiss: true,
+          newest_on_top: false,
+          showProgressbar: true,
+          placement: {
+            from: "top",
+            align: "right"
+          },
+          offset: 20,
+          spacing: 10,
+          z_index: 1031,
+          delay: 5000,
+          animate: {
+            enter: 'animated fadeInDown',
+            exit: 'animated fadeOutUp'
+          },
+          icon_type: 'class',
+          template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+            '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
+            '<span data-notify="icon"></span> ' +
+            '<span data-notify="title">{1}</span> ' +
+            '<span data-notify="message">{2}</span>' +
+            '<a href="{3}" target="{4}" data-notify="url"></a>' +
+            '</div>'
+        });
+        window.setTimeout(function(){location.reload()},2000)
+      }
+    }
+  });
+}
+</script>

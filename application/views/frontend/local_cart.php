@@ -138,7 +138,7 @@ echo $total;
               '</div>'
           });
 
-          // window.setTimeout(function(){location.reload()},2000)
+          window.setTimeout(function(){location.reload()},2000)
 
         } else if (response.data == false) {
           $.notify({
@@ -241,6 +241,7 @@ echo $total;
               '<a href="{3}" target="{4}" data-notify="url"></a>' +
               '</div>'
           });
+          window.setTimeout(function(){location.reload()},2000)
 
           // $('#price_'+i).html(price);
         } else if (response.data == false) {
@@ -279,6 +280,7 @@ echo $total;
               '<a href="{3}" target="{4}" data-notify="url"></a>' +
               '</div>'
           });
+          window.setTimeout(function(){location.reload()},1000)
 
         }
       }

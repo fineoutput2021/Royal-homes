@@ -186,22 +186,82 @@ class Home extends CI_Controller
     public function my_orders($idd)
     {
         if (!empty($this->session->userdata('user_data'))) {
+            $user_id=base64_decode($idd);
+            $data['id']=$idd;
 
-           $user_id=base64_decode($idd);
-          $data['id']=$idd;
+            $this->db->select('*');
+            $this->db->from('tbl_order1');
+            $this->db->where('user_id', $user_id);
+            $this->db->order_by('id', 'DESC');
+            $data['order1_data']= $this->db->get();
 
-                      $this->db->select('*');
-          $this->db->from('tbl_order1');
-          $this->db->where('user_id',$user_id);
-          $this->db->order_by('id','DESC');
-          $data['order1_data']= $this->db->get();
-
-          $this->load->view('frontend/common/header', $data);
-          $this->load->view('frontend/my_orders');
-          $this->load->view('frontend/common/footer');
-
+            $this->load->view('frontend/common/header', $data);
+            $this->load->view('frontend/my_orders');
+            $this->load->view('frontend/common/footer');
         } else {
             redirect("Home/Index", "refresh");
+        }
+    }
+
+    //--------cancel order---------
+    public function cancel_order()
+    {
+        $this->load->helper(array('form', 'url'));
+        $this->load->library('form_validation');
+        $this->load->helper('security');
+        if ($this->input->post()) {
+            $this->form_validation->set_rules('order_id', 'order_id', 'required|xss_clean|trim');
+
+            if ($this->form_validation->run()== true) {
+                $order_id=base64_decode($this->input->post('order_id'));
+
+                $data_update = array(
+     'order_status'=>5
+
+     );
+
+                $this->db->where('id', $order_id);
+                $zapak=$this->db->update('tbl_order1', $data_update);
+
+                //-------update inventory-------
+                $this->db->select('*');
+                $this->db->from('tbl_order2');
+                $this->db->where('main_id', $order_id);
+                $data_order2= $this->db->get();
+
+                foreach ($data_order2->result() as $data) {
+                    $this->db->select('*');
+                    $this->db->from('tbl_products');
+                    $this->db->where('id', $data->product_id);
+                    $pro_data= $this->db->get()->row();
+                    if (!empty($pro_data)) {
+                        $update_inv = $pro_data->inventory + $data->quantity;
+                        $data_update = array('inventory'=>$update_inv,
+         );
+                        $this->db->where('id', $pro_data->id);
+                        $zapak2=$this->db->update('tbl_products', $data_update);
+                    }
+                }
+
+
+                if (!empty($zapak)) {
+                    $respone['data'] = true;
+                    $respone['data_message'] ="Order successfully cancelled";
+                    echo json_encode($respone);
+                } else {
+                    $respone['data'] = false;
+                    $respone['data_message'] ="Some error occured";
+                    echo json_encode($respone);
+                }
+            } else {
+                $respone['data'] = false;
+                $respone['data_message'] =validation_errors();
+                echo json_encode($respone);
+            }
+        } else {
+            $respone['data'] = false;
+            $respone['data_message'] ='Please insert some data, No data available';
+            echo json_encode($respone);
         }
     }
 

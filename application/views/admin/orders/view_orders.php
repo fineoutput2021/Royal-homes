@@ -43,13 +43,14 @@ if(!empty($this->session->flashdata('emessage'))){ ?>
                       <th>#</th>
                       <th>Order ID</th>
                       <th>User</th>
-                      <th>Total Amount</th>
-                      <th>Promocode</th>
-                      <th>Promocode Discount</th>
-                      <th>Shipping Charge</th>
                       <th>Phone</th>
                       <th>Email</th>
                       <th>Address</th>
+                      <th>Pincode</th>
+                      <th>Promocode</th>
+                      <th>Promocode Discount</th>
+                      <th>Shipping Charge</th>
+                      <th>Total Amount</th>
                       <th>Date</th>
                       <th>Orders Status</th>
                       <th>Action</th>
@@ -61,7 +62,16 @@ if(!empty($this->session->flashdata('emessage'))){ ?>
                       <td><?php echo $i ?> </td>
                       <td><? if(!empty($data->id)){ echo $data->id;} else { echo "No Data"; }?></td>
                       <td><? if(!empty($data->name)){ echo $data->name;} else { echo "No Data"; }?></td>
-                      <td><? if(!empty($data->final_amount)){ echo "Rs.".$data->final_amount;} else { echo "no data"; }?></td>
+                      <td><? if(!empty($data->phone)){ echo $data->phone;} else { echo "No Data"; }?></td>
+                      <td><? if(!empty($data->email)){ echo $data->email;} else { echo "No Data"; }?></td>
+                      <td><? if(!empty($data->address)){ echo $data->address;} else { echo "No Data"; }?></td>
+                      <td><? if(!empty($data->pincode_id)){
+                                    $this->db->select('*');
+                        $this->db->from('tbl_pincode');
+                        $this->db->where('id',$data->pincode_id);
+                        $pindata= $this->db->get()->row();
+                         echo $pindata->pincode;} else { echo "No Data"; }?></td>
+
                       <td><? if(!empty($data->promocode_id)){
                                     $this->db->select('*');
                         $this->db->from('tbl_coupancode');
@@ -70,9 +80,7 @@ if(!empty($this->session->flashdata('emessage'))){ ?>
                          echo $promodata->name;} else { echo "NA"; }?></td>
   <td><? if(!empty($data->p_discount)){ echo "Rs.".$data->p_discount;} else { echo "NA"; }?></td>
   <td><? if(!empty($data->delivery_charge)){ echo "Rs.".$data->delivery_charge;} else { echo "NA"; }?></td>
-  <td><? if(!empty($data->phone)){ echo $data->phone;} else { echo "No Data"; }?></td>
-  <td><? if(!empty($data->email)){ echo $data->email;} else { echo "No Data"; }?></td>
-  <td><? if(!empty($data->address)){ echo $data->address;} else { echo "No Data"; }?></td>
+  <td><? if(!empty($data->final_amount)){ echo "Rs.".$data->final_amount;} else { echo "no data"; }?></td>
     <td>
   <?
     $newdate = new DateTime($data->date);

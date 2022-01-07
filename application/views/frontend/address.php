@@ -32,13 +32,13 @@ width:100%;
             <div class="col">
               <div class="form-outline">
                 <label class="form-label" for="name">Name<span class="sp">*</span></label>
-                <input type="text" id="name" name="name" class="form-control mt-1" required/>
+                <input type="text" id="name" name="name" class="form-control mt-1" required onkeyup='saveValue(this);'/>
               </div>
             </div>
             <div class="col">
               <div class="form-outline">
                 <label class="form-label" for="email">Email<span class="sp">*</span></label>
-                <input type="email" id="email" name="email" class="form-control mt-1" required/>
+                <input type="email" id="email" name="email" class="form-control mt-1" required onkeyup='saveValue(this);'/>
               </div>
             </div>
           </div>
@@ -48,7 +48,7 @@ width:100%;
             <div class="col">
               <div class="form-outline">
                 <label class="form-label" for="phone">Contact<span class="sp">*</span></label>
-                <input type="text" id="phone" name="phone" maxlength="10" minlength="10" class="form-control mt-1" required onkeypress="return isNumberKey(event)"/>
+                <input type="text" id="phone" name="phone" maxlength="10" minlength="10" class="form-control mt-1" required onkeypress="return isNumberKey(event)" onkeyup='saveValue(this);'/>
               </div>
             </div>
             <div class="col">
@@ -67,7 +67,7 @@ width:100%;
           <!-- address input -->
           <div class="form-outline mb-4">
             <label class="form-label" for="address">Address<span class="sp">*</span></label>
-            <textarea class="form-control" id="address" name="address" rows="4" required></textarea>
+            <textarea class="form-control" id="address" name="address" rows="4" required onkeyup='saveValue(this);'></textarea>
           </div>
 
           <!-- Checkbox -->
@@ -89,5 +89,25 @@ function isNumberKey(evt){
     if (charCode > 31 && (charCode < 48 || charCode > 57))
         return false;
     return true;
+}
+</script>
+<script>
+document.getElementById("name").value = getSavedValue("name");
+document.getElementById("email").value = getSavedValue("email");
+document.getElementById("phone").value = getSavedValue("phone");
+document.getElementById("address").value = getSavedValue("address");
+
+function saveValue(e){
+
+var id = e.id;  // get the sender's id to save it .
+var val = e.value; // get the value.
+localStorage.setItem(id, val);// Every time user writing something, the localStorage's value will override .
+}
+
+function getSavedValue  (v){
+if (!localStorage.getItem(v)) {
+return "";// You can change this to your defualt value.
+}
+return localStorage.getItem(v);
 }
 </script>
