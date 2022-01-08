@@ -1,10 +1,10 @@
 
 <!--Start Newsletter -->
-<section class="n_latter my-5 overflow-hidden" style=" background:#f5f5f5;">
-  <div class="container1">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="text-center">
+<section class="n_latter my-5 overflow-hidden bg-white">
+  <div class="container1 bg-white">
+    <div class="row bg-white">
+      <div class="col-md-12 bg-white">
+        <div class="text-center bg-white">
           <br>
           <br>
           <h2 style="font-size: 33px;">Sign up for our newsletter</h2>
