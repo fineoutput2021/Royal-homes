@@ -168,7 +168,7 @@
     <div class="bg-white">
       <div class="row">
         <div class="col-md-12 pt-4" style="background-color: white;">
-          <h2 style="font-size:28px;font-family: 'questa-grande';color: #4e4e4e; padding-left: 4rem;">Find out more about what you are buying
+          <h2 style="font-size:28px;color: #4e4e4e; padding-left: 4rem;">Find out more about what you are buying
           </h2>
 
         </div>
@@ -177,43 +177,26 @@
     <section class="ky bg-white">
       <div class="bg-white">
         <div class="row bg-white">
+
+          <!--start product details-->
           <div style="padding-top: 2rem;padding-left: 5rem;; background-color: white;" class="col-md-3 col-sm-6">
             <div class="myButtons">
               <div class="btn-group" id="MatchingEntitiesButtons">
                 <div class="details">
-                  <!-- <p><button id="btn" onclick="toggleHide()">Details</button></p>
-            <p><button id="btn1" onclick="toggleHide()">Care Instruction</button></p>
-            <p><button id="btn2" onclick="toggleHide()">Warranty</button></p>
-            <p><button id="btn3" onclick="toggleHide()">Shipping$Return</button></p>
-            <p><button id="btn4" onclick="toggleHide()">Features</button></p> -->
-                  <!-- <hr> -->
 
                   <p><button id="Button1" class="roundBtns" onclick="togglediv('NamesTable')" type="button" style="font-size: 14px;color:#000;padding: 12px 0;background: none;"> Details </button></p>
-                  <!-- <hr> -->
 
-                  <p><button id="Button2" class="roundBtns" onclick="togglediv('PhoneTable')" type="button" style="font-size: 14px;font-family: euclid light;padding: 12px 0;font-weight: 200;background: none;"> Care Instruction </button></p>
-                  <!-- <hr> -->
+                  <p><button id="Button2" class="roundBtns" onclick="togglediv('PhoneTable')" type="button" style="font-size: 14px;padding: 12px 0;font-weight: 200;background: none;"> Care Instruction </button></p>
 
-                  <p><button id="Button3" class="roundBtns" onclick="togglediv('AddressTable')" type="button" style="font-size: 14px;font-family: euclid light;padding: 12px 0;font-weight: 200;background: none;"> Shipping & Return</button></p>
-                  <!-- <hr> -->
+                  <p><button id="Button3" class="roundBtns" onclick="togglediv('AddressTable')" type="button" style="font-size: 14px; 12px 0;font-weight: 200;background: none;"> Shipping & Return</button></p>
 
-                  <p><button id="Button4" class="roundBtns" onclick="togglediv('GradesTable')" type="button" style="font-size: 14px;font-family: euclid light;padding: 12px 0;font-weight: 200;background: none;"> Warranty</button></p>
-                  <!-- <hr> -->
+                  <p><button id="Button4" class="roundBtns" onclick="togglediv('GradesTable')" type="button" style="font-size: 14px;padding: 12px 0;font-weight: 200;background: none;"> Warranty</button></p>
 
-                  <p><button id="Button5" class="roundBtns" onclick="togglediv('SchoolTable')" type="button" style="font-size: 14px;font-family: euclid light;padding: 12px 0;font-weight: 200;background: none;"> Features </button></p>
-                  <!-- <hr> -->
+                  <p><button id="Button5" class="roundBtns" onclick="togglediv('SchoolTable')" type="button" style="font-size: 14px;padding: 12px 0;font-weight: 200;background: none;"> Features </button></p>
 
                 </div>
               </div>
-
-              <!-- <div id="NamesTable" class="TableBody" style="display:none">Names </div>
-            <div id="PhoneTable" class="TableBody" style="display:none">Address </div>
-            <div id="AddressTable" class="
-            " style="display:none">Phone# </div>
-            <div id="GradesTable" class="TableBody" style="display:none">Grades </div>
-            <div id="SchoolTable" class="TableBody" style="display:none">School </div> -->
             </div>
-
           </div>
           <div style="padding-top: 2rem; background-color: white;" class="col-md-5 col-sm-6 ">
             <div class="cc TableBody" id="NamesTable" class="" style="display:none">
@@ -259,7 +242,7 @@
 
             <div class="cc TableBody">
 
-              <h4 style="font-size: 24px;font-family: 'euclid bold';margin-bottom: 20px;color: #3e3938;font-weight: bold;">Details</h4>
+              <h4 style="font-size: 24px;margin-bottom: 20px;color: #3e3938;font-weight: bold;">Details</h4>
               <?=$product_data->productdescription?>
 
             </div>
@@ -272,16 +255,18 @@
 
             </div>
           </div>
+
+          <!--end product details-->
+
           <div style="padding-bottom: 2rem; background-color: white;" class="col-md-4 col-sm-12">
             <div class="qwer">
               <div class="rr ">
 
                 <a href="<?=base_url()?>" style="color: #3e3938;; font-size: 11px; font-weight: 600;">HOME</a>&nbsp;&nbsp;<i class="fas fa-greater-than" style="font-size: 11px;"></i>
-                <h3 style="font-size: 40px;font-family: 'questa-grande';text-transform: none;font-weight: 300;line-height: 1.2;color: #3e3938;"><?=$product_data->productname?>
-                  <!-- <br>Hanging Lamp -->
+                <h3 style="font-size: 40px;text-transform: none;font-weight: 300;line-height: 1.2;color: #3e3938;"><?=$product_data->productname?>
                 </h3>
                 <br>
-                <p class="productdetailcontent" style="font-size: 13px;line-height: 1.7;font-weight: 400;text-transform: none;font-family: 'euclid light';color: #3e3938 ;justify-content: center;">specimen book. It has survived not only five
+                <p class="productdetailcontent" style="font-size: 13px;line-height: 1.7;font-weight: 400;text-transform: none;color: #3e3938 ;justify-content: center;">specimen book. It has survived not only five
                   centuries,<br> but also the
                   leap
                   into
@@ -313,7 +298,7 @@
                 <div class="xc">
                   <br>
                   <p>
-                  <pre class="pricesection" style="color: #212529;font-size: 14px;">Price                           <span style="font-family: 'euclid bold';font-size: 14px;color: #212529;font-weight: bold;">Rs.<?=$product_data->mrp?></span></pre>
+                  <pre class="pricesection" style="color: #212529;font-size: 14px;">Price<span style="font-size: 14px;color: #212529;font-weight: bold;">Rs.<?=$product_data->mrp?></span></pre>
                   </p>
                   <br>
                   <div class="container">
@@ -348,29 +333,29 @@
 
                   </div>
                   </span></p> -->
-                  <br>
-                </div>
+                    <br>
+                  </div>
 
 
-                <div class="bbbs" style="display: flex;align-items: center; cursor: pointer;">
-                  <p><b style="font-family: 'euclid bold';font-size: 14px;letter-spacing: 2px;">Quantity</b>
-                    <!-- <button style="border: 1px solid black; border-radius: 5px; width: 10%;">-</button>
+                  <div class="bbbs" style="display: flex;align-items: center; cursor: pointer;">
+                    <p><b style="font-size: 14px;letter-spacing: 2px;">Quantity</b>
+                      <!-- <button style="border: 1px solid black; border-radius: 5px; width: 10%;">-</button>
                 <input type="number" style="border: 1px solid #111; width: 30%; text-align: center; border-radius: 5px;" placeholder="1">
                 <button style="border: 1px solid black; border-radius: 5px; width: 10%;">+</button> -->
-                    <!-- <button id="childMinus" class="btn btn-danger"
+                      <!-- <button id="childMinus" class="btn btn-danger"
                         style="background-color: white; color: black; border: 1px solid black; padding: 0px; width: 10%;">-</button>
                       <input type="number"
                         style="border: 1px solid #111; width: 14%; text-align: center; border-radius: 5px;"
                         name="quant1" id="child" value="0" min="0">
                       <button id="childPlus" class="btn btn-success"
                         style="background-color: white; color: black; border: 1px solid black; padding: 0px; width: 10%;">+</button> -->
-                  <div class="input-group" style="position: relative;width: 100%;justify-content: center;">
-                    <span class="input-group__addon" style="border-right: 0;border-top-left-radius: 20px;border-bottom-left-radius: 20px;">
-                      <div class="input-group__button input-group__button--decrease" id="childMinus" data-bind="click: decreaseQty">
-                        <span class="input-group__icon input-group__icon--decrease" >-</span>
-                      </div>
-                    </span>
-                    <input name="qty" id="child" value="1" min="1" onchange="qty_set()" style="display: inline-block;width: 50px;text-align: center;pointer-events: none;background: #fff;
+                    <div class="input-group" style="position: relative;width: 100%;justify-content: center;">
+                      <span class="input-group__addon" style="border-right: 0;border-top-left-radius: 20px;border-bottom-left-radius: 20px;">
+                        <div class="input-group__button input-group__button--decrease" id="childMinus" data-bind="click: decreaseQty">
+                          <span class="input-group__icon input-group__icon--decrease">-</span>
+                        </div>
+                      </span>
+                      <input name="qty" id="child" value="1" min="1" onchange="qty_set()" style="display: inline-block;width: 50px;text-align: center;pointer-events: none;background: #fff;
                           background-clip: padding-box;
                           border: 1px solid #c2c2c2;
                           border-radius: 1px;
@@ -381,34 +366,33 @@
                           vertical-align: baseline;
                           width: 16%;
                           box-sizing: border-box;">
-                    <span class="input-group__addon" style="border-left: 0;border-top-right-radius: 20px;border-bottom-right-radius: 20px;">
-                      <div class="input-group__button input-group__button--increase" id="childPlus" data-bind="click: increaseQty">
-                        <span class="input-group__icon input-group__icon--increase" >+</span>
-                      </div>
-                    </span>
+                      <span class="input-group__addon" style="border-left: 0;border-top-right-radius: 20px;border-bottom-right-radius: 20px;">
+                        <div class="input-group__button input-group__button--increase" id="childPlus" data-bind="click: increaseQty">
+                          <span class="input-group__icon input-group__icon--increase">+</span>
+                        </div>
+                      </span>
+                    </div>
+
+                    </p>
                   </div>
+                  <br>
+                  <br>
 
-                  </p>
-                </div>
-                <br>
-                <br>
-
-                <div class="row" class="hov_col1">
-                  <?if(empty($this->session->userdata('user_data'))){?>
-                  <div class="col-md-7 rrcs">
-                    <a href="" style="border-radius: 26px;
+                  <div class="row" class="hov_col1">
+                    <?if(empty($this->session->userdata('user_data'))){?>
+                    <div class="col-md-7 rrcs">
+                      <a href="" style="border-radius: 26px;
                       background-color: #e66b47;
                       z-index: 154;
                       transition: .3s all ease-in-out;
                       font-weight: 400;
                       text-transform: uppercase;
                       font-size: 13px;
-                      width: 220px;
+                      width: 64vw;
                       letter-spacing: 2px;line-height: 2.2rem;
-                      padding: 14px 58px;"
-                      onclick="addToCartOffline(this)" id="add_cart" product_id="<?=base64_encode($product_data->id)?>" quantity=1>Add To Cart</a>
-                  </div>
-                  <?}else{?>
+                      padding: 14px 58px;" onclick="addToCartOffline(this)" id="add_cart" product_id="<?=base64_encode($product_data->id)?>" quantity=1>Add To Cart</a>
+                    </div>
+                    <?}else{?>
                     <div class="col-md-7 rrcs">
                       <a href="" style="border-radius: 26px;
                         background-color: #e66b47;
@@ -419,8 +403,7 @@
                         font-size: 13px;
                         width: 220px;
                         letter-spacing: 2px;line-height: 2.2rem;
-                        padding: 14px 58px;"
-                          onclick="addToCartOnline(this)" id="add_cart" product_id="<?=base64_encode($product_data->id)?>" quantity=1>Add To Cart</a>
+                        padding: 14px 58px;" onclick="addToCartOnline(this)" id="add_cart" product_id="<?=base64_encode($product_data->id)?>" quantity=1>Add To Cart</a>
                     </div>
                     <?
                     $user_id = $this->session->userdata('user_id');
@@ -431,18 +414,16 @@
                     $wishdata= $this->db->get()->row();
                     if(empty($wishdata)){
                     ?>
-                  <a href="" style="color:#d76a46"><div class="col-md-5"><i class="fa fa-heart-o heacha" id="heart" style="font-size: 1.5rem;"
-                    onclick="wishlist(this)"
-                    product_id="<?=base64_encode($product_data->id)?>"
-                    user_id="<?=base64_encode($this->session->userdata('user_id'))?>"
-                    status="add"></i></a>
-<?}else{?>
-  <a href="" style="color:#d76a46"><div class="col-md-5"><i class="fa fa-heart heacha" id="heart" style="font-size: 1.5rem;"
-    onclick="wishlist(this)"
-  product_id="<?=base64_encode($product_data->id)?>"
-  user_id="<?=base64_encode($this->session->userdata('user_id'))?>"
-  status="remove"></i></a>
-<?}}?>
+                    <a href="" style="color:#d76a46">
+                      <div class="col-md-5"><i class="fa fa-heart-o heacha" id="heart" style="font-size: 1.5rem;" onclick="wishlist(this)" product_id="<?=base64_encode($product_data->id)?>"
+                          user_id="<?=base64_encode($this->session->userdata('user_id'))?>" status="add"></i>
+                    </a>
+                    <?}else{?>
+                    <a href="" style="color:#d76a46">
+                      <div class="col-md-5"><i class="fa fa-heart heacha" id="heart" style="font-size: 1.5rem;" onclick="wishlist(this)" product_id="<?=base64_encode($product_data->id)?>"
+                          user_id="<?=base64_encode($this->session->userdata('user_id'))?>" status="remove"></i>
+                    </a>
+                    <?}}?>
                     <!-- <span class="dropdown">
                         <button class="btn btn-default dropdown-toggle btcha" type="button" id="menu1"
                           data-toggle="dropdown"><i class="bi bi-share"></i>
@@ -464,13 +445,9 @@
 
 
                   </div>
-
                 </div>
-
-
               </div>
             </div>
-
           </div>
         </div>
       </div>
@@ -479,7 +456,7 @@
 
     <!-- end this section -->
 
-<!---Start you may like------>
+    <!---Start you may like------>
 
     <section class="new_lunc overflow-hidden bg-white">
       <div class="container-fluid bg-white">
@@ -494,17 +471,17 @@
             <!-- Swiper -->
 
             <div class="swiper-wrapper autoplay bg-white">
-<?php $i=1; foreach($like_data->result() as $like) { ?>
-  <a href="<?=base_url()?>Home/product_details/<?=base64_encode($like->id)?>" style="color:unset">
-              <div class="swiper-slide" style="padding: 15px;">
+              <?php $i=1; foreach($like_data->result() as $like) { ?>
+              <a href="<?=base_url()?>Home/product_details/<?=base64_encode($like->id)?>" style="color:unset">
+                <div class="swiper-slide" style="padding: 15px;">
                   <img src="<?=base_url().$like->image?>" alt="">
-                <div class="my-3">
-                  <h6><?=$like->productname?></h6> <span style="font-weight: bold; font-size: 12px;">Starts At
-                    ₹<?=$like->mrp?></span>
+                  <div class="my-3">
+                    <h6><?=$like->productname?></h6> <span style="font-weight: bold; font-size: 12px;">Starts At
+                      ₹<?=$like->mrp?></span>
+                  </div>
                 </div>
-              </div>
-            </a>
-<?php $i++; } ?>
+              </a>
+              <?php $i++; } ?>
 
             </div>
           </div>
@@ -515,16 +492,15 @@
       </div>
     </section>
 
-<!---end you may like-->
+    <!---end you may like-->
 
-<!---Start more from collection-->
+    <!---Start more from collection-->
 
     <section class="new_lunc overflow-hidden bg-white">
       <div class="container-fluid bg-white">
         <div class="row bg-white">
           <div class="col-md-12 bg-white">
-            <h2
-              style="font-size: 28px; margin-left: 36px; font-weight: 300; color: #4e4e4e;">
+            <h2 style="font-size: 28px; margin-left: 36px; font-weight: 300; color: #4e4e4e;">
               More from collection</h2>
           </div>
         </div>
@@ -532,7 +508,7 @@
           <div class="col-md-12 bg-white">
             <div class="swiper-wrapper autoplay">
 
-<?php $i=1; foreach($more_data->result() as $more) {
+              <?php $i=1; foreach($more_data->result() as $more) {
   $a=0;
   $cat = json_decode($more->category);
   $pro_cat = json_decode($product_data->category);
@@ -546,58 +522,56 @@
   if($a==1){
   ?>
               <div class="swiper-slide" style="padding: 15px;">
-                  <img
-                    src="<?=base_url().$more->image?>"
-                    alt="">
+                <img src="<?=base_url().$more->image?>" alt="">
                 <div class="my-3">
                   <h6><?=$more->productname?></h6> <span style="font-weight: bold; font-size: 12px;">Starts At
                     ₹<?=$more->mrp?></span>
                 </div>
               </div>
-<?php $i++; }} ?>
+              <?php $i++; }} ?>
 
             </div>
           </div>
           <!-- <div class="swiper-button-next"></div>
                   <div class="swiper-button-prev"></div>
                   <div class="swiper-pagination"></div> -->
+        </div>
+      </div>
+    </section>
   </div>
-</div>
-</section>
-</div>
 
-<!--end more from collection-->
+  <!--end more from collection-->
 
-<!-- start Testimonials -->
+  <!-- start Testimonials -->
 
-<section class="bg-white">
-  <div class="container bg-white">
-    <div class="w100 bg-white" style="text-align: center; margin-bottom: -80px;">
-      <h2>What Our Customers Have to Say</h2>
+  <section class="bg-white">
+    <div class="container bg-white">
+      <div class="w100 bg-white" style="text-align: center; margin-bottom: -80px;">
+        <h2>What Our Customers Have to Say</h2>
+      </div>
     </div>
-  </div>
-  <div class="items bg-white">
-    <? foreach($data_testimonal->result() as $testimonals){
+    <div class="items bg-white">
+      <? foreach($data_testimonal->result() as $testimonals){
   $break_string=chunk_split($testimonals->message,39,"<br>");
       ?>
-    <div class="col-md-12 bg-white">
-      <img src="<?=base_url().$testimonals->image;?>" class="img-fluid center" style="width:50%; display:block;margin-left:auto;margin-right: auto"/>
-      <div class="dfg col-md-2"><i class="fa fa-quote-left" style="font-size:25px;"></i></div>
-      <div class="dfg" style="width: auto;">
-        <p style="text-align: center; font-size:14px;"><?=$break_string; ?></p>
+      <div class="col-md-12 bg-white">
+        <img src="<?=base_url().$testimonals->image;?>" class="img-fluid center" style="width:50%; display:block;margin-left:auto;margin-right: auto" />
+        <div class="dfg col-md-2"><i class="fa fa-quote-left" style="font-size:25px;"></i></div>
+        <div class="dfg" style="width: auto;">
+          <p style="text-align: center; font-size:14px;"><?=$break_string; ?></p>
+        </div>
+        <div class="col-md-10 bg-white">
+          <p style="text-align: right; font-size:14px;"><b><?=$testimonals->name?></b></p>
+          <div class="col-md-2 ii bg-white" style="margin-left: 273px;"><i class="fa fa-quote-right" style="font-size:25px;"></i></div>
+        </div>
       </div>
-      <div class="col-md-10 bg-white">
-        <p style="text-align: right; font-size:14px;"><b><?=$testimonals->name?></b></p>
-        <div class="col-md-2 ii bg-white" style="margin-left: 273px;"><i class="fa fa-quote-right" style="font-size:25px;"></i></div>
-      </div>
+      <? } ?>
     </div>
-    <? } ?>
-  </div>
-</section>
+  </section>
 
 
 
-<!-- End testimonals  -->
+  <!-- End testimonals  -->
 
 </div>
 <script src="<?=base_url()?>assets/frontend/assets/js/productdetail.js"></script>
@@ -613,28 +587,21 @@
     }
   })
   $("#childPlus").click(function(event) {
-      var maxLength = parseInt($("#child").attr("max"));
-      let result = parseInt($("#child").val()) + 1;
-      if (result > maxLength) {
-        alert("Max child limit is: " + maxLength);
-        event.preventDefault();
-        return false;
-      } else {
-        $("#child").val(result);
-        document.getElementById("add_cart").setAttribute("quantity", result);
-      }
-    })
-    // (function() {
-    //   const heart = document.getElementById('heart');
-    //   heart.addEventListener('click', function() {
-    //     heart.classList.toggle('red');
-    //   });
-    // })();
-</script>
-<script>
-function qty_set(){
-  alert("hi");
-  var qty = document.getElementsByName('qty').value()
-  alert(qty)
-}
+    var maxLength = parseInt($("#child").attr("max"));
+    let result = parseInt($("#child").val()) + 1;
+    if (result > maxLength) {
+      alert("Max child limit is: " + maxLength);
+      event.preventDefault();
+      return false;
+    } else {
+      $("#child").val(result);
+      document.getElementById("add_cart").setAttribute("quantity", result);
+    }
+  })
+  // (function() {
+  //   const heart = document.getElementById('heart');
+  //   heart.addEventListener('click', function() {
+  //     heart.classList.toggle('red');
+  //   });
+  // })();
 </script>
