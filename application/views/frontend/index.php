@@ -67,7 +67,7 @@
 <section class="new_lunc overflow-hidden">
   <div class="container-fluid">
     <br>
-    <h2 class="text-center py-5" style="margin-bottom: -32px; font-family: 'Playfair Display', serif;">New Launches
+    <h2 class="text-center py-5" style="margin-bottom: -32px;">New Launches
     </h2>
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <?php $i=0; foreach($launch_sub_data->result() as $sub) { ?>
@@ -88,12 +88,14 @@
 
          ?>
       <div class="tab-pane fade <?if($i==0){echo "show active";}?>" id="home_<?=$sub2->id?>" role="tabpanel" aria-labelledby="home_tab_<?=$sub2->id?>">
-        <div class="your-class">
+      <div class="your-class">
           <?php  foreach($new_launch_data->result() as $n_launch) { ?>
+          <a href="<?=base_url()?>Home/product_details/<?=base64_encode($n_launch->id)?>" style="color:unset">
           <div style="padding:15px">
             <img src="<?=base_url().$n_launch->image?>" alt="">
               <h6><?=$n_launch->productname?></h6> <span style="font-weight: bold; font-size: 12px;"> Rs.<?=$n_launch->mrp?></span>
           </div>
+        </a>
           <?}?>
         </div>
       </div>
@@ -110,7 +112,7 @@
 
 <section class="get_look overflow-hidden">
   <div class="container-fluid">
-    <h2 class="text-center py-5" style="font-family: 'Playfair Display', serif; font-size: 50px;"><?=$banner_images->imagename?></h2>
+    <h2 class="text-center py-5"><?=$banner_images->imagename?></h2>
     <div class="row">
       <div class="col-md-12">
         <div>
@@ -129,7 +131,7 @@
 
 <section class="new_lunc overflow-hidden">
   <div class="container-fluid">
-    <h2 class="text-center py-5" style="font-family: 'Playfair Display', serif; font-size: 45px; margin-bottom: -40px;">Best Sellers</h2>
+    <h2 class="text-center py-5" style="margin-bottom: -40px;">Best Sellers</h2>
     <div class="row">
       <div class="col-md-12">
         <!-- Swiper -->
@@ -166,7 +168,7 @@
 
 <section class="new_lunc overflow-hidden t_slider">
   <div class="container-fluid">
-    <h2 class="text-center py-5" style="font-family: 'Playfair Display', serif;"><?=$image_two->heading_first;?></h2>
+    <h2 class="text-center py-5"><?=$image_two->heading_first;?></h2>
     <div class="row">
       <div class="col-md-12">
         <!-- Swiper -->
@@ -205,18 +207,18 @@
 <!--Start Promise-->
 
 <section class="promis overflow-hidden">
-  <h2 class="text-center py-5" style="color: gray; font-size: 39px; font-family: 'Montserrat', sans-serif; font-weight: bolder;">The Orange Tree
+  <h2 class="text-center py-5" style="color: gray;font-weight: bolder;">The Orange Tree
     Promise</h2>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-3 col-12" style="font-family: 'Playfair Display', serif;">
+      <div class="col-md-3 col-12">
         <ul>
           <li>
             <div class="img_1"><img src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/furniture/icn01.jpg" alt="" style="width: 80%;"></div>
-            <h2 style="text-align: center; font-family: 'Playfair Display', serif; letter-spacing: 2px; font-size: 22px; font-style: italic;">
+            <h2 style="text-align: center;letter-spacing: 2px; font-size: 22px; font-style: italic;">
               Crafted in <br>India</h2>
             <br>
-            <p style="font-family: 'M PLUS Code Latin', sans-serif; text-align:center; color: #3e3938; line-height: 31px;;">
+            <p style="text-align:center; color: #3e3938; line-height: 31px;;">
               Handmade in India for global market, patronising craft, providing livelihood with focus on
               sustainability and environment.</p>
           </li>
@@ -226,10 +228,10 @@
         <ul>
           <li>
             <div class="img_1"><img src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/furniture/icn02.jpg" alt="" style="width: 80%;"></div>
-            <h2 style="text-align: center; font-family: 'Playfair Display', serif; letter-spacing: 2px; font-size: 22px; font-style: italic;">
+            <h2 style="text-align: center;letter-spacing: 2px; font-size: 22px; font-style: italic;">
               Sustainable<br>Materials</h2>
             <br>
-            <p style="font-family: 'M PLUS Code Latin', sans-serif; text-align:center; color: #3e3938; line-height: 31px;;">
+            <p style="text-align:center; color: #3e3938; line-height: 31px;;">
               Handmade in India for global market, patronising craft, providing livelihood with focus on
               sustainability and environment.</p>
           </li>
@@ -240,10 +242,10 @@
 
           <li>
             <div class="img_1"><img src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/furniture/icn03.jpg" alt="" style="width: 80%;"></div>
-            <h2 style="text-align: center; font-family: 'Playfair Display', serif; letter-spacing: 2px; font-size: 22px; font-style: italic;">
+            <h2 style="text-align: center;letter-spacing: 2px; font-size: 22px; font-style: italic;">
               Contemporary <br>Urbanised Design</h2>
             <br>
-            <p style="font-family: 'M PLUS Code Latin', sans-serif; text-align:center; color: #3e3938; line-height: 31px;;">
+            <p style="text-align:center; color: #3e3938; line-height: 31px;;">
               Handmade in India for global market, patronising craft, providing livelihood with focus on
               sustainability and environment.</p>
           </li>
@@ -254,10 +256,10 @@
 
           <li>
             <div class="img_1"><img src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/furniture/icn04.jpg" alt="" style="width: 80%;"></div>
-            <h2 style="text-align: center; font-family: 'Playfair Display', serif; letter-spacing: 2px; font-size: 22px; font-style: italic;">
+            <h2 style="text-align: center;letter-spacing: 2px; font-size: 22px; font-style: italic;">
               Legacy of <br>22 Years</h2>
             <br>
-            <p style="font-family: 'M PLUS Code Latin', sans-serif; text-align:center; color: #3e3938; line-height: 31px;;">
+            <p style="text-align:center; color: #3e3938; line-height: 31px;;">
               Handmade in India for global market, patronising craft, providing livelihood with focus on
               sustainability and environment.</p>
           </li>
@@ -290,7 +292,7 @@
 <section>
   <div class="container">
     <div class="w100" style="text-align: center; margin-bottom: -80px;">
-      <h2 style="font-size: 35px; font-family: 'Montagu Slab', serif;">What Our Customers Have to Say</h2>
+      <h2>What Our Customers Have to Say</h2>
     </div>
   </div>
   <div class="items">

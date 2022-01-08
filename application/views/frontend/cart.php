@@ -12,7 +12,7 @@ border: none;
 width:100%;
 }
 .chk:hover{
-  background: #d76a46;
+  background: black;
   color: white;
 }
 </style>

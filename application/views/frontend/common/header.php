@@ -34,27 +34,36 @@
   <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/frontend/assets/css/animate.css">
 
   <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/frontend/assets/css/bootstrap.css">
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
   <!-- <script src="<?=base_url()?>assets/frontend/assets/js/bootstrap.js"></script> -->
   <script src="<?=base_url()?>assets/frontend/assets/js/bootstrap-notify.min.js"></script>
   <script>
-  window.addEventListener("pageshow", function(event) {
-     var historyTraversal = event.persisted ||
+    window.addEventListener("pageshow", function(event) {
+      var historyTraversal = event.persisted ||
         (typeof window.performance != "undefined" &&
-           window.performance.navigation.type === 2);
-     if (historyTraversal) {
+          window.performance.navigation.type === 2);
+      if (historyTraversal) {
         // Handle page restore.
         window.location.reload();
-     }
-  });
+      }
+    });
   </script>
   <style>
     body {
-      font-family: Brandon Text!important;
+      font-family: Brandon Text !important;
       scroll-behavior: smooth;
     }
 
-
+    .news{
+      background: #d76a46;
+      color: white;
+      border: none;
+      width:10%;
+    }
+    .news:hover{
+      background: black;
+      color: white;
+    }
     /* The Modal (background) */
 
     .modal1 {
@@ -566,7 +575,7 @@
     /* new style add  */
 
     * {
-      font-family: Brandon Text!importants;
+      font-family: Brandon Text !importants;
     }
 
     *h2 {
@@ -1066,7 +1075,7 @@
       transition: 0.5s;
       /* 0.5 second transition effect to slide in the sidenav */
       overflow-y: scroll;
-  -webkit-overflow-scrolling:touch; // mobile safari
+      -webkit-overflow-scrolling: touch; // mobile safari
     }
 
     /* The navigation menu links */
@@ -1209,10 +1218,10 @@
       transform: rotate(0deg);
     }
 
-    .count{
+    .count {
       color: #fff;
-    text-align: center;
-    line-height: 9px;
+      text-align: center;
+      line-height: 9px;
       font-size: 13px;
       background: #d76a46;
       border-radius: 50%;
@@ -1221,10 +1230,35 @@
       margin-left: 9px;
       margin-top: 4px;
     }
-    @media(max-width:780px){
-      .hide{
-        display:none;
+
+    @media(max-width:780px) {
+      .hide {
+        display: none;
       }
+    }
+
+    .sl {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+
+    }
+
+    li input.search_inp {
+      max-width: 9rem;
+      right: 18rem;
+      top: 5px;
+      transition: max-width 400ms linear;
+    }
+
+    .sb {
+      position: relative;
+
+    }
+
+    .sb:hover li input.search_inp {
+      max-width: 9rem;
     }
   </style>
 </head>
@@ -1245,16 +1279,20 @@ $category_data= $this->db->get();
      ?>
               <li>
                 <a class="headerlinks" href="<?=base_url()?>Home/all_Product/<?=base64_encode($data->id)?>/<?=base64_encode(1)?>"><?=$data->categoryname?></a>
+                <?
+                $this->db->select('*');
+                $this->db->from('tbl_subcategory');
+                $this->db->where('category_id', $data->id);
+                $subdata= $this->db->get();
+                $subcheck=$subdata->row();
+                if(!empty($subcheck)){
+                ?>
                 <div class="mega-box">
                   <div class="content">
                     <div class="d-flex">
                       <ul class="mega-links d-flex flex-column">
                         <?php
-     $this->db->select('*');
-     $this->db->from('tbl_subcategory');
-     $this->db->where('category_id', $data->id);
-     $subdata= $this->db->get();
-     $subcheck=$subdata->row();
+
      foreach ($subdata->result() as $sub) {
          ?>
                         <li><a href="<?=base_url()?>Home/all_Product/<?=base64_encode($sub->id)?>/<?=base64_encode(2)?>"><?php echo $sub->subcategory ?></a></li>
@@ -1272,6 +1310,7 @@ $category_data= $this->db->get();
                     </div>
                   </div>
                 </div>
+                <?}?>
               </li>
               <?php
  } ?>
@@ -1284,7 +1323,9 @@ $category_data= $this->db->get();
           </div>
         </div>
         <div class="col-md-4 col-xs-6 menu">
-          <ul style="margin-right: 30px; margin-left: -2px; margin-top:14px">
+          <ul style="margin-right: 12px;
+    margin-left: 101px;
+    margin-top: 14px;">
             <li>
               <div id="mySidenav" class="sidenav">
                 <div class="w-100 center mb-2">
@@ -1321,7 +1362,7 @@ $category_data= $this->db->get();
                         </ul>
                         <div class="mt-2 w-100 center">
                           <img src="<?=base_url().$data->image?>" style="padding:10px;width:250px;height:250px" class="img-fluid" />
-                          <img src="<?=base_url().$data->image2?>" style="padding:10px;width:250px;height:250px" class="img-fluid"/>
+                          <img src="<?=base_url().$data->image2?>" style="padding:10px;width:250px;height:250px" class="img-fluid" />
                         </div>
 
                       </div>
@@ -1336,9 +1377,9 @@ $category_data= $this->db->get();
                         Login/Resigter
                       </li>
                       <?} else {?>
-                        <li>
-                          Logout
-                        </li>
+                      <li>
+                        Logout
+                      </li>
                       <?}?>
                     </ul>
                   </div>
@@ -1350,8 +1391,25 @@ $category_data= $this->db->get();
                 </span>
               </ul>
             </li>
-            <li class="hide"><i class="fa fa-search btn_change_change" aria-hidden="true"></i></li>
-            <li class="hide"><a href="#" style="color:unset;"><i class="fa fa-heart btn_change_change " aria-hidden="true"></i></a></li>
+            <li class="hide sl">
+              <i class="fa fa-search btn_change_change sb" aria-hidden="true"></i>
+              <!-- <input type="text" name="search" class="search_inp" /> -->
+            </li>
+            <?if (!empty($this->session->userdata('user_data'))) {
+              $user_id = $this->session->userdata('user_id');
+                          $this->db->select('*');
+              $this->db->from('tbl_wishlist');
+              $this->db->where('user_id',$user_id);
+              $wish_count= $this->db->count_all_results();
+              ?>
+            <li class="hide"><a href="<?=base_url()?>Home/view_wishlist/<?=base64_encode($this->session->userdata('user_id'))?>" style="color:unset;"><span class="count">
+                  <?if (!empty($wish_count)) {
+                echo $wish_count;
+            }else{
+              echo 0;
+            }?>
+                </span><i class="fa fa-heart btn_change_change " aria-hidden="true"></i></a></li>
+            <?}?>
             <div id="mySidebar" class="sidebar">
               <a href="javascript:void(0)" class="closebtn" id="account_open_close" onclick="closeNav2()">×</a>
               <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -1366,7 +1424,7 @@ $category_data= $this->db->get();
             <div id="main" class="ch234 hide">
               <?if (!empty($this->session->userdata('user_data'))) {?>
               <i class="fa fa-user openbtn btn_change_change media_q_change2" aria-hidden="true" id="account_open_close" onclick="openNav2()"></i>
-          <!-- <p style="font-size:13px;">
+              <!-- <p style="font-size:13px;">
             <?=$this->session->userdata('user_name')?>
           </p> -->
               <?} else {?>
@@ -1395,18 +1453,18 @@ $category_data= $this->db->get();
             }
               ?>
             <li class="hide"><a href="<?=base_url()?>Home/view_cart" style="color: unset;"><span class="count">
-                <?if (!empty($count)) {
+                  <?if (!empty($count)) {
                 echo $count;
             }else{
               echo 0;
             }?>
-          </span><i class="fa fa-shopping-bag NONE1 btn_change_change" aria-hidden="true"></i>
+                </span><i class="fa fa-shopping-bag NONE1 btn_change_change" aria-hidden="true"></i>
               </a></li>
-<?if(!empty($this->session->userdata('user_data'))){
+            <?if(!empty($this->session->userdata('user_data'))){
   $user_id = $this->session->userdata('user_id');
   ?>
             <li class="media_q_change1 hide"><a href="<?=base_url()?>Home/my_orders/<?=base64_encode($user_id)?>" style="color: unset;"><i class='fa fa-truck btn_change_change' style='font-size: 19px'></i></a></li>
-<?}?>
+            <?}?>
           </ul>
         </div>
       </div>
@@ -1432,8 +1490,7 @@ $category_data= $this->db->get();
     font-size: 18px;
     color: #000;
     text-transform: uppercase;
-    margin-bottom: 20px;
-    font-family: 'Miller Display';font-weight: 400;">
+    margin-bottom: 20px;font-weight: 400;">
             SIGN UP TO CONTINUE
           </div>
           <div class="row g-3 justify-content-center" style="margin-bottom:40px;">
@@ -1445,8 +1502,7 @@ $category_data= $this->db->get();
     font-weight: 400;
     border: 0;
     padding: 8px 15px;
-    background: #fff;
-    font-family: 'euclid light';"><img class="social" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/facebook.svg" alt="social"> Sign In With Facebook</button>
+    background: #fff;"><img class="social" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/facebook.svg" alt="social"> Sign In With Facebook</button>
             </div>
             <div class="col-md-4 respns2">
               <button class="btn1" style="    text-transform: None;
@@ -1457,7 +1513,7 @@ $category_data= $this->db->get();
     border: 0;
     padding: 8px 15px;
     background: #fff;
-    font-family: 'euclid light';"><img class="social1" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/google.svg" alt="social"> Sign In With Google
+  "><img class="social1" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/google.svg" alt="social"> Sign In With Google
 
               </button>
             </div>
@@ -1476,7 +1532,7 @@ $category_data= $this->db->get();
     border-radius: 10px;">
           <div class="badge  text-black text-wrap textres1 textmar" style="display:flex;justify-content:center;    text-align: center;
     font-size: 14px;
-    margin-bottom: 15px;font-weight:unset;font-family:'euclid light';font-weight:400;    line-height: 2;color:rgba(0,0,0,0);">
+    margin-bottom: 15px;font-weight:unset;font-weight:400;    line-height: 2;color:rgba(0,0,0,0);">
             Creating an account has many benefits: check out faster, keep more than one address, track orders and more.
           </div>
           <div>
@@ -1497,7 +1553,7 @@ $category_data= $this->db->get();
                   <input type="text" class="form-control formset" placeholder="email" aria-label="Email" name="email">
                 </div>
                 <div class="col-sm-6">
-                  <input type="text" class="form-control formset" placeholder="phonumber" aria-label="Phone nnuber" name="phone">
+                  <input type="text" class="form-control formset" placeholder="phonumber" aria-label="Phone nnuber" name="phone" maxlength="10" minlength="10" onkeypress="return isNumberKey(event)">
                 </div>
 
               </div>
@@ -1510,29 +1566,29 @@ $category_data= $this->db->get();
                 </div>
               </div>
               <div>
-                <button class="button btnres" type="submit" style="font-family: 'euclid light';    font-size: 14px;
+                <button class="button btnres" type="submit" style="font-size: 14px;
     text-transform: uppercase;
     font-weight: 400;
     letter-spacing: 2px;">CREATE AN ACCOUNT</button>
               </div>
             </div>
-            <div class="badge  text-black text-wrap textresp" style="    color: #000;
+            <div class="badge  text-black text-wrap textresp" style="color: #000;
     padding: 0 5px;
     text-transform: none;
     font-size: 12px;
     letter-spacing: 0;
-    margin-top: 20px;font-family: 'euclid light';
+    margin-top: 20px;
     display: flex;
     justify-content: center;" id="pop_myBtn">
               <span style="    color: #000;
     padding: 0 5px;
     text-transform: none;
     font-size: 12px;
-    letter-spacing: 0;    font-family: 'euclid light';font-weight:400;"> Already have an Account</span> <span style="    text-align: center;
+    letter-spacing: 0;"> Already have an Account</span> <span style="    text-align: center;
     font-size: 12px;
     text-transform: capitalize;
     letter-spacing: 1px;
-    color: #000;     font-family: 'euclid light';font-weight:400;">? Sign In</span>
+    color: #000;font-weight:400;">? Sign In</span>
             </div>
           </form>
 
@@ -1565,7 +1621,7 @@ $category_data= $this->db->get();
     color: #000;
     text-transform: uppercase;
     margin: 20px 0;
-    font-family: 'Miller Display';    font-weight: 400;">
+  font-weight: 400;">
             SIGN IN TO CONTINUE
           </div>
           <div class="row g-3 justify-content-center">
@@ -1579,7 +1635,7 @@ $category_data= $this->db->get();
     border: 0;
     padding: 8px 15px;
     background: #fff;
-    font-family: 'euclid light';"><img class="social" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/facebook.svg" alt="social"> Sign In With Facebook</button>
+    "><img class="social" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/facebook.svg" alt="social"> Sign In With Facebook</button>
             </div>
             <div class="col-md-4 respns2">
               <button class="btn1" style="border:0px;border-radius:3px;    text-transform: None;
@@ -1590,7 +1646,7 @@ $category_data= $this->db->get();
     border: 0;
     padding: 8px 15px;
     background: #fff;
-    font-family: 'euclid light';"><img class="social1" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/google.svg" alt="social"> Sign In With Google
+    "><img class="social1" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/google.svg" alt="social"> Sign In With Google
 
               </button>
             </div>
@@ -1603,7 +1659,7 @@ $category_data= $this->db->get();
           <div class="badge  text-black text-wrap textres1 textmar" style="display:flex;justify-content:center;margin-bottom: 30px;
     font-size: 12px;
     text-align: center;
-        font-family: 'euclid light';    font-weight: 400;
+       font-weight: 400;
     font-size: 12px;">
             Sign in with your email address.
           </div>
@@ -1751,5 +1807,14 @@ $category_data= $this->db->get();
       } else {
         x.style.display = "none";
       }
+    }
+  </script>
+
+  <script>
+    function isNumberKey(evt) {
+      var charCode = (evt.which) ? evt.which : evt.keyCode
+      if (charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+      return true;
     }
   </script>

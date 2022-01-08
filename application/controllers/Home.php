@@ -71,9 +71,6 @@ class Home extends CI_Controller
         $id2=base64_decode($t);
         $data["t"] = $t;
 
-
-        // echo $id;
-        // exit;
         $this->db->select('*');
         $this->db->from('tbl_products');
         if ($id2==1) {
@@ -94,11 +91,14 @@ class Home extends CI_Controller
 
     //------product details-------------
 
-    public function product_details()
+    public function product_details($idd)
     {
+        $id=base64_decode($idd);
+        $data['id']=$idd;
+
         $this->db->select('*');
         $this->db->from('tbl_products');
-        $this->db->where('id', 4);
+        $this->db->where('id', $id);
         $data['product_data']= $this->db->get()->row();
 
         $this->load->view('frontend/common/header', $data);
@@ -262,6 +262,28 @@ class Home extends CI_Controller
             $respone['data'] = false;
             $respone['data_message'] ='Please insert some data, No data available';
             echo json_encode($respone);
+        }
+    }
+
+    //-------view wishlist------------
+    public function view_wishlist($idd)
+    {
+        if (!empty($this->session->userdata('user_data'))) {
+            $id=base64_decode($idd);
+            $data['id']=$idd;
+
+            $this->db->select('*');
+            $this->db->from('tbl_wishlist');
+            $this->db->where('user_id', $id);
+            $data['wishlist_data']= $this->db->get();
+            // $wishlist_data= $this->db->get();
+            // print_r($wishlist_data->result());
+            // exit;
+            $this->load->view('frontend/common/header', $data);
+            $this->load->view('frontend/my_wishlist');
+            $this->load->view('frontend/common/footer');
+        } else {
+            redirect("Home/Index", "refresh");
         }
     }
 

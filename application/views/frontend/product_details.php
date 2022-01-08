@@ -57,6 +57,7 @@
   line-height: 1;
 }
 </style>
+<br />
 <div class="product media position-fixed" style="top: 0;z-index: 0;"> <a id="gallery-prev-area" tabindex="-1"></a>
     <div class="action-skip-wrapper"> <a class="action skip gallery-next-area" href="#gallery-next-area"><span> Skip to
           the end of the images gallery</span></a></div>
@@ -223,23 +224,23 @@
             <!-- <hr> -->
 
                     <p><button id="Button1" class="roundBtns" onclick="togglediv('NamesTable')" type="button"
-                        style="font-size: 14px;color:#000;padding: 12px 0;"> Details </button></p>
+                        style="font-size: 14px;color:#000;padding: 12px 0;background: none;"> Details </button></p>
                     <!-- <hr> -->
 
                     <p><button id="Button2" class="roundBtns" onclick="togglediv('PhoneTable')" type="button"
-                        style="font-size: 14px;font-family: euclid light;padding: 12px 0;font-weight: 200;"> Care Instruction </button></p>
+                        style="font-size: 14px;font-family: euclid light;padding: 12px 0;font-weight: 200;background: none;"> Care Instruction </button></p>
                     <!-- <hr> -->
 
                     <p><button id="Button3" class="roundBtns" onclick="togglediv('AddressTable')" type="button"
-                        style="font-size: 14px;font-family: euclid light;padding: 12px 0;font-weight: 200;"> Shipping & Return</button></p>
+                        style="font-size: 14px;font-family: euclid light;padding: 12px 0;font-weight: 200;background: none;"> Shipping & Return</button></p>
                     <!-- <hr> -->
 
                     <p><button id="Button4" class="roundBtns" onclick="togglediv('GradesTable')" type="button"
-                        style="font-size: 14px;font-family: euclid light;padding: 12px 0;font-weight: 200;"> Warranty</button></p>
+                        style="font-size: 14px;font-family: euclid light;padding: 12px 0;font-weight: 200;background: none;"> Warranty</button></p>
                     <!-- <hr> -->
 
                     <p><button id="Button5" class="roundBtns" onclick="togglediv('SchoolTable')" type="button"
-                        style="font-size: 14px;font-family: euclid light;padding: 12px 0;font-weight: 200;"> Features </button></p>
+                        style="font-size: 14px;font-family: euclid light;padding: 12px 0;font-weight: 200;background: none;"> Features </button></p>
                     <!-- <hr> -->
 
                   </div>
@@ -836,26 +837,6 @@
           </div>
         </div>
       </div>
-
-    </div>
-  </section>
-  <section class="bg-white">
-    <div class="center pt-3 bg-white" style="position: relative; background-color: white;">
-      <div class="mjyt bg-white">
-
-        <h2 style="font-size: 33px; font-weight: 400; color: #4d3535; font-family: 'Playfair Display', serif;">
-          Sign
-          up for Our newsletter</h2>
-        <br>
-        <p>Enter your email to stay in the loop on new collection,upcoming events,and more.</p>
-
-        <input type="text" name="E-mail" placeholder="Email Id" style="background-color: white;">
-
-
-      </div>
-
-      <div class="lkjj" style="color: #611d1d; font-weight: 600;"><a href="#"
-          style="text-decoration: none; color: #611d1d;">SUBMIT</a></div>
 
     </div>
   </section>

@@ -437,4 +437,101 @@ class Cart extends CI_Controller
             echo json_encode($respone);
         }
     }
+
+    //--------wishlist---------
+    public function wishlist()
+    {
+        $this->load->helper(array('form', 'url'));
+        $this->load->library('form_validation');
+        $this->load->helper('security');
+        if ($this->input->post()) {
+            $this->form_validation->set_rules('product_id', 'product_id', 'required|xss_clean|trim');
+            $this->form_validation->set_rules('user_id', 'user_id', 'required|xss_clean|trim');
+            $this->form_validation->set_rules('status', 'status', 'required|xss_clean|trim');
+
+
+            if ($this->form_validation->run()== true) {
+                $product_id=base64_decode($this->input->post('product_id'));
+                $user_id=base64_decode($this->input->post('user_id'));
+                $status=$this->input->post('status');
+                $ip = $this->input->ip_address();
+                date_default_timezone_set("Asia/Calcutta");
+                $cur_date=date("Y-m-d H:i:s");
+                $this->db->select('*');
+                $this->db->from('tbl_wishlist');
+                $this->db->where('user_id', $user_id);
+                $this->db->where('product_id', $product_id);
+                $wishcheck= $this->db->get()->row();
+
+                //----------add to wishlist----
+                if ($status=="add") {
+                    if (empty($wishcheck)) {
+                        $data_insert = array('user_id'=>$user_id,
+          'product_id'=>$product_id,
+          'ip' =>$ip,
+          'date'=>$cur_date
+          );
+
+                        $last_id=$this->base_model->insert_table("tbl_wishlist", $data_insert, 1) ;
+
+                        if (!empty($last_id)) {
+                            $respone['data'] = true;
+                            $respone['data_message'] ='Item successfully added in your wishlist';
+                            echo json_encode($respone);
+                        } else {
+                            $respone['data'] = false;
+                            $respone['data_message'] ='Some error occured';
+                            echo json_encode($respone);
+                        }
+                    } else {
+                        $respone['data'] = false;
+                        $respone['data_message'] ='Already in your wishlist';
+                        echo json_encode($respone);
+                    }
+                }
+                //---------remove wishlist---------
+                elseif ($status=="remove") {
+                    $delete=$this->db->delete('tbl_wishlist', array('user_id' => $user_id,'product_id'=>$product_id));
+                    if (!empty($delete)) {
+                        $respone['data'] = true;
+                        $respone['data_message'] ='Item successfully deleted from your wishlist';
+                        echo json_encode($respone);
+                    } else {
+                        $respone['data'] = false;
+                        $respone['data_message'] ='Some error occured';
+                        echo json_encode($respone);
+                    }
+                }
+                //---------move to cart--------
+                elseif ($status=="move") {
+                    $cart_insert = array('user_id'=>$wishcheck->user_id,
+                          'product_id'=>$wishcheck->product_id,
+                          'quantity'=>1,
+                          'ip' =>$ip,
+                          'date'=>$cur_date
+                          );
+
+                    $cart_id=$this->base_model->insert_table("tbl_cart", $cart_insert, 1) ;
+                    if (!empty($cart_id)) {
+                        $delete=$this->db->delete('tbl_wishlist', array('user_id' => $user_id,'product_id'=>$product_id));
+                        $respone['data'] = true;
+                        $respone['data_message'] ='Item successfully added in your cart';
+                        echo json_encode($respone);
+                    } else {
+                        $respone['data'] = false;
+                        $respone['data_message'] ='Some error occured';
+                        echo json_encode($respone);
+                    }
+                }
+            } else {
+                $respone['data'] = false;
+                $respone['data_message'] =validation_errors();
+                echo json_encode($respone);
+            }
+        } else {
+            $respone['data'] = false;
+            $respone['data_message'] ="Please insert some data, No data available";
+            echo json_encode($respone);
+        }
+    }
 }

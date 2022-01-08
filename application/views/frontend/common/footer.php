@@ -19,7 +19,7 @@
           </div>
           <br>
           <div style="text-align: center;">
-            <button type="submit">Submit</button>
+            <button type="submit" class="news">Submit</button>
         </form>
         <br>
         <br>
@@ -224,6 +224,7 @@ function loadSuccessNotify(succ_message){
 
     }
 
+//-----------add to cart offline-----
 
   function addToCartOffline(obj){
 
@@ -313,6 +314,9 @@ function loadSuccessNotify(succ_message){
        });
 
   }
+
+///-----------add to cart online-----------
+
   function addToCartOnline(obj){
 
     var product_id = $(obj).attr("product_id");
@@ -396,12 +400,109 @@ function loadSuccessNotify(succ_message){
                            '</div>'
                        });
                        window.setTimeout(function(){location.reload()},2000)
-                       
+
        }
      }
        });
 
   }
+
+//---------------wishlist----------
+function wishlist(obj) {
+  var product_id = $(obj).attr("product_id");
+  var user_id = $(obj).attr("user_id");
+  var status = $(obj).attr("status");
+  // alert(product_id);
+  // alert(user_id);
+  // alert(status);
+  // return;
+  $.ajax({
+    url: '<?=base_url();?>Cart/wishlist',
+    method: 'post',
+    data: {
+      product_id: product_id,user_id: user_id,status : status
+    },
+    dataType: 'json',
+    success: function(response) {
+      // alert(response.data_message)
+      if (response.data == true) {
+        $.notify({
+          icon: 'fa fa-check',
+          title: '',
+          message: response.data_message
+        }, {
+          element: 'body',
+          position: null,
+          type: "success",
+          allow_dismiss: true,
+          newest_on_top: false,
+          showProgressbar: false,
+          placement: {
+            from: "top",
+            align: "right"
+          },
+          offset: 20,
+          spacing: 10,
+          z_index: 1031,
+          delay: 1000,
+          animate: {
+            enter: 'animated fadeInDown',
+            exit: 'animated fadeOutUp'
+          },
+          icon_type: 'class',
+          template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+            '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
+            '<span data-notify="icon"></span> ' +
+            '<span data-notify="title">{1}</span> ' +
+            '<span data-notify="message">{2}</span>' +
+            '<a href="{3}" target="{4}" data-notify="url"></a>' +
+            '</div>'
+        });
+
+        window.setTimeout(function(){location.reload()},3000)
+
+      } else if (response.data == false) {
+        $.notify({
+          icon: 'fa fa-cancel',
+          title: '',
+          message: response.data_message
+        }, {
+          element: 'body',
+          position: null,
+          type: "danger",
+          allow_dismiss: true,
+          newest_on_top: false,
+          showProgressbar: true,
+          placement: {
+            from: "top",
+            align: "right"
+          },
+          offset: 20,
+          spacing: 10,
+          z_index: 1031,
+          delay: 5000,
+          animate: {
+            enter: 'animated fadeInDown',
+            exit: 'animated fadeOutUp'
+          },
+          icon_type: 'class',
+          template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+            '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
+            '<span data-notify="icon"></span> ' +
+            '<span data-notify="title">{1}</span> ' +
+            '<span data-notify="message">{2}</span>' +
+            '<a href="{3}" target="{4}" data-notify="url"></a>' +
+            '</div>'
+        });
+        window.setTimeout(function(){location.reload()},1000)
+      }
+      // window.setTimeout(function(){location.reload()},10000)
+
+    }
+  });
+}
+
+
 </script>
 
 <script type="text/javascript">
