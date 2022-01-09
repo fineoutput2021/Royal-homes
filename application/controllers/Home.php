@@ -64,12 +64,17 @@ class Home extends CI_Controller
 
     ///--------all product----------------
 
-    public function all_Product($idd, $t)
+    public function all_Product()
     {
+
+      $idd = $this->uri->segment(3);
+      $t = $this->uri->segment(4);
+      $sort = $this->uri->segment(5);
+
         $id=base64_decode($idd);
-        $data["id"] = $idd;
+        $data["idd"] = $idd;
         $id2=base64_decode($t);
-        $data["t"] = $t;
+        $data["type"] = $t;
 
         $this->db->select('*');
         $this->db->from('tbl_products');
@@ -79,6 +84,13 @@ class Home extends CI_Controller
             $this->db->like('subcategory', $id);
         }
         $this->db->where('is_active', 1);
+        if(!empty($sort)){
+          if($sort=="LH"){
+            $this->db->order_by('mrp', 'ASC');
+          }else if($sort=="HL"){
+            $this->db->order_by('mrp', 'DESC');
+          }
+        }
         $product_data= $this->db->get();
         // print_r($product_data);
         // exit;

@@ -101,6 +101,7 @@
 
   .dd-menu li:hover {
     background-color: #d76a46;
+    color:white;
   }
 
   .dd-menu li a {
@@ -119,8 +120,8 @@
 <section>
   <div class="container">
     <?
-$id=base64_decode($id);
-$t=base64_decode($t);
+$id=base64_decode($idd);
+$t=base64_decode($type);
 
 if($t==2){
   $this->db->select('*');
@@ -157,8 +158,8 @@ $sub_data= $this->db->get()->row();
           </div>
           <input type="checkbox" class="dd-input" id="test">
           <ul class="dd-menu">
-            <a href="<?=base_url()?>Home/sort/<?=base64_encode('LH')?>"><li>Price Low To High</li></a>
-            <a href="<?=base_url()?>Home/sort/<?=base64_encode('HL')?>"><li>Price High To Low</li></a>
+            <a href="<?=base_url()?>Home/all_Product/<?=$idd?>/<?=$type?>/LH" style="color:black"><li>Price Low To High</li></a>
+            <a href="<?=base_url()?>Home/all_Product/<?=$idd?>/<?=$type?>/HL" style="color:black"><li>Price High To Low</li></a>
           </ul>
         </label>
       </div>
