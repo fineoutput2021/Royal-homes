@@ -371,8 +371,8 @@
         /* width: 102% !important; */
         /* margin-left: 0px !important; */
         /* padding:0 40px 0 40px; */
-        width: 80% !important;
-        margin-left: 33px !important;
+        width: 75% !important;
+        margin-left: 15vw!important;
       }
 
       .menu ul li {
@@ -858,6 +858,7 @@
 
       h2 {
         text-align: center;
+        padding-left: 2vw!important;
       }
 
       .ii {
@@ -1387,7 +1388,7 @@ $category_data= $this->db->get();
               </div>
               <ul id="mobch13">
                 <span onclick="openNav()">
-                  <li class="media_q_change"><button style="background:none;border:none;color:#d76a46;font-size:25px"><i class="fa fa-bars"></i></button></li>
+                  <li class="media_q_change"><button style="background:none;border:none;color:#d76a46;font-size:25px; margin-left:-33vw;margin-top: -1vh;"><i class="fa fa-bars"></i></button></li>
                 </span>
               </ul>
             </li>

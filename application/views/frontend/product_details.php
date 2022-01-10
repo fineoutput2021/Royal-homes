@@ -98,7 +98,7 @@
         <img alt="main product photo" class="gallery-placeholder__image" src="https://www.orangetree.in/pub/media/catalog/product/g/a/gallery-4_eros-white-wall-lamp-online.jpg" data-zoom="click4ToZoom">
       </div>
       <div class="swiper-slide swiper-slide-active" data-click="click5ToZoom" data-swiper-slide-index="4" style="height: 518px; opacity: 1; transform: translate3d(0px, -2590px, 0px); transition: all 0ms ease 0s;">
-        <img alt="main product photo " class="gallery-placeholder__image mainbackgroundarea" src="<?=base_url().$product_data->image?>" data-zoom="click5ToZoom">
+        <!-- <img alt="main product photo " class="gallery-placeholder__image mainbackgroundarea"  src="<?=base_url().$product_data->image?>" data-zoom="click5ToZoom"> -->
       </div>
       <div class="swiper-slide swiper-slide-next" data-click="click6ToZoom" data-swiper-slide-index="5" style="height: 518px; opacity: 0; transform: translate3d(0px, -3108px, 0px); transition: all 0ms ease 0s;">
         <img alt="main product photo" class="gallery-placeholder__image" src="https://www.orangetree.in/pub/media/catalog/product/g/a/gallery-6_eros-white-wall-lamp-online.jpg" data-zoom="click6ToZoom">
@@ -180,7 +180,7 @@
         <div class="row bg-white">
 
           <!--start product details-->
-          <div style="padding-top: 2rem;padding-left: 5rem;; background-color: white;" class="col-md-3 col-sm-6">
+          <div style="padding-top: 2rem;padding-left: 7vw;; background-color: white;" class="col-md-3 col-sm-6">
             <div class="myButtons">
               <div class="btn-group" id="MatchingEntitiesButtons">
                 <div class="details">

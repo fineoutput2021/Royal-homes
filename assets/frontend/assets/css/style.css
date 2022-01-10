@@ -49,6 +49,12 @@ body{
 .change-2::-webkit-scrollbar-thumb {
     background: #FF0000;
 }
+.html.body {
+    overflow-x: hidden;
+  }
+  .body {
+    position: relative
+  }
 
 
 /* header and */
