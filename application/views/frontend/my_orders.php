@@ -186,7 +186,7 @@
 
                                         if (!empty($pro_data)) {
                                             $o_product_name = $pro_data->productname;
-                                            $sprice = $pro_data->mrp;
+                                            $sprice = $pro_data->selling_price;
                                             $o_product_image = $pro_data->image;
                                         } else {
                                             $o_product_name = "Product Not Found!";

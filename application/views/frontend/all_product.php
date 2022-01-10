@@ -187,7 +187,8 @@ $sub_data= $this->db->get()->row();
                'id' => $data->id,
                'name' => $data->productname,
                'image' => $data->image,
-               'mrp' => $data->mrp
+               'mrp' => $data->mrp,
+               'selling_price' => $data->selling_price,
              );
            }
          }
@@ -198,7 +199,8 @@ $sub_data= $this->db->get()->row();
              'id' => $data->id,
              'name' => $data->productname,
              'image' => $data->image,
-             'mrp' => $data->mrp
+             'mrp' => $data->mrp,
+             'selling_price' => $data->selling_price,
            );
          }
        }
@@ -219,7 +221,8 @@ $sub_data= $this->db->get()->row();
                'id' => $data->id,
                'name' => $data->productname,
                'image' => $data->image,
-               'mrp' => $data->mrp
+               'mrp' => $data->mrp,
+               'selling_price' => $data->selling_price,
              );
            }
          }
@@ -229,7 +232,8 @@ $sub_data= $this->db->get()->row();
              'id' => $data->id,
              'name' => $data->productname,
              'image' => $data->image,
-             'mrp' => $data->mrp
+             'mrp' => $data->mrp,
+             'selling_price' => $data->selling_price,
            );
          }
        }
@@ -244,7 +248,7 @@ $sub_data= $this->db->get()->row();
           <a href="<?=base_url()?>Home/product_details/<?=base64_encode($pro['id'])?>" style="color:unset">
         <img src="<?=base_url().$pro['image']?>" class="img-fluid" />
         <div class="discount">New</div>
-        <h6><?=$pro['name']?></h6> <span style="font-weight: bold; font-size: 12px;"> Rs.<?=$pro['mrp']?></span></a>
+        <h5><?=$pro['name']?></h5><s style="font-size: 12px;text-decoration: line-through;color:red">(Rs.<?=$pro['selling_price']?>)</s>  <span style="font-weight: bold; font-size: 12px;"> Rs.<?=$pro['mrp']?></span></a>
         <?if(!empty($this->session->userdata('user_data'))){
                       $this->db->select('*');
           $this->db->from('tbl_wishlist');

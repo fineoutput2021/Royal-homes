@@ -63,10 +63,23 @@
     line-height: 1;
   }
 </style>
+<style>
+  .midsection {
+    background-color: white;
+    margin-top: 43rem;
+  }
+
+  @media screen and (min-width: 300px) and (max-width: 960px) {
+    .midsection {
+      background-color: white;
+      margin-top: 9rem;
+    }
+  }
+</style>
 <br />
 <div class="product media position-fixed" style="top: 0;z-index: 0;"> <a id="gallery-prev-area" tabindex="-1"></a>
-  <div class="action-skip-wrapper"> <a class="action skip gallery-next-area" href="#gallery-next-area"><span> Skip to
-        the end of the images gallery</span></a></div>
+  <!-- <div class="action-skip-wrapper"> <a class="action skip gallery-next-area" href="#gallery-next-area"><span> Skip to
+        the end of the images gallery</span></a></div> -->
   <div class="gallery-placeholder product_slick swiper-container swiper-container-fade swiper-container-initialized swiper-container-vertical">
     <div class="swiper-wrapper" style="transition: all 0ms ease 0s;">
       <div class="swiper-slide swiper-slide-duplicate" data-click="click7ToZoom" data-swiper-slide-index="6" style="height: 518px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition: all 0ms ease 0s;">
@@ -149,19 +162,7 @@
   <div class="action-skip-wrapper"> <a class="action skip gallery-prev-area" href="#gallery-prev-area"><span> Skip to
         the beginning of the images gallery</span></a></div> <a id="gallery-next-area" tabindex="-1"></a>
 </div>
-<style>
-  .midsection {
-    background-color: white;
-    margin-top: 43rem;
-  }
 
-  @media screen and (min-width: 300px) and (max-width: 960px) {
-    .midsection {
-      background-color: white;
-      margin-top: 9rem;
-    }
-  }
-</style>
 <!-- end this section  -->
 <div class="midsection bg-white">
   <div class="bg-white">
@@ -298,7 +299,10 @@
                 <div class="xc">
                   <br>
                   <p>
-                  <pre class="pricesection" style="color: #212529;font-size: 14px;">Price<span style="font-size: 14px;color: #212529;font-weight: bold;">Rs.<?=$product_data->mrp?></span></pre>
+                    <span style="font-size: 14px;color: #212529;font-weight: bold;"><s style="font-size: 12px;text-decoration: line-through;color:red">(Rs.<?=$product_data->mrp?>)</s> </span>
+                  </p>
+                  <p>
+                  <pre class="pricesection" style="color: #212529;font-size: 14px;">Price: <span style="font-size: 14px;color: #212529;font-weight: bold;">Rs.<?=$product_data->selling_price?></span></pre>
                   </p>
                   <br>
                   <div class="container">
@@ -409,18 +413,18 @@
                     $user_id = $this->session->userdata('user_id');
                                 $this->db->select('*');
                     $this->db->from('tbl_wishlist');
-                    $this->db->where('product_data',$product_data->id);
+                    $this->db->where('product_id',$product_data->id);
                     $this->db->where('user_id',$user_id);
                     $wishdata= $this->db->get()->row();
                     if(empty($wishdata)){
                     ?>
                     <a href="" style="color:#d76a46">
-                      <div class="col-md-5"><i class="fa fa-heart-o heacha" id="heart" style="font-size: 1.5rem;" onclick="wishlist(this)" product_id="<?=base64_encode($product_data->id)?>"
+                      <div class="col-md-5"><i class="fa fa-heart-o heacha"  style="font-size: 1.5rem;" onclick="wishlist(this)" product_id="<?=base64_encode($product_data->id)?>"
                           user_id="<?=base64_encode($this->session->userdata('user_id'))?>" status="add"></i>
                     </a>
                     <?}else{?>
                     <a href="" style="color:#d76a46">
-                      <div class="col-md-5"><i class="fa fa-heart heacha" id="heart" style="font-size: 1.5rem;" onclick="wishlist(this)" product_id="<?=base64_encode($product_data->id)?>"
+                      <div class="col-md-5"><i class="fa fa-heart heacha"  style="font-size: 1.5rem;" onclick="wishlist(this)" product_id="<?=base64_encode($product_data->id)?>"
                           user_id="<?=base64_encode($this->session->userdata('user_id'))?>" status="remove"></i>
                     </a>
                     <?}}?>

@@ -93,7 +93,7 @@
           <a href="<?=base_url()?>Home/product_details/<?=base64_encode($n_launch->id)?>" style="color:unset">
           <div style="padding:15px">
             <img src="<?=base_url().$n_launch->image?>" alt="">
-              <h6><?=$n_launch->productname?></h6> <span style="font-weight: bold; font-size: 12px;"> Rs.<?=$n_launch->mrp?></span>
+              <h5><?=$n_launch->productname?></h5><s style="font-size: 12px;text-decoration: line-through;color:red">(Rs.<?=$n_launch->mrp?>)</s> <span style="font-weight: bold; font-size: 12px;"> Rs.<?=$n_launch->selling_price?></span>
           </div>
         </a>
           <?}?>
@@ -144,7 +144,7 @@
               <img src="<?=base_url().$seller->image;?>" alt="">
             </a>
             <div class="my-3">
-              <h6><?=$seller->productname;?></h6> <span style="font-weight: bold; font-size: 12px;">₹<?=$seller->mrp;?></span>
+              <h5><?=$seller->productname;?></h5><s style="font-size: 12px;text-decoration: line-through;color:red">(Rs.<?=$seller->mrp?>)</s>  <span style="font-weight: bold; font-size: 12px;">₹<?=$seller->selling_price;?></span>
             </div>
           </div>
 

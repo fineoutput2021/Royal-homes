@@ -40,7 +40,7 @@ class Order extends CI_Controller
                     //-----check inventory------
                     if (!empty($pro_data->inventory)) {
                         if ($pro_data->inventory >= $cart->quantity) {
-                            $price = $pro_data->mrp * $cart->quantity;
+                            $price = $pro_data->selling_price * $cart->quantity;
                             $total= $total + $price;
                         } else {
                             $this->session->set_flashdata('emessage', ''.$pro_data->productname.'  is out of stock');
@@ -74,12 +74,13 @@ class Order extends CI_Controller
                         $this->db->where('id', $cart2->product_id);
                         $pro_data= $this->db->get()->row();
 
-                        $total = $pro_data->mrp * $cart2->quantity;
+                        $total = $pro_data->selling_price * $cart2->quantity;
 
                         $order2_insert = array('main_id'=>$last_id,
                         'product_id'=>$cart2->product_id,
                         'quantity'=>$cart2->quantity,
                         'mrp'=>$pro_data->mrp,
+                        'selling_price'=>$pro_data->selling_price,
                         'total_amount'=>$total,
                         'date'=>$cur_date
                         );

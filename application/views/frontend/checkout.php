@@ -100,10 +100,6 @@ $promo_data= $this->db->get()->row();
 <button type="submit" class="apply mr-auto" id="promocode_submit">Apply</button>
 </form>
 <hr />
-<input type="radio" id="html" name="fav_language" value="HTML">
-<label for="html">COD</label>
-<input type="radio" id="css" name="fav_language" value="CSS" style="margin-left:1rem">
-<label for="css">Online</label>
   <div class="w-100">
       <form action="<?=base_url()?>Order/checkout" method="post" enctype="multipart/form-data">
         <input type="hidden" name="order_id" value="<?=base64_encode($order_data->id)?>"/>

@@ -42,7 +42,7 @@ Order Details
                       <th>#</th>
                       <th>Product Name</th>
                       <th>Quantity</th>
-                      <th>MRP</th>
+                      <th>Selling Price</th>
                       <th>Total Amount</th>
                         </tr>
                     </thead>
@@ -60,8 +60,8 @@ Order Details
 <td><?php if (!empty($data->quantity)) {
                                   echo $data->quantity;
                               } ?></td>
-<td><?php if (!empty($data->mrp)) {
-                                  echo "Rs.".$data->mrp;
+<td><?php if (!empty($data->selling_price)) {
+                                  echo "Rs.".$data->selling_price;
                               } ?></td>
 <td><?php if (!empty($data->total_amount)) {
                                   echo "Rs.".$data->total_amount;

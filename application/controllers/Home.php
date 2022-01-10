@@ -86,9 +86,9 @@ class Home extends CI_Controller
         $this->db->where('is_active', 1);
         if(!empty($sort)){
           if($sort=="LH"){
-            $this->db->order_by('mrp', 'ASC');
+            $this->db->order_by('selling_price', 'ASC');
           }else if($sort=="HL"){
-            $this->db->order_by('mrp', 'DESC');
+            $this->db->order_by('selling_price', 'DESC');
           }
         }
         $product_data= $this->db->get();

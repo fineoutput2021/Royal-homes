@@ -196,7 +196,7 @@ class Cart extends CI_Controller
                                 $this->db->from('tbl_products');
                                 $this->db->where('id', $value['product_id']);
                                 $pro_data= $this->db->get()->row();
-                                $price = $pro_data->mrp * $value['quantity'];
+                                $price = $pro_data->selling_price * $value['quantity'];
                                 $total= $total + $price;
                             }
                             $subtotal = $total;
@@ -401,7 +401,7 @@ class Cart extends CI_Controller
                                 $this->db->from('tbl_products');
                                 $this->db->where('id', $cart->product_id);
                                 $pro_data= $this->db->get()->row();
-                                $price = $pro_data->mrp * $cart->quantity;
+                                $price = $pro_data->selling_price * $cart->quantity;
                                 $total= $total + $price;
                             }
                             $subtotal = $total;
@@ -504,6 +504,12 @@ class Cart extends CI_Controller
                 }
                 //---------move to cart--------
                 elseif ($status=="move") {
+                              $this->db->select('*');
+                  $this->db->from('tbl_cart');
+                  $this->db->where('user_id',$wishcheck->user_id);
+                  $this->db->where('product_id',$wishcheck->product_id);
+                  $wish_check= $this->db->get()->row();
+                  if(empty($wish_check)){
                     $cart_insert = array('user_id'=>$wishcheck->user_id,
                           'product_id'=>$wishcheck->product_id,
                           'quantity'=>1,
@@ -522,7 +528,12 @@ class Cart extends CI_Controller
                         $respone['data_message'] ='Some error occured';
                         echo json_encode($respone);
                     }
+                }else{
+                  $respone['data'] = false;
+                  $respone['data_message'] ='Product is already in your cart';
+                  echo json_encode($respone);
                 }
+              }
             } else {
                 $respone['data'] = false;
                 $respone['data_message'] =validation_errors();
