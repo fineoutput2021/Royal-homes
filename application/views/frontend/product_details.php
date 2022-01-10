@@ -140,6 +140,13 @@
       </div><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
     </div>
   </div>
+
+  <div class="action-skip-wrapper"> <a class="action skip gallery-prev-area" href="#gallery-prev-area"><span> Skip to
+        the beginning of the images gallery</span></a></div> <a id="gallery-next-area" tabindex="-1"></a>
+</div>
+
+<!-- end this section  -->
+<div class="midsection bg-white">
   <div class="below_stirp white_bg pt-4 pb-4">
     <div class="container">
       <div class="row">
@@ -159,13 +166,7 @@
       </div>
     </div>
   </div>
-  <div class="action-skip-wrapper"> <a class="action skip gallery-prev-area" href="#gallery-prev-area"><span> Skip to
-        the beginning of the images gallery</span></a></div> <a id="gallery-next-area" tabindex="-1"></a>
-</div>
-
-<!-- end this section  -->
-<div class="midsection bg-white">
-  <div class="bg-white">
+  <!-- <div class="bg-white"> -->
     <div class="bg-white">
       <div class="row">
         <div class="col-md-12 pt-4" style="background-color: white;">
@@ -175,7 +176,7 @@
         </div>
       </div>
     </div>
-    <section class="ky bg-white">
+    <section class="bg-white">
       <div class="bg-white">
         <div class="row bg-white">
 
@@ -577,6 +578,8 @@
 
   <!-- End testimonals  -->
 
+</div>
+<!-- </div>m -->
 </div>
 <script src="<?=base_url()?>assets/frontend/assets/js/productdetail.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
