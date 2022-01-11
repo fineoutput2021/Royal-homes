@@ -38,9 +38,9 @@
     border: 0px solid #fff
   }
 
-  .hide {
+  /* .hide {
     display: none;
-  }
+  } */
 
   .myDIV:hover+.hide {
     display: block;
@@ -141,8 +141,9 @@
     </div>
   </div>
 
-  <div class="action-skip-wrapper"> <a class="action skip gallery-prev-area" href="#gallery-prev-area"><span> Skip to
-        the beginning of the images gallery</span></a></div> <a id="gallery-next-area" tabindex="-1"></a>
+  <!-- <div class="action-skip-wrapper"> <a class="action skip gallery-prev-area" href="#gallery-prev-area"><span> Skip to
+        the beginning of the images gallery</span></a></div> -->
+         <a id="gallery-next-area" tabindex="-1"></a>
 </div>
 
 <!-- end this section  -->
