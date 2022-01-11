@@ -24,7 +24,7 @@
 <section class="overflow-hidden t_slider">
   <div class="container-fluid p-0">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12" style="padding-left:0;padding-right:0">
         <div class="swiper-wrapper fist_slider ">
           <?php $i=1; foreach($slider_data->result() as $slider) { ?>
           <div class="swiper-slide"><a href="<?=$slider->link?>" target="_blank">

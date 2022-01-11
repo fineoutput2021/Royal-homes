@@ -564,7 +564,7 @@ $(function () {
       $(".header").addClass("active");
       $(".btn_change_change").addClass("black");
       $(".logochan").addClass("active");
-      $(".logochan").html('<a href="<?=base_url()?>" style="text-decoration: none;  text-align: center;"><span style="color: #d76a46; font-size:40px !important;border-bottom: 2px solid grey ;">O</span></a>');
+      $(".logochan").html('<a href="<?=base_url()?>" style="text-decoration: none;  text-align: center;"><span class="modifiedWhiteImg" style="color: #d76a46; font-size:40px !important;border-bottom: 2px solid grey ;">O</span></a>');
       $(".headerlinks").css("color", "black")
     } else {
       //remove the background property so it comes transparent again (defined in your css)
@@ -572,7 +572,7 @@ $(function () {
       $(".btn_change_change").removeClass("black");
       $(".logochan").removeClass("active");
       $(".headerlinks").css("color", "white")
-      $(".logochan").html('<a href="<?=base_url()?>" style="text-decoration: none;"><img src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/logo_base.png" class="img1111"></a>');
+      $(".logochan").html('<a href="<?=base_url()?>" style="text-decoration: none;"><img src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/logo_base.png" class="img1111 modifiedScrptImg"></a>');
     }
   });
 });

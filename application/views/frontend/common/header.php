@@ -1261,13 +1261,437 @@
     .sb:hover li input.search_inp {
       max-width: 9rem;
     }
+    .dontHide{
+      display: block;
+    }
+
+    @media(max-width:360px){
+      .dontHide{
+        display: block;
+      }
+    }
+    .modifiedUl{
+      display: block;
+    }
+    .modifiedSearch{
+
+    }
+    .modifiedCart{
+
+    }
+    .modifiedImg{
+
+    }
+    .modifiedBurger{
+
+    }
+    .modifiedHeaderCont{
+
+    }
+.modifiedWhiteImg{
+
+}
+.forWhiteLogo{
+
+}
+.modifiedScrptImg{
+
+}
+    @media(max-width:600px){
+      .dontHide{
+        display: block;
+      }
+      .modifiedUl{
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+      }
+      .modifiedSearch{
+        position: relative;
+      right: -2rem;
+      top: -1rem;
+      }
+      .modifiedCart{
+        position: relative;
+        top: -3.5rem;
+            right: -2rem;
+      }
+      .count {
+    margin-top: -6px;
+  }
+  .logo {
+    display: block;
+    /* justify-content: center; */
+    height: 76px;
+    padding-top: 0.5rem;
+    /* align-items: center; */
+  }
+  .forWhiteLogo{
+    height: 3vh
+  }
+  .modifiedImg{
+    /* width: 102% !important; */
+    /* margin-left: 0px !important; */
+    /* padding: 0 40px 0 40px; */
+    width: 75% !important;
+    margin-left: 10vw!important;
+  }
+  .modifiedWhiteImg{
+    position: relative;
+    left: 12rem;
+    top: -1rem;
+  }
+  .modifiedScrptImg{
+    height: 9px;
+    margin-left: 0.2rem!important;
+    max-width: 100% !important;
+  }
+  .modifiedBurger{
+    margin-top: 16vh !important;
+    margin-left: -61vw !important;
+  }
+  .modifiedHeaderCont{
+  height: 23vh !important;
+  }
+    }
+
+    @media(max-width:540px){
+      .dontHide{
+        display: block;
+      }
+      .modifiedUl{
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+      }
+      .modifiedSearch{
+        position: relative;
+      right: -2rem;
+      top: -1rem;
+      }
+      .modifiedCart{
+        position: relative;
+      top: -3.5rem;
+      right: -2rem;
+      }
+      .count {
+    margin-top: -6px;
+  }
+  .logo {
+    display: block;
+    /* justify-content: center; */
+    /* height: 76px; */
+    padding-top: 0.5rem;
+    /* align-items: center; */
+  }
+  .modifiedImg{
+    /* width: 102% !important; */
+    /* margin-left: 0px !important; */
+    /* padding: 0 40px 0 40px; */
+    width: 75% !important;
+    margin-left: 10vw!important;
+  }
+  .modifiedWhiteImg{
+    position: relative;
+    left: 10.6rem;
+    top: -1rem;
+  }
+  .modifiedScrptImg{
+    height: 9px;
+    margin-left: 0.2rem!important;
+    max-width: 100% !important;
+  }
+  .modifiedBurger{
+    margin-top: 5vh !important;
+        margin-left: -57vw !important;
+  }
+  .modifiedHeaderCont{
+  height: 8vh !important;
+  }
+    }
+
+    @media(max-width:414px){
+      .dontHide{
+        display: block;
+      }
+      .modifiedUl{
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+      }
+      .modifiedSearch{
+        position: relative;
+      right: -2rem;
+      top: -1rem;
+      }
+      .modifiedCart{
+        position: relative;
+      top: -3.5rem;
+      right: -2rem;
+      }
+      .count {
+    margin-top: -6px;
+}
+.logo {
+    display: block;
+    /* justify-content: center; */
+    /* height: 76px; */
+    padding-top: 0.5rem;
+    /* align-items: center; */
+}
+.modifiedImg{
+    /* width: 102% !important; */
+    /* margin-left: 0px !important; */
+    /* padding: 0 40px 0 40px; */
+    width: 75% !important;
+    margin-left: 10vw!important;
+}
+.modifiedWhiteImg{
+  position: relative;
+  left: 7.6rem;
+  top: -1rem;
+}
+.modifiedScrptImg{
+  height: 9px;
+  margin-left: 0.2rem!important;
+  max-width: 100% !important;
+}
+.modifiedBurger{
+  margin-top: 5vh !important;
+  margin-left: -44vw !important;
+}
+.modifiedHeaderCont{
+  height: 7vh !important;
+}
+    }
+
+    @media(max-width:375px){
+      .dontHide{
+        display: block;
+      }
+      .modifiedUl{
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+      }
+      .modifiedSearch{
+        position: relative;
+      right: -2rem;
+      top: -1rem;
+      }
+      .modifiedCart{
+        position: relative;
+      top: -3.5rem;
+      right: -2rem;
+      }
+      .count {
+    margin-top: -6px;
+  }
+  .logo {
+    display: block;
+    /* justify-content: center; */
+    /* height: 76px; */
+    padding-top: 0.5rem;
+    /* align-items: center; */
+  }
+  .modifiedImg{
+    /* width: 102% !important; */
+    /* margin-left: 0px !important; */
+    /* padding: 0 40px 0 40px; */
+    width: 75% !important;
+    margin-left: 10vw!important;
+  }
+  .modifiedWhiteImg{
+    position: relative;
+    left: 6.6rem;
+    top: -1rem;
+  }
+  .modifiedScrptImg{
+    height: 9px;
+    margin-left: 0.2rem!important;
+    max-width: 100% !important;
+  }
+  .modifiedBurger{
+  margin-top: 5vh !important;
+    margin-left: -38vw !important;
+  }
+  .modifiedHeaderCont{
+  height: 10vh !important;
+  }
+    }
+
+    @media(max-width:360px){
+      .dontHide{
+        display: block;
+      }
+      .modifiedUl{
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+      }
+      .modifiedSearch{
+        position: relative;
+      right: -2rem;
+      top: -1rem;
+      }
+      .modifiedCart{
+        position: relative;
+      top: -3.5rem;
+      right: -2rem;
+      }
+      .count {
+    margin-top: -6px;
+}
+.logo {
+    display: block;
+    /* justify-content: center; */
+    /* height: 76px; */
+    padding-top: 0.5rem;
+    /* align-items: center; */
+}
+.modifiedImg{
+    /* width: 102% !important; */
+    /* margin-left: 0px !important; */
+    /* padding: 0 40px 0 40px; */
+    width: 75% !important;
+    margin-left: 10vw!important;
+}
+.modifiedWhiteImg{
+  position: relative;
+  left: 6.1rem;
+  top: -1rem;
+}
+.modifiedScrptImg{
+  height: 9px;
+  margin-left: 0.2rem!important;
+  max-width: 100% !important;
+}
+.modifiedBurger{
+margin-top: 7vh !important;
+    margin-left: -33vw !important;
+}
+.modifiedHeaderCont{
+  height: 10vh !important;
+}
+    }
+
+
+    @media(max-width:320px){
+      .dontHide{
+        display: block;
+      }
+      .modifiedUl{
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+      }
+      .modifiedSearch{
+        position: relative;
+      right: -2rem;
+      top: -1rem;
+      }
+      .modifiedCart{
+        position: relative;
+      top: -3.5rem;
+      right: -2rem;
+      }
+      .count {
+    margin-top: -6px;
+}
+.logo {
+    display: block;
+    /* justify-content: center; */
+    /* height: 76px; */
+    padding-top: 0.5rem;
+    /* align-items: center; */
+}
+.modifiedImg{
+    /* width: 102% !important; */
+    /* margin-left: 0px !important; */
+    /* padding: 0 40px 0 40px; */
+    width: 75% !important;
+    margin-left: 10vw!important;
+}
+.modifiedWhiteImg{
+  position: relative;
+  left: 5.2rem;
+  top: -1rem;
+}
+.modifiedScrptImg{
+  height: 9px;
+  margin-left: 0.2rem!important;
+  max-width: 100% !important;
+}
+.modifiedBurger{
+margin-top: 8vh !important;
+    margin-left: -28vw !important;
+}
+.modifiedHeaderCont{
+  height: 10vh !important;
+}
+    }
+
+    @media(max-width:280px){
+      .dontHide{
+        display: block;
+      }
+      .modifiedUl{
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+      }
+      .modifiedSearch{
+        position: relative;
+      right: -2rem;
+      top: -1rem;
+      }
+      .modifiedCart{
+        position: relative;
+      top: -3.5rem;
+      right: -2rem;
+      }
+      .count {
+    margin-top: -6px;
+}
+.logo {
+    display: block;
+    /* justify-content: center; */
+    /* height: 76px; */
+    padding-top: 0.5rem;
+    /* align-items: center; */
+}
+.modifiedImg{
+    /* width: 102% !important; */
+    /* margin-left: 0px !important; */
+    /* padding: 0 40px 0 40px; */
+    width: 75% !important;
+    margin-left: 10vw!important;
+}
+.modifiedWhiteImg{
+  position: relative;
+  left: 4.2rem;
+  top: -1rem;
+}
+.modifiedScrptImg{
+  height: 9px;
+  margin-left: 0.2rem!important;
+  max-width: 100% !important;
+}
+.modifiedBurger{
+  margin-top: 7vh !important;
+  margin-left: -17vw !important;
+}
+.modifiedHeaderCont{
+  height: 9vh !important;
+}
+    }
   </style>
 </head>
 
 <body>
-  <header class="header">
-    <div class="container-fluid">
-      <div class="row">
+  <header class="header" >
+    <div class="container-fluid modifiedHeaderCont">
+      <div class="row" style="width:100%">
         <div class="col-md-4 d-sx-none menu change" style="width: 100%;">
           <nav class="navbar">
             <ul class="d-flex">
@@ -1318,13 +1742,13 @@ $category_data= $this->db->get();
             </ul>
           </nav>
         </div>
-        <div class="col-md-4 col-xs-6 logch1 img1111">
-          <div class="logo logochan">
+        <div class="col-md-4 col-xs-6 logch1 img1111 modifiedImg">
+          <div class="logo logochan forWhiteLogo">
             <a href="<?=base_url()?>"><img src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/logo_base.png" id="logohed" alt=""></a>
           </div>
         </div>
         <div class="col-md-4 col-xs-6 menu">
-          <ul style="margin-right: 12px;
+          <ul class="modifiedUl" style="margin-right: 12px;
     margin-left: 101px;
     margin-top: 14px;">
             <li>
@@ -1388,11 +1812,11 @@ $category_data= $this->db->get();
               </div>
               <ul id="mobch13">
                 <span onclick="openNav()">
-                  <li class="media_q_change"><button style="background:none;border:none;color:#d76a46;font-size:25px; margin-left:-33vw;margin-top: -1vh;"><i class="fa fa-bars"></i></button></li>
+                  <li class="media_q_change"><button class="modifiedBurger" style="background:none;border:none;color:#d76a46;font-size:25px; margin-left:-33vw;margin-top: -1vh;"><i class="fa fa-bars"></i></button></li>
                 </span>
               </ul>
             </li>
-            <li class="hide sl">
+            <li class="hide sl modifiedSearch">
               <i class="fa fa-search btn_change_change sb" aria-hidden="true"></i>
               <!-- <input type="text" name="search" class="search_inp" /> -->
             </li>
@@ -1453,13 +1877,14 @@ $category_data= $this->db->get();
                 }
             }
               ?>
-            <li class="hide"><a href="<?=base_url()?>Home/view_cart" style="color: unset;"><span class="count">
+
+            <li class="hide dontHide modifiedCart"><a href="<?=base_url()?>Home/view_cart" style="color: unset;"><span class="count">
                   <?if (!empty($count)) {
                 echo $count;
             }else{
               echo 0;
             }?>
-                </span><i class="fa fa-shopping-bag NONE1 btn_change_change" aria-hidden="true"></i>
+                </span><i class="fa fa-shopping-bag NONE1 btn_change_change dontHide" aria-hidden="true"></i>
               </a></li>
             <?if(!empty($this->session->userdata('user_data'))){
   $user_id = $this->session->userdata('user_id');
