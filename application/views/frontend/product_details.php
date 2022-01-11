@@ -490,7 +490,7 @@
 
   <!-- start Testimonials -->
 
-  <section class="bg-white" style="margin-top:0!important; ">
+  <section class="bg-white" style="margin-top:-50px!important; z-index: 999; position:relative; margin-bottom:-48px">
     <div class="container bg-white">
       <div class="w100 bg-white" style="text-align: center; ">
         <h2>What Our Customers Have to Say</h2>
