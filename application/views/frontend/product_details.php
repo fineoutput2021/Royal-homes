@@ -166,8 +166,8 @@
         <?}?>
       </div>
     </div>
-  </div>
-  <!-- <div class="bg-white"> -->
+    </div>
+    <!-- <div class="bg-white"> -->
     <div class="bg-white">
       <div class="row">
         <div class="col-md-12 pt-4" style="background-color: white;">
@@ -502,85 +502,87 @@
 
     <!---Start more from collection-->
 
-    <section class="new_lunc overflow-hidden bg-white">
-      <div class="container-fluid bg-white">
-        <div class="row bg-white">
-          <div class="col-md-12 bg-white">
-            <h2 style="font-size: 28px; margin-left: 36px; font-weight: 300; color: #4e4e4e;">
-              More from collection</h2>
-          </div>
-        </div>
-        <div class="row bg-white">
-          <div class="col-md-12 bg-white">
-            <div class="swiper-wrapper autoplay">
+                                                  <section class="new_lunc overflow-hidden bg-white">
+                                                    <div class="container-fluid bg-white">
+                                                      <div class="row bg-white">
+                                                        <div class="col-md-12 bg-white">
+                                                          <h2 style="font-size: 28px; margin-left: 36px; font-weight: 300; color: #4e4e4e;">
+                                                            More from collection</h2>
+                                                        </div>
+                                                      </div>
+                                                      <div class="row bg-white">
+                                                        <div class="col-md-12 bg-white">
+                                                          <div class="swiper-wrapper autoplay">
 
-              <?php $i=1; foreach($more_data->result() as $more) {
-  $a=0;
-  $cat = json_decode($more->category);
-  $pro_cat = json_decode($product_data->category);
-  foreach ($cat as $value) {
-    foreach ($pro_cat as $pc) {
-      if($value==$pc){
-        $a=1;
-      }
-    }
-  }
-  if($a==1){
-  ?>
-              <div class="swiper-slide" style="padding: 15px;">
-                <img src="<?=base_url().$more->image?>" alt="">
-                <div class="my-3">
-                  <h6><?=$more->productname?></h6> <span style="font-weight: bold; font-size: 12px;">Starts At
-                    ₹<?=$more->mrp?></span>
-                </div>
-              </div>
-              <?php $i++; }} ?>
+                                                            <?php $i=1; foreach($more_data->result() as $more) {
+                                                                      $a=0;
+                                                                      $cat = json_decode($more->category);
+                                                                      $pro_cat = json_decode($product_data->category);
+                                                                      foreach ($cat as $value) {
+                                                                        foreach ($pro_cat as $pc) {
+                                                                          if($value==$pc){
+                                                                            $a=1;
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                      if($a==1){
+                                                                      ?>
+                                                            <div class="swiper-slide" style="padding: 15px;">
+                                                              <img src="<?=base_url().$more->image?>" alt="">
+                                                              <div class="my-3">
+                                                                <h6><?=$more->productname?></h6> <span style="font-weight: bold; font-size: 12px;">Starts At
+                                                                  ₹<?=$more->mrp?></span>
+                                                              </div>
+                                                            </div>
+                                                            <?php $i++; }} ?>
 
-            </div>
-          </div>
-          <!-- <div class="swiper-button-next"></div>
-                  <div class="swiper-button-prev"></div>
-                  <div class="swiper-pagination"></div> -->
-        </div>
+                                                          </div>
+                                                        </div>
+                                                        <!-- <div class="swiper-button-next"></div>
+                                                                <div class="swiper-button-prev"></div>
+                                                                <div class="swiper-pagination"></div>  -->
+                                                      </div>
+                                                    </div>
+                                                  </section>
+
+
+   <!--end more from collection-->
+
+    <!-- start Testimonials -->
+
+                                        <section class="bg-white" style="margin-top:0!important; ">
+                                            <div class="container bg-white">
+                                              <div class="w100 bg-white" style="text-align: center; ">
+                                                <h2>What Our Customers Have to Say</h2>
+                                            </div>
+                                          </div>
+                                          <div class="items bg-white" style="
+                                        margin: 0px; margin-left: 0!important; width:100%;">
+                                          <? foreach($data_testimonal->result() as $testimonals){
+                                          $break_string=chunk_split($testimonals->message,39,"<br>");
+                                          ?>
+                                          <div class="col-md-12 bg-white">
+                                            <img src="<?=base_url().$testimonals->image;?>" class="img-fluid center" style="width:50%; display:block;margin-left:auto;margin-right: auto" />
+                                            <div class="dfg col-md-2"><i class="fa fa-quote-left" style="font-size:25px;"></i></div>
+                                            <div class="dfg" style="width: auto;">
+                                              <p style="text-align: center; font-size:14px;"><?=$break_string; ?></p>
+                                            </div>
+                                            <div class="col-md-10 bg-white">
+                                              <p style="text-align: right; font-size:14px;"><b><?=$testimonals->name?></b></p>
+                                              <div class="col-md-2 ii bg-white" style="margin-left: 273px;"><i class="fa fa-quote-right" style="font-size:25px;"></i></div>
+                                            </div>
+                                          </div>
+                                          <? } ?>
+                                        </div>
+                                        </section>
+
+
+
+      <!-- End testimonals  -->
       </div>
-    </section>
-  </div>
-
-  <!--end more from collection-->
-
-  <!-- start Testimonials -->
-
-  <section class="bg-white">
-    <div class="container bg-white">
-      <div class="w100 bg-white" style="text-align: center; margin-bottom: -80px;">
-        <h2>What Our Customers Have to Say</h2>
-      </div>
-    </div>
-    <div class="items bg-white">
-      <? foreach($data_testimonal->result() as $testimonals){
-  $break_string=chunk_split($testimonals->message,39,"<br>");
-      ?>
-      <div class="col-md-12 bg-white">
-        <img src="<?=base_url().$testimonals->image;?>" class="img-fluid center" style="width:50%; display:block;margin-left:auto;margin-right: auto" />
-        <div class="dfg col-md-2"><i class="fa fa-quote-left" style="font-size:25px;"></i></div>
-        <div class="dfg" style="width: auto;">
-          <p style="text-align: center; font-size:14px;"><?=$break_string; ?></p>
-        </div>
-        <div class="col-md-10 bg-white">
-          <p style="text-align: right; font-size:14px;"><b><?=$testimonals->name?></b></p>
-          <div class="col-md-2 ii bg-white" style="margin-left: 273px;"><i class="fa fa-quote-right" style="font-size:25px;"></i></div>
-        </div>
-      </div>
-      <? } ?>
-    </div>
-  </section>
 
 
-
-  <!-- End testimonals  -->
-
-</div>
-<!-- </div>m -->
+  <!-- </div>m -->
 </div>
 <script src="<?=base_url()?>assets/frontend/assets/js/productdetail.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
