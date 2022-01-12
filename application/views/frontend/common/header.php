@@ -1274,10 +1274,65 @@
       display: block;
     }
     .modifiedSearch{
+      /* background-color: yellow; */
+      overflow: hidden;
+      width: 12vw !important;
+    }
+    .modifiedNewCount{
+      margin-top: -6px;
+z-index: 2;
+    }
+    .newSideBarExtrOpt{
 
     }
-    .modifiedCart{
+    .myNewLi{
 
+    }
+    .newSearchIcon{
+      width: 30%;
+      height: 50%;
+      /* background-color: red; */
+      position: relative;
+      /* color: red; */
+      right: -78%;
+      top: 0.5rem;
+      z-index: 2;
+    }
+    .newMoblSearchCont{
+      display: none;
+position: absolute;
+top: 1rem;
+left: -21rem;
+width: 100vw !important;
+    }
+    .newSearchBtn{
+
+    }
+.newSearchInput{
+  position: relative;
+display: block;
+  width: 15vw !important;
+  height: 100% !important;
+  background: transparent;
+  background: transparent !important;
+  margin: 0 !important;
+  left: 11rem;
+  color: white;
+  padding: 0 !important;
+  padding-top: 15px !important;
+  transition: left 400ms linear;
+}
+.newSearchInptMobl{
+  display: none;
+/* position: absolute; */
+top: 1rem;
+}
+/* .newSearchIcon:hover + .newSearchInput{
+  left: 0 !important;
+} */
+    .modifiedCart{
+position:relative;
+top:1rem;
     }
     .modifiedImg{
 
@@ -1297,9 +1352,73 @@
 .modifiedScrptImg{
 
 }
+.newWishList{
+
+}
     @media(max-width:600px){
       .dontHide{
         display: block;
+      }
+      .newWishList{
+        display: none !important;
+        position: relative;
+top: -2.2rem;
+      }
+      .newSideBarExtrOpt{
+        /* background-color: #983e21; */
+        flex-direction: column;
+      }
+      .myNewLi{
+        margin: 1rem 0px;
+        display: flex;
+        justify-content: center;
+    background-color: #d76a46;
+      }
+      .newMoblSearchCont{
+        display: flex;
+        flex-direction: row;
+        overflow: hidden;
+        height: 0;
+        transition: height 400ms linear;
+        /* width: 100vw; */
+        left: -21.5rem;
+        width: 57vh !important;
+        background-color: green;
+      }
+      .newSearchInput{
+        display: none;
+      }
+      .newSearchInptMobl{
+        display: block;
+        /* position: absolute; */
+        /* top: 1rem; */
+        width: 81% !important;
+        height: 3vh !important;
+        margin-top: 0px !important;
+      }
+      .newSearchBtn{
+        width: 30%;
+        height: 100%;
+        width: 20% !important;
+        height: 3vh !important;
+        padding: 0;
+        font-size: .9rem;
+        color: white;
+        background-color: #d76a46;
+        /* padding-bottom: 9px; */
+        border: none;
+        /* border-radius: 5px;*/
+      }
+      .newSearchIcon{
+        /* display: none; */
+        width: 30%;
+  height: 50%;
+  /* background-color: red; */
+  position: relative;
+  /* color: red; */
+  right: 2rem;
+  top: -1.5rem;
+  z-index: 2;
       }
       .modifiedUl{
         display: flex;
@@ -1310,6 +1429,8 @@
         position: relative;
       right: -2rem;
       top: -1rem;
+      overflow: visible;
+      width:3vw !important;
       }
       .modifiedCart{
         position: relative;
@@ -1685,7 +1806,7 @@ margin-top: 8vh !important;
   height: 9vh !important;
 }
     }
-  </style>
+</style>
 </head>
 
 <body>
@@ -1796,13 +1917,19 @@ $category_data= $this->db->get();
                   <?
             }?>
                   <div class="mt-2">
-                    <ul style="color:white!important;list-style-type:none">
+                    <ul class="newSideBarExtrOpt" style="color:white!important;list-style-type:none">
+                      <li class="myNewLi">
+                        <span>
+                          WishList
+                        </span>
+
+                      </li>
                       <?if (empty($this->session->userdata('user_data'))) {?>
-                      <li>
+                      <li class="myNewLi">
                         Login/Resigter
                       </li>
                       <?} else {?>
-                      <li>
+                      <li  class="myNewLi">
                         Logout
                       </li>
                       <?}?>
@@ -1817,8 +1944,14 @@ $category_data= $this->db->get();
               </ul>
             </li>
             <li class="hide sl modifiedSearch">
-              <i class="fa fa-search btn_change_change sb" aria-hidden="true"></i>
-              <!-- <input type="text" name="search" class="search_inp" /> -->
+              <i class="fa fa-search btn_change_change sb newSearchIcon" aria-hidden="true" onclick="newClickHandler()"></i>
+<!-- ****************** WEB INPUT *********************************  -->
+              <input type="text" name="search" class="newSearchInput" placeholder="Search"/>
+<!-- ****************** MOBILE INPUT *********************************  -->
+                <div class="newMoblSearchCont">
+                  <input type="text" name="search" class="newSearchInptMobl" placeholder="Search"/>
+                  <button type="button" name="button" class="newSearchBtn">Search</button>
+                </div>
             </li>
             <?if (!empty($this->session->userdata('user_data'))) {
               $user_id = $this->session->userdata('user_id');
@@ -1827,7 +1960,8 @@ $category_data= $this->db->get();
               $this->db->where('user_id',$user_id);
               $wish_count= $this->db->count_all_results();
               ?>
-            <li class="hide"><a href="<?=base_url()?>Home/view_wishlist/<?=base64_encode($this->session->userdata('user_id'))?>" style="color:unset;"><span class="count">
+              <!-- this is wishlist -->
+            <li class="hide dontHide newWishList"><a href="<?=base_url()?>Home/view_wishlist/<?=base64_encode($this->session->userdata('user_id'))?>" style="color:unset;"><span class="count">
                   <?if (!empty($wish_count)) {
                 echo $wish_count;
             }else{
@@ -1878,7 +2012,7 @@ $category_data= $this->db->get();
             }
               ?>
 
-            <li class="hide dontHide modifiedCart"><a href="<?=base_url()?>Home/view_cart" style="color: unset;"><span class="count">
+            <li class="hide dontHide modifiedCart"><a href="<?=base_url()?>Home/view_cart" style="color: unset;"><span class="count modifiedNewCount">
                   <?if (!empty($count)) {
                 echo $count;
             }else{

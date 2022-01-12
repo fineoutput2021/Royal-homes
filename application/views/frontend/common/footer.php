@@ -577,10 +577,26 @@ $(function () {
     }
   });
 });
+
+let toggle = false;
+let newClickHandler = ()=>{
+  toggle = !toggle;
+  let searchInput = document.getElementsByClassName("newSearchInput");
+  let searchInputMobile = document.getElementsByClassName("newMoblSearchCont");
+  // console.log(searchInput[0],toggle);
+  if(toggle){
+    searchInput[0].style.left = "0";
+    searchInputMobile[0].style.height = "20px";
+    // console.log('this is if:  ',searchInput[0].style.left);
+  }else{
+    searchInput[0].style.left = "11rem";
+    searchInputMobile[0].style.height = "0px";
+    // console.log('this is else:  ',searchInput[0].style.left);
+  }
+}
 </script>
 
-
-<script type="text/javascript">
+<!-- <script type="text/javascript"> -->
 
 $('.autoplay').slick({
   slidesToShow: 4,
