@@ -1276,7 +1276,9 @@
     .modifiedSearch{
       /* background-color: yellow; */
       overflow: hidden;
-      width: 12vw !important;
+  position: relative;
+  top: -0.3rem;
+  width: 12vw !important;
     }
     .modifiedNewCount{
       margin-top: -6px;
@@ -1311,7 +1313,7 @@ width: 100vw !important;
 .newSearchInput{
   position: relative;
 display: block;
-  width: 15vw !important;
+  max-width: 15vw !important;
   height: 100% !important;
   background: transparent;
   background: transparent !important;
@@ -1333,6 +1335,7 @@ top: 1rem;
     .modifiedCart{
 position:relative;
 top:1rem;
+    width: 1vw;
     }
     .modifiedImg{
 
@@ -1353,7 +1356,10 @@ top:1rem;
 
 }
 .newWishList{
-
+width:2vw
+}
+.newUserProfile{
+  width:3vw;
 }
     @media(max-width:600px){
       .dontHide{
@@ -1363,6 +1369,10 @@ top:1rem;
         display: none !important;
         position: relative;
 top: -2.2rem;
+width:0vw;
+      }
+      .newUserProfile{
+        width:0vw;
       }
       .newSideBarExtrOpt{
         /* background-color: #983e21; */
@@ -1382,8 +1392,8 @@ top: -2.2rem;
         transition: height 400ms linear;
         /* width: 100vw; */
         left: -21.5rem;
-        width: 57vh !important;
-        background-color: green;
+        width: 102vw !important;
+        /* background-color: green; */
       }
       .newSearchInput{
         display: none;
@@ -1435,7 +1445,8 @@ top: -2.2rem;
       .modifiedCart{
         position: relative;
         top: -3.5rem;
-            right: -2rem;
+            right: -1rem;
+            width: 0vw;
       }
       .count {
     margin-top: -6px;
@@ -1490,10 +1501,13 @@ top: -2.2rem;
       right: -2rem;
       top: -1rem;
       }
+      .newMoblSearchCont{
+        left: -32.5rem;
+      }
       .modifiedCart{
         position: relative;
       top: -3.5rem;
-      right: -2rem;
+      right: -1rem;
       }
       .count {
     margin-top: -6px;
@@ -1545,10 +1559,13 @@ top: -2.2rem;
       right: -2rem;
       top: -1rem;
       }
+      .newMoblSearchCont{
+        left: -24.5rem;
+      }
       .modifiedCart{
         position: relative;
       top: -3.5rem;
-      right: -2rem;
+      right: -1rem;
       }
       .count {
     margin-top: -6px;
@@ -1600,10 +1617,13 @@ top: -2.2rem;
       right: -2rem;
       top: -1rem;
       }
+      .newMoblSearchCont{
+        left: -22.5rem;
+      }
       .modifiedCart{
         position: relative;
       top: -3.5rem;
-      right: -2rem;
+      right: -1rem;
       }
       .count {
     margin-top: -6px;
@@ -1655,10 +1675,13 @@ top: -2.2rem;
       right: -2rem;
       top: -1rem;
       }
+      .newMoblSearchCont{
+        left: -21.5rem;
+      }
       .modifiedCart{
         position: relative;
       top: -3.5rem;
-      right: -2rem;
+      right: -1rem;
       }
       .count {
     margin-top: -6px;
@@ -1711,10 +1734,13 @@ margin-top: 7vh !important;
       right: -2rem;
       top: -1rem;
       }
+      .newMoblSearchCont{
+        left: -19rem;
+      }
       .modifiedCart{
         position: relative;
       top: -3.5rem;
-      right: -2rem;
+      right: -1rem;
       }
       .count {
     margin-top: -6px;
@@ -1766,10 +1792,13 @@ margin-top: 8vh !important;
       right: -2rem;
       top: -1rem;
       }
+      .newMoblSearchCont{
+        left: -16.5rem;
+      }
       .modifiedCart{
         position: relative;
       top: -3.5rem;
-      right: -2rem;
+      right: -1rem;
       }
       .count {
     margin-top: -6px;
@@ -1870,7 +1899,7 @@ $category_data= $this->db->get();
         </div>
         <div class="col-md-4 col-xs-6 menu">
           <ul class="modifiedUl" style="margin-right: 12px;
-    margin-left: 101px;
+    margin-left: 28px;
     margin-top: 14px;">
             <li>
               <div id="mySidenav" class="sidenav">
@@ -1980,7 +2009,7 @@ $category_data= $this->db->get();
               <a href="new my order.html">My Order list</a>
               <a href="<?=base_url()?>/User_login/user_logout">Log Out</a>
             </div>
-            <div id="main" class="ch234 hide">
+            <div id="main" class="ch234 hide newUserProfile">
               <?if (!empty($this->session->userdata('user_data'))) {?>
               <i class="fa fa-user openbtn btn_change_change media_q_change2" aria-hidden="true" id="account_open_close" onclick="openNav2()"></i>
               <!-- <p style="font-size:13px;">
