@@ -1975,7 +1975,17 @@ $category_data= $this->db->get();
             <li class="hide sl modifiedSearch">
               <i class="fa fa-search btn_change_change sb newSearchIcon" aria-hidden="true" onclick="newClickHandler()"></i>
 <!-- ****************** WEB INPUT *********************************  -->
-              <input type="text" name="search" class="newSearchInput" placeholder="Search"/>
+  <form action="<?=base_url()?>Home/search" method="get" enctype="multipart/form-data">
+    <input type="text" style="color:black;"name="search" class="newSearchInput" id="search" placeholder="Search" required/>
+</form>
+<script>
+var input = document.getElementById("search");
+input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+   event.preventDefault();
+  }
+});
+</script>
 <!-- ****************** MOBILE INPUT *********************************  -->
                 <div class="newMoblSearchCont">
                   <input type="text" name="search" class="newSearchInptMobl" placeholder="Search"/>

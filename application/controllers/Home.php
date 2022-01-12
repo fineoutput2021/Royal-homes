@@ -66,10 +66,9 @@ class Home extends CI_Controller
 
     public function all_Product()
     {
-
-      $idd = $this->uri->segment(3);
-      $t = $this->uri->segment(4);
-      $sort = $this->uri->segment(5);
+        $idd = $this->uri->segment(3);
+        $t = $this->uri->segment(4);
+        $sort = $this->uri->segment(5);
 
         $id=base64_decode($idd);
         $data["idd"] = $idd;
@@ -84,12 +83,12 @@ class Home extends CI_Controller
             $this->db->like('subcategory', $id);
         }
         $this->db->where('is_active', 1);
-        if(!empty($sort)){
-          if($sort=="LH"){
-            $this->db->order_by('selling_price', 'ASC');
-          }else if($sort=="HL"){
-            $this->db->order_by('selling_price', 'DESC');
-          }
+        if (!empty($sort)) {
+            if ($sort=="LH") {
+                $this->db->order_by('selling_price', 'asc');
+            } elseif ($sort=="HL") {
+                $this->db->order_by('selling_price', 'desc');
+            }
         }
         $product_data= $this->db->get();
         // print_r($product_data);
@@ -120,18 +119,18 @@ class Home extends CI_Controller
         $this->db->order_by('rand()');
         $data['data_testimonal']= $this->db->get();
 
-                    $this->db->select('*');
+        $this->db->select('*');
         $this->db->from('tbl_products');
-        $this->db->where('id !=',$id);
+        $this->db->where('id !=', $id);
         $this->db->where('is_active', 1);
         $this->db->order_by('rand()');
         $this->db->limit(15);
         $data['like_data']= $this->db->get();
 
-                    $this->db->select('*');
+        $this->db->select('*');
         $this->db->from('tbl_products');
         $this->db->where('is_active', 1);
-        $this->db->where('id !=',$id);
+        $this->db->where('id !=', $id);
         $this->db->order_by('rand()');
         $data['more_data']= $this->db->get();
 
@@ -319,6 +318,25 @@ class Home extends CI_Controller
         } else {
             redirect("Home/Index", "refresh");
         }
+    }
+
+
+    //-------search---------------
+    public function search()
+    {
+
+    $string= $this->input->get('search');
+
+      $this->db->select('*');
+      $this->db->from('tbl_products');
+      $this->db->like('productname',$string);
+      $this->db->where('is_active',1);
+      $data['search_data']= $this->db->get();
+
+      $this->load->view('frontend/common/header', $data);
+      $this->load->view('frontend/search_results');
+      $this->load->view('frontend/common/footer');
+
     }
 
     public function error404()
