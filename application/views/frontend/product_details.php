@@ -113,7 +113,7 @@
     <div class="swiper-pagination swiper-pagination-bullets swiper-pagination-bullets-dynamic" style="height: 225px;">
       <span class="swiper-pagination-bullet" style="top: -90px;"></span><span class="swiper-pagination-bullet" style="top: -90px;"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active-prev-prev"
         style="top: -90px;"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active-prev" style="top: -90px;"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active swiper-pagination-bullet-active-main"
-        style="top: -90px;"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active-next" style="top: -90px;"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active-next-next" style="top: -90px;"></span>
+        style="top: -90px; background-color:#d76a46!important;"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active-next" style="top: -90px;"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active-next-next" style="top: -90px;"></span>
     </div><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
   </div>
   <div class="product_nav_container">
@@ -185,7 +185,7 @@
         <div style="padding-top: 2rem;padding-left: 7vw;; background-color: white;" class="col-md-3 col-sm-6">
           <div class="myButtons">
             <div class="btn-group" id="MatchingEntitiesButtons">
-              <div class="details det1" style="padding:0!important;">
+              <div class="details det1"  padding:0!important;">
 
                 <p><button id="Button1" class="roundBtns " onclick="togglediv('NamesTable')" type="button" style="font-size: 14px;color:#000;padding: 8px ;background: none;"> Details </button></p>
 
