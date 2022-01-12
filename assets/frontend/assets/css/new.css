@@ -55,7 +55,8 @@
 
 @media(max-width:1000px){
 p{font-size: 14px;}
-.rrcs a{padding: inherit;padding:8px 14px;margin-bottom: 10px;display: inline-block;}
+.rrcs a{padding: inherit;padding:8px 14px;margin-bottom: 10px;display: inline-block;width: 100%!important;
+    text-align: center;}
 img{width: 100%;}
 .ky{border-bottom: none;}
 .bvf p{align-items: center;}
@@ -106,4 +107,5 @@ h2{text-align: center;}
 .gfh img{width: 234%;}
 .gfh p{margin-left: 510px;}
 .iuy{display: none;}
+.bbbs{font-size: 20px!important;text-align: center!important;}
 }

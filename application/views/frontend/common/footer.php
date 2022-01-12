@@ -1,4 +1,5 @@
 
+
 <!--Start Newsletter -->
 <section class="n_latter my-5 overflow-hidden bg-white">
   <div class="container1 bg-white">
@@ -19,7 +20,7 @@
           </div>
           <br>
           <div style="text-align: center;">
-            <button type="submit" class="news">Submit</button>
+            <button type="submit" class="news" style="width:26%!important;">Submit</button>
         </form>
         <br>
         <br>
@@ -41,7 +42,7 @@
         </div>
       </div>
     </div>
-    <div class="row mt-5">
+    <div class="row mt-5" style="margin-top:-2rem!important;">
       <div class="col-md-3">
         <h5 style="font-weight: 900;">
           Navigate

@@ -118,7 +118,7 @@
     .product_slick_nav .swiper-slide img.gallery-placeholder__thumbnail{width:100%;box-shadow:0px 0px 5px 1px #656565;}
     .product.media .product_slick .swiper-slide{background-size:100%;background-position:top center;background-repeat:no-repeat;background-attachment:fixed;cursor:url(https://www.orangetree.in/pub/static/version1637720459/frontend/Digital/desktop/en_US/Magento_Catalog/css/zoom_plus.png) 2 2,auto;}
     .gallery-placeholder__image{object-fit:cover;display:block;margin:auto;width:100%;}
-    .below_stirp.white_bg{position:absolute;width:auto;top:calc(100vh - 100px);left:40px;max-width:420px;z-index:9;background:#fff;border-radius:50px;padding:10px 15px!important;transform:translateY(-50%);box-shadow:0px 0px 10px 1px #4f4a4a3b;border-bottom:1px solid #d7d7d7;}
+    .below_stirp.white_bg{position:absolute;width:auto;top:calc(100vh - 70px);left:40px;max-width:420px;z-index:9;background:#fff;border-radius:50px;padding:10px 15px!important;transform:translateY(-50%);box-shadow:0px 0px 10px 1px #4f4a4a3b;border-bottom:1px solid #d7d7d7;}
     .below_stirp .row{justify-content:space-between;align-items:center;flex-wrap:nowrap;}
     .below_stirp.white_bg .product_name h1{font-size:22px;font-family:'questa-grande';vertical-align:middle;display:inline-block;margin:9px 20px 5px 10px;font-weight:300;}
     .below_stirp.white_bg .customize-scroll.text-right{margin-left:0;}
@@ -159,3 +159,84 @@
         border: none;
         outline: none;
     }
+
+    @media screen and (max-width: 560px)
+    {
+      .below_stirp
+      {
+        background: #fff!important;
+        position: relative!important;
+        width: 100%!important;
+        z-index: 5!important;
+        bottom: 0!important;
+        padding: 15px 0 15px!important;
+        top:0px!important;
+        left:0px!important;
+        max-width:100%!important;
+        border-radius: 0px!important;
+        padding: 10px 15px!important;
+        transform: none!important;
+        box-shadow: none!important;
+        border-bottom: 0px!important;
+
+      }
+      .det1{display: flex;}
+    }
+  }
+  #Button1:active{
+    text-decoration: underline;
+    text-decoration-color: red;
+
+  }
+  #Button1:hover {
+    text-decoration: underline;
+    text-decoration-color: red;
+  }
+  #Button2:active{
+    text-decoration: underline;
+    text-decoration-color: red;
+
+  }
+  #Button2:hover {
+    text-decoration: underline;
+    text-decoration-color: red;
+  }
+  #Button3:active{
+    text-decoration: underline;
+    text-decoration-color: red;
+
+  }
+  #Button3:hover {
+    text-decoration: underline;
+    text-decoration-color: red;
+  }
+  #Button4:active{
+    text-decoration: underline;
+    text-decoration-color: red;
+
+  }
+  #Button4:hover {
+    text-decoration: underline;
+    text-decoration-color: red;
+  }
+  #Button5:active{
+    text-decoration: underline;
+    text-decoration-color: red;
+
+  }
+  #Button5:hover {
+    text-decoration: underline;
+    text-decoration-color: red;
+  }
+    /* @media screen and (max-width: 414px) and (min-width: 377px)
+    {
+
+    }
+    @media screen and (max-width: 414px) and (min-width: 415px)
+    {
+
+    }
+    @media screen and (max-width: 1024px) and (min-width: 800px){
+
+    }
+    @media screen and (max-width: 1280px) and (min-width: 1026px) */

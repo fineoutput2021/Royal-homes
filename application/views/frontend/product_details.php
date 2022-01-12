@@ -148,7 +148,7 @@
 
 <!-- end this section  -->
 <div class="midsection bg-white">
-  <div class="below_stirp white_bg pt-4 pb-4">
+  <div class="below_stirp white_bg pt-4 pb-4 Mb_resp">
     <div class="container">
       <div class="row">
         <div class="product_name text-left">
@@ -185,17 +185,17 @@
         <div style="padding-top: 2rem;padding-left: 7vw;; background-color: white;" class="col-md-3 col-sm-6">
           <div class="myButtons">
             <div class="btn-group" id="MatchingEntitiesButtons">
-              <div class="details">
+              <div class="details det1" style="padding:0!important;">
 
-                <p><button id="Button1" class="roundBtns" onclick="togglediv('NamesTable')" type="button" style="font-size: 14px;color:#000;padding: 12px 0;background: none;"> Details </button></p>
+                <p><button id="Button1" class="roundBtns " onclick="togglediv('NamesTable')" type="button" style="font-size: 14px;color:#000;padding: 8px ;background: none;"> Details </button></p>
 
-                <p><button id="Button2" class="roundBtns" onclick="togglediv('PhoneTable')" type="button" style="font-size: 14px;padding: 12px 0;font-weight: 200;background: none;"> Care Instruction </button></p>
+                <p><button id="Button2" class="roundBtns" onclick="togglediv('PhoneTable')" type="button" style="font-size: 14px;color:#000;padding: 8px ;font-weight: 200;background: none;"> Care Instruction </button></p>
 
-                <p><button id="Button3" class="roundBtns" onclick="togglediv('AddressTable')" type="button" style="font-size: 14px; 12px 0;font-weight: 200;background: none;"> Shipping & Return</button></p>
+                <p><button id="Button3" class="roundBtns" onclick="togglediv('AddressTable')" type="button" style="font-size: 14px;color:#000;padding: 8px ;font-weight: 200;background: none;"> Shipping & Return</button></p>
 
-                <p><button id="Button4" class="roundBtns" onclick="togglediv('GradesTable')" type="button" style="font-size: 14px;padding: 12px 0;font-weight: 200;background: none;"> Warranty</button></p>
+                <p><button id="Button4" class="roundBtns" onclick="togglediv('GradesTable')" type="button" style="font-size: 14px;color:#000;padding: 8px;font-weight: 200;background: none;"> Warranty</button></p>
 
-                <p><button id="Button5" class="roundBtns" onclick="togglediv('SchoolTable')" type="button" style="font-size: 14px;padding: 12px 0;font-weight: 200;background: none;"> Features </button></p>
+                <p><button id="Button5" class="roundBtns" onclick="togglediv('SchoolTable')" type="button" style="font-size: 14px;color:#000;padding: 8px;font-weight: 200;background: none;"> Features </button></p>
 
               </div>
             </div>
@@ -305,19 +305,19 @@
                 </p>
                 <pre class="pricesection" style="color: #212529;font-size: 14px;">Price: <span style="font-size: 14px;color: #212529;font-weight: bold;">Rs.<?=$product_data->selling_price?></span></pre>
                 <br>
-                  <br>
-                </div>
+                <br>
+              </div>
 
 
-                <div class="bbbs" style="display: flex;align-items: center; cursor: pointer;">
-                  <p><b style="font-size: 14px;letter-spacing: 2px;">Quantity</b>
-                  <div class="input-group" style="position: relative;width: 100%;justify-content: center;">
-                    <span class="input-group__addon" style="border-right: 0;border-top-left-radius: 20px;border-bottom-left-radius: 20px;">
-                      <div class="input-group__button input-group__button--decrease" id="childMinus" data-bind="click: decreaseQty">
-                        <span class="input-group__icon input-group__icon--decrease">-</span>
-                      </div>
-                    </span>
-                    <input name="qty" id="child" value="1" min="1" onchange="qty_set()" style="display: inline-block;width: 50px;text-align: center;pointer-events: none;background: #fff;
+              <div class="bbbs" style="display: flex;align-items: center; cursor: pointer;">
+                <p><b style="font-size: 14px;letter-spacing: 2px; margin: 2px">Quantity</b>
+                <div class="input-group" style="position: relative;width: 100%;justify-content: center;">
+                  <span class="input-group__addon" style="border-right: 0;border-top-left-radius: 20px;border-bottom-left-radius: 20px;">
+                    <div class="input-group__button input-group__button--decrease" id="childMinus" data-bind="click: decreaseQty">
+                      <span class="input-group__icon input-group__icon--decrease">-</span>
+                    </div>
+                  </span>
+                  <input name="qty" id="child" value="1" min="1" onchange="qty_set()" style="display: inline-block;width: 50px;text-align: center;pointer-events: none;background: #fff;
                           background-clip: padding-box;
                           border: 1px solid #c2c2c2;
                           border-radius: 1px;
@@ -328,22 +328,22 @@
                           vertical-align: baseline;
                           width: 16%;
                           box-sizing: border-box;">
-                    <span class="input-group__addon" style="border-left: 0;border-top-right-radius: 20px;border-bottom-right-radius: 20px;">
-                      <div class="input-group__button input-group__button--increase" id="childPlus" data-bind="click: increaseQty">
-                        <span class="input-group__icon input-group__icon--increase">+</span>
-                      </div>
-                    </span>
-                  </div>
-
-                  </p>
+                  <span class="input-group__addon" style="border-left: 0;border-top-right-radius: 20px;border-bottom-right-radius: 20px;">
+                    <div class="input-group__button input-group__button--increase" id="childPlus" data-bind="click: increaseQty">
+                      <span class="input-group__icon input-group__icon--increase">+</span>
+                    </div>
+                  </span>
                 </div>
-                <br>
-                <br>
 
-                <div class="row" class="hov_col1">
-                  <?if (empty($this->session->userdata('user_data'))) {?>
-                  <div class="col-md-7 rrcs">
-                    <a href="" style="border-radius: 26px;
+                </p>
+              </div>
+              <br>
+              <br>
+
+              <div class="row" class="hov_col1">
+                <?if (empty($this->session->userdata('user_data'))) {?>
+                <div class="col-md-7 rrcs">
+                  <a href="" style="border-radius: 26px;
                       background-color: #e66b47;
                       z-index: 154;
                       transition: .3s all ease-in-out;
@@ -353,10 +353,10 @@
                       width: 64vw;
                       letter-spacing: 2px;line-height: 2.2rem;
                       padding: 14px 58px;" onclick="addToCartOffline(this)" id="add_cart" product_id="<?=base64_encode($product_data->id)?>" quantity=1>Add To Cart</a>
-                  </div>
-                  <?} else {?>
-                  <div class="col-md-7 rrcs">
-                    <a href="" style="border-radius: 26px;
+                </div>
+                <?} else {?>
+                <div class="col-md-7 rrcs">
+                  <a href="" style="border-radius: 26px;
                         background-color: #e66b47;
                         z-index: 154;
                         transition: .3s all ease-in-out;
@@ -366,8 +366,8 @@
                         width: 220px;
                         letter-spacing: 2px;line-height: 2.2rem;
                         padding: 14px 58px;" onclick="addToCartOnline(this)" id="add_cart" product_id="<?=base64_encode($product_data->id)?>" quantity=1>Add To Cart</a>
-                  </div>
-                  <?php
+                </div>
+                <?php
                     $user_id = $this->session->userdata('user_id');
                                 $this->db->select('*');
                     $this->db->from('tbl_wishlist');
@@ -376,26 +376,25 @@
                     $wishdata= $this->db->get()->row();
                     if (empty($wishdata)) {
                         ?>
-                  <a href="" style="color:#d76a46">
-                    <div class="col-md-5">
-                      <i class="fa fa-heart-o heacha" style="font-size: 1.5rem;" onclick="wishlist(this)" product_id="<?=base64_encode($product_data->id)?>" user_id="<?=base64_encode($this->session->userdata('user_id'))?>"
-                        status="add"></i>
-                      </div>
-                  </a>
-                  <?
+                <a href="" style="color:#d76a46">
+                  <div class="col-md-5">
+                    <i class="fa fa-heart-o heacha" style="font-size: 1.5rem;" onclick="wishlist(this)" product_id="<?=base64_encode($product_data->id)?>" user_id="<?=base64_encode($this->session->userdata('user_id'))?>" status="add"></i>
+                  </div>
+                </a>
+                <?php
                     } else {?>
-                  <a href="" style="color:#d76a46">
-                    <div class="col-md-5"><i class="fa fa-heart heacha" style="font-size: 1.5rem;" onclick="wishlist(this)" product_id="<?=base64_encode($product_data->id)?>" user_id="<?=base64_encode($this->session->userdata('user_id'))?>"
-                        status="remove"></i>
-                      </div>
-                  </a>
-                  <?}}?>
-                </div>
+                <a href="" style="color:#d76a46">
+                  <div class="col-md-5"><i class="fa fa-heart heacha" style="font-size: 1.5rem;" onclick="wishlist(this)" product_id="<?=base64_encode($product_data->id)?>" user_id="<?=base64_encode($this->session->userdata('user_id'))?>"
+                      status="remove"></i>
+                  </div>
+                </a>
+                <?}}?>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
   </section>
 
 
