@@ -596,7 +596,7 @@ let newClickHandler = ()=>{
 }
 </script>
 
-<!-- <script type="text/javascript"> -->
+<script type="text/javascript">
 
 $('.autoplay').slick({
   slidesToShow: 4,
