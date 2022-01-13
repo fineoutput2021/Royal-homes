@@ -25,7 +25,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100&family=Zen+Antique+Soft&family=Zen+Old+Mincho&display=swap" rel="stylesheet">
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100&family=Zen+Antique+Soft&family=Zen+Old+Mincho&display=swap" rel="stylesheet">
+  <link href="http://fonts.cdnfonts.com/css/gotham" rel="stylesheet">
+<link href="http://fonts.cdnfonts.com/css/questa-grande" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;1,200&family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
@@ -1324,6 +1325,9 @@ z-index: 2;
     .myNewLi{
 
     }
+    .myNewSpanBtn{
+
+    }
     .newSearchIcon{
       width: 30%;
       height: 50%;
@@ -1413,10 +1417,17 @@ width:0vw;
         flex-direction: column;
       }
       .myNewLi{
-        margin: 1rem 0px;
+        margin: 0.5rem 0px;
         display: flex;
-        justify-content: center;
-    background-color: #d76a46;
+        justify-content: space-around;
+      }
+      .myNewSpanBtn{
+        color: white;
+font-size: 16px;
+border: 2px solid #d76a46;
+border-radius: 8px;
+font-family: system-ui;
+padding: 0.5rem;
       }
       .newMoblSearchCont{
         display: flex;
@@ -1982,10 +1993,16 @@ $category_data= $this->db->get();
                   <div class="mt-2">
                     <ul class="newSideBarExtrOpt" style="color:white!important;list-style-type:none">
                       <li class="myNewLi">
-                        <span>
-                          WishList
-                        </span>
-
+                        <a href="http://localhost/Royal-homes/Home/view_wishlist/MQ==">
+                          <span class="myNewSpanBtn">
+                            WishList
+                          </span>
+                        </a>
+                        <a href="http://localhost/Royal-homes/Home/view_cart">
+                          <span class="myNewSpanBtn">
+                            My Orders
+                          </span>
+                        </a>
                       </li>
                       <?if (empty($this->session->userdata('user_data'))) {?>
                       <li id="myLoginReg" class="myNewLi" onclick="userLoginReg()">
