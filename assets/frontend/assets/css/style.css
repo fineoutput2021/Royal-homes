@@ -74,7 +74,7 @@ body{
 }
 .promis{
     background-color: #efefef;
-    padding-top: 50px;
+    padding-top: 1rem;
 }
 
 .promis ul{
@@ -267,22 +267,26 @@ button.slick-next.slick-arrow{
     }
 }
 .slick-prev{
-    width: 50px;
+    width: 58px;
+    padding: 0px;
     height: 50px;
     border-radius: 63px;
-    background: url("../img/a.png");
+    background: url("../img/d.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
     left: 17px !important;
     color: #ffffff00;
     border: 0px;
+    outline: none;
+
 }
 .slick-next{
-    width: 50px;
+    width: 58px;
+    padding: 0px;
     height: 50px;
     border-radius: 63px;
-    background: url("../img/b.png");
+    background: url("../img/c.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -345,5 +349,5 @@ button.slick-next.slick-arrow{
    display: none !important;
 
  }
- 
+
 }

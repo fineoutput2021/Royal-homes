@@ -17,10 +17,6 @@
 .new:hover{
   color:black;
 }
-.myNewVideo{
-  width: 82.4vw !important;
-  left: 7rem !important;
-}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <!--Start Slider-->
@@ -75,7 +71,7 @@
     </h2>
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <?php $i=0; foreach($launch_sub_data->result() as $sub) { ?>
-      <li class="nav-item">
+      <li class="nav-item fdff">
         <a class=" <?if($i==0){echo'active';}?> new" id="home_tab_<?=$sub->id?>" data-toggle="tab" href="#home_<?=$sub->id?>" role="tab" aria-controls="home_<?=$sub->id?>" aria-selected="<?if($i==0){echo 'true';}else{echo 'false';}?>"><?=$sub->subcategory?></a>
       </li>
       <?$i++;}?>
@@ -178,7 +174,7 @@
         <!-- Swiper -->
 
         <div class="swiper-wrapper decor">
-          <div class="swiper-slide">
+          <div class="swiper-slide sssd" style="padding:12px;">
             <a href="<?=$image_two->link_first;?>">
               <img src="<?=base_url().$image_two->image_first?>" alt="">
             </a>
@@ -186,7 +182,7 @@
               <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
             </div> -->
           </div>
-          <div class="swiper-slide">
+          <div class="swiper-slide sssd" style="padding:12px;>
             <a href="<?=$image_two->link_second;?>">
               <img src="<?=base_url().$image_two->image_two?>" alt="">
             </a>
@@ -211,7 +207,7 @@
 <!--Start Promise-->
 
 <section class="promis overflow-hidden">
-  <h2 class="text-center py-5" style="color: gray;font-weight: bolder;">The Orange Tree
+  <h2 class="text-center wwwq" style="color: gray;font-weight: bolder;">The Orange Tree
     Promise</h2>
   <div class="container-fluid">
     <div class="row">
@@ -280,12 +276,9 @@
     <br>
     <br>
     <div align="center" class="embed-responsive embed-responsive-16by9">
-      <iframe class="myNewVideo" width="420" height="315"
-src="https://www.youtube.com/embed/tgbNymZ7vqY">
-</iframe>
-        <!-- <video autoplay loop class="embed-responsive-item">
+        <video autoplay loop class="embed-responsive-item">
             <source src="http://techslides.com/demos/sample-videos/small.mp4" controls type="video/mp4">
-        </video> -->
+        </video>
     </div>
     <br>
   </section>

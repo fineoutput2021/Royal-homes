@@ -1,4 +1,4 @@
-*{font-family: euclid-circular-a;}
+*{font-family:euclid ultra light Text;}
 *h2{color: #666666;}
 .center{text-align: center;}
 .container{width: 1140px;margin: auto;}
@@ -97,6 +97,10 @@ h2{text-align: center;}
 .bvf p{text-align: center;}
 .heimed11{text-align: center!important;}
 .eclipse {max-width: 260px;margin: 30px auto!important;padding: 77px 0;}
+.fdff{padding: 0px!important;}
+.sssd{width: 100%!important;}
+.wwwq{padding-top: 0px!important;padding-bottom: 0px!important;}
+.py-5{padding-top: 0px!important;padding-bottom: 0px!important;}
 }
 
 @media(max-width: 580px){
