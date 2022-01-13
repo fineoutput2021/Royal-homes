@@ -122,7 +122,7 @@
         </div>
         <div class="lalu" style="display:none;">
           <a href="#" >
-            <img style="width: 1483px;" src="<?=base_url()?>assets/frontend/assets/img/bg222.jpg" alt="new.img">
+            <img style="width: 1483px;" src="<?=base_url().$banner_images->image2?>" alt="new.img">
           </a>
         </div>
       </div>
@@ -187,7 +187,7 @@
               <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
             </div> -->
           </div>
-          <div class="swiper-slide sssd" style="padding:12px;>
+          <div class="swiper-slide sssd" style="padding:12px;">
             <a href="<?=$image_two->link_second;?>">
               <img src="<?=base_url().$image_two->image_two?>" alt="">
             </a>

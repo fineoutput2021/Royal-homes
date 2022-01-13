@@ -46,17 +46,18 @@
 </td>
 </tr>
 <tr>
-<td> <strong>Link </strong>  <span style="color:red;">*</span></strong> </td>
-<td> <input type="text" name="link"  class="form-control" placeholder=""  value="<?=$bannerimages_data->link;?>"/>
-</td>
-</tr>
-<!-- <tr>
-<td> <strong>Image </strong>  <span style="color:red;">*</span></strong> </td>
+<td> <strong>Image2</strong>  <span style="color:red;">*</span></strong> </td>
 <td> <input type="file" name="image2"  class="form-control" placeholder="" value="<?$bannerimages_data->image2;?>"/>
   <?php if($bannerimages_data->image2!=""){ ?> <img id="slide_img_path" height=200 width=300 src="<?php  base_url().$bannerimages_data->image2; ?> "> <?php }else{ ?> Sorry No File Found <?php } ?>
 </td>
 </tr>
 <tr>
+<td> <strong>Link </strong>  <span style="color:red;">*</span></strong> </td>
+<td> <input type="text" name="link"  class="form-control" placeholder=""  value="<?=$bannerimages_data->link;?>"/>
+</td>
+</tr>
+
+<!-- <tr>
 <td> <strong>Image </strong>  <span style="color:red;">*</span></strong> </td>
 <td> <input type="file" name="image3"  class="form-control" placeholder=""value="<?$bannerimages_data->image3;?>" />
 <?php if($bannerimages_data->image3!=""){ ?> <img id="slide_img_path" height=200 width=300 src="<?php  base_url().$bannerimages_data->image3; ?> "> <?php }else{ ?> Sorry No File Found <?php } ?>

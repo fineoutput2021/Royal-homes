@@ -48,16 +48,9 @@
         <thead>
         <tr>
         <th>#</th>
-
- 	 <th>Heading</th>
- 	 <th>Image </th>
- 	 <!-- <th>Image </th>
- 	 <th>Image </th>
- 	 <th>Image</th> -->
- 	 <th>link</th>
-
-
-
+ 	      <th>Heading</th>
+ 	      <th>Image</th>
+ 	      <th>Image2</th>
         <th>Status</th>
         <th>Action</th>
         </tr>
@@ -78,18 +71,17 @@
         <?php } ?>
         </td>
 
-
-        <!-- <td>
-        <?php //if($data->image2!=""){ ?>
-        <img id="slide_img_path" height=50 width=100 src="<?php  //base_url().$data->image2
+        <td>
+        <?php if($data->image2!=""){ ?>
+        <img id="slide_img_path" height=50 width=100 src="<?php echo base_url().$data->image2
         ?>" >
-        <?php //}else { ?>
+        <?php }else { ?>
         Sorry No File Found
-        <?php //} ?>
+        <?php } ?>
         </td>
 
 
-        <td>
+        <!-- <td>
         <?php //if($data->image3!=""){ ?>
         <img id="slide_img_path" height=50 width=100 src="<?php  //base_url().$data->image3
         ?>" >
