@@ -1955,7 +1955,9 @@ $category_data= $this->db->get();
             <li>
               <div id="mySidenav" class="sidenav">
                 <div class="w-100 center mb-2">
-                  <span style="color: #d76a46; font-size:40px !important;border-bottom: 2px solid white ;">O</span>
+                  <a href="#" class="rqwa" style="width:85%;">
+                  <img src="<?=base_url()?>assets/frontend/assets/img/web_logo.png" id="logohed" alt="logo">
+                  </a>
                 </div>
                 <a href="javascript:void(0)" id="menucloseopen" class="closebtn" onclick="closeNav()">&times</a>
                 <div id="accordion" role="tablist">
