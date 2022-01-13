@@ -73,7 +73,7 @@
       /* Stay in place */
       z-index: 3;
       /* Sit on top */
-      padding-top: 100px;
+      padding-top: 40px;
       /* Location of the box */
       left: 0;
       top: 0;
@@ -96,7 +96,7 @@
       position: fixed;
       /* Stay in place */
       /* Sit on top */
-      padding-top: 100px;
+      padding-top: 56px;
       /* Location of the box */
       left: 0;
       top: 0;
@@ -241,6 +241,7 @@
     .btn1 {
       /* width: 241px; */
       background-color: white;
+      width:16vw !important;
     }
 
     .close:hover,
@@ -387,6 +388,31 @@
         font-size: 21px;
       }
     }
+    @media (max-width:600px){
+      .btn1{
+      width: 20vw !important;
+      }
+      .respns1{
+        width: 50% !important;
+        display: flex;
+        justify-content: center;
+      }
+      .respns2{
+        width: 50% !important;
+        display: flex;
+        justify-content: center;
+      }
+    }
+    @media (max-width:540px){
+      .btn1{
+      width: 24vw !important;
+      }
+    }
+    @media (max-width:360px){
+      .btn1{
+          width: 33vw !important;
+      }
+    }
   </style>
   <style>
     .body {
@@ -462,13 +488,16 @@
       }
 
       .logoimg {
-        margin-left: 12rem !important;
+        margin-left: 12 !important;
+        display: flex;
+    justify-content: center;
+    align-items: center;
       }
     }
 
     @media (max-width: 375px) {
       .logoimg {
-        margin-left: 9rem !important;
+        margin-left: 10rem !important;
       }
 
       .respns1 {
@@ -494,6 +523,11 @@
 
       .modal-content {
         width: 98%;
+      }
+    }
+    @media(max-width:280px){
+      .logoimg {
+        margin-left: 8rem !important;
       }
     }
   </style>
@@ -1954,11 +1988,11 @@ $category_data= $this->db->get();
 
                       </li>
                       <?if (empty($this->session->userdata('user_data'))) {?>
-                      <li class="myNewLi">
+                      <li id="myLoginReg" class="myNewLi" onclick="userLoginReg()">
                         Login/Resigter
                       </li>
                       <?} else {?>
-                      <li  class="myNewLi">
+                      <li id="myLogOut" class="myNewLi">
                         Logout
                       </li>
                       <?}?>
