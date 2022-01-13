@@ -34,7 +34,7 @@
 
 <!--footer Start-->
 <section class="footer overflow-hidden heimed1" style="height: 590px;">
-  <div class="container-fluid my-5" style="max-width: 90%;">
+  <div class="container-fluid my-5 heimed11" style="max-width: 90%;">
     <div class="row">
       <div class="col-md-12 text-center  mb-5">
         <div class="col-5 mx-auto mt-3">
@@ -69,13 +69,13 @@
           <li class="head"><a href="/decor"><span class="heading" style="font-weight: 700;">DECOR</span></a></li>
         </ul>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-3 heimed11">
         <h5 style="font-weight: 900;">
           Customer Care
         </h5>
         <br>
         <h5>
-          <p class="mb-5" style="font-size: 16px; text-align: left;">on - Sat | 10:30 am - 6:00 pm (IST)<a
+          <p class="mb-5 heimed11" style="font-size: 16px; text-align: left;">on - Sat | 10:30 am - 6:00 pm (IST)<a
               href="tel:9001190790"><img src="https://www.orangetree.in/pub/media/wysiwyg/ph.jpg"
                 style="width: 150px !important;" alt="ph"></a>
             <a href="mailto:care@orangetree.in"><img src="https://www.orangetree.in/pub/media/wysiwyg/email.jpg"
@@ -85,7 +85,7 @@
         </h5>
         <br>
         <!-- <br> -->
-        <p style="font-size: 16px; text-align: left;">View our Store locations</p>
+        <p class="heimed11" style="font-size: 16px; text-align: left;">View our Store locations</p>
         <br>
         <h5 style="font-weight: 700;">
           Social
