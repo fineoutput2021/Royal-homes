@@ -44,33 +44,33 @@
     </div>
     <div class="row mt-5" style="margin-top:-2rem!important;">
       <div class="col-md-3">
-        <h5 style="font-weight: 900;">
+        <h5  class="myNewFontFam"style="font-weight: 900;">
           Navigate
         </h5>
         <ul class="mb-4  mt-4 p-0 mobile-inlist">
-          <li class="head"><a href="/bedroom"><span class="heading" style="font-weight: 700;">BEDROOM</span></a></li>
-          <li><a href="/bedroom/beds" style="color: gray;">Beds</a></li>
-          <li><a href="/living/side-tables" style="color: gray;">Side Tables</a></li>
+          <li class="head"><a href="/bedroom"><span class="heading" style="font-weight: normal; font-family: gotham light">BEDROOM</span></a></li>
+          <li><a  class="myNewFontFam" href="/bedroom/beds" style="color: gray;">Beds</a></li>
+          <li><a  class="myNewFontFam" href="/living/side-tables" style="color: gray;">Side Tables</a></li>
         </ul>
         <ul class="mb-4  mt-4 p-0 mobile-inlist">
-          <li class="head"><a href="/dining"><span class="heading" style="font-weight: 700;">DINING</span></a></li>
-          <li><a href="/dining/dining-table" style="color: gray;">Tables</a></li>
-          <li><a href="/dining/chairs" style="color: gray;">Chairs</a></li>
+          <li class="head"><a href="/dining"><span class="heading" style="font-weight: normal; font-family: gotham light">DINING</span></a></li>
+          <li><a  class="myNewFontFam" href="/dining/dining-table" style="color: gray;">Tables</a></li>
+          <li><a  class="myNewFontFam" href="/dining/chairs" style="color: gray;">Chairs</a></li>
         </ul>
         <ul class="mb-4  mt-4 p-0 mobile-inlist">
-          <li class="head"><a href="/living"><span class="heading" style="font-weight: 700;">LIVING</span></a></li>
-          <li><a href="/living/sofas" style="color: gray;">Sofas</a></li>
-          <li><a href="/living/lounger-chairs" style="color: gray;">Chairs</a></li>
+          <li class="head"><a href="/living"><span class="heading" style="font-weight: normal; font-family: gotham light">LIVING</span></a></li>
+          <li><a  class="myNewFontFam" href="/living/sofas" style="color: gray;">Sofas</a></li>
+          <li><a  class="myNewFontFam" href="/living/lounger-chairs" style="color: gray;">Chairs</a></li>
         </ul>
 
         <ul class="mb-4  mt-4 p-0 mobile-inlist">
           <li class="head light"><a href="/lighting"><span class="heading"
-                style="font-weight: 700;">LIGHTING</span></a></li>
-          <li class="head"><a href="/decor"><span class="heading" style="font-weight: 700;">DECOR</span></a></li>
+                style="font-weight: normal; font-family: gotham light">LIGHTING</span></a></li>
+          <li class="head"><a href="/decor"><span class="heading" style="font-weight: normal; font-family: gotham light">DECOR</span></a></li>
         </ul>
       </div>
       <div class="col-md-3 heimed11">
-        <h5 style="font-weight: 900;">
+        <h5  class="myNewFontFam"style="font-weight: 900;">
           Customer Care
         </h5>
         <br>
@@ -87,36 +87,36 @@
         <!-- <br> -->
         <p class="heimed11" style="font-size: 16px; text-align: left;">View our Store locations</p>
         <br>
-        <h5 style="font-weight: 700;">
+        <h5  class="myNewFontFam"style="font-weight: 700;">
           Social
         </h5>
         <ul>
-          <li style="color: gray;" onmouseover="this.style.color='white'" onMouseOut="this.style.color='gray'">
+          <li  class="myNewFontFam" style="color: gray;" onmouseover="this.style.color='white'" onMouseOut="this.style.color='gray'">
             facebook</li>
-          <li style="color: gray;" onmouseover="this.style.color='white'" onMouseOut="this.style.color='gray'">
+          <li  class="myNewFontFam" style="color: gray;" onmouseover="this.style.color='white'" onMouseOut="this.style.color='gray'">
             instagram</li>
         </ul>
         <br>
         <h5>
-          <a href="Terms.html" style="text-decoration: none;">Terms & Conditions</a>
+          <a class="myNewFontFam" href="Terms.html" style="text-decoration: none;">Terms & Conditions</a>
         </h5>
         <br>
       </div>
       <div class="col-md-3">
 
-        <h5><a href="about us.html" style="font-weight: 700;">About us</a></h5>
+        <h5 class="myNewFontFam"><a  class="myNewFontFam" href="about us.html" style="font-weight: normal;">About us</a></h5>
         <br>
-        <p style="font-size: 16px; text-align: left ; color: gray;">For over two decades Basant has been exporting
+        <p style="font-size: 16px; text-align: left ; color: gray; font-family: gotham light">For over two decades Basant has been exporting
           Home decor products to some of the best brands in the world.
           A part of the vision Mr. Vinay Kumar had for Basant, was to framework a homegrown branch for the domestic
           market.</p>
         <br>
-        <h5><a href="blog.html"
+        <h5 class="myNewFontFam"><a href="blog.html"  class="myNewFontFam"
             style="text-decoration: none; color: white;font-weight: 700;">Blog</a></h5>
         <br>
-        <h5 style="font-weight: 700;">Track Your Order</h5>
+        <h5  class="myNewFontFam"style="font-weight: 700;">Track Your Order</h5>
         <br>
-        <h5 style="font-weight: 700;">Corporate Gifting</h5>
+        <h5  class="myNewFontFam"style="font-weight: 700;">Corporate Gifting</h5>
       </div>
       <div class="col-md-3 mj">
         <div class="eclipse border border-light rounded-circle text-center"><img class="d-inline-block align-middle"
@@ -565,7 +565,8 @@ $(function () {
       $(".header").addClass("active");
       $(".btn_change_change").addClass("black");
       $(".logochan").addClass("active");
-      $(".logochan").html('<a href="<?=base_url()?>" style="text-decoration: none;  text-align: center;"><span class="modifiedWhiteImg" style="color: #d76a46; font-size:40px !important;border-bottom: 2px solid grey ;">O</span></a>');
+      $(".logochan").html('<a href="<?=base_url()?>" style="text-decoration: none;  text-align: center;"><img src="<?=base_url()?>assets/frontend/assets/img/web_logo2.png" class="img1111 modifiedScrptImg"></a>');
+      // <span class="modifiedWhiteImg" style="color: #d76a46; font-size:40px !important;border-bottom: 2px solid grey ;">O</span>
       $(".headerlinks").css("color", "black")
     } else {
       //remove the background property so it comes transparent again (defined in your css)
@@ -573,7 +574,7 @@ $(function () {
       $(".btn_change_change").removeClass("black");
       $(".logochan").removeClass("active");
       $(".headerlinks").css("color", "white")
-      $(".logochan").html('<a href="<?=base_url()?>" style="text-decoration: none;"><img src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/logo_base.png" class="img1111 modifiedScrptImg"></a>');
+      $(".logochan").html('<a href="<?=base_url()?>" style="text-decoration: none;"><img src="<?=base_url()?>assets/frontend/assets/img/web_logo.png" class="img1111 modifiedScrptImg"></a>');
     }
   });
 });

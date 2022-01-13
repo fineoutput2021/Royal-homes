@@ -27,6 +27,7 @@
 
   <link href="http://fonts.cdnfonts.com/css/gotham" rel="stylesheet">
 <link href="http://fonts.cdnfonts.com/css/questa-grande" rel="stylesheet">
+<link href="http://fonts.cdnfonts.com/css/euclid-circular-a" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;1,200&family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
@@ -51,7 +52,7 @@
   </script>
   <style>
     body {
-      font-family: Brandon Text !important;
+      font-family: euclid-circular-a !important;
       scroll-behavior: smooth;
     }
 
@@ -414,12 +415,17 @@
           width: 33vw !important;
       }
     }
+    .myNewFontFam{
+      font-family: gotham light !important;
+      font-weight: normal !important;
+    }
   </style>
   <style>
     .body {
-      font-family: 'Montserrat', sans-serif;
+      /* font-family: 'Montserrat', sans-serif;
       font-family: 'Zen Antique Soft', serif;
-      font-family: 'Zen Old Mincho', serif;
+      font-family: 'Zen Old Mincho', serif; */
+      font-family: euclid-circular-a;
     }
 
     input[type=email],
@@ -1939,7 +1945,7 @@ $category_data= $this->db->get();
         </div>
         <div class="col-md-4 col-xs-6 logch1 img1111 modifiedImg">
           <div class="logo logochan forWhiteLogo">
-            <a href="<?=base_url()?>"><img src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/logo_base.png" id="logohed" alt=""></a>
+            <a href="<?=base_url()?>"><img src="<?=base_url()?>assets/frontend/assets/img/web_logo.png" id="logohed" alt=""></a>
           </div>
         </div>
         <div class="col-md-4 col-xs-6 menu">
