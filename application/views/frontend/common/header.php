@@ -81,7 +81,7 @@
       /* Full width */
       height: 100%;
       /* Full height */
-      overflow: auto;
+      overflow: hidden;
       /* Enable scroll if needed */
       background-color: rgb(0, 0, 0);
       /* Fallback color */
