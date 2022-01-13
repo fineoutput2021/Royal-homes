@@ -17,6 +17,10 @@
 .new:hover{
   color:black;
 }
+.myNewVideo{
+  width: 82.4vw !important;
+  left: 7rem !important;
+}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <!--Start Slider-->
@@ -276,9 +280,12 @@
     <br>
     <br>
     <div align="center" class="embed-responsive embed-responsive-16by9">
-        <video autoplay loop class="embed-responsive-item">
+      <iframe class="myNewVideo" width="420" height="315"
+src="https://www.youtube.com/embed/tgbNymZ7vqY">
+</iframe>
+        <!-- <video autoplay loop class="embed-responsive-item">
             <source src="http://techslides.com/demos/sample-videos/small.mp4" controls type="video/mp4">
-        </video>
+        </video> -->
     </div>
     <br>
   </section>
