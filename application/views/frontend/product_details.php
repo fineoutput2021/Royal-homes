@@ -72,7 +72,7 @@
   @media screen and (min-width: 300px) and (max-width: 960px) {
     .midsection {
       background-color: white;
-      margin-top: 9rem;
+      margin-top: 50vh;
     }
   }
 </style>
@@ -182,7 +182,7 @@
       <div class="row bg-white">
 
         <!--start product details-->
-        <div style="padding-top: 2rem;padding-left: 7vw;; background-color: white;" class="col-md-3 col-sm-6">
+        <div style="padding-top: 2rem;padding-left:1rem; background-color: white;" class="col-md-3 col-sm-6">
           <div class="myButtons">
             <div class="btn-group" id="MatchingEntitiesButtons">
               <div class="details det1"  padding:0!important;">
@@ -343,20 +343,20 @@
               <div class="row" class="hov_col1">
                 <?if (empty($this->session->userdata('user_data'))) {?>
                 <div class="col-md-7 rrcs">
-                  <a href="" style="border-radius: 26px;
+                  <a href="" class="xmp" style="border-radius: 26px;
                       background-color: #e66b47;
                       z-index: 154;
                       transition: .3s all ease-in-out;
                       font-weight: 400;
                       text-transform: uppercase;
                       font-size: 13px;
-                      width: 64vw;
+
                       letter-spacing: 2px;line-height: 2.2rem;
                       padding: 14px 58px;" onclick="addToCartOffline(this)" id="add_cart" product_id="<?=base64_encode($product_data->id)?>" quantity=1>Add To Cart</a>
                 </div>
                 <?} else {?>
                 <div class="col-md-7 rrcs">
-                  <a href="" style="border-radius: 26px;
+                  <a href="" class="xmp" style="border-radius: 26px;
                         background-color: #e66b47;
                         z-index: 154;
                         transition: .3s all ease-in-out;

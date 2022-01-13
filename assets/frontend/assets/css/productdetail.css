@@ -7,8 +7,8 @@
     a:hover{color:#006bb4;text-decoration:underline;}
     a:active{color:#ff5501;text-decoration:underline;}
     button{background-image:none;background:#f2f2f2;border:1px solid #cdcdcd;color:#333;cursor:pointer;display:inline-block;font-family:'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:700;margin:0;padding:7px 15px;font-size:1.4rem;line-height:1.6rem;box-sizing:border-box;vertical-align:middle;}
-    button:focus,button:active{background:#e2e2e2;border:1px solid #cdcdcd;color:#333;}
-    button:hover{background:#e2e2e2;border:1px solid #cdcdcd;color:#555;}
+    /* button:focus,button:active{background:#e2e2e2;border:1px solid #cdcdcd;color:#333;}
+    button:hover{background:#e2e2e2;border:1px solid #cdcdcd;color:#555;} */
     button::-moz-focus-inner{border:0;padding:0;}
     *:focus{box-shadow:none;outline:0;}
     button{border-radius:3px;}
@@ -182,7 +182,16 @@
       }
       .det1{display: flex;}
     }
+    @media screen and (min-width:1000px){
+      /* .qwr */
+    }
+    @media (min-width:768px) {
+      .rrcs{
+        flex: none!important; max-width: none!important;
+      }
+    }
   }
+
   #Button1:active{
     text-decoration: underline;
     text-decoration-color: #d76a46;
