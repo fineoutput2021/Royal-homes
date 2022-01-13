@@ -180,14 +180,14 @@ body{
     width: 480px;
 }
 button.slick-prev.slick-arrow{
-    display: none;
+    display: block;
     position: absolute;
     left: 0;
     top: 31%;
     z-index: 5;
 }
 button.slick-next.slick-arrow{
-    display: inline-block;
+    display: block;
     position: absolute;
     right: 0;
     top: 31%;
@@ -240,10 +240,10 @@ button.slick-next.slick-arrow{
     color: #3e3938;
 }
 .say, .t_slider button.slick-next.slick-arrow{
-    display: none !important;
+    display: block !important;
 }
 .say, .t_slider button.slick-prev.slick-arrow{
-    display: none !important;
+    display: block !important;
 }
 .header{
     font-size: 1rem;
@@ -341,13 +341,21 @@ button.slick-next.slick-arrow{
    button.slick-next.slick-arrow{
      z-index: 10;
     width: 34px !important;
-    display: none !important;
+    display: block !important;
   }
    button.slick-prev.slick-arrow {
    z-index: 10;
    width: 34px !important;
-   display: none !important;
+   display: block !important;
 
+ }
+ .say, .t_slider button.slick-next.slick-arrow{
+     display: block !important;
+     margin-top: 10%;
+ }
+ .say, .t_slider button.slick-prev.slick-arrow{
+     display: block !important;
+     margin-top: 10%;
  }
 
 }
