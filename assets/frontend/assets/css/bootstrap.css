@@ -197,9 +197,9 @@ label {
 button {
   border-radius: 0; }
 
-button:focus {
+/* button:focus {
   outline: 1px dotted;
-  outline: 5px auto -webkit-focus-ring-color; }
+  outline: 5px auto -webkit-focus-ring-color; } */
 
 input,
 button,
@@ -299,7 +299,7 @@ template {
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 0.5rem;
-  font-family: euclid-circular-a !important;
+  font-family: Gotham Light !important;
   /* font-family: questa-grande !important; */
   font-weight: 500;
   line-height: 1.2;
