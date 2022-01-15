@@ -178,8 +178,8 @@
       <div class="col-md-12">
         <!-- Swiper -->
 
-        <div class="swiper-wrapper decor">
-          <div class="swiper-slide sssd" style="padding:12px;">
+        <div class="swiper-wrapper decor" style="padding-left:0px">
+          <div class="swiper-slide sssd" >
             <a href="<?=$image_two->link_first;?>">
               <img src="<?=base_url().$image_two->image_first?>" alt="">
             </a>
@@ -187,7 +187,7 @@
               <h6>Emperor Sofa Collection</h6> <span style="font-weight: bold; font-size: 12px;"> ₹38,400</span>
             </div> -->
           </div>
-          <div class="swiper-slide sssd" style="padding:12px;">
+          <div class="swiper-slide sssd">
             <a href="<?=$image_two->link_second;?>">
               <img src="<?=base_url().$image_two->image_two?>" alt="">
             </a>
@@ -277,13 +277,14 @@
 
 
   <!--- Start video --->
-  <section>
+  <section style="padding: 4vw;">
     <br>
     <br>
-    <div align="center" class="embed-responsive embed-responsive-16by9">
-        <video autoplay loop class="embed-responsive-item">
+    <div align="center" class="embed-responsive embed-responsive-16by9" >
+      <iframe src="http://www.youtube.com/embed/u5RvDg8uFv0?autoplay=1" width="960" height="447" frameborder="0" allowfullscreen></iframe>
+        <!-- <video autoplay loop class="embed-responsive-item">
             <source src="http://techslides.com/demos/sample-videos/small.mp4" controls type="video/mp4">
-        </video>
+        </video> -->
     </div>
     <br>
   </section>

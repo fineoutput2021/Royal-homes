@@ -361,3 +361,15 @@ button.slick-next.slick-arrow{
  }
 
 }
+@media all and (min-width: 725px){
+  .say, .t_slider button.slick-next.slick-arrow{
+      display: block !important;
+      margin-top: 20vh;
+      width: 25px!important;
+    }
+    .say, .t_slider button.slick-prev.slick-arrow{
+        display: block !important;
+        margin-top: 20vh;
+         width: 25px!important;
+    }
+}
