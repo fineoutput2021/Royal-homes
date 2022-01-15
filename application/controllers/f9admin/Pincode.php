@@ -125,13 +125,13 @@
            if($typ==1){
 
 
-          $pin= explode(",",$pincode);
+          // $pin= explode(",",$pincode);
           // print_r($pin);
           // exit;
 
-foreach ($pin as $value) {
+// foreach ($pin as $value) {
   $data_insert = array(
-         'pincode'=>$value,
+         'pincode'=>$pincode,
   'shippingcharge'=>$shippingcharge,
             'ip' =>$ip,
             'added_by' =>$addedby,
@@ -141,20 +141,8 @@ foreach ($pin as $value) {
 
 
   $last_id=$this->base_model->insert_table("tbl_pincode",$data_insert,1) ;
-}
+// }
 
-  //          $data_insert = array(
-  //                 'pincode'=>$pincode,
-  // 'shippingcharge'=>$shippingcharge,
-  //
-  //                    'ip' =>$ip,
-  //                    'added_by' =>$addedby,
-  //                    'is_active' =>1,
-  //                    'date'=>$cur_date
-  //                    );
-  //
-  //
-  //          $last_id=$this->base_model->insert_table("tbl_pincode",$data_insert,1) ;
 
            }
            if($typ==2){

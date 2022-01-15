@@ -158,9 +158,17 @@ class Order extends CI_Controller
                     //----calculate shipping charges-----
                     $this->db->select('*');
                     $this->db->from('tbl_pincode');
-                    $this->db->where('id', $pincode);
+                    $this->db->like('pincode', $pincode);
                     $pin_data= $this->db->get()->row();
 
+                    $pin= explode(",",$pin_data->pincode);
+                    $i=0;
+                    foreach ($pin as $value) {
+                      if($value==$pincode){
+                         $i=1;
+                      }
+                    }
+                    if($i==1){
                     $shipping = $pin_data->shippingcharge;
                     $final_amount = $order_data->total_amount + $shipping;
 
@@ -182,6 +190,10 @@ class Order extends CI_Controller
                         $this->session->set_flashdata('emessage', 'Some error occured! Please try again');
                         redirect($_SERVER['HTTP_REFERER']);
                     }
+                }else{
+                  $this->session->set_flashdata('emessage', 'Sorry we are currently not delivering order at this pincode! Please try with different pincode');
+                  redirect($_SERVER['HTTP_REFERER']);
+                }
                 } else {
                     $this->session->set_flashdata('emessage', validation_errors());
                     redirect($_SERVER['HTTP_REFERER']);
