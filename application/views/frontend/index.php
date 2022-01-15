@@ -145,7 +145,7 @@
           <? foreach($Best_seller->result() as $seller){  ?>
 
           <div class="swiper-slide" style="padding: 15px;">
-            <a href="productdetail.html">
+            <a href="<?=base_url()?>Home/product_details/<?=base64_encode($seller->id)?>">
               <img src="<?=base_url().$seller->image;?>" alt="">
             </a>
             <div class="my-3">
