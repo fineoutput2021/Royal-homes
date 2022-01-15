@@ -359,6 +359,10 @@ button.slick-next.slick-arrow{
      margin-top: 10%;
       width: 25px!important;
  }
+ .positn{
+   display: flex;
+  }
+  .fsize{font-size: 15px;}
 
 }
 @media all and (min-width: 725px){

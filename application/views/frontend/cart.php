@@ -16,8 +16,8 @@ width:100%;
   color: white;
 }
 </style>
-<section>
-<div class="container">
+<section >
+<div class="container" style="font-weight:700;">
 <div class="row">
 <div class="col-md-8">
 <h2>Your Shopping Bag</h2>
@@ -38,25 +38,40 @@ $pro_data= $this->db->get()->row(); ?>
 <div class="col-md-3 col-6">
 <img src="<?=base_url().$pro_data->image?>" class="img-fluid p-2" style="width:150px;height:150px;"  />
 </div>
-<div class="col-md-9 col-6">
-<span style="font-size:25px"><?=$pro_data->productname?></span>
-<a href="" onclick="deleteCartOnline(this)" product_id="<?=base64_encode($cart->product_id)?>"><span class="float-right" style="font-size:30px; color:#d76a46">&times</span></a>
+<div class="col-md-6 col-4 fsize">
+<span style="font-size:25px; "><?=$pro_data->productname?></span>
+
 <div class="row">
 <span class="m-2">
-Quantity:
+<b>Quantity:
+</b>
 </span>
+<div class="input-group" style="position: relative;width: 50%; display:flex; flex-wrap:nowrap;">
+  <span class="input-group__addon" style="border-right: 0;border-top-left-radius: 20px;border-bottom-left-radius: 20px; font-size:20px; color:black;">
+    <div class="input-group__button input-group__button--decrease" id="childMinus" data-bind="click: decreaseQty">
+      <span class="input-group__icon input-group__icon--decrease">-</span>
+    </div>
+  </span>
+  <span class="m-2">
+    <input type="number" class="form-control" style="width:70px"
+  i="<?=$i?>" value="<?=$cart->quantity?>" min="1" onchange="updateCartOnline(this)" product_id="<?=base64_encode($cart->product_id)?>" mrp="<?=$pro_data->mrp?>"
+    >
+  </span>
+  <span class="input-group__addon" style="border-left: 0;border-top-right-radius: 20px;border-bottom-right-radius: 20px; font-size:20px;">
+    <div class="input-group__button input-group__button--increase" id="childPlus" data-bind="click: increaseQty">
+      <span class="input-group__icon input-group__icon--increase">+</span>
+    </div>
+  </span>
+</div>
 <span class="m-2">
-  <input type="number" class="form-control" style="width:70px"
-i="<?=$i?>" value="<?=$cart->quantity?>" min="1" onchange="updateCartOnline(this)" product_id="<?=base64_encode($cart->product_id)?>" mrp="<?=$pro_data->mrp?>"
-  >
-</span>
-<span class="m-2">
-Price:
+<b>Price:</b>
 </span>
 <span class="m-2" id="price_<?=$i?>"> Rs.
   <?=$mrp =$pro_data->mrp*$cart->quantity?></span>
 </div>
 </div>
+
+<div class="col-md-3 col-2"><a href="" onclick="deleteCartOnline(this)" product_id="<?=base64_encode($cart->product_id)?>"><span class="float-right positn" style="font-size:30px; color:#d76a46">&times</span></a></div>
 </div>
 <?$total = $total + $mrp;
 $i++;
@@ -64,7 +79,7 @@ $i++;
 }?>
 </div>
 <div class="col-md-4 mt-3" style="position:sticky;">
-<h4>Order Summary</h4>
+<h4><b>Order Summary</b></h4>
 <hr />
 <p class="subtotal">Subtotal <span class="float-right" id="subtotal">Rs.<?if (empty($cart_check)) {
 echo 0;

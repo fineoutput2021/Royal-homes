@@ -136,7 +136,7 @@ $sub_data= $this->db->get()->row();
 
     <div class="row" style="padding:10px;border:1px solid #ccc">
       <div class="col-md-6">
-        <h3><?=$sub_data->subcategory?></h3>
+        <h3 style="text-align:center;"><?=$sub_data->subcategory?></h3>
         <p>
           <?=$sub_data->description?>
         </p>
