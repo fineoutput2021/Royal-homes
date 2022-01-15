@@ -71,7 +71,7 @@
     </h2>
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <?php $i=0; foreach($launch_sub_data->result() as $sub) { ?>
-      <li class="nav-item fdff">
+      <li class="nav-item fdff active">
         <a class=" <?if($i==0){echo'active';}?> new" id="home_tab_<?=$sub->id?>" data-toggle="tab" href="#home_<?=$sub->id?>" role="tab" aria-controls="home_<?=$sub->id?>" aria-selected="<?if($i==0){echo 'true';}else{echo 'false';}?>"><?=$sub->subcategory?></a>
       </li>
       <?$i++;}?>

@@ -1018,7 +1018,7 @@
 
       .sidenav a {
         font-size: 18px !important;
-        padding: 0px 8px 4px 36px !important;
+        padding: 0px 8px 4px 6px !important;
       }
     }
   </style>
@@ -1122,7 +1122,7 @@
 
     /* The navigation menu links */
     .sidenav a {
-      padding: 8px 8px 8px 32px;
+      padding: 8px 8px 8px 6px;
       text-decoration: none;
       font-size: 25px;
       color: #818181;
@@ -1425,15 +1425,18 @@ width:0vw;
       .myNewLi{
         margin: 0.5rem 0px;
         display: flex;
+        flex-direction: column;
         justify-content: space-around;
+        line-height: 2.5!important;
       }
       .myNewSpanBtn{
-        color: white;
-font-size: 16px;
-border: 2px solid #d76a46;
-border-radius: 8px;
-font-family: system-ui;
-padding: 0.5rem;
+
+        font-size: 23px;
+        /* border: 2px solid #d76a46; */
+        border-radius: 8px;
+        font-family: Gotham light;
+        padding: 0.5rem;
+
       }
       .newMoblSearchCont{
         display: flex;
@@ -1525,8 +1528,8 @@ padding: 0.5rem;
     top: -1rem;
   }
   .modifiedScrptImg{
-    height: 9px;
-    margin-left: 0.2rem!important;
+    height: auto;
+    margin-left: 2.2rem!important;
     max-width: 100% !important;
   }
   .modifiedBurger{
@@ -1583,8 +1586,8 @@ padding: 0.5rem;
     top: -1rem;
   }
   .modifiedScrptImg{
-    height: 9px;
-    margin-left: 0.2rem!important;
+    height: auto;
+    margin-left: 2.2rem!important;
     max-width: 100% !important;
   }
   .modifiedBurger{
@@ -1641,13 +1644,13 @@ padding: 0.5rem;
   top: -1rem;
 }
 .modifiedScrptImg{
-  height: 9px;
-  margin-left: 0.2rem!important;
+  height: auto;
+  margin-left: 2.2rem!important;
   max-width: 100% !important;
 }
 .modifiedBurger{
-  margin-top: 5vh !important;
-  margin-left: -44vw !important;
+  margin-top: 4vh !important;
+  margin-left: -38vw !important;
 }
 .modifiedHeaderCont{
   height: 7vh !important;
@@ -1699,12 +1702,12 @@ padding: 0.5rem;
     top: -1rem;
   }
   .modifiedScrptImg{
-    height: 9px;
-    margin-left: 0.2rem!important;
+    height: auto;
+    margin-left: 2.2rem!important;
     max-width: 100% !important;
   }
   .modifiedBurger{
-  margin-top: 5vh !important;
+  margin-top: 6vh !important;
     margin-left: -38vw !important;
   }
   .modifiedHeaderCont{
@@ -1757,8 +1760,9 @@ padding: 0.5rem;
   top: -1rem;
 }
 .modifiedScrptImg{
-  height: 9px;
-  margin-left: 0.2rem!important;
+  height: auto;
+
+  margin-left: 2.2rem!important;
   max-width: 100% !important;
 }
 .modifiedBurger{
@@ -1816,8 +1820,8 @@ margin-top: 7vh !important;
   top: -1rem;
 }
 .modifiedScrptImg{
-  height: 9px;
-  margin-left: 0.2rem!important;
+  height: auto;
+  margin-left: 2.2rem!important;
   max-width: 100% !important;
 }
 .modifiedBurger{
@@ -1874,8 +1878,8 @@ margin-top: 8vh !important;
   top: -1rem;
 }
 .modifiedScrptImg{
-  height: 9px;
-  margin-left: 0.2rem!important;
+  height: auto;
+  margin-left: 2.2rem!important;
   max-width: 100% !important;
 }
 .modifiedBurger{
@@ -1999,7 +2003,7 @@ $category_data= $this->db->get();
                   <?
             }?>
                   <div class="mt-2">
-                    <ul class="newSideBarExtrOpt" style="color:white!important;list-style-type:none">
+                    <ul class="newSideBarExtrOpt" style="list-style-type:none; text-align: center;">
                       <li class="myNewLi">
                         <a href="http://localhost/Royal-homes/Home/view_wishlist/MQ==">
                           <span class="myNewSpanBtn">
@@ -2013,7 +2017,7 @@ $category_data= $this->db->get();
                         </a>
                       </li>
                       <?if (empty($this->session->userdata('user_data'))) {?>
-                      <li id="myLoginReg" class="myNewLi" onclick="userLoginReg()">
+                      <li id="myLoginReg" class="myNewLi" style="color: #d76a46; font-size:26px;" onclick="userLoginReg()">
                         Login/Resigter
                       </li>
                       <?} else {?>

@@ -187,7 +187,7 @@
             <div class="btn-group" id="MatchingEntitiesButtons">
               <div class="details det1"  padding:0!important;">
 
-                <p><button id="Button1" class="roundBtns " onclick="togglediv('NamesTable')" type="button" style="font-size: 14px;color:#000;padding: 8px ;background: none;"> Details </button></p>
+                <p><button id="Button1" class="roundBtns active " onclick="togglediv('NamesTable')" type="button" style="font-size: 14px;color:#000;padding: 8px ;background: none;"> Details </button></p>
 
                 <p><button id="Button2" class="roundBtns" onclick="togglediv('PhoneTable')" type="button" style="font-size: 14px;color:#000;padding: 8px ;font-weight: 200;background: none;"> Care Instruction </button></p>
 
