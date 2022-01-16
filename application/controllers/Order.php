@@ -176,7 +176,7 @@ class Order extends CI_Controller
                  'name'=>$name,
                  'email'=>$email,
                  'phone'=>$phone,
-                 'pincode_id'=>$pincode,
+                 'pincode'=>$pincode,
                  'address'=>$address,
                  'delivery_charge'=>$shipping,
                  'final_amount'=>$final_amount,

@@ -15,7 +15,7 @@
     padding: 5px 20px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
-    font-size: 18px;
+    font-size: 14px;
   }
 
   .add_btn {
@@ -80,7 +80,7 @@
     box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.1);
     background-color: #ffffff;
     list-style-type: none;
-    z-index: 1;
+    z-index: 10;
     text-align: left;
     margin-left: -63px;
   }
@@ -243,12 +243,24 @@ $sub_data= $this->db->get()->row();
 
     <!--products--->
     <div class="row">
-      <?php $i=1; foreach($product_data1 as $pro) { ?>
+      <?php $i=1; foreach($product_data1 as $pro) {
+        $discount=(int)$pro['mrp']-(int)$pro['selling_price'];
+        $percent=0;
+        if($discount>0){
+        $percent=$discount/$pro['mrp']*100;
+        }
+        ?>
       <div class="col-md-3 p-2">
           <a href="<?=base_url()?>Home/product_details/<?=base64_encode($pro['id'])?>" style="color:unset">
         <img src="<?=base_url().$pro['image']?>" class="img-fluid" />
-        <div class="discount">New</div>
-        <h5><?=$pro['name']?></h5><s style="font-size: 12px;text-decoration: line-through;color:red">(Rs.<?=$pro['mrp']?>)</s>  <span style="font-weight: bold; font-size: 12px;"> Rs.<?=$pro['selling_price']?></span></a>
+        <?if($percent>0){?>
+        <div class="discount"><?=round($percent)?>% off</div>
+        <?}?>
+        <h5><?=$pro['name']?></h5>
+        <?if($pro['mrp']>$pro['selling_price']){?>
+        <s style="font-size: 12px;text-decoration: line-through;color:red">(Rs.<?=$pro['mrp']?>)</s>
+        <?}?>
+        <span style="font-weight: bold; font-size: 12px;"> Rs.<?=$pro['selling_price']?></span></a>
         <?if(!empty($this->session->userdata('user_data'))){
                       $this->db->select('*');
           $this->db->from('tbl_wishlist');

@@ -15,7 +15,7 @@
     padding: 5px 20px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
-    font-size: 18px;
+    font-size: 14px;
   }
 
   .add_btn {
@@ -45,12 +45,24 @@
 
     <!--products--->
     <div class="row">
-      <?php $i=1; foreach($search_data->result() as $search) { ?>
+      <?php $i=1; foreach($search_data->result() as $search) {
+        $discount=(int)$search->mrp-(int)$search->selling_price;
+        $percent=0;
+        if($discount>0){
+        $percent=$discount/$search->mrp*100;
+        }
+        ?>
       <div class="col-md-3 p-2">
         <a href="<?=base_url()?>Home/product_details/<?=base64_encode($search->id)?>" style="color:unset">
           <img src="<?=base_url().$search->image?>" class="img-fluid" />
-          <div class="discount">New</div>
-          <h5><?=$search->productname?></h5><s style="font-size: 12px;text-decoration: line-through;color:red">(Rs.<?=$search->selling_price?>)</s> <span style="font-weight: bold; font-size: 12px;"> Rs.<?=$search->mrp?></span>
+          <?if($percent>0){?>
+          <div class="discount"><?=round($percent)?>% off</div>
+          <?}?>
+          <h5><?=$search->productname?></h5>
+          <?if($search->mrp>$search->selling_price){?>
+          <s style="font-size: 12px;text-decoration: line-through;color:red">(Rs.<?=$search->mrp?>)</s>
+          <?}?>
+           <span style="font-weight: bold; font-size: 12px;"> Rs.<?=$search->selling_price?></span>
         </a>
         <?if(!empty($this->session->userdata('user_data'))){
                       $this->db->select('*');

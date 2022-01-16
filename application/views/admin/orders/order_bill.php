@@ -53,14 +53,8 @@ Address: <?if(!empty($order1_data->address)){echo $order1_data->address;}?> <br>
 
 <!-- Place of supply: <?php echo $city;?><br>
 Place of delivery: <?php echo $city.", ".$state;?><br> -->
-Zipcode: <?if(!empty($order1_data->pincode_id)){
-              $this->db->select('*');
-  $this->db->from('tbl_pincode');
-  $this->db->where('id',$order1_data->pincode_id);
-  $pindata= $this->db->get()->row();
-  if(!empty($pindata)){
-    echo $pindata->pincode;
-  }
+Zipcode: <?if(!empty($order1_data->pincode)){
+    echo $order1_data->pincode;
   }?><br>
 </div>
 </div>

@@ -54,12 +54,7 @@ width:100%;
             <div class="col">
               <div class="form-outline">
                 <label class="form-label" for="pincode">Pincode<span class="sp">*</span></label>
-                <select name="pincode" class="form-control" id="pincode" required>
-                  <option value="">------select pincode-------</option>
-                  <?php $i=1; foreach($pincode_data->result() as $pincode) { ?>
-                  <option value="<?=$pincode->id?>"><?=$pincode->pincode?></option>
-                  <?php $i++; } ?>
-                </select>
+                <input type="text" id="pincode" name="pincode" maxlength="6" minlength="6" class="form-control mt-1" required onkeypress="return isNumberKey(event)" onkeyup='saveValue(this);'/>
               </div>
             </div>
           </div>

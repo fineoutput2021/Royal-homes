@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Royal Homes</title>
+  <link rel = "icon" href ="<?=base_url()?>assets/frontend/assets/img/royal_homes_favicon.png" type = "image/x-icon" type = "image/x-icon">
   <link rel="stylesheet" href="<?=base_url()?>assets/frontend/assets/css/style.css">
   <link rel="stylesheet" href="<?=base_url()?>assets/frontend/assets/css/mainnav.css">
   <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/frontend/assets/css/new.css">
@@ -26,8 +27,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100&family=Zen+Antique+Soft&family=Zen+Old+Mincho&display=swap" rel="stylesheet">
 
   <link href="http://fonts.cdnfonts.com/css/gotham" rel="stylesheet">
-<link href="http://fonts.cdnfonts.com/css/questa-grande" rel="stylesheet">
-<link href="http://fonts.cdnfonts.com/css/euclid-circular-a" rel="stylesheet">
+  <link href="http://fonts.cdnfonts.com/css/questa-grande" rel="stylesheet">
+  <link href="http://fonts.cdnfonts.com/css/euclid-circular-a" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;1,200&family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
@@ -56,16 +57,18 @@
       scroll-behavior: smooth;
     }
 
-    .news{
+    .news {
       background: #d76a46;
       color: white;
       border: none;
-      width:10%;
+      width: 10%;
     }
-    .news:hover{
+
+    .news:hover {
       background: black;
       color: white;
     }
+
     /* The Modal (background) */
 
     .modal1 {
@@ -243,7 +246,7 @@
     .btn1 {
       /* width: 241px; */
       background-color: white;
-      width:16vw !important;
+      width: 16vw !important;
     }
 
     .close:hover,
@@ -375,7 +378,7 @@
         /* margin-left: 0px !important; */
         /* padding:0 40px 0 40px; */
         width: 75% !important;
-        margin-left: 15vw!important;
+        margin-left: 15vw !important;
       }
 
       .menu ul li {
@@ -390,32 +393,38 @@
         font-size: 21px;
       }
     }
-    @media (max-width:600px){
-      .btn1{
-      width: 20vw !important;
+
+    @media (max-width:600px) {
+      .btn1 {
+        width: 20vw !important;
       }
-      .respns1{
+
+      .respns1 {
         width: 50% !important;
         display: flex;
         justify-content: center;
       }
-      .respns2{
+
+      .respns2 {
         width: 50% !important;
         display: flex;
         justify-content: center;
       }
     }
-    @media (max-width:540px){
-      .btn1{
-      width: 24vw !important;
+
+    @media (max-width:540px) {
+      .btn1 {
+        width: 24vw !important;
       }
     }
-    @media (max-width:360px){
-      .btn1{
-          width: 33vw !important;
+
+    @media (max-width:360px) {
+      .btn1 {
+        width: 33vw !important;
       }
     }
-    .myNewFontFam{
+
+    .myNewFontFam {
       font-family: gotham light !important;
       font-weight: normal !important;
     }
@@ -497,8 +506,8 @@
       .logoimg {
         margin-left: 12 !important;
         display: flex;
-    justify-content: center;
-    align-items: center;
+        justify-content: center;
+        align-items: center;
       }
     }
 
@@ -532,7 +541,8 @@
         width: 98%;
       }
     }
-    @media(max-width:280px){
+
+    @media(max-width:280px) {
       .logoimg {
         margin-left: 8rem !important;
       }
@@ -899,7 +909,7 @@
 
       h2 {
         text-align: center;
-        padding-left: 2vw!important;
+        padding-left: 2vw !important;
       }
 
       .ii {
@@ -1302,39 +1312,41 @@
     .sb:hover li input.search_inp {
       max-width: 9rem;
     }
-    .dontHide{
+
+    .dontHide {
       display: block;
     }
 
-    @media(max-width:360px){
-      .dontHide{
+    @media(max-width:360px) {
+      .dontHide {
         display: block;
       }
     }
-    .modifiedUl{
+
+    .modifiedUl {
       display: block;
     }
-    .modifiedSearch{
+
+    .modifiedSearch {
       /* background-color: yellow; */
       overflow: hidden;
-  position: relative;
-  top: -0.3rem;
-  width: 12vw !important;
+      position: relative;
+      top: -0.3rem;
+      width: 12vw !important;
     }
-    .modifiedNewCount{
+
+    .modifiedNewCount {
       margin-top: -6px;
-z-index: 2;
+      z-index: 2;
     }
-    .newSideBarExtrOpt{
 
-    }
-    .myNewLi{
+    .newSideBarExtrOpt {}
 
-    }
-    .myNewSpanBtn{
+    .myNewLi {}
 
-    }
-    .newSearchIcon{
+    .myNewSpanBtn {}
+
+    .newSearchIcon {
       width: 30%;
       height: 50%;
       /* background-color: red; */
@@ -1344,92 +1356,97 @@ z-index: 2;
       top: 0.5rem;
       z-index: 2;
     }
-    .newMoblSearchCont{
-      display: none;
-position: absolute;
-top: 1rem;
-left: -21rem;
-width: 100vw !important;
-    }
-    .newSearchBtn{
 
+    .newMoblSearchCont {
+      display: none;
+      position: absolute;
+      top: 1rem;
+      left: -21rem;
+      width: 100vw !important;
     }
-.newSearchInput{
-  position: relative;
-display: block;
-  max-width: 15vw !important;
-  height: 100% !important;
-  background: transparent;
-  background: transparent !important;
-  margin: 0 !important;
-  left: 11rem;
-  color: white;
-  padding: 0 !important;
-  padding-top: 15px !important;
-  transition: left 400ms linear;
-}
-.newSearchInptMobl{
-  display: none;
-/* position: absolute; */
-top: 1rem;
-}
-/* .newSearchIcon:hover + .newSearchInput{
+
+    .newSearchBtn {}
+
+    .newSearchInput {
+      position: relative;
+      display: block;
+      max-width: 15vw !important;
+      height: 100% !important;
+      background: transparent;
+      background: transparent !important;
+      margin: 0 !important;
+      left: 11rem;
+      color: white;
+      padding: 0 !important;
+      padding-top: 15px !important;
+      transition: left 400ms linear;
+    }
+
+    .newSearchInptMobl {
+      display: none;
+      /* position: absolute; */
+      top: 1rem;
+    }
+
+    /* .newSearchIcon:hover + .newSearchInput{
   left: 0 !important;
 } */
-    .modifiedCart{
-position:relative;
-top:1rem;
-    width: 1vw;
+    .modifiedCart {
+      position: relative;
+      top: 1rem;
+      width: 1vw;
     }
-    .modifiedImg{
 
+    .modifiedImg {}
+
+    .modifiedBurger {}
+
+    .modifiedHeaderCont {}
+
+    .modifiedWhiteImg {}
+
+    .forWhiteLogo {}
+
+    .modifiedScrptImg {}
+
+    .newWishList {
+      width: 2vw
     }
-    .modifiedBurger{
 
+    .newUserProfile {
+      width: 3vw;
     }
-    .modifiedHeaderCont{
 
-    }
-.modifiedWhiteImg{
-
-}
-.forWhiteLogo{
-
-}
-.modifiedScrptImg{
-
-}
-.newWishList{
-width:2vw
-}
-.newUserProfile{
-  width:3vw;
-}
-    @media(max-width:600px){
-      .dontHide{
+    @media(max-width:600px) {
+      .dontHide {
         display: block;
       }
-      .newWishList{
+
+      .newWishList {
         display: none !important;
         position: relative;
-top: -2.2rem;
-width:0vw;
+        top: -2.2rem;
+        width: 0vw;
       }
-      .newUserProfile{
-        width:0vw;
+
+      .newUserProfile {
+        width: 0vw;
       }
-      .newSideBarExtrOpt{
+
+      .newSideBarExtrOpt {
         /* background-color: #983e21; */
         flex-direction: column;
       }
-      .myNewLi{
+
+      .myNewLi {
         margin: 0.5rem 0px;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        line-height: 2.5!important;
+        line-height: 2.5 !important;
       }
-      .myNewSpanBtn{
+
+      .myNewSpanBtn {
 
         font-size: 23px;
         /* border: 2px solid #d76a46; */
@@ -1438,7 +1455,8 @@ width:0vw;
         padding: 0.5rem;
 
       }
-      .newMoblSearchCont{
+
+      .newMoblSearchCont {
         display: flex;
         flex-direction: row;
         overflow: hidden;
@@ -1449,10 +1467,12 @@ width:0vw;
         width: 102vw !important;
         /* background-color: green; */
       }
-      .newSearchInput{
+
+      .newSearchInput {
         display: none;
       }
-      .newSearchInptMobl{
+
+      .newSearchInptMobl {
         display: block;
         /* position: absolute; */
         /* top: 1rem; */
@@ -1460,7 +1480,8 @@ width:0vw;
         height: 3vh !important;
         margin-top: 0px !important;
       }
-      .newSearchBtn{
+
+      .newSearchBtn {
         width: 30%;
         height: 100%;
         width: 20% !important;
@@ -1473,428 +1494,506 @@ width:0vw;
         border: none;
         /* border-radius: 5px;*/
       }
-      .newSearchIcon{
+
+      .newSearchIcon {
         /* display: none; */
         width: 30%;
-  height: 50%;
-  /* background-color: red; */
-  position: relative;
-  /* color: red; */
-  right: 2rem;
-  top: -1.5rem;
-  z-index: 2;
+        height: 50%;
+        /* background-color: red; */
+        position: relative;
+        /* color: red; */
+        right: 2rem;
+        top: -1.5rem;
+        z-index: 2;
       }
-      .modifiedUl{
+
+      .modifiedUl {
         display: flex;
         flex-direction: column;
         align-items: end;
       }
-      .modifiedSearch{
+
+      .modifiedSearch {
         position: relative;
-      right: -2rem;
-      top: -1rem;
-      overflow: visible;
-      width:3vw !important;
+        right: -2rem;
+        top: -1rem;
+        overflow: visible;
+        width: 3vw !important;
       }
-      .modifiedCart{
+
+      .modifiedCart {
         position: relative;
         top: -3.5rem;
-            right: -1rem;
-            width: 0vw;
+        right: -1rem;
+        width: 0vw;
       }
+
       .count {
-    margin-top: -6px;
-  }
-  .logo {
-    display: block;
-    /* justify-content: center; */
-    height: 76px;
-    padding-top: 0.5rem;
-    /* align-items: center; */
-  }
-  .forWhiteLogo{
-    height: 3vh
-  }
-  .modifiedImg{
-    /* width: 102% !important; */
-    /* margin-left: 0px !important; */
-    /* padding: 0 40px 0 40px; */
-    width: 75% !important;
-    margin-left: 10vw!important;
-  }
-  .modifiedWhiteImg{
-    position: relative;
-    left: 12rem;
-    top: -1rem;
-  }
-  .modifiedScrptImg{
-    height: auto;
-    margin-left: 2.2rem!important;
-    max-width: 100% !important;
-  }
-  .modifiedBurger{
-    margin-top: 16vh !important;
-    margin-left: -61vw !important;
-  }
-  .modifiedHeaderCont{
-  height: 23vh !important;
-  }
+        margin-top: -6px;
+      }
+
+      .logo {
+        display: block;
+        /* justify-content: center; */
+        height: 76px;
+        padding-top: 0.5rem;
+        /* align-items: center; */
+      }
+
+      .forWhiteLogo {
+        height: 3vh
+      }
+
+      .modifiedImg {
+        /* width: 102% !important; */
+        /* margin-left: 0px !important; */
+        /* padding: 0 40px 0 40px; */
+        width: 75% !important;
+        margin-left: 10vw !important;
+      }
+
+      .modifiedWhiteImg {
+        position: relative;
+        left: 12rem;
+        top: -1rem;
+      }
+
+      .modifiedScrptImg {
+        height: auto;
+        margin-left: 2.2rem !important;
+        max-width: 100% !important;
+      }
+
+      .modifiedBurger {
+        margin-top: 16vh !important;
+        margin-left: -61vw !important;
+      }
+
+      .modifiedHeaderCont {
+        height: 23vh !important;
+      }
     }
 
-    @media(max-width:540px){
-      .dontHide{
+    @media(max-width:540px) {
+      .dontHide {
         display: block;
       }
-      .modifiedUl{
+
+      .modifiedUl {
         display: flex;
         flex-direction: column;
         align-items: end;
       }
-      .modifiedSearch{
+
+      .modifiedSearch {
         position: relative;
-      right: -2rem;
-      top: -1rem;
+        right: -2rem;
+        top: -1rem;
       }
-      .newMoblSearchCont{
+
+      .newMoblSearchCont {
         left: -32.5rem;
       }
-      .modifiedCart{
+
+      .modifiedCart {
         position: relative;
-      top: -3.5rem;
-      right: -1rem;
+        top: -3.5rem;
+        right: -1rem;
       }
+
       .count {
-    margin-top: -6px;
-  }
-  .logo {
-    display: block;
-    /* justify-content: center; */
-    /* height: 76px; */
-    padding-top: 0.5rem;
-    /* align-items: center; */
-  }
-  .modifiedImg{
-    /* width: 102% !important; */
-    /* margin-left: 0px !important; */
-    /* padding: 0 40px 0 40px; */
-    width: 75% !important;
-    margin-left: 10vw!important;
-  }
-  .modifiedWhiteImg{
-    position: relative;
-    left: 10.6rem;
-    top: -1rem;
-  }
-  .modifiedScrptImg{
-    height: auto;
-    margin-left: 2.2rem!important;
-    max-width: 100% !important;
-  }
-  .modifiedBurger{
-    margin-top: 5vh !important;
+        margin-top: -6px;
+      }
+
+      .logo {
+        display: block;
+        /* justify-content: center; */
+        /* height: 76px; */
+        padding-top: 0.5rem;
+        /* align-items: center; */
+      }
+
+      .modifiedImg {
+        /* width: 102% !important; */
+        /* margin-left: 0px !important; */
+        /* padding: 0 40px 0 40px; */
+        width: 75% !important;
+        margin-left: 10vw !important;
+      }
+
+      .modifiedWhiteImg {
+        position: relative;
+        left: 10.6rem;
+        top: -1rem;
+      }
+
+      .modifiedScrptImg {
+        height: auto;
+        margin-left: 2.2rem !important;
+        max-width: 100% !important;
+      }
+
+      .modifiedBurger {
+        margin-top: 5vh !important;
         margin-left: -57vw !important;
-  }
-  .modifiedHeaderCont{
-  height: 8vh !important;
-  }
+      }
+
+      .modifiedHeaderCont {
+        height: 8vh !important;
+      }
     }
 
-    @media(max-width:414px){
-      .dontHide{
+    @media(max-width:414px) {
+      .dontHide {
         display: block;
       }
-      .modifiedUl{
+
+      .modifiedUl {
         display: flex;
         flex-direction: column;
         align-items: end;
       }
-      .modifiedSearch{
+
+      .modifiedSearch {
         position: relative;
-      right: -2rem;
-      top: -1rem;
+        right: -2rem;
+        top: -1rem;
       }
-      .newMoblSearchCont{
+
+      .newMoblSearchCont {
         left: -24.5rem;
       }
-      .modifiedCart{
+
+      .modifiedCart {
         position: relative;
-      top: -3.5rem;
-      right: -1rem;
+        top: -3.5rem;
+        right: -1rem;
       }
+
       .count {
-    margin-top: -6px;
-}
-.logo {
-    display: block;
-    /* justify-content: center; */
-    /* height: 76px; */
-    padding-top: 0.5rem;
-    /* align-items: center; */
-}
-.modifiedImg{
-    /* width: 102% !important; */
-    /* margin-left: 0px !important; */
-    /* padding: 0 40px 0 40px; */
-    width: 75% !important;
-    margin-left: 10vw!important;
-}
-.modifiedWhiteImg{
-  position: relative;
-  left: 7.6rem;
-  top: -1rem;
-}
-.modifiedScrptImg{
-  height: auto;
-  margin-left: 2.2rem!important;
-  max-width: 100% !important;
-}
-.modifiedBurger{
-  margin-top: 4vh !important;
-  margin-left: -38vw !important;
-}
-.modifiedHeaderCont{
-  height: 7vh !important;
-}
+        margin-top: -6px;
+      }
+
+      .logo {
+        display: block;
+        /* justify-content: center; */
+        /* height: 76px; */
+        padding-top: 0.5rem;
+        /* align-items: center; */
+      }
+
+      .modifiedImg {
+        /* width: 102% !important; */
+        /* margin-left: 0px !important; */
+        /* padding: 0 40px 0 40px; */
+        width: 75% !important;
+        margin-left: 10vw !important;
+      }
+
+      .modifiedWhiteImg {
+        position: relative;
+        left: 7.6rem;
+        top: -1rem;
+      }
+
+      .modifiedScrptImg {
+        height: auto;
+        margin-left: 2.2rem !important;
+        max-width: 100% !important;
+      }
+
+      .modifiedBurger {
+        margin-top: 4vh !important;
+        margin-left: -38vw !important;
+      }
+
+      .modifiedHeaderCont {
+        height: 7vh !important;
+      }
     }
 
-    @media(max-width:375px){
-      .dontHide{
+    @media(max-width:375px) {
+      .dontHide {
         display: block;
       }
-      .modifiedUl{
+
+      .modifiedUl {
         display: flex;
         flex-direction: column;
         align-items: end;
       }
-      .modifiedSearch{
+
+      .modifiedSearch {
         position: relative;
-      right: -2rem;
-      top: -1rem;
+        right: -2rem;
+        top: -1rem;
       }
-      .newMoblSearchCont{
+
+      .newMoblSearchCont {
         left: -22.5rem;
       }
-      .modifiedCart{
+
+      .modifiedCart {
         position: relative;
-      top: -3.5rem;
-      right: -1rem;
+        top: -3.5rem;
+        right: -1rem;
       }
+
       .count {
-    margin-top: -6px;
-  }
-  .logo {
-    display: block;
-    /* justify-content: center; */
-    /* height: 76px; */
-    padding-top: 0.5rem;
-    /* align-items: center; */
-  }
-  .modifiedImg{
-    /* width: 102% !important; */
-    /* margin-left: 0px !important; */
-    /* padding: 0 40px 0 40px; */
-    width: 75% !important;
-    margin-left: 10vw!important;
-  }
-  .modifiedWhiteImg{
-    position: relative;
-    left: 6.6rem;
-    top: -1rem;
-  }
-  .modifiedScrptImg{
-    height: auto;
-    margin-left: 2.2rem!important;
-    max-width: 100% !important;
-  }
-  .modifiedBurger{
-  margin-top: 6vh !important;
-    margin-left: -38vw !important;
-  }
-  .modifiedHeaderCont{
-  height: 10vh !important;
-  }
+        margin-top: -6px;
+      }
+
+      .logo {
+        display: block;
+        /* justify-content: center; */
+        /* height: 76px; */
+        padding-top: 0.5rem;
+        /* align-items: center; */
+      }
+
+      .modifiedImg {
+        /* width: 102% !important; */
+        /* margin-left: 0px !important; */
+        /* padding: 0 40px 0 40px; */
+        width: 75% !important;
+        margin-left: 10vw !important;
+      }
+
+      .modifiedWhiteImg {
+        position: relative;
+        left: 6.6rem;
+        top: -1rem;
+      }
+
+      .modifiedScrptImg {
+        height: auto;
+        margin-left: 2.2rem !important;
+        max-width: 100% !important;
+      }
+
+      .modifiedBurger {
+        margin-top: 6vh !important;
+        margin-left: -38vw !important;
+      }
+
+      .modifiedHeaderCont {
+        height: 10vh !important;
+      }
     }
 
-    @media(max-width:360px){
-      .dontHide{
+    @media(max-width:360px) {
+      .dontHide {
         display: block;
       }
-      .modifiedUl{
+
+      .modifiedUl {
         display: flex;
         flex-direction: column;
         align-items: end;
       }
-      .modifiedSearch{
+
+      .modifiedSearch {
         position: relative;
-      right: -2rem;
-      top: -1rem;
+        right: -2rem;
+        top: -1rem;
       }
-      .newMoblSearchCont{
+
+      .newMoblSearchCont {
         left: -21.5rem;
       }
-      .modifiedCart{
-        position: relative;
-      top: -3.5rem;
-      right: -1rem;
-      }
-      .count {
-    margin-top: -6px;
-}
-.logo {
-    display: block;
-    /* justify-content: center; */
-    /* height: 76px; */
-    padding-top: 0.5rem;
-    /* align-items: center; */
-}
-.modifiedImg{
-    /* width: 102% !important; */
-    /* margin-left: 0px !important; */
-    /* padding: 0 40px 0 40px; */
-    width: 75% !important;
-    margin-left: 10vw!important;
-}
-.modifiedWhiteImg{
-  position: relative;
-  left: 6.1rem;
-  top: -1rem;
-}
-.modifiedScrptImg{
-  height: auto;
 
-  margin-left: 2.2rem!important;
-  max-width: 100% !important;
-}
-.modifiedBurger{
-margin-top: 7vh !important;
-    margin-left: -33vw !important;
-}
-.modifiedHeaderCont{
-  height: 10vh !important;
-}
+      .modifiedCart {
+        position: relative;
+        top: -3.5rem;
+        right: -1rem;
+      }
+
+      .count {
+        margin-top: -6px;
+      }
+
+      .logo {
+        display: block;
+        /* justify-content: center; */
+        /* height: 76px; */
+        padding-top: 0.5rem;
+        /* align-items: center; */
+      }
+
+      .modifiedImg {
+        /* width: 102% !important; */
+        /* margin-left: 0px !important; */
+        /* padding: 0 40px 0 40px; */
+        width: 75% !important;
+        margin-left: 10vw !important;
+      }
+
+      .modifiedWhiteImg {
+        position: relative;
+        left: 6.1rem;
+        top: -1rem;
+      }
+
+      .modifiedScrptImg {
+        height: auto;
+
+        margin-left: 2.2rem !important;
+        max-width: 100% !important;
+      }
+
+      .modifiedBurger {
+        margin-top: 7vh !important;
+        margin-left: -33vw !important;
+      }
+
+      .modifiedHeaderCont {
+        height: 10vh !important;
+      }
     }
 
 
-    @media(max-width:320px){
-      .dontHide{
+    @media(max-width:320px) {
+      .dontHide {
         display: block;
       }
-      .modifiedUl{
+
+      .modifiedUl {
         display: flex;
         flex-direction: column;
         align-items: end;
       }
-      .modifiedSearch{
+
+      .modifiedSearch {
         position: relative;
-      right: -2rem;
-      top: -1rem;
+        right: -2rem;
+        top: -1rem;
       }
-      .newMoblSearchCont{
+
+      .newMoblSearchCont {
         left: -19rem;
       }
-      .modifiedCart{
+
+      .modifiedCart {
         position: relative;
-      top: -3.5rem;
-      right: -1rem;
+        top: -3.5rem;
+        right: -1rem;
       }
+
       .count {
-    margin-top: -6px;
-}
-.logo {
-    display: block;
-    /* justify-content: center; */
-    /* height: 76px; */
-    padding-top: 0.5rem;
-    /* align-items: center; */
-}
-.modifiedImg{
-    /* width: 102% !important; */
-    /* margin-left: 0px !important; */
-    /* padding: 0 40px 0 40px; */
-    width: 75% !important;
-    margin-left: 10vw!important;
-}
-.modifiedWhiteImg{
-  position: relative;
-  left: 5.2rem;
-  top: -1rem;
-}
-.modifiedScrptImg{
-  height: auto;
-  margin-left: 2.2rem!important;
-  max-width: 100% !important;
-}
-.modifiedBurger{
-margin-top: 8vh !important;
-    margin-left: -28vw !important;
-}
-.modifiedHeaderCont{
-  height: 10vh !important;
-}
+        margin-top: -6px;
+      }
+
+      .logo {
+        display: block;
+        /* justify-content: center; */
+        /* height: 76px; */
+        padding-top: 0.5rem;
+        /* align-items: center; */
+      }
+
+      .modifiedImg {
+        /* width: 102% !important; */
+        /* margin-left: 0px !important; */
+        /* padding: 0 40px 0 40px; */
+        width: 75% !important;
+        margin-left: 10vw !important;
+      }
+
+      .modifiedWhiteImg {
+        position: relative;
+        left: 5.2rem;
+        top: -1rem;
+      }
+
+      .modifiedScrptImg {
+        height: auto;
+        margin-left: 2.2rem !important;
+        max-width: 100% !important;
+      }
+
+      .modifiedBurger {
+        margin-top: 8vh !important;
+        margin-left: -28vw !important;
+      }
+
+      .modifiedHeaderCont {
+        height: 10vh !important;
+      }
     }
 
-    @media(max-width:280px){
-      .dontHide{
+    @media(max-width:280px) {
+      .dontHide {
         display: block;
       }
-      .modifiedUl{
+
+      .modifiedUl {
         display: flex;
         flex-direction: column;
         align-items: end;
       }
-      .modifiedSearch{
+
+      .modifiedSearch {
         position: relative;
-      right: -2rem;
-      top: -1rem;
+        right: -2rem;
+        top: -1rem;
       }
-      .newMoblSearchCont{
+
+      .newMoblSearchCont {
         left: -16.5rem;
       }
-      .modifiedCart{
+
+      .modifiedCart {
         position: relative;
-      top: -3.5rem;
-      right: -1rem;
+        top: -3.5rem;
+        right: -1rem;
       }
+
       .count {
-    margin-top: -6px;
-}
-.logo {
-    display: block;
-    /* justify-content: center; */
-    /* height: 76px; */
-    padding-top: 0.5rem;
-    /* align-items: center; */
-}
-.modifiedImg{
-    /* width: 102% !important; */
-    /* margin-left: 0px !important; */
-    /* padding: 0 40px 0 40px; */
-    width: 75% !important;
-    margin-left: 10vw!important;
-}
-.modifiedWhiteImg{
-  position: relative;
-  left: 4.2rem;
-  top: -1rem;
-}
-.modifiedScrptImg{
-  height: auto;
-  margin-left: 2.2rem!important;
-  max-width: 100% !important;
-}
-.modifiedBurger{
-  margin-top: 7vh !important;
-  margin-left: -17vw !important;
-}
-.modifiedHeaderCont{
-  height: 9vh !important;
-}
+        margin-top: -6px;
+      }
+
+      .logo {
+        display: block;
+        /* justify-content: center; */
+        /* height: 76px; */
+        padding-top: 0.5rem;
+        /* align-items: center; */
+      }
+
+      .modifiedImg {
+        /* width: 102% !important; */
+        /* margin-left: 0px !important; */
+        /* padding: 0 40px 0 40px; */
+        width: 75% !important;
+        margin-left: 10vw !important;
+      }
+
+      .modifiedWhiteImg {
+        position: relative;
+        left: 4.2rem;
+        top: -1rem;
+      }
+
+      .modifiedScrptImg {
+        height: auto;
+        margin-left: 2.2rem !important;
+        max-width: 100% !important;
+      }
+
+      .modifiedBurger {
+        margin-top: 7vh !important;
+        margin-left: -17vw !important;
+      }
+
+      .modifiedHeaderCont {
+        height: 9vh !important;
+      }
     }
-</style>
+  </style>
 </head>
 
 <body>
-  <header class="header" >
+  <header class="header">
     <div class="container-fluid modifiedHeaderCont">
       <div class="row" style="width:100%">
         <div class="col-md-4 d-sx-none menu change" style="width: 100%;">
@@ -1960,7 +2059,7 @@ $category_data= $this->db->get();
               <div id="mySidenav" class="sidenav">
                 <div class="w-100 center mb-2">
                   <a href="#" class="rqwa" style="width:85%;">
-                  <img src="<?=base_url()?>assets/frontend/assets/img/web_logo.png" id="logohed" alt="logo">
+                    <img src="<?=base_url()?>assets/frontend/assets/img/web_logo.png" id="logohed" alt="logo">
                   </a>
                 </div>
                 <a href="javascript:void(0)" id="menucloseopen" class="closebtn" onclick="closeNav()">&times</a>
@@ -2037,23 +2136,23 @@ $category_data= $this->db->get();
             </li>
             <li class="hide sl modifiedSearch">
               <i class="fa fa-search btn_change_change sb newSearchIcon" aria-hidden="true" onclick="newClickHandler()"></i>
-<!-- ****************** WEB INPUT *********************************  -->
-  <form action="<?=base_url()?>Home/search" method="get" enctype="multipart/form-data">
-    <input type="text" style="color:black;"name="search" class="newSearchInput" id="search" placeholder="Search" required/>
-</form>
-<script>
-var input = document.getElementById("search");
-input.addEventListener("keyup", function(event) {
-  if (event.keyCode === 13) {
-   event.preventDefault();
-  }
-});
-</script>
-<!-- ****************** MOBILE INPUT *********************************  -->
-                <div class="newMoblSearchCont">
-                  <input type="text" name="search" class="newSearchInptMobl" placeholder="Search"/>
-                  <button type="button" name="button" class="newSearchBtn">Search</button>
-                </div>
+              <!-- ****************** WEB INPUT *********************************  -->
+              <form action="<?=base_url()?>Home/search" method="get" enctype="multipart/form-data">
+                <input type="text" style="color:black;" name="search" class="newSearchInput" id="search" placeholder="Search" required />
+              </form>
+              <script>
+                var input = document.getElementById("search");
+                input.addEventListener("keyup", function(event) {
+                  if (event.keyCode === 13) {
+                    event.preventDefault();
+                  }
+                });
+              </script>
+              <!-- ****************** MOBILE INPUT *********************************  -->
+              <div class="newMoblSearchCont">
+                <input type="text" name="search" class="newSearchInptMobl" placeholder="Search" />
+                <button type="button" name="button" class="newSearchBtn">Search</button>
+              </div>
             </li>
             <?if (!empty($this->session->userdata('user_data'))) {
               $user_id = $this->session->userdata('user_id');
@@ -2062,7 +2161,7 @@ input.addEventListener("keyup", function(event) {
               $this->db->where('user_id',$user_id);
               $wish_count= $this->db->count_all_results();
               ?>
-              <!-- this is wishlist -->
+            <!-- this is wishlist -->
             <li class="hide dontHide newWishList"><a href="<?=base_url()?>Home/view_wishlist/<?=base64_encode($this->session->userdata('user_id'))?>" style="color:unset;"><span class="count">
                   <?if (!empty($wish_count)) {
                 echo $wish_count;

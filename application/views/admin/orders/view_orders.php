@@ -65,12 +65,7 @@ if(!empty($this->session->flashdata('emessage'))){ ?>
                       <td><? if(!empty($data->phone)){ echo $data->phone;} else { echo "No Data"; }?></td>
                       <td><? if(!empty($data->email)){ echo $data->email;} else { echo "No Data"; }?></td>
                       <td><? if(!empty($data->address)){ echo $data->address;} else { echo "No Data"; }?></td>
-                      <td><? if(!empty($data->pincode_id)){
-                                    $this->db->select('*');
-                        $this->db->from('tbl_pincode');
-                        $this->db->where('id',$data->pincode_id);
-                        $pindata= $this->db->get()->row();
-                         echo $pindata->pincode;} else { echo "No Data"; }?></td>
+                      <td><? if(!empty($data->pincode)){ echo $data->pincode;} else { echo "No Data"; }?></td>
 
                       <td><? if(!empty($data->promocode_id)){
                                     $this->db->select('*');

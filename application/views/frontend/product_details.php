@@ -82,32 +82,8 @@
         the end of the images gallery</span></a></div> -->
   <div class="gallery-placeholder product_slick swiper-container swiper-container-fade swiper-container-initialized swiper-container-vertical">
     <div class="swiper-wrapper" style="transition: all 0ms ease 0s;">
-      <div class="swiper-slide swiper-slide-duplicate" data-click="click7ToZoom" data-swiper-slide-index="6" style="height: 518px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition: all 0ms ease 0s;">
-        <img alt="main product photo" class="gallery-placeholder__image" src="https://www.orangetree.in/pub/media/catalog/product/g/a/gallery-7_eros-white-wall-lamp-online.jpg" data-zoom="click7ToZoom">
-      </div>
-      <div class="swiper-slide" data-click="click1ToZoom" data-swiper-slide-index="0" style="height: 518px; opacity: 1; transform: translate3d(0px, -518px, 0px); transition: all 0ms ease 0s;">
-        <img alt="main product photo" class="gallery-placeholder__image" src="https://www.orangetree.in/pub/media/catalog/product/g/a/gallery-1_eros-white-wall-lamp-online.jpg" data-zoom="click1ToZoom">
-      </div>
-      <div class="swiper-slide" data-click="click2ToZoom" data-swiper-slide-index="1" style="height: 518px; opacity: 1; transform: translate3d(0px, -1036px, 0px); transition: all 0ms ease 0s;">
-        <img alt="main product photo" class="gallery-placeholder__image" src="https://www.orangetree.in/pub/media/catalog/product/g/a/gallery-2_eros-white-wall-lamp-online.jpg" data-zoom="click2ToZoom">
-      </div>
-      <div class="swiper-slide" data-click="click3ToZoom" data-swiper-slide-index="2" style="height: 518px; opacity: 1; transform: translate3d(0px, -1554px, 0px); transition: all 0ms ease 0s;">
-        <img alt="main product photo" class="gallery-placeholder__image" src="https://www.orangetree.in/pub/media/catalog/product/g/a/gallery-3_eros-white-wall-lamp-online.jpg" data-zoom="click3ToZoom">
-      </div>
-      <div class="swiper-slide swiper-slide-prev" data-click="click4ToZoom" data-swiper-slide-index="3" style="height: 518px; opacity: 1; transform: translate3d(0px, -2072px, 0px); transition: all 0ms ease 0s;">
-        <img alt="main product photo" class="gallery-placeholder__image" src="https://www.orangetree.in/pub/media/catalog/product/g/a/gallery-4_eros-white-wall-lamp-online.jpg" data-zoom="click4ToZoom">
-      </div>
-      <div class="swiper-slide swiper-slide-active" data-click="click5ToZoom" data-swiper-slide-index="4" style="height: 518px; opacity: 1; transform: translate3d(0px, -2590px, 0px); transition: all 0ms ease 0s;">
-        <!-- <img alt="main product photo " class="gallery-placeholder__image mainbackgroundarea"  src="<?=base_url().$product_data->image?>" data-zoom="click5ToZoom"> -->
-      </div>
-      <div class="swiper-slide swiper-slide-next" data-click="click6ToZoom" data-swiper-slide-index="5" style="height: 518px; opacity: 0; transform: translate3d(0px, -3108px, 0px); transition: all 0ms ease 0s;">
-        <img alt="main product photo" class="gallery-placeholder__image" src="https://www.orangetree.in/pub/media/catalog/product/g/a/gallery-6_eros-white-wall-lamp-online.jpg" data-zoom="click6ToZoom">
-      </div>
-      <div class="swiper-slide" data-click="click7ToZoom" data-swiper-slide-index="6" style="height: 518px; opacity: 0; transform: translate3d(0px, -3626px, 0px); transition: all 0ms ease 0s;">
-        <img alt="main product photo" class="gallery-placeholder__image" src="https://www.orangetree.in/pub/media/catalog/product/g/a/gallery-7_eros-white-wall-lamp-online.jpg" data-zoom="click7ToZoom">
-      </div>
-      <div class="swiper-slide swiper-slide-duplicate" data-click="click1ToZoom" data-swiper-slide-index="0" style="height: 518px; opacity: 0; transform: translate3d(0px, -4144px, 0px); transition: all 0ms ease 0s;">
-        <img alt="main product photo" class="gallery-placeholder__image" src="https://www.orangetree.in/pub/media/catalog/product/g/a/gallery-1_eros-white-wall-lamp-online.jpg" data-zoom="click1ToZoom">
+      <div class="swiper-slide"style="height: 518px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition: all 0ms ease 0s;">
+        <img id="background" alt="main product photo" class="gallery-placeholder__image" src="<?=base_url().$product_data->image?>" data-zoom="click1ToZoom">
       </div>
     </div>
     <div class="swiper-pagination swiper-pagination-bullets swiper-pagination-bullets-dynamic" style="height: 225px;">
@@ -118,29 +94,34 @@
   </div>
   <div class="product_nav_container">
     <div class="product_slick_nav swiper-container-initialized swiper-container-vertical swiper-container-thumbs">
-      <div class="swiper-wrapper swipperarea" style="transform: translate3d(0px, -366px, 0px); transition: all 0ms ease 0s;">
-        <div class="item swiper-slide" style="height: 183px;">
-          <img alt="main product photo" class="gallery-placeholder__thumbnail" src="<?=base_url().$product_data->image?>">
+      <div class="swiper-wrapper swipperarea" style="transform: translate3d(0px, 0px, 0px); transition: all 0ms ease 0s;">
+        <div class="item swiper-slide swiper-slide-visible swiper-slide-next" >
+          <img alt="main product photo" class="gallery-placeholder__thumbnail" onclick="changeIt(this.src)" style="height:100px" src="<?=base_url().$product_data->image?>">
         </div>
-        <div class="item swiper-slide swiper-slide-prev" style="height: 183px;"><img alt="main product photo" class="gallery-placeholder__thumbnail"
-            src="https://www.orangetree.in/pub/media/catalog/product/g/a/gallery-1_calathus-study-table-lamp-online.jpg">
+        <?if(!empty($product_data->image1)){?>
+        <div class="item swiper-slide swiper-slide-visible swiper-slide-thumb-active">
+          <img alt="main product photo" class="gallery-placeholder__thumbnail" onclick="changeIt(this.src)" style="height:100px" src="<?=base_url().$product_data->image1?>">
         </div>
-        <div class="item swiper-slide swiper-slide-visible swiper-slide-active" style="height: 183px;"><img alt="main product photo" class="gallery-placeholder__thumbnail"
-            src="https://www.orangetree.in/pub/media/catalog/product/g/a/gallery-4_calathus-study-table-lamp-online.jpg">
+        <?}?>
+        <?if(!empty($product_data->image2)){?>
+        <div class="item swiper-slide swiper-slide-visible" >
+          <img alt="main product photo" class="gallery-placeholder__thumbnail" onclick="changeIt(this.src)" style="height:100px" src="<?=base_url().$product_data->image2?>">
         </div>
-        <div class="item swiper-slide swiper-slide-visible swiper-slide-next" style="height: 183px;"><img alt="main product photo" class="gallery-placeholder__thumbnail" src="<?=base_url().$product_data->image?>">
+        <?}?>
+        <?if(!empty($product_data->image3)){?>
+        <div class="item swiper-slide swiper-slide-visible">
+          <img alt="main product photo" class="gallery-placeholder__thumbnail" onclick="changeIt(this.src)" style="height:100px" src="<?=base_url().$product_data->image3?>">
         </div>
-        <div class="item swiper-slide swiper-slide-visible swiper-slide-thumb-active" style="height: 183px;">
-          <img alt="main product photo" class="gallery-placeholder__thumbnail" src="<?=base_url().$product_data->image1?>">
-        </div>
-        <div class="item swiper-slide swiper-slide-visible" style="height: 183px;"><img alt="main product photo" class="gallery-placeholder__thumbnail" src="<?=base_url().$product_data->image2?>">
-        </div>
-        <div class="item swiper-slide swiper-slide-visible" style="height: 183px;"><img alt="main product photo" class="gallery-placeholder__thumbnail" src="<?=base_url().$product_data->image3?>">
-        </div>
+        <?}?>
       </div><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
     </div>
   </div>
-
+  <script>
+  function changeIt(_src) {
+    // alert(_src);
+     document.getElementById("background").src = _src;
+  }
+  </script>
   <!-- <div class="action-skip-wrapper"> <a class="action skip gallery-prev-area" href="#gallery-prev-area"><span> Skip to
         the beginning of the images gallery</span></a></div> -->
   <a id="gallery-next-area" tabindex="-1"></a>
@@ -185,7 +166,7 @@
         <div style="padding-top: 2rem;padding-left:1rem; background-color: white;" class="col-md-3 col-sm-6">
           <div class="myButtons">
             <div class="btn-group" id="MatchingEntitiesButtons">
-              <div class="details det1"  padding:0!important;">
+              <div class="details det1"  style="padding:0!important;">
 
                 <p><button id="Button1" class="roundBtns active " onclick="togglediv('NamesTable')" type="button" style="font-size: 14px;color:#000;padding: 8px ;background: none;"> Details </button></p>
 

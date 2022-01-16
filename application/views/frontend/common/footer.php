@@ -120,7 +120,7 @@
       </div>
       <div class="col-md-3 mj">
         <div class="eclipse border border-light rounded-circle text-center"><img class="d-inline-block align-middle"
-            src="https://www.orangetree.in/pub/media/wysiwyg/footer_icon.png" alt="Orange Tree"></div>
+            src="<?=base_url()?>assets/frontend/assets/img/footer_logo2.png" alt="Orange Tree"></div>
 
 
 
