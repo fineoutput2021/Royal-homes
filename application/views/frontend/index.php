@@ -17,6 +17,18 @@
 .new:hover{
   color:black;
 }
+.discount {
+  background: #d76a46;
+  position: absolute;
+  left: 16;
+  top: 30px;
+  z-index: 5;
+  color: #fff;
+  padding: 5px 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  font-size: 14px;
+}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <!--Start Slider-->
@@ -72,7 +84,7 @@
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <?php $i=0; foreach($launch_sub_data->result() as $sub) { ?>
       <li class="nav-item fdff active">
-        <a class=" <?if($i==0){echo'active';}?> new" id="home_tab_<?=$sub->id?>" data-toggle="tab" href="#home_<?=$sub->id?>" role="tab" aria-controls="home_<?=$sub->id?>" aria-selected="<?if($i==0){echo 'true';}else{echo 'false';}?>"><?=$sub->subcategory?></a>
+        <a class="<?if($i==0){echo'active';}?> new" id="home_tab_<?=$sub->id?>" data-toggle="tab" href="#home_<?=$sub->id?>" role="tab" aria-controls="home_<?=$sub->id?>" aria-selected="<?if($i==0){echo 'true';}else{echo 'false';}?>"><?=$sub->subcategory?></a>
       </li>
       <?$i++;}?>
     </ul>
@@ -89,11 +101,24 @@
          ?>
       <div class="tab-pane fade <?if($i==0){echo "show active";}?>" id="home_<?=$sub2->id?>" role="tabpanel" aria-labelledby="home_tab_<?=$sub2->id?>">
       <div class="your-class">
-          <?php  foreach($new_launch_data->result() as $n_launch) { ?>
+          <?php  foreach($new_launch_data->result() as $n_launch) {
+            $discount=(int)$n_launch->mrp-(int)$n_launch->selling_price;
+            $percent=0;
+            if($discount>0){
+            $percent=$discount/$n_launch->mrp*100;
+            }
+            ?>
           <a href="<?=base_url()?>Home/product_details/<?=base64_encode($n_launch->id)?>" style="color:unset">
           <div style="padding:15px">
             <img src="<?=base_url().$n_launch->image?>" alt="">
-              <h5><?=$n_launch->productname?></h5><s style="font-size: 12px;text-decoration: line-through;color:red">(Rs.<?=$n_launch->mrp?>)</s> <span style="font-weight: bold; font-size: 12px;"> Rs.<?=$n_launch->selling_price?></span>
+            <?if($percent>0){?>
+            <div class="discount"><?=round($percent)?>% off</div>
+            <?}?>
+              <h5><?=$n_launch->productname?></h5>
+                <?if($n_launch->mrp>$n_launch->selling_price){?>
+              <s style="font-size: 12px;text-decoration: line-through;color:red">(Rs.<?=$n_launch->mrp?>)</s>
+              <?}?>
+               <span style="font-weight: bold; font-size: 12px;"> Rs.<?=$n_launch->selling_price?></span>
           </div>
         </a>
           <?}?>
@@ -142,14 +167,27 @@
         <!-- Swiper -->
 
         <div class="swiper-wrapper autoplay">
-          <? foreach($Best_seller->result() as $seller){  ?>
+          <? foreach($Best_seller->result() as $seller){
+            $discount=(int)$seller->mrp-(int)$seller->selling_price;
+            $percent=0;
+            if($discount>0){
+            $percent=$discount/$seller->mrp*100;
+            }
+             ?>
 
           <div class="swiper-slide" style="padding: 15px;">
             <a href="<?=base_url()?>Home/product_details/<?=base64_encode($seller->id)?>">
               <img src="<?=base_url().$seller->image;?>" alt="">
             </a>
             <div class="my-3">
-              <h5><?=$seller->productname;?></h5><s style="font-size: 12px;text-decoration: line-through;color:red">(Rs.<?=$seller->mrp?>)</s>  <span style="font-weight: bold; font-size: 12px;">₹<?=$seller->selling_price;?></span>
+              <?if($percent>0){?>
+              <div class="discount"><?=round($percent)?>% off</div>
+              <?}?>
+              <h5><?=$seller->productname;?></h5>
+              <?if($seller->mrp>$seller->selling_price){?>
+              <s style="font-size: 12px;text-decoration: line-through;color:red">(Rs.<?=$seller->mrp?>)</s>
+              <?}?>
+                <span style="font-weight: bold; font-size: 12px;">₹<?=$seller->selling_price;?></span>
             </div>
           </div>
 

@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Royal Homes</title>
-  <link rel = "icon" href ="<?=base_url()?>assets/frontend/assets/img/royal_homes_favicon.png" type = "image/x-icon" type = "image/x-icon">
+  <link rel="icon" href="<?=base_url()?>assets/frontend/assets/img/royal_homes_favicon.png" type="image/x-icon" type="image/x-icon">
   <link rel="stylesheet" href="<?=base_url()?>assets/frontend/assets/css/style.css">
   <link rel="stylesheet" href="<?=base_url()?>assets/frontend/assets/css/mainnav.css">
   <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/frontend/assets/css/new.css">
@@ -2008,14 +2008,14 @@ $category_data= $this->db->get();
      ?>
               <li>
                 <a class="headerlinks" href="<?=base_url()?>Home/all_Product/<?=base64_encode($data->id)?>/<?=base64_encode(1)?>"><?=$data->categoryname?></a>
-                <?
+                <?php
                 $this->db->select('*');
-                $this->db->from('tbl_subcategory');
-                $this->db->where('category_id', $data->id);
-                $subdata= $this->db->get();
-                $subcheck=$subdata->row();
-                if(!empty($subcheck)){
-                ?>
+     $this->db->from('tbl_subcategory');
+     $this->db->where('category_id', $data->id);
+     $subdata= $this->db->get();
+     $subcheck=$subdata->row();
+     if (!empty($subcheck)) {
+         ?>
                 <div class="mega-box">
                   <div class="content">
                     <div class="d-flex">
@@ -2039,7 +2039,8 @@ $category_data= $this->db->get();
                     </div>
                   </div>
                 </div>
-                <?}?>
+                <?
+     } ?>
               </li>
               <?php
  } ?>
@@ -2088,7 +2089,7 @@ $category_data= $this->db->get();
                 foreach ($subdata->result() as $sub) {
                     ?>
                           <li><a href="<?=base_url()?>Home/all_Product/<?=base64_encode($sub->id)?>/<?=base64_encode(2)?>"><?php echo $sub->subcategory ?></a></li>
-                          <?
+                          <?php
                 } ?>
                         </ul>
                         <div class="mt-2 w-100 center">
@@ -2099,30 +2100,34 @@ $category_data= $this->db->get();
                       </div>
                     </div>
                   </div>
-                  <?
+                  <?php
             }?>
                   <div class="mt-2">
                     <ul class="newSideBarExtrOpt" style="list-style-type:none; text-align: center;">
+                      <?if (!empty($this->session->userdata('user_data'))) {?>
                       <li class="myNewLi">
-                        <a href="http://localhost/Royal-homes/Home/view_wishlist/MQ==">
+                        <a href="<?=base_url()?>Home/view_wishlist/<?=base64_encode($this->session->userdata('user_id'))?>">
                           <span class="myNewSpanBtn">
                             WishList
                           </span>
                         </a>
-                        <a href="http://localhost/Royal-homes/Home/view_cart">
+                        <a href="<?=base_url()?>Home/my_orders/<?=base64_encode($this->session->userdata('user_id'))?>">
                           <span class="myNewSpanBtn">
                             My Orders
                           </span>
                         </a>
                       </li>
+                      <?}?>
                       <?if (empty($this->session->userdata('user_data'))) {?>
                       <li id="myLoginReg" class="myNewLi" style="color: #d76a46; font-size:26px;" onclick="userLoginReg()">
                         Login/Resigter
                       </li>
                       <?} else {?>
+                        <a href="<?=base_url()?>/User_login/user_logout">
                       <li id="myLogOut" class="myNewLi">
                         Logout
                       </li>
+                      </a>
                       <?}?>
                     </ul>
                   </div>
@@ -2149,27 +2154,29 @@ $category_data= $this->db->get();
                 });
               </script>
               <!-- ****************** MOBILE INPUT *********************************  -->
+              <form action="<?=base_url()?>Home/search" method="get" enctype="multipart/form-data">
               <div class="newMoblSearchCont">
                 <input type="text" name="search" class="newSearchInptMobl" placeholder="Search" />
-                <button type="button" name="button" class="newSearchBtn">Search</button>
+                <button type="submit" name="button" class="newSearchBtn">Search</button>
               </div>
+            </form>
             </li>
             <?if (!empty($this->session->userdata('user_data'))) {
-              $user_id = $this->session->userdata('user_id');
-                          $this->db->select('*');
-              $this->db->from('tbl_wishlist');
-              $this->db->where('user_id',$user_id);
-              $wish_count= $this->db->count_all_results();
-              ?>
+                $user_id = $this->session->userdata('user_id');
+                $this->db->select('*');
+                $this->db->from('tbl_wishlist');
+                $this->db->where('user_id', $user_id);
+                $wish_count= $this->db->count_all_results(); ?>
             <!-- this is wishlist -->
             <li class="hide dontHide newWishList"><a href="<?=base_url()?>Home/view_wishlist/<?=base64_encode($this->session->userdata('user_id'))?>" style="color:unset;"><span class="count">
                   <?if (!empty($wish_count)) {
-                echo $wish_count;
-            }else{
-              echo 0;
-            }?>
+                    echo $wish_count;
+                } else {
+                    echo 0;
+                } ?>
                 </span><i class="fa fa-heart btn_change_change " aria-hidden="true"></i></a></li>
-            <?}?>
+            <?
+            }?>
             <div id="mySidebar" class="sidebar">
               <a href="javascript:void(0)" class="closebtn" id="account_open_close" onclick="closeNav2()">×</a>
               <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -2215,17 +2222,17 @@ $category_data= $this->db->get();
 
             <li class="hide dontHide modifiedCart"><a href="<?=base_url()?>Home/view_cart" style="color: unset;"><span class="count modifiedNewCount">
                   <?if (!empty($count)) {
-                echo $count;
-            }else{
-              echo 0;
-            }?>
+                  echo $count;
+              } else {
+                  echo 0;
+              }?>
                 </span><i class="fa fa-shopping-bag NONE1 btn_change_change dontHide" aria-hidden="true"></i>
               </a></li>
-            <?if(!empty($this->session->userdata('user_data'))){
-  $user_id = $this->session->userdata('user_id');
-  ?>
+            <?if (!empty($this->session->userdata('user_data'))) {
+                  $user_id = $this->session->userdata('user_id'); ?>
             <li class="media_q_change1 hide"><a href="<?=base_url()?>Home/my_orders/<?=base64_encode($user_id)?>" style="color: unset;"><i class='fa fa-truck btn_change_change' style='font-size: 19px'></i></a></li>
-            <?}?>
+            <?
+              }?>
           </ul>
         </div>
       </div>
