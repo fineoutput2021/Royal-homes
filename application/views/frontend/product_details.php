@@ -2,6 +2,9 @@
   .hr {
     height: 0 !important;
   }
+  .ffty{
+    padding-left:5rem;
+  }
 
   @media (max-width:640px) {
     .heacha {
@@ -14,6 +17,7 @@
     .btcha {
       margin: -28px !important;
     }
+
   }
 
   #heart {
@@ -72,15 +76,29 @@
   @media screen and (min-width: 300px) and (max-width: 960px) {
     .midsection {
       background-color: white;
-      margin-top: 50vh;
+      margin-top: 0px;
+    }
+    .mobilesde{
+      display: block;
+    }
+    .swpconw{
+      display: none;
+    }
+
+    .ffty{
+      padding:0px!important;
     }
   }
 </style>
 <br />
-<div class="product media position-fixed" style="top: 0;z-index: 0;"> <a id="gallery-prev-area" tabindex="-1"></a>
+
+<!-- web view div start -->
+
+
+<div class="product media position-fixed swpconw" style="top: 0;z-index: 0;"> <a id="gallery-prev-area" tabindex="-1"></a>
   <!-- <div class="action-skip-wrapper"> <a class="action skip gallery-next-area" href="#gallery-next-area"><span> Skip to
         the end of the images gallery</span></a></div> -->
-  <div class="gallery-placeholder product_slick swiper-container swiper-container-fade swiper-container-initialized swiper-container-vertical">
+  <div class="gallery-placeholder product_slick swiper-container swiper-container-fade swiper-container-initialized swiper-container-vertical swpconw">
     <div class="swiper-wrapper" style="transition: all 0ms ease 0s;">
       <div class="swiper-slide"style="height: 518px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition: all 0ms ease 0s;">
         <img id="background" alt="main product photo" class="gallery-placeholder__image" src="<?=base_url().$product_data->image?>" data-zoom="click1ToZoom">
@@ -92,7 +110,7 @@
         style="top: -90px; background-color:#d76a46!important;"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active-next" style="top: -90px;"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active-next-next" style="top: -90px;"></span>
     </div><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
   </div>
-  <div class="product_nav_container">
+  <div class="product_nav_container swpconw">
     <div class="product_slick_nav swiper-container-initialized swiper-container-vertical swiper-container-thumbs">
       <div class="swiper-wrapper swipperarea" style="transform: translate3d(0px, 0px, 0px); transition: all 0ms ease 0s;">
         <div class="item swiper-slide swiper-slide-visible swiper-slide-next" >
@@ -126,6 +144,80 @@
         the beginning of the images gallery</span></a></div> -->
   <a id="gallery-next-area" tabindex="-1"></a>
 </div>
+
+<!-- web view div end -->
+
+<!-- mobile view div start -->
+
+
+
+<div id="carouselExampleControls" class="carousel slide mobilesde" data-ride="carousel">
+  <div class="carousel-inner">
+    <?if(!empty($product_data->image)){?>
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="<?=base_url().$product_data->image?>" alt="First slide">
+    </div>
+    <?}?>
+    <?if(!empty($product_data->image1)){?>
+    <div class="carousel-item">
+      <img class="image-fluid" src="<?=base_url().$product_data->image1?>" alt="Second slide">
+    </div>
+      <?}?>
+    <?if(!empty($product_data->image2)){?>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="<?=base_url().$product_data->image2?>" alt="Second slide">
+    </div>
+      <?}?>
+    <?if(!empty($product_data->image3)){?>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="<?=base_url().$product_data->image3?>" alt="Third slide">
+    </div>
+      <?}?>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+
+
+<!-- <div class="product media position-fixed swpconh" style="top: 0;z-index: 0;"> <a id="gallery-prev-area" tabindex="-1"></a>
+  <div class="gallery-placeholder product_slick swiper-container swiper-container-fade swiper-container-initialized swiper-container-vertical">
+    <div class="swiper-wrapper" style="transition: all 0ms ease 0s;">
+      <div id="mydiv1" class="swiper-slide"style="height: 518px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition: all 0ms ease 0s;">
+        <img id="background" alt="main product photo" class="gallery-placeholder__image" src="<?=base_url().$product_data->image?>" data-zoom="click1ToZoom">
+      </div>
+      <div id="mydiv2" class="swiper-slide"style="height: 518px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition: all 0ms ease 0s;">
+          <img id="background" alt="main product photo" class="gallery-placeholder__image" src="<?=base_url().$product_data->image?>" data-zoom="click1ToZoom">
+      </div>
+      <div id="mydiv3" class="swiper-slide"style="height: 518px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition: all 0ms ease 0s;">
+        <img id="background" alt="main product photo" class="gallery-placeholder__image" src="<?=base_url().$product_data->image2?>" data-zoom="click1ToZoom">
+      </div>
+      <div id="mydiv4" class="swiper-slide"style="height: 518px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition: all 0ms ease 0s;">
+        <img id="background" alt="main product photo" class="gallery-placeholder__image" src="<?=base_url().$product_data->image3?>" data-zoom="click1ToZoom">
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+setTimeout(function() {
+  $('#mydiv').fadeOut('fast');
+  alert("hi")
+}, 1000); // <-- time in milliseconds
+
+</script> -->
+
+
+
+
+
+
+<!-- mobile view div end -->
 
 <!-- end this section  -->
 <div class="midsection bg-white">
@@ -163,7 +255,7 @@
       <div class="row bg-white">
 
         <!--start product details-->
-        <div style="padding-top: 2rem;padding-left:1rem; background-color: white;" class="col-md-3 col-sm-6">
+        <div style="padding-top: 2rem; background-color: white;" class="col-md-3 col-sm-6 ffty">
           <div class="myButtons">
             <div class="btn-group" id="MatchingEntitiesButtons">
               <div class="details det1"  style="padding:0!important;">
@@ -242,7 +334,7 @@
 
         <!--end product details-->
 
-        <div style="padding-bottom: 2rem; background-color: white;" class="col-md-4 col-sm-12">
+        <div style="padding-bottom: 2rem; background-color: white; padding-left: 0px;" class="col-md-4 col-sm-12">
           <div class="qwer">
             <div class="rr">
 
@@ -321,9 +413,9 @@
               <br>
               <br>
 
-              <div class="row" class="hov_col1">
+              <div class="row" class="hov_col1" style="align-items:center;" >
                 <?if (empty($this->session->userdata('user_data'))) {?>
-                <div class="col-md-7 rrcs">
+                <div class="col-md-7 rrcs" style="width:auto;">
                   <a href="" class="xmp" style="border-radius: 26px;
                       background-color: #e66b47;
                       z-index: 154;
@@ -336,7 +428,7 @@
                       padding: 14px 58px;" onclick="addToCartOffline(this)" id="add_cart" product_id="<?=base64_encode($product_data->id)?>" quantity=1>Add To Cart</a>
                 </div>
                 <?} else {?>
-                <div class="col-md-7 rrcs">
+                <div class="col-md-7 rrcs" style="width:auto; padding-left:0px!important;">
                   <a href="" class="xmp" style="border-radius: 26px;
                         background-color: #e66b47;
                         z-index: 154;
@@ -365,7 +457,7 @@
                 <?php
                     } else {?>
                 <a href="" style="color:#d76a46">
-                  <div class="col-md-5"><i class="fa fa-heart heacha" style="font-size: 1.5rem;" onclick="wishlist(this)" product_id="<?=base64_encode($product_data->id)?>" user_id="<?=base64_encode($this->session->userdata('user_id'))?>"
+                  <div class="col-md-5" ><i class="fa fa-heart heacha" style="font-size: 1.5rem;" onclick="wishlist(this)" product_id="<?=base64_encode($product_data->id)?>" user_id="<?=base64_encode($this->session->userdata('user_id'))?>"
                       status="remove"></i>
                   </div>
                 </a>
@@ -384,7 +476,7 @@
   <!---Start you may like------>
 
   <section class="new_lunc overflow-hidden bg-white">
-    <div class="container-fluid bg-white">
+    <div class="container-fluid bg-white" style="padding: 0px;">
       <div class="row bg-white">
         <div class="col-md-12 bg-white">
 
@@ -422,7 +514,7 @@
   <!---Start more from collection-->
 
   <section class="new_lunc overflow-hidden bg-white">
-    <div class="container-fluid bg-white">
+    <div class="container-fluid bg-white" style="padding:0px;">
       <div class="row bg-white">
         <div class="col-md-12 bg-white">
           <h2 style="font-size: 28px; margin-left: 36px; font-weight: 300; color: #4e4e4e;">

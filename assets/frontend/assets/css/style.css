@@ -376,4 +376,7 @@ button.slick-next.slick-arrow{
         margin-top: 20vh;
          width: 25px!important;
     }
+    .mobilesde{
+      display: none;
+    }
 }

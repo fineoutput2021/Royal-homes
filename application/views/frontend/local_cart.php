@@ -43,18 +43,18 @@ $pro_data= $this->db->get()->row(); ?>
 <div class="row" style="font-weight:800;">
 <span class="m-2"><b>
 Quantity:
-<div class="input-group" style="position: relative;width: 50%;justify-content: center; display:flex; flex-wrap:nowrap;">
-  <span class="input-group__addon" style="border-right: 0;border-top-left-radius: 20px;border-bottom-left-radius: 20px; font-size:25px;">
+<div class="input-group" style="position: relative;width: 50%;justify-content: center; display:flex; flex-wrap:nowrap; align-items: center;">
+  <span class="input-group__addon" style="border:1px solid black; border-right: 0;border-top-left-radius: 20px;border-bottom-left-radius: 20px; font-size:25px;">
     <div class="input-group__button input-group__button--decrease" id="childMinus" data-bind="click: decreaseQty">
       <span class="input-group__icon input-group__icon--decrease">-</span>
     </div>
   </span>
-  <span class="m-2">
-    <input type="number" class="form-control" style="width:70px"
+  <span class="">
+    <input type="number" class="form-control" style="width:70px; height:40px; border:1px solid black;"
   i="<?=$i?>" value="<?=$cart['quantity']?>" min="1" onchange="updateCartOffline(this)" product_id="<?=base64_encode($cart['product_id'])?>" mrp="<?=$pro_data->mrp?>"
     >
   </span>
-  <span class="input-group__addon" style="border-left: 0;border-top-right-radius: 20px;border-bottom-right-radius: 20px; font-size:25px;">
+  <span class="input-group__addon" style="border:1px solid black;  border-left: 0;border-top-right-radius: 20px;border-bottom-right-radius: 20px; font-size:25px;">
     <div class="input-group__button input-group__button--increase" id="childPlus" data-bind="click: increaseQty">
       <span class="input-group__icon input-group__icon--increase">+</span>
     </div>
