@@ -9,9 +9,11 @@
   <title>Royal Homes</title>
   <link rel="icon" href="<?=base_url()?>assets/frontend/assets/img/royal_homes_favicon.png" type="image/x-icon" type="image/x-icon">
   <link rel="stylesheet" href="<?=base_url()?>assets/frontend/assets/css/style.css">
+
   <link rel="stylesheet" href="<?=base_url()?>assets/frontend/assets/css/mainnav.css">
   <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/frontend/assets/css/new.css">
   <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/frontend/assets/css/productdetail.css">
+    <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/frontend/assets/css/prduct_details2.css">
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
 
   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->

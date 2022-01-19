@@ -70,19 +70,13 @@
 <style>
   .midsection {
     background-color: white;
-    margin-top: 43rem;
+    margin-top: 13vh;
   }
 
   @media screen and (min-width: 300px) and (max-width: 960px) {
     .midsection {
       background-color: white;
-      margin-top: 0px;
-    }
-    .mobilesde{
-      display: block;
-    }
-    .swpconw{
-      display: none;
+      margin-top: 8vh;
     }
 
     .ffty{
@@ -95,10 +89,9 @@
 <!-- web view div start -->
 
 
-<div class="product media position-fixed swpconw" style="top: 0;z-index: 0;"> <a id="gallery-prev-area" tabindex="-1"></a>
-  <!-- <div class="action-skip-wrapper"> <a class="action skip gallery-next-area" href="#gallery-next-area"><span> Skip to
-        the end of the images gallery</span></a></div> -->
-  <div class="gallery-placeholder product_slick swiper-container swiper-container-fade swiper-container-initialized swiper-container-vertical swpconw">
+<div class="product media " style="top: 11vh;z-index: 0; display:flex;">
+  <a id="gallery-prev-area" tabindex="-1"></a>
+  <div class=" col-md-6 gallery-placeholder product_slick swiper-container swiper-container-fade swiper-container-initialized swiper-container-vertical ">
     <div class="swiper-wrapper" style="transition: all 0ms ease 0s;">
       <div class="swiper-slide"style="height: 518px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition: all 0ms ease 0s;">
         <img id="background" alt="main product photo" class="gallery-placeholder__image" src="<?=base_url().$product_data->image?>" data-zoom="click1ToZoom">
@@ -109,31 +102,32 @@
         style="top: -90px;"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active-prev" style="top: -90px;"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active swiper-pagination-bullet-active-main"
         style="top: -90px; background-color:#d76a46!important;"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active-next" style="top: -90px;"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active-next-next" style="top: -90px;"></span>
     </div><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
-  </div>
-  <div class="product_nav_container swpconw">
-    <div class="product_slick_nav swiper-container-initialized swiper-container-vertical swiper-container-thumbs">
-      <div class="swiper-wrapper swipperarea" style="transform: translate3d(0px, 0px, 0px); transition: all 0ms ease 0s;">
-        <div class="item swiper-slide swiper-slide-visible swiper-slide-next" >
-          <img alt="main product photo" class="gallery-placeholder__thumbnail" onclick="changeIt(this.src)" style="height:100px" src="<?=base_url().$product_data->image?>">
-        </div>
-        <?if(!empty($product_data->image1)){?>
-        <div class="item swiper-slide swiper-slide-visible swiper-slide-thumb-active">
-          <img alt="main product photo" class="gallery-placeholder__thumbnail" onclick="changeIt(this.src)" style="height:100px" src="<?=base_url().$product_data->image1?>">
-        </div>
-        <?}?>
-        <?if(!empty($product_data->image2)){?>
-        <div class="item swiper-slide swiper-slide-visible" >
-          <img alt="main product photo" class="gallery-placeholder__thumbnail" onclick="changeIt(this.src)" style="height:100px" src="<?=base_url().$product_data->image2?>">
-        </div>
-        <?}?>
-        <?if(!empty($product_data->image3)){?>
-        <div class="item swiper-slide swiper-slide-visible">
-          <img alt="main product photo" class="gallery-placeholder__thumbnail" onclick="changeIt(this.src)" style="height:100px" src="<?=base_url().$product_data->image3?>">
-        </div>
-        <?}?>
-      </div><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+    <div class="product_nav_container ">
+      <div class="product_slick_nav swiper-container-initialized swiper-container-vertical swiper-container-thumbs">
+        <div class="swiper-wrapper swipperarea" style="transform: translate3d(0px, 0px, 0px); transition: all 0ms ease 0s;">
+          <div class="item swiper-slide swiper-slide-visible swiper-slide-next" >
+            <img alt="main product photo" class="gallery-placeholder__thumbnail" onclick="changeIt(this.src)" style="height:100px" src="<?=base_url().$product_data->image?>">
+          </div>
+          <?if(!empty($product_data->image1)){?>
+          <div class="item swiper-slide swiper-slide-visible swiper-slide-thumb-active">
+            <img alt="main product photo" class="gallery-placeholder__thumbnail" onclick="changeIt(this.src)" style="height:100px" src="<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">">
+          </div>
+          <?}?>
+          <?if(!empty($product_data->image2)){?>
+          <div class="item swiper-slide swiper-slide-visible" >
+            <img alt="main product photo" class="gallery-placeholder__thumbnail" onclick="changeIt(this.src)" style="height:100px" src="<?=base_url().$product_data->image2?>">
+          </div>
+          <?}?>
+          <?if(!empty($product_data->image3)){?>
+          <div class="item swiper-slide swiper-slide-visible">
+            <img alt="main product photo" class="gallery-placeholder__thumbnail" onclick="changeIt(this.src)" style="height:100px" src="<?=base_url().$product_data->image3?>">
+          </div>
+          <?}?>
+        </div><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+      </div>
     </div>
   </div>
+
   <script>
   function changeIt(_src) {
     // alert(_src);
@@ -143,47 +137,187 @@
   <!-- <div class="action-skip-wrapper"> <a class="action skip gallery-prev-area" href="#gallery-prev-area"><span> Skip to
         the beginning of the images gallery</span></a></div> -->
   <a id="gallery-next-area" tabindex="-1"></a>
+  <div class="col-md-4" style="height:100%;width:100%;">
+
+    <div style="padding-bottom: 2rem; background-color: white; padding-left: 0px;" class=>
+      <div class="qwer">
+        <div class="rr">
+
+          <a href="<?=base_url()?>" style="color: #3e3938;; font-size: 11px; font-weight: 600;">HOME</a>&nbsp;&nbsp;<i class="fas fa-greater-than" style="font-size: 11px;"></i>
+          <h3 style="font-size: 40px;text-transform: none;font-weight: 300;line-height: 1.2;color: #3e3938;"><?=$product_data->productname?>
+          </h3>
+          <br>
+          <p class="productdetailcontent" style="font-size: 13px;line-height: 1.7;font-weight: 400;text-transform: none;color: #3e3938 ;justify-content: center;">specimen book. It has survived not only five
+            centuries,<br> but also the
+            leap
+            into
+            electronic typesetting,
+            remaining <br> essentially unchanged. It was popularised in the 1960s.
+
+          </p>
+
+          <div class="row">
+            <div class="col-md-6 col-sm-6">
+              <!-- <div class="bvf">
+                <p>Price</p>
+              </div> -->
+
+
+            </div>
+            <div class="col-md-6 col-sm-12">
+              <!-- <div class="vfds">
+
+                <p><b>Special<br>Price:$4,139</b></p>
+
+              </div> -->
+            </div>
+
+
+          </div>
+
+
+          <div class="xc">
+            <br>
+            <p>
+              <span style="font-size: 14px;color: #212529;font-weight: bold;"><s style="font-size: 12px;text-decoration: line-through;color:red">(Rs.<?=$product_data->mrp?>)</s> </span>
+            </p>
+            <pre class="pricesection" style="color: #212529;font-size: 14px;">Price: <span style="font-size: 14px;color: #212529;font-weight: bold;">Rs.<?=$product_data->selling_price?></span></pre>
+            <br>
+            <br>
+          </div>
+
+
+          <div class="bbbs" style="display: flex;align-items: center; cursor: pointer;">
+            <p><b style="font-size: 14px;letter-spacing: 2px; margin: 2px">Quantity</b>
+            <div class="input-group" style="position: relative;width: 100%;justify-content: center;">
+              <span class="input-group__addon" style="border-right: 0;border-top-left-radius: 20px;border-bottom-left-radius: 20px;">
+                <div class="input-group__button input-group__button--decrease" id="childMinus" data-bind="click: decreaseQty">
+                  <span class="input-group__icon input-group__icon--decrease">-</span>
+                </div>
+              </span>
+              <input name="qty" id="child" value="1" min="1" onchange="qty_set()" style="display: inline-block;width: 50px;text-align: center;pointer-events: none;background: #fff;
+                      background-clip: padding-box;
+                      border: 1px solid #c2c2c2;
+                      border-radius: 1px;
+                      font-size: 14px;
+                      height: 32px;
+                      line-height: 1.42857143;
+                      padding: 0 9px;
+                      vertical-align: baseline;
+                      width: 16%;
+                      box-sizing: border-box;">
+              <span class="input-group__addon" style="border-left: 0;border-top-right-radius: 20px;border-bottom-right-radius: 20px;">
+                <div class="input-group__button input-group__button--increase" id="childPlus" data-bind="click: increaseQty">
+                  <span class="input-group__icon input-group__icon--increase">+</span>
+                </div>
+              </span>
+            </div>
+
+            </p>
+          </div>
+          <br>
+          <br>
+
+          <div class="row" class="hov_col1" style="align-items:center;" >
+            <?if (empty($this->session->userdata('user_data'))) {?>
+            <div class="col-md-7 rrcs" style="width:auto;">
+              <a href="" class="xmp" style="border-radius: 26px;
+                  background-color: #e66b47;
+                  z-index: 154;
+                  transition: .3s all ease-in-out;
+                  font-weight: 400;
+                  text-transform: uppercase;
+                  font-size: 13px;
+
+                  letter-spacing: 2px;line-height: 2.2rem;
+                  padding: 14px 58px;" onclick="addToCartOffline(this)" id="add_cart" product_id="<?=base64_encode($product_data->id)?>" quantity=1>Add To Cart</a>
+            </div>
+            <?} else {?>
+            <div class="col-md-7 rrcs" style="width:auto; padding-left:0px!important;">
+              <a href="" class="xmp" style="border-radius: 26px;
+                    background-color: #e66b47;
+                    z-index: 154;
+                    transition: .3s all ease-in-out;
+                    font-weight: 400;
+                    text-transform: uppercase;
+                    font-size: 13px;
+                    width: 220px;
+                    letter-spacing: 2px;line-height: 2.2rem;
+                    padding: 14px 58px;" onclick="addToCartOnline(this)" id="add_cart" product_id="<?=base64_encode($product_data->id)?>" quantity=1>Add To Cart</a>
+            </div>
+            <?php
+                $user_id = $this->session->userdata('user_id');
+                            $this->db->select('*');
+                $this->db->from('tbl_wishlist');
+                $this->db->where('product_id', $product_data->id);
+                $this->db->where('user_id', $user_id);
+                $wishdata= $this->db->get()->row();
+                if (empty($wishdata)) {
+                    ?>
+            <a href="" style="color:#d76a46">
+              <div class="col-md-5">
+                <i class="fa fa-heart-o heacha" style="font-size: 1.5rem;" onclick="wishlist(this)" product_id="<?=base64_encode($product_data->id)?>" user_id="<?=base64_encode($this->session->userdata('user_id'))?>" status="add"></i>
+              </div>
+            </a>
+            <?php
+                } else {?>
+            <a href="" style="color:#d76a46">
+              <div class="col-md-5" ><i class="fa fa-heart heacha" style="font-size: 1.5rem;" onclick="wishlist(this)" product_id="<?=base64_encode($product_data->id)?>" user_id="<?=base64_encode($this->session->userdata('user_id'))?>"
+                  status="remove"></i>
+              </div>
+            </a>
+            <?}}?>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
 </div>
+
 
 <!-- web view div end -->
 
 <!-- mobile view div start -->
 
 
-
-<div id="carouselExampleControls" class="carousel slide mobilesde" data-ride="carousel">
-  <div class="carousel-inner">
-    <?if(!empty($product_data->image)){?>
-    <div class="carousel-item active">
-      <img class="d-block w-100" src="<?=base_url().$product_data->image?>" alt="First slide">
-    </div>
-    <?}?>
-    <?if(!empty($product_data->image1)){?>
-    <div class="carousel-item">
-      <img class="image-fluid" src="<?=base_url().$product_data->image1?>" alt="Second slide">
-    </div>
-      <?}?>
-    <?if(!empty($product_data->image2)){?>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="<?=base_url().$product_data->image2?>" alt="Second slide">
-    </div>
-      <?}?>
-    <?if(!empty($product_data->image3)){?>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="<?=base_url().$product_data->image3?>" alt="Third slide">
-    </div>
-      <?}?>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-
+<!--
+                <div id="carouselExampleControls" class="carousel slide mobilesde" data-ride="carousel">
+                  <div class="carousel-inner">
+                    <?if(!empty($product_data->image)){?>
+                    <div class="carousel-item active">
+                      <img class="d-block w-100" src="<?=base_url().$product_data->image?>" alt="First slide">
+                    </div>
+                    <?}?>
+                    <?if(!empty($product_data->image1)){?>
+                    <div class="carousel-item">
+                      <img class="image-fluid" src="<?=base_url().$product_data->image1?>" alt="Second slide">
+                    </div>
+                      <?}?>
+                    <?if(!empty($product_data->image2)){?>
+                    <div class="carousel-item">
+                      <img class="d-block w-100" src="<?=base_url().$product_data->image2?>" alt="Second slide">
+                    </div>
+                      <?}?>
+                    <?if(!empty($product_data->image3)){?>
+                    <div class="carousel-item">
+                      <img class="d-block w-100" src="<?=base_url().$product_data->image3?>" alt="Third slide">
+                    </div>
+                      <?}?>
+                  </div>
+                  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
+ -->
 
 
 <!-- <div class="product media position-fixed swpconh" style="top: 0;z-index: 0;"> <a id="gallery-prev-area" tabindex="-1"></a>
@@ -250,6 +384,7 @@ setTimeout(function() {
       </div>
     </div>
   </div>
+
   <section class="bg-white">
     <div class="bg-white">
       <div class="row bg-white">

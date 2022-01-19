@@ -1,7 +1,7 @@
 
 
 <!--Start Newsletter -->
-<section class="n_latter my-5 overflow-hidden bg-white">
+<section class="n_latter my-5  bg-white">
   <div class="container1 bg-white">
     <div class="row bg-white" style="margin-bottom:-46px;">
       <div class="col-md-12 bg-white">
