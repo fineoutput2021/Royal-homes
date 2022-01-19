@@ -196,15 +196,23 @@ width: 60px;
   						<div class="swiper-slide">
   							<img src="<?=base_url().$product_data->image?>" alt="..."  class="swimg">
   						</div>
+              <?if(!empty($product_data->image1)){?>
   						<div class="swiper-slide">
   							<img src="<?=base_url().$product_data->image1?>" alt="..." class="swimg">
   						</div>
+              <?}?>
+
+              <?if(!empty($product_data->image2)){?>
   						<div class="swiper-slide">
   							<img src="<?=base_url().$product_data->image2?>" alt="..."  class="swimg">
   						</div>
+              <?}?>
+
+              <?if(!empty($product_data->image3)){?>
   						<div class="swiper-slide">
   							<img src="<?=base_url().$product_data->image3?>" alt="..."  class="swimg">
   						</div>
+              <?}?>
 
   					</div>
   					<div class="swiper-button-next"></div>
@@ -216,15 +224,24 @@ width: 60px;
   						<div class="swiper-slide" >
   							<img src="<?=base_url().$product_data->image?>" alt="..." class="slimg">
   						</div>
+              <?if(!empty($product_data->image1)){?>
   						<div class="swiper-slide">
   							<img src="<?=base_url().$product_data->image1?>" alt="..." class="slimg">
   						</div>
+              <?}?>
+
+              <?if(!empty($product_data->image2)){?>
   						<div class="swiper-slide">
   							<img src="<?=base_url().$product_data->image2?>" alt="..." class="slimg">
   						</div>
+              <?}?>
+
+              <?if(!empty($product_data->image3)){?>
   						<div class="swiper-slide">
   							<img src="<?=base_url().$product_data->image3?>" alt="..." class="slimg">
   						</div>
+              <?}?>
+
     		</div>
   	</div>
 
@@ -239,7 +256,7 @@ width: 60px;
 
   <div class="col-lg-4 ">
 
-    <div style="padding-bottom: 2rem; background-color: white; padding-left: 0px;" class="fixedElement">
+    <div style="padding-bottom: 2rem; background-color: white; padding-left: 0px;" class="fixedElement" id="fixadent">
       <div class="qwer">
         <div class="rr">
 
@@ -642,18 +659,7 @@ width: 60px;
 
 </section>
 
-<script type="text/javascript">
-// $(window).scroll(function(e){
-//   var $el = $('.fixedElement');
-//   var isPositionFixed = ($el.css('position') == 'fixed');
-//   if ($(this).scrollTop() > 200 && !isPositionFixed){
-//     $el.css({'position': 'fixed', 'top': '0px'});
-//   }
-//   if ($(this).scrollTop() < 200 && isPositionFixed){
-//     $el.css({'position': 'static', 'top': '0px'});
-//   }
-});
-</script>
+
 
 
 
