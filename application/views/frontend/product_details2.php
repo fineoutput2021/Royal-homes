@@ -72,11 +72,7 @@ border-color: #bc4f38;
   border-top-color: #EEEEEE;
 }
 
-.fixedElement {
-  position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-}
+
 .ffth{
 
 }
@@ -114,7 +110,22 @@ width: 60px;
     display: flex;
     justify-content: center;
   }
-
+  .fixedElement {
+      top: 96px;
+       /* bottom:0; */
+       position:fixed;
+       /* position:sticky;
+       width:100%;
+       /* overflow-y:scroll;
+       overflow-x:hidden; */
+  }
+  /* .relaxElement {
+      top: 96px;
+       bottom:0;
+       position:relative;
+       /* overflow-y:scroll;
+       overflow-x:hidden; */
+  } */
 }
 .btnm{
   font-family: 'Gotham Light'!important;
@@ -256,7 +267,7 @@ width: 60px;
 
   <div class="col-lg-4 ">
 
-    <div style="padding-bottom: 2rem; background-color: white; padding-left: 0px;" class="fixedElement" id="fixadent">
+    <div style="padding-bottom: 2rem; background-color: white; padding-left: 0px;" id="info" class="fixedElement" >
       <div class="qwer">
         <div class="rr">
 
@@ -661,7 +672,19 @@ width: 60px;
 
 
 
+<script type="text/javascript">
+$(window).scroll(function() {
+    var scroll = $(window).scrollTop();
 
+     //>=, not <=
+    if (scroll >= 945) {
+        //clearHeader, not clearheader - caps H
+        $("#info").removeClass("fixedElement");
+    }else{
+      $("#info").addClass("fixedElement");
+    }
+});
+</script>
 
 <script type="text/javascript">
 /* product left start */
