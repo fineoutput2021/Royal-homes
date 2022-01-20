@@ -87,10 +87,17 @@ width: 60px;
 /* margin-left: 30px; */
 }
 .btn:focus{
-  box-shadow: 0 0 0 0.2rem rgb(230 107 71 );
+  box-shadow: 0 0 0 0 rgb(230 107 71 );
+}
+@media (max-width :896px)
+{
+.form11{margin-left: 0px!important;}
+
 }
 
-@media only screen and (max-width :768px){
+
+
+@media only screen and (max-width :896px){
   .swimg{
   height: 300px;
   width:600px;}
@@ -99,7 +106,7 @@ width: 60px;
     font-family: 'Gotham Light'!important;
   }
 }
-@media (min-width:768px) {
+@media (min-width:896px) {
   .swimg{
     margin-left: 35px;
     }
@@ -125,13 +132,25 @@ width: 60px;
        position:relative;
        /* overflow-y:scroll;
        overflow-x:hidden; */
-  } */
+   */
+   .btnm{
+     font-family: 'Gotham Light'!important;
+     font-size: 15px;
+     font-style:normal;
+   }
+
 }
 .btnm{
   font-family: 'Gotham Light'!important;
   font-size: 15px;
   font-style:normal;
 }
+
+[data-toggle="collapse"]:after {
+
+    color: #e66b47;
+}
+
 </style>
 <style media="screen">
             .form11 {
@@ -184,7 +203,7 @@ width: 60px;
             border-top: 1px solid #ddd;
             border-bottom: 1px solid #ddd;
             margin: 0px;
-            width: 100px;
+            width: 50px;
             height: 40px;
             }
 
@@ -193,6 +212,12 @@ width: 60px;
               -webkit-appearance: none;
               margin: 0;
             }
+            .hov_col1{
+              display: flex;
+              align-items: center;
+                margin-left: 22px;
+                margin-top: -5px;
+              }
 </style>
 <section>
   <!-- slider start -->
@@ -267,7 +292,7 @@ width: 60px;
 
   <div class="col-lg-4 ">
 
-    <div style="padding-bottom: 2rem; background-color: white; padding-left: 0px;" id="info" class="fixedElement" >
+    <div style="padding-bottom: 0px; background-color: white; padding-left: 0px;" id="info" class="fixedElement" >
       <div class="qwer">
         <div class="rr">
 
@@ -315,57 +340,28 @@ width: 60px;
           </div>
 
 
-          <div class="bbbs" style="display:flex; align-item:center; cursor: pointer;">
+          <div class="row" style="display:flex; align-item:center; cursor: pointer;">
 
 
-          <p><b style="font-size: 14px;letter-spacing: 2px; margin: 2px">Quantity</b>
-            <div class="gfgft" style="display:flex;">
-<div class="form11">
+          <p><b style="font-size: 18px;letter-spacing: 2px; margin: 2px">Quantity</b>
+                        <div class="gfgft" style="display:flex;">
+            <div class="form11">
 
+                        <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
+                        <input type="number" id="number" value="0" />
+                        <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
 
-
-            <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
-            <input type="number" id="number" value="0" />
-            <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
-
-</div>
-        </div>
-
-        </div>
-          <!-- <div class="bbbs" style="display: flex;align-items: center; cursor: pointer;">
-            <p><b style="font-size: 14px;letter-spacing: 2px; margin: 2px">Quantity</b>
-            <div class="input-group" style="position: relative;width: 100%;justify-content: center;">
-              <span class="input-group__addon" style="border-right: 0;border-top-left-radius: 20px;border-bottom-left-radius: 20px;">
-                <div class="input-group__button input-group__button--decrease" id="childMinus" data-bind="click: decreaseQty">
-                  <span class="input-group__icon input-group__icon--decrease">-</span>
-                </div>
-              </span>
-              <input name="qty" id="child" value="1" min="1" onchange="qty_set()" style="display: inline-block;width: 50px;text-align: center;pointer-events: none;background: #fff;
-                      background-clip: padding-box;
-                      border: 1px solid #c2c2c2;
-                      border-radius: 1px;
-                      font-size: 14px;
-                      height: 32px;
-                      line-height: 1.42857143;
-                      padding: 0 9px;
-                      vertical-align: baseline;
-                      width: 16%;
-                      box-sizing: border-box;">
-              <span class="input-group__addon" style="border-left: 0;border-top-right-radius: 20px;border-bottom-right-radius: 20px;">
-                <div class="input-group__button input-group__button--increase" id="childPlus" data-bind="click: increaseQty">
-                  <span class="input-group__icon input-group__icon--increase">+</span>
-                </div>
-              </span>
             </div>
 
-            </p>
-          </div> -->
+
+
+
           <br>
           <br>
 
-          <div class="row" class="hov_col1" style="align-items:center;" >
+          <div  class="hov_col1" style="align-items:center;" >
             <?if (empty($this->session->userdata('user_data'))) {?>
-            <div class="col-md-7 rrcs" style="">
+            <div class="col-md-6 rrcs" style=" padding:0px!important;">
               <a href="" class="xmp" style="border-radius: 26px;
                   background-color: #e66b47;
                   z-index: 154;
@@ -375,10 +371,10 @@ width: 60px;
                   font-size: 13px;
 
                   letter-spacing: 2px;line-height: 2.2rem;
-                  padding: 14px 58px;" onclick="addToCartOffline(this)" id="add_cart" product_id="<?=base64_encode($product_data->id)?>" quantity=1>Add To Cart</a>
+                  /* padding: 14px 58px;*/" onclick="addToCartOffline(this)" id="add_cart" product_id="<?=base64_encode($product_data->id)?>" quantity=1>Add To Cart</a>
             </div>
             <?} else {?>
-            <div class="col-md-7 rrcs" style="width:auto; padding-left:0px!important;">
+            <div class="col-md-6 rrcs" style="width:auto; padding:0px!important;">
               <a href="" class="xmp" style="border-radius: 26px;
                     background-color: #e66b47;
                     z-index: 154;
@@ -386,10 +382,12 @@ width: 60px;
                     font-weight: 400;
                     text-transform: uppercase;
                     font-size: 13px;
-                    width: 220px;
+
                     letter-spacing: 2px;line-height: 2.2rem;
-                    padding: 14px 58px;" onclick="addToCartOnline(this)" id="add_cart" product_id="<?=base64_encode($product_data->id)?>" quantity=1>Add To Cart</a>
+                    /* padding: 14px 58px;*/" onclick="addToCartOnline(this)" id="add_cart" product_id="<?=base64_encode($product_data->id)?>" quantity=1>Add To Cart</a>
             </div>
+
+              <div class="wish5">
             <?php
                 $user_id = $this->session->userdata('user_id');
                             $this->db->select('*');
@@ -412,7 +410,15 @@ width: 60px;
               </div>
             </a>
             <?}}?>
+
+
+
+            </div>
+
           </div>
+
+          </div>
+        </div>
         </div>
       </div>
     </div>
@@ -633,7 +639,7 @@ width: 60px;
 
   <!-- start Testimonials -->
 
-  <section class="bg-white" style="margin-top:-50px!important; z-index: 999; position:relative; margin-bottom:-48px">
+  <section class="bg-white" style="margin-top:-50px!important; position:relative; margin-bottom:-48px">
     <div class="container bg-white">
       <div class="w100 bg-white" style="text-align: center; ">
         <h2>What Our Customers Have to Say</h2>

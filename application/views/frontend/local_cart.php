@@ -4,6 +4,73 @@
 <br />
 <br />
 <br />
+<style media="screen">
+            .form11 {
+
+            margin-left: 40px ;
+            text-align: center;
+            padding-top: 0px;
+            }
+
+            .value-button {
+            display: inline-block;
+            border: 1px solid #ddd;
+            margin: 0px;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            vertical-align: middle;
+            padding: 11px 0;
+            background: #e66b47;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            }
+
+            .value-button:hover {
+            cursor: pointer;
+            }
+
+            .form11 #decrease {
+            margin-right: -4px;
+            border-radius: 8px 0 0 8px;
+            }
+
+            .form11 #increase {
+            margin-left: -4px;
+            border-radius: 0 8px 8px 0;
+            }
+
+            form #input-wrap {
+            margin: 0px;
+            padding: 0px;
+            }
+
+            input#number {
+            text-align: center;
+            border: none;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            margin: 0px;
+            width: 50px;
+            height: 40px;
+            }
+
+            input[type=number]::-webkit-inner-spin-button,
+            input[type=number]::-webkit-outer-spin-button {
+              -webkit-appearance: none;
+              margin: 0;
+            }
+            @media (max-width :896px)
+            {
+            .form11{margin-left: 0px!important;}
+
+            }
+
+</style>
 <style>
 .chk{
 background: #d76a46;
@@ -34,16 +101,16 @@ $this->db->from('tbl_products');
 $this->db->where('id', $cart['product_id']);
 $pro_data= $this->db->get()->row(); ?>
 <div class="row mt-2" style="border:1px solid #ccc;">
-<div class="col-md-3 col-6">
+<div class="col-md-3 ">
 <img src="<?=base_url().$pro_data->image?>" class="img-fluid p-2" style="width:150px;height:150px;"  />
 </div>
-<div class="col-md-6 col-4 fsize " >
+<div class="col-md-8 mt-2 fsize " >
 <span style="font-size:25px"><?=$pro_data->productname?></span>
 
 <div class="row" style="font-weight:800;">
 <span class="m-2"><b>
-Quantity:
-<div class="input-group" style="position: relative;width: 50%;justify-content: center; display:flex; flex-wrap:nowrap; align-items: center;">
+Quantity:</b>
+<!-- <div class="input-group" style="position: relative;width: 50%;justify-content: center; display:flex; flex-wrap:nowrap; align-items: center;">
   <span class="input-group__addon" style="border:1px solid black; border-right: 0;border-top-left-radius: 20px;border-bottom-left-radius: 20px; font-size:25px;">
     <div class="input-group__button input-group__button--decrease" id="childMinus" data-bind="click: decreaseQty">
       <span class="input-group__icon input-group__icon--decrease">-</span>
@@ -59,10 +126,21 @@ Quantity:
       <span class="input-group__icon input-group__icon--increase">+</span>
     </div>
   </span>
-</div>
-</b>
+</div> -->
 </span>
 
+
+<span class="m-2" style="display:flex">
+  <div class="form11">
+
+              <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
+              <input type="number" id="number" value="0" />
+              <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
+
+  </div>
+
+
+</span>
 <span class="m-2">
 <b>Price:</b>
 </span>
@@ -70,7 +148,7 @@ Quantity:
  Rs.<?=$mrp =$pro_data->mrp*$cart['quantity']?></span>
 </div>
 </div>
-<div class="col-md-3 col-2"><a href="" onclick="deleteCartOffline(this)" product_id="<?=base64_encode($cart['product_id'])?>"><span class="float-right positn" style="font-size:30px;  color:#d76a46">&times</span></a></div>
+<div class="col-md-1 col-2"><a href="" onclick="deleteCartOffline(this)" product_id="<?=base64_encode($cart['product_id'])?>"><span class="float-right positn" style="font-size:30px;  color:#d76a46">&times</span></a></div>
 </div>
 <?$total = $total + $mrp;
 $i++;
@@ -98,6 +176,7 @@ echo $total;
   </div>
 </div>
 </div>
+</div>
 </section>
 <br />
 <br />
@@ -106,6 +185,28 @@ echo $total;
 <br />
 <br />
 <script>
+
+
+function increaseValue() {
+  var value = parseInt(document.getElementById('number').value, 10);
+  value = isNaN(value) ? 0 : value;
+  value++;
+  document.getElementById('number').value = value;
+}
+
+function decreaseValue() {
+  var value = parseInt(document.getElementById('number').value, 10);
+  value = isNaN(value) ? 0 : value;
+  value < 1 ? value = 1 : '';
+  value--;
+  document.getElementById('number').value = value;
+}
+
+
+
+
+
+
   function deleteCartOffline(obj) {
     var product_id = $(obj).attr("product_id");
     // alert(product_id);

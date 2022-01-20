@@ -4,6 +4,73 @@
 <br />
 <br />
 <br />
+<style media="screen">
+            .form11 {
+
+            margin-left: 40px ;
+            text-align: center;
+            padding-top: 0px;
+            }
+
+            .value-button {
+            display: inline-block;
+            border: 1px solid #ddd;
+            margin: 0px;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            vertical-align: middle;
+            padding: 11px 0;
+            background: #e66b47;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            }
+
+            .value-button:hover {
+            cursor: pointer;
+            }
+
+            .form11 #decrease {
+            margin-right: -4px;
+            border-radius: 8px 0 0 8px;
+            }
+
+            .form11 #increase {
+            margin-left: -4px;
+            border-radius: 0 8px 8px 0;
+            }
+
+            form #input-wrap {
+            margin: 0px;
+            padding: 0px;
+            }
+
+            input#number {
+            text-align: center;
+            border: none;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            margin: 0px;
+            width: 50px;
+            height: 40px;
+            }
+
+            input[type=number]::-webkit-inner-spin-button,
+            input[type=number]::-webkit-outer-spin-button {
+              -webkit-appearance: none;
+              margin: 0;
+            }
+            @media (max-width :896px)
+            {
+            .form11{margin-left: 0px!important;}
+
+            }
+
+</style>
 <style>
 .chk{
 background: #d76a46;
@@ -45,7 +112,8 @@ $pro_data= $this->db->get()->row(); ?>
 <span class="m-2">
 <b>Quantity:
 </b>
-</span>
+
+<!-- <span class="m-2">
 <div class="input-group" style="position: relative;width: 50%; display:flex; flex-wrap:nowrap; align-items:center;margin-left: 0.5rem;">
   <span class="input-group__addon" style="border:1px solid black; border-right: 0;border-top-left-radius: 20px;border-bottom-left-radius: 20px; font-size:20px; color:black;">
     <div class="input-group__button input-group__button--decrease" id="childMinus" data-bind="click: decreaseQty">
@@ -62,7 +130,21 @@ $pro_data= $this->db->get()->row(); ?>
       <span class="input-group__icon input-group__icon--increase">+</span>
     </div>
   </span>
-</div>
+</div> -->
+</span>
+
+<span class="m-2" style="display:flex">
+  <div class="form11">
+
+              <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
+              <input type="number" id="number" value="0" />
+              <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
+
+  </div>
+
+
+</span>
+
 <span class="m-2">
 <b>Price:</b>
 </span>
@@ -108,6 +190,25 @@ echo $total;
 <br />
 <br />
 <script>
+
+
+
+
+function increaseValue() {
+  var value = parseInt(document.getElementById('number').value, 10);
+  value = isNaN(value) ? 0 : value;
+  value++;
+  document.getElementById('number').value = value;
+}
+
+function decreaseValue() {
+  var value = parseInt(document.getElementById('number').value, 10);
+  value = isNaN(value) ? 0 : value;
+  value < 1 ? value = 1 : '';
+  value--;
+  document.getElementById('number').value = value;
+}
+
   function deleteCartOnline(obj) {
     var product_id = $(obj).attr("product_id");
     // alert(product_id);

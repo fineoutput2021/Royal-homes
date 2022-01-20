@@ -432,6 +432,31 @@
     }
   </style>
   <style>
+  .chk{
+    display: block;
+    background: #d76a46;
+width: 85%;
+border-radius: 26px;
+font-size: 13px;
+text-transform: uppercase;
+letter-spacing: 1px;
+transition: all .2s ease-in-out;
+margin-top:30px;
+color: white;
+line-height: 2.2rem;
+padding: 14px 17px;
+
+  /* background: #d76a46;
+  color: white;
+  border: none;
+  width:100%; */
+  }
+  .chk:hover{
+    background: black;
+    color: white;
+  }
+  </style>
+  <style>
     .body {
       /* font-family: 'Montserrat', sans-serif;
       font-family: 'Zen Antique Soft', serif;
@@ -562,30 +587,26 @@
     }
   </style>
   <style>
+
+   .down12{
+     margin-left: -16px;
+     margin-top: 10px;
+   }
     .sidebar {
+
+
       height: 100%;
-      width: 0;
+      width: 30%;
       position: fixed;
-      z-index: 1;
+      z-index: 11;
       top: 0;
       right: 0;
-      background-color: #111;
+      background-color: white;
+
+      color: black!important;
       overflow-x: hidden;
       transition: 0.5s;
-      padding-top: 60px;
-    }
-
-    .sidebar a {
-      padding: 8px 8px 8px 32px;
-      text-decoration: none;
-      font-size: 25px;
-      color: #818181;
-      display: block;
-      transition: 0.3s;
-    }
-
-    .sidebar a:hover {
-      color: #f1f1f1;
+      /* padding-top: 60px; */
     }
 
     .sidebar .closebtn {
@@ -1161,7 +1182,7 @@
     /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
     #main {
       transition: margin-left .5s;
-      padding: 12px;
+      padding: 9px;
     }
 
     /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
@@ -2179,23 +2200,86 @@ $category_data= $this->db->get();
                 </span><i class="fa fa-heart btn_change_change " aria-hidden="true"></i></a></li>
             <?
             }?>
-            <div id="mySidebar" class="sidebar">
+            <div id="mySidebar" class="sidebar" >
               <a href="javascript:void(0)" class="closebtn" id="account_open_close" onclick="closeNav2()">×</a>
               <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button> -->
-              <a href="addresssetting.html">ACCOUNT SETTINGS</a>
+        <div class="" style="background:#ffffff; padding: 27.30px 40.98px;">
+        <div class="container block-tittle" style="font-size: 30px;font-weight: 300;color: #3e3938; padding:0px;" >
+          <p>MY CART</p>
+
+        </div>
+        <hr>
+        <div class="row block-content" style="margin: 20px 0; text-transform: uppercase;letter-spacing: 1px;font-size: 14px;">
+          <p>order summary</p>
+
+          <br>
+          </div>
+        <div style="background-color: #f1f1f1; padding: 15px;">
+        <div class="ammounttoatl" style="background-color: #f1f1f1;padding: 15px;">
+          <span class="mt-2" >
+            <p>sub-total:</p>
+          </span>
+          <span class="mt-2">
+          <p style="font-weight: 700 !important;font-size: 14px;text-transform: uppercase;">Total:</p>
+          </span>
+
+        </div>
+
+        </div>
+        <hr>
+
+       <div class="row mt-2" style=" font: 18px;">
+       <div class="col-md-3 pimg" style="width:100px;height:100px; margin-top:25px;">
+       <img src="https://www.orangetree.in/pub/media/catalog/product/cache/3baa429631a6a8a011e43be765ed9f1f/b/a/base-1_new-canna-black-hanging-lamp-online.jpg">
+       </div>
+
+       <div class="col-md-6 mt-2 fsize " >
+
+       <span style="font-size:15px">product name</span>
+
+        <div class="" style="font-size:15px">
+        <div class="m-2"><b>
+        Qty:</b>
+      </div>
+          <div class="m-2">
+          <b>7745</b>
+        </div>
+          <br>
+
+          </div>
+        </div>
+        <div class=""><a href="#" onclick="deleteCartOffline(this)" <span class="float-right positn" style="font-size:30px;  color:#d76a46">&times</span></a></div>
+        <!-- <div class="secondary">
+                    <a href="#"  class="action delete" data-cart-item="13200" title="Remove item">
+                        <span data-bind="i18n: 'Remove'">&times</span>
+                    </a>
+                </div> -->
+      </div>
+      <hr>
+      <div class="w-100" style="display:flex; justify-content: center;">
+        <button class="chk">
+        Proceed To Checkout
+        </button>
+      </div>
+
+
+        </div>
+              <!-- <a href="addresssetting.html">ACCOUNT SETTINGS</a>
               <a href="My Addresses.html">ADDRESSES</a>
               <a href="Address form.html">ADDRESS Form</a>
               <a href="new my order.html">My Order list</a>
-              <a href="<?=base_url()?>/User_login/user_logout">Log Out</a>
+              <a href="<?=base_url()?>/User_login/user_logout">Log Out</a> -->
             </div>
             <div id="main" class="ch234 hide newUserProfile">
               <?if (!empty($this->session->userdata('user_data'))) {?>
-              <i class="fa fa-user openbtn btn_change_change media_q_change2" aria-hidden="true" id="account_open_close" onclick="openNav2()"></i>
-              <!-- <p style="font-size:13px;">
-            <?=$this->session->userdata('user_name')?>
-          </p> -->
+              <i class="fa fa-user  openbtn btn_change_change media_q_change2" aria-hidden="true" ></i>
+
+
+            <!-- <?=$this->session->userdata('user_name')?> -->
+
+
               <?} else {?>
               <i class="fa fa-user openbtn btn_change_change media_q_change2" aria-hidden="true" id="myBtn"></i>
               <?}?>
@@ -2221,8 +2305,17 @@ $category_data= $this->db->get();
                 }
             }
               ?>
+              <div class="dropdown open">
+                <i class=" fa fa-caret-down down12" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
-            <li class="hide dontHide modifiedCart"><a href="<?=base_url()?>Home/view_cart" style="color: unset;"><span class="count modifiedNewCount">
+                </i>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  <a class="dropdown-item" href="#">logout</a>
+
+                </div>
+              </div>
+            <!-- <li class="hide dontHide modifiedCart"><a href="<?=base_url()?>Home/view_cart" style="color: unset;"><span class="count modifiedNewCount"> -->
+            <li class="hide dontHide modifiedCart"><a href="#" style="color: unset;" id="account_open_close" onclick="openNav2()"><span class="count modifiedNewCount">
                   <?if (!empty($count)) {
                   echo $count;
               } else {
