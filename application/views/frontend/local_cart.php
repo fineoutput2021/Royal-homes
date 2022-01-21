@@ -145,7 +145,7 @@ Quantity:</b>
 <b>Price:</b>
 </span>
 <span class="m-2" id="price_<?=$i?>">
- Rs.<?=$mrp =$pro_data->mrp*$cart['quantity']?></span>
+ Rs.<?=$mrp =$pro_data->selling_price*$cart['quantity']?></span>
 </div>
 </div>
 <div class="col-md-1 col-2"><a href="" onclick="deleteCartOffline(this)" product_id="<?=base64_encode($cart['product_id'])?>"><span class="float-right positn" style="font-size:30px;  color:#d76a46">&times</span></a></div>

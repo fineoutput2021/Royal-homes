@@ -135,7 +135,7 @@
       <div class="col-md-3 p-2">
         <img src="<?=base_url().$pro->image?>" class="img-fluid" />
         <div class="discount">New</div>
-        <h5><?=$pro->productname?></h5><s style="font-size: 12px;text-decoration: line-through;color:red">(Rs.<?=$pro->mrp?>)</s>  <span style="font-weight: bold; font-size: 12px;"> Rs.<?=$pro->selling_price?></span>
+        <h5><?=$pro->productname?></h5><s style="font-size: 12px;text-decoration: line-through;color:red">(£<?=$pro->mrp?>)</s>  <span style="font-weight: bold; font-size: 12px;"> £<?=$pro->selling_price?></span>
         <a href="" style="color:#d76a46"><i class="fa fa-heart float-right" aria-hidden="true" style="font-size:20px" onclick="wishlist(this)"
           product_id="<?=base64_encode($pro->id)?>"
           user_id="<?=base64_encode($this->session->userdata('user_id'))?>"

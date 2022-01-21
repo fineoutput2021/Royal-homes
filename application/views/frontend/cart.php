@@ -148,8 +148,8 @@ $pro_data= $this->db->get()->row(); ?>
 <span class="m-2">
 <b>Price:</b>
 </span>
-<span class="m-2" id="price_<?=$i?>"> Rs.
-  <?=$mrp =$pro_data->mrp*$cart->quantity?></span>
+<span class="m-2" id="price_<?=$i?>"> £
+  <?=$mrp =$pro_data->selling_price*$cart->quantity?></span>
 </div>
 </div>
 
@@ -163,12 +163,12 @@ $i++;
 <div class="col-md-4 mt-3" style="position:sticky;">
 <h4><b>Order Summary</b></h4>
 <hr />
-<p class="subtotal">Subtotal <span class="float-right" id="subtotal">Rs.<?if (empty($cart_check)) {
+<p class="subtotal">Subtotal <span class="float-right" id="subtotal">£<?if (empty($cart_check)) {
 echo 0;
 } else {
 echo $total;
 }?></span></p>
-<p class="subtotal">Estimated Total <span class="float-right" id="total_cost">Rs.  <?if (empty($cart_check)) {
+<p class="subtotal">Estimated Total <span class="float-right" id="total_cost">£  <?if (empty($cart_check)) {
 echo 0;
 } else {
 echo $total;
@@ -318,7 +318,7 @@ function decreaseValue() {
       success: function(response) {
         // alert(response)
         if (response.data == true) {
-          document.getElementById('price_' + i).innerHTML = "Rs."+price;
+          document.getElementById('price_' + i).innerHTML = "£"+price;
           document.getElementById('subtotal').innerHTML = response.data_price;
           document.getElementById('total_cost').innerHTML = response.data_subtotal;
           $.notify({

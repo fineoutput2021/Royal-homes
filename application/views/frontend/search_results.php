@@ -60,9 +60,9 @@
           <?}?>
           <h5><?=$search->productname?></h5>
           <?if($search->mrp>$search->selling_price){?>
-          <s style="font-size: 12px;text-decoration: line-through;color:red">(Rs.<?=$search->mrp?>)</s>
+          <s style="font-size: 12px;text-decoration: line-through;color:red">(£<?=$search->mrp?>)</s>
           <?}?>
-           <span style="font-weight: bold; font-size: 12px;"> Rs.<?=$search->selling_price?></span>
+           <span style="font-weight: bold; font-size: 12px;"> £<?=$search->selling_price?></span>
         </a>
         <?if(!empty($this->session->userdata('user_data'))){
                       $this->db->select('*');

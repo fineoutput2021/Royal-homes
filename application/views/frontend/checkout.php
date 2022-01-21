@@ -60,7 +60,7 @@ Quantity:
 <span class="m-3">
 Price:
 </span>
-<span class="m-3" id=""> Rs.
+<span class="m-3" id=""> £
   <?=$order->total_amount?></span>
 </div>
 </div>
@@ -72,12 +72,12 @@ Price:
 <div class="col-md-5 mt-3" style="position:sticky;">
 <h4>Order Summary</h4>
 <hr />
-<p class="subtotal">Subtotal <span class="float-right" id="subtotal">Rs.<?=$order_data->total_amount?></span></p>
-<p class="subtotal">Shipping Charges <span class="float-right" id="shipping">+ Rs.<?=$order_data->delivery_charge?></span></p>
+<p class="subtotal">Subtotal <span class="float-right" id="subtotal">£<?=$order_data->total_amount?></span></p>
+<p class="subtotal">Shipping Charges <span class="float-right" id="shipping">+ £<?=$order_data->delivery_charge?></span></p>
 <?if(!empty($order_data->promocode_id)){?>
-<p class="subtotal">Promocode Discount <span class="float-right" id="shipping">- Rs.<?=$order_data->p_discount?></span></p>
+<p class="subtotal">Promocode Discount <span class="float-right" id="shipping">- £<?=$order_data->p_discount?></span></p>
 <?}?>
-<p class="subtotal">Estimated Total <span class="float-right" id="total_cost">Rs.<?=$order_data->final_amount?></span></p>
+<p class="subtotal">Estimated Total <span class="float-right" id="total_cost">£<?=$order_data->final_amount?></span></p>
 <hr />
 <?if(!empty($order_data->promocode_id)){
             $this->db->select('*');

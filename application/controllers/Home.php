@@ -343,38 +343,5 @@ class Home extends CI_Controller
     {
         $this->load->view('errors/error404');
     }
-    public function product_details2()
-    {
-      $id = 3;
 
-      $this->db->select('*');
-      $this->db->from('tbl_products');
-      $this->db->where('id', $id);
-      $product_data= $this->db->get()->row();
-      $data['product_data'] = $product_data;
-
-      $this->db->select('*');
-      $this->db->from('tbl_testimonal');
-      $this->db->order_by('rand()');
-      $data['data_testimonal']= $this->db->get();
-
-      $this->db->select('*');
-      $this->db->from('tbl_products');
-      $this->db->where('id !=', $id);
-      $this->db->where('is_active', 1);
-      $this->db->order_by('rand()');
-      $this->db->limit(15);
-      $data['like_data']= $this->db->get();
-
-      $this->db->select('*');
-      $this->db->from('tbl_products');
-      $this->db->where('is_active', 1);
-      $this->db->where('id !=', $id);
-      $this->db->order_by('rand()');
-      $data['more_data']= $this->db->get();
-
-      $this->load->view('frontend/common/header',$data);
-      $this->load->view('frontend/product_details2');
-      $this->load->view('frontend/common/footer');
-    }
 }

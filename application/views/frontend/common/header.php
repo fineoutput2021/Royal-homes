@@ -441,9 +441,9 @@ font-size: 13px;
 text-transform: uppercase;
 letter-spacing: 1px;
 transition: all .2s ease-in-out;
-margin-top:30px;
+margin-top:25px;
 color: white;
-line-height: 2.2rem;
+line-height: 1.2rem;
 padding: 14px 17px;
 
   /* background: #d76a46;
@@ -611,10 +611,11 @@ padding: 14px 17px;
 
     .sidebar .closebtn {
       position: absolute;
-      top: 0;
-      right: 25px;
-      font-size: 36px;
+      top: 13px;
+      right: 42px;
+      font-size: 34px;
       margin-left: 50px;
+      color:#d76a46;
     }
 
     .openbtn {
@@ -637,9 +638,9 @@ padding: 14px 17px;
 
     /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
     @media screen and (max-height: 450px) {
-      .sidebar {
+      /* .sidebar {
         padding-top: 15px;
-      }
+      } */
 
       .sidebar a {
         font-size: 18px;
@@ -2012,6 +2013,14 @@ padding: 14px 17px;
         height: 9vh !important;
       }
     }
+    .ul_st{
+      display:inline !important;
+      font-size: 14px;
+    }
+    .li_st{
+      line-height: 2 !important;
+    }
+
   </style>
 </head>
 
@@ -2104,7 +2113,7 @@ $category_data= $this->db->get();
                       <div class="card-body" style="color:white">
                         <ul style="display:unset;line-height:1.7!important">
                           <?php
-       $this->db->select('*');
+                $this->db->select('*');
                 $this->db->from('tbl_subcategory');
                 $this->db->where('category_id', $data->id);
                 $subdata= $this->db->get();
@@ -2200,71 +2209,93 @@ $category_data= $this->db->get();
                 </span><i class="fa fa-heart btn_change_change " aria-hidden="true"></i></a></li>
             <?
             }?>
-            <div id="mySidebar" class="sidebar" >
-              <a href="javascript:void(0)" class="closebtn" id="account_open_close" onclick="closeNav2()">×</a>
-              <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button> -->
-        <div class="" style="background:#ffffff; padding: 27.30px 40.98px;">
-        <div class="container block-tittle" style="font-size: 30px;font-weight: 300;color: #3e3938; padding:0px;" >
-          <p>MY CART</p>
-
+            <div id="mySidebar" class="sidebar" style="width: 0px;">
+            <?if (!empty($this->session->userdata('user_data'))) {
+              $user_id = $this->session->userdata('user_id');
+              $this->db->select('*');
+              $this->db->from('tbl_cart');
+              $this->db->where('user_id', $user_id);
+              $cart_data= $this->db->get();
+              $total=0;
+              $inCart=[];
+              foreach ($cart_data->result() as $cart) {
+                $this->db->select('*');
+                $this->db->from('tbl_products');
+                $this->db->where('id', $cart->product_id);
+                $pro_data= $this->db->get()->row();
+                $price = $pro_data->selling_price*$cart->quantity;
+                $inCart[]= array(
+                  'image'=> base_url().$pro_data->image,
+                  'name'=> base_url().$pro_data->productname,
+                  'qantity'=> $cart->quantity,
+                  'price'=> $price
+                );
+                $total = $total + $price;
+              }
+            } else{
+              $cartdata= $this->session->userdata('cart_data');
+              $total=0;
+              $inCart=[];
+              foreach ($cartdata as $cart) {
+                $this->db->select('*');
+                $this->db->from('tbl_products');
+                $this->db->where('id', $cart['product_id']);
+                $pro_data= $this->db->get()->row();
+                $price = $pro_data->selling_price*$cart['quantity'];
+                $inCart[]= array(
+                  'image'=> base_url().$pro_data->image,
+                  'name'=> $pro_data->productname,
+                  'quantity'=> $cart['quantity'],
+                  'price'=>$price
+                );
+                $total = $total + $price;
+              }
+            }?>
+        <div class="col-md-12" style="background:#ffffff;padding:27px 40px">
+          <a href="javascript:void(0)" class="closebtn" id="account_open_close" onclick="closeNav2()">×</a>
+          <h4>My Cart</h4>
+        <hr>
+        <h6>Order Summary</h6>
+        <?if(empty(count($inCart))){?>
+          <br />
+          <p>
+            Your Cart is empty!
+          </p>
+          <?}else{?>
+        <div style="background-color: #cfcfcf; padding: 15px;">
+          <ul class="ul_st">
+            <li class="li_st">
+              <span><b>Cart Subtotal:</b></span>
+              <span class="float-right"><b>£<?=$total?></b></span>
+            </li>
+          </ul>
         </div>
         <hr>
-        <div class="row block-content" style="margin: 20px 0; text-transform: uppercase;letter-spacing: 1px;font-size: 14px;">
-          <p>order summary</p>
-
-          <br>
-          </div>
-        <div style="background-color: #f1f1f1; padding: 15px;">
-        <div class="ammounttoatl" style="background-color: #f1f1f1;padding: 15px;">
-          <span class="mt-2" >
-            <p>sub-total:</p>
-          </span>
-          <span class="mt-2">
-          <p style="font-weight: 700 !important;font-size: 14px;text-transform: uppercase;">Total:</p>
-          </span>
-
-        </div>
-
-        </div>
-        <hr>
-
+        <?foreach ($inCart as $value) {?>
+        <div class="">
+        <div class=""><a href="javascript:void(0);" onclick="deleteCartOffline(this)"><span class="float-right positn" style="font-size:30px;  color:#d76a46">&times</span></a></div>
        <div class="row mt-2" style=" font: 18px;">
-       <div class="col-md-3 pimg" style="width:100px;height:100px; margin-top:25px;">
-       <img src="https://www.orangetree.in/pub/media/catalog/product/cache/3baa429631a6a8a011e43be765ed9f1f/b/a/base-1_new-canna-black-hanging-lamp-online.jpg">
+       <div class="col-md-5 col-5 pimg mt-2" style="width:100px;height:100px;">
+       <img src="<?=$value['image']?>">
        </div>
-
-       <div class="col-md-6 mt-2 fsize " >
-
-       <span style="font-size:15px">product name</span>
-
-        <div class="" style="font-size:15px">
-        <div class="m-2"><b>
-        Qty:</b>
-      </div>
-          <div class="m-2">
-          <b>7745</b>
+       <div class="col-md-7 col-7 mt-2 fsize " >
+         <ul class="ul_st">
+           <li class="li_st"><span><?=$value['name']?></span></li>
+           <li class="li_st"><span>Qty:&nbsp; <?=$value['quantity']?></span></li>
+           <li class="li_st"><span>£<?=$value['price']?></span></li>
+         </ul>
         </div>
-          <br>
 
-          </div>
-        </div>
-        <div class=""><a href="#" onclick="deleteCartOffline(this)" <span class="float-right positn" style="font-size:30px;  color:#d76a46">&times</span></a></div>
-        <!-- <div class="secondary">
-                    <a href="#"  class="action delete" data-cart-item="13200" title="Remove item">
-                        <span data-bind="i18n: 'Remove'">&times</span>
-                    </a>
-                </div> -->
       </div>
+    </div>
+<?}?>
       <hr>
       <div class="w-100" style="display:flex; justify-content: center;">
-        <button class="chk">
-        Proceed To Checkout
+         <button class="chk" onclick="location.href='<?=base_url()?>Home/view_cart'">
+        View cart
         </button>
       </div>
-
-
+      <?}?>
         </div>
               <!-- <a href="addresssetting.html">ACCOUNT SETTINGS</a>
               <a href="My Addresses.html">ADDRESSES</a>
@@ -2305,7 +2336,7 @@ $category_data= $this->db->get();
                 }
             }
               ?>
-              <div class="dropdown open">
+              <!-- <div class="dropdown open">
                 <i class=" fa fa-caret-down down12" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
                 </i>
@@ -2313,7 +2344,7 @@ $category_data= $this->db->get();
                   <a class="dropdown-item" href="#">logout</a>
 
                 </div>
-              </div>
+              </div> -->
             <!-- <li class="hide dontHide modifiedCart"><a href="<?=base_url()?>Home/view_cart" style="color: unset;"><span class="count modifiedNewCount"> -->
             <li class="hide dontHide modifiedCart"><a href="#" style="color: unset;" id="account_open_close" onclick="openNav2()"><span class="count modifiedNewCount">
                   <?if (!empty($count)) {

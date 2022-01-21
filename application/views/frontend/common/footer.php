@@ -528,7 +528,7 @@ $(".close_side").click(function () {
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script>
 function openNav2() {
-  document.getElementById("mySidebar").style.width = "280px";
+  document.getElementById("mySidebar").style.width = "360px";
   // document.getElementById("main").style.marginLeft = "250px";
   document.getElementById("account_open_close").addEventListener("click", () => { closeNav2() });
   document.getElementById("account_open_close").removeEventListener("click", () => { openNav2() });

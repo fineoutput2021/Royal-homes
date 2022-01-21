@@ -116,9 +116,9 @@
             <?}?>
               <h5><?=$n_launch->productname?></h5>
                 <?if($n_launch->mrp>$n_launch->selling_price){?>
-              <s style="font-size: 12px;text-decoration: line-through;color:red">(Rs.<?=$n_launch->mrp?>)</s>
+              <s style="font-size: 12px;text-decoration: line-through;color:red">(£<?=$n_launch->mrp?>)</s>
               <?}?>
-               <span style="font-weight: bold; font-size: 12px;"> Rs.<?=$n_launch->selling_price?></span>
+               <span style="font-weight: bold; font-size: 12px;">£<?=$n_launch->selling_price?></span>
           </div>
         </a>
           <?}?>
@@ -185,9 +185,9 @@
               <?}?>
               <h5><?=$seller->productname;?></h5>
               <?if($seller->mrp>$seller->selling_price){?>
-              <s style="font-size: 12px;text-decoration: line-through;color:red">(Rs.<?=$seller->mrp?>)</s>
+              <s style="font-size: 12px;text-decoration: line-through;color:red">(£<?=$seller->mrp?>)</s>
               <?}?>
-                <span style="font-weight: bold; font-size: 12px;">₹<?=$seller->selling_price;?></span>
+                <span style="font-weight: bold; font-size: 12px;">£<?=$seller->selling_price;?></span>
             </div>
           </div>
 

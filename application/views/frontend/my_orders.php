@@ -210,7 +210,7 @@
 
               <h4><?=$o_product_name; ?> </h4>
               <p>Quantity: <?=$order2->quantity; ?></p>
-              <p>Price: <?=$order2->total_amount; ?></p>
+              <p>Price: £<?=$order2->total_amount; ?></p>
             </div>
           </div>
         </div>
@@ -250,7 +250,7 @@
 
               </p>
 
-              <h5 class="mb-0 text-small">Promocode Discount: <i class="fa fa-rupee"></i><?php
+              <h5 class="mb-0 text-small">Promocode Discount: £<?php
                             if (!empty($data_order1->p_discount)) {
                                 echo $data_order1->p_discount.'  |';
                             } else {
@@ -258,11 +258,11 @@
                             } ?></h5>
 
 
-              <h5 class="mb-0 text-small">Delivery Charge: <i class="fa fa-rupee"></i><?php
+              <h5 class="mb-0 text-small">Delivery Charge: £<?php
                         echo $data_order1->delivery_charge.'  |'; ?></h5>
 
 
-              <h5 class="mb-0">Total Amount: <i class="fa fa-rupee"></i><?=$data_order1->final_amount; ?></h5>
+              <h5 class="mb-0">Total Amount: £<?=$data_order1->final_amount; ?></h5>
             </div>
           </div>
         </div>

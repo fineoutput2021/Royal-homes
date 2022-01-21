@@ -258,9 +258,9 @@ $sub_data= $this->db->get()->row();
         <?}?>
         <h5><?=$pro['name']?></h5>
         <?if($pro['mrp']>$pro['selling_price']){?>
-        <s style="font-size: 12px;text-decoration: line-through;color:red">(Rs.<?=$pro['mrp']?>)</s>
+        <s style="font-size: 12px;text-decoration: line-through;color:red">(£<?=$pro['mrp']?>)</s>
         <?}?>
-        <span style="font-weight: bold; font-size: 12px;"> Rs.<?=$pro['selling_price']?></span></a>
+        <span style="font-weight: bold; font-size: 12px;"> £<?=$pro['selling_price']?></span></a>
         <?if(!empty($this->session->userdata('user_data'))){
                       $this->db->select('*');
           $this->db->from('tbl_wishlist');
