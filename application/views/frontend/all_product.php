@@ -39,18 +39,19 @@
   .dd-button {
     display: inline-block;
     border-radius: 4px;
-    padding: 10px 30px 10px 20px;
+    padding: 10px 15px 10px 12px;
     background-color: #d76a46;
     cursor: pointer;
     white-space: nowrap;
     color: white;
+    font-size:14px;
   }
 
   .dd-button:after {
     content: '';
     position: absolute;
     top: 50%;
-    right: 15px;
+    right: 2px;
     transform: translateY(-50%);
     width: 0;
     height: 0;
@@ -83,6 +84,7 @@
     z-index: 10;
     text-align: left;
     margin-left: -63px;
+    font-size:13px;
   }
 
   .dd-input+.dd-menu {

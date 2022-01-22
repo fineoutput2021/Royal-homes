@@ -89,7 +89,7 @@ class Order extends CI_Controller
                     }
                     if (!empty($last_id2)) {
                         $this->session->set_userdata('order_id', base64_encode($last_id));
-                        redirect("Order/view_address", "refresh");
+                        redirect("Order/view_checkout", "refresh");
                     } else {
                         $this->session->set_flashdata('emessage', 'Some error occured! Please try again');
                         redirect($_SERVER['HTTP_REFERER']);

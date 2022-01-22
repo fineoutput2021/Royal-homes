@@ -436,7 +436,7 @@
     display: block;
     background: #d76a46;
 width: 85%;
-border-radius: 26px;
+/* border-radius: 26px; */
 font-size: 13px;
 text-transform: uppercase;
 letter-spacing: 1px;
@@ -2226,8 +2226,8 @@ $category_data= $this->db->get();
                 $price = $pro_data->selling_price*$cart->quantity;
                 $inCart[]= array(
                   'image'=> base_url().$pro_data->image,
-                  'name'=> base_url().$pro_data->productname,
-                  'qantity'=> $cart->quantity,
+                  'name'=> $pro_data->productname,
+                  'quantity'=> $cart->quantity,
                   'price'=> $price
                 );
                 $total = $total + $price;
@@ -2346,7 +2346,7 @@ $category_data= $this->db->get();
                 </div>
               </div> -->
             <!-- <li class="hide dontHide modifiedCart"><a href="<?=base_url()?>Home/view_cart" style="color: unset;"><span class="count modifiedNewCount"> -->
-            <li class="hide dontHide modifiedCart"><a href="#" style="color: unset;" id="account_open_close" onclick="openNav2()"><span class="count modifiedNewCount">
+            <li class="hide dontHide modifiedCart"><a href="#" style="color: unset;" id="account_open_close" onclick="openNav2()"><span class="count modifiedNewCount" id="count">
                   <?if (!empty($count)) {
                   echo $count;
               } else {

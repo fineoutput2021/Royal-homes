@@ -460,7 +460,7 @@ function wishlist(obj) {
             '</div>'
         });
 
-        window.setTimeout(function(){location.reload()},3000)
+        window.setTimeout(function(){location.reload()},1000)
 
       } else if (response.data == false) {
         $.notify({

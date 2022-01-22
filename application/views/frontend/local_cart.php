@@ -49,14 +49,12 @@
             padding: 0px;
             }
 
-            input#number {
+            input.qty {
             text-align: center;
-            border: none;
-            border-top: 1px solid #ddd;
-            border-bottom: 1px solid #ddd;
+            border: 1px solid #ddd;
             margin: 0px;
             width: 50px;
-            height: 40px;
+            height: 32px;
             }
 
             input[type=number]::-webkit-inner-spin-button,
@@ -69,7 +67,12 @@
             .form11{margin-left: 0px!important;}
 
             }
-
+.ul_st2{
+font-size: 18px;
+}
+.li_st2{
+  line-height: 3rem;
+}
 </style>
 <style>
 .chk{
@@ -83,8 +86,233 @@ width:100%;
   color: white;
 }
 </style>
+
+<style media="screen">
+  /*! CSS Used from: https://www.orangetree.in/pub/static/version1642005426/_cache/merged/d81b0b1b78cf9f17bee2b1ad28a7321e.min.css ; media=all */
+  @media all {
+    a {
+      color: #1979c3;
+      text-decoration: none;
+    }
+
+    a:visited {
+      color: #1979c3;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #006bb4;
+      text-decoration: underline;
+    }
+
+    a:active {
+      color: #ff5501;
+      text-decoration: underline;
+    }
+
+    input[type=number]:disabled {
+      opacity: .5;
+    }
+
+    input[type=number]::-moz-placeholder {
+      color: #c2c2c2;
+    }
+
+    input[type=number]::-webkit-input-placeholder {
+      color: #c2c2c2;
+    }
+
+    input[type=number]:-ms-input-placeholder {
+      color: #c2c2c2;
+    }
+
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
+
+    input::-moz-focus-inner {
+      border: 0;
+      padding: 0;
+    }
+
+    *:focus {
+      box-shadow: none;
+      outline: 0;
+    }
+
+    input:not([disabled]):focus {
+      box-shadow: 0 0 3px 1px #68a8e0;
+    }
+
+    *,
+    ::after,
+    ::before {
+      box-sizing: border-box;
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+      background-color: transparent;
+    }
+
+    a:hover {
+      color: #0056b3;
+      text-decoration: underline;
+    }
+
+    input {
+      margin: 0;
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+    }
+
+    input {
+      overflow: visible;
+    }
+
+    .input-group {
+      position: relative;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -ms-flex-align: stretch;
+      align-items: stretch;
+      width: 100%;
+    }
+
+    @media print {
+
+      *,
+      ::after,
+      ::before {
+        text-shadow: none !important;
+        box-shadow: none !important;
+      }
+
+      a:not(.btn) {
+        text-decoration: underline;
+      }
+    }
+
+    a:hover,
+    a:focus {
+      text-decoration: none;
+    }
+
+    a {
+      color: #006bb4;
+      text-decoration: none;
+    }
+
+    a:hover,
+    a:focus {
+      text-decoration: none !important;
+    }
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+
+
+    div#custom-qty .input-group input#qty {
+      pointer-events: none;
+    }
+
+    div#error-response {
+      text-align: center;
+      left: 0;
+      position: absolute;
+      z-index: 3;
+      font-size: 14px;
+      background: #f1f1f1;
+      width: 280px;
+      padding: 20px;
+      box-shadow: 0px 0px 5px 1px #c9c9c9;
+      border-radius: 20px;
+      top: 42px;
+    }
+
+    div#custom-qty {
+      position: relative;
+    }
+
+    div#error-response a {
+      color: #e66b47;
+    }
+
+    input:not([disabled]):focus {
+      box-shadow: none !important;
+    }
+
+    input:not([disabled]):focus {
+      box-shadow: none;
+    }
+
+    div#custom-qty {
+      display: block;
+      margin-bottom: 0;
+    }
+
+    div#custom-qty .input-group {
+      display: flex;
+      align-items: center;
+    }
+
+    div#custom-qty .input-group span.input-group__addon {
+      display: inline-block;
+      width: 40px;
+      text-align: center;
+      padding: 7px 0;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      height: 32px;
+      font-size: 15px;
+      line-height: 1;
+    }
+
+    div#custom-qty .input-group input#qty {
+      display: inline-block;
+      width: 50px;
+      text-align: center;
+    }
+
+    div#custom-qty .input-group span.input-group__addon:first-child {
+      border-right: 0;
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+    }
+
+    div#custom-qty .input-group span.input-group__addon:last-child {
+      border-left: 0;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+  }
+
+  /*! CSS Used from: https://www.orangetree.in/pub/static/version1642005426/frontend/Digital/desktop/en_US/css/print.min.css ; media=print */
+  @media print {
+    @media print {
+      * {
+        -webkit-filter: none !important;
+        background: 0 0 !important;
+        color: #000 !important;
+        filter: none !important;
+        text-shadow: none !important;
+      }
+
+      a,
+      a:visited {
+        text-decoration: underline !important;
+      }
+    }
+  }
+</style>
 <section>
-<div class="container" style="font-weight:700;">
+<div class="container" style="font-weight:700;" id="here">
 <div class="row">
 <div class="col-md-8">
 <h2>Your Shopping Bag</h2>
@@ -101,54 +329,38 @@ $this->db->from('tbl_products');
 $this->db->where('id', $cart['product_id']);
 $pro_data= $this->db->get()->row(); ?>
 <div class="row mt-2" style="border:1px solid #ccc;">
-<div class="col-md-3 ">
-<img src="<?=base_url().$pro_data->image?>" class="img-fluid p-2" style="width:150px;height:150px;"  />
-</div>
-<div class="col-md-8 mt-2 fsize " >
-<span style="font-size:25px"><?=$pro_data->productname?></span>
 
-<div class="row" style="font-weight:800;">
-<span class="m-2"><b>
-Quantity:</b>
-<!-- <div class="input-group" style="position: relative;width: 50%;justify-content: center; display:flex; flex-wrap:nowrap; align-items: center;">
-  <span class="input-group__addon" style="border:1px solid black; border-right: 0;border-top-left-radius: 20px;border-bottom-left-radius: 20px; font-size:25px;">
-    <div class="input-group__button input-group__button--decrease" id="childMinus" data-bind="click: decreaseQty">
-      <span class="input-group__icon input-group__icon--decrease">-</span>
-    </div>
-  </span>
-  <span class="">
-    <input type="number" class="form-control" style="width:70px; height:40px; border:1px solid black;"
-  i="<?=$i?>" value="<?=$cart['quantity']?>" min="1" onchange="updateCartOffline(this)" product_id="<?=base64_encode($cart['product_id'])?>" mrp="<?=$pro_data->mrp?>"
-    >
-  </span>
-  <span class="input-group__addon" style="border:1px solid black;  border-left: 0;border-top-right-radius: 20px;border-bottom-right-radius: 20px; font-size:25px;">
-    <div class="input-group__button input-group__button--increase" id="childPlus" data-bind="click: increaseQty">
-      <span class="input-group__icon input-group__icon--increase">+</span>
-    </div>
-  </span>
-</div> -->
-</span>
-
-
-<span class="m-2" style="display:flex">
-  <div class="form11">
-
-              <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
-              <input type="number" id="number" value="0" />
-              <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
-
+ <div class="col-md-4 col-4 pimg p-3" >
+ <img src="<?=base_url().$pro_data->image?>" >
+ </div>
+ <div class="col-md-8 col-8 p-3 " >
+   <a href="javascript:void(0);" onclick="deleteCartOffline(this)" product_id="<?=base64_encode($cart['product_id'])?>"><span class="float-right positn" style="font-size:30px;  color:#d76a46">&times</span></a>
+   <ul class="ul_st2">
+     <li class="li_st2"><span><?=$pro_data->productname?></span></li>
+     <li class="li_st2" style="display:flex"><span>Qty:&nbsp;</span>
+       <div id="custom-qty" class="control ml-4 mt-2">
+         <!-- ko template: getTemplate() -->
+         <div class="input-group">
+           <span class="input-group__addon">
+             <div class="input-group__button input-group__button--decrease" id="decrease" onclick="decreaseValue('<?=$i?>')">
+               <span class="input-group__icon input-group__icon--decrease">-</span>
+             </div>
+           </span>
+           <input type="number" readonly style="color:black" name="qty" class="qty" id="number_<?=$i?>" min="1" value="<?=$cart['quantity']?>" maxlength="12" class="input-group__input"
+          i="<?=$i?>" product_id="<?=base64_encode($cart['product_id'])?>" mrp="<?=$pro_data->selling_price?>"
+           >
+           <span class="input-group__addon">
+             <div class="input-group__button input-group__button--increase" id="increase" onclick="increaseValue('<?=$i?>')">
+               <span class="input-group__icon input-group__icon--increase">+</span>
+             </div>
+           </span>
+         </div>
+         <!-- /ko -->
+       </div>
+     </li>
+     <li class="li_st"><span id="price_<?=$i?>">Price:&nbsp;£<?=$mrp = $pro_data->selling_price*$cart['quantity']?></span></li>
+   </ul>
   </div>
-
-
-</span>
-<span class="m-2">
-<b>Price:</b>
-</span>
-<span class="m-2" id="price_<?=$i?>">
- Rs.<?=$mrp =$pro_data->selling_price*$cart['quantity']?></span>
-</div>
-</div>
-<div class="col-md-1 col-2"><a href="" onclick="deleteCartOffline(this)" product_id="<?=base64_encode($cart['product_id'])?>"><span class="float-right positn" style="font-size:30px;  color:#d76a46">&times</span></a></div>
 </div>
 <?$total = $total + $mrp;
 $i++;
@@ -158,12 +370,12 @@ $i++;
 <div class="col-md-4 mt-3" style="position:sticky;">
 <h4><b>Order Summary</b></h4>
 <hr />
-<p class="subtotal">Subtotal <span class="float-right" id="subtotal">Rs.<?if (empty($this->session->userdata('cart_data'))) {
+<p class="subtotal">Subtotal <span class="float-right" id="subtotal">£<?if (empty($this->session->userdata('cart_data'))) {
 echo 0;
 } else {
 echo $total;
 }?></span></p>
-<p class="subtotal">Estimated Total <span class="float-right" id="total_cost">Rs.  <?if (empty($this->session->userdata('cart_data'))) {
+<p class="subtotal">Estimated Total <span class="float-right" id="total_cost">£<?if (empty($this->session->userdata('cart_data'))) {
 echo 0;
 } else {
 echo $total;
@@ -187,22 +399,29 @@ echo $total;
 <script>
 
 
-function increaseValue() {
-  var value = parseInt(document.getElementById('number').value, 10);
+function increaseValue(i) {
+  var value = parseInt(document.getElementById('number_'+i).value, 10);
   value = isNaN(value) ? 0 : value;
   value++;
-  document.getElementById('number').value = value;
+  document.getElementById('number_'+i).value = value;
+  document.getElementById('number_'+i).setAttribute('value', value);
+ updateCartOffline(i);
 }
 
-function decreaseValue() {
-  var value = parseInt(document.getElementById('number').value, 10);
+function decreaseValue(i) {
+  var value = parseInt(document.getElementById('number_'+i).value, 10);
+  if(value==1){
+    document.getElementById('number_'+i).value = value;
+    return;
+  }
   value = isNaN(value) ? 0 : value;
   value < 1 ? value = 1 : '';
   value--;
-  document.getElementById('number').value = value;
+  document.getElementById('number_'+i).value = value;
+  document.getElementById('number_'+i).setAttribute('value', value);
+   updateCartOffline(i);
+
 }
-
-
 
 
 
@@ -254,7 +473,9 @@ function decreaseValue() {
               '</div>'
           });
 
-          window.setTimeout(function(){location.reload()},2000)
+           $( "#here" ).load(window.location.href + " #here" );
+           $( "#count" ).load(window.location.href + " #count" );
+
 
         } else if (response.data == false) {
           $.notify({
@@ -296,16 +517,15 @@ function decreaseValue() {
     });
   }
 
-  function updateCartOffline(obj) {
-    var product_id = $(obj).attr("product_id");
-    var mrp = $(obj).attr("mrp");
-    var qty = $(obj).val();
+  function updateCartOffline(i) {
+    var product_id = $("#number_"+i).attr("product_id");
+    var mrp = $("#number_"+i).attr("mrp");
+    var qty = $("#number_"+i).val();
     if(qty==0){
       window.location.reload();
       return;
 
     }
-    var i = $(obj).attr("i");
     var price = parseInt(mrp) * parseInt(qty);
     var base_path = "<?=base_url();?>";
     $.ajax({
@@ -319,9 +539,9 @@ function decreaseValue() {
       success: function(response) {
         // alert(response)
         if (response.data == true) {
-          document.getElementById('price_' + i).innerHTML = "Rs."+price;
-          document.getElementById('subtotal').innerHTML = "Rs."+response.data_price;
-          document.getElementById('total_cost').innerHTML = "Rs."+response.data_subtotal;
+          document.getElementById('price_' + i).innerHTML = "Price:&nbsp;£"+price;
+          document.getElementById('subtotal').innerHTML = "£"+response.data_price;
+          document.getElementById('total_cost').innerHTML = "£"+response.data_subtotal;
           $.notify({
             icon: 'fa fa-check',
             title: 'Alert!',

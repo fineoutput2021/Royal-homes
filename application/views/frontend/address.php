@@ -67,7 +67,7 @@ width:100%;
 
           <!-- Checkbox -->
           <div class="form-check d-flex justify-content-center mb-2">
-            <button class="chk">
+            <button class="chk" style="width:50%">
             Proceed To Checkout
             </button>
           </div>
