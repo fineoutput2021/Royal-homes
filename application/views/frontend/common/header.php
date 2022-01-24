@@ -1182,6 +1182,7 @@ padding: 14px 17px;
 
     /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
     #main {
+
       transition: margin-left .5s;
       padding: 9px;
     }
@@ -1439,6 +1440,7 @@ padding: 14px 17px;
 
     .newUserProfile {
       width: 3vw;
+      margin-top: 4px;
     }
 
     @media(max-width:600px) {
@@ -2305,14 +2307,28 @@ $category_data= $this->db->get();
             </div>
             <div id="main" class="ch234 hide newUserProfile">
               <?if (!empty($this->session->userdata('user_data'))) {?>
-              <i class="fa fa-user  openbtn btn_change_change media_q_change2" aria-hidden="true" ></i>
 
+    <!-- <i class="fas fa-caret-down"></i> -->
+            <!-- <i class="fa fa-user  openbtn btn_change_change media_q_change2" aria-hidden="true" > </i> -->
+            <div class="fa fa-user dropdown" >
+
+          <i class="fa fa-caret-down btn_change_change media_q_change2 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false" style="width: 10px;">
+          </i>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">log out</a>
+        </div>
+</div>
+
+
+              <!-- <a class="fa fa-caret-down btn_change_change media_q_change2 dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
 
             <!-- <?=$this->session->userdata('user_name')?> -->
 
 
+
               <?} else {?>
               <i class="fa fa-user openbtn btn_change_change media_q_change2" aria-hidden="true" id="myBtn"></i>
+
               <?}?>
             </div>
 
@@ -2336,9 +2352,9 @@ $category_data= $this->db->get();
                 }
             }
               ?>
-              <!-- <div class="dropdown open">
-                <i class=" fa fa-caret-down down12" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
+              <!-- <div class="dropdown">
+                <i class=" fa fa-caret-down down12 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 </i>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
                   <a class="dropdown-item" href="#">logout</a>
