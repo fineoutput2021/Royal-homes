@@ -313,7 +313,7 @@ width:100%;
   }
 </style>
 <section >
-<div class="container" style="font-weight:700;">
+<div class="container" style="font-weight:700;" id="here">
 <div class="row">
   <div class="col-md-8">
   <h2>Your Shopping Bag</h2>
@@ -471,7 +471,8 @@ function decreaseValue(i) {
               '</div>'
           });
 
-          window.setTimeout(function(){location.reload()},2000)
+          $( "#here" ).load(window.location.href + " #here > *" );
+          $( "#count" ).load(window.location.href + " #count > *" );
 
         } else if (response.data == false) {
           $.notify({
@@ -506,7 +507,8 @@ function decreaseValue(i) {
               '<a href="{3}" target="{4}" data-notify="url"></a>' +
               '</div>'
           });
-          window.setTimeout(function(){location.reload()},2000)
+          $( "#here" ).load(window.location.href + " #here > *" );
+          $( "#count" ).load(window.location.href + " #count > *" );
         }
       }
     });
@@ -572,7 +574,7 @@ function decreaseValue(i) {
               '</div>'
           });
 
-          window.setTimeout(function(){location.reload()},2000)
+          // window.setTimeout(function(){location.reload()},2000)
         } else if (response.data == false) {
           $.notify({
             icon: 'fa fa-cancel',
@@ -609,7 +611,7 @@ function decreaseValue(i) {
               '<a href="{3}" target="{4}" data-notify="url"></a>' +
               '</div>'
           });
-          window.setTimeout(function(){location.reload()},1000)
+          // window.setTimeout(function(){location.reload()},1000)
 
         }
       }

@@ -161,18 +161,18 @@ class Order extends CI_Controller
                     $this->db->like('pincode', $pincode);
                     $pin_data= $this->db->get()->row();
 
-                    $pin= explode(",",$pin_data->pincode);
+                    $pin= explode(",", $pin_data->pincode);
                     $i=0;
                     foreach ($pin as $value) {
-                      if($value==$pincode){
-                         $i=1;
-                      }
+                        if ($value==$pincode) {
+                            $i=1;
+                        }
                     }
-                    if($i==1){
-                    $shipping = $pin_data->shippingcharge;
-                    $final_amount = $order_data->total_amount + $shipping;
+                    if ($i==1) {
+                        $shipping = $pin_data->shippingcharge;
+                        $final_amount = $order_data->total_amount + $shipping;
 
-                    $data_update = array(
+                        $data_update = array(
                  'name'=>$name,
                  'email'=>$email,
                  'phone'=>$phone,
@@ -181,19 +181,19 @@ class Order extends CI_Controller
                  'delivery_charge'=>$shipping,
                  'final_amount'=>$final_amount,
                            );
-                    $this->db->where('id', $order_data->id);
-                    $zapak=$this->db->update('tbl_order1', $data_update);
+                        $this->db->where('id', $order_data->id);
+                        $zapak=$this->db->update('tbl_order1', $data_update);
 
-                    if (!empty($zapak)) {
-                        redirect("Order/view_checkout", "refresh");
+                        if (!empty($zapak)) {
+                            redirect("Order/view_checkout", "refresh");
+                        } else {
+                            $this->session->set_flashdata('emessage', 'Some error occured! Please try again');
+                            redirect($_SERVER['HTTP_REFERER']);
+                        }
                     } else {
-                        $this->session->set_flashdata('emessage', 'Some error occured! Please try again');
+                        $this->session->set_flashdata('emessage', 'Sorry we are currently not delivering order at this pincode! Please try with different pincode');
                         redirect($_SERVER['HTTP_REFERER']);
                     }
-                }else{
-                  $this->session->set_flashdata('emessage', 'Sorry we are currently not delivering order at this pincode! Please try with different pincode');
-                  redirect($_SERVER['HTTP_REFERER']);
-                }
                 } else {
                     $this->session->set_flashdata('emessage', validation_errors());
                     redirect($_SERVER['HTTP_REFERER']);
@@ -206,6 +206,91 @@ class Order extends CI_Controller
             redirect("Home/index", "refresh");
         }
     }
+
+    //------check pincode-----------
+    public function check_pincode()
+    {
+        $this->load->helper(array('form', 'url'));
+        $this->load->library('form_validation');
+        $this->load->helper('security');
+        if ($this->input->post()) {
+            $this->form_validation->set_rules('pincode', 'pincode', 'required|xss_clean|trim');
+
+
+            if ($this->form_validation->run()== true) {
+                $pincode=$this->input->post('pincode');
+                $order_id = base64_decode($this->session->userdata('order_id'));
+
+                $this->db->select('*');
+                $this->db->from('tbl_order1');
+                $this->db->where('id', $order_id);
+                $order_data= $this->db->get()->row();
+
+                //----calculate shipping charges-----
+                $this->db->select('*');
+                $this->db->from('tbl_pincode');
+                $this->db->like('pincode', $pincode);
+                $pin_data= $this->db->get()->row();
+                if(!empty($pin_data)){
+                $pin= explode(",", $pin_data->pincode);
+                $i=0;
+                foreach ($pin as $value) {
+                    if ($value==$pincode) {
+                        $i=1;
+                    }
+                }
+                if($i==1){
+                  $shipping = $pin_data->shippingcharge;
+                  $final_amount = $order_data->total_amount + $shipping;
+
+                  $data_update = array(
+                    'delivery_charge'=>$shipping,
+                    'final_amount'=>$final_amount,
+                              );
+                              $this->db->where('id', $order_id);
+                              $zapak=$this->db->update('tbl_order1', $data_update);
+
+
+                  $respone['data'] = true;
+                  $respone['shipping'] = $shipping;
+                  $respone['final'] = $final_amount;
+                  echo json_encode($respone);
+                }else{
+                  $data_update = array(
+                    'delivery_charge'=>0,
+                    'final_amount'=>$order_data->total_amount + $order_data->p_discount,
+                              );
+                              $this->db->where('id', $order_id);
+                              $zapak=$this->db->update('tbl_order1', $data_update);
+                  $respone['data'] = false;
+                  $respone['alert'] = "Wrong Pincode / Delivery is not available";
+                  echo json_encode($respone);
+                }
+              }else{
+                $data_update = array(
+                  'delivery_charge'=>0,
+                  'final_amount'=>$order_data->total_amount + $order_data->p_discount,
+                            );
+                            $this->db->where('id', $order_id);
+                            $zapak=$this->db->update('tbl_order1', $data_update);
+                $respone['data'] = false;
+                $respone['alert'] = "Wrong Pincode / Delivery is not available";
+                echo json_encode($respone);
+              }
+            } else {
+
+              $respone['data'] = false;
+              $respone['data_message'] = validation_errors();
+              echo json_encode($respone);
+            }
+        } else {
+          $respone['data'] = false;
+            $respone['data_message'] = "Please insert some data, No data available";
+            echo json_encode($respone);
+        }
+    }
+
+
 
     //--------view checkout---------
 
@@ -372,11 +457,20 @@ class Order extends CI_Controller
             $this->load->helper('security');
             if ($this->input->post()) {
                 $this->form_validation->set_rules('order_id', 'order_id', 'required|xss_clean|trim');
+                $this->form_validation->set_rules('name', 'name', 'required|xss_clean|trim');
+                $this->form_validation->set_rules('email', 'email', 'required|xss_clean|trim');
+                $this->form_validation->set_rules('phone', 'phone', 'required|xss_clean|trim');
+                $this->form_validation->set_rules('address', 'address', 'required|xss_clean|trim');
+                $this->form_validation->set_rules('pincode', 'pincode', 'required|xss_clean|trim');
 
 
                 if ($this->form_validation->run()== true) {
                     $order_id=base64_decode($this->input->post('order_id'));
-                    // echo $order_id;
+                    $name=$this->input->post('name');
+                    $email=$this->input->post('email');
+                    $phone=$this->input->post('phone');
+                    $pincode=$this->input->post('pincode');
+                    $address=$this->input->post('address');
                     // exit;
                     $ip = $this->input->ip_address();
                     date_default_timezone_set("Asia/Calcutta");

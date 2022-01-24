@@ -2645,9 +2645,12 @@ $category_data= $this->db->get();
     }
 
     // When the user clicks on <span> (x), close the modal
-    span1.onclick = function() {
-      modal1.style.display = "none";
-    }
+    window.onload = function(){
+      span1.onclick = function() {
+        modal1.style.display = "none";
+      }
+};
+
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
@@ -2674,12 +2677,14 @@ $category_data= $this->db->get();
     var span1 = document.getElementsByClassName("close")[0];
 
     // When the user clicks on the button, open the modal
-    btn1.onclick = function() {
+    window.onload = function(){
+      btn1.onclick = function() {
+        modal.style.display = "block";
+        modal1.style.display = "none";
 
-      modal.style.display = "block";
-      modal1.style.display = "none";
+      }
+};
 
-    }
     btn2.onclick = function() {
 
       modal.style.display = "block";
