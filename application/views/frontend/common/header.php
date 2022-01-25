@@ -2275,7 +2275,7 @@ $category_data= $this->db->get();
         <hr>
         <?foreach ($inCart as $value) {?>
         <div class="">
-        <div class=""><a href="javascript:void(0);" onclick="deleteCartOffline(this)"><span class="float-right positn" style="font-size:30px;  color:#d76a46">&times</span></a></div>
+        <!-- <div class=""><a href="javascript:void(0);" onclick="deleteCartOffline(this)"><span class="float-right positn" style="font-size:30px;  color:#d76a46">&times</span></a></div> -->
        <div class="row mt-2" style=" font: 18px;">
        <div class="col-md-5 col-5 pimg mt-2" style="width:100px;height:100px;">
        <img src="<?=$value['image']?>">

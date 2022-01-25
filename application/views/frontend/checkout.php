@@ -153,13 +153,13 @@ foreach ($order2_data->result() as $order) {
 </p>
 <?
     }?>
+  </div>
 <p class="float-left">Promocode:&nbsp</p>
 <form id="promocode_form" action="javascript:void(0);" method="post" enctype="multipart/form-data">
 <input type="hidden" name="order_id" value="<?=base64_encode($order_data->id)?>"/>
 <input type="text" class="form-control" id="promoode" name="promocode" style="width:40%; display: inline;white-space:nowrap;margin-top:0px;margin-right:5px">
 <button type="submit" class="apply mr-auto" id="promocode_submit">Apply</button>
 </form>
-</div>
 <hr />
   <div class="w-100" style="display:none" id="enable">
       <form action="<?=base_url()?>Order/checkout" method="post" enctype="multipart/form-data">
@@ -204,14 +204,15 @@ document.getElementById("disable").style.display = "none";
 <script type="text/javascript">
 //============== check pincode===============
 $(document).ready(function() {
-// $("#pincode").keyup(function() {
+$("#pincode").keyup(function() {
+  // alert("hi")
 // check_pincode();
-$("#pincode").on("keyup",function() {
-check_pincode();
-});
+// $("#pincode").on("keyup",function() {
+// check_pincode();
+// });
   // var minLength = $(this).attr("minlength");
   // if((minLength <= $(this).val().length) &&  ($(this).val().length==0)) {
-    function check_pincode(){
+    // function check_pincode(){
     var pincode = $('#pincode').val();
     if(pincode !== ""){
     $.ajax({
@@ -341,8 +342,8 @@ check_pincode();
 
   }
   // }
-// }).keyup();
-}
+}).keyup();
+// }
 });
 </script>
 <script>
@@ -352,7 +353,7 @@ check_pincode();
    // $('#promocode_submit').on('click',function(e){
    $('#promocode_form').on('submit',function(e){
    // $("#promocode_submit").click(function(){
-    alert("hi")
+    // alert("hi")
     e.preventDefault(); // avoid to execute the actual submit of the form.
     var frm = $(this).closest("#promocode_form");
     var dataString = frm.serialize();
@@ -397,7 +398,7 @@ check_pincode();
               '</div>'
           });
 
-          // $( "#amount_div" ).load(window.location.href + " #amount_div > *" );
+          $( "#amount_div" ).load(window.location.href + " #amount_div > *" );
           // window.location.reload();
 
         } else if (response.data == false) {
@@ -434,7 +435,7 @@ check_pincode();
               '</div>'
           });
           // window.location.reload();
-          // $( "#amount_div" ).load(window.location.href + " #amount_div > *" );
+          $( "#amount_div" ).load(window.location.href + " #amount_div > *" );
 
         }
       }
@@ -487,7 +488,7 @@ check_pincode();
               '</div>'
           });
 
-          $( "#amount_div" ).load(window.location.href + " #amount_div" );
+          $( "#amount_div" ).load(window.location.href + " #amount_div > *" );
 
 
         } else if (response.data == false) {
@@ -523,7 +524,7 @@ check_pincode();
               '<a href="{3}" target="{4}" data-notify="url"></a>' +
               '</div>'
           });
-          $( "#amount_div" ).load(window.location.href + " #amount_div" );
+          $( "#amount_div" ).load(window.location.href + " #amount_div > *" );
         }
       }
     });
