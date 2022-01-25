@@ -1,4 +1,30 @@
 <style>
+
+@media (width: 360px){
+.ggty{display: block!important;line-height: 3.1rem;}}
+
+@media (width: 375px){
+.ggty{display: block!important;  line-height: 3.3rem;}}
+
+@media (width: 414px){
+.ggty{display: block!important;line-height: 4.5rem;}}
+
+
+@media (width: 390px){
+.ggty{  display: block!important;  line-height: 4.3rem;}}
+@media (width: 393px){
+.ggty{  display: block!important;  line-height: 4.2rem;}
+}
+@media (max-width: 640px){
+  .mbjj{padding:0px!important;}
+  .ttrry{padding-left: 8.5px;padding-right: 8.5px; margin-bottom: 17px!important;}
+}
+
+
+@media (min-width: 641px){
+.ggty{display:none;}
+}
+}
   @media (max-width:1280px) {
     .pres {
       font-size: 15px;
@@ -32,8 +58,12 @@
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <!--Start Slider-->
+<div class="ggty" >
+<br>
 
-<section class="overflow-hidden t_slider">
+
+</div>
+<section class="overflow-hidden t_slider ">
   <div class="container-fluid p-0">
     <div class="row">
       <div class="col-md-12" style="padding-left:0;padding-right:0">
@@ -58,10 +88,10 @@
 <!-- Start Banner Six-->
 
 <section>
-  <div class="container gallarySection mw-100 ">
+  <div class="container gallarySection mbjj mw-100 ">
     <div class="row mt-4 cat_gory">
       <?php $i=1; foreach($banner_Data->result() as $banner) { ?>
-      <div class="col-md-4 col-sm-6 col-6 mb-5 text-center">
+      <div class="col-md-4 col-sm-6 col-6 mb-5 text-center ttrry">
         <div><a href="<?=$banner->link?>">
             <img src="<?=base_url().$banner->image?>" alt="Sofas" class="img-fluid"></a>
         </div>

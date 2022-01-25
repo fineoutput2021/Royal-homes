@@ -371,16 +371,12 @@ width:100%;
 <div class="col-md-4 mt-3" style="position:sticky;">
 <h4><b>Order Summary</b></h4>
 <hr />
-<p class="subtotal">Subtotal <span class="float-right" id="subtotal">£<?if(empty($cart_check)) {
+<p class="subtotal">Cart Total <span class="float-right" id="subtotal">£<?if(empty($cart_check)) {
 echo 0;
 } else {
 echo $total;
 }?></span></p>
-<p class="subtotal">Estimated Total <span class="float-right" id="total_cost">£  <?if (empty($cart_check)) {
-echo 0;
-} else {
-echo $total;
-}?></span></p>
+
   <div class="w-100">
       <a href="<?=base_url()?>Order/calculate">
     <button class="chk">
@@ -624,7 +620,7 @@ function decreaseValue(i) {
           });
           // window.setTimeout(function(){location.reload()},1000)
           $( "#mySidebar" ).load(window.location.href + " #mySidebar > *" );
-          
+
 
         }
       }

@@ -370,18 +370,13 @@ $i++;
 <div class="col-md-4 mt-3" style="position:sticky;">
 <h4><b>Order Summary</b></h4>
 <hr />
-<p class="subtotal">Subtotal <span class="float-right" id="subtotal">£<?if (empty($this->session->userdata('cart_data'))) {
-echo 0;
-} else {
-echo $total;
-}?></span></p>
-<p class="subtotal">Estimated Total <span class="float-right" id="total_cost">£<?if (empty($this->session->userdata('cart_data'))) {
+<p class="subtotal">Cart Total <span class="float-right" id="subtotal">£<?if (empty($this->session->userdata('cart_data'))) {
 echo 0;
 } else {
 echo $total;
 }?></span></p>
   <div class="w-100">
-    <button class="chk">
+    <button class="chk" id="hjki">
       Checkout
     </button>
       <label class="ml-5" style="color:red;font-size: 13px;">Please login/Register for checkout</label>
@@ -625,7 +620,7 @@ function decreaseValue(i) {
           });
           $( "#here" ).load(window.location.href + " #here > *" );
           $( "#mySidebar" ).load(window.location.href + " #mySidebar > *" );
-          
+
 
         }
       }

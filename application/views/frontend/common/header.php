@@ -366,6 +366,19 @@
         margin-left: 123px !important;
         margin-top: -74px;
       }
+      input[type=url] {
+        background: #fff;
+        background-clip: padding-box;
+        /* border: 1px solid #c2c2c2; */
+        border-radius: 1px;
+        font-size: 14px;
+        height: 24px !important;
+        line-height: 1.42857143;
+        padding: 0 9px;
+        vertical-align: baseline;
+        width: 100%;
+        box-sizing: border-box;
+      }
 
       /* .logo {
         width: 71% !important;
@@ -384,7 +397,7 @@
       }
 
       .menu ul li {
-        line-height: 1.5;
+        line-height: 1.3;
       }
 
     }
@@ -1142,11 +1155,11 @@ padding: 14px 17px;
       top: 0;
       /* Stay at the top */
       left: 0;
-      background-color: #111;
+      background-color: white;
       /* Black*/
       overflow-x: hidden;
       /* Disable horizontal scroll */
-      padding-top: 30px;
+      /* padding-top: 30px; */
       /* Place content 60px from the top */
       transition: 0.5s;
       /* 0.5 second transition effect to slide in the sidenav */
@@ -1159,7 +1172,7 @@ padding: 14px 17px;
       padding: 8px 8px 8px 6px;
       text-decoration: none;
       font-size: 25px;
-      color: #818181;
+      color: #000000;
       display: block;
       transition: 0.3s;
     }
@@ -1172,9 +1185,9 @@ padding: 14px 17px;
     /* Position and style the close button (top right corner) */
     .sidenav .closebtn {
       position: absolute;
-      top: -17px;
+      top: -10px;
       right: 0px;
-      font-size: 55px !important;
+      font-size: 37px !important;
       margin-left: 50px;
       font-weight: 600;
       color: #d76a46;
@@ -1293,6 +1306,7 @@ padding: 14px 17px;
 
     [data-toggle="collapse"].collapsed:after {
       transform: rotate(0deg);
+      color:#d76a46;
     }
 
     .count {
@@ -1457,6 +1471,12 @@ padding: 14px 17px;
     margin-top: 10px;
     }
     @media(max-width:600px) {
+      .hdc{
+        background: rgba(0,0,0,.37);
+      }
+      .hdc.active{
+        background-color: white;
+      }
       .dontHide {
         display: block;
       }
@@ -1516,7 +1536,7 @@ padding: 14px 17px;
         /* position: absolute; */
         /* top: 1rem; */
         width: 81% !important;
-        height: 3vh !important;
+        height: 20px !important;
         margin-top: 0px !important;
       }
 
@@ -1541,8 +1561,8 @@ padding: 14px 17px;
         /* background-color: red; */
         position: relative;
         /* color: red; */
-        right: 2rem;
-        top: -1.5rem;
+        right: 3rem;
+        top: -1.2rem;
         z-index: 2;
       }
 
@@ -1562,7 +1582,7 @@ padding: 14px 17px;
 
       .modifiedCart {
         position: relative;
-        top: -3.5rem;
+        top: -3.3rem;
         right: -1rem;
         width: 0vw;
       }
@@ -1632,12 +1652,13 @@ padding: 14px 17px;
 
       .newMoblSearchCont {
         left: -32.5rem;
+        /* height: 40px; */
       }
 
       .modifiedCart {
         position: relative;
-        top: -3.5rem;
-        right: -1rem;
+        top: -3.3rem;
+        right: 0rem!important;
       }
 
       .count {
@@ -1700,12 +1721,12 @@ padding: 14px 17px;
       }
 
       .newMoblSearchCont {
-        left: -24.5rem;
+        left: -23.5rem;
       }
 
       .modifiedCart {
         position: relative;
-        top: -3.5rem;
+        top: -3.3rem;
         right: -1rem;
       }
 
@@ -1747,7 +1768,7 @@ padding: 14px 17px;
       }
 
       .modifiedHeaderCont {
-        height: 7vh !important;
+        height: 8vh !important;
       }
     }
 
@@ -1774,7 +1795,7 @@ padding: 14px 17px;
 
       .modifiedCart {
         position: relative;
-        top: -3.5rem;
+        top: -3.3rem;
         right: -1rem;
       }
 
@@ -1816,7 +1837,7 @@ padding: 14px 17px;
       }
 
       .modifiedHeaderCont {
-        height: 10vh !important;
+        height: 8vh !important;
       }
     }
 
@@ -1843,7 +1864,7 @@ padding: 14px 17px;
 
       .modifiedCart {
         position: relative;
-        top: -3.5rem;
+        top: -3.3rem;
         right: -1rem;
       }
 
@@ -1886,7 +1907,7 @@ padding: 14px 17px;
       }
 
       .modifiedHeaderCont {
-        height: 10vh !important;
+        height: 8vh !important;
       }
     }
 
@@ -1914,7 +1935,7 @@ padding: 14px 17px;
 
       .modifiedCart {
         position: relative;
-        top: -3.5rem;
+        top: -3.3rem;
         right: -1rem;
       }
 
@@ -1956,7 +1977,7 @@ padding: 14px 17px;
       }
 
       .modifiedHeaderCont {
-        height: 10vh !important;
+        height: 8vh !important;
       }
     }
 
@@ -1983,7 +2004,7 @@ padding: 14px 17px;
 
       .modifiedCart {
         position: relative;
-        top: -3.5rem;
+        top: -3.3rem;
         right: -1rem;
       }
 
@@ -2025,7 +2046,7 @@ padding: 14px 17px;
       }
 
       .modifiedHeaderCont {
-        height: 9vh !important;
+        height: 8vh !important;
       }
     }
     .ul_st{
@@ -2056,7 +2077,7 @@ padding: 14px 17px;
 </head>
 
 <body>
-  <header class="header">
+  <header class="header hdc">
     <div class="container-fluid modifiedHeaderCont">
       <div class="row" style="width:100%">
         <div class="col-md-4 d-sx-none menu change" style="width: 100%;">
@@ -2121,7 +2142,7 @@ $category_data= $this->db->get();
     margin-top: 14px;">
             <li>
               <div id="mySidenav" class="sidenav">
-                <div class="w-100 center mb-2">
+                <div class="w-100 center mb-2" style="background-color: black;">
                   <a href="#" class="rqwa" style="width:85%;">
                     <img src="<?=base_url()?>assets/frontend/assets/img/web_logo.png" id="logohed" alt="logo">
                   </a>
@@ -2221,7 +2242,7 @@ $category_data= $this->db->get();
               </script>
               <!-- ****************** MOBILE INPUT *********************************  -->
               <form action="<?=base_url()?>Home/search" method="get" enctype="multipart/form-data">
-              <div class="newMoblSearchCont">
+              <div class="newMoblSearchCont" >
                 <input type="text" name="search" class="newSearchInptMobl" placeholder="Search" />
                 <button type="submit" name="button" class="newSearchBtn">Search</button>
               </div>
@@ -2692,6 +2713,7 @@ $category_data= $this->db->get();
 
     // Get the button that opens the modal
     var btn1 = document.getElementById("myBtn");
+    var btn3 = document.getElementById("hjki");
     var btn2 = document.getElementById("pop_myBtn");
 
     // Get the <span> element that closes the modal
@@ -2704,14 +2726,11 @@ $category_data= $this->db->get();
         modal1.style.display = "none";
 
       }
+
 };
 
-    btn2.onclick = function() {
 
-      modal.style.display = "block";
-      modal1.style.display = "none";
 
-    }
 
     // When the user clicks on <span> (x), close the modal
     span1.onclick = function() {
