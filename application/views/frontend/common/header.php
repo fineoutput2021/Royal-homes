@@ -2043,7 +2043,8 @@ padding: 14px 17px;
     margin: 0 !important;
     font-size: 14px!important;
     color: black!important;
-    background-color: #fff!important
+    background-color: #fff!important;
+    border-radius: 0!important;
     }
 
     .dropdown-item2:hover{
@@ -2135,7 +2136,7 @@ $category_data= $this->db->get();
                     <div class="card-header" role="tab" id="heading_<?=$data->id?>">
                       <h5 class="mb-0">
                         <a class="collapsed" data-toggle="collapse" href="#collapse_<?=$data->id?>" aria-expanded="false" aria-controls="collapse_<?=$data->id?>">
-                          <?=$data->categoryname?>
+                          <span onclick="all_cat(this)" id="<?=base64_encode($data->id)?>" type="<?=base64_encode(1)?>"><?=$data->categoryname?></span>
                         </a>
                       </h5>
                     </div>
@@ -2271,6 +2272,7 @@ $category_data= $this->db->get();
               $cartdata= $this->session->userdata('cart_data');
               $total=0;
               $inCart=[];
+              if(!empty($cartdata)){
               foreach ($cartdata as $cart) {
                 $this->db->select('*');
                 $this->db->from('tbl_products');
@@ -2285,7 +2287,7 @@ $category_data= $this->db->get();
                 );
                 $total = $total + $price;
               }
-            }?>
+            }}?>
         <div class="col-md-12" style="background:#ffffff;padding:27px 40px">
           <a href="javascript:void(0)" class="closebtn" id="account_open_close" onclick="closeNav2()">×</a>
           <h4>My Cart</h4>

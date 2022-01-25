@@ -475,6 +475,8 @@ function decreaseValue(i) {
 
            $( "#here" ).load(window.location.href + " #here > *" );
            $( "#count" ).load(window.location.href + " #count > *" );
+           $( "#mySidebar" ).load(window.location.href + " #mySidebar > *" );
+
 
 
         } else if (response.data == false) {
@@ -512,6 +514,8 @@ function decreaseValue(i) {
           });
           $( "#here" ).load(window.location.href + " #here > *" );
           $( "#count" ).load(window.location.href + " #count > *" );
+          $( "#mySidebar" ).load(window.location.href + " #mySidebar > *" );
+
 
         }
       }
@@ -579,6 +583,8 @@ function decreaseValue(i) {
               '</div>'
           });
           $( "#here" ).load(window.location.href + " #here > *" );
+          $( "#mySidebar" ).load(window.location.href + " #mySidebar > *" );
+
 
           // $('#price_'+i).html(price);
         } else if (response.data == false) {
@@ -618,6 +624,8 @@ function decreaseValue(i) {
               '</div>'
           });
           $( "#here" ).load(window.location.href + " #here > *" );
+          $( "#mySidebar" ).load(window.location.href + " #mySidebar > *" );
+          
 
         }
       }

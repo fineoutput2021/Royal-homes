@@ -48,7 +48,8 @@
  	 <th>Image3</th>
  	 <th>MRP</th>
  	 <th>Selling Price</th>
- 	 <th>Product Description</th>
+ 	 <th>Short Description</th>
+ 	 <th>Long Description</th>
  	 <th>Feature</th>
  	 <th>Case Instruction</th>
  	 <th>Model No.</th>
@@ -140,6 +141,7 @@ if(!empty($subcategory_data)){
 
 	 <td><?php echo "Rs.".$data->mrp ?></td>
 	 <td><?php echo "Rs.".$data->selling_price ?></td>
+ 	 <td><?php echo $data->s_description ?></td>
  	 <td><?php echo $data->productdescription ?></td>
  	 <td><?php echo $data->feature ?></td>
  	 <td><?php echo $data->careinstruction ?></td>

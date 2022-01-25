@@ -147,11 +147,22 @@ $sub_data= $this->db->get()->row();
         <img src="<?=base_url().$sub_data->image;?>" class="img-fluid" />
       </div>
     </div>
-    <?}?>
+    <?}else{
+      $this->db->select('*');
+    $this->db->from('tbl_category');
+    $this->db->where('id',$id);
+    $cat_data= $this->db->get()->row();
+    }?>
     <br />
     <div class="row">
       <div class="col-md-6">
-        <h3>Paolo</h3>
+        <h3>
+        <?if(!empty($sub_data->subcategory)){
+          echo $sub_data->subcategory;
+        }else{
+          echo $cat_data->categoryname;
+        }?>
+        </h3>
       </div>
       <div class="col-md-6 text-right">
         <label class="dropdown">

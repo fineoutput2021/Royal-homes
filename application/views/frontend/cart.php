@@ -478,6 +478,8 @@ function decreaseValue(i) {
 
           $( "#here" ).load(window.location.href + " #here > *" );
           $( "#count" ).load(window.location.href + " #count > *" );
+          $( "#mySidebar" ).load(window.location.href + " #mySidebar > *" );
+
 
         } else if (response.data == false) {
           $.notify({
@@ -514,6 +516,8 @@ function decreaseValue(i) {
           });
           $( "#here" ).load(window.location.href + " #here > *" );
           $( "#count" ).load(window.location.href + " #count > *" );
+          $( "#mySidebar" ).load(window.location.href + " #mySidebar > *" );
+
         }
       }
     });
@@ -580,6 +584,8 @@ function decreaseValue(i) {
           });
 
           // window.setTimeout(function(){location.reload()},2000)
+          $( "#mySidebar" ).load(window.location.href + " #mySidebar > *" );
+
         } else if (response.data == false) {
           $.notify({
             icon: 'fa fa-cancel',
@@ -617,6 +623,8 @@ function decreaseValue(i) {
               '</div>'
           });
           // window.setTimeout(function(){location.reload()},1000)
+          $( "#mySidebar" ).load(window.location.href + " #mySidebar > *" );
+          
 
         }
       }

@@ -98,7 +98,11 @@
                       <td> <input type="text" name="selling_price" class="form-control" placeholder="" required value="" onkeypress="return isNumberKey(event)"/> </td>
                     </tr>
                     <tr>
-                      <td> <strong>Product Description</strong> <span style="color:red;">*</span></strong> </td>
+                      <td> <strong>Short Description</strong> <span style="color:red;">*</span></strong> </td>
+                      <td> <textarea name="s_description" id="editor4" rows="3" cols="80" required></textarea>
+                    </tr>
+                    <tr>
+                      <td> <strong>Long Description</strong> <span style="color:red;">*</span></strong> </td>
                       <td> <textarea name="productdescription" id="editor1" rows="3" cols="80" required></textarea>
                     </tr>
                     <tr>
@@ -262,6 +266,7 @@ function c_id(e) {
   CKEDITOR.replace('editor1');
   CKEDITOR.replace('editor2');
   CKEDITOR.replace( 'editor3' );
+  CKEDITOR.replace( 'editor4' );
   //
 </script>
 

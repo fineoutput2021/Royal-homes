@@ -131,7 +131,14 @@
 <!-- End footer-->
 
 </body>
-
+<script type="text/javascript">
+function all_cat(obj){
+  var id = $(obj).attr("id");
+  var t = $(obj).attr("type");
+  // alert("<?=base_url()?>Home/all_Product/"+id+"/"+t)
+location.replace("<?=base_url()?>Home/all_Product/"+id+"/"+t)
+}
+</script>
 <script>
 $(document).ready(function() {
 <?php if(!empty($this->session->flashdata('emessage'))){ ?>
@@ -275,6 +282,7 @@ function loadSuccessNotify(succ_message){
                     });
                     // window.setTimeout(function(){location.reload()},2000)
                     $( "#count" ).load(window.location.href + " #count > *" );
+                    $( "#mySidebar" ).load(window.location.href + " #mySidebar > *" );
 
        }else if(response.data == false){
          var msg = response.data_message;
@@ -312,6 +320,8 @@ function loadSuccessNotify(succ_message){
                        });
                        // window.setTimeout(function(){location.reload()},2000)
                        $( "#count" ).load(window.location.href + " #count > *" );
+                       $( "#mySidebar" ).load(window.location.href + " #mySidebar > *" );
+
 
        }
      }
@@ -371,6 +381,8 @@ function loadSuccessNotify(succ_message){
                     });
                     // window.setTimeout(function(){location.reload()},2000)
                     $( "#count" ).load(window.location.href + " #count > *" );
+                    $( "#mySidebar" ).load(window.location.href + " #mySidebar > *" );
+
 
 
        }else if(response.data == false){
@@ -409,6 +421,8 @@ function loadSuccessNotify(succ_message){
                        });
                        // window.setTimeout(function(){location.reload()},2000)
                        $( "#count" ).load(window.location.href + " #count > *" );
+                       $( "#mySidebar" ).load(window.location.href + " #mySidebar > *" );
+
 
 
        }
@@ -510,7 +524,7 @@ function wishlist(obj) {
         $( "#count" ).load(window.location.href + " #count > *" );
         $( "#wish" ).load(window.location.href + " #wish > *" );
         $( "#w_count" ).load(window.location.href + " #w_count > *" );
-        
+
 
 
       }

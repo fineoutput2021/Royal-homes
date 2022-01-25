@@ -143,6 +143,7 @@
                        $this->form_validation->set_rules('categorys', 'categorys');
                        $this->form_validation->set_rules('sub_category', 'sub_category');
                        $this->form_validation->set_rules('mrp', 'mrp', 'required|integer');
+                       $this->form_validation->set_rules('s_description', 's_description', 'required');
                        $this->form_validation->set_rules('productdescription', 'productdescription', 'required');
                        $this->form_validation->set_rules('modelno', 'modelno', 'required|trim');
                        $this->form_validation->set_rules('inventory', 'inventory', 'trim');
@@ -200,6 +201,7 @@
 
                            $mrp=$this->input->post('mrp');
                            $selling_price=$this->input->post('selling_price');
+                           $s_description=$this->input->post('s_description');
                            $productdescription=$this->input->post('productdescription');
                            $modelno=$this->input->post('modelno');
                            $inventory=$this->input->post('inventory');
@@ -380,6 +382,7 @@
   'image3'=>$nnnn5,
   'mrp'=>$mrp,
   'selling_price'=>$selling_price,
+  's_description'=>$s_description,
   'productdescription'=>$productdescription,
   'modelno'=>$modelno,
   'feature'=>$feature,
@@ -620,6 +623,7 @@
   'image3'=>$nnnn5,
   'mrp'=>$mrp,
   'selling_price'=>$selling_price,
+  's_description'=>$s_description,
   'productdescription'=>$productdescription,
   'modelno'=>$modelno,
   'feature'=>$feature,
