@@ -1356,7 +1356,7 @@ padding: 14px 17px;
       /* background-color: yellow; */
       overflow: hidden;
       position: relative;
-      top: -0.3rem;
+      top: -7px;
       width: 12vw !important;
     }
 
@@ -1378,7 +1378,7 @@ padding: 14px 17px;
       position: relative;
       /* color: red; */
       right: -78%;
-      top: 0.5rem;
+      top: 0.6rem;
       z-index: 2;
     }
 
@@ -1418,7 +1418,7 @@ padding: 14px 17px;
 } */
     .modifiedCart {
       position: relative;
-      top: 1rem;
+      top: 14px;
       width: 1vw;
     }
 
@@ -1435,14 +1435,27 @@ padding: 14px 17px;
     .modifiedScrptImg {}
 
     .newWishList {
-      width: 2vw
+      width: 2vw;
+     /* margin-top: -4px; */
+     font-size: 17px;
     }
 
     .newUserProfile {
-      width: 3vw;
+      width: 1vw;
       margin-top: 4px;
     }
+    .bbj{
+      margin-top: 8px!important;
+       font-size:17px;
 
+    }
+    .bbh{
+      display: inline-flex;
+      flex-direction: column;
+      line-height: 1!important;
+      justify-content: center;
+    margin-top: 10px;
+    }
     @media(max-width:600px) {
       .dontHide {
         display: block;
@@ -2305,19 +2318,21 @@ $category_data= $this->db->get();
               <a href="new my order.html">My Order list</a>
               <a href="<?=base_url()?>/User_login/user_logout">Log Out</a> -->
             </div>
-            <div id="main" class="ch234 hide newUserProfile">
+
+            <div id="" class="ch234 hide newUserProfile">
               <?if (!empty($this->session->userdata('user_data'))) {?>
 
     <!-- <i class="fas fa-caret-down"></i> -->
             <!-- <i class="fa fa-user  openbtn btn_change_change media_q_change2" aria-hidden="true" > </i> -->
-            <div class="fa fa-user dropdown" >
+
+            <li class="fa fa-user dropdown bbh" >
 
           <i class="fa fa-caret-down btn_change_change media_q_change2 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false" style="width: 10px;">
           </i>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href="#">log out</a>
         </div>
-</div>
+</li>
 
 
               <!-- <a class="fa fa-caret-down btn_change_change media_q_change2 dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
@@ -2327,10 +2342,11 @@ $category_data= $this->db->get();
 
 
               <?} else {?>
-              <i class="fa fa-user openbtn btn_change_change media_q_change2" aria-hidden="true" id="myBtn"></i>
+              <i class="bbj fa fa-user openbtn btn_change_change media_q_change2" aria-hidden="true" id="myBtn" ></i>
 
               <?}?>
             </div>
+
 
             <?if (empty($this->session->userdata('user_data'))) {
                 $cart_data = $this->session->userdata('cart_data');
@@ -2372,7 +2388,7 @@ $category_data= $this->db->get();
               </a></li>
             <?if (!empty($this->session->userdata('user_data'))) {
                   $user_id = $this->session->userdata('user_id'); ?>
-            <li class="media_q_change1 hide"><a href="<?=base_url()?>Home/my_orders/<?=base64_encode($user_id)?>" style="color: unset;"><i class='fa fa-truck btn_change_change' style='font-size: 19px'></i></a></li>
+            <li class="media_q_change1 hide" style="font-size: 17px;"><a href="<?=base_url()?>Home/my_orders/<?=base64_encode($user_id)?>" style="color: unset;"><i class='fa fa-truck btn_change_change' style='font-size: 19px'></i></a></li>
             <?
               }?>
           </ul>
