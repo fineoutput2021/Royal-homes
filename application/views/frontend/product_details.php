@@ -85,7 +85,9 @@
 
 
   .ffth {}
-
+.swiper-button-next{
+  right:-4px!important;
+}
   .swimg {
     height: 600px;
     width: 600px;
@@ -276,6 +278,9 @@ width: 100px; */
     align-items: center;
     margin-left: 22px;
     margin-top: -5px;
+  }
+  .card-header{
+    background-color: rgb(0, 0, 0,0);
   }
 </style>
 
