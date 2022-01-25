@@ -335,7 +335,7 @@ button.slick-next.slick-arrow{
     text-decoration: underline!important;
     text-decoration-color: #d76a46!important;
     font-weight: 600!important;
-    font-family: 'Lora', serif !important;
+    font-family: Gotham light !important;
 }
 @media all and (max-width: 720px) {
    button.slick-next.slick-arrow{

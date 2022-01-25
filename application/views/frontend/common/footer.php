@@ -471,6 +471,7 @@ function wishlist(obj) {
 
         $( "#count" ).load(window.location.href + " #count > *" );
         $( "#wish" ).load(window.location.href + " #wish > *" );
+        $( "#w_count" ).load(window.location.href + " #w_count > *" );
 
 
       } else if (response.data == false) {
@@ -508,6 +509,8 @@ function wishlist(obj) {
         });
         $( "#count" ).load(window.location.href + " #count > *" );
         $( "#wish" ).load(window.location.href + " #wish > *" );
+        $( "#w_count" ).load(window.location.href + " #w_count > *" );
+        
 
 
       }

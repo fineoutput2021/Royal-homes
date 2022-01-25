@@ -55,7 +55,7 @@
   </script>
   <style>
     body {
-      font-family: euclid-circular-a !important;
+      font-family: Gotham light !important;
       scroll-behavior: smooth;
     }
 
@@ -260,7 +260,7 @@
 
     .formforgot-wrap a {
       color: #000;
-      font-family: 'euclid light';
+      font-family: 'Gotham light';
     }
 
     .formforgot-wrap {
@@ -461,7 +461,7 @@ padding: 14px 17px;
       /* font-family: 'Montserrat', sans-serif;
       font-family: 'Zen Antique Soft', serif;
       font-family: 'Zen Old Mincho', serif; */
-      font-family: euclid-circular-a;
+      font-family:Gotham light;
     }
 
     input[type=email],
@@ -487,7 +487,7 @@ padding: 14px 17px;
       height: 40px;
       font-size: 14px;
       position: relative;
-      font-family: 'euclid light';
+      font-family: 'Gotham light';
       border: 0;
       font-weight: 400;
       border-bottom: 1px solid #ccc;
@@ -504,7 +504,7 @@ padding: 14px 17px;
       height: 40px;
       font-size: 14px;
       position: relative;
-      font-family: 'euclid light';
+      font-family: 'Gotham light';
       border: 0;
       font-weight: 400;
       border-bottom: 1px solid #ccc;
@@ -650,7 +650,7 @@ padding: 14px 17px;
     /* new style add  */
 
     * {
-      font-family: Brandon Text !importants;
+      font-family: Gotham light !importants;
     }
 
     *h2 {
@@ -1361,7 +1361,7 @@ padding: 14px 17px;
     }
 
     .modifiedNewCount {
-      margin-top: -6px;
+      margin-top: -8px;
       z-index: 2;
     }
 
@@ -2035,7 +2035,22 @@ padding: 14px 17px;
     .li_st{
       line-height: 2 !important;
     }
+    .dd2_menu{
+    top: 64% !important;
+    left: -55px!important;
+    min-width: 7rem !important;
+    padding: 0!important;
+    margin: 0 !important;
+    font-size: 14px!important;
+    color: black!important;
+    background-color: #fff!important
+    }
 
+    .dropdown-item2:hover{
+      color:white !important;
+      background-color: #d76a46 !important;
+      text-decoration: none !important;
+    }
   </style>
 </head>
 
@@ -2124,16 +2139,18 @@ $category_data= $this->db->get();
                         </a>
                       </h5>
                     </div>
+                    <?php
+          $this->db->select('*');
+          $this->db->from('tbl_subcategory');
+          $this->db->where('category_id', $data->id);
+          $subdata= $this->db->get();
+          $subcheck=$subdata->row();
+          if(!empty($subcheck)){?>
                     <div id="collapse_<?=$data->id?>" class="collapse" role="tabpanel" aria-labelledby="heading_<?=$data->id?>" data-parent="#accordion">
                       <div class="card-body" style="color:white">
                         <ul style="display:unset;line-height:1.7!important">
-                          <?php
-                $this->db->select('*');
-                $this->db->from('tbl_subcategory');
-                $this->db->where('category_id', $data->id);
-                $subdata= $this->db->get();
-                $subcheck=$subdata->row();
-                foreach ($subdata->result() as $sub) {
+
+                <?foreach ($subdata->result() as $sub) {
                     ?>
                           <li><a href="<?=base_url()?>Home/all_Product/<?=base64_encode($sub->id)?>/<?=base64_encode(2)?>"><?php echo $sub->subcategory ?></a></li>
                           <?php
@@ -2146,6 +2163,7 @@ $category_data= $this->db->get();
 
                       </div>
                     </div>
+                    <?}?>
                   </div>
                   <?php
             }?>
@@ -2215,6 +2233,7 @@ $category_data= $this->db->get();
                 $this->db->where('user_id', $user_id);
                 $wish_count= $this->db->count_all_results(); ?>
             <!-- this is wishlist -->
+            <div id="w_count">
             <li class="hide dontHide newWishList"><a href="<?=base_url()?>Home/view_wishlist/<?=base64_encode($this->session->userdata('user_id'))?>" style="color:unset;"><span class="count">
                   <?if (!empty($wish_count)) {
                     echo $wish_count;
@@ -2222,8 +2241,9 @@ $category_data= $this->db->get();
                     echo 0;
                 } ?>
                 </span><i class="fa fa-heart btn_change_change " aria-hidden="true"></i></a></li>
-            <?
-            }?>
+              </div>
+
+            <?}?>
             <div id="mySidebar" class="sidebar" style="width: 0px;">
             <?if (!empty($this->session->userdata('user_data'))) {
               $user_id = $this->session->userdata('user_id');
@@ -2322,24 +2342,14 @@ $category_data= $this->db->get();
             <div id="" class="ch234 hide newUserProfile">
               <?if (!empty($this->session->userdata('user_data'))) {?>
 
-    <!-- <i class="fas fa-caret-down"></i> -->
-            <!-- <i class="fa fa-user  openbtn btn_change_change media_q_change2" aria-hidden="true" > </i> -->
-
             <li class="fa fa-user dropdown bbh" >
-
-          <i class="fa fa-caret-down btn_change_change media_q_change2 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false" style="width: 10px;">
+          <i class="fa fa-caret-down btn_change_change media_q_change2 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown " aria-expanded="false" style="width: 10px;margin-top: -5px;margin-left: 1px;">
           </i>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#">log out</a>
+        <div class="dropdown-menu dd2_menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item dropdown-item2" href="<?=base_url()?>Home/my_orders/<?=base64_encode($this->session->userdata('user_id'))?>" style="color:unset">My Orders</a>
+          <a class="dropdown-item dropdown-item2" href="<?=base_url()?>/User_login/user_logout" style="color:unset">logout</a>
         </div>
 </li>
-
-
-              <!-- <a class="fa fa-caret-down btn_change_change media_q_change2 dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
-
-            <!-- <?=$this->session->userdata('user_name')?> -->
-
-
 
               <?} else {?>
               <i class="bbj fa fa-user openbtn btn_change_change media_q_change2" aria-hidden="true" id="myBtn" ></i>
@@ -2369,16 +2379,8 @@ $category_data= $this->db->get();
             }
               ?>
 
-              <!-- <div class="dropdown">
-                <i class=" fa fa-caret-down down12 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                </i>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                  <a class="dropdown-item" href="#">logout</a>
-
-                </div>
-              </div> -->
-            <!-- <li class="hide dontHide modifiedCart"><a href="<?=base_url()?>Home/view_cart" style="color: unset;"><span class="count modifiedNewCount"> -->
-            <li class="hide dontHide modifiedCart"><a href="#" style="color: unset;" id="account_open_close" onclick="openNav2()"><span class="count modifiedNewCount" id="count">
+            <div id="count">
+            <li class="hide dontHide modifiedCart"><a href="#" style="color: unset;" id="account_open_close" onclick="openNav2()"><span class="count modifiedNewCount" >
                   <?if (!empty($count)) {
                   echo $count;
               } else {
@@ -2386,11 +2388,12 @@ $category_data= $this->db->get();
               }?>
                 </span><i class="fa fa-shopping-bag NONE1 btn_change_change dontHide" aria-hidden="true"></i>
               </a></li>
-            <?if (!empty($this->session->userdata('user_data'))) {
+            </div>
+
+            <!-- <?if (!empty($this->session->userdata('user_data'))) {
                   $user_id = $this->session->userdata('user_id'); ?>
             <li class="media_q_change1 hide" style="font-size: 17px;"><a href="<?=base_url()?>Home/my_orders/<?=base64_encode($user_id)?>" style="color: unset;"><i class='fa fa-truck btn_change_change' style='font-size: 19px'></i></a></li>
-            <?
-              }?>
+            <?}?> -->
           </ul>
         </div>
       </div>
@@ -2606,11 +2609,11 @@ $category_data= $this->db->get();
               </div>
             </div>
 
-            <div class="badge  text-black text-wrap textres" style="font-size:12px;font-weight:400;font-family:'euclid light';    padding-top: 1.5rem;">
+            <div class="badge  text-black text-wrap textres" style="font-size:12px;font-weight:400;font-family:'Gotham light';    padding-top: 1.5rem;">
               <span>Forget Password</span>
             </div>
 
-            <button class="button ressing" type="submit" style="border-radius:34px !important; font-size:14px;font-family: 'euclid light';">SIGN IN</button>
+            <button class="button ressing" type="submit" style="border-radius:34px !important; font-size:14px;font-family: 'Gotham light';">SIGN IN</button>
           </div>
           <div class="d-flex justify-content-center">
             <div class="badge  text-black text-wrap textresp" style="color: #000;
