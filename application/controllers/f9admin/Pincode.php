@@ -1,5 +1,5 @@
-<?php
-    if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+  ob_start();
        require_once(APPPATH . 'core/CI_finecontrol.php');
        class Pincode extends CI_finecontrol{
        function __construct()
