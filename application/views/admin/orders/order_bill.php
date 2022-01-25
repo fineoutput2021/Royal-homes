@@ -9,13 +9,13 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <!-- Css file include -->
 <link rel="stylesheet" type="text/css" href="css/style.css">
-	<title>Creatoutdoor Bill</title>
+	<title>Royal Homes Bill</title>
 </head>
 <body style="padding-top:75px;">
 <div class="container main_container">
 	<div class="row">
-		<div class="col-sm-6 oswal_logo">
-		<img src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/logo_base.png" class="img-fluid" style="width:150px;">
+		<div class="col-sm-6">
+		<img src="<?=base_url()?>assets/frontend/assets/img/web_logo.png" class="img-fluid" style="width:150px;">
     <!-- <span style="color: #d76a46; font-size:40px !important;border-bottom: 2px solid grey ;">0</span> -->
 		</div>
 		<div class="col-sm-6 content_part">Tax Invoice/Bill of Supply/Cash Memo
@@ -101,9 +101,9 @@ echo $product_name= $product_data->productname;
 }
         ?></td>
 
-        <td >Rs.<?if(!empty($data->mrp)){echo $data->mrp;}?></td>
+        <td >£<?if(!empty($data->mrp)){echo $data->mrp;}?></td>
         <td ><?php echo $data->quantity;?></td>
-        <td><?php echo "Rs. ".$data->total_amount;?></td>
+        <td><?php echo "£".$data->total_amount;?></td>
       </tr>
   <?php $i++;} }?>
 
@@ -113,7 +113,7 @@ echo $product_name= $product_data->productname;
         <th class="product_table" ><?php if(!empty($order1_data)){ echo ""; }?></th>
         <th class="product_table" colspan="2"><?php if(!empty($order1_data)){ echo ""; }?></th>
 
-        <th class="product_table"><?php if(!empty($order1_data)){ echo "Rs. ".$order1_data->total_amount; }?></th>
+        <th class="product_table"><?php if(!empty($order1_data)){ echo "£".$order1_data->total_amount; }?></th>
       </tr>
       <tr>
         <th>Shipping charge:</th>
@@ -121,14 +121,14 @@ echo $product_name= $product_data->productname;
         <th class="product_table" ><?php if(!empty($order1_data)){ echo ""; }?></th>
         <th class="product_table" colspan="2"><?php if(!empty($order1_data)){ echo ""; }?></th>
 
-        <th class="product_table"><?php if(!empty($order1_data)){ echo "+Rs. ".$order1_data->delivery_charge; }?></th>
+        <th class="product_table"><?php if(!empty($order1_data)){ echo "+ £".$order1_data->delivery_charge; }?></th>
       </tr>
       <tr>
         <th>Promocode discount:</th>
 
         <th class="product_table" ><?php if(!empty($order1_data)){ echo ""; }?></th>
         <th class="product_table" colspan="2"><?php if(!empty($order1_data)){ echo ""; }?></th>
-        <th class="product_table"><?php if(!empty($order1_data->promode_id)){ echo "-Rs. ".$order1_data->p_discount; }else{"NA";}?></th>
+        <th class="product_table"><?php if(!empty($order1_data->promocode_id)){ echo "- £".$order1_data->p_discount; }else{"NA";}?></th>
       </tr>
 
       <tr>
@@ -136,7 +136,7 @@ echo $product_name= $product_data->productname;
 
       <tr>
         <th colspan="4">SubTotal</th>
-        <th class="product_table">Rs. <?php if(!empty($order1_data)){ echo  $order1_data->final_amount; }?></th>
+        <th class="product_table">£<?php if(!empty($order1_data)){ echo  $order1_data->final_amount; }?></th>
 
       </tr>
     </tbody>

@@ -244,7 +244,7 @@ $sub_data= $this->db->get()->row();
     }?>
 
     <!--products--->
-    <div class="row">
+    <div class="row" id="wish">
       <?php $i=1; foreach($product_data1 as $pro) {
         $discount=(int)$pro['mrp']-(int)$pro['selling_price'];
         $percent=0;
@@ -271,16 +271,17 @@ $sub_data= $this->db->get()->row();
           $wishlist_data= $this->db->get()->row();
           if(empty($wishlist_data)){
           ?>
-        <a href="" style="color:#d76a46"><i class="fa fa-heart-o float-right" aria-hidden="true" style="font-size:20px" onclick="wishlist(this)"
+        <a href="javascript:void(0);" style="color:#d76a46"><i class="fa fa-heart-o float-right" aria-hidden="true" style="font-size:20px" onclick="wishlist(this)"
         product_id="<?=base64_encode($pro['id'])?>"
         user_id="<?=base64_encode($this->session->userdata('user_id'))?>"
         status="add"></i>
         <?}else{?>
-          <a href="" style="color:#d76a46"><i class="fa fa-heart float-right" aria-hidden="true" style="font-size:20px" onclick="wishlist(this)"
+          <a href="javascript:void(0);" style="color:#d76a46" ><i class="fa fa-heart float-right" aria-hidden="true" style="font-size:20px" onclick="wishlist(this)"
           product_id="<?=base64_encode($pro['id'])?>"
           user_id="<?=base64_encode($this->session->userdata('user_id'))?>"
           status="remove"></i></a>
         <?}}?></a>
+
         <div class="w-100">
           <?if(empty($this->session->userdata('user_data'))){?>
           <button class=" add_btn" style="width:100%" onclick="addToCartOffline(this)" product_id="<?=base64_encode($pro['id'])?>" quantity=1>Add To Cart</button>

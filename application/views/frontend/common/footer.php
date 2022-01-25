@@ -273,7 +273,8 @@ function loadSuccessNotify(succ_message){
                         '<a href="{3}" target="{4}" data-notify="url"></a>' +
                         '</div>'
                     });
-                    window.setTimeout(function(){location.reload()},2000)
+                    // window.setTimeout(function(){location.reload()},2000)
+                    $( "#count" ).load(window.location.href + " #count > *" );
 
        }else if(response.data == false){
          var msg = response.data_message;
@@ -309,7 +310,9 @@ function loadSuccessNotify(succ_message){
                            '<a href="{3}" target="{4}" data-notify="url"></a>' +
                            '</div>'
                        });
-                       window.setTimeout(function(){location.reload()},2000)
+                       // window.setTimeout(function(){location.reload()},2000)
+                       $( "#count" ).load(window.location.href + " #count > *" );
+
        }
      }
        });
@@ -323,12 +326,14 @@ function loadSuccessNotify(succ_message){
     var product_id = $(obj).attr("product_id");
     var quantity = $(obj).attr("quantity");
     var base_path = "<?=base_url();?>";
+    // alert(quantity)
        $.ajax({
        url:'<?=base_url();?>Cart/addToCartOnline',
        method: 'post',
        data: {product_id: product_id, quantity: quantity},
        dataType: 'json',
        success: function(response){
+         // alert(response)
        if(response.data == true){
          // alert(response.data_message)
           // var msg = response.data_message;
@@ -364,7 +369,9 @@ function loadSuccessNotify(succ_message){
                         '<a href="{3}" target="{4}" data-notify="url"></a>' +
                         '</div>'
                     });
-                    window.setTimeout(function(){location.reload()},2000)
+                    // window.setTimeout(function(){location.reload()},2000)
+                    $( "#count" ).load(window.location.href + " #count > *" );
+
 
        }else if(response.data == false){
          var msg = response.data_message;
@@ -400,7 +407,9 @@ function loadSuccessNotify(succ_message){
                            '<a href="{3}" target="{4}" data-notify="url"></a>' +
                            '</div>'
                        });
-                       window.setTimeout(function(){location.reload()},2000)
+                       // window.setTimeout(function(){location.reload()},2000)
+                       $( "#count" ).load(window.location.href + " #count > *" );
+
 
        }
      }
@@ -460,7 +469,9 @@ function wishlist(obj) {
             '</div>'
         });
 
-        window.setTimeout(function(){location.reload()},1000)
+        $( "#count" ).load(window.location.href + " #count > *" );
+        $( "#wish" ).load(window.location.href + " #wish > *" );
+
 
       } else if (response.data == false) {
         $.notify({
@@ -495,7 +506,10 @@ function wishlist(obj) {
             '<a href="{3}" target="{4}" data-notify="url"></a>' +
             '</div>'
         });
-        window.setTimeout(function(){location.reload()},1000)
+        $( "#count" ).load(window.location.href + " #count > *" );
+        $( "#wish" ).load(window.location.href + " #wish > *" );
+
+
       }
       // window.setTimeout(function(){location.reload()},10000)
 

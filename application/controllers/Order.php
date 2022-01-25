@@ -469,8 +469,8 @@ class Order extends CI_Controller
                     $name=$this->input->post('name');
                     $email=$this->input->post('email');
                     $phone=$this->input->post('phone');
-                    $pincode=$this->input->post('pincode');
                     $address=$this->input->post('address');
+                    $pincode=$this->input->post('pincode');
                     // exit;
                     $ip = $this->input->ip_address();
                     date_default_timezone_set("Asia/Calcutta");
@@ -498,6 +498,11 @@ class Order extends CI_Controller
 
                     //----------order1 entry-------------
                     $order1_update = array(
+                                'name'=>$name,
+                                'email'=>$email,
+                                'phone'=>$phone,
+                                'address'=>$address,
+                                'pincode'=>$pincode,
                                 'payment_status'=>1,
                                 'order_status'=>1,
                                 'date'=>$cur_date,

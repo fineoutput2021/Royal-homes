@@ -473,8 +473,8 @@ function decreaseValue(i) {
               '</div>'
           });
 
-           $( "#here" ).load(window.location.href + " #here" );
-           $( "#count" ).load(window.location.href + " #count" );
+           $( "#here" ).load(window.location.href + " #here > *" );
+           $( "#count" ).load(window.location.href + " #count > *" );
 
 
         } else if (response.data == false) {
@@ -510,7 +510,8 @@ function decreaseValue(i) {
               '<a href="{3}" target="{4}" data-notify="url"></a>' +
               '</div>'
           });
-          window.setTimeout(function(){location.reload()},2000)
+          $( "#here" ).load(window.location.href + " #here > *" );
+          $( "#count" ).load(window.location.href + " #count > *" );
 
         }
       }
@@ -577,7 +578,7 @@ function decreaseValue(i) {
               '<a href="{3}" target="{4}" data-notify="url"></a>' +
               '</div>'
           });
-          window.setTimeout(function(){location.reload()},2000)
+          $( "#here" ).load(window.location.href + " #here > *" );
 
           // $('#price_'+i).html(price);
         } else if (response.data == false) {
@@ -616,7 +617,7 @@ function decreaseValue(i) {
               '<a href="{3}" target="{4}" data-notify="url"></a>' +
               '</div>'
           });
-          window.setTimeout(function(){location.reload()},1000)
+          $( "#here" ).load(window.location.href + " #here > *" );
 
         }
       }

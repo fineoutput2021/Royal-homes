@@ -405,6 +405,7 @@ echo $total;
 
 function increaseValue(i) {
   var value = parseInt(document.getElementById('number_'+i).value, 10);
+
   value = isNaN(value) ? 0 : value;
   value++;
   document.getElementById('number_'+i).value = value;
@@ -415,6 +416,10 @@ function increaseValue(i) {
 
 function decreaseValue(i) {
   var value = parseInt(document.getElementById('number_'+i).value, 10);
+  if(value==1){
+    document.getElementById('number_'+i).value = value;
+    return;
+  }
   value = isNaN(value) ? 0 : value;
   value < 1 ? value = 1 : '';
   value--;

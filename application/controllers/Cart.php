@@ -65,7 +65,7 @@ class Cart extends CI_Controller
                                 array_push($cart_data, $cart_item);
                                 $this->session->set_userdata('cart_data', $cart_data);
                                 $respone['data'] = true;
-                                $response['data_message'] = "Item successfully added in your cart";
+                                $respone['data_message'] = "Item successfully added in your cart";
                                 echo json_encode($respone);
                             }
                         }
@@ -74,7 +74,7 @@ class Cart extends CI_Controller
                             $cart = array($cart_item);
                             $this->session->set_userdata('cart_data', $cart);
                             $respone['data'] = true;
-                            $response['data_message'] = "Item successfully added in your cart";
+                            $respone['data_message'] = "Item successfully added in your cart";
                             echo json_encode($respone);
                         }
                         ///---inventory out of stock--------
@@ -257,6 +257,7 @@ class Cart extends CI_Controller
                 $response['data'] = '';
                 $response['data_message'] = '';
                 if (!empty($this->session->userdata('user_data'))) {
+
                     $user_id = $this->session->userdata('user_id');
 
                     $this->db->select('*');
@@ -265,7 +266,9 @@ class Cart extends CI_Controller
                     $pro_data= $this->db->get()->row();
                     //-----check inventory------
                     if (!empty($pro_data->inventory)) {
+
                         if ($pro_data->inventory >= $quantity) {
+
                             $this->db->select('*');
                             $this->db->from('tbl_cart');
                             $this->db->where('user_id', $user_id);
@@ -280,6 +283,7 @@ class Cart extends CI_Controller
                       );
                                 $last_id=$this->base_model->insert_table("tbl_cart", $cart_insert, 1) ;
                                 if (!empty($last_id)) {
+
                                     $respone['data'] = true;
                                     $respone['data_message'] ="Item successfully deleted in your cart";
                                     echo json_encode($respone);
@@ -288,6 +292,10 @@ class Cart extends CI_Controller
                                     $respone['data_message'] ="Some error occured";
                                     echo json_encode($respone);
                                 }
+                            }else{
+                              $respone['data'] = false;
+                              $respone['data_message'] ="Item is already in your cart";
+                              echo json_encode($respone);
                             }
                             ///---inventory out of stock--------
                         } else {

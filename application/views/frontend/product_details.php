@@ -2,6 +2,7 @@
 <br />
 <br />
 <br />
+<br />
 
 
 <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"> -->
@@ -107,11 +108,20 @@ width: 100px; */
     .jugad {
       display: block !important;
     }
+    .pd_btn{
+      margin-top: 20px;
+    }
+    .pd_ul{
+      display: block;
+    }
   }
 
   @media(min-width :450px) {
     .jugad2 {
       display: block !important;
+    }
+    .pd_ul{
+      display: flex;
     }
   }
 
@@ -188,8 +198,10 @@ width: 100px; */
     font-size: 13px;
     letter-spacing: 2px;
     line-height: 1.2rem;
-    padding: 11px 58px;
+    /* padding: 11px 58px; */
+    padding: 10px 45px;
     color: white;
+    margin-top: -3px;
   }
 
   .xmp:hover {
@@ -686,64 +698,24 @@ width: 100px; */
             <h3 style="font-size: 40px;text-transform: none;font-weight: 300;line-height: 1.2;color: #3e3938;"><?=$product_data->productname?>
             </h3>
             <br>
-            <p class="productdetailcontent" style="font-size: 13px;line-height: 1.7;font-weight: 400;text-transform: none;color: #3e3938 ;justify-content: center;">Specimen book. It has survived not only five
-              centuries,<br> but also the
+            <p class="productdetailcontent" style="font-size: 13px;line-height: 1.7;font-weight: 400;text-transform: none;color: #3e3938 ;text-align: justify;">Specimen book. It has survived not only five
+              centuries, but also the
               leap
               into
               electronic typesetting,
-              remaining <br> essentially unchanged. It was popularised in the 1960s.
+              remainingessentially unchanged. It was popularised in the 1960s.
             </p>
             <hr />
             <div>
               <ul>
                 <li>
+                  <?if($product_data->mrp > $product_data->selling_price){?>
                   <span style="font-size: 14px;">MRP :</span>
-                  <span style="font-size: 14px;color: #212529;font-weight: bold;float:right"><s style="font-size: 12px;text-decoration: line-through;color:red">£<?=$product_data->mrp?></s> </span>
-                </li>
-                <li>
-                  <span style="font-size: 14px;">Price :</span>
-                  <span style="font-size: 14px;color: #212529;font-weight: bold;float:right">£<?=$product_data->selling_price?></span>
-                </li>
-              </ul>
-              <br>
-            </div>
-            <div class="">
-              <ul>
-                <li style="display:flex">
-                  <span>Quantity:</span>
-                  <div id="custom-qty" class="control ml-4">
-                    <!-- ko template: getTemplate() -->
-                    <div class="input-group">
-                      <span class="input-group__addon">
-                        <div class="input-group__button input-group__button--decrease" id="decrease" onclick="decreaseValue()">
-                          <span class="input-group__icon input-group__icon--decrease">-</span>
-                        </div>
-                      </span>
-                      <input type="number" readonly style="color:black" name="qty" id="number" min="1" value="1" maxlength="12" class="input-group__input">
-                      <span class="input-group__addon">
-                        <div class="input-group__button input-group__button--increase" id="increase" onclick="increaseValue()">
-                          <span class="input-group__icon input-group__icon--increase">+</span>
-                        </div>
-                      </span>
-                    </div>
-                    <!-- /ko -->
-                  </div>
-
-                </li>
-              </ul>
-            </div>
-            <div class="">
-              <ul>
-                <li>
-                  <!--============ Add to cart ============== -->
-                  <?if (empty($this->session->userdata('user_data'))) {?>
-                  <button type="button" class="xmp" name="add_cart" onclick="addToCartOffline(this)" id="add_cart" product_id="<?=base64_encode($product_data->id)?>" quantity=1>Add to cart</button>
-                  <?} else {?>
-                  <button type="button" class="xmp" name="add_cart" onclick="addToCartOnline(this)" id="add_cart" product_id="<?=base64_encode($product_data->id)?>" quantity=1>Add to cart</button>
-
-
+                  <span style="font-size: 14px;color: #212529;font-weight: bold;"><s style="font-size: 12px;text-decoration: line-through;color:red">&nbsp;£<?=$product_data->mrp?></s> </span>
+                  <?}?>
+                  <?if (!empty($this->session->userdata('user_data'))) {?>
                   <!-- =========== wishlist ========== -->
-                  <span class="mt-2" style="float: right;">
+                  <span class="mt-2 float-right" id="wish">
 
                     <?php
                               $user_id = $this->session->userdata('user_id');
@@ -759,6 +731,41 @@ width: 100px; */
                     <i class="fa fa-heart" style="font-size: 1.5rem; color:#d76a46" onclick="wishlist(this)" product_id="<?=base64_encode($product_data->id)?>" user_id="<?=base64_encode($this->session->userdata('user_id'))?>" status="remove"></i>
                   </span>
                   <?}}?>
+                </li>
+                <li>
+                  <span style="font-size: 14px;">Price :</span>
+                  <span style="font-size: 14px;color: #212529;font-weight: bold;">&nbsp;£<?=$product_data->selling_price?></span>
+                </li>
+              </ul>
+              <br>
+            </div>
+            <div class="">
+              <ul class="pd_ul">
+                <li style="display:flex">
+                  <span>Qty:</span>
+                  <div id="custom-qty" class="control ml-2">
+                    <div class="input-group">
+                      <span class="input-group__addon">
+                        <div class="input-group__button input-group__button--decrease" id="decrease" onclick="decreaseValue()">
+                          <span class="input-group__icon input-group__icon--decrease">-</span>
+                        </div>
+                      </span>
+                      <input type="number" readonly style="color:black" name="qty" id="number" min="1" value="1" maxlength="12" class="input-group__input">
+                      <span class="input-group__addon">
+                        <div class="input-group__button input-group__button--increase" id="increase" onclick="increaseValue()">
+                          <span class="input-group__icon input-group__icon--increase">+</span>
+                        </div>
+                      </span>
+                    </div>
+                  </div>
+                </li>
+                <li class="ml-2 pd_btn">
+                  <!--============ Add to cart ============== -->
+                  <?if (empty($this->session->userdata('user_data'))) {?>
+                  <button type="button" class="xmp" name="add_cart" onclick="addToCartOffline(this)" id="add_cart" product_id="<?=base64_encode($product_data->id)?>" quantity=1>Add to cart</button>
+                  <?} else {?>
+                  <button type="button" class="xmp" name="add_cart" onclick="addToCartOnline(this)" id="add_cart" product_id="<?=base64_encode($product_data->id)?>" quantity=1>Add to cart</button>
+                  <?}?>
                 </li>
               </ul>
             </div>
