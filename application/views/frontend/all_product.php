@@ -44,7 +44,7 @@
     cursor: pointer;
     white-space: nowrap;
     color: white;
-    font-size:14px;
+    font-size: 14px;
   }
 
   .dd-button:after {
@@ -84,7 +84,7 @@
     z-index: 10;
     text-align: left;
     margin-left: -63px;
-    font-size:13px;
+    font-size: 13px;
   }
 
   .dd-input+.dd-menu {
@@ -103,7 +103,7 @@
 
   .dd-menu li:hover {
     background-color: #d76a46;
-    color:white;
+    color: white;
   }
 
   .dd-menu li a {
@@ -157,7 +157,7 @@ $sub_data= $this->db->get()->row();
     <div class="row">
       <div class="col-md-6">
         <h3>
-        <?if(!empty($sub_data->subcategory)){
+          <?if(!empty($sub_data->subcategory)){
           echo $sub_data->subcategory;
         }else{
           echo $cat_data->categoryname;
@@ -171,8 +171,12 @@ $sub_data= $this->db->get()->row();
           </div>
           <input type="checkbox" class="dd-input" id="test">
           <ul class="dd-menu">
-            <a href="<?=base_url()?>Home/all_Product/<?=$idd?>/<?=$type?>/LH" style="color:black"><li>Price Low To High</li></a>
-            <a href="<?=base_url()?>Home/all_Product/<?=$idd?>/<?=$type?>/HL" style="color:black"><li>Price High To Low</li></a>
+            <a href="<?=base_url()?>Home/all_Product/<?=$idd?>/<?=$type?>/LH" style="color:black">
+              <li>Price Low To High</li>
+            </a>
+            <a href="<?=base_url()?>Home/all_Product/<?=$idd?>/<?=$type?>/HL" style="color:black">
+              <li>Price High To Low</li>
+            </a>
           </ul>
         </label>
       </div>
@@ -193,6 +197,11 @@ $sub_data= $this->db->get()->row();
       foreach($product_data->result() as $data) {
        $cat = json_decode($data->category);
        $count = count($cat);
+       if(!empty($data->image1)){
+         $image1 = $data->image1;
+       }else{
+         $image1 = $data->image;
+       }
        if($count>1){
          foreach ($cat as $value) {
            if($value==$id){
@@ -200,6 +209,7 @@ $sub_data= $this->db->get()->row();
                'id' => $data->id,
                'name' => $data->productname,
                'image' => $data->image,
+               'image1' => $image1,
                'mrp' => $data->mrp,
                'selling_price' => $data->selling_price,
              );
@@ -212,6 +222,7 @@ $sub_data= $this->db->get()->row();
              'id' => $data->id,
              'name' => $data->productname,
              'image' => $data->image,
+             'image1' => $image1,
              'mrp' => $data->mrp,
              'selling_price' => $data->selling_price,
            );
@@ -227,6 +238,11 @@ $sub_data= $this->db->get()->row();
       foreach($product_data->result() as $data) {
        $sub = json_decode($data->subcategory);
        $count = count($sub);
+       if(!empty($data->image1)){
+         $image1 = $data->image1;
+       }else{
+         $image1 = $data->image;
+       }
        if($count>1){
          foreach ($sub as $value) {
            if($value==$id){
@@ -234,6 +250,7 @@ $sub_data= $this->db->get()->row();
                'id' => $data->id,
                'name' => $data->productname,
                'image' => $data->image,
+               'image1' => $image1,
                'mrp' => $data->mrp,
                'selling_price' => $data->selling_price,
              );
@@ -245,6 +262,7 @@ $sub_data= $this->db->get()->row();
              'id' => $data->id,
              'name' => $data->productname,
              'image' => $data->image,
+             'image1' => $image1,
              'mrp' => $data->mrp,
              'selling_price' => $data->selling_price,
            );
@@ -257,6 +275,7 @@ $sub_data= $this->db->get()->row();
     <!--products--->
     <div class="row" id="wish">
       <?php $i=1; foreach($product_data1 as $pro) {
+
         $discount=(int)$pro['mrp']-(int)$pro['selling_price'];
         $percent=0;
         if($discount>0){
@@ -264,16 +283,17 @@ $sub_data= $this->db->get()->row();
         }
         ?>
       <div class="col-md-3 p-2">
-          <a href="<?=base_url()?>Home/product_details/<?=base64_encode($pro['id'])?>" style="color:unset">
-        <img src="<?=base_url().$pro['image']?>" class="img-fluid" />
-        <?if($percent>0){?>
-        <div class="discount"><?=round($percent)?>% off</div>
-        <?}?>
-        <h5><?=$pro['name']?></h5>
-        <?if($pro['mrp']>$pro['selling_price']){?>
-        <s style="font-size: 12px;text-decoration: line-through;color:red">(£<?=$pro['mrp']?>)</s>
-        <?}?>
-        <span style="font-weight: bold; font-size: 12px;"> £<?=$pro['selling_price']?></span></a>
+        <a href="<?=base_url()?>Home/product_details/<?=base64_encode($pro['id'])?>" style="color:unset">
+          <img src="<?=base_url().$pro['image']?>" onmouseover="pro_change(this)" onmouseout="pro_default(this)" id="pro_img<?=$i?>" class="img-fluid" img="<?=base_url().$pro['image']?>" img2="<?=base_url().$pro['image1']?>" />
+          <?if($percent>0){?>
+          <div class="discount"><?=round($percent)?>% off</div>
+          <?}?>
+          <h5><?=$pro['name']?></h5>
+          <?if($pro['mrp']>$pro['selling_price']){?>
+          <s style="font-size: 12px;text-decoration: line-through;color:red">(£<?=$pro['mrp']?>)</s>
+          <?}?>
+          <span style="font-weight: bold; font-size: 12px;"> £<?=$pro['selling_price']?></span>
+        </a>
         <?if(!empty($this->session->userdata('user_data'))){
                       $this->db->select('*');
           $this->db->from('tbl_wishlist');
@@ -282,16 +302,13 @@ $sub_data= $this->db->get()->row();
           $wishlist_data= $this->db->get()->row();
           if(empty($wishlist_data)){
           ?>
-        <a href="javascript:void(0);" style="color:#d76a46"><i class="fa fa-heart-o float-right" aria-hidden="true" style="font-size:20px" onclick="wishlist(this)"
-        product_id="<?=base64_encode($pro['id'])?>"
-        user_id="<?=base64_encode($this->session->userdata('user_id'))?>"
-        status="add"></i>
-        <?}else{?>
-          <a href="javascript:void(0);" style="color:#d76a46" ><i class="fa fa-heart float-right" aria-hidden="true" style="font-size:20px" onclick="wishlist(this)"
-          product_id="<?=base64_encode($pro['id'])?>"
-          user_id="<?=base64_encode($this->session->userdata('user_id'))?>"
-          status="remove"></i></a>
-        <?}}?></a>
+        <a href="javascript:void(0);" style="color:#d76a46"><i class="fa fa-heart-o float-right" aria-hidden="true" style="font-size:20px" onclick="wishlist(this)" product_id="<?=base64_encode($pro['id'])?>"
+            user_id="<?=base64_encode($this->session->userdata('user_id'))?>" status="add"></i>
+          <?}else{?>
+          <a href="javascript:void(0);" style="color:#d76a46"><i class="fa fa-heart float-right" aria-hidden="true" style="font-size:20px" onclick="wishlist(this)" product_id="<?=base64_encode($pro['id'])?>"
+              user_id="<?=base64_encode($this->session->userdata('user_id'))?>" status="remove"></i></a>
+          <?}}?>
+        </a>
 
         <div class="w-100">
           <?if(empty($this->session->userdata('user_data'))){?>
@@ -301,9 +318,23 @@ $sub_data= $this->db->get()->row();
           <?}?>
         </div>
       </div>
-      <?}}?>
+      <?$i++;}}?>
     </div>
 </section>
 <br />
 <br />
 <br />
+<script>
+  function pro_change(obj) {
+    var id = $(obj).attr("id");
+    var img2 = $(obj).attr("img2");
+    document.getElementById(id).src = img2;
+  }
+
+  function pro_default(obj) {
+    var id = $(obj).attr("id");
+    var img = $(obj).attr("img");
+    document.getElementById(id).src = img;
+  }
+</script>
+}

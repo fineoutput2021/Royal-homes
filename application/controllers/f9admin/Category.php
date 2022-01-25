@@ -121,7 +121,8 @@ public function add_category(){
               if($this->form_validation->run()== TRUE)
               {
                 $categoryname=$this->input->post('categoryname');
-
+								$nnn="";
+								$nnn1="";
 								// Load library
 								$this->load->library('upload');
 
@@ -154,9 +155,8 @@ public function add_category(){
 								  							$file_info = $this->upload->data();
 
 								  							$image = "assets/uploads/category/".$new_file_name.$file_info['file_ext'];
-								  							$file_info['new_name']=$image;
 								  							// $this->step6_model->updateappIconImage($imageNAmePath,$appInfoId);
-								  							$nnn=$file_info['file_name'];
+								  							$nnn=$image;
 								  							// echo json_encode($file_info);
 								  						}
 								            }
@@ -214,7 +214,7 @@ public function add_category(){
           if($typ==1){
 
           $data_insert = array('categoryname'=>$categoryname,
-                    'image'=>$image,
+                    'image'=>$nnn,
                     'image2'=>$nnn1,
                     'added_by' =>$addedby,
                     'is_active' =>1,

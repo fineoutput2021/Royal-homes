@@ -48,7 +48,8 @@
                     </tr>
                     <tr>
                       <td> <strong>Description</strong> <span style="color:red;">*</span></strong> </td>
-                      <td> <input type="text" name="description" class="form-control" placeholder="" required value="" /> </td>
+                      <td>
+                        <textarea name="description" class="form-control" required value="" rows="8" cols="80"></textarea>
                     </tr>
                     <tr>
                       <td> <strong>Image</strong> <span style="color:red;">*</span></strong> </td>

@@ -48,10 +48,14 @@ if(!empty($this->session->flashdata('emessage'))){ ?>
                       <th>Address</th>
                       <th>Pincode</th>
                       <th>Promocode</th>
+                      <th>Total Amount</th>
                       <th>Promocode Discount</th>
                       <th>Shipping Charge</th>
-                      <th>Total Amount</th>
+                      <th>Final Amount</th>
                       <th>Date</th>
+                      <th>Remarks</th>
+                      <th>Tracking URL</th>
+                      <th>Tracking No.</th>
                       <th>Orders Status</th>
                       <th>Action</th>
                     </tr>
@@ -73,25 +77,29 @@ if(!empty($this->session->flashdata('emessage'))){ ?>
                         $this->db->where('id',$data->promocode_id);
                         $promodata= $this->db->get()->row();
                          echo $promodata->name;} else { echo "NA"; }?></td>
-  <td><? if(!empty($data->p_discount)){ echo "Rs.".$data->p_discount;} else { echo "NA"; }?></td>
-  <td><? if(!empty($data->delivery_charge)){ echo "Rs.".$data->delivery_charge;} else { echo "NA"; }?></td>
-  <td><? if(!empty($data->final_amount)){ echo "Rs.".$data->final_amount;} else { echo "no data"; }?></td>
-    <td>
-  <?
+                      <td><? if(!empty($data->total_amount)){ echo "£".$data->total_amount;} else { echo "NA"; }?></td>
+                      <td><? if(!empty($data->p_discount)){ echo "£".$data->p_discount;} else { echo "NA"; }?></td>
+                      <td><? if(!empty($data->delivery_charge)){ echo "£".$data->delivery_charge;} else { echo "NA"; }?></td>
+                      <td><? if(!empty($data->final_amount)){ echo "£".$data->final_amount;} else { echo "No Data"; }?></td>
+                      <td>
+                        <?
     $newdate = new DateTime($data->date);
     echo $newdate->format('F j, Y, g:i a');   #d-m-Y  // March 10, 2001, 5:16 pm
     ?>
-  </td>
+                      </td>
+                      <td><? if(!empty($data->remarks)){ echo $data->remarks;} else { echo "No Data"; }?></td>
+                      <td><? if(!empty($data->tracking_url)){ echo $data->tracking_url;} else { echo "No Data"; }?></td>
+                      <td><? if(!empty($data->tracking_no)){ echo $data->tracking_no;} else { echo "No Data"; }?></td>
 
                       <td><?php if($data->order_status==1){ ?>
-                        <p class="label bg-orange">Pending</p>
+                        <p class="label bg-yellow">Pending</p>
                         <?php } elseif ($data->order_status==2){ ?>
-                        <p class="label bg-yellow">Accepted</p>
+                        <p class="label bg-aqua">Accepted</p>
                         <?php		}elseif ($data->order_status==3){ ?>
                         <p class="label bg-blue">Dispatched</p>
                         <?php		} elseif ($data->order_status==4){ ?>
-                            <p class="label bg-green">Delivered</p>
-                         <?}elseif ($data->order_status==5){ ?>
+                        <p class="label bg-green">Delivered</p>
+                        <?}elseif ($data->order_status==5){ ?>
                         <p class="label bg-red">Rejected</p>
                         <?php		}   ?>
                       </td>
@@ -104,24 +112,25 @@ if(!empty($this->session->flashdata('emessage'))){ ?>
                               <?php if($data->order_status==1){ ?>
                               <li><a href="<?php echo base_url() ?>dcadmin/orders/update_order_status/<?php echo base64_encode($data->id) ?>/accept">Accept</a></li>
                               <li><a href="<?php echo base_url() ?>dcadmin/orders/update_order_status/<?php echo base64_encode($data->id) ?>/reject">Reject</a></li>
-                                <li><a href="<?php echo base_url() ?>dcadmin/orders/view_product_details/<?php echo base64_encode($data->id) ?>">View details</a></li>
-                                  <li><a href="<?php echo base_url() ?>dcadmin/orders/view_order_bill/<?php echo base64_encode($data->id) ?>">View Bill</a></li>
+                              <li><a href="<?php echo base_url() ?>dcadmin/orders/view_product_details/<?php echo base64_encode($data->id) ?>">View details</a></li>
+                              <li><a href="<?php echo base_url() ?>dcadmin/orders/view_order_bill/<?php echo base64_encode($data->id) ?>">View Bill</a></li>
                               <?php } elseif($data->order_status==2) { ?>
-                              <li><a href="<?php echo base_url() ?>dcadmin/orders/update_order_status/<?php echo base64_encode($data->id) ?>/dispatch">Dispatch</a></li>
+                              <li><a href="<?php echo base_url() ?>dcadmin/orders/view_dispatch_remarks/<?php echo base64_encode($data->id) ?>">Dispatch</a></li>
                               <li><a href="<?php echo base_url() ?>dcadmin/orders/update_order_status/<?php echo base64_encode($data->id) ?>/reject">Reject</a></li>
-                                <li><a href="<?php echo base_url() ?>dcadmin/orders/view_product_details/<?php echo base64_encode($data->id) ?>">View details</a></li>
-                                    <li><a href="<?php echo base_url() ?>dcadmin/orders/view_order_bill/<?php echo base64_encode($data->id) ?>">View Bill</a></li>
+                              <li><a href="<?php echo base_url() ?>dcadmin/orders/view_product_details/<?php echo base64_encode($data->id) ?>">View details</a></li>
+                              <li><a href="<?php echo base_url() ?>dcadmin/orders/view_order_bill/<?php echo base64_encode($data->id) ?>">View Bill</a></li>
                               <?php		} elseif($data->order_status==3) { ?>
                               <li><a href="<?php echo base_url() ?>dcadmin/orders/update_order_status/<?php echo base64_encode($data->id) ?>/delivered">Delivered</a></li>
                               <li><a href="<?php echo base_url() ?>dcadmin/orders/update_order_status/<?php echo base64_encode($data->id) ?>/reject">Reject</a></li>
-                            <li><a href="<?php echo base_url() ?>dcadmin/orders/view_product_details/<?php echo base64_encode($data->id) ?>">View details</a></li>
-                                <li><a href="<?php echo base_url() ?>dcadmin/orders/view_order_bill/<?php echo base64_encode($data->id) ?>">View Bill</a></li>
+                              <li><a href="<?php echo base_url() ?>dcadmin/orders/view_product_details/<?php echo base64_encode($data->id) ?>">View details</a></li>
+                              <li><a href="<?php echo base_url() ?>dcadmin/orders/view_order_bill/<?php echo base64_encode($data->id) ?>">View Bill</a></li>
+                              <li><a href="<?php echo base_url() ?>dcadmin/orders/update_tracking_view/<?php echo base64_encode($data->id) ?>">Update Tracking</a></li>
                               <?php		}  elseif($data->order_status==4) { ?>
-    <li><a href="<?php echo base_url() ?>dcadmin/orders/view_product_details/<?php echo base64_encode($data->id) ?>">View details</a></li>
-        <li><a href="<?php echo base_url() ?>dcadmin/orders/view_order_bill/<?php echo base64_encode($data->id) ?>">View Bill</a></li>
+                              <li><a href="<?php echo base_url() ?>dcadmin/orders/view_product_details/<?php echo base64_encode($data->id) ?>">View details</a></li>
+                              <li><a href="<?php echo base_url() ?>dcadmin/orders/view_order_bill/<?php echo base64_encode($data->id) ?>">View Bill</a></li>
                               <?php		}  elseif($data->order_status==5) { ?>
-    <li><a href="<?php echo base_url() ?>dcadmin/orders/view_product_details/<?php echo base64_encode($data->id) ?>">View details</a></li>
-        <li><a href="<?php echo base_url() ?>dcadmin/orders/view_order_bill/<?php echo base64_encode($data->id) ?>">View Bill</a></li>
+                              <li><a href="<?php echo base_url() ?>dcadmin/orders/view_product_details/<?php echo base64_encode($data->id) ?>">View details</a></li>
+                              <li><a href="<?php echo base_url() ?>dcadmin/orders/view_order_bill/<?php echo base64_encode($data->id) ?>">View Bill</a></li>
                               <?php		}   ?>
 
                             </ul>
@@ -179,4 +188,4 @@ if(!empty($this->session->flashdata('emessage'))){ ?>
   });
 </script>
 <!-- <script type="text/javascript" src="<?php echo base_url() ?>assets/slider/ajaxupload.3.5.js"></script>
-<script type="text/javascript" src="<?php echo base_url() ?>assets/slider/rs.js"></script>	  -->
+<script type="text/javascript" src="<?php echo base_url() ?>assets/slider/£js"></script>	  -->

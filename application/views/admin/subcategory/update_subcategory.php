@@ -52,7 +52,9 @@ foreach($category_data->result() as $value) {?>
                     </tr>
                     <tr>
                       <td> <strong>Description</strong> <span style="color:red;">*</span></strong> </td>
-                      <td> <input type="text" name="description" class="form-control" placeholder="" required value="<?if(!empty($subcategory_data->description)){echo $subcategory_data->description;}?>" /> </td>
+                      <td>
+                          <textarea name="description" class="form-control" required value="" rows="8" cols="80"><?if(!empty($subcategory_data->description)){echo $subcategory_data->description;}?></textarea>
+                 </td>
                     </tr>
                     <tr>
                       <td> <strong>Image</strong> <span style="color:red;">*</span></strong> </td>

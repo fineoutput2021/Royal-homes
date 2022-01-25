@@ -853,6 +853,8 @@ $(document).ready(function () {
     lazyLoad: 'ondemand',
     slidesToShow: 3,
     slidesToScroll: 3,
+    autoplay: true,
+   autoplaySpeed: 2000,
     prevArrow: null,
     nextArrow: null,
     responsive: [
@@ -860,6 +862,8 @@ $(document).ready(function () {
     breakpoint: 768,
     settings: {
     slidesToShow: 1,
+    autoplay: true,
+   autoplaySpeed: 2000,
     centerMode: false, /* set centerMode to false to show complete slide instead of 3 */
     slidesToScroll: 1
     }
