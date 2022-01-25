@@ -85,12 +85,12 @@
 
 
   .ffth {}
-.swiper-button-next{
+/* .swiper-button-next{
   right:-4px!important;
-}
+} */
   .swimg {
-    height: 600px;
-    width: 600px;
+    height: 1000px;
+    width: 1000px;
     /* margin-left: 42px; */
   }
 
@@ -99,7 +99,7 @@
     width: 100px;
     /* height: 100px;
 width: 100px; */
-    margin-left: 100px;
+    margin-left: 172px!important;
   }
 
   .btn:focus {
@@ -150,7 +150,7 @@ width: 100px; */
 
   @media (min-width:896px) {
     .swimg {
-      margin-left: 35px;
+      /* margin-left: 35px; */
     }
 
     .slimg {
@@ -538,8 +538,8 @@ width: 100px; */
 <section>
   <!-- slider start -->
   <div class="row ffth">
-    <div class="col-lg-1"></div>
-    <div class="col-lg-6 product-left">
+    <!-- <div class="col-lg-1"></div> -->
+    <div class="col-lg-8 product-left">
       <div class="verslide">
         <div class="swiper-container product-slider ">
           <div class="swiper-wrapper ">
@@ -596,7 +596,7 @@ width: 100px; */
 
         <!---======================= web div =====================-->
 
-        <div class="jugad2" style="margin:10px 37px 0px 37px;display:none">
+        <div class="jugad2" style="margin:10px 0px 0px 0px;display:none">
           <div class="accordion" id="accordionExample">
             <div class="card">
               <div class="card-header" id="headingOne">
@@ -698,7 +698,7 @@ width: 100px; */
 
       <div style="padding-bottom: 0px; background-color: white; padding-left: 0px;" id="info" class="fixedElement">
         <div class="qwer">
-          <div class="rr">
+          <div class="">
             <!-- <a href="<?=base_url()?>" style="color: #3e3938;; font-size: 11px; font-weight: 600;">HOME</a>&nbsp;&nbsp;<i class="fas fa-greater-than" style="font-size: 11px;"></i> -->
             <h3 style="font-size: 40px;text-transform: none;font-weight: 300;line-height: 1.2;color: #3e3938;"><?=$product_data->productname?>
             </h3>
@@ -778,7 +778,7 @@ width: 100px; */
         </div>
       </div>
     </div>
-    <div class="col-lg-1"></div>
+    <!-- <div class="col-lg-1"></div> -->
 
 
 
