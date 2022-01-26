@@ -2126,7 +2126,7 @@ $category_data= $this->db->get();
                       </ul>
                     </div>
                   </div>
-                  <div class="" style="margin-top:10rem">
+                  <div class="" style="margin-top:8rem">
                     <div>
                       <img src="<?=base_url().$data->image?>" class="img-fluid pl-5 pr-5 pb-3" alt="image">
                     </div>
