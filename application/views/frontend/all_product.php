@@ -116,6 +116,11 @@
     padding: 0;
     border-bottom: 1px solid #cccccc;
   }
+@media(max-width:480px) {
+.reverse{
+flex-direction: column-reverse !important;
+}
+  }
 </style>
 
 
@@ -136,17 +141,19 @@ $sub_data= $this->db->get()->row();
 
     <!-- category or subcategory details -->
 
-    <div class="row" style="padding:10px;border:1px solid #ccc">
-      <div class="col-md-6">
+    <div class="row reverse" style="border:1px solid #ccc">
+      <!-- <div class="col-xs-12 "> -->
+      <div class="col-md-5 p-5">
         <h3 style="text-align:center;"><?=$sub_data->subcategory?></h3>
-        <p>
+        <p style="text-align:justify">
           <?=$sub_data->description?>
         </p>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-7 p-0">
         <img src="<?=base_url().$sub_data->image;?>" class="img-fluid" />
       </div>
     </div>
+    <!-- </div> -->
     <?}else{
       $this->db->select('*');
     $this->db->from('tbl_category');
@@ -282,15 +289,15 @@ $sub_data= $this->db->get()->row();
         $percent=$discount/$pro['mrp']*100;
         }
         ?>
-      <div class="col-md-3 p-2">
+      <div class="col-md-4 p-2">
         <a href="<?=base_url()?>Home/product_details/<?=base64_encode($pro['id'])?>" style="color:unset">
           <img src="<?=base_url().$pro['image']?>" onmouseover="pro_change(this)" onmouseout="pro_default(this)" id="pro_img<?=$i?>" class="img-fluid" img="<?=base_url().$pro['image']?>" img2="<?=base_url().$pro['image1']?>" />
           <?if($percent>0){?>
           <div class="discount"><?=round($percent)?>% off</div>
           <?}?>
-          <h5><?=$pro['name']?></h5>
+          <h5 class="mt-2"><?=$pro['name']?></h5>
           <?if($pro['mrp']>$pro['selling_price']){?>
-          <s style="font-size: 12px;text-decoration: line-through;color:red">(£<?=$pro['mrp']?>)</s>
+          <s style="font-size: 12px;text-decoration:line-through;color:red">(£<?=$pro['mrp']?>)</s>
           <?}?>
           <span style="font-weight: bold; font-size: 12px;"> £<?=$pro['selling_price']?></span>
         </a>
@@ -320,21 +327,23 @@ $sub_data= $this->db->get()->row();
       </div>
       <?$i++;}}?>
     </div>
+    <div class="w-100 center mt-5">
+<button type="button" class="add_btn" name="button">Load More</button>
+    </div>
 </section>
 <br />
 <br />
 <br />
-<script>
-  function pro_change(obj) {
-    var id = $(obj).attr("id");
-    var img2 = $(obj).attr("img2");
-    document.getElementById(id).src = img2;
-  }
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".content").slice(0, 4).show();
+  $("#loadMore").on("click", function(e){
+    e.preventDefault();
+    $(".content:hidden").slice(0, 4).slideDown();
+    if($(".content:hidden").length == 0) {
+      $("#loadMore").text("No Content").addClass("noContent");
+    }
+  });
 
-  function pro_default(obj) {
-    var id = $(obj).attr("id");
-    var img = $(obj).attr("img");
-    document.getElementById(id).src = img;
-  }
+})
 </script>
-}

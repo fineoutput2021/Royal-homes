@@ -2073,6 +2073,7 @@ padding: 14px 17px;
       background-color: #d76a46 !important;
       text-decoration: none !important;
     }
+
   </style>
 </head>
 
@@ -2081,6 +2082,8 @@ padding: 14px 17px;
     <div class="container-fluid modifiedHeaderCont">
       <div class="row" style="width:100%">
         <div class="col-md-4 d-sx-none menu change" style="width: 100%;">
+<!-- =========web navigation========= -->
+
           <nav class="navbar">
             <ul class="d-flex">
               <?php
@@ -2104,22 +2107,31 @@ $category_data= $this->db->get();
                   <div class="content">
                     <div class="d-flex">
                       <ul class="mega-links d-flex flex-column">
-                        <?php
+                        <div class="container">
 
+                        <div class="row">
+                        <?php
+                        $i=1;
      foreach ($subdata->result() as $sub) {
          ?>
-                        <li><a href="<?=base_url()?>Home/all_Product/<?=base64_encode($sub->id)?>/<?=base64_encode(2)?>"><?php echo $sub->subcategory ?></a></li>
+                        <!-- <li><a href="<?=base_url()?>Home/all_Product/<?=base64_encode($sub->id)?>/<?=base64_encode(2)?>"><?php echo $sub->subcategory ?></a></li> -->
+                          <div class="col-md-6" style="text-align: center;">
+                            <span ><a style="color:black" href="<?=base_url()?>Home/all_Product/<?=base64_encode($sub->id)?>/<?=base64_encode(2)?>"><?php echo $sub->subcategory ?></a></span>
+                          </div>
                         <?php
      } ?>
+   </div>
+ </div>
+
                       </ul>
                     </div>
                   </div>
-                  <div class="full">
+                  <div class="" style="margin-top:10rem">
                     <div>
-                      <img src="<?=base_url().$data->image?>" class="img1" alt="full">
+                      <img src="<?=base_url().$data->image?>" class="img-fluid pl-5 pr-5 pb-3" alt="image">
                     </div>
                     <div>
-                      <img src="<?=base_url().$data->image2?>" class="img2" alt="flower">
+                      <img src="<?=base_url().$data->image2?>" class="img-fluid pl-5 pr-5" alt="image2">
                     </div>
                   </div>
                 </div>
@@ -2422,6 +2434,9 @@ $category_data= $this->db->get();
       </div>
     </div>
   </header>
+
+<!-- =============== Sign up model ======================== -->
+
   <div id="myModals1" class="modal1 close3" style="z-index:1000;">
     <!-- Modal content -->
     <div class="modal-content">
@@ -2491,6 +2506,7 @@ $category_data= $this->db->get();
           </div>
           <form>
             <div class="form_method_name">
+              <input type="hidden" name="previous_url" value="<?=current_url()?>">
               <div class="row g-3">
                 <div class="col-sm-6">
                   <input type="text" class="form-control formset" placeholder="First name" aria-label="First name" name="fname">
@@ -2551,7 +2567,7 @@ $category_data= $this->db->get();
 
   </div>
 
-  <!-- second modal -->
+  <!-- Sign in  modal -->
   <div id="myModals" class="modal  close2" style="z-index: 1000;">
     <!-- Modal content -->
     <div class="modal-content">
@@ -2619,8 +2635,7 @@ $category_data= $this->db->get();
 
           </div>
           <div class="form_method_name">
-
-
+            <input type="hidden" name="previous_url" value="<?=current_url()?>">
             <div class="field email required">
               <div class="control" style="margin-top:13px;">
                 <input placeholder="Email" name="email" type="email" class="input-text setcolumn" title="Email">
@@ -2631,8 +2646,7 @@ $category_data= $this->db->get();
                 <input placeholder="Password" name="password" value="" type="password" class="setcolumn">
               </div>
             </div>
-
-            <div class="badge  text-black text-wrap textres" style="font-size:12px;font-weight:400;font-family:'Gotham light';    padding-top: 1.5rem;">
+            <div class="badge  text-black text-wrap textres" style="font-size:12px;font-weight:400;font-family:'Gotham light';padding-top: 1.5rem;">
               <span>Forget Password</span>
             </div>
 
@@ -2713,7 +2727,7 @@ $category_data= $this->db->get();
 
     // Get the button that opens the modal
     var btn1 = document.getElementById("myBtn");
-    var btn3 = document.getElementById("hjki");
+    // var btn3 = document.getElementById("hjki");
     var btn2 = document.getElementById("pop_myBtn");
 
     // Get the <span> element that closes the modal

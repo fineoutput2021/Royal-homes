@@ -49,8 +49,8 @@
         <tr>
         <th>#</th>
  	      <th>Heading</th>
- 	      <th>Image</th>
- 	      <th>Image2</th>
+ 	      <th>Web Image</th>
+ 	      <th>Mobile Image</th>
         <th>Status</th>
         <th>Action</th>
         </tr>

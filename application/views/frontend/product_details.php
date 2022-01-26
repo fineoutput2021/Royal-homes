@@ -568,6 +568,7 @@ width: 100px; */
           <div class="swiper-button-prev"></div>
         </div>
         <br>
+        <?if(!empty($product_data->image1)){?>
         <div class="swiper-container product-thumbs verthumb">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
@@ -593,7 +594,7 @@ width: 100px; */
 
           </div>
         </div>
-
+        <?}?>
         <!---======================= web div =====================-->
 
         <div class="jugad2" style="margin:10px 0px 0px 0px;display:none">
@@ -703,13 +704,7 @@ width: 100px; */
             <h3 style="font-size: 40px;text-transform: none;font-weight: 300;line-height: 1.2;color: #3e3938;"><?=$product_data->productname?>
             </h3>
             <br>
-            <p class="productdetailcontent" style="font-size: 13px;line-height: 1.7;font-weight: 400;text-transform: none;color: #3e3938 ;text-align: justify;">Specimen book. It has survived not only five
-              centuries, but also the
-              leap
-              into
-              electronic typesetting,
-              remainingessentially unchanged. It was popularised in the 1960s.
-            </p>
+            <p class="productdetailcontent" style="font-size: 13px;line-height: 1.7;font-weight: 400;text-transform: none;color: #3e3938 ;text-align: justify;"><?=$product_data->s_description ?></p>
             <hr />
             <div>
               <ul>
@@ -907,10 +902,16 @@ width: 100px; */
         <!-- Swiper -->
 
         <div class="swiper-wrapper autoplay bg-white">
-          <?php $i=1; foreach ($like_data->result() as $like) { ?>
+          <?php $i=1; foreach ($like_data->result() as $like) {
+            if(!empty($like->image1)){
+              $image1 = $like->image1;
+            }else{
+              $image1 = $like->image;
+            }
+            ?>
           <a href="<?=base_url()?>Home/product_details/<?=base64_encode($like->id)?>" style="color:unset">
             <div class="swiper-slide" style="padding: 15px;">
-              <img src="<?=base_url().$like->image?>" alt="">
+              <img src="<?=base_url().$like->image?>" onmouseover="pro_change(this)" onmouseout="pro_default(this)" id="pro_img<?=$i?>" img="<?=base_url().$like->image?>" img2="<?=base_url().$image1?>" alt="">
               <div class="my-3">
                 <h6><?=$like->productname?></h6> <span style="font-weight: bold; font-size: 12px;">Starts At
                   ₹<?=$like->mrp?></span>
@@ -929,7 +930,7 @@ width: 100px; */
 </section>
 
 <!---end you may like-->
-
+<hr>
 <!---Start more from collection-->
 
 <section class="new_lunc overflow-hidden bg-white">
@@ -944,7 +945,7 @@ width: 100px; */
       <div class="col-md-12 bg-white">
         <div class="swiper-wrapper autoplay">
 
-          <?php $i=1; foreach ($more_data->result() as $more) {
+          <?php $i=50; foreach ($more_data->result() as $more) {
                         $a=0;
                         $cat = json_decode($more->category);
                         $pro_cat = json_decode($product_data->category);
@@ -956,9 +957,14 @@ width: 100px; */
                             }
                         }
                         if ($a==1) {
+                          if(!empty($more->image1)){
+                            $image1 = $more->image1;
+                          }else{
+                            $image1 = $more->image;
+                          }
                             ?>
           <div class="swiper-slide" style="padding: 15px;">
-            <img src="<?=base_url().$more->image?>" alt="">
+            <img src="<?=base_url().$more->image?>" onmouseover="pro_change(this)" onmouseout="pro_default(this)" id="pro_img<?=$i?>" img="<?=base_url().$more->image?>" img2="<?=base_url().$image1?>" alt="">
             <div class="my-3">
               <h6><?=$more->productname?></h6> <span style="font-weight: bold; font-size: 12px;">Starts At
                 ₹<?=$more->mrp?></span>
@@ -1009,17 +1015,8 @@ width: 100px; */
 
 <!-- End testimonals  -->
 
-
-<section>
-  <button type="button" onclick="goToTwo()">Click to go to #2</button>
-
-
-
-
-</section>
-
-
 <script type="text/javascript">
+
   /* product left start */
   if ($(".product-left").length) {
     var productSlider = new Swiper('.product-slider', {

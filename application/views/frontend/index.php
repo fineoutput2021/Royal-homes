@@ -18,6 +18,7 @@
 @media (max-width: 640px){
   .mbjj{padding:0px!important;}
   .ttrry{padding-left: 8.5px;padding-right: 8.5px; margin-bottom: 17px!important;}
+  .w_50{width:50%!important;}
 }
 
 
@@ -113,7 +114,7 @@
     </h2>
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <?php $i=0; foreach($launch_sub_data->result() as $sub) { ?>
-      <li class="nav-item fdff active">
+      <li class="nav-item fdff active" style="margin-bottom: 0px;">
         <a class="<?if($i==0){echo'active';}?> new" id="home_tab_<?=$sub->id?>" data-toggle="tab" href="#home_<?=$sub->id?>" role="tab" aria-controls="home_<?=$sub->id?>" aria-selected="<?if($i==0){echo 'true';}else{echo 'false';}?>"><?=$sub->subcategory?></a>
       </li>
       <?$i++;}?>
@@ -131,27 +132,32 @@
          ?>
       <div class="tab-pane fade <?if($i==0){echo "show active";}?>" id="home_<?=$sub2->id?>" role="tabpanel" aria-labelledby="home_tab_<?=$sub2->id?>">
       <div class="your-class">
-          <?php  foreach($new_launch_data->result() as $n_launch) {
+          <?php $a=1;  foreach($new_launch_data->result() as $n_launch) {
             $discount=(int)$n_launch->mrp-(int)$n_launch->selling_price;
             $percent=0;
             if($discount>0){
             $percent=$discount/$n_launch->mrp*100;
             }
+            if(!empty($n_launch->image1)){
+              $image1 = $n_launch->image1;
+            }else{
+              $image1 = $n_launch->image;
+            }
             ?>
           <a href="<?=base_url()?>Home/product_details/<?=base64_encode($n_launch->id)?>" style="color:unset">
           <div style="padding:15px">
-            <img src="<?=base_url().$n_launch->image?>" alt="">
+            <img src="<?=base_url().$n_launch->image?>" onmouseover="pro_change(this)" onmouseout="pro_default(this)" id="pro_img<?=$a?>" img="<?=base_url().$n_launch->image?>" img2="<?=base_url().$image1?>" alt="">
             <?if($percent>0){?>
             <div class="discount"><?=round($percent)?>% off</div>
             <?}?>
-              <h5><?=$n_launch->productname?></h5>
+              <h5 class="mt-2"><?=$n_launch->productname?></h5>
                 <?if($n_launch->mrp>$n_launch->selling_price){?>
               <s style="font-size: 12px;text-decoration: line-through;color:red">(£<?=$n_launch->mrp?>)</s>
               <?}?>
                <span style="font-weight: bold; font-size: 12px;">£<?=$n_launch->selling_price?></span>
           </div>
         </a>
-          <?}?>
+          <?$a++;}?>
         </div>
       </div>
       <?php $i++; } ?>
@@ -197,17 +203,22 @@
         <!-- Swiper -->
 
         <div class="swiper-wrapper autoplay">
-          <? foreach($Best_seller->result() as $seller){
+          <? $i=50; foreach($Best_seller->result() as $seller){
             $discount=(int)$seller->mrp-(int)$seller->selling_price;
             $percent=0;
             if($discount>0){
             $percent=$discount/$seller->mrp*100;
             }
+            if(!empty($seller->image1)){
+              $image1 = $seller->image1;
+            }else{
+              $image1 = $seller->image;
+            }
              ?>
 
           <div class="swiper-slide" style="padding: 15px;">
             <a href="<?=base_url()?>Home/product_details/<?=base64_encode($seller->id)?>">
-              <img src="<?=base_url().$seller->image;?>" alt="">
+              <img src="<?=base_url().$seller->image;?>"  onmouseover="pro_change(this)" onmouseout="pro_default(this)" id="pro_img<?=$i?>" img="<?=base_url().$seller->image?>" img2="<?=base_url().$image1?>" alt="">
             </a>
             <div class="my-3">
               <?if($percent>0){?>
@@ -221,7 +232,7 @@
             </div>
           </div>
 
-          <? } ?>
+          <? $i++;} ?>
         </div>
       </div>
       <!-- <div class="swiper-button-next"></div>
@@ -287,7 +298,7 @@
       <div class="col-md-3 col-12">
         <ul>
           <li>
-            <div class="img_1"><img src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/furniture/icn01.jpg" alt="" style="width: 80%;"></div>
+            <div class="img_1"><img  class="w_50"src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/furniture/icn01.jpg" alt="" style="width: 80%;"></div>
             <h2 style="text-align: center;letter-spacing: 2px; font-size: 22px; font-style: italic;">
               Crafted in <br>India</h2>
             <br>

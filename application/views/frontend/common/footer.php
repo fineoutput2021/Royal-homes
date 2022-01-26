@@ -1,11 +1,11 @@
 
 
 <!--Start Newsletter -->
-<section class="n_latter my-5  bg-white">
-  <div class="container1 bg-white">
-    <div class="row bg-white" style="margin-bottom:-46px;">
-      <div class="col-md-12 bg-white">
-        <div class="text-center bg-white">
+<section class="n_latter my-5" style="background:#f5f5f5">
+  <div class="container1" style="background:#f5f5f5">
+    <div class="row" style="margin-bottom:-46px;background:#f5f5f5">
+      <div class="col-md-12" style="background:#f5f5f5">
+        <div class="text-center" style="background:#f5f5f5">
           <br>
           <br>
           <h2 style="font-size: 33px;">Sign up for our newsletter</h2>
@@ -131,15 +131,30 @@
 <!-- End footer-->
 
 </body>
+<script>
+  function pro_change(obj) {
+    var id = $(obj).attr("id");
+    var img2 = $(obj).attr("img2");
+    document.getElementById(id).src = img2;
+  }
+
+  function pro_default(obj) {
+    var id = $(obj).attr("id");
+    var img = $(obj).attr("img");
+    document.getElementById(id).src = img;
+  }
+</script>
+
 <script type="text/javascript">
 function all_cat(obj){
   var id = $(obj).attr("id");
   var t = $(obj).attr("type");
   // alert("<?=base_url()?>Home/all_Product/"+id+"/"+t)
-location.replace("<?=base_url()?>Home/all_Product/"+id+"/"+t)
+location.replace("<?=base_url()?>Home/all_Product/"+id+"/"+t);
 }
 </script>
 <script>
+
 $(document).ready(function() {
 <?php if(!empty($this->session->flashdata('emessage'))){ ?>
  loadErrorNotify("<?=$this->session->flashdata('emessage');?>");
@@ -846,8 +861,6 @@ function toggleHide() {
 <script>
 $(document).ready(function () {
 
-
-
   $('.items').slick({
     infinite: true,
     lazyLoad: 'ondemand',
@@ -870,10 +883,6 @@ $(document).ready(function () {
   }
   ]
   });
-
-
-
-
 
 
 });

@@ -27,6 +27,8 @@ class User_login extends CI_Controller
             $this->form_validation->set_rules('phone', 'phone', 'required|xss_clean|trim');
             $this->form_validation->set_rules('password', 'password', 'required|xss_clean|trim');
             $this->form_validation->set_rules('confirm_password', 'confirm_password', 'required|matches[password]|xss_clean|trim');
+            $this->form_validation->set_rules('previous_url', 'previous_url', 'required|xss_clean|trim');
+
 
 
             if ($this->form_validation->run()== true) {
@@ -38,6 +40,7 @@ class User_login extends CI_Controller
                 $phone=$this->input->post('phone');
                 $password=$this->input->post('password');
                 $confirm_password=$this->input->post('confirm_password');
+                $previous_url=$this->input->post('previous_url');
 
                 $ip = $this->input->ip_address();
                 date_default_timezone_set("Asia/Calcutta");
@@ -106,7 +109,7 @@ class User_login extends CI_Controller
                             $this->session->unset_userdata('cart_data');
 
                             $this->session->set_flashdata('smessage', 'Successful Registered');
-                            redirect("Home/index", "refresh");
+                            redirect($previous_url);
                         } else {
                             $this->session->set_flashdata('emessage', 'Some error occured');
                             redirect($_SERVER['HTTP_REFERER']);
@@ -137,12 +140,16 @@ class User_login extends CI_Controller
         if ($this->input->post()) {
             $this->form_validation->set_rules('email', 'email', 'required|xss_clean|trim');
             $this->form_validation->set_rules('password', 'password', 'required|xss_clean|trim');
+            $this->form_validation->set_rules('previous_url', 'previous_url', 'required|xss_clean|trim');
 
 
             if ($this->form_validation->run()== true) {
                 $email=$this->input->post('email');
                 $password=$this->input->post('password');
-                if (empty($this->session->set_userdata('user_data'))) {
+                $previous_url=$this->input->post('previous_url');
+                if(empty($this->session->set_userdata('user_data'))) {
+                  // $this->session->set_userdata('previous_url', current_url());
+
                     $this->db->select('*');
                     $this->db->from('tbl_users');
                     $this->db->where('email', $email);
@@ -198,9 +205,8 @@ class User_login extends CI_Controller
                                 }
                             }
                             $this->session->unset_userdata('cart_data');
-
                             $this->session->set_flashdata('smessage', 'Successful Logged in!');
-                            redirect("Home/index", "refresh");
+                            redirect($previous_url);
                         } else {
                             $this->session->set_flashdata('emessage', 'Wrong Password');
                             redirect($_SERVER['HTTP_REFERER']);
