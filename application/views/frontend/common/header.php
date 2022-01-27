@@ -2120,7 +2120,7 @@ $category_data= $this->db->get();
      foreach ($subdata->result() as $sub) {
          ?>
                         <!-- <li><a href="<?=base_url()?>Home/all_Product/<?=base64_encode($sub->id)?>/<?=base64_encode(2)?>"><?php echo $sub->subcategory ?></a></li> -->
-                          <div class="col-md-6" style="text-align: center;">
+                          <div class="col-md-6" style="text-align: left;">
                             <span ><a style="color:black" href="<?=base_url()?>Home/all_Product/<?=base64_encode($sub->id)?>/<?=base64_encode(2)?>"><?php echo $sub->subcategory ?></a></span>
                           </div>
                         <?php

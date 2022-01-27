@@ -173,7 +173,7 @@ class Home extends CI_Controller
 
             if ($this->form_validation->run()== true) {
                 $email=$this->input->post('email');
-
+                $addedby=$this->session->userdata('admin_id');
                 $ip = $this->input->ip_address();
                 date_default_timezone_set("Asia/Calcutta");
                 $cur_date=date("Y-m-d H:i:s");

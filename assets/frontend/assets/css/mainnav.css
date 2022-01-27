@@ -30,7 +30,8 @@
 }
 .mega-box .content{
     background: #fff;
-    padding: 10px 10px;
+    /* padding: 10px 10px; */
+    padding: 10px 23px;
     display: flex;
     justify-content: space-evenly;
 }
