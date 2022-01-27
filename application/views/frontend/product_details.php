@@ -258,21 +258,6 @@ width: 100px; */
     padding: 0px;
   }
 
-  /* input#number {
-            text-align: center;
-            border: none;
-            border-top: 1px solid #ddd;
-            border-bottom: 1px solid #ddd;
-            margin: 0px;
-            width: 50px;
-            height: 40px;
-            }
-
-            input[type=number]::-webkit-inner-spin-button,
-            input[type=number]::-webkit-outer-spin-button {
-              -webkit-appearance: none;
-              margin: 0;
-            } */
   .hov_col1 {
     display: flex;
     align-items: center;
@@ -681,7 +666,7 @@ width: 100px; */
               </div>
               <div id="collapsefive" class="collapse" aria-labelledby="headingfive" data-parent="#accordionExample">
                 <div class="card-body">
-                  And lastly, the placeholder content for the third and final accordion panel. This panel is hidden by default.
+                  <?=$product_data->feature?>
                 </div>
               </div>
             </div>

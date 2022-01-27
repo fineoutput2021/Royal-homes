@@ -565,6 +565,7 @@ class Order extends CI_Controller
 
             $data['order_id'] =$orderdata->id;
             $data['amount'] =$orderdata->final_amount;
+            $data['user_id'] =$user_id;
 
             $this->session->unset_userdata('order_id');
 

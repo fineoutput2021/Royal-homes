@@ -50,12 +50,14 @@
                       <td> <strong>Image</strong></td>
                       <td>
                         <input type="file" name="image" class="form-control" placeholder="" value="" />
+                        <label style="color:red;">Size 752*499</label>
                       </td>
                     </tr>
                     <tr>
                       <td> <strong>Image2</strong></td>
                       <td>
                         <input type="file" name="image2" class="form-control" placeholder=""  value="" />
+                        <label style="color:red;">Size 752*499</label>
                       </td>
                     </tr>
                     <tr>

@@ -53,7 +53,9 @@
                     </tr>
                     <tr>
                       <td> <strong>Image</strong> <span style="color:red;">*</span></strong> </td>
-                      <td> <input type="file" name="image" class="form-control" placeholder="" required value="" /> </td>
+                      <td><input type="file" name="image" class="form-control" placeholder="" required value="" />
+                        <label style="color:red;">Size 752*499</label></td>
+
                     </tr>
                     <tr>
                       <td colspan="2">

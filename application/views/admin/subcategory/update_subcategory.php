@@ -64,6 +64,7 @@ foreach($category_data->result() as $value) {?>
                         <?}else{
                           echo "No image"?>
                         <?}?>
+                        <label style="color:red;">Size 752*499</label>
                        </td>
                     </tr>
 
