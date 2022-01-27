@@ -24,13 +24,13 @@
 .ggty{display: block!important; min-height:68px; }}
 
 @media (min-width: 414px){
-.ggty{display: block!important; min-height:72px;}}
+.ggty{display: block!important; min-height:59px;}}
 
 
 /* @media (min-width: 390px){
 .ggty{  display: block!important; min-height:68px; }} */
-@media (min-width: 393px){
-.ggty{  display: block!important; ; }
+@media (width: 412px){
+.ggty{  display: block!important; min-height: 73px; }
 }
 @media (max-width: 640px){
   .mbjj{padding:0px!important;}
