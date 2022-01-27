@@ -111,19 +111,18 @@
           A part of the vision Mr. Vinay Kumar had for Basant, was to framework a homegrown branch for the domestic
           market.</p>
         <br>
-        <h5 class="myNewFontFam"><a href="<?=base_url()?>Home/view_blog"  class="myNewFontFam"
+        <h5 class="myNewFontFam"><a href="<?=base_url()?>Home/blog"  class="myNewFontFam"
             style="text-decoration: none; color: white;font-weight: 700;">Blog</a></h5>
         <br>
         <h5  class="myNewFontFam"style="font-weight: 700;">Track Your Order</h5>
         <br>
-        <h5  class="myNewFontFam"style="font-weight: 700;">Corporate Gifting</h5>
+        <a href="<?=base_url()?>Home/corporate_order" style="color:unset"><h5 class="myNewFontFam"style="font-weight: 700;">Corporate Orders</h5></a>
+        <br>
+        <a href="<?=base_url()?>Home/custom_order" style="color:unset"><h5 class="myNewFontFam"style="font-weight: 700;">Custom Orders</h5></a>
       </div>
       <div class="col-md-3 mj">
         <div class="eclipse border border-light rounded-circle text-center"><img class="d-inline-block align-middle"
             src="<?=base_url()?>assets/frontend/assets/img/footer_logo2.png" alt="Orange Tree"></div>
-
-
-
       </div>
     </div>
 </section>

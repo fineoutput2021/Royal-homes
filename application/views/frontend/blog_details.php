@@ -8,7 +8,7 @@
   <hr />
   <h4><b>Royal Homes</b></h4>
   <img src="<?=base_url().$blog_data->image?>" class="img-fluid" alt="" />
-  <div class="text-justify">
+  <div class="text-justify mt-5">
 <p><?=$blog_data->description?></p>
 <p><?=$blog_data->full_description?></p>
   </div>

@@ -338,7 +338,7 @@ class Home extends CI_Controller
     }
 
     ///----------view blog ---------------
-    public function view_blog()
+    public function blog()
     {
         $this->db->select('*');
         $this->db->from('tbl_blog');
@@ -350,7 +350,7 @@ class Home extends CI_Controller
         $this->load->view('frontend/common/footer');
     }
 
-    ///----------view blog ---------------
+    ///----------view blog details---------------
     public function blog_details($idd)
     {
         $id=base64_decode($idd);
@@ -365,6 +365,7 @@ class Home extends CI_Controller
         $this->db->from('tbl_blog');
         $this->db->where('id !=', $id);
         $this->db->where('is_active', 1);
+        $this->db->limit(3);
         $this->db->order_by("rand()");
         $data['related_blog']= $this->db->get();
 
@@ -373,6 +374,313 @@ class Home extends CI_Controller
         $this->load->view('frontend/blog_details.php');
         $this->load->view('frontend/common/footer');
     }
+
+    //-------------view corporate order =-----------
+    public function corporate_order()
+    {
+        $this->load->view('frontend/common/header', );
+        $this->load->view('frontend/corporate_order.php');
+        $this->load->view('frontend/common/footer');
+    }
+
+    //----------submit corporate data -------------------
+    public function corporate_order_data()
+    {
+        $this->load->helper(array('form', 'url'));
+        $this->load->library('form_validation');
+        $this->load->helper('security');
+        $this->load->library('upload');
+        if ($this->input->post()) {
+            $this->form_validation->set_rules('name', 'name', 'required|xss_clean|trim');
+            $this->form_validation->set_rules('email', 'email', 'required|xss_clean|trim');
+            $this->form_validation->set_rules('c_name', 'c_name', 'required|xss_clean|trim');
+            $this->form_validation->set_rules('phone', 'phone', 'required|xss_clean|trim');
+            $this->form_validation->set_rules('message', 'message', 'required|xss_clean|trim');
+
+
+            if ($this->form_validation->run()== true) {
+                $name=$this->input->post('name');
+                $email=$this->input->post('email');
+                $c_name=$this->input->post('c_name');
+                $phone=$this->input->post('phone');
+                $message=$this->input->post('message');
+
+                $ip = $this->input->ip_address();
+                date_default_timezone_set("Asia/Calcutta");
+                $cur_date=date("Y-m-d H:i:s");
+
+                $image1 ="";
+                $image2 ="";
+                $image3 ="";
+                $image4 ="";
+                $image5 ="";
+                $image6 ="";
+                //-------  image 1 ----------
+
+                $img1='image1';
+
+                $file_check=($_FILES['image1']['error']);
+                if ($file_check!=4) {
+                    $image_upload_folder = FCPATH . "assets/uploads/corporate_orders/";
+                    if (!file_exists($image_upload_folder)) {
+                        mkdir($image_upload_folder, DIR_WRITE_MODE, true);
+                    }
+                    $new_file_name="image1".date("Ymdhms");
+                    $this->upload_config = array(
+                                                  'upload_path'   => $image_upload_folder,
+                                                  'file_name' => $new_file_name,
+                                                  'allowed_types' =>'xlsx|csv|xls|pdf|doc|docx|txt|jpg|jpeg|png',
+                                                  'max_size'      => 25000
+                                          );
+                    $this->upload->initialize($this->upload_config);
+                    if (!$this->upload->do_upload($img1)) {
+                        $upload_error = $this->upload->display_errors();
+                        // echo json_encode($upload_error);
+                        echo $upload_error;
+                    } else {
+                        $file_info = $this->upload->data();
+                        $videoNAmePath = "assets/uploads/corporate_orders/".$new_file_name.$file_info['file_ext'];
+                        $image1=$videoNAmePath;
+                    }
+                }
+                //-------  image 2 ----------
+
+                $img2='image2';
+
+                $file_check=($_FILES['image2']['error']);
+                if ($file_check!=4) {
+                    $image_upload_folder = FCPATH . "assets/uploads/corporate_orders/";
+                    if (!file_exists($image_upload_folder)) {
+                        mkdir($image_upload_folder, DIR_WRITE_MODE, true);
+                    }
+                    $new_file_name="image2".date("Ymdhms");
+                    $this->upload_config = array(
+                                                  'upload_path'   => $image_upload_folder,
+                                                  'file_name' => $new_file_name,
+                                                  'allowed_types' =>'xlsx|csv|xls|pdf|doc|docx|txt|jpg|jpeg|png',
+                                                  'max_size'      => 25000
+                                          );
+                    $this->upload->initialize($this->upload_config);
+                    if (!$this->upload->do_upload($img2)) {
+                        $upload_error = $this->upload->display_errors();
+                        // echo json_encode($upload_error);
+                        echo $upload_error;
+                    } else {
+                        $file_info = $this->upload->data();
+                        $videoNAmePath = "assets/uploads/corporate_orders/".$new_file_name.$file_info['file_ext'];
+                        $image2=$videoNAmePath;
+                    }
+                }
+                //-------  image 3 ----------
+
+                $img3='image3';
+
+                $file_check=($_FILES['image3']['error']);
+                if ($file_check!=4) {
+                    $image_upload_folder = FCPATH . "assets/uploads/corporate_orders/";
+                    if (!file_exists($image_upload_folder)) {
+                        mkdir($image_upload_folder, DIR_WRITE_MODE, true);
+                    }
+                    $new_file_name="image3".date("Ymdhms");
+                    $this->upload_config = array(
+                                                  'upload_path'   => $image_upload_folder,
+                                                  'file_name' => $new_file_name,
+                                                  'allowed_types' =>'xlsx|csv|xls|pdf|doc|docx|txt|jpg|jpeg|png',
+                                                  'max_size'      => 25000
+                                          );
+                    $this->upload->initialize($this->upload_config);
+                    if (!$this->upload->do_upload($img3)) {
+                        $upload_error = $this->upload->display_errors();
+                        // echo json_encode($upload_error);
+                        echo $upload_error;
+                    } else {
+                        $file_info = $this->upload->data();
+                        $videoNAmePath = "assets/uploads/corporate_orders/".$new_file_name.$file_info['file_ext'];
+                        $image3=$videoNAmePath;
+                    }
+                }
+                //-------  image 4 ----------
+
+                $img4='image4';
+
+                $file_check=($_FILES['image4']['error']);
+                if ($file_check!=4) {
+                    $image_upload_folder = FCPATH . "assets/uploads/corporate_orders/";
+                    if (!file_exists($image_upload_folder)) {
+                        mkdir($image_upload_folder, DIR_WRITE_MODE, true);
+                    }
+                    $new_file_name="image4".date("Ymdhms");
+                    $this->upload_config = array(
+                                                  'upload_path'   => $image_upload_folder,
+                                                  'file_name' => $new_file_name,
+                                                  'allowed_types' =>'xlsx|csv|xls|pdf|doc|docx|txt|jpg|jpeg|png',
+                                                  'max_size'      => 25000
+                                          );
+                    $this->upload->initialize($this->upload_config);
+                    if (!$this->upload->do_upload($img4)) {
+                        $upload_error = $this->upload->display_errors();
+                        // echo json_encode($upload_error);
+                        echo $upload_error;
+                    } else {
+                        $file_info = $this->upload->data();
+                        $videoNAmePath = "assets/uploads/corporate_orders/".$new_file_name.$file_info['file_ext'];
+                        $image4=$videoNAmePath;
+                    }
+                }
+                //-------  image 5 ----------
+
+                $img5='image5';
+
+                $file_check=($_FILES['image5']['error']);
+                if ($file_check!=4) {
+                    $image_upload_folder = FCPATH . "assets/uploads/corporate_orders/";
+                    if (!file_exists($image_upload_folder)) {
+                        mkdir($image_upload_folder, DIR_WRITE_MODE, true);
+                    }
+                    $new_file_name="image5".date("Ymdhms");
+                    $this->upload_config = array(
+                                                  'upload_path'   => $image_upload_folder,
+                                                  'file_name' => $new_file_name,
+                                                  'allowed_types' =>'xlsx|csv|xls|pdf|doc|docx|txt|jpg|jpeg|png',
+                                                  'max_size'      => 25000
+                                          );
+                    $this->upload->initialize($this->upload_config);
+                    if (!$this->upload->do_upload($img5)) {
+                        $upload_error = $this->upload->display_errors();
+                        // echo json_encode($upload_error);
+                        echo $upload_error;
+                    } else {
+                        $file_info = $this->upload->data();
+                        $videoNAmePath = "assets/uploads/corporate_orders/".$new_file_name.$file_info['file_ext'];
+                        $image5=$videoNAmePath;
+                    }
+                }
+                //-------  image 6 ----------
+
+                $img6='image6';
+
+                $file_check=($_FILES['image6']['error']);
+                if ($file_check!=4) {
+                    $image_upload_folder = FCPATH . "assets/uploads/corporate_orders/";
+                    if (!file_exists($image_upload_folder)) {
+                        mkdir($image_upload_folder, DIR_WRITE_MODE, true);
+                    }
+                    $new_file_name="image6".date("Ymdhms");
+                    $this->upload_config = array(
+                                                  'upload_path'   => $image_upload_folder,
+                                                  'file_name' => $new_file_name,
+                                                  'allowed_types' =>'xlsx|csv|xls|pdf|doc|docx|txt|jpg|jpeg|png',
+                                                  'max_size'      => 25000
+                                          );
+                    $this->upload->initialize($this->upload_config);
+                    if (!$this->upload->do_upload($img6)) {
+                        $upload_error = $this->upload->display_errors();
+                        // echo json_encode($upload_error);
+                        echo $upload_error;
+                    } else {
+                        $file_info = $this->upload->data();
+                        $videoNAmePath = "assets/uploads/corporate_orders/".$new_file_name.$file_info['file_ext'];
+                        $image6=$videoNAmePath;
+                    }
+                }
+
+                //-------insert data into table------------
+                $data_insert = array('name'=>$name,
+                                'email'=>$email,
+                                'c_name'=>$c_name,
+                                'phone'=>$phone,
+                                'message'=>$message,
+                                'image1'=>$image1,
+                                'image2'=>$image2,
+                                'image3'=>$image3,
+                                'image4'=>$image4,
+                                'image5'=>$image5,
+                                'image6'=>$image6,
+                                'ip' =>$ip,
+                                'date'=>$cur_date
+                                );
+
+                $last_id=$this->base_model->insert_table("tbl_corporate_orders", $data_insert, 1) ;
+                if(!empty($last_id)){
+                  $this->session->set_flashdata('smessage', 'Your requet submitted successfully!');
+                  redirect("/",);
+                }else{
+                  $this->session->set_flashdata('emessage', 'Some error occured');
+                  redirect($_SERVER['HTTP_REFERER']);
+                }
+            } else {
+                $this->session->set_flashdata('emessage', validation_errors());
+                redirect($_SERVER['HTTP_REFERER']);
+            }
+        } else {
+            $this->session->set_flashdata('emessage', 'Please insert some data, No data available');
+            redirect($_SERVER['HTTP_REFERER']);
+        }
+    }
+
+    //-------------view custom order =-----------
+    public function custom_order()
+    {
+        $this->load->view('frontend/common/header', );
+        $this->load->view('frontend/custom_order.php');
+        $this->load->view('frontend/common/footer');
+    }
+
+
+    //----------submit corporate data -------------------
+    public function custom_order_data()
+    {
+        $this->load->helper(array('form', 'url'));
+        $this->load->library('form_validation');
+        $this->load->helper('security');
+        $this->load->library('upload');
+        if ($this->input->post()) {
+            $this->form_validation->set_rules('name', 'name', 'required|xss_clean|trim');
+            $this->form_validation->set_rules('email', 'email', 'required|xss_clean|trim');
+            $this->form_validation->set_rules('c_name', 'c_name', 'required|xss_clean|trim');
+            $this->form_validation->set_rules('phone', 'phone', 'required|xss_clean|trim');
+            $this->form_validation->set_rules('message', 'message', 'required|xss_clean|trim');
+
+
+            if ($this->form_validation->run()== true) {
+                $name=$this->input->post('name');
+                $email=$this->input->post('email');
+                $c_name=$this->input->post('c_name');
+                $phone=$this->input->post('phone');
+                $message=$this->input->post('message');
+
+                $ip = $this->input->ip_address();
+                date_default_timezone_set("Asia/Calcutta");
+                $cur_date=date("Y-m-d H:i:s");
+
+                //-------insert data into table------------
+                $data_insert = array('name'=>$name,
+                                'email'=>$email,
+                                'c_name'=>$c_name,
+                                'phone'=>$phone,
+                                'message'=>$message,
+                                'ip' =>$ip,
+                                'date'=>$cur_date
+                                );
+
+                $last_id=$this->base_model->insert_table("tbl_custom_orders", $data_insert, 1) ;
+                if(!empty($last_id)){
+                  $this->session->set_flashdata('smessage', 'Your requet submitted successfully!');
+                  redirect("/",);
+                }else{
+                  $this->session->set_flashdata('emessage', 'Some error occured');
+                  redirect($_SERVER['HTTP_REFERER']);
+                }
+            } else {
+                $this->session->set_flashdata('emessage', validation_errors());
+                redirect($_SERVER['HTTP_REFERER']);
+            }
+        } else {
+            $this->session->set_flashdata('emessage', 'Please insert some data, No data available');
+            redirect($_SERVER['HTTP_REFERER']);
+        }
+    }
+
 
     public function error404()
     {

@@ -1,7 +1,7 @@
 <?php
     if ( ! defined('BASEPATH')) exit('No direct script access allowed');
        require_once(APPPATH . 'core/CI_finecontrol.php');
-       class Corporateorder extends CI_finecontrol{
+       class Corporate_orders extends CI_finecontrol{
        function __construct()
            {
              parent::__construct();
@@ -11,25 +11,19 @@
              $this->load->library('upload');
            }
 
-         public function view_corporateorder(){
+         public function view_corporate_orders(){
 
             if(!empty($this->session->userdata('admin_data'))){
 
 
               $data['user_name']=$this->load->get_var('user_name');
 
-              // echo SITE_NAME;
-              // echo $this->session->userdata('image');
-              // echo $this->session->userdata('position');
-              // exit;
-
                            $this->db->select('*');
-               $this->db->from('tbl_corporateorder');
-               //$this->db->where('id',$usr);
-               $data['corporateorder_data']= $this->db->get();
+               $this->db->from('tbl_corporate_orders');
+               $data['corporate_orders_data']= $this->db->get();
 
               $this->load->view('admin/common/header_view',$data);
-              $this->load->view('admin/corporateorder/view_corporateorder');
+              $this->load->view('admin/corporate_orders/view_corporate_orders');
               $this->load->view('admin/common/footer_view');
 
           }

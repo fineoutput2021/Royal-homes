@@ -1,9 +1,4 @@
-<style media="screen">
-  
-</style>
-
-
-<div class="ggty" style="line-height:5rem;" ></div>
+<div class="ggty" style="line-height:5rem;"></div>
 <section class="">
   <div class="container">
     <div class="col-md-12">
@@ -18,14 +13,14 @@
       <?php $i=1; foreach($all_blogs->result() as $blogs) { ?>
       <div class="col-md-4">
         <a href="<?base_url()?>blog_details/<?=base64_encode($blogs->id)?>" style="color:unset">
-        <div class="">
-          <img src="<?=base_url().$blogs->image?>" class="img-fluid" alt="">
-        </div>
-        <div class="text-justify mt-4">
-          <p><?=$blogs->article_date?></p>
-          <h4><?=$blogs->heading?></h4>
-          <p style="font-size:13px;">
-            <?$string = strip_tags($blogs->description);
+          <div class="">
+            <img src="<?=base_url().$blogs->image?>" class="img-fluid" alt="">
+          </div>
+          <div class="text-justify mt-4">
+            <p><?=$blogs->article_date?></p>
+            <h4><?=$blogs->heading?></h4>
+            <p style="font-size:13px;">
+              <?$string = strip_tags($blogs->description);
             if (strlen($string) > 300) {
 
                 // truncate string
@@ -37,8 +32,8 @@
                 $string .= '...';
             }
             echo $string;?>
-          </p>
-        </div>
+            </p>
+          </div>
         </a>
       </div>
       <?php $i++; } ?>
