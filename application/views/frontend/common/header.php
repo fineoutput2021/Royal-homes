@@ -2154,7 +2154,7 @@ $category_data= $this->db->get();
           </div>
         </div>
         <div class="col-md-4 col-xs-6 menu">
-          <ul class="modifiedUl" style="">
+          <ul class="modifiedUl" style="margin-top:14px">
             <li>
               <div id="mySidenav" class="sidenav">
                 <div class="w-100 center mb-2" style="background-color: black;">

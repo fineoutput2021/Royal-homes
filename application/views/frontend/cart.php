@@ -2,8 +2,8 @@
 <br />
 <br />
 <br />
-<br />
-<br />
+<!-- <br />
+<br /> -->
 <style media="screen">
             .form11 {
 
@@ -79,6 +79,9 @@ width:100%;
 .chk:hover{
   background: black;
   color: white;
+}
+.ctr{
+  text-align: start;
 }
 </style>
 
@@ -375,11 +378,16 @@ width:100%;
 <div class="col-md-4 mt-3" style="position:sticky;">
 <h4><b>Order Summary</b></h4>
 <hr />
-<p class="subtotal">Cart Total <span class="float-right" id="subtotal">£<?if(empty($cart_check)) {
+<ul>
+<li>
+
+<p class="subtotal ctr">Cart Total <span class="float-right" id="subtotal">£<?if(empty($cart_check)) {
 echo 0;
 } else {
 echo $total;
 }?></span></p>
+</li>
+</ul>
 
   <div class="w-100">
       <a href="<?=base_url()?>Order/calculate">
