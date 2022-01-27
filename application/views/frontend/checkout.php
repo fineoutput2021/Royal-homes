@@ -32,7 +32,7 @@ font-size: 18px;
 
 </style>
 <div class="ggty" style="line-height:4rem;" >
-<br>
+
 </div>
 <section>
 <div class="container">
@@ -47,7 +47,7 @@ font-size: 18px;
   <div class="card-body">
     <!-- <form id="address_form" action="<?=base_url()?>Order/add_address" method="post" enctype="multipart/form-data"> -->
       <!-- 2 column grid layout with text inputs for the first and last names -->
-      <div class="row mb-4">
+      <div class="row ">
         <div class="col-12 col-md-6">
           <div class="form-outline">
             <label class="form-label" for="name">Name<span class="sp">*</span></label>
