@@ -1,20 +1,24 @@
 
 <style>
 
-@media (width: 360px){
-.ggty{display: block!important;line-height: 3.1rem;}}
+@media (min-width: 360px){
+.ggty{display: block!important; min-height:51px;}}
 
-@media (width: 375px){
-.ggty{display: block!important;  line-height: 3.3rem;}}
-
-@media (width: 414px){
-.ggty{display: block!important;line-height: 4.5rem;}}
+@media (min-width: 375px){
+.ggty{display: block!important;min-height:53px;  }}
 
 
-@media (width: 390px){
-.ggty{  display: block!important;  line-height: 4.3rem;}}
-@media (width: 393px){
-.ggty{  display: block!important;  line-height: 4.2rem;}
+@media (min-width: 390px){
+.ggty{display: block!important; min-height:68px; }}
+
+@media (min-width: 415px){
+.ggty{display: block!important; min-height:72px;}}
+
+
+/* @media (min-width: 390px){
+.ggty{  display: block!important; min-height:68px; }} */
+@media (min-width: 393px){
+.ggty{  display: block!important; min-height:58px; }
 }
 @media (max-width: 640px){
   .mbjj{padding:0px!important;}
@@ -63,7 +67,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <!--Start Slider-->
 <div class="ggty" >
-<br>
+
 
 
 </div>

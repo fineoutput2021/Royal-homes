@@ -1726,7 +1726,7 @@ padding: 14px 17px;
       }
 
       .newMoblSearchCont {
-        left: -23.5rem;
+        left: -24.5rem;
       }
 
       .modifiedCart {
@@ -1776,6 +1776,77 @@ padding: 14px 17px;
         height: 8vh !important;
       }
     }
+    @media(max-width:395px) {
+      .dontHide {
+        display: block;
+      }
+
+      .modifiedUl {
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        margin-right:0px!important;
+        margin-top: 22px!important;
+      }
+
+      .modifiedSearch {
+        position: relative;
+        right: -2rem;
+        top: -1rem;
+      }
+
+      .newMoblSearchCont {
+      left: -385px;
+      }
+
+      .modifiedCart {
+        position: relative;
+        top: -3.3rem;
+        right: -1rem;
+      }
+
+      .count {
+        margin-top: -6px;
+      }
+
+      .logo {
+        display: block;
+        /* justify-content: center; */
+        /* height: 76px; */
+        padding-top: 0.5rem;
+        /* align-items: center; */
+      }
+
+      .modifiedImg {
+        /* width: 102% !important; */
+        /* margin-left: 0px !important; */
+        /* padding: 0 40px 0 40px; */
+        width: 75% !important;
+        margin-left: 10vw !important;
+      }
+
+      .modifiedWhiteImg {
+        position: relative;
+        left: 6.6rem;
+        top: -1rem;
+      }
+
+      .modifiedScrptImg {
+        height: auto;
+        margin-left: 2.2rem !important;
+        max-width: 100% !important;
+      }
+
+      .modifiedBurger {
+        margin-top: 5vh !important;
+        margin-left: -38vw !important;
+      }
+
+      .modifiedHeaderCont {
+        height: 8vh !important;
+      }
+    }
+
 
     @media(max-width:375px) {
       .dontHide {
@@ -1797,7 +1868,7 @@ padding: 14px 17px;
       }
 
       .newMoblSearchCont {
-        left: -22.5rem;
+        left: -23rem;
       }
 
       .modifiedCart {
@@ -1867,7 +1938,7 @@ padding: 14px 17px;
       }
 
       .newMoblSearchCont {
-        left: -21.5rem;
+        left: -22rem;
       }
 
       .modifiedCart {

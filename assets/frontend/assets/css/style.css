@@ -256,6 +256,7 @@ button.slick-next.slick-arrow{
     transition: .4s all ease-in-out;
     z-index: 999;
     background: #00000061;
+    max-height:145px;
 }
 .active{
     background-color:white;
