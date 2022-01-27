@@ -31,55 +31,55 @@ flex-direction: column-reverse !important;
           <form action="<?=base_url()?>Home/corporate_order_data" method="post" enctype="multipart/form-data">
             <!-- 2 column grid layout with text inputs for the first and last names -->
             <div class="row mb-4">
-              <div class="col">
+              <div class="col-md-6 col-12">
                 <div class="form-outline">
                   <label class="form-label" for="name">Name<span class="sp">*</span></label>
-                  <input type="text" id="name" name="name" class="form-control mt-1" required />
+                  <input type="text" id="name" name="name" class="form-control mt-0" required />
                 </div>
               </div>
-              <div class="col">
+              <div class="col-md-6 col-12">
                 <div class="form-outline">
                   <label class="form-label" for="email">Email<span class="sp">*</span></label>
-                  <input type="email" id="email" name="email" class="form-control mt-1" required />
+                  <input type="email" id="email" name="email" class="form-control mt-0" required />
                 </div>
               </div>
             </div>
 
             <!-- Text input -->
             <div class="row mb-4">
-              <div class="col">
+              <div class="col-md-6 col-12">
                 <div class="form-outline">
                   <label class="form-label" for="c_name">Business/company Name<span class="sp">*</span></label>
-                  <input type="text" id="c_name" name="c_name" class="form-control mt-1" required  />
+                  <input type="text" id="c_name" name="c_name" class="form-control mt-0" required  />
                 </div>
               </div>
-              <div class="col">
+              <div class="col-md-6 col-12">
                 <div class="form-outline">
                   <label class="form-label" for="phone">Phone<span class="sp">*</span></label>
-                  <input type="text" id="phone" name="phone" maxlength="10" minlength="10" class="form-control mt-1" required />
+                  <input type="text" id="phone" name="phone" maxlength="10" minlength="10" class="form-control mt-0" required />
                 </div>
               </div>
             </div>
 
             <div class="form-outline mb-4">
               <label class="form-label" for="message">Message<span class="sp">*</span></label>
-              <textarea class="form-control" id="message" name="message" rows="4" required ></textarea>
+              <textarea class="form-control mt-0" id="message" name="message" rows="4" required ></textarea>
             </div>
 
-            <div class="row mb-4">
-            <div class="col">
+            <div class="row">
+            <div class="col-md-4 col-12">
             <div class="form-outline mb-4">
               <label class="form-label" for="image1">select a fie:</label>
               <input type="file" class="form-control" id="image1" name="image1" value="">
             </div>
             </div>
-            <div class="col">
+            <div class="col-md-4 col-12">
             <div class="form-outline mb-4">
               <label class="form-label" for="image2">select a fie:</label>
               <input type="file" class="form-control" id="image2" name="image2" value="">
             </div>
             </div>
-            <div class="col">
+            <div class="col-md-4 col-12">
             <div class="form-outline mb-4">
               <label class="form-label" for="image3">select a fie:</label>
               <input type="file" class="form-control" id="image3" name="image3" value="">
@@ -88,19 +88,19 @@ flex-direction: column-reverse !important;
             </div>
 
             <div class="row mb-4">
-            <div class="col">
+            <div class="col-md-4 col-12">
             <div class="form-outline mb-4">
               <label class="form-label" for="image4">select a fie:</label>
               <input type="file" class="form-control" id="image4" name="image4" value="">
             </div>
             </div>
-            <div class="col">
+            <div class="col-md-4 col-12">
             <div class="form-outline mb-4">
               <label class="form-label" for="image5">select a fie:</label>
               <input type="file" class="form-control" id="image5" name="image5" value="">
             </div>
             </div>
-            <div class="col">
+            <div class="col-md-4 col-12">
             <div class="form-outline mb-4">
               <label class="form-label" for="image6">select a fie:</label>
               <input type="file" class="form-control" id="image6" name="image6" value="">
