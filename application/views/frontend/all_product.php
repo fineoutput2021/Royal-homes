@@ -347,10 +347,10 @@ $(document).ready(function(){
   if($(".content:hidden").length == 0) {
     $("#loadMore").text("").addClass("noContent");
   }
-  $(".content:hidden").slice(0, 4).show();
+  $(".content:hidden").slice(0, 12).show();
   $("#loadMore").on("click", function(e){
     e.preventDefault();
-    $(".content:hidden").slice(0, 4).slideDown();
+    $(".content:hidden").slice(0, 12).slideDown();
     if($(".content:hidden").length == 0) {
       $("#loadMore").text("").addClass("noContent");
     }

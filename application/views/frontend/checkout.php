@@ -75,7 +75,7 @@ font-size: 18px;
         <div class="col">
           <div class="form-outline">
             <label class="form-label" for="pincode">Pincode<span class="sp">*</span></label>
-            <input type="text" id="pincode" name="pincode"  minlength="4" class="form-control mt-1" required onkeypress="return isNumberKey(event)" onkeyup='saveValue(this);'/>
+            <input type="text" id="pincode" name="pincode"  minlength="4" class="form-control mt-1" required  onkeyup='saveValue(this);'/>
             <label style="font-size:12px;color:red;" id="alert"></label>
           </div>
         </div>
@@ -214,7 +214,7 @@ $("#pincode").keyup(function() {
   // if((minLength <= $(this).val().length) &&  ($(this).val().length==0)) {
     // function check_pincode(){
     var pincode = $('#pincode').val();
-    if(pincode !== ""){
+    if(pincode != ""){
     $.ajax({
       url: '<?=base_url();?>Order/check_pincode',
       method: 'post',
@@ -277,6 +277,7 @@ $("#pincode").keyup(function() {
     });
   }else{
       document.getElementById("h_pincode").value = "";
+      if($('#pincode').val().length!=0){
       pincode=1;
       $.ajax({
         url: '<?=base_url();?>Order/check_pincode',
@@ -340,7 +341,7 @@ $("#pincode").keyup(function() {
       });
       $( "#amount_div" ).load(window.location.href + " #amount_div" );
 
-  }
+  }}
   // }
 }).keyup();
 // }

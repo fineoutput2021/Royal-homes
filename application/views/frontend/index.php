@@ -45,6 +45,8 @@
 .new:hover{
   color:black;
 }
+
+
 .discount {
   background: #d76a46;
   position: absolute;
@@ -116,7 +118,7 @@
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <?php $i=0; foreach($launch_sub_data->result() as $sub) { ?>
       <li class="nav-item fdff active" style="margin-bottom: 0px;">
-        <a class="<?if($i==0){echo'active';}?> new" id="home_tab_<?=$sub->id?>" data-toggle="tab" href="#home_<?=$sub->id?>" role="tab" aria-controls="home_<?=$sub->id?>" aria-selected="<?if($i==0){echo 'true';}else{echo 'false';}?>"><?=$sub->subcategory?></a>
+        <a class="new <?if($i==0){echo'active';}?>" id="home_tab_<?=$sub->id?>" data-toggle="tab" href="#home_<?=$sub->id?>" role="tab" aria-controls="home_<?=$sub->id?>" aria-selected="<?if($i==0){echo 'true';}else{echo 'false';}?>"><?=$sub->subcategory?></a>
       </li>
       <?$i++;}?>
     </ul>
