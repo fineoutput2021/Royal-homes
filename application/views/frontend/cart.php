@@ -1,7 +1,12 @@
+
+
+
+
+
+<!-- <br />
 <br />
 <br />
-<br />
-<br />
+<br /> -->
 <!-- <br />
 <br /> -->
 <style media="screen">
@@ -318,7 +323,31 @@ width:100%;
   .m_l{
     margin-left:0px!important;
   }}
+  @media (min-width: 641px){
+  .ggty{display:block!important;line-height: 6rem!important;}
+  }
+
+  @media (width: 360px){
+  .ggty{display: block!important;line-height: 3.1rem!important;}}
+
+  @media (width: 375px){
+  .ggty{display: block!important;  line-height: 3.3rem!important;}}
+
+  @media (width: 414px){
+  .ggty{display: block!important;line-height: 4.5rem!important;}}
+
+
+  @media (width: 390px){
+  .ggty{  display: block!important;  line-height: 4.3rem!important;}}
+  @media (width: 393px){
+  .ggty{  display: block!important;  line-height: 4.2rem!important;}
+  }
 </style>
+<div class="ggty" style="line-height:4rem;" >
+<br>
+
+
+</div>
 <section >
 <div class="container" style="font-weight:700;" id="here">
 <div class="row">
@@ -345,7 +374,7 @@ width:100%;
      <a href="javascript:void(0);" onclick="deleteCartOnline(this)" product_id="<?=base64_encode($cart->product_id)?>"><span class="float-right positn" style="font-size:30px;  color:#d76a46">&times</span></a>
      <ul class="ul_st2">
        <li class="li_st2"><span><?=$pro_data->productname?></span></li>
-       <li class="li_st2" style="display:flex"><span>Qty:&nbsp;</span>
+       <li class="li_st2" style="display:flex;  font-size:14px;"><span>Qty:&nbsp;</span>
          <div id="custom-qty" class="control ml-4 mt-2 m_l">
            <!-- ko template: getTemplate() -->
            <div class="input-group">
@@ -366,7 +395,7 @@ width:100%;
            <!-- /ko -->
          </div>
        </li>
-       <li class="li_st"><span id="price_<?=$i?>">Price:&nbsp;£<?=$mrp = $pro_data->selling_price*$cart->quantity?></span></li>
+       <li class="li_st"  style=" font-size:14px;"><span id="price_<?=$i?>">Price:&nbsp;£<?=$mrp = $pro_data->selling_price*$cart->quantity?></span></li>
      </ul>
     </div>
   </div>
