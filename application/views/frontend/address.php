@@ -1,8 +1,4 @@
-<br />
-<br />
-<br />
-<br />
-<br />
+
 <style>
 .chk{
 background: #d76a46;
@@ -18,6 +14,7 @@ width:100%;
   color:red;
 }
 </style>
+<div class="ggty" style="line-height:5rem;" ></div>
 <div class="row">
   <div class="col-md-2"></div>
   <div class="col-md-8 mb-4">

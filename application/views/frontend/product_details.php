@@ -1,10 +1,3 @@
-<br />
-<br />
-<br />
-<br />
-<br />
-
-
 <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"> -->
 <script src="https://unpkg.com/swiper@6.5.4/swiper-bundle.min.js" charset="utf-8"></script>
 <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" charset="utf-8"></script> -->
@@ -520,6 +513,7 @@ width: 100px; */
     }
   }
 </style>
+<div class="ggty" ></div>
 <section>
   <!-- slider start -->
   <div class="row ffth">

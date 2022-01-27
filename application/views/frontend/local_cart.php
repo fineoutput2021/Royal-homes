@@ -308,31 +308,11 @@ width:100%;
       }
     }
   }
-  @media (width: 412px){
-  .ggty{display:block!important;line-height: 4rem!important;}
-  }
-  @media (min-width: 641px){
-  .ggty{display:block!important;line-height: 7rem!important;}
-  }
-
-  @media (width: 360px){
-  .ggty{display: block!important;line-height: 3.1rem!important;}}
-
-  @media (width: 375px){
-  .ggty{display: block!important;  line-height: 3.3rem!important;}}
-
-  @media (width: 414px){
-  .ggty{display: block!important;line-height: 4.5rem!important;}}
 
 
-  @media (width: 390px){
-  .ggty{  display: block!important;  line-height: 4.3rem!important;}}
-  @media (width: 393px){
-  .ggty{  display: block!important;  line-height: 4.2rem!important;}
-  }
 </style>
 <div class="ggty" style="line-height:5rem;" >
-<br>
+
 </div>
 <section>
 <div class="container" style="font-weight:700;" id="here">

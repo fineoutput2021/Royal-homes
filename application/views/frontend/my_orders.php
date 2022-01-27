@@ -109,11 +109,7 @@
 
   }
 </style>
-<br />
-<br />
-<br />
-<br />
-<br />
+<div class="ggty" ></div>
 <section class="my_order pb-10">
   <div class="container">
     <center>

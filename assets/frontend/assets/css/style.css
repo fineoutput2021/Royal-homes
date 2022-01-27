@@ -382,3 +382,33 @@ button.slick-next.slick-arrow{
       display: none;
     }
 }
+/* header height fix */
+@media (min-width: 360px){
+.ggty{display: block!important; min-height:51px;}}
+
+@media (min-width: 375px){
+.ggty{display: block!important;min-height:53px;  }}
+
+@media screen and (min-device-width: 375px) and (device-height: 667px)
+  {
+.ggty{display: block!important;min-height:53px!important;  }
+}
+
+@media screen and (device-width: 375px) and (device-height: 812px)
+   {
+.ggty{display: block!important;min-height:65px!important;  }
+}
+
+@media (min-width: 390px){
+.ggty{display: block!important; min-height:68px; }}
+
+@media (min-width: 415px){
+.ggty{display: block!important; min-height:72px;}}
+
+@media (min-width: 393px){
+.ggty{  display: block!important; min-height:58px; }
+}
+
+@media (min-width: 641px){
+.ggty{display:block!important; min-height:120px!important;}
+}

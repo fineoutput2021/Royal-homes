@@ -1,9 +1,4 @@
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
+
 <style>
   .discount {
     background: #d76a46;
@@ -131,7 +126,7 @@ flex-direction: column-reverse !important;
 }
 </style>
 
-
+<div class="ggty" ></div>
 <section>
   <div class="container">
     <?

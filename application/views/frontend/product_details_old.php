@@ -84,11 +84,11 @@
     }
   }
 </style>
-<br />
+
 
 <!-- web view div start -->
 
-
+<div class="ggty" ></div>
 <div class="product media " style="top: 11vh;z-index: 0; display:flex;">
   <a id="gallery-prev-area" tabindex="-1"></a>
   <div class=" col-md-6 gallery-placeholder product_slick swiper-container swiper-container-fade swiper-container-initialized swiper-container-vertical ">

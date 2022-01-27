@@ -1,9 +1,4 @@
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
+
 <style>
   .discount {
     background: #d76a46;
@@ -31,7 +26,7 @@
   }
 </style>
 
-
+<div class="ggty" ></div>
 <section>
   <div class="container">
     <center style="background:#f5f5f5">

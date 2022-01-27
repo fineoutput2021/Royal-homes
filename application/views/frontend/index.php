@@ -10,11 +10,7 @@
 /* @media (min-width: 375px and min-height:812px){
 .ggty{display: block!important;min-height:53px;  }} */
 
-<<<<<<< HEAD
 @media screen and (min-device-width: 375px) and (device-height: 667px)
-=======
-@media screen and (min-device-width: 375px) and (max-device-height: 667px)
->>>>>>> 4c00d149c98d7bca73c9e41284b81692d0489a52
   {
 .ggty{display: block!important;min-height:53px!important;  }
 }
@@ -82,11 +78,7 @@
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <!--Start Slider-->
-<div class="ggty" >
-
-
-
-</div>
+<div class="ggty" ></div>
 <section class="overflow-hidden t_slider ">
   <div class="container-fluid p-0">
     <div class="row">

@@ -1,14 +1,6 @@
 
 
 
-
-
-<!-- <br />
-<br />
-<br />
-<br /> -->
-<!-- <br />
-<br /> -->
 <style media="screen">
             .form11 {
 
@@ -323,29 +315,11 @@ width:100%;
   .m_l{
     margin-left:0px!important;
   }}
-  @media (min-width: 641px){
-  .ggty{display:block!important;line-height: 6rem!important;}
-  }
-
-  @media (width: 360px){
-  .ggty{display: block!important;line-height: 3.1rem!important;}}
-
-  @media (width: 375px){
-  .ggty{display: block!important;  line-height: 3.3rem!important;}}
-
-  @media (width: 414px){
-  .ggty{display: block!important;line-height: 4.5rem!important;}}
 
 
-  @media (width: 390px){
-  .ggty{  display: block!important;  line-height: 4.3rem!important;}}
-  @media (width: 393px){
-  .ggty{  display: block!important;  line-height: 4.2rem!important;}
-  }
+
 </style>
 <div class="ggty" style="line-height:4rem;" >
-<br>
-
 
 </div>
 <section >

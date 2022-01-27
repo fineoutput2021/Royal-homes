@@ -16,6 +16,7 @@
   color: white;
 }
 </style>
+<div class="ggty" ></div>
 <section class="section-b-space"style="height:90vh;justify-content:center; align-items:center;display:flex;">
         <div class="container">
             <div class="row">
