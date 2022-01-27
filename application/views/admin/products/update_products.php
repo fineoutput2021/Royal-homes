@@ -102,20 +102,24 @@ Update Products
   ?>" >
   <?php }else { ?>
   Sorry No File Found
-  <?php } ?></td>
+  <?php } ?>
+  <label style="color:red;">Size 1000*1000</label>
+</td>
 </tr>
 <tr>
-<td> <strong>Image1</strong>  <span style="color:red;">*</span></strong> </td>
+<td> <strong>Image1</strong></td>
 <td> <input type="file" name="image1"  class="form-control" placeholder=""  value="<?=$products_data->image1?>" />
   <?php if($products_data->image1!=""){ ?>
   <img id="slide_img_path" height=50 width=100 src="<?php echo base_url().$products_data->image1
   ?>" >
   <?php }else { ?>
   Sorry No File Found
-  <?php } ?></td>
+  <?php } ?>
+  <label style="color:red;">Size 1000*1000</label>
+</td>
 </tr>
 <tr>
-<td> <strong>Image2</strong>  <span style="color:red;">*</span></strong> </td>
+<td> <strong>Image2</strong></td>
 <td> <input type="file" name="image2"  class="form-control" placeholder=""  value="<?=$products_data->image2?>" />
   <?php if($products_data->image2!=""){ ?>
   <img id="slide_img_path" height=50 width=100 src="<?php echo base_url().$products_data->image2
@@ -123,11 +127,11 @@ Update Products
   <?php }else { ?>
   Sorry No File Found
   <?php } ?>
-
+<label style="color:red;">Size 1000*1000</label>
  </td>
 </tr>
 <tr>
-<td> <strong>Image3</strong>  <span style="color:red;">*</span></strong> </td>
+<td> <strong>Image3</strong></td>
 <td> <input type="file" name="image3"  class="form-control" placeholder=""  value="<?=$products_data->image3?>" />
   <?php if($products_data->image3!=""){ ?>
   <img id="slide_img_path" height=50 width=100 src="<?php echo base_url().$products_data->image3
@@ -135,7 +139,7 @@ Update Products
   <?php }else { ?>
   Sorry No File Found
   <?php } ?>
-
+<label style="color:red;">Size 1000*1000</label>
  </td>
 </tr>
 <tr>
@@ -148,11 +152,11 @@ Update Products
 </tr>
 <tr>
   <td> <strong>Short Description</strong> <span style="color:red;">*</span></strong> </td>
-  <td> <textarea name="s_description" id="editor4" rows="3" cols="80" required></textarea>
+  <td> <textarea name="s_description" id="editor4" rows="3" cols="80" required><?=$products_data->s_description?></textarea>
 </tr>
 <tr>
-<td> <strong>Long Description</strong>  <span style="color:red;">*</span></strong><?=$products_data->s_description?> </td>
-<td> <textarea name="productdescription" id="editor1" rows="3" cols="80" required> <?=$products_data->productdescription?></textarea>
+<td> <strong>Long Description</strong>  <span style="color:red;">*</span></strong></td>
+<td> <textarea name="productdescription" id="editor1" rows="3" cols="80" required><?=$products_data->productdescription?></textarea>
 </tr>
 <tr>
 <td> <strong>Features</strong>  <span style="color:red;">*</span></strong> </td>

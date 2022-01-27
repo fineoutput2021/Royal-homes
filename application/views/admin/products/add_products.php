@@ -75,19 +75,27 @@
 
                     <tr>
                       <td> <strong>Image</strong> <span style="color:red;">*</span></strong> </td>
-                      <td> <input type="file" name="image" class="form-control" placeholder="" required value="" /> </td>
+                      <td> <input type="file" name="image" class="form-control" placeholder="" required value="" />
+                        <label style="color:red;">Size 1000*1000</label>
+                       </td>
                     </tr>
                     <tr>
                       <td> <strong>Image1</strong></td>
-                      <td> <input type="file" name="image1" class="form-control" placeholder=""  value="" /> </td>
+                      <td> <input type="file" name="image1" class="form-control" placeholder=""  value="" />
+                        <label style="color:red;">Size 1000*1000</label>
+                       </td>
                     </tr>
                     <tr>
                       <td> <strong>Image2</strong></td>
-                      <td> <input type="file" name="image2" class="form-control" placeholder=""  value="" /> </td>
+                      <td> <input type="file" name="image2" class="form-control" placeholder=""  value="" />
+                        <label style="color:red;">Size 1000*1000</label>
+                       </td>
                     </tr>
                     <tr>
                       <td> <strong>Image3</strong></td>
-                      <td> <input type="file" name="image3" class="form-control" placeholder=""  value="" /> </td>
+                      <td> <input type="file" name="image3" class="form-control" placeholder=""  value="" />
+                        <label style="color:red;">Size 1000*1000</label>
+                      </td>
                     </tr>
                     <tr>
                       <td> <strong>MRP</strong> <span style="color:red;">*</span></strong> </td>

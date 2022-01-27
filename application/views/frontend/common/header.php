@@ -204,7 +204,7 @@
       margin: auto;
       padding: 20px;
       border: 1px solid #888;
-      width: 38%;
+      width: 37%;
     }
 
     .social {
@@ -494,6 +494,7 @@ padding: 14px 17px;
       vertical-align: baseline;
       width: 100%;
       box-sizing: border-box;
+      text-transform: lowercase;
     }
 
     .formset {
@@ -517,7 +518,7 @@ padding: 14px 17px;
       height: 40px;
       font-size: 14px;
       position: relative;
-      font-family: 'Gotham light';
+      font-family: Gotham light !important;
       border: 0;
       font-weight: 400;
       border-bottom: 1px solid #ccc;
@@ -2578,28 +2579,16 @@ $category_data= $this->db->get();
     <!-- Modal content -->
     <div class="modal-content">
       <div class="">
-        <span class="close" onclick="myFunction7()" style='margin-left:-2rem;    margin-top: -1rem;'>&times;</span>
-
-        <div class="logosection " style="
-    display: flex;
-    flex-direction: column;
-    /* align-items: center; */
-    justify-content: center;
-">
-
-          <div class="logoimg">
-            <img src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/logo.png" alt="Logo" title="Orange tree">
+        <span class="close" onclick="myFunction7()" style='margin-left:-2rem;margin-top: -2rem;'>&times;</span>
+        <div class="logosection " style="display: flex;flex-direction:column;justify-content: center;">
+          <div class="w-100 center">
+            <img src="<?=base_url()?>assets/frontend/assets/img/web_logo2.png" alt="Logo" title="Orange tree" style="width:60%">
           </div>
-          <div class="badge  text-black mt-4 textres" style="    text-align: center;
-    font-size: 18px;
-    color: #000;
-    text-transform: uppercase;
-    margin: 20px 0;
-  font-weight: 400;">
+          <div class="badge text-black m-3 textres" style="font-size: 18px;text-transform: uppercase;margin: 20px 0;font-weight: 400;">
             SIGN IN TO CONTINUE
           </div>
           <div class="row g-3 justify-content-center">
-            <div class="col-md-4 respns1" style="padding-right: 0px;">
+            <div class="col-md-6 respns1" style="text-align: right;">
               <button class="btn" style="
    text-transform: None;
     font-size: 12px;
@@ -2611,8 +2600,8 @@ $category_data= $this->db->get();
     background: #fff;
     "><img class="social" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/facebook.svg" alt="social"> Sign In With Facebook</button>
             </div>
-            <div class="col-md-4 respns2">
-              <button class="btn1" style="border:0px;border-radius:3px;    text-transform: None;
+            <div class="col-md-6 respns2" style="text-align: left;">
+              <button class="btn1" style="text-transform: None;
     font-size: 12px;
     width: auto;
     cursor: pointer;
@@ -2701,7 +2690,6 @@ $category_data= $this->db->get();
 
     // When the user clicks the button, open the modal
     btn.onclick = function() {
-
       modal1.style.display = "block";
       modal.style.display = "none";
     }
@@ -2736,6 +2724,8 @@ $category_data= $this->db->get();
     // var btn3 = document.getElementById("hjki");
     var btn2 = document.getElementById("pop_myBtn");
 
+
+
     // Get the <span> element that closes the modal
     var span1 = document.getElementsByClassName("close")[0];
 
@@ -2746,8 +2736,8 @@ $category_data= $this->db->get();
         modal1.style.display = "none";
 
       }
-
 };
+
 
 
 

@@ -141,10 +141,58 @@ if(!empty($subcategory_data)){
 
 	 <td><?php echo "Rs.".$data->mrp ?></td>
 	 <td><?php echo "Rs.".$data->selling_price ?></td>
- 	 <td><?php echo $data->s_description ?></td>
- 	 <td><?php echo $data->productdescription ?></td>
- 	 <td><?php echo $data->feature ?></td>
- 	 <td><?php echo $data->careinstruction ?></td>
+ 	 <td><?php
+$s_description = strip_tags($data->s_description);
+if (strlen($s_description) > 100) {
+
+    // truncate string
+    $stringCut = substr($s_description, 0, 100);
+    $endPoint = strrpos($stringCut, ' ');
+
+    //if the string doesn't contain any space then it will cut without word basis.
+    $s_description = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+    $s_description .= '...';
+}
+echo $s_description;?></td>
+ 	 <td><?php
+$productdescription = strip_tags($data->productdescription );
+if (strlen($productdescription) > 100) {
+
+    // truncate string
+    $stringCut = substr($productdescription, 0, 100);
+    $endPoint = strrpos($stringCut, ' ');
+
+    //if the string doesn't contain any space then it will cut without word basis.
+    $productdescription = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+    $productdescription .= '...';
+}
+echo $productdescription;?></td>
+ 	 <td><?php
+   $feature = strip_tags($data->feature);
+   if (strlen($feature) > 100) {
+
+       // truncate string
+       $stringCut = substr($feature, 0, 100);
+       $endPoint = strrpos($stringCut, ' ');
+
+       //if the string doesn't contain any space then it will cut without word basis.
+       $feature = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+       $feature .= '...';
+   }
+   echo $feature;?></td>
+ 	 <td><?php
+   $careinstruction = strip_tags($data->careinstruction);
+   if (strlen($careinstruction) > 100) {
+
+       // truncate string
+       $stringCut = substr($careinstruction, 0, 100);
+       $endPoint = strrpos($stringCut, ' ');
+
+       //if the string doesn't contain any space then it will cut without word basis.
+       $careinstruction = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+       $careinstruction .= '...';
+   }
+   echo $careinstruction;?></td>
  	 <td><?php echo $data->modelno ?></td>
  	 <td><?php echo $data->inventory ?></td>
 

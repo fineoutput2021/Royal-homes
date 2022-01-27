@@ -1,9 +1,3 @@
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
 <style media="screen">
             .form11 {
 
@@ -318,7 +312,7 @@ width:100%;
   .ggty{display:block!important;line-height: 4rem!important;}
   }
   @media (min-width: 641px){
-  .ggty{display:block!important;line-height: 6rem!important;}
+  .ggty{display:block!important;line-height: 7rem!important;}
   }
 
   @media (width: 360px){
@@ -327,7 +321,7 @@ width:100%;
   @media (width: 375px){
   .ggty{display: block!important;  line-height: 3.3rem!important;}}
 
-  @media (min-width: 414px){
+  @media (width: 414px){
   .ggty{display: block!important;line-height: 4.5rem!important;}}
 
 
@@ -405,7 +399,7 @@ echo 0;
 echo $total;
 }?></span></p>
   <div class="w-100">
-    <button class="chk" id="hjki">
+    <button class="chk" onclick="check_sign()">
       Checkout
     </button>
       <label class="ml-5" style="color:red;font-size: 13px;">Please login/Register for checkout</label>
@@ -655,4 +649,13 @@ function decreaseValue(i) {
       }
     });
   }
+</script>
+<script type="text/javascript">
+let check_sign = ()=>{
+  let loginRegMod = document.getElementById("myModals");
+  let mySideNavBar = document.getElementById("mySidenav");
+  mySideNavBar.style.width = "0";
+  loginRegMod.style.display = "block";
+
+}
 </script>

@@ -64,7 +64,19 @@
 
                       <td><?php echo $category_name ?></td>
                       <td><?php echo $data->subcategory ?></td>
-                      <td><?php echo $data->description ?></td>
+                      <td><?php
+                      $string = strip_tags($data->description);
+                      if (strlen($string) > 100) {
+
+                          // truncate string
+                          $stringCut = substr($string, 0, 100);
+                          $endPoint = strrpos($stringCut, ' ');
+
+                          //if the string doesn't contain any space then it will cut without word basis.
+                          $string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+                          $string .= '...';
+                      }
+                      echo $string;?></td>
                       <td>
                         <?if(!empty($data->image)){?>
                         <img src="<?=base_url().$data->image?>" width="30%"/>
