@@ -311,6 +311,10 @@ width:100%;
   .li_st2{
     line-height: 3rem;
   }
+  @media(max-width:480px){
+  .m_l{
+    margin-left:0px!important;
+  }}
 </style>
 <section >
 <div class="container" style="font-weight:700;" id="here">
@@ -339,7 +343,7 @@ width:100%;
      <ul class="ul_st2">
        <li class="li_st2"><span><?=$pro_data->productname?></span></li>
        <li class="li_st2" style="display:flex"><span>Qty:&nbsp;</span>
-         <div id="custom-qty" class="control ml-4 mt-2">
+         <div id="custom-qty" class="control ml-4 mt-2 m_l">
            <!-- ko template: getTemplate() -->
            <div class="input-group">
              <span class="input-group__addon">

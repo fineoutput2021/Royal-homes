@@ -121,6 +121,14 @@
 flex-direction: column-reverse !important;
 }
   }
+  .content{
+    display:none;
+  }
+  .noContent {
+  color: #000 !important;
+  background-color: transparent !important;
+  pointer-events: none;
+}
 </style>
 
 
@@ -289,7 +297,7 @@ $sub_data= $this->db->get()->row();
         $percent=$discount/$pro['mrp']*100;
         }
         ?>
-      <div class="col-md-4 p-2">
+      <div class="col-md-4 p-2 content">
         <a href="<?=base_url()?>Home/product_details/<?=base64_encode($pro['id'])?>" style="color:unset">
           <img src="<?=base_url().$pro['image']?>" onmouseover="pro_change(this)" onmouseout="pro_default(this)" id="pro_img<?=$i?>" class="img-fluid" img="<?=base_url().$pro['image']?>" img2="<?=base_url().$pro['image1']?>" />
           <?if($percent>0){?>
@@ -328,7 +336,7 @@ $sub_data= $this->db->get()->row();
       <?$i++;}}?>
     </div>
     <div class="w-100 center mt-5">
-<button type="button" class="add_btn" name="button">Load More</button>
+<button type="button" class="add_btn" name="button" id="loadMore">Load More</button>
     </div>
 </section>
 <br />
@@ -336,12 +344,15 @@ $sub_data= $this->db->get()->row();
 <br />
 <script type="text/javascript">
 $(document).ready(function(){
-  $(".content").slice(0, 4).show();
+  if($(".content:hidden").length == 0) {
+    $("#loadMore").text("").addClass("noContent");
+  }
+  $(".content:hidden").slice(0, 4).show();
   $("#loadMore").on("click", function(e){
     e.preventDefault();
     $(".content:hidden").slice(0, 4).slideDown();
     if($(".content:hidden").length == 0) {
-      $("#loadMore").text("No Content").addClass("noContent");
+      $("#loadMore").text("").addClass("noContent");
     }
   });
 
