@@ -1,9 +1,4 @@
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
+
 <style>
 .chk{
 background: #d76a46;
@@ -34,7 +29,29 @@ font-size: 18px;
 .sp{
   color:red
 }
+@media (min-width: 641px){
+.ggty{display:block!important;line-height: 6rem!important;}
+}
+
+@media (width: 360px){
+.ggty{display: block!important;line-height: 3.1rem!important;}}
+
+@media (width: 375px){
+.ggty{display: block!important;  line-height: 3.3rem!important;}}
+
+@media (width: 414px){
+.ggty{display: block!important;line-height: 4.5rem!important;}}
+
+
+@media (width: 390px){
+.ggty{  display: block!important;  line-height: 4.3rem!important;}}
+@media (width: 393px){
+.ggty{  display: block!important;  line-height: 4.2rem!important;}
+}
 </style>
+<div class="ggty" style="line-height:4rem;" >
+<br>
+</div>
 <section>
 <div class="container">
 <div class="row">
@@ -49,13 +66,13 @@ font-size: 18px;
     <!-- <form id="address_form" action="<?=base_url()?>Order/add_address" method="post" enctype="multipart/form-data"> -->
       <!-- 2 column grid layout with text inputs for the first and last names -->
       <div class="row mb-4">
-        <div class="col">
+        <div class="col-12 col-md-6">
           <div class="form-outline">
             <label class="form-label" for="name">Name<span class="sp">*</span></label>
             <input type="text" id="name" name="name" class="form-control mt-1" required onkeyup='saveValue(this);'/>
           </div>
         </div>
-        <div class="col">
+        <div class="col-12 col-md-6">
           <div class="form-outline">
             <label class="form-label" for="email">Email<span class="sp">*</span></label>
             <input type="email" id="email" name="email" class="form-control mt-1" required onkeyup='saveValue(this);'/>
@@ -66,13 +83,13 @@ font-size: 18px;
 
       <!-- Text input -->
       <div class="row mb-4">
-        <div class="col">
+        <div class="col-12 col-md-6">
           <div class="form-outline">
             <label class="form-label" for="phone">Contact<span class="sp">*</span></label>
             <input type="text" id="phone" name="phone" maxlength="10" minlength="10" class="form-control mt-1" required onkeypress="return isNumberKey(event)" onkeyup='saveValue(this);'/>
           </div>
         </div>
-        <div class="col">
+        <div class="col-12 col-md-6">
           <div class="form-outline">
             <label class="form-label" for="pincode">Pincode<span class="sp">*</span></label>
             <input type="text" id="pincode" name="pincode"  minlength="4" class="form-control mt-1" required  onkeyup='saveValue(this);'/>
@@ -127,17 +144,17 @@ foreach ($order2_data->result() as $order) {
 <?
 }?>
 <hr />
-<div id="amount_div">
-<p class="subtotal">Subtotal <span class="float-right" id="subtotal">£<?=$order_data->total_amount?></span></p>
-<p class="subtotal">Shipping Charges <span class="float-right" id="shipping">+ £<?if (!empty($order_data->delivery_charge)) {
+<div id="amount_div" >
+<p class="subtotal" style="text-align:start;">Subtotal <span class="float-right" id="subtotal">£<?=$order_data->total_amount?></span></p>
+<p class="subtotal" style="text-align:start;">Shipping Charges <span class="float-right" id="shipping">+ £<?if (!empty($order_data->delivery_charge)) {
         echo $order_data->delivery_charge;
     } else {
         echo 0;
     }?></span></p>
 <?if (!empty($order_data->promocode_id)) {?>
-<p class="subtotal">Promocode Discount <span class="float-right" id="discount">- £<?=$order_data->p_discount?></span></p>
+<p class="subtotal" style="text-align:start;">Promocode Discount <span class="float-right" id="discount">- £<?=$order_data->p_discount?></span></p>
 <?}?>
-<p class="subtotal">Estimated Total <span class="float-right" id="total_cost">£<?=$order_data->final_amount?></span></p>
+<p class="subtotal" style="text-align:start;">Estimated Total <span class="float-right" id="total_cost">£<?=$order_data->final_amount?></span></p>
 <hr />
 <?if (!empty($order_data->promocode_id)) {
         $this->db->select('*');
@@ -154,10 +171,11 @@ foreach ($order2_data->result() as $order) {
 <?
     }?>
   </div>
+
 <p class="float-left">Promocode:&nbsp</p>
 <form id="promocode_form" action="javascript:void(0);" method="post" enctype="multipart/form-data">
 <input type="hidden" name="order_id" value="<?=base64_encode($order_data->id)?>"/>
-<input type="text" class="form-control" id="promoode" name="promocode" style="width:40%; display: inline;white-space:nowrap;margin-top:0px;margin-right:5px">
+<input type="text" class="form-control" id="promoode" name="promocode" style="width:70%; display: inline;white-space:nowrap;margin-top:0px;margin-right:5px">
 <button type="submit" class="apply mr-auto" id="promocode_submit">Apply</button>
 </form>
 <hr />
