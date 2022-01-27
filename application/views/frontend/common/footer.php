@@ -111,7 +111,7 @@
           A part of the vision Mr. Vinay Kumar had for Basant, was to framework a homegrown branch for the domestic
           market.</p>
         <br>
-        <h5 class="myNewFontFam"><a href="blog.html"  class="myNewFontFam"
+        <h5 class="myNewFontFam"><a href="<?=base_url()?>Home/view_blog"  class="myNewFontFam"
             style="text-decoration: none; color: white;font-weight: 700;">Blog</a></h5>
         <br>
         <h5  class="myNewFontFam"style="font-weight: 700;">Track Your Order</h5>

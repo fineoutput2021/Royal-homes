@@ -28,7 +28,7 @@
 
 
 @media (min-width: 641px){
-.ggty{display:none;}
+.ggty{display:none!important;}
 }
 }
   @media (max-width:1280px) {

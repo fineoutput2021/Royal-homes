@@ -339,6 +339,14 @@ class Home extends CI_Controller
 
     }
 
+///----------view blog ---------------
+public function view_blog(){
+
+  $this->load->view('frontend/common/header');
+  $this->load->view('frontend/all_blogs.php');
+  $this->load->view('frontend/common/footer');
+}
+
     public function error404()
     {
         $this->load->view('errors/error404');
