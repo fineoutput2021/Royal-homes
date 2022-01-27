@@ -7,6 +7,18 @@
 @media (min-width: 375px){
 .ggty{display: block!important;min-height:53px;  }}
 
+/* @media (min-width: 375px and min-height:812px){
+.ggty{display: block!important;min-height:53px;  }} */
+
+@media screen and (min-device-width: 375px) and (max-device-height: 667px)
+  {
+.ggty{display: block!important;min-height:53px!important;  }
+}
+
+@media screen and (device-width: 375px) and (device-height: 812px)
+   {
+.ggty{display: block!important;min-height:65px!important;  }
+}
 
 @media (min-width: 390px){
 .ggty{display: block!important; min-height:68px; }}
