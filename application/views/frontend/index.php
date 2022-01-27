@@ -5,7 +5,7 @@
 .ggty{display: block!important; min-height:51px;}}
 
 @media (min-width: 375px){
-.ggty{display: block!important;min-height:53px;  }}
+.ggty{display: block!important;min-height:65px;  }}
 
 /* @media (min-width: 375px and min-height:812px){
 .ggty{display: block!important;min-height:53px;  }} */
@@ -23,14 +23,14 @@
 @media (min-width: 390px){
 .ggty{display: block!important; min-height:68px; }}
 
-@media (min-width: 415px){
+@media (min-width: 414px){
 .ggty{display: block!important; min-height:72px;}}
 
 
 /* @media (min-width: 390px){
 .ggty{  display: block!important; min-height:68px; }} */
 @media (min-width: 393px){
-.ggty{  display: block!important; min-height:58px; }
+.ggty{  display: block!important; ; }
 }
 @media (max-width: 640px){
   .mbjj{padding:0px!important;}

@@ -387,7 +387,7 @@ button.slick-next.slick-arrow{
 .ggty{display: block!important; min-height:51px;}}
 
 @media (min-width: 375px){
-.ggty{display: block!important;min-height:53px;  }}
+.ggty{display: block!important;min-height:65px;  }}
 
 @media screen and (min-device-width: 375px) and (device-height: 667px)
   {
@@ -402,11 +402,11 @@ button.slick-next.slick-arrow{
 @media (min-width: 390px){
 .ggty{display: block!important; min-height:68px; }}
 
-@media (min-width: 415px){
+@media (min-width: 414px){
 .ggty{display: block!important; min-height:72px;}}
 
 @media (min-width: 393px){
-.ggty{  display: block!important; min-height:58px; }
+.ggty{  display: block!important; ; }
 }
 
 @media (min-width: 641px){
