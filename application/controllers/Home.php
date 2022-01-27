@@ -324,32 +324,58 @@ class Home extends CI_Controller
     //-------search---------------
     public function search()
     {
+        $string= $this->input->get('search');
 
-    $string= $this->input->get('search');
+        $this->db->select('*');
+        $this->db->from('tbl_products');
+        $this->db->like('productname', $string);
+        $this->db->where('is_active', 1);
+        $data['search_data']= $this->db->get();
 
-      $this->db->select('*');
-      $this->db->from('tbl_products');
-      $this->db->like('productname',$string);
-      $this->db->where('is_active',1);
-      $data['search_data']= $this->db->get();
-
-      $this->load->view('frontend/common/header', $data);
-      $this->load->view('frontend/search_results');
-      $this->load->view('frontend/common/footer');
-
+        $this->load->view('frontend/common/header', $data);
+        $this->load->view('frontend/search_results');
+        $this->load->view('frontend/common/footer');
     }
 
-///----------view blog ---------------
-public function view_blog(){
+    ///----------view blog ---------------
+    public function view_blog()
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_blog');
+        $this->db->where('is_active', 1);
+        $data['all_blogs']= $this->db->get();
 
-  $this->load->view('frontend/common/header');
-  $this->load->view('frontend/all_blogs.php');
-  $this->load->view('frontend/common/footer');
-}
+        $this->load->view('frontend/common/header', $data);
+        $this->load->view('frontend/all_blogs.php');
+        $this->load->view('frontend/common/footer');
+    }
+
+    ///----------view blog ---------------
+    public function blog_details($idd)
+    {
+        $id=base64_decode($idd);
+        $data['id']=$idd;
+        $this->db->select('*');
+        $this->db->from('tbl_blog');
+        $this->db->where('id', $id);
+        $this->db->where('is_active', 1);
+        $data['blog_data']= $this->db->get()->row();
+
+        $this->db->select('*');
+        $this->db->from('tbl_blog');
+        $this->db->where('id !=', $id);
+        $this->db->where('is_active', 1);
+        $this->db->order_by("rand()");
+        $data['related_blog']= $this->db->get();
+
+
+        $this->load->view('frontend/common/header', $data);
+        $this->load->view('frontend/blog_details.php');
+        $this->load->view('frontend/common/footer');
+    }
 
     public function error404()
     {
         $this->load->view('errors/error404');
     }
-
 }

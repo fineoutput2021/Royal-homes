@@ -55,8 +55,32 @@
 
                       <td><?php echo $data->article_date ?></td>
                       <td><?php echo $data->heading ?></td>
-                      <td><?php echo $data->description ?></td>
-                      <td><?php echo $data->full_description ?></td>
+                      <td><?php
+                      $description = strip_tags($data->description);
+                      if (strlen($description) > 100) {
+
+                          // truncate string
+                          $stringCut = substr($description, 0, 100);
+                          $endPoint = strrpos($stringCut, ' ');
+
+                          //if the string doesn't contain any space then it will cut without word basis.
+                          $description = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+                          $description .= '...';
+                      }
+                      echo $description;?></td>
+                      <td><?php
+                      $full_description = strip_tags($data->full_description);
+                      if (strlen($full_description) > 100) {
+
+                          // truncate string
+                          $stringCut = substr($full_description, 0, 100);
+                          $endPoint = strrpos($stringCut, ' ');
+
+                          //if the string doesn't contain any space then it will cut without word basis.
+                          $full_description = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+                          $full_description .= '...';
+                      }
+                      echo $full_description;?></td>
 
                       <td>
                         <?php if ($data->image!="") { ?>
@@ -66,11 +90,6 @@
                         Sorry No File Found
                         <?php } ?>
                       </td>
-
-
-
-
-
 
                       <td><?php if ($data->is_active==1) { ?>
                         <p class="label bg-green">Active</p>

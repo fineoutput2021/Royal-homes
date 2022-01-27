@@ -49,7 +49,9 @@
                     </tr>
                     <tr>
                       <td> <strong>Full Description</strong> <span style="color:red;">*</span></strong> </td>
-                      <td> <input type="text" name="full_description" class="form-control" placeholder="" required value="<?=$blog_data->full_description;?>" /> </td>
+                      <td>
+                        <textarea name="full_description" class="form-control" placeholder="" required id="editor1"><?=$blog_data->full_description;?></textarea>
+                         </td>
                     </tr>
                     <tr>
                       <td> <strong>image</strong> <span style="color:red;">*</span></strong> </td>
@@ -77,3 +79,7 @@
 
 <script type="text/javascript" src=" <?php echo base_url()  ?>assets/slider/ajaxupload.3.5.js"></script>
 <link href=" <?php echo base_url()  ?>assets/cowadmin/css/jqvmap.css" rel='stylesheet' type='text/css' />
+<script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+<script>
+  CKEDITOR.replace('editor1');
+</script>
