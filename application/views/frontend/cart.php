@@ -53,7 +53,7 @@
             text-align: center;
             border: 1px solid #ddd;
             margin: 0px;
-            width: 50px;
+            width: 32px;
             height: 32px;
             }
 

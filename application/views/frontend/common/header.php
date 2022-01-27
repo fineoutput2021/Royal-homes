@@ -1570,6 +1570,9 @@ padding: 14px 17px;
         display: flex;
         flex-direction: column;
         align-items: end;
+        margin-right: 12px;
+    margin-left: 28px;
+  margin-top: 14px;
       }
 
       .modifiedSearch {
@@ -1642,6 +1645,7 @@ padding: 14px 17px;
         display: flex;
         flex-direction: column;
         align-items: end;
+        margin-top:22px;
       }
 
       .modifiedSearch {
@@ -1781,6 +1785,7 @@ padding: 14px 17px;
         display: flex;
         flex-direction: column;
         align-items: end;
+        margin-right:0px!important;
       }
 
       .modifiedSearch {
@@ -1832,7 +1837,7 @@ padding: 14px 17px;
       }
 
       .modifiedBurger {
-        margin-top: 6vh !important;
+        margin-top: 5vh !important;
         margin-left: -38vw !important;
       }
 
@@ -1902,8 +1907,8 @@ padding: 14px 17px;
       }
 
       .modifiedBurger {
-        margin-top: 7vh !important;
-        margin-left: -33vw !important;
+        margin-top: 6vh !important;
+        margin-left: -37vw !important;
       }
 
       .modifiedHeaderCont {
@@ -2149,9 +2154,7 @@ $category_data= $this->db->get();
           </div>
         </div>
         <div class="col-md-4 col-xs-6 menu">
-          <ul class="modifiedUl" style="margin-right: 12px;
-    margin-left: 28px;
-    margin-top: 14px;">
+          <ul class="modifiedUl" style="">
             <li>
               <div id="mySidenav" class="sidenav">
                 <div class="w-100 center mb-2" style="background-color: black;">

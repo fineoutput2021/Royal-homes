@@ -53,7 +53,7 @@
             text-align: center;
             border: 1px solid #ddd;
             margin: 0px;
-            width: 50px;
+            width: 32px;
             height: 32px;
             }
 
@@ -65,6 +65,7 @@
             @media (max-width :896px)
             {
             .form11{margin-left: 0px!important;}
+
 
             }
 .ul_st2{
