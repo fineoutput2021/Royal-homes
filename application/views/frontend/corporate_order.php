@@ -69,19 +69,19 @@ flex-direction: column-reverse !important;
             <div class="row">
             <div class="col-md-4 col-12">
             <div class="form-outline mb-4">
-              <label class="form-label" for="image1">select a fie:</label>
+              <label class="form-label" for="image1">select a file:</label>
               <input type="file" class="form-control" id="image1" name="image1" value="">
             </div>
             </div>
             <div class="col-md-4 col-12">
             <div class="form-outline mb-4">
-              <label class="form-label" for="image2">select a fie:</label>
+              <label class="form-label" for="image2">select a file:</label>
               <input type="file" class="form-control" id="image2" name="image2" value="">
             </div>
             </div>
             <div class="col-md-4 col-12">
             <div class="form-outline mb-4">
-              <label class="form-label" for="image3">select a fie:</label>
+              <label class="form-label" for="image3">select a file:</label>
               <input type="file" class="form-control" id="image3" name="image3" value="">
             </div>
             </div>
@@ -90,19 +90,19 @@ flex-direction: column-reverse !important;
             <div class="row mb-4">
             <div class="col-md-4 col-12">
             <div class="form-outline mb-4">
-              <label class="form-label" for="image4">select a fie:</label>
+              <label class="form-label" for="image4">select a file:</label>
               <input type="file" class="form-control" id="image4" name="image4" value="">
             </div>
             </div>
             <div class="col-md-4 col-12">
             <div class="form-outline mb-4">
-              <label class="form-label" for="image5">select a fie:</label>
+              <label class="form-label" for="image5">select a file:</label>
               <input type="file" class="form-control" id="image5" name="image5" value="">
             </div>
             </div>
             <div class="col-md-4 col-12">
             <div class="form-outline mb-4">
-              <label class="form-label" for="image6">select a fie:</label>
+              <label class="form-label" for="image6">select a file:</label>
               <input type="file" class="form-control" id="image6" name="image6" value="">
             </div>
             </div>
