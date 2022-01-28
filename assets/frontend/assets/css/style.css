@@ -378,6 +378,16 @@ button.slick-next.slick-arrow{
         margin-top: 20vh;
          width: 25px!important;
     }
+  .say, .c_slider button.slick-next.slick-arrow{
+      display: block !important;
+      margin-top: 4vh;
+      width: 25px!important;
+    }
+    .say, .c_slider button.slick-prev.slick-arrow{
+        display: block !important;
+        margin-top: 4vh;
+         width: 25px!important;
+    }
     .mobilesde{
       display: none;
     }

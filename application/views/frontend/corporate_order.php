@@ -13,8 +13,8 @@ flex-direction: column-reverse !important;
   <div class="row reverse m-3" style="border:1px solid #ccc">
     <!-- <div class="col-xs-12 "> -->
     <div class="col-md-4 ">
-      <h3 style="text-align:center;" class="mt-3">Custom Brochers</h3>
-      <section class="overflow-hidden t_slider ">
+      <h3 style="text-align:center;" class="mt-3">Corporate Brochers</h3>
+      <section class="overflow-hidden c_slider ">
         <div class="container-fluid p-0">
           <div class="row">
             <div class="col-md-12 pt-2 pl-5 pr-5 pb-1">
