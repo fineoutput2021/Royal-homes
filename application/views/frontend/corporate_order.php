@@ -14,6 +14,31 @@ flex-direction: column-reverse !important;
     <!-- <div class="col-xs-12 "> -->
     <div class="col-md-5 p-5">
       <h3 style="text-align:center;">Corporate Gifts</h3>
+
+      <section class="overflow-hidden t_slider ">
+        <div class="container-fluid p-0">
+          <div class="row">
+            <div class="col-md-12" style="padding-left:0;padding-right:0">
+              <div class="swiper-wrapper fist_slider ">
+
+                <div class="swiper-slide"><a href="" target="_blank">
+                    <img src="https://www.orangetree.in/pub/media/wysiwyg/gifting_1.jpg" alt="">
+                  </a></div>
+                  <div class="swiper-slide"><a href="" target="_blank">
+                      <img src="https://www.orangetree.in/pub/media/wysiwyg/gifting_1.jpg" alt="">
+                    </a></div>
+
+              </div>
+              <!-- <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div> -->
+              <!-- <div class="swiper-pagination"></div> -->
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+
     </div>
     <div class="col-md-7 p-0">
       <img src="https://www.orangetree.in/pub/media/wysiwyg/gifting_1.jpg" class="img-fluid" />
