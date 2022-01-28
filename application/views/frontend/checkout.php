@@ -51,13 +51,13 @@ font-size: 18px;
         <div class="col-12 col-md-6">
           <div class="form-outline">
             <label class="form-label" for="name">Name<span class="sp">*</span></label>
-            <input type="text" id="name" name="name" class="form-control mt-1" required onkeyup='saveValue(this);'/>
+            <input type="text" id="name" name="name" class="form-control mt-0" required onkeyup='saveValue(this);'/>
           </div>
         </div>
         <div class="col-12 col-md-6">
           <div class="form-outline">
             <label class="form-label" for="email">Email<span class="sp">*</span></label>
-            <input type="email" id="email" name="email" class="form-control mt-1" required onkeyup='saveValue(this);'/>
+            <input type="email" id="email" name="email" class="form-control mt-0" required onkeyup='saveValue(this);'/>
             <label style="font-size:12px;color:red;" id="email_alert"></label>
           </div>
         </div>
@@ -68,13 +68,13 @@ font-size: 18px;
         <div class="col-12 col-md-6">
           <div class="form-outline">
             <label class="form-label" for="phone">Contact<span class="sp">*</span></label>
-            <input type="text" id="phone" name="phone" maxlength="10" minlength="10" class="form-control mt-1" required onkeypress="return isNumberKey(event)" onkeyup='saveValue(this);'/>
+            <input type="text" id="phone" name="phone" maxlength="10" minlength="10" class="form-control mt-0" required onkeypress="return isNumberKey(event)" onkeyup='saveValue(this);'/>
           </div>
         </div>
         <div class="col-12 col-md-6">
           <div class="form-outline">
             <label class="form-label" for="pincode">Pincode<span class="sp">*</span></label>
-            <input type="text" id="pincode" name="pincode"  minlength="4" class="form-control mt-1" required  onkeyup='saveValue(this);'/>
+            <input type="text" id="pincode" name="pincode"  minlength="4" class="form-control mt-0" required  onkeyup='saveValue(this);'/>
             <label style="font-size:12px;color:red;" id="alert"></label>
           </div>
         </div>
