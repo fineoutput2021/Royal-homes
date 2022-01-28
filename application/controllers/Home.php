@@ -378,7 +378,17 @@ class Home extends CI_Controller
     //-------------view corporate order =-----------
     public function corporate_order()
     {
-        $this->load->view('frontend/common/header', );
+        $this->db->select('*');
+        $this->db->from('tbl_corporate_brochers');
+        $this->db->where('is_active', 1);
+        $data['corporate_brochers']= $this->db->get();
+
+        $this->db->select('*');
+        $this->db->from('tbl_corporate_banner');
+        $this->db->where('is_active', 1);
+        $data['custom_brocher']= $this->db->get()->row();
+
+        $this->load->view('frontend/common/header', $data);
         $this->load->view('frontend/corporate_order.php');
         $this->load->view('frontend/common/footer');
     }
@@ -601,12 +611,12 @@ class Home extends CI_Controller
                                 );
 
                 $last_id=$this->base_model->insert_table("tbl_corporate_orders", $data_insert, 1) ;
-                if(!empty($last_id)){
-                  $this->session->set_flashdata('smessage', 'Your requet submitted successfully!');
-                  redirect("/",);
-                }else{
-                  $this->session->set_flashdata('emessage', 'Some error occured');
-                  redirect($_SERVER['HTTP_REFERER']);
+                if (!empty($last_id)) {
+                    $this->session->set_flashdata('smessage', 'Your requet submitted successfully!');
+                    redirect("/", );
+                } else {
+                    $this->session->set_flashdata('emessage', 'Some error occured');
+                    redirect($_SERVER['HTTP_REFERER']);
                 }
             } else {
                 $this->session->set_flashdata('emessage', validation_errors());
@@ -621,7 +631,19 @@ class Home extends CI_Controller
     //-------------view custom order =-----------
     public function custom_order()
     {
-        $this->load->view('frontend/common/header', );
+        $this->db->select('*');
+        $this->db->from('tbl_custom_brochers');
+        $this->db->where('is_active', 1);
+        $data['custom_brochers']= $this->db->get();
+
+        $this->db->select('*');
+        $this->db->from('tbl_custom_banner');
+        $this->db->where('is_active', 1);
+        $data['custom_banner']= $this->db->get()->row();
+
+
+
+        $this->load->view('frontend/common/header', $data);
         $this->load->view('frontend/custom_order.php');
         $this->load->view('frontend/common/footer');
     }
@@ -664,12 +686,12 @@ class Home extends CI_Controller
                                 );
 
                 $last_id=$this->base_model->insert_table("tbl_custom_orders", $data_insert, 1) ;
-                if(!empty($last_id)){
-                  $this->session->set_flashdata('smessage', 'Your requet submitted successfully!');
-                  redirect("/",);
-                }else{
-                  $this->session->set_flashdata('emessage', 'Some error occured');
-                  redirect($_SERVER['HTTP_REFERER']);
+                if (!empty($last_id)) {
+                    $this->session->set_flashdata('smessage', 'Your requet submitted successfully!');
+                    redirect("/", );
+                } else {
+                    $this->session->set_flashdata('emessage', 'Some error occured');
+                    redirect($_SERVER['HTTP_REFERER']);
                 }
             } else {
                 $this->session->set_flashdata('emessage', validation_errors());

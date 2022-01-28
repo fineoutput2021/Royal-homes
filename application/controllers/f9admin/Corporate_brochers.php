@@ -1,7 +1,7 @@
 <?php
     if ( ! defined('BASEPATH')) exit('No direct script access allowed');
        require_once(APPPATH . 'core/CI_finecontrol.php');
-       class Corporatebroacher extends CI_finecontrol{
+       class Corporate_brochers extends CI_finecontrol{
        function __construct()
            {
              parent::__construct();
@@ -11,7 +11,7 @@
              $this->load->library('upload');
            }
 
-         public function view_corporatebroacher(){
+         public function view_corporate_brochers(){
 
             if(!empty($this->session->userdata('admin_data'))){
 
@@ -24,12 +24,12 @@
               // exit;
 
                            $this->db->select('*');
-               $this->db->from('tbl_corporatebroacher');
+               $this->db->from('tbl_corporate_brochers');
                //$this->db->where('id',$usr);
-               $data['corporatebroacher_data']= $this->db->get();
+               $data['corporate_brochers_data']= $this->db->get();
 
               $this->load->view('admin/common/header_view',$data);
-              $this->load->view('admin/corporatebroacher/view_corporatebroacher');
+              $this->load->view('admin/corporate_brochers/view_corporate_brochers');
               $this->load->view('admin/common/footer_view');
 
           }
@@ -40,12 +40,12 @@
 
           }
 
-              public function add_corporatebroacher(){
+              public function add_corporate_brochers(){
 
                  if(!empty($this->session->userdata('admin_data'))){
 
                    $this->load->view('admin/common/header_view');
-                   $this->load->view('admin/corporatebroacher/add_corporatebroacher');
+                   $this->load->view('admin/corporate_brochers/add_corporate_brochers');
                    $this->load->view('admin/common/footer_view');
 
                }
@@ -56,7 +56,7 @@
 
                }
 
-               public function update_corporatebroacher($idd){
+               public function update_corporate_brochers($idd){
 
                    if(!empty($this->session->userdata('admin_data'))){
 
@@ -72,13 +72,13 @@
                      $data['id']=$idd;
 
                             $this->db->select('*');
-                            $this->db->from('tbl_corporatebroacher');
+                            $this->db->from('tbl_corporate_brochers');
                             $this->db->where('id',$id);
-                            $data['corporatebroacher_data']= $this->db->get()->row();
+                            $data['corporate_brochers_data']= $this->db->get()->row();
 
 
                      $this->load->view('admin/common/header_view',$data);
-                     $this->load->view('admin/corporatebroacher/update_corporatebroacher');
+                     $this->load->view('admin/corporate_brochers/update_corporate_brochers');
                      $this->load->view('admin/common/footer_view');
 
                  }
@@ -89,7 +89,7 @@
 
                  }
 
-             public function add_corporatebroacher_data($t,$iw="")
+             public function add_corporate_brochers_data($t,$iw="")
 
                {
 
@@ -99,19 +99,17 @@
              $this->load->helper(array('form', 'url'));
              $this->load->library('form_validation');
              $this->load->helper('security');
-             if($this->input->post())
-             {
-               // print_r($this->input->post());
-               // exit;
-  $this->form_validation->set_rules('name', 'name', 'required|customAlpha|trim');
-
-
-
-
-
-               if($this->form_validation->run()== TRUE)
-               {
-  $name=$this->input->post('name');
+  //            if($this->input->post())
+  //            {
+  // $this->form_validation->set_rules('title', 'title', 'required');
+  //
+  //
+  //
+  //
+  //
+  //              if($this->form_validation->run()== TRUE)
+  //              {
+  // $title=$this->input->post('title');
 
                    $ip = $this->input->ip_address();
                    date_default_timezone_set("Asia/Calcutta");
@@ -124,21 +122,21 @@
 
 
 
-$img1='broacher';
+$img1='file';
 
 
 
 
-         $image_upload_folder = FCPATH . "assets/uploads/corporatebroacher/";
+         $image_upload_folder = FCPATH . "assets/uploads/corporate_brochers/";
                      if (!file_exists($image_upload_folder))
                      {
                          mkdir($image_upload_folder, DIR_WRITE_MODE, true);
                      }
-                     $new_file_name="corporatebroacher".date("Ymdhms");
+                     $new_file_name="corporate_brochers".date("Ymdhms");
                      $this->upload_config = array(
                              'upload_path'   => $image_upload_folder,
                              'file_name' => $new_file_name,
-                             'allowed_types' =>'pdf|doc|jpg|png',
+                             'allowed_types' =>'pdf',
                              'max_size'      => 25000
                      );
                      $this->upload->initialize($this->upload_config);
@@ -147,15 +145,15 @@ $img1='broacher';
                          $upload_error = $this->upload->display_errors();
                          // echo json_encode($upload_error);
 
-           //$this->session->set_flashdata('emessage',$upload_error);
-             //redirect($_SERVER['HTTP_REFERER']);
+           $this->session->set_flashdata('emessage',$upload_error);
+             redirect($_SERVER['HTTP_REFERER']);
                      }
                      else
                      {
 
                          $file_info = $this->upload->data();
 
-                         $videoNAmePath = "assets/uploads/corporatebroacher/".$new_file_name.$file_info['file_ext'];
+                         $videoNAmePath = "assets/uploads/corporate_brochers/".$new_file_name.$file_info['file_ext'];
                          $file_info['new_name']=$videoNAmePath;
                          // $this->step6_model->updateappIconImage($imageNAmePath,$appInfoId);
                          $nnnn=$file_info['file_name'];
@@ -167,9 +165,53 @@ $img1='broacher';
 
 
 
+$img2='image';
+
+
+
+
+         $image_upload_folder = FCPATH . "assets/uploads/corporate_brochers/";
+                     if (!file_exists($image_upload_folder))
+                     {
+                         mkdir($image_upload_folder, DIR_WRITE_MODE, true);
+                     }
+                     $new_file_name="corporate_brochers".date("Ymdhms");
+                     $this->upload_config = array(
+                             'upload_path'   => $image_upload_folder,
+                             'file_name' => $new_file_name,
+                             'allowed_types' =>'jpg|jpeg|png',
+                             'max_size'      => 25000
+                     );
+                     $this->upload->initialize($this->upload_config);
+                     if (!$this->upload->do_upload($img2))
+                     {
+                         $upload_error = $this->upload->display_errors();
+                         // echo json_encode($upload_error);
+
+           $this->session->set_flashdata('emessage',$upload_error);
+             redirect($_SERVER['HTTP_REFERER']);
+                     }
+                     else
+                     {
+
+                         $file_info = $this->upload->data();
+
+                         $videoNAmePath = "assets/uploads/corporate_brochers/".$new_file_name.$file_info['file_ext'];
+                         $file_info['new_name']=$videoNAmePath;
+                         // $this->step6_model->updateappIconImage($imageNAmePath,$appInfoId);
+                         $nnnn=$file_info['file_name'];
+                         $nnnn2=$videoNAmePath;
+
+                         // echo json_encode($file_info);
+                     }
+
+
+
+
            $data_insert = array(
-                  'name'=>$name,
-  'broacher'=>$nnnn1,
+                  // 'title'=>$title,
+  'file'=>$nnnn1,
+  'image'=>$nnnn2,
 
                      'ip' =>$ip,
                      'added_by' =>$addedby,
@@ -178,7 +220,7 @@ $img1='broacher';
                      );
 
 
-           $last_id=$this->base_model->insert_table("tbl_corporatebroacher",$data_insert,1) ;
+           $last_id=$this->base_model->insert_table("tbl_corporate_brochers",$data_insert,1) ;
 
            }
            if($typ==2){
@@ -187,28 +229,28 @@ $img1='broacher';
 
 
  $this->db->select('*');
- $this->db->from('tbl_corporatebroacher');
+ $this->db->from('tbl_corporate_brochers');
  $this->db->where('id',$idw);
  $dsa=$this->db->get();
  $da=$dsa->row();
 
 
 
-$img1='broacher';
+$img1='file';
 
 
 
 
-         $image_upload_folder = FCPATH . "assets/uploads/corporatebroacher/";
+         $image_upload_folder = FCPATH . "assets/uploads/corporate_brochers/";
                      if (!file_exists($image_upload_folder))
                      {
                          mkdir($image_upload_folder, DIR_WRITE_MODE, true);
                      }
-                     $new_file_name="corporatebroacher".date("Ymdhms");
+                     $new_file_name="corporate_brochers".date("Ymdhms");
                      $this->upload_config = array(
                              'upload_path'   => $image_upload_folder,
                              'file_name' => $new_file_name,
-                             'allowed_types' =>'pdf|doc|jpg|png',
+                             'allowed_types' =>'xlsx|csv|xls|pdf|doc|docx|txt|jpg|jpeg|png',
                              'max_size'      => 25000
                      );
                      $this->upload->initialize($this->upload_config);
@@ -225,7 +267,7 @@ $img1='broacher';
 
                          $file_info = $this->upload->data();
 
-                         $videoNAmePath = "assets/uploads/corporatebroacher/".$new_file_name.$file_info['file_ext'];
+                         $videoNAmePath = "assets/uploads/corporate_brochers/".$new_file_name.$file_info['file_ext'];
                          $file_info['new_name']=$videoNAmePath;
                          // $this->step6_model->updateappIconImage($imageNAmePath,$appInfoId);
                          $nnnn=$file_info['file_name'];
@@ -237,20 +279,65 @@ $img1='broacher';
 
 
 
- if(!empty($da)){ $img = $da ->broacher;
-if(!empty($img)) { if(empty($nnnn1)){ $nnnn1 = $img; } }else{ if(empty($nnnn1)){ $nnnn1= ""; } } }
+$img2='image';
+
+
+
+
+         $image_upload_folder = FCPATH . "assets/uploads/corporate_brochers/";
+                     if (!file_exists($image_upload_folder))
+                     {
+                         mkdir($image_upload_folder, DIR_WRITE_MODE, true);
+                     }
+                     $new_file_name="corporate_brochers".date("Ymdhms");
+                     $this->upload_config = array(
+                             'upload_path'   => $image_upload_folder,
+                             'file_name' => $new_file_name,
+                             'allowed_types' =>'xlsx|csv|xls|pdf|doc|docx|txt|jpg|jpeg|png',
+                             'max_size'      => 25000
+                     );
+                     $this->upload->initialize($this->upload_config);
+                     if (!$this->upload->do_upload($img2))
+                     {
+                         $upload_error = $this->upload->display_errors();
+                         // echo json_encode($upload_error);
+
+           //$this->session->set_flashdata('emessage',$upload_error);
+             //redirect($_SERVER['HTTP_REFERER']);
+                     }
+                     else
+                     {
+
+                         $file_info = $this->upload->data();
+
+                         $videoNAmePath = "assets/uploads/corporate_brochers/".$new_file_name.$file_info['file_ext'];
+                         $file_info['new_name']=$videoNAmePath;
+                         // $this->step6_model->updateappIconImage($imageNAmePath,$appInfoId);
+                         $nnnn=$file_info['file_name'];
+                         $nnnn2=$videoNAmePath;
+
+                         // echo json_encode($file_info);
+                     }
+
+
+
+
+ if(!empty($da)){ $img = $da ->file;
+if(!empty($img)) { if(empty($nnnn1)){ $nnnn1 = $img; } }else{ if(empty($nnnn1)){ $nnnn1= ""; } } }if(!empty($da)){ $img = $da ->image;
+if(!empty($img)) { if(empty($nnnn2)){ $nnnn2 = $img; } }else{ if(empty($nnnn2)){ $nnnn2= ""; } } }
 
            $data_insert = array(
-                  'name'=>$name,
-  'broacher'=>$nnnn1,
+                  // 'title'=>$title,
+  'file'=>$nnnn1,
+  'image'=>$nnnn2,
 
                      );
              $this->db->where('id', $idw);
-             $last_id=$this->db->update('tbl_corporatebroacher', $data_insert);
+             $last_id=$this->db->update('tbl_corporate_brochers', $data_insert);
            }
                        if($last_id!=0){
                                $this->session->set_flashdata('smessage','Data inserted successfully');
-                               redirect("dcadmin/corporatebroacher/view_corporatebroacher","refresh");
+                               redirect("dcadmin/corporate_brochers/view_corporate_brochers","refresh");
                               }
                                else
                                    {
@@ -258,21 +345,21 @@ if(!empty($img)) { if(empty($nnnn1)){ $nnnn1 = $img; } }else{ if(empty($nnnn1)){
                                     $this->session->set_flashdata('emessage','Sorry error occured');
                                     redirect($_SERVER['HTTP_REFERER']);
                                   }
-               }
-             else{
-
-        $this->session->set_flashdata('emessage',validation_errors());
-      redirect($_SERVER['HTTP_REFERER']);
-
-             }
-
-             }
-           else{
-
- $this->session->set_flashdata('emessage','Please insert some data, No data available');
-      redirect($_SERVER['HTTP_REFERER']);
-
-           }
+ //               }
+ //             else{
+ //
+ //        $this->session->set_flashdata('emessage',validation_errors());
+ //      redirect($_SERVER['HTTP_REFERER']);
+ //
+ //             }
+ //
+ //             }
+ //           else{
+ //
+ // $this->session->set_flashdata('emessage','Please insert some data, No data available');
+ //      redirect($_SERVER['HTTP_REFERER']);
+ //
+ //           }
            }
            else{
 
@@ -283,7 +370,7 @@ if(!empty($img)) { if(empty($nnnn1)){ $nnnn1 = $img; } }else{ if(empty($nnnn1)){
 
            }
 
-               public function updatecorporatebroacherStatus($idd,$t){
+               public function updatecorporate_brochersStatus($idd,$t){
 
                         if(!empty($this->session->userdata('admin_data'))){
 
@@ -304,10 +391,10 @@ if(!empty($img)) { if(empty($nnnn1)){ $nnnn1 = $img; } }else{ if(empty($nnnn1)){
                         );
 
                         $this->db->where('id', $id);
-                       $zapak=$this->db->update('tbl_corporatebroacher', $data_update);
+                       $zapak=$this->db->update('tbl_corporate_brochers', $data_update);
 
                             if($zapak!=0){
-                            redirect("dcadmin/corporatebroacher/view_corporatebroacher","refresh");
+                            redirect("dcadmin/corporate_brochers/view_corporate_brochers","refresh");
                                     }
                                     else
                                     {
@@ -322,10 +409,10 @@ if(!empty($img)) { if(empty($nnnn1)){ $nnnn1 = $img; } }else{ if(empty($nnnn1)){
                          );
 
                          $this->db->where('id', $id);
-                         $zapak=$this->db->update('tbl_corporatebroacher', $data_update);
+                         $zapak=$this->db->update('tbl_corporate_brochers', $data_update);
 
                              if($zapak!=0){
-                             redirect("dcadmin/corporatebroacher/view_corporatebroacher","refresh");
+                             redirect("dcadmin/corporate_brochers/view_corporate_brochers","refresh");
                                      }
                                      else
                                      {
@@ -346,44 +433,9 @@ if(!empty($img)) { if(empty($nnnn1)){ $nnnn1 = $img; } }else{ if(empty($nnnn1)){
 
                       }
 
-                      public function download_file($idd){
-
-                                                                   if(!empty($this->session->userdata('admin_data'))){
 
 
-                                                                     $data['user_name']=$this->load->get_var('user_name');
-
-                                                                     // echo SITE_NAME;
-                                                                     // echo $this->session->userdata('image');
-                                                                     // echo $this->session->userdata('position');
-                                                                     // exit;
-                                                   $id=base64_decode($idd);
-                                                $this->db->select('*');
-                                                            $this->db->from('tbl_corporatebroacher');
-                                                            $this->db->where('id',$id);
-                                                            $dsa= $this->db->get();
-                                                            $da=$dsa->row();
-
-                                                                      $file_url = base_url().$da->broacher ;
-
-                                                header('Content-Type: application/octet-stream');
-                                                header("Content-Transfer-Encoding: Binary");
-                                                header("Content-disposition: attachment; filename=\"" . basename($file_url) . "\"");
-                                                readfile($file_url);
-
-
-
-                                                                 }
-                                                                 else{
-
-                                                                    redirect("login/admin_login","refresh");
-                                                                 }
-
-                                                                 }
-
-
-
-               public function delete_corporatebroacher($idd){
+               public function delete_corporate_brochers($idd){
 
                       if(!empty($this->session->userdata('admin_data'))){
 
@@ -397,18 +449,18 @@ if(!empty($img)) { if(empty($nnnn1)){ $nnnn1 = $img; } }else{ if(empty($nnnn1)){
 
                        if($this->load->get_var('position')=="Super Admin"){
 
-                     $this->db->select('*');
-                     $this->db->from('tbl_corporatebroacher');
-                     $this->db->where('id',$id);
-                     $dsa= $this->db->get();
-                     $da=$dsa->row();
+                     // $this->db->select('image');
+                     // $this->db->from('tbl_corporate_brochers');
+                     // $this->db->where('id',$id);
+                     // $dsa= $this->db->get();
+                     // $da=$dsa->row();
                      // $img=$da->image;
 
- $zapak=$this->db->delete('tbl_corporatebroacher', array('id' => $id));
+ $zapak=$this->db->delete('tbl_corporate_brochers', array('id' => $id));
  if($zapak!=0){
         // $path = FCPATH .$img;
         //   unlink($path);
-        redirect("dcadmin/corporatebroacher/view_corporatebroacher","refresh");
+        redirect("dcadmin/corporate_brochers/view_corporate_brochers","refresh");
                 }
                 else
                 {

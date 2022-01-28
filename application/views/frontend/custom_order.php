@@ -13,37 +13,31 @@ flex-direction: column-reverse !important;
 <section>
   <div class="row reverse m-3" style="border:1px solid #ccc">
     <!-- <div class="col-xs-12 "> -->
-    <div class="col-md-5 ">
-      <h3 style="text-align:center;">Custom Gifts</h3>
+    <div class="col-md-4 ">
+      <h3 style="text-align:center;" class="mt-3">Custom Brochers</h3>
       <section class="overflow-hidden t_slider ">
         <div class="container-fluid p-0">
           <div class="row">
-            <div class="col-md-12" style="padding-left:0;padding-right:0">
+            <div class="col-md-12 pt-2 pl-5 pr-5 pb-1">
               <div class="swiper-wrapper fist_slider ">
-
-                <div class="swiper-slide"><a href="" target="_blank">
-                    <img src="https://www.orangetree.in/pub/media/wysiwyg/gifting_1.jpg" alt="">
+                <?php $i=1; foreach($custom_brochers->result() as $data) { ?>
+                <div class="swiper-slide">
+                  <a href="<?=base_url().$data->file?>" download title="Custom_brocher_<?=$i?>">
+                    <img src="<?=base_url().$data->image?>" alt="" class="img-fluid">
                   </a></div>
-                  <div class="swiper-slide"><a href="" target="_blank">
-                      <img src="https://www.orangetree.in/pub/media/wysiwyg/gifting_1.jpg" alt="">
-                    </a></div>
+                  <?php $i++; } ?>
 
               </div>
-              <!-- <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div> -->
-              <!-- <div class="swiper-pagination"></div> -->
-
             </div>
           </div>
         </div>
       </section>
-
-
-
-
+      <p style="text-align:center;">
+      Click on image to download
+      </p>
     </div>
-    <div class="col-md-7 p-0">
-      <img src="https://www.orangetree.in/pub/media/wysiwyg/gifting_1.jpg" class="img-fluid" />
+    <div class="col-md-8 p-0">
+      <img src="<?=base_url().$custom_banner->image?>" class="img-fluid" />
     </div>
   </div>
   <hr />

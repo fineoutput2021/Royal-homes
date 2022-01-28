@@ -1,12 +1,12 @@
 <div class="content-wrapper">
 <section class="content-header">
   <h1>
-    View Custom Banner
+    View Corporate Banner
   </h1>
   <ol class="breadcrumb">
     <li><a href="<?php echo base_url() ?>admin/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li><a href="<?php echo base_url() ?>admin/college"><i class="fa fa-dashboard"></i> Custom Orders </a></li>
-    <li class="active">View Custom Banner</li>
+    <li><a href="<?php echo base_url() ?>admin/college"><i class="fa fa-dashboard"></i> Corporate Orders </a></li>
+    <li class="active">View Corporate Banner</li>
   </ol>
 </section>
 <section class="content">
@@ -14,7 +14,7 @@
     <div class="col-lg-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> View Custom Banner</h3>
+          <h3 class="panel-title"><i class="fa fa-money fa-fw"></i>View Corporate Banner</h3>
         </div>
         <div class="panel panel-default">
 
@@ -48,13 +48,13 @@
                   <tr>
                     <td><?php echo $i ?> </td>
                     <td>
-                      <?php if($custom_banner_data->image!=""){  ?>
-                      <img id="slide_img_path" height=50 width=100 src="<?php echo base_url().$custom_banner_data->image ?>">
+                      <?php if($corporate_banner_data->image!=""){  ?>
+                      <img id="slide_img_path" height=50 width=100 src="<?php echo base_url().$corporate_banner_data->image ?>">
                       <?php }else {  ?>
                       Sorry No image Found
                       <?php } ?>
                     </td>
-                    <td><?php if($custom_banner_data->is_active==1){ ?>
+                    <td><?php if($corporate_banner_data->is_active==1){ ?>
                       <p class="label bg-green">Active</p>
 
                       <?php } else { ?>
@@ -69,12 +69,12 @@
                           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> Action <span class="caret"></span></button>
                           <ul class="dropdown-menu" role="menu">
 
-                            <?php if($custom_banner_data->is_active==1){ ?>
-                            <li><a href="<?php echo base_url() ?>dcadmin/Custom_orders/updatecustom_bannerStatus/<?php echo base64_encode($custom_banner_data->id) ?>/inactive">Inactive</a></li>
+                            <?php if($corporate_banner_data->is_active==1){ ?>
+                            <li><a href="<?php echo base_url() ?>dcadmin/Corporate_orders/updatecustom_bannerStatus/<?php echo base64_encode($corporate_banner_data->id) ?>/inactive">Inactive</a></li>
                             <?php } else { ?>
-                            <li><a href="<?php echo base_url() ?>dcadmin/Custom_orders/updatecustom_bannerStatus/<?php echo base64_encode($custom_banner_data->id) ?>/active">Active</a></li>
+                            <li><a href="<?php echo base_url() ?>dcadmin/Corporate_orders/updatecustom_bannerStatus/<?php echo base64_encode($corporate_banner_data->id) ?>/active">Active</a></li>
                             <?php		}   ?>
-                            <li><a href="<?php echo base_url() ?>dcadmin/Custom_orders/update_custom_banner/<?php echo base64_encode($custom_banner_data->id) ?>">Edit</a></li>
+                            <li><a href="<?php echo base_url() ?>dcadmin/Corporate_orders/update_corporate_banner/<?php echo base64_encode($corporate_banner_data->id) ?>">Edit</a></li>
                           </ul>
                         </div>
                       </div>
