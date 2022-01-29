@@ -1,4 +1,13 @@
 <style media="screen">
+.fixedElement {
+  top: 96px;
+  /* bottom:0; */
+  /* position:fixed; */
+  position: sticky;
+  /* width:100%; */
+  /* overflow-y:scroll;
+   overflow-x:hidden; */
+}
             .form11 {
 
             margin-left: 40px ;
@@ -370,7 +379,10 @@ $i++;
 }
 }?>
 </div>
-<div class="col-md-4 mt-3" style="position:sticky;">
+<div class="col-md-4 mt-3">
+
+
+<div class=" fixedElement" style="">
 <h4><b>Order Summary</b></h4>
 <hr />
 <p class="subtotal ctr">Cart Total <span class="float-right" id="subtotal">£<?if (empty($this->session->userdata('cart_data'))) {
@@ -384,6 +396,7 @@ echo $total;
     </button>
       <label class="ml-5" style="color:red;font-size: 13px;">Please login/Register for checkout</label>
   </div>
+</div>
 </div>
 </div>
 </div>

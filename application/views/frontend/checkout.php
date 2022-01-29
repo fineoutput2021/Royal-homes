@@ -1,5 +1,14 @@
 
 <style>
+.fixedElement {
+  top: 96px;
+  /* bottom:0; */
+  /* position:fixed; */
+  position: sticky;
+  /* width:100%; */
+  /* overflow-y:scroll;
+   overflow-x:hidden; */
+}
 .chk{
 background: #d76a46;
 color: white;
@@ -37,7 +46,10 @@ font-size: 18px;
 <section>
 <div class="container">
 <div class="row">
-<div class="col-md-8">
+  <div class="col-md-8">
+
+
+<div class="fixedElement" >
 <h2>Address</h2>
 <br />
 <div class="card mb-4">
@@ -94,6 +106,7 @@ font-size: 18px;
       </div> -->
     <!-- </form> -->
   </div>
+</div>
 </div>
 </div>
 <div class="col-md-4 mt-3" style="position:sticky;">

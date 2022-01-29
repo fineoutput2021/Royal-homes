@@ -2,6 +2,15 @@
 
 
 <style media="screen">
+.fixedElement {
+  top: 96px;
+  /* bottom:0; */
+  /* position:fixed; */
+  position: sticky;
+  /* width:100%; */
+  /* overflow-y:scroll;
+   overflow-x:hidden; */
+}
             .form11 {
 
             margin-left: 40px ;
@@ -378,7 +387,10 @@ width:100%;
   }
   }?>
   </div>
-<div class="col-md-4 mt-3" style="position:sticky;">
+  <div class="col-md-4 mt-3">
+
+
+<div class="fixedElement" style="position:sticky;">
 <h4><b>Order Summary</b></h4>
 <hr />
 <ul>
@@ -399,6 +411,7 @@ echo $total;
     </button>
   </a>
   </div>
+</div>
 </div>
 </div>
 </div>
