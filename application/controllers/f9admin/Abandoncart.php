@@ -176,8 +176,7 @@
                        $promo = strtoupper("RH".$random);
 
                        $data_insert = array(
-                        'promocode'=>$promo,
-                        'ptype'=>1,
+                        'name'=>$promo,
                         'abandon'=>1,
                         'giftpercent'=>$discount_data->percentage,
                         'ip' =>$ip,
@@ -185,7 +184,7 @@
                         'date'=>$cur_date
                         );
 
-                       $last_id=$this->base_model->insert_table("tbl_promocode", $data_insert, 1) ;
+                       $last_id=$this->base_model->insert_table("tbl_coupancode", $data_insert, 1) ;
                        $email_data =array(
                 'user_id'=> $user_data->id,
                 'discount'=> $discount_data->percentage,
@@ -213,8 +212,8 @@
                        $this->load->library('email', $config);
                        $this->email->set_newline("");
                        $this->email->from(EMAIL); // change it to yours
-              $this->email->to($to);// change it to yours
-              $this->email->subject('Special Discount for you');
+                       $this->email->to($to);// change it to yours
+                       $this->email->subject('Special Discount for you');
                        $this->email->message($message);
                        if ($this->email->send()) {
                            // echo 'Email sent.';
