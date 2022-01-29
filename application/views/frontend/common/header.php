@@ -1191,7 +1191,7 @@ padding: 14px 17px;
     /* Position and style the close button (top right corner) */
     .sidenav .closebtn {
       position: absolute;
-      top: -10px;
+      top: -7px;
       right: 0px;
       font-size: 37px !important;
       margin-left: 50px;
@@ -2236,7 +2236,7 @@ $category_data= $this->db->get();
         <div class="col-md-4 col-xs-6 menu">
           <ul class="modifiedUl" style="margin-top:14px ">
             <li>
-              <div id="mySidenav" class="sidenav">
+              <div id="mySidenav" class="sidenav" style="z-index:99">
                 <div class="w-100 center mb-2" style="background-color: black;">
                   <a href="#" class="rqwa" style="width:85%;">
                     <img src="<?=base_url()?>assets/frontend/assets/img/web_logo.png" id="logohed" alt="logo">
@@ -2265,17 +2265,22 @@ $category_data= $this->db->get();
           if(!empty($subcheck)){?>
                     <div id="collapse_<?=$data->id?>" class="collapse" role="tabpanel" aria-labelledby="heading_<?=$data->id?>" data-parent="#accordion">
                       <div class="card-body" style="color:white">
-                        <ul style="display:unset;line-height:1.7!important">
+                        <!-- <ul style="display:unset;line-height:1.7!important"> -->
+                        <div class="row">
 
                 <?foreach ($subdata->result() as $sub) {
                     ?>
-                          <li><a href="<?=base_url()?>Home/all_Product/<?=base64_encode($sub->id)?>/<?=base64_encode(2)?>"><?php echo $sub->subcategory ?></a></li>
-                          <?php
-                } ?>
-                        </ul>
+                          <!-- <li><a href="<?=base_url()?>Home/all_Product/<?=base64_encode($sub->id)?>/<?=base64_encode(2)?>"><?php echo $sub->subcategory ?></a></li> -->
+                          <div class="col-6 pb-1" style="text-align: left;">
+                            <span ><a style="color:black" href="<?=base_url()?>Home/all_Product/<?=base64_encode($sub->id)?>/<?=base64_encode(2)?>"><?php echo $sub->subcategory ?></a></span>
+                          </div>
+                          <?php } ?>
+                        </div>
+
+                        <!-- </ul> -->
                         <div class="mt-2 w-100 center">
-                          <img src="<?=base_url().$data->image?>" style="padding:10px;width:250px;height:250px" class="img-fluid" />
-                          <img src="<?=base_url().$data->image2?>" style="padding:10px;width:250px;height:250px" class="img-fluid" />
+                          <img src="<?=base_url().$data->image?>"  class="img-fluid p-3" />
+                          <img src="<?=base_url().$data->image2?>"  class="img-fluid p-3" />
                         </div>
 
                       </div>
@@ -2524,8 +2529,8 @@ $category_data= $this->db->get();
     <!-- Modal content -->
     <div class="modal-content">
       <div class="">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true" onclick="myFunction8()" style='margin-left:-2rem;margin-top: -1rem;'>&times;</span>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-top: -2rem;">
+          <span aria-hidden="true" onclick="myFunction8()" style='margin-left:-2rem;'>&times;</span>
         </button>
         <!-- <div class="logosection" style="
     display: flex;
@@ -2640,10 +2645,10 @@ Creating an account has many benefits: check out faster, keep more than one addr
     font-size: 12px;
     text-transform: capitalize;
     letter-spacing: 1px;
-    color: #000;font-weight:400;"> Sign In</span></a>
+    color: #d76a46;font-weight:900;"> <b>Sign In</b></span></a>
             </div>
-            <div class="d-flex justify-content-center" style="display: block; flex-direction: column;"><p style="margin-bottom:0px; text-align: center;">or</p>
-              <a href="/checkout" style="color: #ff5722; text-align: center;">Proceed as guest</a></div>
+            <div class="d-flex justify-content-center" style="display: block;font-size: 12px; flex-direction: column;"><p style="margin-bottom:0px; text-align: center;">or</p>
+              <a href="/checkout" style="color: #d76a46; text-align: center;">Proceed as guest</a></div>
 
         </form>
       </div>
@@ -2651,7 +2656,7 @@ Creating an account has many benefits: check out faster, keep more than one addr
 
   </div>
 
-  <!-- Sign in modal -->
+  <!-- sign in model -->
   <div id="myModals" class="modal  close2" style="z-index: 1000;">
     <!-- Modal content -->
     <div class="modal-content">
@@ -2729,20 +2734,21 @@ Creating an account has many benefits: check out faster, keep more than one addr
             <div class="badge  text-black text-wrap textresp" style="color: #000;
     padding: 0 5px;
     text-transform: none;
-    font-size: 16px;
+    font-size: 12px;
     letter-spacing: 0;
     margin-top: 20px;font-weight:100; " id="myBtn1">
-              New Here?<span style="cursor:pointer;    color: #000;
+              New Here?<span style="cursor:pointer;    color: #d76a46;
     padding: 0 5px;
     text-transform: none;
-    font-size: 16px;
+    font-size: 12px;
     letter-spacing: 0;
     margin-top: 20px; font-weight:900;"> <b>Sign Up</b></span>
             </div>
 
           </div>
-              <div class="d-flex justify-content-center" style="display: block; flex-direction: column;"><p style="margin-bottom:0px; text-align: center;">or</p>
-                <a href="/checkout" style="color: #ff5722; text-align: center;">Proceed as guest</a></div>
+              <div class="d-flex justify-content-center" style="display: block; font-size: 12px; flex-direction: column;">
+                <p style="margin-bottom:0px; text-align: center;">or</p>
+                <a href="/checkout" style="color: #d76a46; text-align: center;font-weight:900;">Proceed as guest</a></div>
         </form>
 
       </div>

@@ -698,7 +698,7 @@ $('.say').slick({
 // }
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
 function openNav() {
-  document.getElementById("mySidenav").style.width = "80%";
+  document.getElementById("mySidenav").style.width = "100%";
   document.getElementById("main").style.marginLeft = "0px";
   document.getElementById("menucloseopen").addEventListener("click", () => { closeNav() });
   document.getElementById("menucloseopen").removeEventListener("click", () => { openNav() });
@@ -841,9 +841,11 @@ function togglediv(id) {
 <script type="text/javascript">
 let open_sign = ()=>{
   let loginRegMod = document.getElementById("myModals");
+  let signupRegMod = document.getElementById("myModals1");
   let mySideNavBar = document.getElementById("mySidenav");
   mySideNavBar.style.width = "0";
   loginRegMod.style.display = "block";
+  signupRegMod.style.display = "none";
 
 }
 </script>
