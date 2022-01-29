@@ -94,4 +94,5 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 
 
 ///---------shpping charges--------
-defined('SHIPPING') OR define('SHIPPING', 5); 
+defined('CAPTCHA_KEY_HTML') OR define('CAPTCHA_KEY_HTML', '6Led0EMeAAAAAIFR-hhgAY57yxBB_fAwkBDUAFFv');
+defined('CAPTCHA_KEY_SERVER') OR define('CAPTCHA_KEY_SERVER', '6Led0EMeAAAAAA9QEGWWZbBLSXCTxBetvUcNHWjW');

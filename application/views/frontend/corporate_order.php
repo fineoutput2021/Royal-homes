@@ -127,7 +127,8 @@ flex-direction: column-reverse !important;
             </div>
             </div>
             </div>
-
+            <div class="g-recaptcha mt-4" data-sitekey=<?=CAPTCHA_KEY_HTML?> name="captcha_response"></div>
+            
             <!-- Checkbox -->
             <div class="form-check d-flex justify-content-center mb-2">
               <button class="chk" style="width:30%">Submit</button>

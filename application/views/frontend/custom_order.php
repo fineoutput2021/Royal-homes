@@ -86,7 +86,7 @@ flex-direction: column-reverse !important;
               <label class="form-label" for="message">Message<span class="sp">*</span></label>
               <textarea class="form-control" id="message" name="message" rows="4" required ></textarea>
             </div>
-
+          <div class="g-recaptcha mt-4" data-sitekey=<?=CAPTCHA_KEY_HTML?> name="captcha_response"></div>
             <!-- Checkbox -->
             <div class="form-check d-flex justify-content-center mb-2">
               <button class="chk" style="width:30%">Submit</button>
