@@ -76,7 +76,7 @@ if(!empty($category_data)){
   echo $category_name=$category_data->categoryname;
   echo ", ";
 }else{
-  echo "";
+  echo "No Category";
 }
 }
 ?></td>

@@ -53,7 +53,7 @@
  	 <th>Model No.</th>
 
 
-    
+
         </tr>
         </thead>
         <tbody>
@@ -62,33 +62,41 @@
         <td><?php echo $i ?> </td>
         <td><?php echo $data->productname?></td>
 
+        <td><?php $category_id=json_decode($data->category);
+             foreach($category_id as $value){
 
- <?
-            $this->db->select('*');
-$this->db->from('tbl_category');
-$this->db->where('id',$data->category_id);
-$category_data= $this->db->get()->row();
-if(!empty($category_data)){
- $category_name=$category_data->categoryname;
-}else{
-  $category_name="";
-}
+                 $this->db->select('*');
+       $this->db->from('tbl_category');
+       $this->db->where('id',$value);
+       $category_data= $this->db->get()->row();
 
-?>
- <?
-            $this->db->select('*');
+       if(!empty($category_data)){
+       echo $category_name=$category_data->categoryname;
+       echo ", ";
+       }else{
+       echo "No Category";
+       }
+       }
+       ?></td>
+<td><?php $subcategory_id=json_decode($data->subcategory);
+if(!empty($subcategory_id)){
+foreach($subcategory_id as $value1){
+        $this->db->select('*');
 $this->db->from('tbl_subcategory');
-$this->db->where('id',$data->subcategory_id);
+$this->db->where('id',$value1);
 $subcategory_data= $this->db->get()->row();
 if(!empty($subcategory_data)){
-  $subcategory_name=$subcategory_data->subcategory;
+echo $subcategory_name=$subcategory_data->subcategory;
+echo ", ";
 }else{
-  $subcategory_name="";
-}
+echo "";
 
-?>
- 	 <td><?php echo $category_name?></td>
- 	 <td><?php echo $subcategory_name?></td>
+}
+}
+}else{
+echo "No Subcategory";
+}
+?></td>
 
         <td>
         <?php if($data->image!=""){ ?>

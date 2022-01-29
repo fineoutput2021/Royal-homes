@@ -12,7 +12,7 @@
           <section class="content">
           <div class="row">
              <div class="col-lg-12">
-                 <a class="btn btn-info cticket" href="<?php echo base_url() ?>dcadmin/users/add_users" role="button" style="margin-bottom:12px;"> Add Users</a>
+                 <!-- <a class="btn btn-info cticket" href="<?php echo base_url() ?>dcadmin/users/add_users" role="button" style="margin-bottom:12px;"> Add Users</a> -->
                               <div class="panel panel-default">
                                   <div class="panel-heading">
                                       <h3 class="panel-title"><i class="fa fa-money fa-fw"></i>View Users</h3>
@@ -41,10 +41,10 @@
                                           <thead>
                                               <tr>
                                                   <th>#</th>
-                                                  <th>Name</th>
+                                                  <th>First Name</th>
+                                                  <th>Last Name</th>
                                                   <th>Email</th>
                                                   <th>Phone</th>
-                                                  <th>Address</th>
                                                   <th>Status</th>
                                                   <th>Action</th>
                                                     </tr>
@@ -53,10 +53,10 @@
                                                   <?php $i=1; foreach($users_data->result() as $data) { ?>
                         <tr>
                             <td><?php echo $i ?> </td>
-                            <td><?php echo $data->name ?></td>
+                            <td><?php echo $data->fname ?></td>
+                            <td><?php echo $data->lname ?></td>
                             <td><?php echo $data->email ?></td>
                             <td><?php echo $data->phone ?></td>
-                            <td><?php echo $data->address ?></td>
                               <td><?php if($data->is_active==1){ ?>
         <p class="label bg-green" >Active</p>
 
@@ -77,7 +77,7 @@
 <?php } else { ?>
 <li><a href="<?php echo base_url() ?>dcadmin/users/updateuserStatus/<?php echo base64_encode($data->id) ?>/active">Active</a></li>
 <?php		}   ?>
-<li><a href="<?php echo base_url() ?>dcadmin/users/update_users/<?php echo base64_encode($data->id) ?>">Edit</a></li>
+<!-- <li><a href="<?php echo base_url() ?>dcadmin/users/update_users/<?php echo base64_encode($data->id) ?>">Edit</a></li> -->
 <li><a href="javascript:;" class="dCnf" mydata="<?php echo $i ?>">Delete</a></li>
 </ul>
 </div>

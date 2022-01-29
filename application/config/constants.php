@@ -93,6 +93,13 @@ defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automat
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
 
-///---------shpping charges--------
+///---------Grecaptcha--------
 defined('CAPTCHA_KEY_HTML') OR define('CAPTCHA_KEY_HTML', '6Led0EMeAAAAAIFR-hhgAY57yxBB_fAwkBDUAFFv');
 defined('CAPTCHA_KEY_SERVER') OR define('CAPTCHA_KEY_SERVER', '6Led0EMeAAAAAA9QEGWWZbBLSXCTxBetvUcNHWjW');
+
+//----------- Email -----------
+define('USER_NAME','info@fineoutput.co.in');
+define('PASSWORD','info@fineoutput2019');
+define('EMAIL','info@fineoutput.co.in');
+define('SMTP_HOST','mail.fineoutput.co.in');
+define('SMTP_PORT','587');

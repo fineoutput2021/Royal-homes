@@ -317,4 +317,17 @@ class User_login extends CI_Controller
             $this->load->view('Home/index', "refresh");
         }
     }
+
+//-------- As a guest -----------
+public function guest_mode(){
+  if (empty($this->session->userdata('user_data'))) {
+
+    $this->session->set_userdata('guest_data',1);
+    
+
+  }else{
+      $this->load->view('Home/index', "refresh");
+  }
+}
+
 }

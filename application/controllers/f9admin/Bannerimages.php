@@ -497,7 +497,9 @@ $img2='image2';
 
 
  if(!empty($da)){ $img = $da ->image1;
-if(!empty($img)) { if(empty($nnnn1)){ $nnnn1 = $img; } }else{ if(empty($nnnn1)){ $nnnn1= ""; } } }if(!empty($da)){ $img = $da ->image2;}
+if(!empty($img)) { if(empty($nnnn1)){ $nnnn1 = $img; } }else{ if(empty($nnnn1)){ $nnnn1= ""; } } }
+if(!empty($da)){ $img = $da ->image2;
+if(!empty($img)) { if(empty($nnnn2)){ $nnnn2 = $img; } }else{ if(empty($nnnn2)){ $nnnn2= ""; } }}
 
            $data_insert = array(
                   'imagename'=>$imagename,

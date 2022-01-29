@@ -51,6 +51,7 @@
  	      <th>Heading</th>
  	      <th>Web Image</th>
  	      <th>Mobile Image</th>
+ 	      <th>Link</th>
         <th>Status</th>
         <th>Action</th>
         </tr>

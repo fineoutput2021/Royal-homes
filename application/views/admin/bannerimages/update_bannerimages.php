@@ -43,12 +43,14 @@
 <td> <strong>Web Image </strong>  <span style="color:red;">*</span></strong> </td>
 <td> <input type="file" name="image1"  class="form-control" placeholder=""  value="<?=$bannerimages_data->image1;?>"/>
   <?php if($bannerimages_data->image1!=""){ ?> <img id="slide_img_path" height=200 width=300 src="<?php echo base_url().$bannerimages_data->image1; ?> "> <?php }else{ ?> Sorry No File Found <?php } ?>
+  <label style="color:red">Size:3501*1751</label>
 </td>
 </tr>
 <tr>
 <td> <strong>Mobile Image</strong>  <span style="color:red;">*</span></strong> </td>
 <td> <input type="file" name="image2"  class="form-control" placeholder="" value="<?$bannerimages_data->image2;?>"/>
-  <?php if($bannerimages_data->image2!=""){ ?> <img id="slide_img_path" height=200 width=300 src="<?php  base_url().$bannerimages_data->image2; ?> "> <?php }else{ ?> Sorry No File Found <?php } ?>
+  <?php if($bannerimages_data->image2!=""){ ?> <img id="slide_img_path" height=200 width=300 src="<?php  echo base_url().$bannerimages_data->image2; ?> "> <?php }else{ ?> Sorry No File Found <?php } ?>
+    <label style="color:red">Size:840*1680</label>
 </td>
 </tr>
 <tr>

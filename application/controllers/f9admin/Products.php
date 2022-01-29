@@ -113,12 +113,12 @@
 
                    $this->db->select('*');
                    $this->db->from('tbl_category');
-                   // $this->db->where('id',$id);
+                   $this->db->where('is_active', 1);
                    $data['category_data']= $this->db->get();
 
                    $this->db->select('*');
                    $this->db->from('tbl_subcategory');
-                   //$this->db->where('id',$usr);
+                  $this->db->where('is_active', 1);
                    $data['subcategory_data']= $this->db->get();
 
                    $this->load->view('admin/common/header_view', $data);
@@ -611,6 +611,17 @@
                                        }
                                    }
                                }
+                               print_r($data_cat);
+                               exit;
+                               if(empty($subcategory_data)){
+                                 $subcategory_data = "";
+                                 $is_category = 1;
+                               }
+                               if(empty($data_cat)){
+                                 $data_cat = "";
+                                 $is_category = 0;
+                               }
+
 
                                $data_insert = array(
                   'productname'=>$productname,
