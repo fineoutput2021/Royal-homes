@@ -75,6 +75,7 @@
   border-bottom-right-radius: 20px;
   font-size: 14px;
 }
+.npde{padding: 0px!important;}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <!--Start Slider-->
@@ -187,10 +188,10 @@
 <!--Start Get the look-->
 
 <section class="get_look overflow-hidden">
-  <div class="container-fluid">
+  <div class="container-fluid npde">
     <h2 class="text-center py-5"><?=$banner_images->imagename?></h2>
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12 npde">
         <div class="lala">
           <a href="<?=$banner_images->link?>" >
             <img style="width: 1483px;" src="<?=base_url().$banner_images->image1?>" alt="">
@@ -266,10 +267,10 @@
 <!---Start Latest--->
 
 <section class="new_lunc overflow-hidden t_slider">
-  <div class="container-fluid">
+  <div class="container-fluid npde">
     <h2 class="text-center py-5"><?=$image_two->heading_first;?></h2>
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12 npde">
         <!-- Swiper -->
 
         <div class="swiper-wrapper decor" style="padding-left:0px">
