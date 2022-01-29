@@ -2636,13 +2636,14 @@ Creating an account has many benefits: check out faster, keep more than one addr
     padding: 0 5px;
     text-transform: none;
     font-size: 12px;
-    letter-spacing: 0;"> Already have an Account</span> <span style="    text-align: center;
+    letter-spacing: 0;"> Already have an Account ?</span> <a href="javascript:void(0);" onclick="open_sign()"><span style="    text-align: center;
     font-size: 12px;
     text-transform: capitalize;
     letter-spacing: 1px;
-    color: #000;font-weight:400;">? Sign In</span>
+    color: #000;font-weight:400;"> Sign In</span></a>
             </div>
-
+            <div class="d-flex justify-content-center" style="display: block; flex-direction: column;"><p style="margin-bottom:0px; text-align: center;">or</p>
+              <a href="/checkout" style="color: #ff5722; text-align: center;">Proceed as guest</a></div>
 
         </form>
       </div>

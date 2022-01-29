@@ -838,7 +838,15 @@ function togglediv(id) {
   });
 }
 </script>
+<script type="text/javascript">
+let open_sign = ()=>{
+  let loginRegMod = document.getElementById("myModals");
+  let mySideNavBar = document.getElementById("mySidenav");
+  mySideNavBar.style.width = "0";
+  loginRegMod.style.display = "block";
 
+}
+</script>
 <script src="<?=base_url()?>assets/frontend/assets/js/bootstrap-notify.min.js"></script>
 
 </html>
