@@ -689,7 +689,8 @@ width: 100px; */
               <ul>
                 <li>
                   <?if($product_data->mrp > $product_data->selling_price){?>
-                  <span style="font-size: 14px;">MRP :</span>
+                                                <!-- mrp -->
+                  <span style="font-size: 14px;"></span>
                   <span style="font-size: 14px;color: #212529;font-weight: bold;"><s style="font-size: 12px;text-decoration: line-through;color:red">&nbsp;£<?=$product_data->mrp?></s> </span>
                   <?}?>
                   <?if (!empty($this->session->userdata('user_data'))) {?>

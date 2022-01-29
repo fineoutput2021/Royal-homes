@@ -307,7 +307,7 @@
 <!--Start Promise-->
 
 <section class="promis overflow-hidden">
-  <h2 class="text-center wwwq" style="color: gray;font-weight: bolder;">The Orange Tree
+  <h2 class="text-center wwwq" style="color: gray;font-weight: bolder;">The Royal Homes
     Promise</h2>
   <div class="container-fluid">
     <div class="row">
@@ -372,7 +372,7 @@
 
 
   <!--- Start video --->
-  <section style="padding: 4vw;">
+  <section style="padding: 0px 70.04px;">
     <br>
     <br>
     <div align="center" class="embed-responsive embed-responsive-16by9" >

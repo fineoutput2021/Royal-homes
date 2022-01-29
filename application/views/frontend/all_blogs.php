@@ -1,5 +1,5 @@
 <div class="ggty" style="line-height:5rem;"></div>
-<section class="">
+<section class="mt-3">
   <div class="container">
     <div class="col-md-12">
       <img src="https://www.orangetree.in/blog/wp-content/uploads/2022/01/kites-bar-unit.jpg" class="img-fluid" alt="">

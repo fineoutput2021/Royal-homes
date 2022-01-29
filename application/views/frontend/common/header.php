@@ -99,6 +99,8 @@
       /* Fallback color */
       background-color: rgba(0, 0, 0, 0.4);
       /* Black w/ opacity */
+      -webkit-transition: visibility 0s .3s,opacity .3s ease;
+  transition: visibility 0s .3s,opacity .3s ease;
     }
 
     .modal {
@@ -122,6 +124,8 @@
       /* Fallback color */
       background-color: rgba(0, 0, 0, 0.4);
       /* Black w/ opacity */
+      -webkit-transition: visibility 0s .3s,opacity .3s ease;
+    transition: visibility 0s .3s,opacity .3s ease;
     }
 
     [type=button]:not(:disabled),
@@ -175,7 +179,12 @@
       /* Fallback color */
       background-color: rgba(0, 0, 0, 0.4);
       /* Black w/ opacity */
+      -webkit-transition: visibility 0s .3s,opacity .3s ease;
+transition: visibility 0s .3s,opacity .3s ease;
     }
+
+
+
 
     /* Modal Content/Box */
     .modal-content {
@@ -497,7 +506,7 @@ padding: 14px 17px;
       line-height: 1.42857143;
       padding: 0 9px;
       vertical-align: baseline;
-      width: 100%;
+      width: 70%;
       box-sizing: border-box;
       text-transform: lowercase;
     }
