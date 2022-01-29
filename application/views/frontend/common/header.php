@@ -27,7 +27,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100&family=Zen+Antique+Soft&family=Zen+Old+Mincho&display=swap" rel="stylesheet">
-
+<script src='https://www.google.com/recaptcha/api.js'></script>
   <link href="http://fonts.cdnfonts.com/css/gotham" rel="stylesheet">
   <link href="http://fonts.cdnfonts.com/css/questa-grande" rel="stylesheet">
   <link href="http://fonts.cdnfonts.com/css/euclid-circular-a" rel="stylesheet">
@@ -2574,20 +2574,20 @@ $category_data= $this->db->get();
         <form action="<?=base_url()?>User_login/user_register" method="post" enctype="multipart/form-data" style="    width: 100%;
     float: none;
     padding-right: 30px;
-    position: relative;    max-width: 620px;
+    position: relative; max-width: 620px;
     width: 100%;
-    padding: 40px;
+    padding: 30px;
     border: 0;
     margin: 0;
     border-radius: 10px;">
-          <div class="badge  text-black text-wrap textres1 textmar" style="display:flex;justify-content:center;    text-align: center;
-    font-size: 14px;
-    margin-bottom: 15px;font-weight:unset;font-weight:400;    line-height: 2;color:rgba(0,0,0,0);">
-            Creating an account has many benefits: check out faster, keep more than one address, track orders and more.
+          <div class="text-black text-wrap textres1 textmar" style="font-size: 12px;
+    margin-bottom: 15px;font-weight:unset;font-weight:400;    line-height: 2;color:black">
+            <p>
+Creating an account has many benefits: check out faster, keep more than one address, track orders and more.
+            </p>
           </div>
           <div>
           </div>
-          <form>
             <div class="form_method_name">
               <input type="hidden" name="previous_url" value="<?=current_url()?>">
               <div class="row g-3">
@@ -2616,6 +2616,7 @@ $category_data= $this->db->get();
                   <input type="password" class="form-control formset" placeholder="confirm" aria-label="Confirm Password" name="confirm_password">
                 </div>
               </div>
+              <div class="g-recaptcha mt-4" data-sitekey=<?=CAPTCHA_KEY_HTML?> name="captcha_response"></div>
               <div>
                 <button class="button btnres" type="submit" style="font-size: 14px;
     text-transform: uppercase;
@@ -2641,7 +2642,6 @@ $category_data= $this->db->get();
     letter-spacing: 1px;
     color: #000;font-weight:400;">? Sign In</span>
             </div>
-          </form>
 
 
         </form>
@@ -2650,7 +2650,7 @@ $category_data= $this->db->get();
 
   </div>
 
-  <!-- Sign in  modal -->
+  <!-- Sign in modal -->
   <div id="myModals" class="modal  close2" style="z-index: 1000;">
     <!-- Modal content -->
     <div class="modal-content">
@@ -2717,6 +2717,7 @@ $category_data= $this->db->get();
                 <input placeholder="Password" name="password" value="" type="password" class="setcolumn">
               </div>
             </div>
+            <div class="g-recaptcha mt-4" data-sitekey=<?=CAPTCHA_KEY_HTML?> name="captcha_response"></div>
             <div class="badge  text-black text-wrap textres" style="font-size:12px;font-weight:400;font-family:'Gotham light';padding-top: 1.5rem;">
               <span>Forget Password</span>
             </div>
@@ -2735,7 +2736,7 @@ $category_data= $this->db->get();
     text-transform: none;
     font-size: 12px;
     letter-spacing: 0;
-    margin-top: 20px; font-weight:400;"> Sign Up</span>
+    margin-top: 20px; font-weight:500;"> Sign Up</span>
             </div>
           </div>
         </form>
