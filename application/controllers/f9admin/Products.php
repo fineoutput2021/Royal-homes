@@ -218,6 +218,10 @@
                            $nnnn5 = "";
                            $typ=base64_decode($t);
                            $last_id = 0;
+
+                           $pro = explode(" ", $productname);
+                           $url = implode("-", $pro);
+
                            if ($typ==1) {
                                $img2='image';
 
@@ -389,6 +393,7 @@
   'careinstruction'=>$careinstruction,
   'bestsellerproduct'=>$bestsellerproduct,
   'inventory'=>$inventory,
+  'url'=>$url,
 
                      'ip' =>$ip,
                      'added_by' =>$addedby,
@@ -640,7 +645,9 @@
   'feature'=>$feature,
   'careinstruction'=>$careinstruction,
   'bestsellerproduct'=>$bestsellerproduct,
-  'inventory'=>$inventory
+  'inventory'=>$inventory,
+  'url'=>$url,
+  
 
 
                      );

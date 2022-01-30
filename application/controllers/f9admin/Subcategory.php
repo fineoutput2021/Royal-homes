@@ -151,14 +151,18 @@ $this->load->library('upload');
       }
                            $typ=base64_decode($t);
                            $last_id = 0;
+
+                           $sub = explode(" ", $subcategory);
+                           $url = implode("-", $sub);
+
                            if ($typ==1) {
                                $data_insert = array(
                   'category_id'=>$category_id,
-  'subcategory'=>$subcategory,
-  'description'=>$description,
-  'image'=>$image,
-  'new_launches'=>0,
-
+                  'subcategory'=>$subcategory,
+                  'description'=>$description,
+                  'image'=>$image,
+                  'new_launches'=>0,
+                  'url'=>$url,
                      'ip' =>$ip,
                      'added_by' =>$addedby,
                      'is_active' =>1,
@@ -187,6 +191,8 @@ if(!empty($image)){
   'subcategory'=>$subcategory,
   'description'=>$description,
   'image'=>$image,
+  'url'=>$url
+
 
                      );
                    }else{
@@ -194,6 +200,8 @@ if(!empty($image)){
         'category_id'=>$category_id,
 'subcategory'=>$subcategory,
 'description'=>$description,
+'url'=>$url
+
 
            );
                    }

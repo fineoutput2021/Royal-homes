@@ -40,44 +40,6 @@ function __construct()
 
                    }
 
-// public function view_subcategory($idd){
-//
-// 							                      if(!empty($this->session->userdata('admin_data'))){
-//
-//
-// 							                        $data['user_name']=$this->load->get_var('user_name');
-//
-// 							                        // echo SITE_NAME;
-// 							                        // echo $this->session->userdata('image');
-// 							                        // echo $this->session->userdata('position');
-// 							                        // exit;
-//
-// 							 											       			$this->db->select('*');
-// 							 											 $this->db->from('tbl_subcategory');
-// 							 											 $this->db->where('category_id',$idd);
-// 							 											 $data['subcategory_data']= $this->db->get();
-//
-// 																		 // print_r($data);
-// 																		 // die;
-//
-//
-// 							                        $this->load->view('admin/common/header_view',$data);
-// 							                        $this->load->view('admin/category/view_subcategory');
-// 							                        $this->load->view('admin/common/footer_view');
-//
-// 							                    }
-// 							                    else{
-//
-// 							                       redirect("login/admin_login","refresh");
-// 							                    }
-//
-// 							                    }
-
-
-
-
-
-
 public function add_category(){
 
                  if(!empty($this->session->userdata('admin_data'))){
@@ -209,13 +171,15 @@ public function add_category(){
                   $cur_date=date("Y-m-d H:i:s");
 
                   $addedby=$this->session->userdata('admin_id');
-
+									$cat = explode(" ", $categoryname);
+									$url = implode("-", $cat);
           $typ=base64_decode($t);
           if($typ==1){
 
           $data_insert = array('categoryname'=>$categoryname,
                     'image'=>$nnn,
                     'image2'=>$nnn1,
+                    'url'=>$url,
                     'added_by' =>$addedby,
                     'is_active' =>1,
                     'date'=>$cur_date
@@ -267,6 +231,7 @@ if(!empty($nnn1)){
           $data_insert = array('categoryname'=>$categoryname,
                     'image'=>$n1,
                     'image2'=>$n2,
+                    'url'=>$url,
                     );
 
 

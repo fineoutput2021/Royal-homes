@@ -1,7 +1,7 @@
 <div class="content-wrapper">
   <section class="content-header">
     <h1>
-      Add New Slider
+      Add Web Slider
     </h1>
 
   </section>
@@ -11,7 +11,7 @@
 
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Add New Slider</h3>
+            <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Add Web Slider</h3>
           </div>
 
           <?php if (!empty($this->session->flashdata('smessage'))) {  ?>
@@ -37,7 +37,9 @@
                   <table class="table table-hover">
                     <tr>
                       <td> <strong>image</strong> <span style="color:red;">*</span></strong> </td>
-                      <td> <input type="file" name="image" class="form-control" placeholder="" required value="" /> </td>
+                      <td> <input type="file" name="image" class="form-control" placeholder="" required value="" />
+                        <label style="color:red;">Size:1678*840</label>
+                      </td>
                     </tr>
                     <tr>
                       <td> <strong>link</strong> <span style="color:red;">*</span></strong> </td>

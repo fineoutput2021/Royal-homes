@@ -156,7 +156,8 @@ location.replace("<?=base_url()?>Home/all_Product/"+id+"/"+t);
 
 $(document).ready(function() {
 <?php if(!empty($this->session->flashdata('emessage'))){ ?>
- loadErrorNotify("<?=$this->session->flashdata('emessage');?>");
+ var fail_message = '<?php echo $this->session->flashdata('emessage')?>';
+ loadSuccessNotify(fail_message);
 <?php  } ?>
 
 <?php  if(!empty($this->session->flashdata('validationemessage'))){
@@ -823,6 +824,15 @@ $('.sub').click(function () {
     $input.val(unit);
   }
 });
+
+window.onload = function() {
+    var $recaptcha = document.querySelector('#g-recaptcha-response');
+
+    if($recaptcha) {
+        $recaptcha.setAttribute("required", "required");
+    }
+};
+
 </script>
 <script>
 function togglediv(id) {

@@ -16,8 +16,10 @@ class Order extends CI_Controller
 
     public function calculate()
     {
-        if (!empty($this->session->userdata('user_data'))) {
-            $user_id = $this->session->userdata('user_id');
+        if (!empty($this->session->userdata('user_data')) || !empty($this->session->userdata('guest_data'))) {
+
+            if(!empty($user_id = $this->session->userdata('user_id'))){
+
             //---------get cart data----------------
             $this->db->select('*');
             $this->db->from('tbl_cart');
@@ -102,6 +104,94 @@ class Order extends CI_Controller
                 $this->session->set_flashdata('emessage', 'Please add product for process to checkout');
                 redirect("Home/index", "refresh");
             }
+
+          }
+          //-----------order as guest -----------
+          else{
+            //---------get cart data----------------
+            $cartInfo= $this->session->userdata('cart_data');
+
+            if (!empty($cartInfo)) {
+                $ip = $this->input->ip_address();
+                date_default_timezone_set("Asia/Calcutta");
+                $cur_date=date("Y-m-d H:i:s");
+                $total = 0;
+                foreach ($cartInfo as $cart) {
+                    $price=0;
+                    $this->db->select('*');
+                    $this->db->from('tbl_products');
+                    $this->db->where('id', $cart['product_id']);
+                    $pro_data= $this->db->get()->row();
+
+                    //-----check inventory------
+                    if (!empty($pro_data->inventory)) {
+                        if ($pro_data->inventory >= $cart['quantity']) {
+                            $price = $pro_data->selling_price * $cart['quantity'];
+                            $total= $total + $price;
+                        } else {
+                            $this->session->set_flashdata('emessage', ''.$pro_data->productname.'  is out of stock');
+                            redirect($_SERVER['HTTP_REFERER']);
+                        }
+                    } else {
+                        $this->session->set_flashdata('emessage', ''.$pro_data->productname.'  is out of stock');
+                        redirect($_SERVER['HTTP_REFERER']);
+                    }
+                    $user_id = $this->session->userdata('user_id');
+                    $final_amount = $total ;
+                }
+                //------order1 entry-------------
+                $order1_insert = array('user_id'=>$user_id,
+          'total_amount'=>$total,
+          'final_amount'=>round($final_amount),
+          'payment_status'=>0,
+          'order_status'=>0,
+          'ip' =>$ip,
+          'date'=>$cur_date
+          );
+
+                $last_id=$this->base_model->insert_table("tbl_order1", $order1_insert, 1) ;
+
+                if (!empty($last_id)) {
+
+//---------------order2 entires-------------------
+                    foreach ($cartInfo as $cart2) {
+                        $this->db->select('*');
+                        $this->db->from('tbl_products');
+                        $this->db->where('id', $cart2['product_id']);
+                        $pro_data= $this->db->get()->row();
+
+                        $total = $pro_data->selling_price * $cart2['quantity'];
+
+                        $order2_insert = array('main_id'=>$last_id,
+                        'product_id'=>$cart2['product_id'],
+                        'quantity'=>$cart2['quantity'],
+                        'mrp'=>$pro_data->mrp,
+                        'selling_price'=>$pro_data->selling_price,
+                        'total_amount'=>$total,
+                        'date'=>$cur_date
+                        );
+
+                        $last_id2=$this->base_model->insert_table("tbl_order2", $order2_insert, 1);
+                    }
+                    if (!empty($last_id2)) {
+                        $this->session->set_userdata('order_id', base64_encode($last_id));
+                        redirect("Order/view_checkout", "refresh");
+                    } else {
+                        $this->session->set_flashdata('emessage', 'Some error occured! Please try again');
+                        redirect($_SERVER['HTTP_REFERER']);
+                    }
+                } else {
+                    $this->session->set_flashdata('emessage', 'Some error occured');
+                    redirect($_SERVER['HTTP_REFERER']);
+                }
+            } else {
+                $this->session->set_flashdata('emessage', 'Please add product for process to checkout');
+                redirect("Home/index", "refresh");
+            }
+
+
+          }
+
         } else {
             redirect("Home/index", "refresh");
         }
@@ -296,13 +386,11 @@ class Order extends CI_Controller
 
     public function view_checkout()
     {
-        if (!empty($this->session->userdata('user_data')) && !empty($this->session->userdata('order_id'))) {
-            $user_id = $this->session->userdata('user_id');
+        if ((!empty($this->session->userdata('user_data')) && !empty($this->session->userdata('order_id'))) || (!empty($this->session->userdata('guest_data')) && !empty($this->session->userdata('order_id'))) ) {
 
             $this->db->select('*');
             $this->db->from('tbl_order1');
-            $this->db->where('user_id', $user_id);
-            $this->db->order_by('id', 'DESC');
+            $this->db->where('id', base64_decode($this->session->userdata('order_id')));
             $data['order_data']= $this->db->get()->row();
 
             $this->load->view('frontend/common/header', $data);
@@ -451,7 +539,7 @@ class Order extends CI_Controller
     //--------checkout----------------
     public function checkout()
     {
-        if (!empty($this->session->userdata('user_data')) && !empty($this->session->userdata('order_id'))) {
+      if ((!empty($this->session->userdata('user_data')) && !empty($this->session->userdata('order_id'))) || (!empty($this->session->userdata('guest_data')) && !empty($this->session->userdata('order_id'))) ) {
             $this->load->helper(array('form', 'url'));
             $this->load->library('form_validation');
             $this->load->helper('security');
@@ -476,7 +564,10 @@ class Order extends CI_Controller
                     date_default_timezone_set("Asia/Calcutta");
                     $cur_date=date("Y-m-d H:i:s");
 
-                    $user_id = $this->session->userdata('user_id');
+                    $guest_mode = 0;
+                    if(empty($user_id = $this->session->userdata('user_id'))){
+                      $guest_mode = 1;
+                    }
                     // exit;
                     //----------inventoty check-------------------
                     $this->db->select('*');
@@ -503,8 +594,9 @@ class Order extends CI_Controller
                                 'phone'=>$phone,
                                 'address'=>$address,
                                 'pincode'=>$pincode,
-                                'payment_status'=>1,
-                                'order_status'=>1,
+                                'payment_status'=>0,
+                                'order_status'=>0,
+                                'guest_mode'=>$guest_mode,
                                 'date'=>$cur_date,
                                 'ip'=>$ip,
                                   );
@@ -513,27 +605,29 @@ class Order extends CI_Controller
 
 
                     if (!empty($zapak2)) {
+                      $this->load->view('frontend/payment.php');
 
               //--------------inventory update and cart delete--------
-                        foreach ($order2_data->result() as $odr2) {
-                            // echo $user_id;
-                            // echo $odr2->product_id;
-                            // exit;
-                            $this->db->select('*');
-                            $this->db->from('tbl_products');
-                            $this->db->where('id', $odr2->product_id);
-                            $pro_data1= $this->db->get()->row();
-                            $updated_inventory  = $pro_data1->inventory - $odr2->quantity;
-
-                            $inventory_update = array('inventory'=>$updated_inventory,
-                   );
-                            $this->db->where('id', $pro_data1->id);
-                            $zapak=$this->db->update('tbl_products', $inventory_update);
-
-                            //-------cart delete---------
-                            $delete=$this->db->delete('tbl_cart', array('user_id' => $user_id,'product_id'=>$odr2->product_id));
-                        }
-                        redirect("Order/order_success", "refresh");
+                   //      foreach ($order2_data->result() as $odr2) {
+                   //          // echo $user_id;
+                   //          // echo $odr2->product_id;
+                   //          // exit;
+                   //          $this->db->select('*');
+                   //          $this->db->from('tbl_products');
+                   //          $this->db->where('id', $odr2->product_id);
+                   //          $pro_data1= $this->db->get()->row();
+                   //          $updated_inventory  = $pro_data1->inventory - $odr2->quantity;
+                   //
+                   //          $inventory_update = array('inventory'=>$updated_inventory,
+                   // );
+                   //          $this->db->where('id', $pro_data1->id);
+                   //          $zapak=$this->db->update('tbl_products', $inventory_update);
+                   //
+                   //          //-------cart delete---------
+                   //          $delete=$this->db->delete('tbl_cart', array('user_id' => $user_id,'product_id'=>$odr2->product_id));
+                   //          $this->session->unset_userdata('cart_data');
+                        // }
+                        // redirect("Order/order_success", "refresh");
                     } else {
                         $this->session->set_flashdata('emessage', 'Some error occured');
                         redirect($_SERVER['HTTP_REFERER']);
@@ -550,17 +644,19 @@ class Order extends CI_Controller
             redirect("Home/index", "refresh");
         }
     }
-
+    // public function payment()
+    // {
+    //     $this->load->view('frontend/payment.php');
+    // }
     //-----------order success---------
     public function order_success()
     {
-        if (!empty($this->session->userdata('user_data')) && !empty($this->session->userdata('order_id'))) {
+        if ((!empty($this->session->userdata('user_data')) && !empty($this->session->userdata('order_id'))) || (!empty($this->session->userdata('guest_data')) && !empty($this->session->userdata('order_id'))) ) {
             $user_id = $this->session->userdata('user_id');
 
             $this->db->select('*');
             $this->db->from('tbl_order1');
-            $this->db->where('user_id', $user_id);
-            $this->db->order_by('id', 'DESC');
+            $this->db->where('id', base64_decode($this->session->userdata('order_id')));
             $orderdata= $this->db->get()->row();
 
             $data['order_id'] =$orderdata->id;
@@ -568,6 +664,7 @@ class Order extends CI_Controller
             $data['user_id'] =$user_id;
 
             $this->session->unset_userdata('order_id');
+            $this->session->unset_userdata('guest_data');
 
             $this->load->view('frontend/common/header', $data);
             $this->load->view('frontend/order_success');

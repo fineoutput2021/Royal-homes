@@ -506,7 +506,7 @@ padding: 14px 17px;
       line-height: 1.42857143;
       padding: 0 9px;
       vertical-align: baseline;
-      width: 70%;
+      width: 100%;
       box-sizing: border-box;
       text-transform: lowercase;
     }
@@ -2603,7 +2603,7 @@ Creating an account has many benefits: check out faster, keep more than one addr
           <div>
           </div>
             <div class="form_method_name">
-              <input type="hidden" name="previous_url" value="<?=current_url()?>">
+              <!-- <input type="hidden" name="previous_url" value="<?=current_url()?>"> -->
               <div class="row g-3">
                 <div class="col-sm-6">
                   <input type="text" class="form-control formset" placeholder="First name" aria-label="First name" name="fname">
@@ -2656,9 +2656,12 @@ Creating an account has many benefits: check out faster, keep more than one addr
     letter-spacing: 1px;
     color: #d76a46;font-weight:900;"> <b>Sign In</b></span></a>
             </div>
-            <div class="d-flex justify-content-center" style="display: block;font-size: 12px; flex-direction: column;"><p style="margin-bottom:0px; text-align: center;">or</p>
-              <a href="/checkout" style="color: #d76a46; text-align: center;">Proceed as guest</a></div>
-
+            <div class="d-flex justify-content-center" style="display: block;font-size: 12px; flex-direction: column;">
+              <?if(empty($this->session->userdata('guest_data'))){?>
+              <p style="margin-bottom:0px; text-align: center;">or</p>
+              <a href="/checkout" style="color: #d76a46; text-align: center;">Proceed as guest</a>
+              <?}?>
+            </div>
         </form>
       </div>
     </div>
@@ -2721,7 +2724,7 @@ Creating an account has many benefits: check out faster, keep more than one addr
 
           </div>
           <div class="form_method_name">
-            <input type="hidden" name="previous_url" value="<?=current_url()?>">
+            <!-- <input type="hidden" name="previous_url" value="<?=current_url()?>"> -->
             <div class="field email required">
               <div class="control" style="margin-top:13px;">
                 <input placeholder="Email" name="email" type="email" class="input-text setcolumn" title="Email">
@@ -2753,11 +2756,13 @@ Creating an account has many benefits: check out faster, keep more than one addr
     letter-spacing: 0;
     margin-top: 20px; font-weight:900;"> <b>Sign Up</b></span>
             </div>
-
           </div>
               <div class="d-flex justify-content-center" style="display: block; font-size: 12px; flex-direction: column;">
-                <p style="margin-bottom:0px; text-align: center;">or</p>
-                <a href="/checkout" style="color: #d76a46; text-align: center;font-weight:900;">Proceed as guest</a></div>
+                <?if(empty($this->session->userdata('guest_data')) ){?>
+                  <p style="margin-bottom:0px; text-align: center;">or</p>
+                <a href="<?=base_url()?>/User_login/guest_mode" style="color: #d76a46; text-align: center;font-weight:900;">Proceed as guest</a>
+                <?}?>
+              </div>
         </form>
 
       </div>

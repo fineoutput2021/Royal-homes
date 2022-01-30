@@ -223,7 +223,7 @@ echo $productdescription;?></td>
         <li><a href="<?php echo base_url() ?>dcadmin/products/updateproductsStatus/<?php echo
         base64_encode($data->id) ?>/active">Active</a></li>
         <?php } ?>
-        <li><a href="<?php echo base_url() ?>dcadmin/products/update_products/<?php echo
+        <li id="edit"><a href="<?php echo base_url() ?>dcadmin/products/update_products/<?php echo
         base64_encode($data->id) ?>">Edit</a></li>
         <!-- <li><a href="<?php echo base_url() ?>dcadmin/product_type/view_type/<?php echo
         base64_encode($data->id) ?>">Type</a></li> -->

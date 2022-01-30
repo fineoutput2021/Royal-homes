@@ -361,6 +361,16 @@ button.slick-next.slick-arrow{
      /* margin-top: 10%; */
       width: 25px!important;
  }
+ .say, .m_slider button.slick-next.slick-arrow{
+     display: block !important;
+     margin-top: 10%;
+     width: 25px!important;
+ }
+ .say, .m_slider button.slick-prev.slick-arrow{
+     display: block !important;
+     margin-top: 10%;
+      width: 25px!important;
+ }
  .positn{
    display: flex;
   }

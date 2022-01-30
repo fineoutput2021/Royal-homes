@@ -20,7 +20,12 @@ class Home extends CI_Controller
         $this->db->select('*');
         $this->db->from('tbl_slider');
         $this->db->where('is_active', 1);
-        $data['slider_data']= $this->db->get();
+        $data['web_slider_data']= $this->db->get();
+
+        $this->db->select('*');
+        $this->db->from('tbl_mobile_slider');
+        $this->db->where('is_active', 1);
+        $data['mob_slider_data']= $this->db->get();
 
         $this->db->select('*');
         $this->db->from('tbl_banners_six');
@@ -62,13 +67,17 @@ class Home extends CI_Controller
         $this->load->view('frontend/common/footer');
     }
 
+
+
     ///--------all product----------------
 
     public function all_Product()
     {
         $idd = $this->uri->segment(3);
+        $url = $this->uri->segment(3);
         $t = $this->uri->segment(4);
         $sort = $this->uri->segment(5);
+
 
         $id=base64_decode($idd);
         $data["idd"] = $idd;

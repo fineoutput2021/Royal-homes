@@ -37,7 +37,6 @@
 
     </script>
 
-<script>
 <script type="text/javascript" src="<?php echo base_url() ?>assets/slider/ajaxupload.3.5.js"></script>
           <script>
           // Attach a submit handler to the form
@@ -74,6 +73,5 @@
           });
           });
           </script>
-</script>
   </body>
 </html>

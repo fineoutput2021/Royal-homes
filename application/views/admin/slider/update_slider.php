@@ -1,7 +1,7 @@
 <div class="content-wrapper">
   <section class="content-header">
     <h1>
-      Update Slider
+      Update Web Slider
     </h1>
 
   </section>
@@ -11,7 +11,7 @@
 
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Update Slider </h3>
+            <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Update Web Slider </h3>
           </div>
 
           <? if(!empty($this->session->flashdata('smessage'))){  ?>
@@ -38,7 +38,10 @@
                     <tr>
                       <td> <strong>image</strong> <span style="color:red;">*</span></strong> </td>
                       <td> <input type="file" name="image" class="form-control" placeholder="" />
-                        <?php if($Slider_data->image!=""){ ?> <img id="slide_img_path" height=200 width=300 src="<?php echo base_url().$Slider_data->image; ?> "> <?php }else{ ?> Sorry No File Found <?php } ?> </td>
+                        <?php if($Slider_data->image!=""){ ?> <img id="slide_img_path" height=200 width=300 src="<?php echo base_url().$Slider_data->image; ?> "> <?php }else{ ?> Sorry No File Found <?php } ?>
+                        <label style="color:red;">Size:1678*840</label>
+
+                      </td>
                     </tr>
                     <tr>
                       <td> <strong>link</strong> <span style="color:red;">*</span></strong> </td>

@@ -1,16 +1,16 @@
 <div class="content-wrapper">
   <section class="content-header">
     <h1>
-      View Slider
+      View Web Slider
     </h1>
   </section>
   <section class="content">
     <div class="row">
       <div class="col-lg-12">
-        <a class="btn btn-info cticket" href="<?php echo base_url() ?>dcadmin/Slider/add_Slider" role="button" style="margin-bottom:12px;"> Add Slider</a>
+        <a class="btn btn-info cticket" href="<?php echo base_url() ?>dcadmin/Slider/add_Slider" role="button" style="margin-bottom:12px;"> Add Web Slider</a>
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title"><i class="fa fa-money fa-fw"></i>View Slider</h3>
+            <h3 class="panel-title"><i class="fa fa-money fa-fw"></i>View Web Slider</h3>
           </div>
           <div class="panel panel-default">
 

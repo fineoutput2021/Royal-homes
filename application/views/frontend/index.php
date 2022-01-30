@@ -76,16 +76,28 @@
   font-size: 14px;
 }
 .npde{padding: 0px!important;}
+@media (max-width: 480px) {
+  .mob_slider { display: block !important; }
+  /* .web_slider { display: none; } */
+
+}
+@media (min-width: 481px) {
+  .web_slider { display: block!important; }
+  /* .mob_slider { display: none; } */
+
+}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <!--Start Slider-->
 <div class="ggty" ></div>
-<section class="overflow-hidden t_slider ">
+
+ <!-- ============ web slider ===========-->
+<section class="overflow-hidden t_slider web_slider" style="display:none;">
   <div class="container-fluid p-0">
     <div class="row">
       <div class="col-md-12" style="padding-left:0;padding-right:0">
         <div class="swiper-wrapper fist_slider ">
-          <?php $i=1; foreach($slider_data->result() as $slider) { ?>
+          <?php $i=1; foreach($web_slider_data->result() as $slider) { ?>
           <div class="swiper-slide"><a href="<?=$slider->link?>" target="_blank">
               <img src="<?=base_url().$slider->image?>" alt="">
             </a></div>
@@ -94,7 +106,26 @@
         <!-- <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div> -->
         <!-- <div class="swiper-pagination"></div> -->
+      </div>
+    </div>
+  </div>
+</section>
 
+ <!-- ============ Mobile slider ===========-->
+<section class="overflow-hidden m_slider mob_slider" style="display:none;">
+  <div class="container-fluid p-0">
+    <div class="row">
+      <div class="col-md-12" style="padding-left:0;padding-right:0">
+        <div class="swiper-wrapper fist_slider ">
+          <?php $i=1; foreach($mob_slider_data->result() as $slider) { ?>
+          <div class="swiper-slide"><a href="<?=$slider->link?>" target="_blank">
+              <img src="<?=base_url().$slider->image?>" alt="">
+            </a></div>
+          <?php $i++; } ?>
+        </div>
+        <!-- <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div> -->
+        <!-- <div class="swiper-pagination"></div> -->
       </div>
     </div>
   </div>

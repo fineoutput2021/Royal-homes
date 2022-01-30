@@ -27,7 +27,6 @@ class User_login extends CI_Controller
             $this->form_validation->set_rules('phone', 'phone', 'required|xss_clean|trim');
             $this->form_validation->set_rules('password', 'password', 'required|xss_clean|trim');
             $this->form_validation->set_rules('confirm_password', 'confirm_password', 'required|matches[password]|xss_clean|trim');
-            $this->form_validation->set_rules('previous_url', 'previous_url', 'required|xss_clean|trim');
             $this->form_validation->set_rules('g-recaptcha-response', 'g-recaptcha-response', 'required|xss_clean|trim');
 
 
@@ -42,7 +41,6 @@ class User_login extends CI_Controller
                 $phone=$this->input->post('phone');
                 $password=$this->input->post('password');
                 $confirm_password=$this->input->post('confirm_password');
-                $previous_url=$this->input->post('previous_url');
                 $captcha_response=$this->input->post('g-recaptcha-response');
 
                 $ip = $this->input->ip_address();
@@ -140,7 +138,7 @@ class User_login extends CI_Controller
                             $this->session->unset_userdata('cart_data');
 
                             $this->session->set_flashdata('smessage', 'Successful Registered');
-                            redirect($previous_url);
+                            redirect($_SERVER['HTTP_REFERER']);
                         } else {
                             $this->session->set_flashdata('emessage', 'Some error occured');
                             redirect($_SERVER['HTTP_REFERER']);
@@ -179,14 +177,12 @@ class User_login extends CI_Controller
         if ($this->input->post()) {
             $this->form_validation->set_rules('email', 'email', 'required|xss_clean|trim');
             $this->form_validation->set_rules('password', 'password', 'required|xss_clean|trim');
-            $this->form_validation->set_rules('previous_url', 'previous_url', 'required|xss_clean|trim');
             $this->form_validation->set_rules('g-recaptcha-response', 'g-recaptcha-response', 'required|xss_clean|trim');
 
 
             if ($this->form_validation->run()== true) {
                 $email=$this->input->post('email');
                 $password=$this->input->post('password');
-                $previous_url=$this->input->post('previous_url');
                 $captcha_response =$this->input->post('g-recaptcha-response');
                 if (empty($this->session->set_userdata('user_data'))) {
 
@@ -273,7 +269,7 @@ class User_login extends CI_Controller
                                 }
                                 $this->session->unset_userdata('cart_data');
                                 $this->session->set_flashdata('smessage', 'Successful Logged in!');
-                                redirect($previous_url);
+                                redirect($_SERVER['HTTP_REFERER']);
                             } else {
                                 $this->session->set_flashdata('emessage', 'Wrong Password');
                                 redirect($_SERVER['HTTP_REFERER']);
@@ -323,7 +319,8 @@ public function guest_mode(){
   if (empty($this->session->userdata('user_data'))) {
 
     $this->session->set_userdata('guest_data',1);
-    
+    $this->session->set_flashdata('smessage', 'Successfully entered in guest mode!');
+    redirect($_SERVER['HTTP_REFERER']);
 
   }else{
       $this->load->view('Home/index', "refresh");

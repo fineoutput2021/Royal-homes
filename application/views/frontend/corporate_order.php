@@ -82,9 +82,11 @@ flex-direction: column-reverse !important;
             </div>
 
             <div class="form-outline mb-4">
+              <div class="col-md-12 col-12">
               <label class="form-label" for="message">Message<span class="sp">*</span></label>
-              <textarea class="form-control mt-0" id="message" name="message" rows="4" required ></textarea>
+              <textarea class="form-control mt-0" id="message" name="message" cols="50" rows="4" required ></textarea>
             </div>
+          </div>
 
             <div class="row">
             <div class="col-md-4 col-12">
@@ -127,8 +129,10 @@ flex-direction: column-reverse !important;
             </div>
             </div>
             </div>
-            <div class="g-recaptcha mt-4" data-sitekey=<?=CAPTCHA_KEY_HTML?> name="captcha_response"></div>
-            
+            <div class="col-md-12 col-10">
+            <div class="g-recaptcha" data-sitekey=<?=CAPTCHA_KEY_HTML?> name="captcha_response"></div>
+          </div>
+
             <!-- Checkbox -->
             <div class="form-check d-flex justify-content-center mb-2">
               <button class="chk" style="width:30%">Submit</button>

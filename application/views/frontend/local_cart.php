@@ -391,10 +391,16 @@ echo 0;
 echo $total;
 }?></span></p>
   <div class="w-100">
+    <?if(empty($this->session->userdata('guest_data'))){?>
     <button class="chk" onclick="check_sign()">
       Checkout
     </button>
       <label class="ml-5" style="color:red;font-size: 13px;">Please login/Register for checkout</label>
+      <?}else{?>
+        <button class="chk" onclick="window.location='<?=base_url()?>Order/calculate';">
+          Checkout
+        </button>
+      <?}?>
   </div>
 </div>
 </div>
