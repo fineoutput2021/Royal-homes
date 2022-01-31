@@ -317,7 +317,10 @@ width:100%;
       }
     }
   }
-
+  @media (max-width:480px){
+  .m_l{
+    margin-left:0px!important;
+  }}
 
 </style>
 <div class="ggty" style="line-height:5rem;" >
@@ -348,9 +351,9 @@ $pro_data= $this->db->get()->row(); ?>
  <div class="col-md-8 col-8 p-3 " >
    <a href="javascript:void(0);" onclick="deleteCartOffline(this)" product_id="<?=base64_encode($cart['product_id'])?>"><span class="float-right positn" style="font-size:30px;  color:#d76a46">&times</span></a>
    <ul class="ul_st2">
-     <li class="li_st2"><span><?=$pro_data->productname?></span></li>
+     <li class="li_st2" style="line-height:1.5rem;"><span><?=$pro_data->productname?></span></li>
      <li class="li_st2" style="display:flex; font-size:14px;"><span>Qty:&nbsp;</span>
-       <div id="custom-qty" class="control ml-4 mt-2">
+       <div id="custom-qty" class="control ml-4 mt-2 m_l">
          <!-- ko template: getTemplate() -->
          <div class="input-group">
            <span class="input-group__addon">

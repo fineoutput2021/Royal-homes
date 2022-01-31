@@ -76,9 +76,9 @@ class Home extends CI_Controller
         // $idd = $this->uri->segment(3);
         // $t = $this->uri->segment(4);
         $url = $this->uri->segment(3);
-        $sort = $this->uri->segment(5);
+        $sort = $this->uri->segment(4);
 
-                    $this->db->select('*');
+        $this->db->select('*');
         $this->db->from('tbl_category');
         $this->db->where('url',$url);
         $cat_data= $this->db->get()->row();
@@ -95,13 +95,16 @@ class Home extends CI_Controller
           $id= $sub_data->id;
           $t=2;
         }
-
+        // echo $id;
+        // echo $t;
+        // exit;
         $data["idd"] = base64_encode($id);
         $data["type"] = base64_encode($t);
+        $data["url"] = $url;
 
         $this->db->select('*');
         $this->db->from('tbl_products');
-        if ($id2==1) {
+        if ($t==1) {
             $this->db->like('category', $id);
         } else {
             $this->db->like('subcategory', $id);
@@ -127,14 +130,14 @@ class Home extends CI_Controller
 
     //------product details-------------
 
-    public function product_details($idd)
+    public function product_details($url)
     {
-        $id=base64_decode($idd);
-        $data['id']=$idd;
+        // $id=base64_decode($idd);
+        // $data['id']=$idd;
 
         $this->db->select('*');
         $this->db->from('tbl_products');
-        $this->db->where('id', $id);
+        $this->db->where('url', $url);
         $product_data= $this->db->get()->row();
         $data['product_data'] = $product_data;
 
@@ -145,7 +148,7 @@ class Home extends CI_Controller
 
         $this->db->select('*');
         $this->db->from('tbl_products');
-        $this->db->where('id !=', $id);
+        $this->db->where('url !=', $url);
         $this->db->where('is_active', 1);
         $this->db->order_by('rand()');
         $this->db->limit(15);
@@ -154,7 +157,7 @@ class Home extends CI_Controller
         $this->db->select('*');
         $this->db->from('tbl_products');
         $this->db->where('is_active', 1);
-        $this->db->where('id !=', $id);
+        $this->db->where('url !=', $url);
         $this->db->order_by('rand()');
         $data['more_data']= $this->db->get();
 

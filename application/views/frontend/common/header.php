@@ -2188,7 +2188,7 @@ $category_data= $this->db->get();
  foreach ($category_data->result() as $data) {
      ?>
               <li>
-                <a class="headerlinks" href="<?=base_url()?>Home/all_Product/<?=base64_encode($data->id)?>/<?=base64_encode(1)?>"><?=$data->categoryname?></a>
+                <a class="headerlinks" href="<?=base_url()?>Home/all_Product/<?=$data->url?>"><?=$data->categoryname?></a>
                 <?php
                 $this->db->select('*');
      $this->db->from('tbl_subcategory');
@@ -2210,7 +2210,7 @@ $category_data= $this->db->get();
          ?>
                         <!-- <li><a href="<?=base_url()?>Home/all_Product/<?=base64_encode($sub->id)?>/<?=base64_encode(2)?>"><?php echo $sub->subcategory ?></a></li> -->
                           <div class="col-md-6" style="text-align: left;">
-                            <span ><a style="color:black" href="<?=base_url()?>Home/all_Product/<?=base64_encode($sub->id)?>/<?=base64_encode(2)?>"><?php echo $sub->subcategory ?></a></span>
+                            <span ><a style="color:black" href="<?=base_url()?>Home/all_Product/<?=$sub->url?>"><?php echo $sub->subcategory ?></a></span>
                           </div>
                         <?php
      } ?>
@@ -2261,7 +2261,7 @@ $category_data= $this->db->get();
                     <div class="card-header" role="tab" id="heading_<?=$data->id?>">
                       <h5 class="mb-0">
                         <a class="collapsed" data-toggle="collapse" href="#collapse_<?=$data->id?>" aria-expanded="false" aria-controls="collapse_<?=$data->id?>">
-                          <span onclick="all_cat(this)" id="<?=base64_encode($data->id)?>" type="<?=base64_encode(1)?>"><?=$data->categoryname?></span>
+                          <span onclick="all_cat(this)" url="<?=$data->url?>" ><?=$data->categoryname?></span>
                         </a>
                       </h5>
                     </div>
@@ -2281,7 +2281,7 @@ $category_data= $this->db->get();
                     ?>
                           <!-- <li><a href="<?=base_url()?>Home/all_Product/<?=base64_encode($sub->id)?>/<?=base64_encode(2)?>"><?php echo $sub->subcategory ?></a></li> -->
                           <div class="col-6 pb-1" style="text-align: left;">
-                            <span ><a style="color:black" href="<?=base_url()?>Home/all_Product/<?=base64_encode($sub->id)?>/<?=base64_encode(2)?>"><?php echo $sub->subcategory ?></a></span>
+                            <span ><a style="color:black" href="<?=base_url()?>Home/all_Product/<?=$sub->url?>"><?php echo $sub->subcategory ?></a></span>
                           </div>
                           <?php } ?>
                         </div>

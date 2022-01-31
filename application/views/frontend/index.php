@@ -191,7 +191,7 @@
               $image1 = $n_launch->image;
             }
             ?>
-          <a href="<?=base_url()?>Home/product_details/<?=base64_encode($n_launch->id)?>" style="color:unset">
+          <a href="<?=base_url()?>Home/product_details/<?=$n_launch->url?>" style="color:unset">
           <div style="padding:15px">
             <img src="<?=base_url().$n_launch->image?>" onmouseover="pro_change(this)" onmouseout="pro_default(this)" id="pro_img<?=$a?>" img="<?=base_url().$n_launch->image?>" img2="<?=base_url().$image1?>" alt="">
             <?if($percent>0){?>
@@ -264,7 +264,7 @@
              ?>
 
           <div class="swiper-slide" style="padding: 15px;">
-            <a href="<?=base_url()?>Home/product_details/<?=base64_encode($seller->id)?>">
+            <a href="<?=base_url()?>Home/product_details/<?=$seller->url?>">
               <img src="<?=base_url().$seller->image;?>"  onmouseover="pro_change(this)" onmouseout="pro_default(this)" id="pro_img<?=$i?>" img="<?=base_url().$seller->image?>" img2="<?=base_url().$image1?>" alt="">
             </a>
             <div class="my-3">

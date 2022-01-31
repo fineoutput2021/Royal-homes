@@ -512,6 +512,11 @@ width: 100px; */
       }
     }
   }
+  @media(max-width:480px){
+    .mar-0{
+      margin-left:0px!important;
+    }
+  }
 </style>
 <div class="ggty" ></div>
 <section>
@@ -755,8 +760,6 @@ width: 100px; */
       </div>
     </div>
     <!-- <div class="col-lg-1"></div> -->
-
-
 
 
     <!-- order table end      ---------------------->

@@ -89,6 +89,7 @@ width:100%;
 .ctr{
   text-align: start;
 }
+
 </style>
 
 <style media="screen">
@@ -320,7 +321,7 @@ width:100%;
   .li_st2{
     line-height: 3rem;
   }
-  @media(max-width:480px){
+  @media (max-width:480px){
   .m_l{
     margin-left:0px!important;
   }}
@@ -356,7 +357,7 @@ width:100%;
    <div class="col-md-8 col-8 p-3 " >
      <a href="javascript:void(0);" onclick="deleteCartOnline(this)" product_id="<?=base64_encode($cart->product_id)?>"><span class="float-right positn" style="font-size:30px;  color:#d76a46">&times</span></a>
      <ul class="ul_st2">
-       <li class="li_st2"><span><?=$pro_data->productname?></span></li>
+       <li class="li_st2" style="line-height:1.5rem;"><span><?=$pro_data->productname?></span></li>
        <li class="li_st2" style="display:flex;  font-size:14px;"><span>Qty:&nbsp;</span>
          <div id="custom-qty" class="control ml-4 mt-2 m_l">
            <!-- ko template: getTemplate() -->

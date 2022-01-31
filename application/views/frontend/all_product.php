@@ -181,10 +181,10 @@ $sub_data= $this->db->get()->row();
           </div>
           <input type="checkbox" class="dd-input" id="test">
           <ul class="dd-menu">
-            <a href="<?=base_url()?>Home/all_Product/<?=$idd?>/<?=$type?>/LH" style="color:black">
+            <a href="<?=base_url()?>Home/all_Product/<?=$url?>/LH" style="color:black">
               <li>Price Low To High</li>
             </a>
-            <a href="<?=base_url()?>Home/all_Product/<?=$idd?>/<?=$type?>/HL" style="color:black">
+            <a href="<?=base_url()?>Home/all_Product/<?=$url?>/HL" style="color:black">
               <li>Price High To Low</li>
             </a>
           </ul>
@@ -217,6 +217,7 @@ $sub_data= $this->db->get()->row();
            if($value==$id){
              $product_data1[] = array(
                'id' => $data->id,
+               'url' => $data->url,
                'name' => $data->productname,
                'image' => $data->image,
                'image1' => $image1,
@@ -230,6 +231,7 @@ $sub_data= $this->db->get()->row();
          if($cat[0]==$id){
            $product_data1[] = array(
              'id' => $data->id,
+             'url' => $data->url,
              'name' => $data->productname,
              'image' => $data->image,
              'image1' => $image1,
@@ -258,6 +260,7 @@ $sub_data= $this->db->get()->row();
            if($value==$id){
              $product_data1[] = array(
                'id' => $data->id,
+               'url' => $data->url,
                'name' => $data->productname,
                'image' => $data->image,
                'image1' => $image1,
@@ -270,6 +273,7 @@ $sub_data= $this->db->get()->row();
          if($sub[0]==$id){
            $product_data1[] = array(
              'id' => $data->id,
+             'url' => $data->url,
              'name' => $data->productname,
              'image' => $data->image,
              'image1' => $image1,
@@ -293,7 +297,7 @@ $sub_data= $this->db->get()->row();
         }
         ?>
       <div class="col-md-4 p-2 content">
-        <a href="<?=base_url()?>Home/product_details/<?=base64_encode($pro['id'])?>" style="color:unset">
+        <a href="<?=base_url()?>Home/product_details/<?=$pro['url']?>" style="color:unset">
           <img src="<?=base_url().$pro['image']?>" onmouseover="pro_change(this)" onmouseout="pro_default(this)" id="pro_img<?=$i?>" class="img-fluid" img="<?=base_url().$pro['image']?>" img2="<?=base_url().$pro['image1']?>" />
           <?if($percent>0){?>
           <div class="discount"><?=round($percent)?>% off</div>

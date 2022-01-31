@@ -616,8 +616,8 @@
                                        }
                                    }
                                }
-                               print_r($data_cat);
-                               exit;
+                               // print_r($data_cat);
+                               // exit;
                                if(empty($subcategory_data)){
                                  $subcategory_data = "";
                                  $is_category = 1;
@@ -647,7 +647,7 @@
   'bestsellerproduct'=>$bestsellerproduct,
   'inventory'=>$inventory,
   'url'=>$url,
-  
+
 
 
                      );

@@ -146,10 +146,10 @@
 
 <script type="text/javascript">
 function all_cat(obj){
-  var id = $(obj).attr("id");
-  var t = $(obj).attr("type");
+  var url = $(obj).attr("url");
+  // var t = $(obj).attr("type");
   // alert("<?=base_url()?>Home/all_Product/"+id+"/"+t)
-location.replace("<?=base_url()?>Home/all_Product/"+id+"/"+t);
+location.replace("<?=base_url()?>Home/all_Product/"+url);
 }
 </script>
 <script>
