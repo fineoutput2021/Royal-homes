@@ -403,11 +403,11 @@
 
 
   <!--- Start video --->
-  <section style="padding: 0px ;">
+  <section style="padding: 0px 70.64px;">
     <br>
     <br>
     <div align="center" class="embed-responsive embed-responsive-16by9" >
-      <iframe src="http://www.youtube.com/embed/u5RvDg8uFv0?autoplay=1" width="960" height="447" frameborder="0" allowfullscreen></iframe>
+      <iframe src="<?=base_url()?>assets/frontend/assets/index_video.mp4" width="90%" height="100%" frameborder="0" allowfullscreen></iframe>
         <!-- <video autoplay loop class="embed-responsive-item">
             <source src="http://techslides.com/demos/sample-videos/small.mp4" controls type="video/mp4">
         </video> -->
