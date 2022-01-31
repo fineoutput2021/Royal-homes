@@ -93,9 +93,13 @@ defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automat
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
 
-///---------Grecaptcha--------
-defined('CAPTCHA_KEY_HTML') OR define('CAPTCHA_KEY_HTML', '6Led0EMeAAAAAIFR-hhgAY57yxBB_fAwkBDUAFFv');
-defined('CAPTCHA_KEY_SERVER') OR define('CAPTCHA_KEY_SERVER', '6Led0EMeAAAAAA9QEGWWZbBLSXCTxBetvUcNHWjW');
+///---------Grecaptcha local--------
+// defined('CAPTCHA_KEY_HTML') OR define('CAPTCHA_KEY_HTML', '6Led0EMeAAAAAIFR-hhgAY57yxBB_fAwkBDUAFFv');
+// defined('CAPTCHA_KEY_SERVER') OR define('CAPTCHA_KEY_SERVER', '6Led0EMeAAAAAA9QEGWWZbBLSXCTxBetvUcNHWjW');
+
+///---------Grecaptcha server--------
+defined('CAPTCHA_KEY_HTML') OR define('CAPTCHA_KEY_HTML', '6LdFTEoeAAAAACdHmaLVPvkR9oUfC16lw9Mb8NAL');
+defined('CAPTCHA_KEY_SERVER') OR define('CAPTCHA_KEY_SERVER', '6LdFTEoeAAAAALnMF8gIftGbon9uGJU_ErkE');
 
 //----------- Email -----------
 define('USER_NAME','info@fineoutput.co.in');
