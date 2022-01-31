@@ -403,7 +403,7 @@
 
 
   <!--- Start video --->
-  <section style="padding: 0px 70.04px;">
+  <section style="padding: 0px ;">
     <br>
     <br>
     <div align="center" class="embed-responsive embed-responsive-16by9" >
