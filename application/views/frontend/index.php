@@ -42,6 +42,7 @@
 @media (min-width: 641px){
 .ggty{display:none!important;}
 }
+.vdfg{padding: 0px;}
 }
   @media (max-width:1280px) {
     .pres {
@@ -345,7 +346,7 @@
       <div class="col-md-3 col-12">
         <ul>
           <li>
-            <div class="img_1"><img  class="w_50"src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/furniture/icn01.jpg" alt="" style="width: 80%;"></div>
+            <div class="img_1"><img  class="w_50"src="<?=base_url()?>assets/frontend/assets/img/25.jpg" alt="" style="width: 80%;"></div>
             <h2 style="text-align: center;letter-spacing: 2px; font-size: 22px; font-style: italic;">
               Crafted in <br>India</h2>
             <br>
@@ -358,7 +359,7 @@
       <div class="col-md-3 col-12">
         <ul>
           <li>
-            <div class="img_1"><img src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/furniture/icn02.jpg" alt="" style="width: 80%;"></div>
+            <div class="img_1"><img src="<?=base_url()?>assets/frontend/assets/img/24.jpg" alt="" style="width: 80%;"></div>
             <h2 style="text-align: center;letter-spacing: 2px; font-size: 22px; font-style: italic;">
               Sustainable<br>Materials</h2>
             <br>
@@ -372,7 +373,7 @@
         <ul>
 
           <li>
-            <div class="img_1"><img src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/furniture/icn03.jpg" alt="" style="width: 80%;"></div>
+            <div class="img_1"><img src="<?=base_url()?>assets/frontend/assets/img/23.jpg" alt="" style="width: 80%;"></div>
             <h2 style="text-align: center;letter-spacing: 2px; font-size: 22px; font-style: italic;">
               Contemporary <br>Urbanised Design</h2>
             <br>
@@ -386,7 +387,7 @@
         <ul>
 
           <li>
-            <div class="img_1"><img src="https://www.orangetree.in/pub/static/version1632556275/frontend/Digital/desktop/en_US/images/furniture/icn04.jpg" alt="" style="width: 80%;"></div>
+            <div class="img_1"><img src="<?=base_url()?>assets/frontend/assets/img/22.jpg" alt="" style="width: 80%;"></div>
             <h2 style="text-align: center;letter-spacing: 2px; font-size: 22px; font-style: italic;">
               Legacy of <br>22 Years</h2>
             <br>
@@ -401,15 +402,14 @@
 
 <!--End Promise-->
 
-
   <!--- Start video --->
-  <section style="padding: 0px 70.64px;">
+  <section class="bg-white">
     <br>
     <br>
-    <div align="center" class="embed-responsive embed-responsive-16by9" >
+    <div align="center" class="embed-responsive embed-responsive-16by9 vdfg bg-white" style="" >
       <iframe src="<?=base_url()?>assets/frontend/assets/index_video.mp4" width="90%" height="100%" frameborder="0" allowfullscreen></iframe>
         <!-- <video autoplay loop class="embed-responsive-item">
-            <source src="http://techslides.com/demos/sample-videos/small.mp4" controls type="video/mp4">
+            <source src="<?=base_url()?>assets/frontend/assets/index_video.mp4" controls type="video/mp4">
         </video> -->
     </div>
     <br>
