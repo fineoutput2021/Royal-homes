@@ -73,16 +73,31 @@ class Home extends CI_Controller
 
     public function all_Product()
     {
-        $idd = $this->uri->segment(3);
+        // $idd = $this->uri->segment(3);
+        // $t = $this->uri->segment(4);
         $url = $this->uri->segment(3);
-        $t = $this->uri->segment(4);
         $sort = $this->uri->segment(5);
 
+                    $this->db->select('*');
+        $this->db->from('tbl_category');
+        $this->db->where('url',$url);
+        $cat_data= $this->db->get()->row();
 
-        $id=base64_decode($idd);
-        $data["idd"] = $idd;
-        $id2=base64_decode($t);
-        $data["type"] = $t;
+        $this->db->select('*');
+        $this->db->from('tbl_subcategory');
+        $this->db->where('url',$url);
+        $sub_data= $this->db->get()->row();
+
+        if(!empty($cat_data)){
+          $id= $cat_data->id;
+          $t=1;
+        }else{
+          $id= $sub_data->id;
+          $t=2;
+        }
+
+        $data["idd"] = base64_encode($id);
+        $data["type"] = base64_encode($t);
 
         $this->db->select('*');
         $this->db->from('tbl_products');
