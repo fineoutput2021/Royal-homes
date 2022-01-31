@@ -138,7 +138,12 @@ class User_login extends CI_Controller
                             $this->session->unset_userdata('cart_data');
 
                             $this->session->set_flashdata('smessage', 'Successful Registered');
+                            if(empty($this->session->userdata('guest_data'))){
                             redirect($_SERVER['HTTP_REFERER']);
+                          }else{
+                            $this->session->unset_userdata('guest_data');
+                            redirect("Home/View_cart","refresh");
+                          }
                         } else {
                             $this->session->set_flashdata('emessage', 'Some error occured');
                             redirect($_SERVER['HTTP_REFERER']);
@@ -269,7 +274,12 @@ class User_login extends CI_Controller
                                 }
                                 $this->session->unset_userdata('cart_data');
                                 $this->session->set_flashdata('smessage', 'Successful Logged in!');
+                                if(empty($this->session->userdata('guest_data'))){
                                 redirect($_SERVER['HTTP_REFERER']);
+                              }else{
+                                $this->session->unset_userdata('guest_data');
+                                redirect("Home/View_cart","refresh");
+                              }
                             } else {
                                 $this->session->set_flashdata('emessage', 'Wrong Password');
                                 redirect($_SERVER['HTTP_REFERER']);

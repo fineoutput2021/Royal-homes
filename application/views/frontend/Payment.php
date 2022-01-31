@@ -1,38 +1,77 @@
-<!DOCTYPE html>
-<html>
-   <head>
-      <title>Basic Validation Example</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <!-- Available at https://github.com/globalpayments -->
-      <script src="<?=base_url()?>/<?=base_url()?>assets/frontend/assets/rxp-js-1.5.0/dist/rxp-js.js"></script>
-      <!-- Basic form styling given as an example -->
-      <style type="text/css">
-         label{display:block; font-size:12px; font-family:arial;}
-         input{width:200px;}
-         input.small{width:50px;}
-         .twoColumn{float:left;margin:0 30px 20px 0;}
-         .clearAll{clear:both;}
-      </style>
-   </head>
-   <body>
-      <!-- Basic HTML form given as an example -->
-      <form name="myForm" method="POST" autocomplete="off" action="https://serverSdkEndpoint">
-         <label for="cardNumber">Card Number</label>
-         <input type="tel" id="cardNumber" name="card-number" /><br><br>
-         <label for="cardholderName">Cardholder Name</label>
-         <input type="text" id="cardholderName" name="cardholder-name" /><br><br>
-         <p class="twoColumn">
-         <label>Expiry Date</label>
-         <input type="tel" id="expiryDateMM" name="expiry-date-mm" placeholder="MM" class="small" />
-         <input type="tel" id="expiryDateYY" name="expiry-date-yy" placeholder="YY" class="small"  /></p>
-         <p class="twoColumn">
-         <label for="cvn">Security Code</label>
-         <input type="tel" id="cvn" name="cvn" class="small" /></p>
-         <p class="clearAll">
-         <input value="Pay Now" type="submit" name="submit" onclick="validate();" /></p>
-      </form>
-   </body>
-</html>
+<script src="<?=base_url()?>/<?=base_url()?>assets/frontend/assets/rxp-js-1.5.0/dist/rxp-js.js"></script>
+<style>
+.chk{
+background: #d76a46;
+color: white;
+border: none;
+width:100%;
+}
+.chk:hover{
+  background: #d76a46;
+  color: white;
+}
+.sp{
+  color:red;
+}
+</style>
+<div class="ggty" style="line-height:5rem;" ></div>
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4 mb-4">
+    <div class="card mb-4">
+      <div class="card-header py-3">
+        <h5 class="mb-0">Card Details</h5>
+      </div>
+      <div class="card-body">
+        <form name="myForm" method="POST" enctype='multipart/form-data' autocomplete="off" action="https://serverSdkEndpoint">
+          <!-- 2 column grid layout with text inputs for the first and last names -->
+          <div class="row mb-4">
+            <div class="col-md-12 col-12">
+              <div class="form-outline">
+                <label class="form-label" for="cardNumber">Card Number<span class="sp">*</span></label>
+                <input type="tel" id="cardNumber" name="card-number" class="form-control mt-0" required/>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-md-12 col-12">
+              <div class="form-outline">
+                <label class="form-label" for="cardholderName">Cardholder Name<span class="sp">*</span></label>
+                <input type="text" id="cardholderName" name="cardholder-name" class="form-control mt-0" required/>
+              </div>
+            </div>
+          </div>
+
+          <!-- Text input -->
+          <div class="row mb-4">
+            <div class="col-md-6 col-12">
+              <div class="form-outline">
+                <label class="form-label" for="Expiry_Date">Expiry Date<span class="sp">*</span></label>
+                <div class="" style="display:flex">
+                <input type="tel" id="expiryDateMM" name="expiry-date-mm" placeholder="MM" style="width:50%" class="form-control mt-0" required/>
+                <input type="tel" id="expiryDateYY" name="expiry-date-yy" placeholder="YY" style="width:50%" class="form-control mt-0" required/>
+              </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-12">
+              <div class="form-outline">
+                <label class="form-label" for="cvn">Security Code<span class="sp">*</span></label>
+              <input type="tel" id="cvn" name="cvn" placeholder="cvn" class="form-control mt-0" required/>
+              </div>
+            </div>
+          </div>
+          <!-- Checkbox -->
+          <div class="form-check d-flex justify-content-center mb-2">
+            <button class="chk" value="Pay Now" type="submit" name="submit" onclick="validate();" style="width:50%">
+            Pay Now
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4"></div>
+</div>
 <script type="text/javascript">
 function validate() {
    // basic form validation using the JS Library given as an example
@@ -51,5 +90,5 @@ function validate() {
       return false;
    } else {
       return true;
-   }
+   }}
 </script>

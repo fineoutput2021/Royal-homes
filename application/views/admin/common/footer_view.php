@@ -73,5 +73,16 @@
           });
           });
           </script>
+          <script type="text/javascript">
+          $('#userTable').dataTable({
+        "bStateSave": true,
+        "fnStateSave": function (oSettings, oData) {
+            localStorage.setItem('offersDataTables', JSON.stringify(oData));
+        },
+        "fnStateLoad": function (oSettings) {
+            return JSON.parse(localStorage.getItem('offersDataTables'));
+        }
+    });
+          </script>
   </body>
 </html>

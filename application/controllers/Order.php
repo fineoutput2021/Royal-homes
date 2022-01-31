@@ -605,7 +605,7 @@ class Order extends CI_Controller
 
 
                     if (!empty($zapak2)) {
-                      $this->load->view('frontend/payment.php');
+                      redirect("Order/online_payment");
 
               //--------------inventory update and cart delete--------
                    //      foreach ($order2_data->result() as $odr2) {
@@ -644,10 +644,16 @@ class Order extends CI_Controller
             redirect("Home/index", "refresh");
         }
     }
-    // public function payment()
-    // {
-    //     $this->load->view('frontend/payment.php');
-    // }
+
+//-------view cart details page --------
+
+    public function online_payment()
+    {
+      $this->load->view('frontend/common/header');
+      $this->load->view('frontend/payment.php');
+      $this->load->view('frontend/common/footer');
+
+    }
     //-----------order success---------
     public function order_success()
     {
