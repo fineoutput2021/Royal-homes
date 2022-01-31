@@ -718,7 +718,7 @@ width: 100px; */
                   <?}}?>
                 </li>
                 <li>
-                  <span style="font-size: 14px;">Price :</span>
+                  <!-- <span style="font-size: 14px;">Price :</span> -->
                   <span style="font-size: 14px;color: #212529;font-weight: bold;">&nbsp;£<?=$product_data->selling_price?></span>
                 </li>
                 <li><b><?=$product_data->modelno?></b></li>
