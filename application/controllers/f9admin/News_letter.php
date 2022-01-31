@@ -22,6 +22,7 @@
 
                          $this->db->select('*');
                          $this->db->from('tbl_newsletter');
+                         $this->db->order_by('id','desc');
                          $data['news_letter']= $this->db->get();
 
                          $this->load->view('admin/common/header_view', $data);

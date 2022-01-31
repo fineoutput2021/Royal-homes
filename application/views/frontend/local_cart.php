@@ -652,12 +652,3 @@ function decreaseValue(i) {
     });
   }
 </script>
-<script type="text/javascript">
-let check_sign = ()=>{
-  let loginRegMod = document.getElementById("myModals");
-  let mySideNavBar = document.getElementById("mySidenav");
-  mySideNavBar.style.width = "0";
-  loginRegMod.style.display = "block";
-
-}
-</script>

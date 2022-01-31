@@ -28,9 +28,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100&family=Zen+Antique+Soft&family=Zen+Old+Mincho&display=swap" rel="stylesheet">
 <script src='https://www.google.com/recaptcha/api.js'></script>
-  <link href="http://fonts.cdnfonts.com/css/gotham" rel="stylesheet">
-  <link href="http://fonts.cdnfonts.com/css/questa-grande" rel="stylesheet">
-  <link href="http://fonts.cdnfonts.com/css/euclid-circular-a" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/gotham" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;1,200&family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
@@ -2245,6 +2243,7 @@ $category_data= $this->db->get();
         <div class="col-md-4 col-xs-6 menu">
           <ul class="modifiedUl" style="margin-top:14px ">
             <li>
+       <!--=========== mobile navigation     =================    -->
               <div id="mySidenav" class="sidenav" style="z-index:99">
                 <div class="w-100 center mb-2" style="background-color: black;">
                   <a href="#" class="rqwa" style="width:85%;">
@@ -2484,7 +2483,7 @@ $category_data= $this->db->get();
 </li>
 
               <?} else {?>
-              <i class="bbj fa fa-user openbtn btn_change_change media_q_change2" aria-hidden="true" id="myBtn" ></i>
+              <i class="bbj fa fa-user openbtn btn_change_change media_q_change2" aria-hidden="true" onclick="check_sign()" id="myBtn" ></i>
 
               <?}?>
             </div>

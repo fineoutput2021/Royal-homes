@@ -110,6 +110,7 @@ class Home extends CI_Controller
             $this->db->like('subcategory', $id);
         }
         $this->db->where('is_active', 1);
+        $this->db->order_by('id','desc');
         if (!empty($sort)) {
             if ($sort=="LH") {
                 $this->db->order_by('selling_price', 'asc');

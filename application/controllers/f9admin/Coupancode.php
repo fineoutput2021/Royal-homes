@@ -103,7 +103,7 @@
              {
                // print_r($this->input->post());
                // exit;
-  $this->form_validation->set_rules('name', 'name', 'required|trim|customalpha');
+  $this->form_validation->set_rules('name', 'name', 'required|trim');
   // $this->form_validation->set_rules('startdate', 'startdate', 'required');
   $this->form_validation->set_rules('enddate', 'enddate', 'required');
   $this->form_validation->set_rules('cartamount', 'cartamount', 'required|integer');
@@ -132,8 +132,11 @@
            $last_id = 0;
            if($typ==1){
 
-
-
+                         $this->db->select('*');
+             $this->db->from('tbl_coupancode');
+             $this->db->where('name',$name);
+             $c_data= $this->db->get()->row();
+if(empty($c_data)){
            $data_insert = array(
                   'name'=>$name,
   // 'startdate'=>$startdate,
@@ -150,7 +153,10 @@
 
 
            $last_id=$this->base_model->insert_table("tbl_coupancode",$data_insert,1) ;
-
+}else{
+  $this->session->set_flashdata('emessage', 'This promocode name is already used');
+  redirect($_SERVER['HTTP_REFERER']);
+}
            }
            if($typ==2){
 

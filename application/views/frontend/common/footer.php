@@ -582,27 +582,39 @@ function openNav2() {
 
 function closeNav2() {
   document.getElementById("mySidebar").style.width = "0";
-  document.getElementById("main").style.marginLeft = "0";
+  // document.getElementById("main").style.marginLeft = "0";
   document.getElementById("account_open_close").addEventListener("click", () => { openNav2() });
   document.getElementById("account_open_close").removeEventListener("click", () => { closeNav2() });
 }
 </script>
-<script>
-function myFunction() {
-  var dots = document.getElementById("dots");
-  var moreText = document.getElementById("more");
-  var btnText = document.getElementById("myBtn");
+<script type="text/javascript">
+let check_sign = ()=>{
+  let loginRegMod = document.getElementById("myModals");
+  let mySideNavBar = document.getElementById("mySidenav");
+  mySideNavBar.style.width = "0";
+  loginRegMod.style.display = "block";
 
-  if (dots.style.display === "none") {
-    dots.style.display = "block";
-    btnText.innerHTML = '<p style=" color: #de542d !important;">Read More</p>';
-    moreText.style.display = "none";
-  } else {
-    dots.style.display = "none";
-    btnText.innerHTML = '<p style=" color: #de542d !important;">Read Less</p>';
-    moreText.style.display = "block";
-  }
 }
+</script>
+<script>
+
+// function myFunction() {
+//   var dots = document.getElementById("dots");
+//   var moreText = document.getElementById("more");
+
+
+//   var btnText = document.getElementById("myBtn");
+//
+//   if (dots.style.display === "none") {
+//     dots.style.display = "block";
+//     btnText.innerHTML = '<p style=" color: #de542d !important;">Read More</p>';
+//     moreText.style.display = "none";
+//   } else {
+//     dots.style.display = "none";
+//     btnText.innerHTML = '<p style=" color: #de542d !important;">Read Less</p>';
+//     moreText.style.display = "block";
+//   }
+// }
 </script>
 <script>
 $(function () {
@@ -700,7 +712,7 @@ $('.say').slick({
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
 function openNav() {
   document.getElementById("mySidenav").style.width = "100%";
-  document.getElementById("main").style.marginLeft = "0px";
+  // document.getElementById("main").style.marginLeft = "0px";
   document.getElementById("menucloseopen").addEventListener("click", () => { closeNav() });
   document.getElementById("menucloseopen").removeEventListener("click", () => { openNav() });
 }
@@ -708,7 +720,7 @@ function openNav() {
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
-  document.getElementById("main").style.marginLeft = "0";
+  // document.getElementById("main").style.marginLeft = "0";
 
   document.getElementById("menucloseopen").addEventListener("click", () => { openNav() });
   document.getElementById("menucloseopen").removeEventListener("click", () => { closeNav() });
