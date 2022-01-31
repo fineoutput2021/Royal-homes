@@ -588,16 +588,7 @@ width: 100px; */
         </div>
         <?}?>
         <!---======================= web div =====================-->
-<!-- <script type="text/javascript">
-function myFunction() {
-  alert(hi);
-    document.getElementById('accordionExample').style.cssText = '[data-toggle="collapse"].collapsed:after {
-        transform: rotate(0deg);
-        color: #d76a46;
-    }';
-}
 
-</script> -->
 
         <div class="jugad2" style="margin:10px 0px 0px 0px;display:none;" >
           <div class="accordion" id="accordionExample" onclick="transfunction()">
