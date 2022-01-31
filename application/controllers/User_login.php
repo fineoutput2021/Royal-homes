@@ -293,7 +293,7 @@ class User_login extends CI_Controller
                         redirect($_SERVER['HTTP_REFERER']);
                     }
                     } else {
-                        $this->session->set_flashdata('emessage', 'Validation Fail Try Again');
+                        $this->session->set_flashdata('emessage', 'Empty Field, Validation Fail Try Again');
                         redirect($_SERVER['HTTP_REFERER']);
                     }
                 } else {
