@@ -429,7 +429,7 @@ button.slick-next.slick-arrow{
 .ggty{display: block!important; min-height:72px;}} */
 
 @media (min-width: 393px){
-.ggty{  display: block!important; ; }
+.ggty{  display: block!important; min-height:72px; }
 }
 @media (width: 412px){
 .ggty{  display: block!important; min-height: 73px; }

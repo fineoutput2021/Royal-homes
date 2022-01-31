@@ -40,6 +40,7 @@
   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
 
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous"> -->
+  
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script> -->
 
@@ -2338,7 +2339,7 @@ $category_data= $this->db->get();
               <i class="fa fa-search btn_change_change sb newSearchIcon" aria-hidden="true" onclick="newClickHandler()"></i>
               <!-- ****************** WEB INPUT *********************************  -->
               <form action="<?=base_url()?>Home/search" method="get" enctype="multipart/form-data">
-                <input type="text" style="color:black;" name="search" class="newSearchInput" id="search" placeholder="Search" required />
+                <input type="text" style="color:black; width:83s%!important;" name="search" class="newSearchInput" id="search" placeholder="Search" required />
               </form>
               <script>
                 var input = document.getElementById("search");
@@ -2565,7 +2566,7 @@ $category_data= $this->db->get();
     font-weight: 400;
     border: 0;
     padding: 8px 12px;
-    background: #fff;"><img class="social" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/facebook.svg" alt="social"> Sign In With Facebook</button>
+    background: #fff;"><img class="social" src="<?=base_url()?>assets/frontend/assets/img/f32.svg" alt="social"> Sign In With Facebook</button>
             </div>
             <div class="col-md-6 respns2" style="text-align:left; padding-left: 10px;">
               <button class="btn" style="    text-transform: None;
@@ -2576,7 +2577,7 @@ $category_data= $this->db->get();
     border: 0;
     padding: 8px 12px;
     background: #fff;
-  "><img class="social1" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/google.svg" alt="social"> Sign In With Google
+  "><img class="social1" src="<?=base_url()?>assets/frontend/assets/img/g34.svg" alt="social"> Sign In With Google
 
               </button>
             </div>
@@ -2691,7 +2692,7 @@ Creating an account has many benefits: check out faster, keep more than one addr
     border: 0;
     padding: 8px 15px;
     background: #fff;
-    "><img class="social" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/facebook.svg" alt="social"> Sign In With Facebook</button>
+    "><img class="social" src="<?=base_url()?>assets/frontend/assets/img/f32.svg" alt="social"> Sign In With Facebook</button>
             </div>
             <div class="col-md-6 respns2" style="text-align: left; padding-left: 10px;">
               <button class="btn" style="text-transform: None;
@@ -2702,7 +2703,7 @@ Creating an account has many benefits: check out faster, keep more than one addr
     border: 0;
     padding: 8px 15px;
     background: #fff;
-    "><img class="social1" src="https://www.orangetree.in/pub/static/version1640069162/frontend/Digital/desktop/en_US/images/google.svg" alt="social"> Sign In With Google
+    "><img class="social1" src="<?=base_url()?>assets/frontend/assets/img/g34.svg" alt="social"> Sign In With Google
 
               </button>
             </div>

@@ -6,6 +6,7 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 
+
 <!-- <script src="https://code.jquery.com/jquery-2.2.4.min.js" charset="utf-8"></script> -->
 <style media="screen">
   input::-webkit-outer-spin-button,
@@ -183,6 +184,13 @@ width: 100px; */
 
     color: #d76a46;
   }
+  [data-toggle="collapse"]:before {
+    color: #d76a46;
+}
+[data-toggle="collapse"].collapsed:after {
+    transform: rotate(0deg);
+    color: #d76a46;
+}
 
   .xmp {
     border-radius: 26px;
@@ -580,9 +588,19 @@ width: 100px; */
         </div>
         <?}?>
         <!---======================= web div =====================-->
+<!-- <script type="text/javascript">
+function myFunction() {
+  alert(hi);
+    document.getElementById('accordionExample').style.cssText = '[data-toggle="collapse"].collapsed:after {
+        transform: rotate(0deg);
+        color: #d76a46;
+    }';
+}
 
-        <div class="jugad2" style="margin:10px 0px 0px 0px;display:none">
-          <div class="accordion" id="accordionExample">
+</script> -->
+
+        <div class="jugad2" style="margin:10px 0px 0px 0px;display:none;" >
+          <div class="accordion" id="accordionExample" onclick="transfunction()">
             <div class="card">
               <div class="card-header" id="headingOne">
                 <h2 class="mb-0">
@@ -670,6 +688,9 @@ width: 100px; */
               </div>
             </div>
           </div>
+
+
+
         </div>
       </div>
     </div>
@@ -759,7 +780,7 @@ width: 100px; */
         </div>
       </div>
     </div>
-    <!-- <div class="col-lg-1"></div> -->
+    <div class="col-lg-1"></div>
 
 
     <!-- order table end      ---------------------->

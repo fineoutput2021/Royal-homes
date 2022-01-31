@@ -36,13 +36,15 @@
   .mbjj{padding:0px!important;}
   .ttrry{padding-left: 8.5px;padding-right: 8.5px; margin-bottom: 17px!important;}
   .w_50{width:50%!important;}
+.vidpad{padding: 0px!important;}
 }
 
 
 @media (min-width: 641px){
 .ggty{display:none!important;}
 }
-.vdfg{padding: 0px;}
+
+
 }
   @media (max-width:1280px) {
     .pres {
@@ -77,6 +79,10 @@
   font-size: 14px;
 }
 .npde{padding: 0px!important;}
+.videopad{padding: 0px!important}
+
+
+
 @media (max-width: 480px) {
   .mob_slider { display: block !important; }
   /* .web_slider { display: none; } */
@@ -403,20 +409,23 @@
 <!--End Promise-->
 
   <!--- Start video --->
-  <section class="bg-white">
+  <section class="bg-white ">
     <br>
     <br>
-    <div align="center" class="embed-responsive embed-responsive-16by9 vdfg bg-white" style="" >
-      <iframe src="<?=base_url()?>assets/frontend/assets/index_video.mp4" width="90%" height="100%" frameborder="0" allowfullscreen></iframe>
-        <!-- <video autoplay loop class="embed-responsive-item">
-            <source src="<?=base_url()?>assets/frontend/assets/index_video.mp4" controls type="video/mp4">
-        </video> -->
+<div class="vidpad" style="padding:0px 68.7px;">
+    <div align="center" class="embed-responsive embed-responsive-16by9 vdfg bg-white"   >
+
+        <video width="400" height="350"
+        controls poster="<?=base_url()?>assets/frontend/assets/img/video_poster.jpg">
+                <source src="<?=base_url()?>assets/frontend/assets/index_video.mp4" type="video/mp4"></video>
+    </div>
     </div>
     <br>
   </section>
 </section>
 
 <!-- end video   -->
+
 
 
 <!-- start Testimonials -->
