@@ -7,7 +7,11 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 
 
-<!-- <script src="https://code.jquery.com/jquery-2.2.4.min.js" charset="utf-8"></script> -->
+
+<style media="screen">
+
+</style>
+
 <style media="screen">
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
@@ -83,8 +87,8 @@
   right:-4px!important;
 } */
   .swimg {
-    height: 1000px;
-    width: 1000px;
+    /* height: 1000px;
+    width: 1000px; */
     /* margin-left: 42px; */
   }
 
@@ -110,6 +114,7 @@ width: 100px; */
     .pd_ul{
       display: block;
     }
+    .zmvw{display: none;}
   }
 
   @media(min-width :450px) {
@@ -119,6 +124,7 @@ width: 100px; */
     .pd_ul{
       display: flex;
     }
+    /* .zmvw{display: none;} */
   }
 
   @media (max-width :896px) {
@@ -526,7 +532,154 @@ width: 100px; */
     }
   }
 </style>
+<style>
+
+
+/* The Modal (background) */
+.modal9 {
+display: none; /* Hidden by default */
+position: fixed; /* Stay in place */
+z-index: 999; /* Sit on top */
+padding-top: 40px; /* Location of the box */
+left: 0;
+top: 0;
+width: 100%; /* Full width */
+height: 100%; /* Full height */
+overflow: auto; /* Enable scroll if needed */
+background-color: rgb(0,0,0); /* Fallback color */
+background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content9 {
+background-color: #fefefe;
+margin: auto;
+/* padding: 10px; */
+border: 1px solid #888;
+width: 40%;
+margin-top:0px;
+}
+
+/* The Close Button */
+.close9 {
+color: #d76a46;
+float: right;
+font-size: 28px;
+font-weight: bold;
+}
+
+.close9:hover,
+.close9:focus {
+color: #d76a46;
+text-decoration: none;
+cursor: pointer;
+}
+
+
+#img-zoomer-box {
+  width: 100%;
+  height: auto;
+  position: relative;
+  /* margin-top: 10px; */
+}
+
+#img-1 {
+  width: 100%;
+  height: auto;
+}
+
+#img-zoomer-box:hover, #img-zoomer-box:active {
+  cursor: zoom-in;
+  display: block;
+}
+
+#img-zoomer-box:hover #img-2, #img-zoomer-box:active #img-2 {
+  opacity: 1;
+}
+#img-2 {
+  width: 30%;
+  height: 30%;
+  background: no-repeat url("<?=base_url()?>./assets/frontend/assets/img/gg.jpg") #FFF;
+  /* background: url('https://bit.ly/2mgDw0y') no-repeat #FFF; */
+  box-shadow: 0 5px 10px -2px rgba(0,0,0,0.3);
+  pointer-events: none;
+  position: absolute;
+  opacity: 0;
+  border: 4px solid whitesmoke;
+  z-index: 99;
+  border-radius: 100%;
+  display: block;
+  transition: opacity .2s;
+}
+.swiper-box{ display: inline-flex;
+margin-top: 20px;
+}
+.swpr{
+
+/* height: 250px; */
+/* width: 350px; */
+}
+.swpb{
+  padding: 10px;
+}
+
+
+
+</style>
 <div class="ggty" ></div>
+
+<div class="zmvw">
+<span id="myBtn9" class="" style="margin-left:1rem;"> click here for zoom view</span>
+</div>
+<!-- The Modal -->
+<div id="myModal9" class="modal9" style="display:none;">
+
+  <!-- Modal content -->
+  <div class="modal-content9">
+    <div class="crossl">
+<!-- <span class="close9" id="close">&times;</span> -->
+    </div>
+    <!-- <span class="close9" id="close">&times;</span> -->
+      <!-- <div>Roll over image to zoom in</div> -->
+                  <div id="img-zoomer-box">
+                    <img src="<?=base_url()?>./assets/frontend/assets/img/gg.jpg" id="img-1" />
+                    <div id="img-2"></div>
+                  </div>
+                  <div class="col-md-12">
+
+
+                  <div class="row  swpr">
+
+
+                    <div class="swiper-box">
+                      <div class="swpb">
+                        <img src="<?=base_url()?>./assets/frontend/assets/img/gg.jpg">
+                        <img src="" alt="">
+
+                      </div>
+                      <div class="swpb">
+                        <img src="<?=base_url()?>./assets/frontend/assets/img/pp.jpg">
+                        <img src="" alt="">
+
+                      </div>
+                      <div class="swpb">
+                        <img src="<?=base_url()?>./assets/frontend/assets/img/gg.jpg">
+                        <img src="" alt="">
+
+                      </div>
+                      <div class="swpb">
+                        <img src="<?=base_url()?>./assets/frontend/assets/img/pp.jpg">
+                        <img src="" alt="">
+
+                      </div>
+                            </div>
+                    </div>
+      </div>
+
+  </div>
+
+</div>
+
 <section>
   <!-- slider start -->
   <div class="row ffth">
@@ -981,6 +1134,8 @@ width: 100px; */
 
 <!--end more from collection-->
 
+
+
 <!-- start Testimonials -->
 
 <section class="bg-white" style="margin-top:-50px!important; position:relative; margin-bottom:-48px">
@@ -1010,6 +1165,46 @@ width: 100px; */
 </section>
 
 <!-- End testimonals  -->
+<!-- Trigger/Open The Modal -->
+
+
+<script type="text/javascript">
+// Get the modal
+var modal = document.getElementById("myModal9");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn9");
+
+// Get the <span> element that closes the modal
+var span = document.getElementById("close");
+
+// When the user clicks the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+
 
 <script type="text/javascript">
 
@@ -1088,4 +1283,41 @@ width: 100px; */
     document.getElementById('add_cart').setAttribute("quantity", value);
 
   }
+</script>
+
+
+<script type="text/javascript">
+let zoomer = function (){
+  document.querySelector('#img-zoomer-box')
+    .addEventListener('mousemove', function(e) {
+
+    let original = document.querySelector('#img-1'),
+        magnified = document.querySelector('#img-2'),
+        style = magnified.style,
+        x = e.pageX - this.offsetLeft,
+        y = e.pageY - this.offsetTop,
+        imgWidth = original.offsetWidth,
+        imgHeight = original.offsetHeight,
+        xperc = ((x/imgWidth) * 100),
+        yperc = ((y/imgHeight) * 100);
+
+    //lets user scroll past right edge of image
+    if(x > (.01 * imgWidth)) {
+      xperc += (.15 * xperc);
+    };
+
+    //lets user scroll past bottom edge of image
+    if(y >= (.01 * imgHeight)) {
+      yperc += (.15 * yperc);
+    };
+
+    style.backgroundPositionX = (xperc - 9) + '%';
+    style.backgroundPositionY = (yperc - 9) + '%';
+
+    style.left = (x - 90) + 'px';
+    style.top = (y - 90) + 'px';
+
+  }, false);
+}();
+
 </script>

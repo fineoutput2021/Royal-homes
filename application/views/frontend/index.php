@@ -230,14 +230,14 @@
     <h2 class="text-center py-5"><?=$banner_images->imagename?></h2>
     <div class="row">
       <div class="col-md-12 npde">
-        <div class="lala">
+        <div class="lala img-fluid">
           <a href="<?=$banner_images->link?>" >
-            <img style="width: 1483px;" src="<?=base_url().$banner_images->image1?>" alt="">
+            <img style="" src="<?=base_url().$banner_images->image1?>" alt="">
           </a>
         </div>
         <div class="lalu" style="display:none;">
           <a href="#" >
-            <img style="width: 1483px;" src="<?=base_url().$banner_images->image2?>" alt="new.img">
+            <img style="" src="<?=base_url().$banner_images->image2?>" alt="new.img">
           </a>
         </div>
       </div>
