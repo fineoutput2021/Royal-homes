@@ -10,8 +10,12 @@ class User_login extends CI_Controller
         parent::__construct();
         $this->load->model("admin/login_model");
         $this->load->model("admin/base_model");
+        // $this->load->library('facebook');
     }
 
+
+
+//-----to download any library use php composer.phar
     ///-------user_register-----------------
     public function user_register()
     {
@@ -48,11 +52,10 @@ class User_login extends CI_Controller
                 $cur_date=date("Y-m-d H:i:s");
                 $addedby=$this->session->userdata('admin_id');
                 if (empty($this->session->set_userdata('user_data'))) {
-
-                  if ($captcha_response !="") {
+                    if ($captcha_response !="") {
 
                   ///------- Recaptcha check ------------
-                      $check = array(
+                        $check = array(
                           'secret'		=>	CAPTCHA_KEY_SERVER,
                           'response'		=>	$captcha_response
                         );
@@ -73,17 +76,15 @@ class User_login extends CI_Controller
 
                         $finalResponse = json_decode($receiveData, true);
 
-                        if($finalResponse['success'])
-                           {
+                        if ($finalResponse['success']) {
+                            $this->db->select('*');
+                            $this->db->from('tbl_users');
+                            $this->db->where('email', $email);
+                            $this->db->where('is_active', 1);
+                            $user_data= $this->db->get()->row();
 
-                    $this->db->select('*');
-                    $this->db->from('tbl_users');
-                    $this->db->where('email', $email);
-                    $this->db->where('is_active', 1);
-                    $user_data= $this->db->get()->row();
-
-                    if (empty($user_data)) {
-                        $data_insert = array('fname'=>$fname,
+                            if (empty($user_data)) {
+                                $data_insert = array('fname'=>$fname,
                     'lname'=>$lname,
                     'email'=>$email,
                     'phone'=>$phone,
@@ -94,72 +95,72 @@ class User_login extends CI_Controller
                     'date'=>$cur_date
                     );
 
-                        $last_id=$this->base_model->insert_table("tbl_users", $data_insert, 1) ;
-                        $user_name = $fname." ".$lname;
-                        if (!empty($last_id)) {
+                                $last_id=$this->base_model->insert_table("tbl_users", $data_insert, 1) ;
+                                $user_name = $fname." ".$lname;
+                                if (!empty($last_id)) {
 
                     //-------set session for login-------
-                            $this->session->set_userdata('user_data', 1);
-                            $this->session->set_userdata('user_name', $user_name);
-                            $this->session->set_userdata('user_id', $last_id);
+                                    $this->session->set_userdata('user_data', 1);
+                                    $this->session->set_userdata('user_name', $user_name);
+                                    $this->session->set_userdata('user_id', $last_id);
 
-                            //insert cart data into cart table---------
-                            $cart_data = $this->session->userdata('cart_data');
-                            // print_r($cart_data);
-                            // exit;
-                            if (!empty($cart_data)) {
-                                foreach ($cart_data as $value) {
-                                    $this->db->select('*');
-                                    $this->db->from('tbl_cart');
-                                    $this->db->where('user_id', $last_id);
-                                    $this->db->where('product_id', $value['product_id']);
-                                    $cartInfo= $this->db->get()->row();
-                                    if (empty($cartInfo)) {
-                                        //---------inventory check------------
-                                        $this->db->select('*');
-                                        $this->db->from('tbl_products');
-                                        $this->db->where('id', $value['product_id']);
-                                        $pro_data= $this->db->get()->row();
-                                        if (!empty($pro_data)) {
-                                            if ($pro_data->inventory>=$value['quantity']) {
-                                                $data_insert = array('user_id'=> $user_data->id,
+                                    //insert cart data into cart table---------
+                                    $cart_data = $this->session->userdata('cart_data');
+                                    // print_r($cart_data);
+                                    // exit;
+                                    if (!empty($cart_data)) {
+                                        foreach ($cart_data as $value) {
+                                            $this->db->select('*');
+                                            $this->db->from('tbl_cart');
+                                            $this->db->where('user_id', $last_id);
+                                            $this->db->where('product_id', $value['product_id']);
+                                            $cartInfo= $this->db->get()->row();
+                                            if (empty($cartInfo)) {
+                                                //---------inventory check------------
+                                                $this->db->select('*');
+                                                $this->db->from('tbl_products');
+                                                $this->db->where('id', $value['product_id']);
+                                                $pro_data= $this->db->get()->row();
+                                                if (!empty($pro_data)) {
+                                                    if ($pro_data->inventory>=$value['quantity']) {
+                                                        $data_insert = array('user_id'=> $user_data->id,
                                               'product_id'=>$value['product_id'],
                                               'quantity'=>$value['quantity'],
                                               'ip' =>$ip,
                                               'date'=>$cur_date
                                               );
 
-                                                $last_id=$this->base_model->insert_table("tbl_cart", $data_insert, 1) ;
+                                                        $last_id=$this->base_model->insert_table("tbl_cart", $data_insert, 1) ;
+                                                    }
+                                                }///end check innventory
                                             }
-                                        }///end check innventory
+                                        }
                                     }
-                                }
-                            }
-                            $this->session->unset_userdata('cart_data');
+                                    $this->session->unset_userdata('cart_data');
 
-                            $this->session->set_flashdata('smessage', 'Successful Registered');
-                            if(empty($this->session->userdata('guest_data'))){
-                            redirect($_SERVER['HTTP_REFERER']);
-                          }else{
-                            $this->session->unset_userdata('guest_data');
-                            redirect("Home/View_cart","refresh");
-                          }
+                                    $this->session->set_flashdata('smessage', 'Successful Registered');
+                                    if (empty($this->session->userdata('guest_data'))) {
+                                        redirect($_SERVER['HTTP_REFERER']);
+                                    } else {
+                                        $this->session->unset_userdata('guest_data');
+                                        redirect("Home/View_cart", "refresh");
+                                    }
+                                } else {
+                                    $this->session->set_flashdata('emessage', 'Some error occured');
+                                    redirect($_SERVER['HTTP_REFERER']);
+                                }
+                            } else {
+                                $this->session->set_flashdata('emessage', 'User is already registered');
+                                redirect($_SERVER['HTTP_REFERER']);
+                            }
                         } else {
-                            $this->session->set_flashdata('emessage', 'Some error occured');
+                            $this->session->set_flashdata('emessage', 'Validation Fail Try Again');
                             redirect($_SERVER['HTTP_REFERER']);
                         }
                     } else {
-                        $this->session->set_flashdata('emessage', 'User is already registered');
+                        $this->session->set_flashdata('emessage', 'Validation Fail Try Again');
                         redirect($_SERVER['HTTP_REFERER']);
                     }
-                  } else {
-                      $this->session->set_flashdata('emessage', 'Validation Fail Try Again');
-                      redirect($_SERVER['HTTP_REFERER']);
-                  }
-                  } else {
-                      $this->session->set_flashdata('emessage', 'Validation Fail Try Again');
-                      redirect($_SERVER['HTTP_REFERER']);
-                  }
                 } else {
                     redirect("Home/index", "refresh");
                 }
@@ -190,7 +191,6 @@ class User_login extends CI_Controller
                 $password=$this->input->post('password');
                 $captcha_response =$this->input->post('g-recaptcha-response');
                 if (empty($this->session->set_userdata('user_data'))) {
-
                     if ($captcha_response !="") {
 
                     ///------- Recaptcha check ------------
@@ -199,99 +199,97 @@ class User_login extends CI_Controller
                             'response'		=>	$captcha_response
                           );
 
-                          $startProcess = curl_init();
+                        $startProcess = curl_init();
 
-                    			curl_setopt($startProcess, CURLOPT_URL, "https://www.google.com/recaptcha/api/siteverify");
+                        curl_setopt($startProcess, CURLOPT_URL, "https://www.google.com/recaptcha/api/siteverify");
 
-                    			curl_setopt($startProcess, CURLOPT_POST, true);
+                        curl_setopt($startProcess, CURLOPT_POST, true);
 
-                    			curl_setopt($startProcess, CURLOPT_POSTFIELDS, http_build_query($check));
+                        curl_setopt($startProcess, CURLOPT_POSTFIELDS, http_build_query($check));
 
-                    			curl_setopt($startProcess, CURLOPT_SSL_VERIFYPEER, false);
+                        curl_setopt($startProcess, CURLOPT_SSL_VERIFYPEER, false);
 
-                    			curl_setopt($startProcess, CURLOPT_RETURNTRANSFER, true);
+                        curl_setopt($startProcess, CURLOPT_RETURNTRANSFER, true);
 
-                    			$receiveData = curl_exec($startProcess);
+                        $receiveData = curl_exec($startProcess);
 
-                    			$finalResponse = json_decode($receiveData, true);
+                        $finalResponse = json_decode($receiveData, true);
 
-                          if($finalResponse['success'])
-			                       {
-
-                        $this->db->select('*');
-                        $this->db->from('tbl_users');
-                        $this->db->where('email', $email);
-                        $this->db->where('is_active', 1);
-                        $user_data= $this->db->get()->row();
+                        if ($finalResponse['success']) {
+                            $this->db->select('*');
+                            $this->db->from('tbl_users');
+                            $this->db->where('email', $email);
+                            $this->db->where('is_active', 1);
+                            $user_data= $this->db->get()->row();
 
 
-                        $ip = $this->input->ip_address();
-                        date_default_timezone_set("Asia/Calcutta");
-                        $cur_date=date("Y-m-d H:i:s");
+                            $ip = $this->input->ip_address();
+                            date_default_timezone_set("Asia/Calcutta");
+                            $cur_date=date("Y-m-d H:i:s");
 
-                        // $user_name  = $user_data->fname." ".$user_data->lname;
-                        $user_name  = $user_data->fname;
-                        // echo $user_name;
-                        // exit;
-                        if (!empty($user_data)) {
-                            if ($user_data->password==md5($password)) {
-                                $this->session->set_userdata('user_data', 1);
-                                $this->session->set_userdata('user_id', $user_data->id);
-                                $this->session->set_userdata('user_name', $user_name);
+                            // $user_name  = $user_data->fname." ".$user_data->lname;
+                            $user_name  = $user_data->fname;
+                            // echo $user_name;
+                            // exit;
+                            if (!empty($user_data)) {
+                                if ($user_data->password==md5($password)) {
+                                    $this->session->set_userdata('user_data', 1);
+                                    $this->session->set_userdata('user_id', $user_data->id);
+                                    $this->session->set_userdata('user_name', $user_name);
 
 
-                                //insert cart data into cart table---------
-                                $cart_data = $this->session->userdata('cart_data');
-                                // print_r($cart_data);
-                                // exit;
-                                if (!empty($cart_data)) {
-                                    foreach ($cart_data as $value) {
-                                        $this->db->select('*');
-                                        $this->db->from('tbl_cart');
-                                        $this->db->where('user_id', $user_data->id);
-                                        $this->db->where('product_id', $value['product_id']);
-                                        $cartInfo= $this->db->get()->row();
-                                        if (empty($cartInfo)) {
-                                            //---------inventory check------------
+                                    //insert cart data into cart table---------
+                                    $cart_data = $this->session->userdata('cart_data');
+                                    // print_r($cart_data);
+                                    // exit;
+                                    if (!empty($cart_data)) {
+                                        foreach ($cart_data as $value) {
                                             $this->db->select('*');
-                                            $this->db->from('tbl_products');
-                                            $this->db->where('id', $value['product_id']);
-                                            $pro_data= $this->db->get()->row();
-                                            if (!empty($pro_data)) {
-                                                if ($pro_data->inventory>=$value['quantity']) {
-                                                    $data_insert = array('user_id'=> $user_data->id,
+                                            $this->db->from('tbl_cart');
+                                            $this->db->where('user_id', $user_data->id);
+                                            $this->db->where('product_id', $value['product_id']);
+                                            $cartInfo= $this->db->get()->row();
+                                            if (empty($cartInfo)) {
+                                                //---------inventory check------------
+                                                $this->db->select('*');
+                                                $this->db->from('tbl_products');
+                                                $this->db->where('id', $value['product_id']);
+                                                $pro_data= $this->db->get()->row();
+                                                if (!empty($pro_data)) {
+                                                    if ($pro_data->inventory>=$value['quantity']) {
+                                                        $data_insert = array('user_id'=> $user_data->id,
                                               'product_id'=>$value['product_id'],
                                               'quantity'=>$value['quantity'],
                                               'ip' =>$ip,
                                               'date'=>$cur_date
                                               );
 
-                                                    $last_id=$this->base_model->insert_table("tbl_cart", $data_insert, 1) ;
-                                                }
-                                            }///end check innventory
+                                                        $last_id=$this->base_model->insert_table("tbl_cart", $data_insert, 1) ;
+                                                    }
+                                                }///end check innventory
+                                            }
                                         }
                                     }
+                                    $this->session->unset_userdata('cart_data');
+                                    $this->session->set_flashdata('smessage', 'Successful Logged in!');
+                                    if (empty($this->session->userdata('guest_data'))) {
+                                        redirect($_SERVER['HTTP_REFERER']);
+                                    } else {
+                                        $this->session->unset_userdata('guest_data');
+                                        redirect("Home/View_cart", "refresh");
+                                    }
+                                } else {
+                                    $this->session->set_flashdata('emessage', 'Wrong Password');
+                                    redirect($_SERVER['HTTP_REFERER']);
                                 }
-                                $this->session->unset_userdata('cart_data');
-                                $this->session->set_flashdata('smessage', 'Successful Logged in!');
-                                if(empty($this->session->userdata('guest_data'))){
-                                redirect($_SERVER['HTTP_REFERER']);
-                              }else{
-                                $this->session->unset_userdata('guest_data');
-                                redirect("Home/View_cart","refresh");
-                              }
                             } else {
-                                $this->session->set_flashdata('emessage', 'Wrong Password');
+                                $this->session->set_flashdata('emessage', 'User is not register! Please register first');
                                 redirect($_SERVER['HTTP_REFERER']);
                             }
                         } else {
-                            $this->session->set_flashdata('emessage', 'User is not register! Please register first');
+                            $this->session->set_flashdata('emessage', 'Validation Fail Try Again');
                             redirect($_SERVER['HTTP_REFERER']);
                         }
-                    } else {
-                        $this->session->set_flashdata('emessage', 'Validation Fail Try Again');
-                        redirect($_SERVER['HTTP_REFERER']);
-                    }
                     } else {
                         $this->session->set_flashdata('emessage', 'Empty Field, Validation Fail Try Again');
                         redirect($_SERVER['HTTP_REFERER']);
@@ -316,6 +314,10 @@ class User_login extends CI_Controller
             $this->session->unset_userdata('user_data');
             $this->session->unset_userdata('user_name');
             $this->session->unset_userdata('user_id');
+            //---google -------
+            $this->session->unset_userdata('access_token');
+            //---facebook --------
+            $this->facebook->destroy_session();
 
             $this->session->set_flashdata('smessage', 'Successfully Log out!');
             redirect($_SERVER['HTTP_REFERER']);
@@ -324,17 +326,338 @@ class User_login extends CI_Controller
         }
     }
 
-//-------- As a guest -----------
-public function guest_mode(){
-  if (empty($this->session->userdata('user_data'))) {
+    //-------- As a guest -----------
+    public function guest_mode()
+    {
+        if (empty($this->session->userdata('user_data'))) {
+            $this->session->set_userdata('guest_data', 1);
+            $this->session->set_flashdata('smessage', 'Successfully entered in guest mode!');
+            redirect($_SERVER['HTTP_REFERER']);
+        } else {
+            $this->load->view('Home/index', "refresh");
+        }
+    }
 
-    $this->session->set_userdata('guest_data',1);
-    $this->session->set_flashdata('smessage', 'Successfully entered in guest mode!');
-    redirect($_SERVER['HTTP_REFERER']);
 
-  }else{
-      $this->load->view('Home/index', "refresh");
-  }
-}
+    //-----------log in or register with google ------------
+    public function google()
+    {
+      //-----to download any library use php composer.phar
+        include_once APPPATH . "vendor/autoload.php";
 
+        $google_client = new Google_Client();
+        $google_client->setClientId(G_ID); //Define your ClientID
+
+        $google_client->setClientSecret(G_AUTH); //Define your Client Secret Key
+
+        $google_client->setRedirectUri('http://localhost/Royal-homes'); //Define your Redirect Uri
+
+        $google_client->addScope('email');
+
+        $google_client->addScope('profile');
+
+        if (isset($_GET["code"])) {
+            $token = $google_client->fetchAccessTokenWithAuthCode($_GET["code"]);
+
+            if (!isset($token["error"])) {
+                $google_client->setAccessToken($token['access_token']);
+
+                $this->session->set_userdata('access_token', $token['access_token']);
+
+                $google_service = new Google_Service_Oauth2($google_client);
+
+                $data = $google_service->userinfo->get();
+                $ip = $this->input->ip_address();
+                date_default_timezone_set("Asia/Calcutta");
+                $cur_date=date("Y-m-d H:i:s");
+
+                $this->db->select('*');
+                $this->db->from('tbl_users');
+                $this->db->where('password', $data['id']);
+                $user_check= $this->db->get()->row();
+
+                if (empty($user_check)) {
+                    //-----register --------
+                    $data_insert = array('fname'=>$data['given_name'],
+                            'lname'=>$data['family_name'],
+                            'password'=>$data['id'],
+                            'email'=>$data['email'],
+                            'profile_picture'=>$data['picture'],
+                            'is_google' =>1,
+                            'ip' =>$ip,
+                            'is_active' =>1,
+                            'date'=>$cur_date
+                            );
+
+                    $last_id=$this->base_model->insert_table("tbl_users", $data_insert, 1) ;
+                    $user_name = $data['given_name']." ".$data['family_name'];
+                    if (!empty($last_id)) {
+
+                      //-------set session for login-------
+                        $this->session->set_userdata('user_data', 1);
+                        $this->session->set_userdata('user_name', $user_name);
+                        $this->session->set_userdata('user_id', $last_id);
+
+                        //insert cart data into cart table---------
+                        $cart_data = $this->session->userdata('cart_data');
+                        // print_r($cart_data);
+                        // exit;
+                        if (!empty($cart_data)) {
+                            foreach ($cart_data as $value) {
+                                $this->db->select('*');
+                                $this->db->from('tbl_cart');
+                                $this->db->where('user_id', $last_id);
+                                $this->db->where('product_id', $value['product_id']);
+                                $cartInfo= $this->db->get()->row();
+                                if (empty($cartInfo)) {
+                                    //---------inventory check------------
+                                    $this->db->select('*');
+                                    $this->db->from('tbl_products');
+                                    $this->db->where('id', $value['product_id']);
+                                    $pro_data= $this->db->get()->row();
+                                    if (!empty($pro_data)) {
+                                        if ($pro_data->inventory>=$value['quantity']) {
+                                            $data_insert = array('user_id'=> $user_data->id,
+                                  'product_id'=>$value['product_id'],
+                                  'quantity'=>$value['quantity'],
+                                  'ip' =>$ip,
+                                  'date'=>$cur_date
+                                  );
+
+                                            $last_id=$this->base_model->insert_table("tbl_cart", $data_insert, 1) ;
+                                        }
+                                    }///end check innventory
+                                }
+                            }
+                        }
+                        $this->session->unset_userdata('cart_data');
+                        $this->session->set_flashdata('smessage', 'Successful Registered');
+                        redirect($_SERVER['HTTP_REFERER']);
+                    } else {
+                        $this->session->set_flashdata('emessage', 'Some error occured!');
+                        redirect($_SERVER['HTTP_REFERER']);
+                    }
+                } else {
+                    //-------login----------
+                    $data_update = array(
+                            'fname'=>$data['given_name'],
+                            'lname'=>$data['family_name'],
+                            'email'=>$data['email'],
+                            'profile_picture'=>$data['picture'],
+                            'ip' =>$ip,
+                            'date'=>$cur_date
+                              );
+                    $this->db->where('password', $data['id']);
+                    $zapak=$this->db->update('tbl_users', $data_update);
+
+                    $user_name = $data['given_name']." ".$data['family_name'];
+                    if (!empty($zapak)) {
+
+                      //-------set session for login-------
+                        $this->session->set_userdata('user_data', 1);
+                        $this->session->set_userdata('user_name', $user_name);
+                        $this->session->set_userdata('user_id', $last_id);
+
+                        //insert cart data into cart table---------
+                        $cart_data = $this->session->userdata('cart_data');
+                        // print_r($cart_data);
+                        // exit;
+                        if (!empty($cart_data)) {
+                            foreach ($cart_data as $value) {
+                                $this->db->select('*');
+                                $this->db->from('tbl_cart');
+                                $this->db->where('user_id', $last_id);
+                                $this->db->where('product_id', $value['product_id']);
+                                $cartInfo= $this->db->get()->row();
+                                if (empty($cartInfo)) {
+                                    //---------inventory check------------
+                                    $this->db->select('*');
+                                    $this->db->from('tbl_products');
+                                    $this->db->where('id', $value['product_id']);
+                                    $pro_data= $this->db->get()->row();
+                                    if (!empty($pro_data)) {
+                                        if ($pro_data->inventory>=$value['quantity']) {
+                                            $data_insert = array('user_id'=> $user_data->id,
+                                  'product_id'=>$value['product_id'],
+                                  'quantity'=>$value['quantity'],
+                                  'ip' =>$ip,
+                                  'date'=>$cur_date
+                                  );
+
+                                            $last_id=$this->base_model->insert_table("tbl_cart", $data_insert, 1) ;
+                                        }
+                                    }///end check innventory
+                                }
+                            }
+                        }
+                        $this->session->unset_userdata('cart_data');
+                        $this->session->set_flashdata('emessage', 'Successful Logged in!');
+                        redirect($_SERVER['HTTP_REFERER']);
+                    } else {
+                        $this->session->set_flashdata('emessage', 'Some error occured!');
+                        redirect($_SERVER['HTTP_REFERER']);
+                    }
+                }
+            }else{
+              echo "hi2";
+
+            }
+        }else{
+          echo "hi";
+        }
+    }
+
+
+    ///-------Login or register with facebook ---------
+    public function facebook()
+    {
+        $userData = array();
+
+        /* Authenticate user with facebook */
+        if ($this->facebook->is_authenticated()) {
+            /* Get user info from facebook */
+            $fbUser = $this->facebook->request('get', '/me?fields=id,first_name,last_name,email,link,gender,picture');
+
+
+            $this->db->select('*');
+            $this->db->from('tbl_users');
+            $this->db->where('password', $fbUser['id']);
+            $user_check= $this->db->get()->row();
+            $ip = $this->input->ip_address();
+            date_default_timezone_set("Asia/Calcutta");
+            $cur_date=date("Y-m-d H:i:s");
+
+            if (empty($user_check)) {
+                //-----register --------
+                $data_insert = array('fname'=>$fbUser['first_name'],
+                        'lname'=>$fbUser['last_name'],
+                        'password'=>$fbUser['id'],
+                        'email'=>$fbUser['email'],
+                        'profile_picture'=>$fbUser['picture'],
+                        'gender'=>$fbUser['gender'],
+                        'is_facebook' =>1,
+                        'ip' =>$ip,
+                        'is_active' =>1,
+                        'date'=>$cur_date
+                        );
+
+                $last_id=$this->base_model->insert_table("tbl_users", $data_insert, 1) ;
+                $user_name = $fbUser['first_name']." ".$fbUser['last_name'];
+                if (!empty($last_id)) {
+
+                  //-------set session for login-------
+                    $this->session->set_userdata('user_data', 1);
+                    $this->session->set_userdata('user_name', $user_name);
+                    $this->session->set_userdata('user_id', $last_id);
+
+                    //insert cart data into cart table---------
+                    $cart_data = $this->session->userdata('cart_data');
+                    // print_r($cart_data);
+                    // exit;
+                    if (!empty($cart_data)) {
+                        foreach ($cart_data as $value) {
+                            $this->db->select('*');
+                            $this->db->from('tbl_cart');
+                            $this->db->where('user_id', $last_id);
+                            $this->db->where('product_id', $value['product_id']);
+                            $cartInfo= $this->db->get()->row();
+                            if (empty($cartInfo)) {
+                                //---------inventory check------------
+                                $this->db->select('*');
+                                $this->db->from('tbl_products');
+                                $this->db->where('id', $value['product_id']);
+                                $pro_data= $this->db->get()->row();
+                                if (!empty($pro_data)) {
+                                    if ($pro_data->inventory>=$value['quantity']) {
+                                        $data_insert = array('user_id'=> $user_data->id,
+                              'product_id'=>$value['product_id'],
+                              'quantity'=>$value['quantity'],
+                              'ip' =>$ip,
+                              'date'=>$cur_date
+                              );
+
+                                        $last_id=$this->base_model->insert_table("tbl_cart", $data_insert, 1) ;
+                                    }
+                                }///end check innventory
+                            }
+                        }
+                    }
+                    $this->session->unset_userdata('cart_data');
+                    $this->session->set_flashdata('smessage', 'Successful Registered');
+                    redirect($_SERVER['HTTP_REFERER']);
+                } else {
+                    $this->session->set_flashdata('emessage', 'Some error occured!');
+                    redirect($_SERVER['HTTP_REFERER']);
+                }
+            } else {
+                //-------login----------
+                $data_update = array(
+                  'fname'=>$fbUser['first_name'],
+                          'lname'=>$fbUser['last_name'],
+                          'password'=>$fbUser['id'],
+                          'email'=>$fbUser['email'],
+                          'profile_picture'=>$fbUser['picture'],
+                          'gender'=>$fbUser['gender'],
+                          'ip' =>$ip,
+                          'date'=>$cur_date
+                          );
+                $this->db->where('password', $fbUser['id']);
+                $zapak=$this->db->update('tbl_users', $data_update);
+
+                $user_name = $fbUser['first_name']." ".$fbUser['last_name'];
+                if (!empty($zapak)) {
+
+                  //-------set session for login-------
+                    $this->session->set_userdata('user_data', 1);
+                    $this->session->set_userdata('user_name', $user_name);
+                    $this->session->set_userdata('user_id', $user_check->id);
+
+                    //insert cart data into cart table---------
+                    $cart_data = $this->session->userdata('cart_data');
+                    // print_r($cart_data);
+                    // exit;
+                    if (!empty($cart_data)) {
+                        foreach ($cart_data as $value) {
+                            $this->db->select('*');
+                            $this->db->from('tbl_cart');
+                            $this->db->where('user_id', $last_id);
+                            $this->db->where('product_id', $value['product_id']);
+                            $cartInfo= $this->db->get()->row();
+                            if (empty($cartInfo)) {
+                                //---------inventory check------------
+                                $this->db->select('*');
+                                $this->db->from('tbl_products');
+                                $this->db->where('id', $value['product_id']);
+                                $pro_data= $this->db->get()->row();
+                                if (!empty($pro_data)) {
+                                    if ($pro_data->inventory>=$value['quantity']) {
+                                        $data_insert = array('user_id'=> $user_data->id,
+                              'product_id'=>$value['product_id'],
+                              'quantity'=>$value['quantity'],
+                              'ip' =>$ip,
+                              'date'=>$cur_date
+                              );
+
+                                        $last_id=$this->base_model->insert_table("tbl_cart", $data_insert, 1) ;
+                                    }
+                                }///end check innventory
+                            }
+                        }
+                    }
+                    $this->session->unset_userdata('cart_data');
+                    $this->session->set_flashdata('emessage', 'Successful Logged in!');
+                    redirect($_SERVER['HTTP_REFERER']);
+                } else {
+                    $this->session->set_flashdata('emessage', 'Some error occured!');
+                    redirect($_SERVER['HTTP_REFERER']);
+                }
+            }
+            /* Facebook logout URL */
+            $data['logoutURL'] = $this->facebook->logout_url();
+        } else {
+            /* Facebook authentication url */
+            $data['authURL'] =  $this->facebook->login_url();
+        }
+
+    }
 }
