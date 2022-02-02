@@ -119,7 +119,7 @@ class User_login extends CI_Controller
                                     $this->email->set_newline("");
                                     $this->email->from(EMAIL); // change it to yours
                                   $this->email->to($to);// change it to yours
-                                  $this->email->subject('Reset your password');
+                                  $this->email->subject('New account created');
                                     $this->email->message($message);
                                     if ($this->email->send()) {
                                         // echo 'Email sent.';
@@ -443,7 +443,7 @@ class User_login extends CI_Controller
                         $this->email->set_newline("");
                         $this->email->from(EMAIL); // change it to yours
                       $this->email->to($to);// change it to yours
-                      $this->email->subject('Reset your password');
+                      $this->email->subject('New account created');
                         $this->email->message($message);
                         if ($this->email->send()) {
                             // echo 'Email sent.';
