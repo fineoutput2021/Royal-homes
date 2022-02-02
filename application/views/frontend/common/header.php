@@ -2861,6 +2861,10 @@ Creating an account has many benefits: check out faster, keep more than one addr
     window.onclick = function(event) {
       if (event.target == modal) {
         modal.style.display = "none";
+        document.body.style.overflow = '';
+      }else{
+        document.body.style.overflow = 'hidden';
+
       }
     }
   </script>

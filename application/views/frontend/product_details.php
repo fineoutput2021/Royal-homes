@@ -663,7 +663,7 @@ margin-top: 20px;
 
 <!-- <span id="myBtn9">clickme</span> -->
 <!-- The Modal -->
-<div id="myModal9" class="modal9" style="display:none;">
+<div id="myModal9" class="modal9" >
 
   <!-- Modal content -->
   <!-- <div class="modal-content9"> -->
@@ -1231,13 +1231,14 @@ span.onclick = function() {
 }
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-
-    modal.style.display = "none";
-    // document.body.style.overflow = 'scroll';
-  }
-}
+// window.onclick = function(event) {
+//   alert()
+//   if (event.target == modal) {
+//
+//     modal.style.display = "none";
+//     // document.body.style.overflow = 'scroll';
+//   }
+// }
   //when user lick the slider  a modal will open
   function zoom_model(obj) {
     var src = $(obj).attr("src");
