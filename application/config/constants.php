@@ -111,4 +111,5 @@ define('SMTP_PORT','587');
 //--------Google Auth --------
 define('G_ID','278433746271-o803kjrsctuivke32thlrldmnmtommfm.apps.googleusercontent.com');
 define('G_AUTH','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');
-define('G_redirect','http://localhost/Royal-homes/User_login/google');
+// define('G_redirect','http://localhost/Royal-homes/User_login/google'); //local
+define('G_redirect','https://www.fineoutput.co.in/Royal-homes/User_login/google'); //server

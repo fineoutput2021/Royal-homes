@@ -1,4 +1,5 @@
-<div class="container">
+    <div class="ggty"> </div>
+  <div class="container">
     <h2>About Royalhomes</h2>
     <strong>Is Royalhomes An Indian Company?</strong>
     <p>Yes. Royalhomes is a domestic brand for Basant. Basant is a well known exporter from Jodhpur exporting to 17+ countries worldwide for last 22 years.</p>
