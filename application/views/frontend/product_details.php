@@ -14,6 +14,9 @@
 </style>
 
 <style media="screen">
+body.modal-open {
+    overflow: hidden;
+}
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -549,7 +552,7 @@ left: 0;
 top: 0;
 width: 100%; /* Full width */
 height: 100%; /* Full height */
-overflow: hidden;; /* Enable scroll if needed */
+overflow: none; /* Enable scroll if needed */
 background-color: rgb(0,0,0); /* Fallback color */
 background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
@@ -643,6 +646,7 @@ margin-top: 20px;
 }
 
 .image9 {
+  display: block;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -652,6 +656,7 @@ margin-top: 20px;
   padding-bottom: 80%!important;
   width: 100em;
   overflow-y: hidden;
+  scroll : none;
 }
 
 
