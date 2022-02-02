@@ -14,9 +14,7 @@
 </style>
 
 <style media="screen">
-body.modal-open {
-    overflow: hidden;
-}
+
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -1228,12 +1226,16 @@ btn.onclick = function() {
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
   modal.style.display = "none";
+  // document.body.style.overflow = 'scroll';
+
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
+
     modal.style.display = "none";
+    // document.body.style.overflow = 'scroll';
   }
 }
   //when user lick the slider  a modal will open
@@ -1241,6 +1243,7 @@ window.onclick = function(event) {
     var src = $(obj).attr("src");
     document.getElementById('zoom').style.backgroundImage = "url("+src+")";
     document.getElementById("myModal9").style.display = "block";
+    // document.body.style.overflow = 'hidden';
   }
 
 </script>
