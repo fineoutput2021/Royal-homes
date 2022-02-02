@@ -40,7 +40,7 @@
 
       <div class="container">
         <h2 class="head italic text-center">Design By Heart</h2>
-        <p class=" text-center">Design is sensitivity!! It's being sensitive to form, to function, to materials, to techniques, to nature, to craft. Absorb and let your soul express itself , in a different context each time. We culminate various
+      <p style="text-align: justify;">Design is sensitivity!! It's being sensitive to form, to function, to materials, to techniques, to nature, to craft. Absorb and let your soul express itself , in a different context each time. We culminate various
           materials, textures, techniques under one central theme and innovate keeping the style minimalistic and contemporary.</p>
       </div>
     </div>
@@ -49,11 +49,11 @@
       <div class="position-relative "><img class="img-fluid" src="https://www.orangetree.in/pub/media/wysiwyg/pholisophy.jpg" alt="">
         <div class="content position designbyheart">
           <h2 class=" italic text-center">Our Philosophy</h2>
-          <p class=" text-center">
+        <p style="text-align: justify;">
             We believe in cultivating relationships between culture, craftsmanship and industry, reconcile memory and research, rigour and emotion, uniqueness and experimentation, and interpret global trends with constant effort dedicated to
             aesthetics- contemporary in form but handcrafted in spirit
           </p>
-          <p class=" text-center">We also believe in sustainable design meaning creating products from responsible sustainable materials that can last a lifetime. Our products are generally made of wood(sourced from responsibly managed forests) ,
+        <p style="text-align: justify;">We also believe in sustainable design meaning creating products from responsible sustainable materials that can last a lifetime. Our products are generally made of wood(sourced from responsibly managed forests) ,
             metal, stone, natural fibers which highlight physical and aesthetic durability.</p>
         </div>
       </div>
@@ -63,30 +63,30 @@
       <div class="container">
         <div class="row">
           <div class="col-xl-4 col-lg-4 col-md-2 col-sm-4 text-center">
-            <h2>1998</h2>
-            <p>Vinay Kumar laid the foundation of Basant in Jodhpur.- with a vision to build an eco system that was infused with his family values of hardwork, responsibility and loyalty.</p>
+            <h2 style="text-align: justify;">1998</h2>
+            <p style="text-align: justify;">Vinay Kumar laid the foundation of Basant in Jodhpur.- with a vision to build an eco system that was infused with his family values of hardwork, responsibility and loyalty.</p>
           </div>
           <div class="col-xl-4 col-lg-4 col-md-2 col-sm-4 text-center">
-            <h2>Moving Ahead</h2>
-            <p>With a keen interest in sustainability, technological innovation and design Gaurav took the reins of Basant in 2002. Today we are exporting to 17+ countries worldwide.</p>
+            <h2 style="text-align: justify;">Moving Ahead</h2>
+            <p style="text-align: justify;">With a keen interest in sustainability, technological innovation and design Gaurav took the reins of Basant in 2002. Today we are exporting to 17+ countries worldwide.</p>
           </div>
           <div class="col-xl-4 col-lg-4 col-md-2 col-sm-4 text-center">
-            <h2>Environmental Responsibility</h2>
-            <p>We works towards maintaining balance between ecosystem and economy. 50% of total power consumption is Solar based and water harvesting is encouraged. We maintain highest standards in quality and have SA certification, FSC, UL, CE and
+            <h2 style="text-align: justify;">Environmental Responsibility</h2>
+            <p style="text-align: justify;">We works towards maintaining balance between ecosystem and economy. 50% of total power consumption is Solar based and water harvesting is encouraged. We maintain highest standards in quality and have SA certification, FSC, UL, CE and
               'Vriksh'.</p>
           </div>
           <div class="col-xl-4 col-lg-4 col-md-2 col-sm-4 text-center">
-            <h2>Materials</h2>
-            <p>We use various materials like wood, metal, stone, natural fibers, concrete in combination with latest technology and techniques.</p>
+            <h2 style="text-align: justify;">Materials</h2>
+            <p style="text-align: justify;">We use various materials like wood, metal, stone, natural fibers, concrete in combination with latest technology and techniques.</p>
           </div>
           <div class="col-xl-4 col-lg-4 col-md-2 col-sm-4 text-center">
             <h2 class="questa-R-head">Factory</h2>
-            <p>We have come a long way from a handful of employees, single factory in Jodhpur to 9,35,000 sqft built up area that houses wood workshops, dedicated testing labs, powder coating area, metal workshops and an expanded upholstery unit all
+            <p style="text-align: justify;">We have come a long way from a handful of employees, single factory in Jodhpur to 9,35,000 sqft built up area that houses wood workshops, dedicated testing labs, powder coating area, metal workshops and an expanded upholstery unit all
               under one roof. We work with 600+ expert draughtsmen, designers, artisans and specialised workers whose talent and skills we rely on.</p>
           </div>
           <div class="col-xl-4 col-lg-4 col-md-2 col-sm-4 text-center">
-            <h2>Design Awards</h2>
-            <p>A regular at IHGF Delhi fair Best Design Award for Furniture and Lighting since 2015. Gold Grand Stand award at Acetech fair 2019. Best Booth Design award at IHE Delhi fair 2019. Best virtual booth award 2020 IHGF Delhi Fair.</p>
+            <h2 style="text-align: justify;">Design Awards</h2>
+            <p style="text-align: justify;">A regular at IHGF Delhi fair Best Design Award for Furniture and Lighting since 2015. Gold Grand Stand award at Acetech fair 2019. Best Booth Design award at IHE Delhi fair 2019. Best virtual booth award 2020 IHGF Delhi Fair.</p>
           </div>
         </div>
       </div>
@@ -100,7 +100,7 @@
   <section class="bg-white" style="margin-top:-50px!important; position:relative; margin-bottom:-48px">
     <div class="container bg-white">
       <div class="w100 bg-white" style="text-align: center; ">
-        <h2>What Our Customers Have to Say</h2>
+        <h2 style="text-align: justify;">What Our Customers Have to Say</h2>
       </div>
     </div>
     <div class="items bg-white" style="

@@ -1,4 +1,4 @@
-
+<style media="screen">@media(max-width:640px){.df{  display: inline-flex;  flex-direction: column;}}</style>
 
 <!--Start Newsletter -->
 <section class="n_latter my-5" style="background:#f5f5f5">
@@ -34,8 +34,8 @@
 
 <!--footer Start-->
 <section class="footer overflow-hidden heimed1" style="height: 590px;">
-  <div class="container-fluid my-5 heimed11" style="max-width: 90%;">
-    <div class="row">
+  <div class="container-fluid my-5 heimed11" style="max-width: 90%; Line-height:1.3rem;">
+    <div class="row" style="margin-bottom:1rem;">
       <div class="col-md-12 text-center  mb-5">
         <div class="col-5 mx-auto mt-3">
           <img src="https://www.orangetree.in/pub/media/wysiwyg/footer-logo.png" alt="">
@@ -105,26 +105,45 @@
       <div class="col-md-3">
 
         <h5 class="myNewFontFam"><a  class="myNewFontFam" href="about us.html" style="font-weight: normal;">About us</a></h5>
-        <br>
+
         <p style="font-size: 16px; text-align: left ; color: gray; font-family: gotham light">For over two decades Basant has been exporting
           Home decor products to some of the best brands in the world.
           A part of the vision Mr. Vinay Kumar had for Basant, was to framework a homegrown branch for the domestic
           market.</p>
-        <br>
-        <h5 class="myNewFontFam"><a href="<?=base_url()?>Home/blog"  class="myNewFontFam"
-            style="text-decoration: none; color: white;font-weight: 700;">Blog</a></h5>
-        <br>
-        <h5  class="myNewFontFam"style="font-weight: 700;">Track Your Order</h5>
-        <br>
-        <a href="<?=base_url()?>Home/corporate_order" style="color:unset"><h5 class="myNewFontFam"style="font-weight: 700;">Corporate Orders</h5></a>
-        <br>
-        <a href="<?=base_url()?>Home/custom_order" style="color:unset"><h5 class="myNewFontFam"style="font-weight: 700;">Custom Orders</h5></a>
+
+        <h5 class="myNewFontFam mb-2"><a href="<?=base_url()?>Home/blog"  class="myNewFontFam"
+            style="text-decoration: none; color: white;font-weight: 500;">Blog</a></h5>
+
+        <h5  class="myNewFontFam mb-2"style="font-weight: 500;">Track Your Order</h5>
+
+        <a href="<?=base_url()?>Home/corporate_order" style="color:unset">
+          <h5 class="myNewFontFam mb-2"style="font-weight: 500;">Corporate Orders</h5></a>
+
+        <a href="<?=base_url()?>Home/custom_order" style="color:unset">
+          <h5 class="myNewFontFam mb-2"style="font-weight: 500;">Custom Orders</h5></a>
       </div>
       <div class="col-md-3 mj">
         <div class="eclipse border border-light rounded-circle text-center"><img class="d-inline-block align-middle"
             src="<?=base_url()?>assets/frontend/assets/img/footer_logo2.png" alt="Orange Tree"></div>
       </div>
+
     </div>
+    <div class="row mt-2 copyright_text">
+<div class=" col-md-3 ">
+<p class="mb-2 ">All right reserved - 2022</p>
+</div>
+<div class=" col-md-7 ">
+<ul class="policies mb-2 p text-cente mx-auto df " style="display:flex">
+<li class="mr-3"><a href="<?=base_url()?>Home/terms_conditions">Terms &amp; Conditions</a></li>
+<li class="mr-3"><a href="<?=base_url()?>Home/faq">FAQs</a></li>
+<li class="mr-3"><a href="<?=base_url()?>Home/shipping_returns">Shipping &amp; Returns</a></li>
+<li class="mr-3"><a href="<?=base_url()?>Home/privacy_policy">Privacy Policy</a></li>
+</ul>
+</div>
+<div class=" col-md-2  text-center">
+<p class="mb-1">© ROYAL HOMES</p>
+</div>
+</div>
 </section>
 
 <!-- End footer-->

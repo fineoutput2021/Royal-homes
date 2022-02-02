@@ -376,6 +376,8 @@ button.slick-next.slick-arrow{
   }
   .fsize{font-size: 15px;}
 
+  
+
 }
 @media all and (min-width: 725px){
   .say, .t_slider button.slick-next.slick-arrow{

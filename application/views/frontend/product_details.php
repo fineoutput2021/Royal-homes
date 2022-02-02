@@ -44,7 +44,7 @@
     font-weight: bold;
   }
 
-  .swiper-slide{  cursor: zoom-in;}
+  .cz{  cursor: zoom-in;}
 </style>
 <style media="screen">
   /*******************************
@@ -651,6 +651,7 @@ margin-top: 20px;
   max-width: 100%;
   padding-bottom: 80%!important;
   width: 100em;
+  overflow-y: hidden;
 }
 
 
@@ -720,23 +721,23 @@ margin-top: 20px;
       <div class="verslide">
         <div class="swiper-container product-slider ">
           <div class="swiper-wrapper "  >
-            <div class="swiper-slide" id="demo9">
+            <div class="swiper-slide cz" id="demo9">
               <img src="<?=base_url().$product_data->image?>" alt="..." class="swimg"  onclick="zoom_model(this)">
             </div>
             <?if(!empty($product_data->image1)){?>
-            <div class="swiper-slide">
+            <div class="swiper-slide cz">
               <img src="<?=base_url().$product_data->image1?>" alt="..." class="swimg"  onclick="zoom_model(this)">
             </div>
             <?}?>
 
             <?if(!empty($product_data->image2)){?>
-            <div class="swiper-slide">
+            <div class="swiper-slide cz">
               <img src="<?=base_url().$product_data->image2?>" alt="..." class="swimg"  onclick="zoom_model(this)">
             </div>
             <?}?>
 
             <?if(!empty($product_data->image3)){?>
-            <div class="swiper-slide">
+            <div class="swiper-slide cz">
               <img src="<?=base_url().$product_data->image3?>" alt="..." class="swimg"  onclick="zoom_model(this)">
             </div>
             <?}?>
