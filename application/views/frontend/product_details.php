@@ -6,7 +6,8 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 
-
+<link href="https://www.cssscript.com/wp-includes/css/sticky.css" rel="stylesheet" type="text/css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" rel="stylesheet" type="text/css">
 
 <style media="screen">
 
@@ -29,6 +30,7 @@
     object-fit: contain;
     cursor: pointer;
 
+
   }
 
   .product-thumbs .swiper-slide-active img {
@@ -41,6 +43,8 @@
     color: #e66b47;
     font-weight: bold;
   }
+
+  .swiper-slide{  cursor: zoom-in;}
 </style>
 <style media="screen">
   /*******************************
@@ -556,7 +560,7 @@ background-color: #fefefe;
 margin: auto;
 /* padding: 10px; */
 border: 1px solid #888;
-width: 40%;
+width: 70%;
 margin-top:0px;
 }
 
@@ -575,12 +579,12 @@ text-decoration: none;
 cursor: pointer;
 }
 
-
+/*
 #img-zoomer-box {
   width: 100%;
   height: auto;
   position: relative;
-  /* margin-top: 10px; */
+  /* margin-top: 10px;
 }
 
 #img-1 {
@@ -599,8 +603,8 @@ cursor: pointer;
 #img-2 {
   width: 30%;
   height: 30%;
-  background: no-repeat url("<?=base_url()?>./assets/frontend/assets/img/gg.jpg") #FFF;
-  /* background: url('https://bit.ly/2mgDw0y') no-repeat #FFF; */
+  background: no-repeat url("<?=base_url()?>./assets/frontend/assets/img/ggf.jpg") #FFF;
+  /* background: url('https://bit.ly/2mgDw0y') no-repeat #FFF;
   box-shadow: 0 5px 10px -2px rgba(0,0,0,0.3);
   pointer-events: none;
   position: absolute;
@@ -610,7 +614,7 @@ cursor: pointer;
   border-radius: 100%;
   display: block;
   transition: opacity .2s;
-}
+}*/
 .swiper-box{ display: inline-flex;
 margin-top: 20px;
 }
@@ -623,37 +627,58 @@ margin-top: 20px;
   padding: 10px;
 }
 
+.image-container9 {
+  margin: auto;
+  /* display: inline-block; */
+  /* padding: 1em; */
+  max-width: 50%;
+  vertical-align: top;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.image-container9:hover {
+  background-color: #cde;
+}
+
+.image9 {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: crosshair;
+  display: block;
+  max-width: 100%;
+  padding-bottom: 80%!important;
+  width: 100em;
+}
 
 
 </style>
 <div class="ggty" ></div>
 
-<div class="zmvw">
-<span id="myBtn9" class="" style="margin-left:1rem;"> click here for zoom view</span>
-</div>
+<!-- <span id="myBtn9">clickme</span> -->
 <!-- The Modal -->
 <div id="myModal9" class="modal9" style="display:none;">
 
   <!-- Modal content -->
-  <div class="modal-content9">
+  <!-- <div class="modal-content9"> -->
     <div class="crossl">
 <!-- <span class="close9" id="close">&times;</span> -->
     </div>
     <!-- <span class="close9" id="close">&times;</span> -->
       <!-- <div>Roll over image to zoom in</div> -->
-                  <div id="img-zoomer-box">
-                    <img src="<?=base_url()?>./assets/frontend/assets/img/gg.jpg" id="img-1" />
+                  <!-- <div id="img-zoomer-box">
+                    <img src="<?=base_url()?>assets/frontend/assets/img/ggf.jpg" id="img-1" />
                     <div id="img-2"></div>
-                  </div>
-                  <div class="col-md-12">
-
-
+                  </div> -->
+                  <!-- <div class="col-md-12">
                   <div class="row  swpr">
 
 
                     <div class="swiper-box">
                       <div class="swpb">
-                        <img src="<?=base_url()?>./assets/frontend/assets/img/gg.jpg">
+                        <img src="<?=base_url()?>assets/frontend/assets/img/ggf.jpg">
                         <img src="" alt="">
 
                       </div>
@@ -663,7 +688,7 @@ margin-top: 20px;
 
                       </div>
                       <div class="swpb">
-                        <img src="<?=base_url()?>./assets/frontend/assets/img/gg.jpg">
+                        <img src="<?=base_url()?>./assets/frontend/assets/img/ggf.jpg">
                         <img src="" alt="">
 
                       </div>
@@ -674,9 +699,16 @@ margin-top: 20px;
                       </div>
                             </div>
                     </div>
-      </div>
+      </div> -->
 
-  </div>
+        <div class="image-container9">
+          <div class="image9 detail-view" id="zoom" style="background-image: url(<?=base_url()?>assets/frontend/assets/img/ggf.jpg);">
+  	<!-- <img src="<?=base_url()?>assets/frontend/assets/img/ggf.jpg"/> -->
+          </div>
+        </div>
+
+
+  <!-- </div> -->
 
 </div>
 
@@ -687,25 +719,25 @@ margin-top: 20px;
     <div class="col-lg-8 product-left">
       <div class="verslide">
         <div class="swiper-container product-slider ">
-          <div class="swiper-wrapper ">
-            <div class="swiper-slide">
-              <img src="<?=base_url().$product_data->image?>" alt="..." class="swimg">
+          <div class="swiper-wrapper "  >
+            <div class="swiper-slide" id="demo9">
+              <img src="<?=base_url().$product_data->image?>" alt="..." class="swimg"  onclick="zoom_model(this)">
             </div>
             <?if(!empty($product_data->image1)){?>
             <div class="swiper-slide">
-              <img src="<?=base_url().$product_data->image1?>" alt="..." class="swimg">
+              <img src="<?=base_url().$product_data->image1?>" alt="..." class="swimg"  onclick="zoom_model(this)">
             </div>
             <?}?>
 
             <?if(!empty($product_data->image2)){?>
             <div class="swiper-slide">
-              <img src="<?=base_url().$product_data->image2?>" alt="..." class="swimg">
+              <img src="<?=base_url().$product_data->image2?>" alt="..." class="swimg"  onclick="zoom_model(this)">
             </div>
             <?}?>
 
             <?if(!empty($product_data->image3)){?>
             <div class="swiper-slide">
-              <img src="<?=base_url().$product_data->image3?>" alt="..." class="swimg">
+              <img src="<?=base_url().$product_data->image3?>" alt="..." class="swimg"  onclick="zoom_model(this)">
             </div>
             <?}?>
           </div>
@@ -1169,6 +1201,7 @@ margin-top: 20px;
 
 
 <script type="text/javascript">
+
 // Get the modal
 var modal = document.getElementById("myModal9");
 
@@ -1180,6 +1213,7 @@ var span = document.getElementById("close");
 
 // When the user clicks the button, open the modal
 btn.onclick = function() {
+
   modal.style.display = "block";
 }
 
@@ -1194,16 +1228,14 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+  //when user lick the slider  a modal will open
+  function zoom_model(obj) {
+    var src = $(obj).attr("src");
+    document.getElementById('zoom').style.backgroundImage = "url("+src+")";
+    document.getElementById("myModal9").style.display = "block";
+  }
+
 </script>
-
-
-
-
-
-
-
-
-
 
 
 <script type="text/javascript">
@@ -1285,7 +1317,7 @@ window.onclick = function(event) {
   }
 </script>
 
-
+<!--
 <script type="text/javascript">
 let zoomer = function (){
   document.querySelector('#img-zoomer-box')
@@ -1320,4 +1352,56 @@ let zoomer = function (){
   }, false);
 }();
 
+</script> -->
+<script>
+  (function() {
+// Get all images with the `detail-view` class
+var zoomBoxes = document.querySelectorAll('.detail-view');
+
+// Extract the URL
+zoomBoxes.forEach(function(image) {
+  var imageCss = window.getComputedStyle(image, false),
+    imageUrl = imageCss.backgroundImage
+                       .slice(4, -1).replace(/['"]/g, '');
+
+  // Get the original source image
+  var imageSrc = new Image();
+  imageSrc.onload = function() {
+    var imageWidth = imageSrc.naturalWidth,
+        imageHeight = imageSrc.naturalHeight,
+        ratio = imageHeight / imageWidth;
+
+    // Adjust the box to fit the image and to adapt responsively
+    var percentage = ratio * 100 + '%';
+    image.style.paddingBottom = percentage;
+
+    // Zoom and scan on mousemove
+    image.onmousemove = function(e) {
+      // Get the width of the thumbnail
+      var boxWidth = image.clientWidth,
+          // Get the cursor position, minus element offset
+          x = e.pageX - this.offsetLeft,
+          y = e.pageY - this.offsetTop,
+          // Convert coordinates to % of elem. width & height
+          xPercent = x / (boxWidth / 100) + '%',
+          yPercent = y / (boxWidth * ratio / 100) + '%';
+
+      // Update styles w/actual size
+      Object.assign(image.style, {
+        backgroundPosition: xPercent + ' ' + yPercent,
+        backgroundSize: imageWidth + 'px'
+      });
+    };
+
+    // Reset when mouse leaves
+    image.onmouseleave = function(e) {
+      Object.assign(image.style, {
+        backgroundPosition: 'center',
+        backgroundSize: 'cover'
+      });
+    };
+  }
+  imageSrc.src = imageUrl;
+});
+})();
 </script>
