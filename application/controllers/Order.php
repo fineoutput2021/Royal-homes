@@ -102,7 +102,8 @@ class Order extends CI_Controller
                 }
             } else {
                 $this->session->set_flashdata('emessage', 'Please add product for process to checkout');
-                redirect("Home/index", "refresh");
+                redirect("/","refresh");
+
             }
 
           }
@@ -186,14 +187,16 @@ class Order extends CI_Controller
                 }
             } else {
                 $this->session->set_flashdata('emessage', 'Please add product for process to checkout');
-                redirect("Home/index", "refresh");
+                redirect("/","refresh");
+
             }
 
 
           }
 
         } else {
-            redirect("Home/index", "refresh");
+            redirect("/","refresh");
+
         }
     }
 
@@ -211,7 +214,8 @@ class Order extends CI_Controller
             $this->load->view('frontend/address');
             $this->load->view('frontend/common/footer');
         } else {
-            redirect("Home/index", "refresh");
+            redirect("/","refresh");
+
         }
     }
 
@@ -293,7 +297,8 @@ class Order extends CI_Controller
                 redirect($_SERVER['HTTP_REFERER']);
             }
         } else {
-            redirect("Home/index", "refresh");
+            redirect("/","refresh");
+
         }
     }
 
@@ -397,7 +402,8 @@ class Order extends CI_Controller
             $this->load->view('frontend/checkout');
             $this->load->view('frontend/common/footer');
         } else {
-            redirect("Home/index", "refresh");
+            redirect("/","refresh");
+
         }
     }
 
@@ -641,7 +647,8 @@ class Order extends CI_Controller
                 redirect($_SERVER['HTTP_REFERER']);
             }
         } else {
-            redirect("Home/index", "refresh");
+            redirect("/","refresh");
+
         }
     }
 
@@ -676,7 +683,8 @@ class Order extends CI_Controller
             $this->load->view('frontend/order_success');
             $this->load->view('frontend/common/footer');
         } else {
-            redirect("Home/index", "refresh");
+            redirect("/","refresh");
+
         }
     }
 }

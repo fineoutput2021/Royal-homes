@@ -42,8 +42,6 @@
                       <th>Description</th>
                       <th>Full Description</th>
                       <th>image</th>
-
-
                       <th>Status</th>
                       <th>Action</th>
                     </tr>
@@ -150,11 +148,6 @@
 <script src="<?php echo base_url() ?>assets/admin/plugins/datatables/dataTables.bootstrap.js"></script>
 <script type="text/javascript">
   $(document).ready(function() {
-    $('#userTable').DataTable({
-      responsive: true,
-      // bSort: true
-    });
-
     $(document.body).on('click', '.dCnf', function() {
       var i = $(this).attr("mydata");
       console.log(i);

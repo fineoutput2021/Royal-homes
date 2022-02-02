@@ -135,8 +135,8 @@
     }
 
     .primary {
-      background: #e66c48;
-      border: 1px solid #e66c48;
+      background: #d76a46;
+      border: 1px solid #d76a46;
       border-radius: 0;
       font-size: 14px;
       text-transform: uppercase;
@@ -233,7 +233,7 @@ transition: visibility 0s .3s,opacity .3s ease;
     .button {
       width: 100%;
       margin-top: 20px !important;
-      background-color: #e66c48;
+      background-color: #d76a46;
       border-radius: 18px !important;
       color: white;
       padding: 10px 22px;
@@ -2247,7 +2247,7 @@ $category_data= $this->db->get();
        <!--=========== mobile navigation     =================    -->
               <div id="mySidenav" class="sidenav" style="z-index:99">
                 <div class="w-100 center mb-2" style="background-color: black;">
-                  <a href="#" class="rqwa" style="width:85%;">
+                  <a href="javascript:void(0);" class="rqwa" style="width:85%;">
                     <img src="<?=base_url()?>assets/frontend/assets/img/web_logo.png" id="logohed" alt="logo">
                   </a>
                 </div>
@@ -2512,7 +2512,7 @@ $category_data= $this->db->get();
               ?>
 
             <div id="count">
-            <li class="hide dontHide modifiedCart"><a href="#" style="color: unset;" id="account_open_close" onclick="openNav2()"><span class="count modifiedNewCount" >
+            <li class="hide dontHide modifiedCart"><a href="javascript:void(0);" style="color: unset;" id="account_open_close" onclick="openNav2()"><span class="count modifiedNewCount" >
                   <?if (!empty($count)) {
                   echo $count;
               } else {
@@ -2531,6 +2531,21 @@ $category_data= $this->db->get();
       </div>
     </div>
   </header>
+<!-- ==================google_url================- -->
+  <?
+  include_once APPPATH . "vendor/autoload.php";
+  $google_client = new Google_Client();
+  $google_client->setClientId(G_ID); //Define your ClientID
+  $google_client->setClientSecret(G_AUTH); //Define your Client Secret Key
+  $google_client->setRedirectUri(G_redirect); //Define your Redirect Uri
+  $google_client->addScope('email');
+  $google_client->addScope('profile');
+  if(!empty($this->session->userdata('access_token'))){
+  $g_url="";
+  }else{
+  $g_url=$google_client->createAuthUrl();
+  }
+  ?>
 
 <!-- =============== Sign up model ======================== -->
 
@@ -2569,7 +2584,8 @@ $category_data= $this->db->get();
     background: #fff;"><img class="social" src="<?=base_url()?>assets/frontend/assets/img/f32.svg" alt="social"> Sign In With Facebook</button>
             </div>
             <div class="col-md-6 respns2" style="text-align:left; padding-left: 10px;">
-              <button class="btn" style="    text-transform: None;
+              <button class="btn" onclick="window.location.href='<?=$g_url?>';"
+              style="text-transform: None;
     font-size: 12px;
     width: auto;
     cursor: pointer;
@@ -2695,7 +2711,8 @@ Creating an account has many benefits: check out faster, keep more than one addr
     "><img class="social" src="<?=base_url()?>assets/frontend/assets/img/f32.svg" alt="social"> Sign In With Facebook</button>
             </div>
             <div class="col-md-6 respns2" style="text-align: left; padding-left: 10px;">
-              <button class="btn" style="text-transform: None;
+              <button class="btn" onclick="window.location.href='<?=$g_url?>';"
+               style="text-transform: None;
     font-size: 12px;
     width: auto;
     cursor: pointer;
@@ -2721,7 +2738,6 @@ Creating an account has many benefits: check out faster, keep more than one addr
             Sign in with your email address.
           </div>
           <div>
-
           </div>
           <div class="form_method_name">
             <!-- <input type="hidden" name="previous_url" value="<?=current_url()?>"> -->
@@ -2737,7 +2753,7 @@ Creating an account has many benefits: check out faster, keep more than one addr
             </div>
             <div class="g-recaptcha mt-4" data-sitekey=<?=CAPTCHA_KEY_HTML?> ></div>
             <div class="badge  text-black text-wrap textres" style="font-size:12px;font-weight:400;font-family:'Gotham light';padding-top: 1.5rem;">
-              <span>Forget Password</span>
+              <a href="<?=base_url()?>User_login/forget_password" style="color:#d76a46"><span>Forget Password</span></a>
             </div>
 
             <button class="button ressing" type="submit" style="border-radius:34px !important; font-size:14px;font-family: 'Gotham light';">SIGN IN</button>

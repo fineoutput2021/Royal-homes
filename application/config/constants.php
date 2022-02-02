@@ -99,7 +99,7 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 
 ///---------Grecaptcha server--------
 defined('CAPTCHA_KEY_HTML') OR define('CAPTCHA_KEY_HTML', '6LdFTEoeAAAAACdHmaLVPvkR9oUfC16lw9Mb8NAL');
-defined('CAPTCHA_KEY_SERVER') OR define('CAPTCHA_KEY_SERVER', '6LdFTEoeAAAAALnMF8gIftGbon9uGJU_ErkE');
+defined('CAPTCHA_KEY_SERVER') OR define('CAPTCHA_KEY_SERVER', '6LdFTEoeAAAAALnMF8gIftGbon9uGJU_ErkE-kg2');
 
 //----------- Email -----------
 define('USER_NAME','info@fineoutput.co.in');
@@ -107,3 +107,8 @@ define('PASSWORD','info@fineoutput2019');
 define('EMAIL','info@fineoutput.co.in');
 define('SMTP_HOST','mail.fineoutput.co.in');
 define('SMTP_PORT','587');
+
+//--------Google Auth --------
+define('G_ID','278433746271-o803kjrsctuivke32thlrldmnmtommfm.apps.googleusercontent.com');
+define('G_AUTH','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');
+define('G_redirect','http://localhost/Royal-homes/User_login/google');

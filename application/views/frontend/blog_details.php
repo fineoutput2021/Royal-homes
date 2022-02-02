@@ -22,7 +22,7 @@
 <div class="row ">
   <?php $i=1; foreach($related_blog->result() as $blogs) { ?>
   <div class="col-md-4 mt-5">
-    <a href="<?base_url()?>blog_details/<?=base64_encode($blogs->id)?>" style="color:unset">
+    <a href="<?=base_url()?>Home/blog_details/<?=base64_encode($blogs->id)?>" style="color:unset">
     <div class="">
       <img src="<?=base_url().$blogs->image?>" class="img-fluid" alt="">
     </div>

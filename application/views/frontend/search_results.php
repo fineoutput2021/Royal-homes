@@ -48,7 +48,7 @@
         }
         ?>
       <div class="col-md-3 p-2">
-        <a href="<?=base_url()?>Home/product_details/<?=base64_encode($search->id)?>" style="color:unset">
+        <a href="<?=base_url()?>Home/product_details/<?=$search->url?>" style="color:unset">
           <img src="<?=base_url().$search->image?>" class="img-fluid" />
           <?if($percent>0){?>
           <div class="discount"><?=round($percent)?>% off</div>

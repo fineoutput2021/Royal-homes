@@ -1,6 +1,3 @@
-
-
-
 <style media="screen">
 .fixedElement {
   top: 96px;
@@ -329,9 +326,7 @@ width:100%;
 
 
 </style>
-<div class="ggty" style="line-height:4rem;" >
-
-</div>
+<div class="ggty" style="line-height:4rem;" ></div>
 <section >
 <div class="container" style="font-weight:700;" id="here">
 <div class="row">

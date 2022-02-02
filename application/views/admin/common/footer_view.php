@@ -75,6 +75,7 @@
           </script>
           <script type="text/javascript">
           $('#userTable').dataTable({
+        responsive: true,
         "bStateSave": true,
         "fnStateSave": function (oSettings, oData) {
             localStorage.setItem('offersDataTables', JSON.stringify(oData));

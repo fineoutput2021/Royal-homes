@@ -260,7 +260,8 @@ class Home extends CI_Controller
             $this->load->view('frontend/my_orders');
             $this->load->view('frontend/common/footer');
         } else {
-            redirect("Home/Index", "refresh");
+            redirect("/","refresh");
+
         }
     }
 
@@ -344,7 +345,8 @@ class Home extends CI_Controller
             $this->load->view('frontend/my_wishlist');
             $this->load->view('frontend/common/footer');
         } else {
-            redirect("Home/Index", "refresh");
+            redirect("/","refresh");
+
         }
     }
 

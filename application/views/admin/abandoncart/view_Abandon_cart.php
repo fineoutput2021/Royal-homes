@@ -19,20 +19,20 @@
               </div>
               <div class="panel panel-default">
 
-                <? if(!empty($this->session->flashdata('smessage'))){ ?>
+                <?php if (!empty($this->session->flashdata('smessage'))) { ?>
                 <div class="alert alert-success alert-dismissible">
                   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                   <h4><i class="icon fa fa-check"></i> Alert!</h4>
-                  <? echo $this->session->flashdata('smessage'); ?>
+                  <?php echo $this->session->flashdata('smessage'); ?>
                 </div>
-                <? }
-                                         			     if(!empty($this->session->flashdata('emessage'))){ ?>
+                <?php }
+                                                          if (!empty($this->session->flashdata('emessage'))) { ?>
                 <div class="alert alert-danger alert-dismissible">
                   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                   <h4><i class="icon fa fa-ban"></i> Alert!</h4>
-                  <? echo $this->session->flashdata('emessage'); ?>
+                  <?php echo $this->session->flashdata('emessage'); ?>
                 </div>
-                <? } ?>
+                <?php } ?>
 
 
                 <div class="panel-body">
@@ -46,16 +46,17 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <?php $i=1; foreach($cart_data->result() as $data) {
-                                      $this->db->select('*');
-                          $this->db->from('tbl_users');
-                          $this->db->where('id',$data->user_id);
-                          $this->db->where('is_active',1);
-                          $user_data= $this->db->get()->row();
-                          ?>
+                        <?php $i=1; foreach ($cart_data->result() as $data) {
+                                                              $this->db->select('*');
+                                                              $this->db->from('tbl_users');
+                                                              $this->db->where('id', $data->user_id);
+                                                              $this->db->where('is_active', 1);
+                                                              $user_data= $this->db->get()->row(); ?>
                         <tr>
                           <td><?php echo $i ?> </td>
-                          <td><?php if(!empty($user_data->fname && $user_data->lname)){echo $user_data->fname." ".$user_data->lname;} ?></td>
+                          <td><?php if (!empty($user_data->fname && $user_data->lname)) {
+                                                                  echo $user_data->fname." ".$user_data->lname;
+                                                              } ?></td>
                           <td>
                             <div class="btn-group" id="btns<?php echo $i ?>">
                               <div class="btn-group">
@@ -64,7 +65,8 @@
                             </div>
                           </td>
                         </tr>
-                        <?php $i++; } ?>
+                        <?php $i++;
+                                                          } ?>
                       </tbody>
                     </table>
                   </div>
@@ -87,12 +89,8 @@
     <script src="<?php echo base_url() ?>assets/admin/plugins/datatables/jquery.dataTables.js"></script>
     <script src="<?php echo base_url() ?>assets/admin/plugins/datatables/dataTables.bootstrap.js"></script>
     <script type="text/javascript">
-      $(document).ready(function() {
-        $('#userTable').DataTable({
-          responsive: true,
-          // bSort: true
-        });
 
+  $(document).ready(function() {
         $(document.body).on('click', '.dCnf', function() {
           var i = $(this).attr("mydata");
           console.log(i);
