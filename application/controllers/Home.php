@@ -80,20 +80,20 @@ class Home extends CI_Controller
 
         $this->db->select('*');
         $this->db->from('tbl_category');
-        $this->db->where('url',$url);
+        $this->db->where('url', $url);
         $cat_data= $this->db->get()->row();
 
         $this->db->select('*');
         $this->db->from('tbl_subcategory');
-        $this->db->where('url',$url);
+        $this->db->where('url', $url);
         $sub_data= $this->db->get()->row();
 
-        if(!empty($cat_data)){
-          $id= $cat_data->id;
-          $t=1;
-        }else{
-          $id= $sub_data->id;
-          $t=2;
+        if (!empty($cat_data)) {
+            $id= $cat_data->id;
+            $t=1;
+        } else {
+            $id= $sub_data->id;
+            $t=2;
         }
         // echo $id;
         // echo $t;
@@ -110,7 +110,7 @@ class Home extends CI_Controller
             $this->db->like('subcategory', $id);
         }
         $this->db->where('is_active', 1);
-        $this->db->order_by('id','desc');
+        $this->db->order_by('id', 'desc');
         if (!empty($sort)) {
             if ($sort=="LH") {
                 $this->db->order_by('selling_price', 'asc');
@@ -260,8 +260,7 @@ class Home extends CI_Controller
             $this->load->view('frontend/my_orders');
             $this->load->view('frontend/common/footer');
         } else {
-            redirect("/","refresh");
-
+            redirect("/", "refresh");
         }
     }
 
@@ -345,8 +344,7 @@ class Home extends CI_Controller
             $this->load->view('frontend/my_wishlist');
             $this->load->view('frontend/common/footer');
         } else {
-            redirect("/","refresh");
-
+            redirect("/", "refresh");
         }
     }
 
@@ -376,7 +374,7 @@ class Home extends CI_Controller
         $data['all_blogs']= $this->db->get();
 
         $this->load->view('frontend/common/header', $data);
-        $this->load->view('frontend/all_blogs.php');
+        $this->load->view('frontend/all_blogs');
         $this->load->view('frontend/common/footer');
     }
 
@@ -401,7 +399,7 @@ class Home extends CI_Controller
 
 
         $this->load->view('frontend/common/header', $data);
-        $this->load->view('frontend/blog_details.php');
+        $this->load->view('frontend/blog_details');
         $this->load->view('frontend/common/footer');
     }
 
@@ -419,7 +417,7 @@ class Home extends CI_Controller
         $data['custom_brocher']= $this->db->get()->row();
 
         $this->load->view('frontend/common/header', $data);
-        $this->load->view('frontend/corporate_order.php');
+        $this->load->view('frontend/corporate_order');
         $this->load->view('frontend/common/footer');
     }
 
@@ -708,7 +706,7 @@ class Home extends CI_Controller
 
 
         $this->load->view('frontend/common/header', $data);
-        $this->load->view('frontend/custom_order.php');
+        $this->load->view('frontend/custom_order');
         $this->load->view('frontend/common/footer');
     }
 
@@ -798,6 +796,42 @@ class Home extends CI_Controller
             $this->session->set_flashdata('emessage', 'Please insert some data, No data available');
             redirect($_SERVER['HTTP_REFERER']);
         }
+    }
+
+    //---------faq page---------
+    public function faq()
+    {
+        $this->load->view('frontend/common/header');
+        $this->load->view('frontend/faq.php');
+        $this->load->view('frontend/common/footer');
+    }
+    //---------about us page---------
+    public function about_us()
+    {
+        $this->load->view('frontend/common/header');
+        $this->load->view('frontend/about_us.php');
+        $this->load->view('frontend/common/footer');
+    }
+    //---------privacy_policy page---------
+    public function privacy_policy()
+    {
+        $this->load->view('frontend/common/header');
+        $this->load->view('frontend/privacy_policy.php');
+        $this->load->view('frontend/common/footer');
+    }
+    //---------shipping_returns page---------
+    public function shipping_returns()
+    {
+        $this->load->view('frontend/common/header');
+        $this->load->view('frontend/shipping_returns.php');
+        $this->load->view('frontend/common/footer');
+    }
+    //---------shipping_returns page---------
+    public function terms_conditions()
+    {
+        $this->load->view('frontend/common/header');
+        $this->load->view('frontend/terms_conditions.php');
+        $this->load->view('frontend/common/footer');
     }
 
 
