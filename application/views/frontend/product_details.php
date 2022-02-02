@@ -1068,7 +1068,7 @@ margin-top: 20px;
 <hr>
 
 
-<!---Start you may like------>
+<!---Start you also may like------>
 
 <section class="new_lunc overflow-hidden bg-white">
   <div class="container-fluid bg-white" style="padding: 0px;">
@@ -1090,7 +1090,7 @@ margin-top: 20px;
               $image1 = $like->image;
             }
             ?>
-          <a href="<?=base_url()?>Home/product_details/<?=base64_encode($like->id)?>" style="color:unset">
+          <a href="<?=base_url()?>Home/product_details/<?=$like->url?>" style="color:unset">
             <div class="swiper-slide" style="padding: 15px;">
               <img src="<?=base_url().$like->image?>" onmouseover="pro_change(this)" onmouseout="pro_default(this)" id="pro_img<?=$i?>" img="<?=base_url().$like->image?>" img2="<?=base_url().$image1?>" alt="">
               <div class="my-3">
@@ -1144,6 +1144,7 @@ margin-top: 20px;
                             $image1 = $more->image;
                           }
                             ?>
+          <a href="<?=base_url()?>Home/product_details/<?=$more->url?>" style="color:unset">
           <div class="swiper-slide" style="padding: 15px;">
             <img src="<?=base_url().$more->image?>" onmouseover="pro_change(this)" onmouseout="pro_default(this)" id="pro_img<?=$i?>" img="<?=base_url().$more->image?>" img2="<?=base_url().$image1?>" alt="">
             <div class="my-3">
@@ -1151,6 +1152,7 @@ margin-top: 20px;
                 ₹<?=$more->mrp?></span>
             </div>
           </div>
+        </a>
           <?php $i++;
                         }
                     } ?>
