@@ -33,18 +33,20 @@
 <!--End Newsletter-->
 
 <!--footer Start-->
-<section class="footer overflow-hidden heimed1" style="height: 590px;">
-  <div class="container-fluid my-5 heimed11" style="max-width: 90%; Line-height:1.3rem;">
-    <div class="row" style="margin-bottom:1rem;">
-      <div class="col-md-12 text-center  mb-5">
-        <div class="col-5 mx-auto mt-3">
+                                                                <!-- height: 590px; -->
+<section class="footer overflow-hidden heimed1 mt-3" style="">
+                                                                                <!-- Line-height:1.3rem; -->
+  <div class="container-fluid my-5 heimed11 mt-3" style="max-width: 90%; ">
+    <div class="row mt-3"  >
+      <div class="col-md-12 text-center mt-5 mb-5">
+        <div class="col-5 mx-auto ">
           <img src="https://www.orangetree.in/pub/media/wysiwyg/footer-logo.png" alt="">
         </div>
       </div>
     </div>
-    <div class="row mt-5" style="margin-top:-2rem!important;">
+    <div class="row" style="">
       <div class="col-md-3">
-        <h5  class="myNewFontFam"style="font-weight: 900;">
+        <h5  class="myNewFontFam"style="font-size: 16px;font-weight: 900;">
           Navigate
         </h5>
         <ul class="mb-4  mt-4 p-0 mobile-inlist">
@@ -65,12 +67,12 @@
 
         <ul class="mb-4  mt-4 p-0 mobile-inlist">
           <li class="head light"><a href="/lighting"><span class="heading"
-                style="font-weight: normal; font-family: gotham light">LIGHTING</span></a></li>
+                style="font-size: 16px;font-weight: normal; font-family: gotham light">LIGHTING</span></a></li>
           <li class="head"><a href="/decor"><span class="heading" style="font-weight: normal; font-family: gotham light">DECOR</span></a></li>
         </ul>
       </div>
       <div class="col-md-3 heimed11">
-        <h5  class="myNewFontFam"style="font-weight: 900;">
+        <h5  class="myNewFontFam"style="font-size: 16px;font-weight: 900;">
           Customer Care
         </h5>
         <br>
@@ -81,13 +83,13 @@
             <a href="mailto:care@orangetree.in"><img src="https://www.orangetree.in/pub/media/wysiwyg/email.jpg"
                 style="width: 150px !important;" alt="email"></a>
           </p>
-          <a href="contact us.html" style="text-decoration: none;">Visit Us</a>
+          <a href="contact us.html" style="font-size: 16px;text-decoration: none;">Visit Us</a>
         </h5>
         <br>
         <!-- <br> -->
         <p class="heimed11" style="font-size: 16px; text-align: left;">View our Store locations</p>
         <br>
-        <h5  class="myNewFontFam"style="font-weight: 700;">
+        <h5  class="myNewFontFam"style="font-size: 16px;font-weight: 700;">
           Social
         </h5>
         <ul>
@@ -97,14 +99,14 @@
             instagram</li>
         </ul>
         <br>
-        <h5>
+        <!-- <h5>
           <a class="myNewFontFam" href="Terms.html" style="text-decoration: none;">Terms & Conditions</a>
-        </h5>
+        </h5> -->
         <br>
       </div>
       <div class="col-md-3">
 
-        <h5 class="myNewFontFam"><a  class="myNewFontFam" href="about us.html" style="font-weight: normal;">About us</a></h5>
+        <h5 class="myNewFontFam"><a  class="myNewFontFam" href="about us.html" style="font-size: 16px;font-weight: normal;">About us</a></h5>
 
         <p style="font-size: 16px; text-align: left ; color: gray; font-family: gotham light">For over two decades Basant has been exporting
           Home decor products to some of the best brands in the world.
@@ -112,15 +114,15 @@
           market.</p>
 
         <h5 class="myNewFontFam mb-2"><a href="<?=base_url()?>Home/blog"  class="myNewFontFam"
-            style="text-decoration: none; color: white;font-weight: 500;">Blog</a></h5>
+            style="font-size: 16px;text-decoration: none; color: white;font-weight: 500;">Blog</a></h5>
 
-        <h5  class="myNewFontFam mb-2"style="font-weight: 500;">Track Your Order</h5>
+        <h5  class="myNewFontFam mb-2"style="font-size: 16px;font-weight: 500;">Track Your Order</h5>
 
-        <a href="<?=base_url()?>Home/corporate_order" style="color:unset">
-          <h5 class="myNewFontFam mb-2"style="font-weight: 500;">Corporate Orders</h5></a>
+        <a href="<?=base_url()?>Home/corporate_order" style="font-size: 16px;color:unset">
+          <h5 class="myNewFontFam mb-2"style="font-size: 16px;font-weight: 500;">Corporate Orders</h5></a>
 
-        <a href="<?=base_url()?>Home/custom_order" style="color:unset">
-          <h5 class="myNewFontFam mb-2"style="font-weight: 500;">Custom Orders</h5></a>
+        <a href="<?=base_url()?>Home/custom_order" style="font-size: 16px;color:unset">
+          <h5 class="myNewFontFam mb-2"style="font-size: 16px;font-weight: 500;">Custom Orders</h5></a>
       </div>
       <div class="col-md-3 mj">
         <div class="eclipse border border-light rounded-circle text-center"><img class="d-inline-block align-middle"

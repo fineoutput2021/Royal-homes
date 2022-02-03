@@ -2863,7 +2863,7 @@ Creating an account has many benefits: check out faster, keep more than one addr
         modal.style.display = "none";
         document.body.style.overflow = '';
       }else{
-        document.body.style.overflow = 'hidden';
+        // document.body.style.overflow = 'hidden';
 
       }
     }

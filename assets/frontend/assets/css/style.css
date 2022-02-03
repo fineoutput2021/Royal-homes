@@ -141,7 +141,7 @@ body{
 
 .footer {
     background: #1f1f1f;
-    padding-bottom: 25px;
+    /* padding-bottom: 25px; */
     position: relative;
     z-index: 2;
 }
@@ -376,7 +376,7 @@ button.slick-next.slick-arrow{
   }
   .fsize{font-size: 15px;}
 
-  
+
 
 }
 @media all and (min-width: 725px){
