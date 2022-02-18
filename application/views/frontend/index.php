@@ -20,8 +20,13 @@
 .ggty{display: block!important;min-height:65px!important;  }
 }
 
+@media screen and (device-width: 390px) and (device-height: 844px)
+   {
+.ggty{display: block!important;min-height:52px!important;  }
+}
+
 @media (min-width: 390px){
-.ggty{display: block!important; min-height:68px; }}
+.ggty{display: block!important; min-height:54px; }}
 
 @media (min-width: 414px){
 .ggty{display: block!important; min-height:59px;}}
