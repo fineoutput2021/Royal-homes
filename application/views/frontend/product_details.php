@@ -720,7 +720,7 @@ margin-top: 20px;
   <!-- slider start -->
   <div class="row ffth">
     <!-- <div class="col-lg-1"></div> -->
-    <div class="col-lg-8 product-left">
+    <div class="col-lg-8 product-left" style="padding:0px!important; margin-top:-13px;">
       <div class="verslide">
         <div class="swiper-container product-slider ">
           <div class="swiper-wrapper "  >
