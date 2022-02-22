@@ -1,7 +1,7 @@
 <style>
 .btn_s{
   background: #d76a46;
-  color: white;
+  color: white!important;
   border: none;
 }
 .btn_s:hover{
@@ -27,7 +27,7 @@
                         <p style="color:green;">Order Id = <?=$order_id?> | Amount = £<?=$amount?></p>
                       <div class="d-flex justify-content-center align-items-center">
                         <?if(!empty(base64_encode($user_id))){?>
-                        <a style="margin-right:18px; background:#d76a46" style="color:unset" href="<?=base_url()?>Home/my_orders/<?=base64_encode($user_id)?>" class="btn btn_s">View Orders</a>
+                        <a style="margin-right:18px; background:#d76a46" href="<?=base_url()?>Home/my_orders/<?=base64_encode($user_id)?>" class="btn btn_s">View Orders</a>
                         <?}?>
                         <a class="btn btn_c" href="<?=base_url()?>">  Continue to shopping..</a>
                       </div>

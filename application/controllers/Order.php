@@ -600,8 +600,8 @@ class Order extends CI_Controller
                                 'phone'=>$phone,
                                 'address'=>$address,
                                 'pincode'=>$pincode,
-                                'payment_status'=>0,
-                                'order_status'=>0,
+                                'payment_status'=>1,
+                                'order_status'=>1,
                                 'guest_mode'=>$guest_mode,
                                 'date'=>$cur_date,
                                 'ip'=>$ip,
@@ -611,29 +611,29 @@ class Order extends CI_Controller
 
 
                     if (!empty($zapak2)) {
-                      redirect("Order/online_payment");
+                      // redirect("Order/online_payment");
 
               //--------------inventory update and cart delete--------
-                   //      foreach ($order2_data->result() as $odr2) {
-                   //          // echo $user_id;
-                   //          // echo $odr2->product_id;
-                   //          // exit;
-                   //          $this->db->select('*');
-                   //          $this->db->from('tbl_products');
-                   //          $this->db->where('id', $odr2->product_id);
-                   //          $pro_data1= $this->db->get()->row();
-                   //          $updated_inventory  = $pro_data1->inventory - $odr2->quantity;
-                   //
-                   //          $inventory_update = array('inventory'=>$updated_inventory,
-                   // );
-                   //          $this->db->where('id', $pro_data1->id);
-                   //          $zapak=$this->db->update('tbl_products', $inventory_update);
-                   //
-                   //          //-------cart delete---------
-                   //          $delete=$this->db->delete('tbl_cart', array('user_id' => $user_id,'product_id'=>$odr2->product_id));
-                   //          $this->session->unset_userdata('cart_data');
-                        // }
-                        // redirect("Order/order_success", "refresh");
+                        foreach ($order2_data->result() as $odr2) {
+                            // echo $user_id;
+                            // echo $odr2->product_id;
+                            // exit;
+                            $this->db->select('*');
+                            $this->db->from('tbl_products');
+                            $this->db->where('id', $odr2->product_id);
+                            $pro_data1= $this->db->get()->row();
+                            $updated_inventory  = $pro_data1->inventory - $odr2->quantity;
+
+                            $inventory_update = array('inventory'=>$updated_inventory,
+                   );
+                            $this->db->where('id', $pro_data1->id);
+                            $zapak=$this->db->update('tbl_products', $inventory_update);
+
+                            //-------cart delete---------
+                            $delete=$this->db->delete('tbl_cart', array('user_id' => $user_id,'product_id'=>$odr2->product_id));
+                            $this->session->unset_userdata('cart_data');
+                        }
+                        redirect("Order/order_success", "refresh");
                     } else {
                         $this->session->set_flashdata('emessage', 'Some error occured');
                         redirect($_SERVER['HTTP_REFERER']);

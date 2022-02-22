@@ -61,10 +61,10 @@ Order Details
                                   echo $data->quantity;
                               } ?></td>
 <td><?php if (!empty($data->selling_price)) {
-                                  echo "Rs.".$data->selling_price;
+                                  echo "£".$data->selling_price;
                               } ?></td>
 <td><?php if (!empty($data->total_amount)) {
-                                  echo "Rs.".$data->total_amount;
+                                  echo "£".$data->total_amount;
                               } ?></td>
 
 </tr>
