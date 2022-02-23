@@ -285,7 +285,7 @@
       },
       dataType: 'json',
       success: function(response) {
-        alert(response.data)
+        // alert(response.data)
         if (response.data == true) {
           $.notify({
             icon: 'fa fa-check',
