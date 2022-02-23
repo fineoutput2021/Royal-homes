@@ -75,6 +75,7 @@ class Home extends CI_Controller
     {
         // $idd = $this->uri->segment(3);
         // $t = $this->uri->segment(4);
+        $sort="";
         $url = $this->uri->segment(3);
         $sort = $this->uri->segment(4);
 
@@ -110,18 +111,21 @@ class Home extends CI_Controller
             $this->db->like('subcategory', $id);
         }
         $this->db->where('is_active', 1);
-        $this->db->order_by('id', 'desc');
         if (!empty($sort)) {
             if ($sort=="LH") {
                 $this->db->order_by('selling_price', 'asc');
             } elseif ($sort=="HL") {
                 $this->db->order_by('selling_price', 'desc');
             }
+        }else{
+          $this->db->order_by('id', 'desc');
         }
         $product_data= $this->db->get();
         // print_r($product_data);
+        // echo $sort;
         // exit;
         $data['product_data'] = $product_data;
+        $data['sort'] = $sort;
 
 
         $this->load->view('frontend/common/header', $data);

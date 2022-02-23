@@ -1,4 +1,3 @@
-
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 
@@ -254,6 +253,7 @@ $sub_data= $this->db->get()->row();
     else{
       // echo "hi";
       // exit;
+      $top_ten=[];
       foreach($product_data->result() as $data) {
        $sub = json_decode($data->subcategory);
        $count = count($sub);
@@ -265,6 +265,21 @@ $sub_data= $this->db->get()->row();
        if($count>1){
          foreach ($sub as $value) {
            if($value==$id){
+             if(!empty($data->top_ten) && empty($sort)){
+               // echo"hi";
+               // exit;
+               $top_ten[] = array(
+                 'id' => $data->id,
+                 'url' => $data->url,
+                 'name' => $data->productname,
+                 'image' => $data->image,
+                 'image1' => $image1,
+                 'mrp' => $data->mrp,
+                 'selling_price' => $data->selling_price,
+                 'top_ten' => $data->top_ten,
+
+               );
+             }else{
              $product_data1[] = array(
                'id' => $data->id,
                'url' => $data->url,
@@ -273,11 +288,26 @@ $sub_data= $this->db->get()->row();
                'image1' => $image1,
                'mrp' => $data->mrp,
                'selling_price' => $data->selling_price,
+
              );
            }
          }
+         }
        }else{
          if($sub[0]==$id){
+           if(!empty($data->top_ten) && empty($sort)){
+             $top_ten[] = array(
+               'id' => $data->id,
+               'url' => $data->url,
+               'name' => $data->productname,
+               'image' => $data->image,
+               'image1' => $image1,
+               'mrp' => $data->mrp,
+               'selling_price' => $data->selling_price,
+               'top_ten' => $data->top_ten,
+
+             );
+           }else{
            $product_data1[] = array(
              'id' => $data->id,
              'url' => $data->url,
@@ -286,11 +316,18 @@ $sub_data= $this->db->get()->row();
              'image1' => $image1,
              'mrp' => $data->mrp,
              'selling_price' => $data->selling_price,
+
            );
+         }
          }
        }
 
       }
+       if(!empty($top_ten) && empty($sort)){
+      $top = array_column($top_ten, 'top_ten');
+      array_multisort($top, SORT_ASC, $top_ten);
+      $product_data1 = array_merge($top_ten, $product_data1);
+    }
     }?>
 
     <!--products--->
