@@ -1452,7 +1452,8 @@ padding: 14px 17px;
 
     .modifiedImg {}
 
-    .modifiedBurger {}
+    .modifiedBurger {margin-top: 35px;
+    margin-right: 85px;}
 
     .modifiedHeaderCont {}
 
@@ -1640,10 +1641,10 @@ padding: 14px 17px;
         max-width: 100% !important;
       }
 
-      .modifiedBurger {
+      /* .modifiedBurger {
         margin-top: 16vh !important;
         margin-left: -61vw !important;
-      }
+      } */
 
       .modifiedHeaderCont {
         height: 23vh !important;
@@ -1711,10 +1712,10 @@ padding: 14px 17px;
         max-width: 100% !important;
       }
 
-      .modifiedBurger {
+      /* .modifiedBurger {
         margin-top: 5vh !important;
         margin-left: -57vw !important;
-      }
+      } */
 
       .modifiedHeaderCont {
         height: 8vh !important;
@@ -1781,8 +1782,8 @@ padding: 14px 17px;
       }
 
       .modifiedBurger {
-        margin-top: 4vh !important;
-        margin-left: -38vw !important;
+        margin-top: 29px;
+      margin-right: 110px;
       }
 
       .modifiedHeaderCont {
@@ -1850,10 +1851,10 @@ padding: 14px 17px;
         max-width: 100% !important;
       }
 
-      .modifiedBurger {
+      /* .modifiedBurger {
         margin-top: 5vh !important;
         margin-left: -38vw !important;
-      }
+      } */
 
       .modifiedHeaderCont {
         height: 8vh !important;
@@ -1923,8 +1924,8 @@ padding: 14px 17px;
       }
 
       .modifiedBurger {
-        margin-top: 5vh !important;
-        margin-left: -38vw !important;
+        margin-right: 90px;
+        margin-top: 34px;
       }
 
       .modifiedHeaderCont {
@@ -1994,8 +1995,8 @@ padding: 14px 17px;
       }
 
       .modifiedBurger {
-        margin-top: 5vh !important;
-        margin-left: -37vw !important;
+        margin-right: 75px;
+        margin-top: 34px;
       }
 
       .modifiedHeaderCont {
@@ -2064,10 +2065,10 @@ padding: 14px 17px;
         max-width: 100% !important;
       }
 
-      .modifiedBurger {
+      /* .modifiedBurger {
         margin-top: 8vh !important;
         margin-left: -28vw !important;
-      }
+      }*/
 
       .modifiedHeaderCont {
         height: 8vh !important;
@@ -2133,10 +2134,10 @@ padding: 14px 17px;
         max-width: 100% !important;
       }
 
-      .modifiedBurger {
+      /* .modifiedBurger {
         margin-top: 7vh !important;
         margin-left: -17vw !important;
-      }
+      } */
 
       .modifiedHeaderCont {
         height: 8vh !important;
@@ -2331,7 +2332,7 @@ $category_data= $this->db->get();
               </div>
               <ul id="mobch13">
                 <span onclick="openNav()">
-                  <li class="media_q_change"><button class="modifiedBurger" style="background:none;border:none;color:#d76a46;font-size:25px; margin-left:-33vw;margin-top: -1vh;"><i class="fa fa-bars"></i></button></li>
+                  <li class="media_q_change"><button class="modifiedBurger" style="background:none;border:none;color:#d76a46;font-size:25px; margin-left:;margin-top: ;"><i class="fa fa-bars"></i></button></li>
                 </span>
               </ul>
             </li>
