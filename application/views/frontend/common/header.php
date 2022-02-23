@@ -1185,7 +1185,7 @@ padding: 14px 17px;
     .sidenav a {
       padding: 8px 8px 8px 6px;
       text-decoration: none;
-      font-size: 25px;
+      font-size: 16px;
       color: #000000;
       display: block;
       transition: 0.3s;
@@ -1925,7 +1925,7 @@ padding: 14px 17px;
 
       .modifiedBurger {
         margin-right: 90px;
-        margin-top: 34px;
+        margin-top: 29px;
       }
 
       .modifiedHeaderCont {
@@ -2222,10 +2222,10 @@ $category_data= $this->db->get();
                   </div>
                   <div class="" style="margin-top:8rem">
                     <div>
-                      <img src="<?=base_url().$data->image?>" class="img-fluid pl-5 pr-5 pb-3" alt="image">
+                      <img src="<?=base_url().$data->image?>" class="img-fluid pl-3 pr-3 pb-3" alt="image">
                     </div>
                     <div>
-                      <img src="<?=base_url().$data->image2?>" class="img-fluid pl-5 pr-5" alt="image2">
+                      <img src="<?=base_url().$data->image2?>" class="img-fluid pl-3 pr-3" alt="image2">
                     </div>
                   </div>
                 </div>
@@ -2243,7 +2243,7 @@ $category_data= $this->db->get();
           </div>
         </div>
         <div class="col-md-4 col-xs-6 menu">
-          <ul class="modifiedUl" style="margin-top:14px ">
+          <ul class="modifiedUl" style="margin-top:30px!important ">
             <li>
        <!--=========== mobile navigation     =================    -->
               <div id="mySidenav" class="sidenav" style="z-index:99">
