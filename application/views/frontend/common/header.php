@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="<?=base_url()?>assets/frontend/assets/css/mainnav.css">
   <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/frontend/assets/css/new.css">
   <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/frontend/assets/css/productdetail.css">
-    <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/frontend/assets/css/prduct_details2.css">
+  <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/frontend/assets/css/prduct_details2.css">
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
 
   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
@@ -27,7 +27,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100&family=Zen+Antique+Soft&family=Zen+Old+Mincho&display=swap" rel="stylesheet">
-<script src='https://www.google.com/recaptcha/api.js'></script>
+  <script src='https://www.google.com/recaptcha/api.js'></script>
   <link href="https://fonts.cdnfonts.com/css/gotham" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -98,8 +98,8 @@
       /* Fallback color */
       background-color: rgba(0, 0, 0, 0.4);
       /* Black w/ opacity */
-      -webkit-transition: visibility 0s .3s,opacity .3s ease;
-  transition: visibility 0s .3s,opacity .3s ease;
+      -webkit-transition: visibility 0s .3s, opacity .3s ease;
+      transition: visibility 0s .3s, opacity .3s ease;
     }
 
     .modal {
@@ -123,8 +123,8 @@
       /* Fallback color */
       background-color: rgba(0, 0, 0, 0.4);
       /* Black w/ opacity */
-      -webkit-transition: visibility 0s .3s,opacity .3s ease;
-    transition: visibility 0s .3s,opacity .3s ease;
+      -webkit-transition: visibility 0s .3s, opacity .3s ease;
+      transition: visibility 0s .3s, opacity .3s ease;
     }
 
     [type=button]:not(:disabled),
@@ -178,8 +178,8 @@
       /* Fallback color */
       background-color: rgba(0, 0, 0, 0.4);
       /* Black w/ opacity */
-      -webkit-transition: visibility 0s .3s,opacity .3s ease;
-transition: visibility 0s .3s,opacity .3s ease;
+      -webkit-transition: visibility 0s .3s, opacity .3s ease;
+      transition: visibility 0s .3s, opacity .3s ease;
     }
 
 
@@ -368,10 +368,12 @@ transition: visibility 0s .3s,opacity .3s ease;
       }
 
       #mobch13 {
-        /* margin-right: 30px; */
+        margin-left: -214px;
+margin-top: -44px;
+        /* margin-right: 30px;
         margin-right: 200px;
         margin-left: -2px;
-        margin-top: -74px;
+        margin-top: -74px; */
       }
 
       .ch234 {
@@ -379,6 +381,7 @@ transition: visibility 0s .3s,opacity .3s ease;
         margin-left: 123px !important;
         margin-top: -74px;
       }
+
       input[type=url] {
         background: #fff;
         background-clip: padding-box;
@@ -458,36 +461,37 @@ transition: visibility 0s .3s,opacity .3s ease;
     }
   </style>
   <style>
-  .chk{
-    display: block;
-    background: #d76a46;
-width: 85%;
-/* border-radius: 26px; */
-font-size: 13px;
-text-transform: uppercase;
-letter-spacing: 1px;
-transition: all .2s ease-in-out;
-margin-top:25px;
-color: white;
-line-height: 1.2rem;
-padding: 14px 17px;
+    .chk {
+      display: block;
+      background: #d76a46;
+      width: 85%;
+      /* border-radius: 26px; */
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all .2s ease-in-out;
+      margin-top: 25px;
+      color: white;
+      line-height: 1.2rem;
+      padding: 14px 17px;
 
-  /* background: #d76a46;
+      /* background: #d76a46;
   color: white;
   border: none;
   width:100%; */
-  }
-  .chk:hover{
-    background: black;
-    color: white;
-  }
+    }
+
+    .chk:hover {
+      background: black;
+      color: white;
+    }
   </style>
   <style>
     .body {
       /* font-family: 'Montserrat', sans-serif;
       font-family: 'Zen Antique Soft', serif;
       font-family: 'Zen Old Mincho', serif; */
-      font-family:Gotham light;
+      font-family: Gotham light;
     }
 
     input[type=email],
@@ -614,11 +618,11 @@ padding: 14px 17px;
     }
   </style>
   <style>
+    .down12 {
+      margin-left: -16px;
+      margin-top: 10px;
+    }
 
-   .down12{
-     margin-left: -16px;
-     margin-top: 10px;
-   }
     .sidebar {
 
 
@@ -630,7 +634,7 @@ padding: 14px 17px;
       right: 0;
       background-color: white;
 
-      color: black!important;
+      color: black !important;
       overflow-x: hidden;
       transition: 0.5s;
       /* padding-top: 60px; */
@@ -642,7 +646,7 @@ padding: 14px 17px;
       right: 42px;
       font-size: 34px;
       margin-left: 50px;
-      color:#d76a46;
+      color: #d76a46;
     }
 
     .openbtn {
@@ -1150,7 +1154,9 @@ padding: 14px 17px;
         transform: rotate(134deg);
       }
 
-      .mdty{display: none;}
+      .mdty {
+        display: none;
+      }
 
     }
   </style>
@@ -1320,7 +1326,7 @@ padding: 14px 17px;
 
     [data-toggle="collapse"].collapsed:after {
       transform: rotate(0deg);
-      color:#d76a46;
+      color: #d76a46;
     }
 
     .count {
@@ -1343,11 +1349,9 @@ padding: 14px 17px;
     }
 
     .sl {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-
-
+      /* display: flex;
+      flex-direction: row; */
+      /* align-items: center; */
     }
 
     li input.search_inp {
@@ -1381,11 +1385,11 @@ padding: 14px 17px;
     }
 
     .modifiedSearch {
-      /* background-color: yellow; */
+
       overflow: hidden;
       position: relative;
-      top: -7px;
-      width: 12vw !important;
+      top:8px;
+      width: 74px !important;
     }
 
     .modifiedNewCount {
@@ -1406,15 +1410,15 @@ padding: 14px 17px;
       position: relative;
       /* color: red; */
       right: -78%;
-      top: 0.6rem;
+      top: 10px;
       z-index: 2;
     }
 
     .newMoblSearchCont {
       display: none;
       position: absolute;
-      top: 1rem;
-      left: -21rem;
+      top: 16px;
+      left:-215px;
       width: 100vw !important;
     }
 
@@ -1428,7 +1432,7 @@ padding: 14px 17px;
       background: transparent;
       background: transparent !important;
       margin: 0 !important;
-      left: 11rem;
+      left: 176px;
       color: white;
       padding: 0 !important;
       padding-top: 15px !important;
@@ -1452,8 +1456,10 @@ padding: 14px 17px;
 
     .modifiedImg {}
 
-    .modifiedBurger {margin-top: 35px;
-    margin-right: 85px;}
+    .modifiedBurger {
+      margin-top: 35px;
+      /* margin-right: 85px; */
+    }
 
     .modifiedHeaderCont {}
 
@@ -1465,33 +1471,38 @@ padding: 14px 17px;
 
     .newWishList {
       width: 2vw;
-     /* margin-top: -4px; */
-     font-size: 17px;
+      /* margin-top: -4px; */
+      font-size: 17px;
     }
 
     .newUserProfile {
       width: 1vw;
       margin-top: 4px;
     }
-    .bbj{
-      margin-top: 8px!important;
-       font-size:17px;
+
+    .bbj {
+      margin-top: 8px !important;
+      font-size: 17px;
 
     }
-    .bbh{
+
+    .bbh {
       display: inline-flex;
       flex-direction: column;
-      line-height: 1!important;
+      line-height: 1 !important;
       justify-content: center;
-    margin-top: 10px;
+      margin-top: 10px;
     }
+
     @media(max-width:600px) {
-      .hdc{
-        background: rgba(0,0,0,.37);
+      .hdc {
+        background: rgba(0, 0, 0, .37);
       }
-      .hdc.active{
+
+      .hdc.active {
         background-color: white;
       }
+
       .dontHide {
         display: block;
       }
@@ -1537,8 +1548,8 @@ padding: 14px 17px;
         height: 0;
         transition: height 400ms linear;
         /* width: 100vw; */
-        left: -21.5rem;
-        width: 102vw !important;
+        left:-215px;
+        width: 100vw !important;
         /* background-color: green; */
       }
 
@@ -1559,7 +1570,7 @@ padding: 14px 17px;
         width: 30%;
         height: 100%;
         width: 20% !important;
-        height: 3vh !important;
+        height: 20px   !important;
         padding: 0;
         font-size: .9rem;
         color: white;
@@ -1576,32 +1587,32 @@ padding: 14px 17px;
         /* background-color: red; */
         position: relative;
         /* color: red; */
-        right: 3rem;
-        top: -1.2rem;
+        right: -96px;
+        top: -18px;
         z-index: 2;
       }
 
       .modifiedUl {
         display: flex;
-        flex-direction: column;
-        align-items: end;
+        /* flex-direction: column; */
+        /* align-items: end;
         margin-right: 12px;
-    margin-left: 28px;
-  margin-top: 25px!important;
+        margin-left: 28px;
+        margin-top: 25px !important; */
       }
 
       .modifiedSearch {
         position: relative;
-        right: -2rem;
-        top: -1rem;
+        right: -50px;
+        /* top: ; */
         overflow: visible;
-        width: 3vw !important;
+        /* width: 3vw !important; */
       }
 
       .modifiedCart {
         position: relative;
-        top: -3.3rem;
-        right: -1rem;
+        /* top: -3.3rem;
+        right: -1rem; */
         width: 0vw;
       }
 
@@ -1657,27 +1668,29 @@ padding: 14px 17px;
       }
 
       .modifiedUl {
-        display: flex;
+        /* display: flex;
         flex-direction: column;
         align-items: end;
-        margin-top:25px!important;
+        margin-top: 25px !important; */
       }
 
       .modifiedSearch {
         position: relative;
-        right: -2rem;
-        top: -1rem;
-      }
+        right: -50px;
 
-      .newMoblSearchCont {
-        left: -32.5rem;
-        /* height: 40px; */
       }
+      .newMoblSearchCont {
+        left:-197px;
+      }
+      /* .newMoblSearchCont {
+      left:-215px;
+        height: 40px;
+      } */
 
       .modifiedCart {
         position: relative;
-        top: -3.3rem;
-        right: 0rem!important;
+        top: px;
+        right: -134px;
       }
 
       .count {
@@ -1728,25 +1741,26 @@ padding: 14px 17px;
       }
 
       .modifiedUl {
-        display: flex;
+        /* display: flex;
         flex-direction: column;
-        align-items: end;
+        align-items: end; */
       }
 
       .modifiedSearch {
         position: relative;
-        right: -2rem;
-        top: -1rem;
+        right: -50px;
+
+
       }
 
       .newMoblSearchCont {
-        left: -24.5rem;
+        left:-215px;
       }
 
       .modifiedCart {
         position: relative;
-        top: -3.3rem;
-        right: -1rem;
+        top: -10px;
+    right: -18px;
       }
 
       .count {
@@ -1783,40 +1797,42 @@ padding: 14px 17px;
 
       .modifiedBurger {
         margin-top: 29px;
-      margin-right: 110px;
+        /* margin-right: 110px; */
       }
 
       .modifiedHeaderCont {
         height: 8vh !important;
       }
     }
+
     @media(max-width:395px) {
       .dontHide {
         display: block;
       }
 
       .modifiedUl {
-        display: flex;
+        /* display: flex;
         flex-direction: column;
         align-items: end;
-        margin-right:0px!important;
-        margin-top: 22px!important;
+        margin-right: 0px !important;
+        margin-top: 22px !important; */
       }
 
       .modifiedSearch {
         position: relative;
-        right: -2rem;
-        top: -1rem;
+
+
       }
 
       .newMoblSearchCont {
-      left: -385px;
+        margin-top: 20px;
+    left: -200px;
       }
 
       .modifiedCart {
         position: relative;
-        top: -3.3rem;
-        right: -1rem;
+        top: -10px;
+      right: -18px;
       }
 
       .count {
@@ -1868,27 +1884,28 @@ padding: 14px 17px;
       }
 
       .modifiedUl {
-        display: flex;
+        /* display: flex;
         flex-direction: column;
         align-items: end;
-        margin-right:0px!important;
-        margin-top: 22px!important;
+        margin-right: 0px !important;
+        margin-top: 22px !important; */
       }
 
       .modifiedSearch {
         position: relative;
-        right: -2rem;
-        top: -1rem;
+
+
       }
 
       .newMoblSearchCont {
-        left: -23rem;
+        margin-top: 20px;
+      left: -190px;
       }
 
       .modifiedCart {
         position: relative;
-        top: -3.3rem;
-        right: -1rem;
+        top: -11px;
+      right: -18px;
       }
 
       .count {
@@ -1924,7 +1941,7 @@ padding: 14px 17px;
       }
 
       .modifiedBurger {
-        margin-right: 90px;
+        /* margin-right: 90px; */
         margin-top: 29px;
       }
 
@@ -1939,26 +1956,26 @@ padding: 14px 17px;
       }
 
       .modifiedUl {
-        display: flex;
+        /* display: flex;
         flex-direction: column;
         align-items: end;
-          margin-top: 25px!important;
+        margin-top: 25px !important; */
       }
 
       .modifiedSearch {
         position: relative;
-        right: -2rem;
-        top: -1rem;
+
       }
 
       .newMoblSearchCont {
-        left: -22rem;
+        margin-top: 20px;
+left: -170px;
       }
 
       .modifiedCart {
         position: relative;
-        top: -3.3rem;
-        right: -1rem;
+        top: -10px;
+      right: -18px;
       }
 
       .count {
@@ -1995,7 +2012,7 @@ padding: 14px 17px;
       }
 
       .modifiedBurger {
-        margin-right: 75px;
+        /* margin-right: 75px; */
         margin-top: 34px;
       }
 
@@ -2011,26 +2028,25 @@ padding: 14px 17px;
       }
 
       .modifiedUl {
-        display: flex;
+        /* display: flex;
         flex-direction: column;
         align-items: end;
-            margin-top: 12px!important;
+        margin-top: 12px !important; */
       }
 
       .modifiedSearch {
         position: relative;
-        right: -2rem;
-        top: -1rem;
+
       }
 
       .newMoblSearchCont {
-        left: -19rem;
+    left:-215px;
       }
 
       .modifiedCart {
         position: relative;
-        top: -3.3rem;
-        right: -1rem;
+        top: -10px;
+      right: -18px;
       }
 
       .count {
@@ -2075,99 +2091,33 @@ padding: 14px 17px;
       }
     }
 
-    @media(max-width:280px) {
-      .dontHide {
-        display: block;
-      }
 
-      .modifiedUl {
-        display: flex;
-        flex-direction: column;
-        align-items: end;
-      }
-
-      .modifiedSearch {
-        position: relative;
-        right: -2rem;
-        top: -1rem;
-      }
-
-      .newMoblSearchCont {
-        left: -16.5rem;
-      }
-
-      .modifiedCart {
-        position: relative;
-        top: -3.3rem;
-        right: -1rem;
-      }
-
-      .count {
-        margin-top: -6px;
-      }
-
-      .logo {
-        display: block;
-        /* justify-content: center; */
-        /* height: 76px; */
-        padding-top: 0.5rem;
-        /* align-items: center; */
-      }
-
-      .modifiedImg {
-        /* width: 102% !important; */
-        /* margin-left: 0px !important; */
-        /* padding: 0 40px 0 40px; */
-        width: 75% !important;
-        margin-left: 10vw !important;
-      }
-
-      .modifiedWhiteImg {
-        position: relative;
-        left: 4.2rem;
-        top: -1rem;
-      }
-
-      .modifiedScrptImg {
-        height: auto;
-        margin-left: 2.2rem !important;
-        max-width: 100% !important;
-      }
-
-      /* .modifiedBurger {
-        margin-top: 7vh !important;
-        margin-left: -17vw !important;
-      } */
-
-      .modifiedHeaderCont {
-        height: 8vh !important;
-      }
-    }
-    .ul_st{
-      display:inline !important;
+    .ul_st {
+      display: inline !important;
       font-size: 14px;
     }
-    .li_st{
+
+    .li_st {
       line-height: 2 !important;
     }
-    .dd2_menu{
-    top: 64% !important;
-    left: -55px!important;
-    min-width: 7rem !important;
-    padding: 0!important;
-    margin: 0 !important;
-    font-size: 14px!important;
-    color: black!important;
-    background-color: #fff!important;
-    border-radius: 0!important;
+
+    .dd2_menu {
+      top: 64% !important;
+      left: -55px !important;
+      min-width: 7rem !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      font-size: 14px !important;
+      color: black !important;
+      background-color: #fff !important;
+      border-radius: 0 !important;
     }
 
-    .dropdown-item2:hover{
-      color:white !important;
+    .dropdown-item2:hover {
+      color: white !important;
       background-color: #d76a46 !important;
       text-decoration: none !important;
     }
-
   </style>
 </head>
 
@@ -2175,9 +2125,9 @@ padding: 14px 17px;
   <header class="header hdc">
     <div class="container-fluid modifiedHeaderCont">
       <div class="row" style="width:100%">
-        <div class="col-md-4 d-sx-none menu change" style="width: 100%;">
-<!-- =========web navigation========= -->
 
+        <!-- =========web navigation========= -->
+        <div class="col-md-4 d-sx-none menu change" style="width: 100%;">
           <nav class="navbar">
             <ul class="d-flex">
               <?php
@@ -2203,19 +2153,19 @@ $category_data= $this->db->get();
                       <ul class="mega-links d-flex flex-column">
                         <div class="container">
 
-                        <div class="row">
-                        <?php
+                          <div class="row">
+                            <?php
                         $i=1;
-     foreach ($subdata->result() as $sub) {
-         ?>
-                        <!-- <li><a href="<?=base_url()?>Home/all_Product/<?=base64_encode($sub->id)?>/<?=base64_encode(2)?>"><?php echo $sub->subcategory ?></a></li> -->
-                          <div class="col-md-6" style="text-align: left;">
-                            <span ><a style="color:black" href="<?=base_url()?>Home/all_Product/<?=$sub->url?>"><?php echo $sub->subcategory ?></a></span>
+         foreach ($subdata->result() as $sub) {
+             ?>
+                            <!-- <li><a href="<?=base_url()?>Home/all_Product/<?=base64_encode($sub->id)?>/<?=base64_encode(2)?>"><?php echo $sub->subcategory ?></a></li> -->
+                            <div class="col-md-6" style="text-align: left;">
+                              <span><a style="color:black" href="<?=base_url()?>Home/all_Product/<?=$sub->url?>"><?php echo $sub->subcategory ?></a></span>
+                            </div>
+                            <?php
+         } ?>
                           </div>
-                        <?php
-     } ?>
-   </div>
- </div>
+                        </div>
 
                       </ul>
                     </div>
@@ -2229,7 +2179,7 @@ $category_data= $this->db->get();
                     </div>
                   </div>
                 </div>
-                <?
+                <?php
      } ?>
               </li>
               <?php
@@ -2242,10 +2192,11 @@ $category_data= $this->db->get();
             <a href="<?=base_url()?>"><img src="<?=base_url()?>assets/frontend/assets/img/web_logo.png" id="logohed" alt=""></a>
           </div>
         </div>
-        <div class="col-md-4 col-xs-6 menu">
-          <ul class="modifiedUl" style="margin-top:30px!important ">
-            <li>
-       <!--=========== mobile navigation     =================    -->
+
+              <!--=========== mobile navigation     =================    -->
+    <div class="col-md-4 col-xs-6 menu" style="padding:0px!important">
+        <ul class="modifiedUl" style="">
+
               <div id="mySidenav" class="sidenav" style="z-index:99">
                 <div class="w-100 center mb-2" style="background-color: black;">
                   <a href="javascript:void(0);" class="rqwa" style="width:85%;">
@@ -2262,40 +2213,41 @@ $category_data= $this->db->get();
                     <div class="card-header" role="tab" id="heading_<?=$data->id?>">
                       <h5 class="mb-0">
                         <a class="collapsed" data-toggle="collapse" href="#collapse_<?=$data->id?>" aria-expanded="false" aria-controls="collapse_<?=$data->id?>">
-                          <span onclick="all_cat(this)" url="<?=$data->url?>" ><?=$data->categoryname?></span>
+                          <span onclick="all_cat(this)" url="<?=$data->url?>"><?=$data->categoryname?></span>
                         </a>
                       </h5>
                     </div>
                     <?php
           $this->db->select('*');
-          $this->db->from('tbl_subcategory');
-          $this->db->where('category_id', $data->id);
-          $subdata= $this->db->get();
-          $subcheck=$subdata->row();
-          if(!empty($subcheck)){?>
+                $this->db->from('tbl_subcategory');
+                $this->db->where('category_id', $data->id);
+                $subdata= $this->db->get();
+                $subcheck=$subdata->row();
+                if (!empty($subcheck)) {?>
                     <div id="collapse_<?=$data->id?>" class="collapse" role="tabpanel" aria-labelledby="heading_<?=$data->id?>" data-parent="#accordion">
                       <div class="card-body" style="color:white">
                         <!-- <ul style="display:unset;line-height:1.7!important"> -->
                         <div class="row">
 
-                <?foreach ($subdata->result() as $sub) {
+                          <?foreach ($subdata->result() as $sub) {
                     ?>
                           <!-- <li><a href="<?=base_url()?>Home/all_Product/<?=base64_encode($sub->id)?>/<?=base64_encode(2)?>"><?php echo $sub->subcategory ?></a></li> -->
                           <div class="col-6 pb-1" style="text-align: left;">
-                            <span ><a style="color:black" href="<?=base_url()?>Home/all_Product/<?=$sub->url?>"><?php echo $sub->subcategory ?></a></span>
+                            <span><a style="color:black" href="<?=base_url()?>Home/all_Product/<?=$sub->url?>"><?php echo $sub->subcategory ?></a></span>
                           </div>
-                          <?php } ?>
+                          <?php
+                } ?>
                         </div>
 
                         <!-- </ul> -->
                         <div class="mt-2 w-100 center">
-                          <img src="<?=base_url().$data->image?>"  class="img-fluid p-3" />
-                          <img src="<?=base_url().$data->image2?>"  class="img-fluid p-3" />
+                          <img src="<?=base_url().$data->image?>" class="img-fluid p-3" />
+                          <img src="<?=base_url().$data->image2?>" class="img-fluid p-3" />
                         </div>
 
                       </div>
                     </div>
-                    <?}?>
+                    <?} ?>
                   </div>
                   <?php
             }?>
@@ -2320,44 +2272,34 @@ $category_data= $this->db->get();
                         Login/Resigter
                       </li>
                       <?} else {?>
-                        <a href="<?=base_url()?>/User_login/user_logout">
-                      <li id="myLogOut" class="myNewLi">
-                        Logout
-                      </li>
+                      <a href="<?=base_url()?>/User_login/user_logout">
+                        <li id="myLogOut" class="myNewLi">
+                          Logout
+                        </li>
                       </a>
                       <?}?>
                     </ul>
                   </div>
                 </div>
               </div>
-              <ul id="mobch13">
-                <span onclick="openNav()">
-                  <li class="media_q_change"><button class="modifiedBurger" style="background:none;border:none;color:#d76a46;font-size:25px; margin-left:;margin-top: ;"><i class="fa fa-bars"></i></button></li>
-                </span>
-              </ul>
-            </li>
-            <li class="hide sl modifiedSearch">
+              <span class="media_q_change" onclick="openNav()"><button class="modifiedBurger" style="background:none;border:none;color:#d76a46;font-size:25px; margin-left:-50px;margin-top:-19px ;"><i class="fa fa-bars"></i></button>
+              </span>
+
+              <div class=" sl modifiedSearch">
               <i class="fa fa-search btn_change_change sb newSearchIcon" aria-hidden="true" onclick="newClickHandler()"></i>
               <!-- ****************** WEB INPUT *********************************  -->
               <form action="<?=base_url()?>Home/search" method="get" enctype="multipart/form-data">
-                <input type="text" style="color:black; width:83s%!important;" name="search" class="newSearchInput" id="search" placeholder="Search" required />
+                <input type="text" style="color:black; width:83%!important;" name="search" class="newSearchInput" id="search" placeholder="Search" required />
               </form>
-              <script>
-                var input = document.getElementById("search");
-                input.addEventListener("keyup", function(event) {
-                  if (event.keyCode === 13) {
-                    event.preventDefault();
-                  }
-                });
-              </script>
+
               <!-- ****************** MOBILE INPUT *********************************  -->
               <form action="<?=base_url()?>Home/search" method="get" enctype="multipart/form-data">
-              <div class="newMoblSearchCont" >
-                <input type="text" name="search" class="newSearchInptMobl" placeholder="Search" />
-                <button type="submit" name="button" class="newSearchBtn">Search</button>
-              </div>
-            </form>
-            </li>
+                <div class="newMoblSearchCont">
+                  <input type="text" name="search" class="newSearchInptMobl" placeholder="Search"  style="height:20px!important;"/>
+                  <button type="submit" name="button" class="newSearchBtn">Search</button>
+                </div>
+              </form>
+            </div>
             <?if (!empty($this->session->userdata('user_data'))) {
                 $user_id = $this->session->userdata('user_id');
                 $this->db->select('*');
@@ -2366,105 +2308,107 @@ $category_data= $this->db->get();
                 $wish_count= $this->db->count_all_results(); ?>
             <!-- this is wishlist -->
             <div id="w_count">
-            <li class="hide dontHide newWishList"><a href="<?=base_url()?>Home/view_wishlist/<?=base64_encode($this->session->userdata('user_id'))?>" style="color:unset;"><span class="count">
-                  <?if (!empty($wish_count)) {
+              <li class="hide dontHide newWishList"><a href="<?=base_url()?>Home/view_wishlist/<?=base64_encode($this->session->userdata('user_id'))?>" style="color:unset;"><span class="count">
+                    <?if (!empty($wish_count)) {
                     echo $wish_count;
                 } else {
                     echo 0;
                 } ?>
-                </span><i class="fa fa-heart btn_change_change " aria-hidden="true"></i></a></li>
-              </div>
+                  </span><i class="fa fa-heart btn_change_change " aria-hidden="true"></i></a></li>
+            </div>
 
-            <?}?>
+            <?php
+            }?>
             <div id="mySidebar" class="sidebar" style="width: 0px;">
-            <?if (!empty($this->session->userdata('user_data'))) {
-              $user_id = $this->session->userdata('user_id');
-              $this->db->select('*');
-              $this->db->from('tbl_cart');
-              $this->db->where('user_id', $user_id);
-              $cart_data= $this->db->get();
-              $total=0;
-              $inCart=[];
-              foreach ($cart_data->result() as $cart) {
+              <?if (!empty($this->session->userdata('user_data'))) {
+                $user_id = $this->session->userdata('user_id');
                 $this->db->select('*');
-                $this->db->from('tbl_products');
-                $this->db->where('id', $cart->product_id);
-                $pro_data= $this->db->get()->row();
-                $price = $pro_data->selling_price*$cart->quantity;
-                $inCart[]= array(
+                $this->db->from('tbl_cart');
+                $this->db->where('user_id', $user_id);
+                $cart_data= $this->db->get();
+                $total=0;
+                $inCart=[];
+                foreach ($cart_data->result() as $cart) {
+                    $this->db->select('*');
+                    $this->db->from('tbl_products');
+                    $this->db->where('id', $cart->product_id);
+                    $pro_data= $this->db->get()->row();
+                    $price = $pro_data->selling_price*$cart->quantity;
+                    $inCart[]= array(
                   'image'=> base_url().$pro_data->image,
                   'name'=> $pro_data->productname,
                   'quantity'=> $cart->quantity,
                   'price'=> $price
                 );
-                $total = $total + $price;
-              }
-            } else{
-              $cartdata= $this->session->userdata('cart_data');
-              $total=0;
-              $inCart=[];
-              if(!empty($cartdata)){
-              foreach ($cartdata as $cart) {
-                $this->db->select('*');
-                $this->db->from('tbl_products');
-                $this->db->where('id', $cart['product_id']);
-                $pro_data= $this->db->get()->row();
-                $price = $pro_data->selling_price*$cart['quantity'];
-                $inCart[]= array(
+                    $total = $total + $price;
+                }
+            } else {
+                $cartdata= $this->session->userdata('cart_data');
+                $total=0;
+                $inCart=[];
+                if (!empty($cartdata)) {
+                    foreach ($cartdata as $cart) {
+                        $this->db->select('*');
+                        $this->db->from('tbl_products');
+                        $this->db->where('id', $cart['product_id']);
+                        $pro_data= $this->db->get()->row();
+                        $price = $pro_data->selling_price*$cart['quantity'];
+                        $inCart[]= array(
                   'image'=> base_url().$pro_data->image,
                   'name'=> $pro_data->productname,
                   'quantity'=> $cart['quantity'],
                   'price'=>$price
                 );
-                $total = $total + $price;
-              }
-            }}?>
-        <div class="col-md-12" style="background:#ffffff;padding:27px 40px">
-          <a href="javascript:void(0)" class="closebtn" id="account_open_close" onclick="closeNav2()">×</a>
-          <h4>My Cart</h4>
-        <hr>
-        <h6>Order Summary</h6>
-        <?if(empty(count($inCart))){?>
-          <br />
-          <p>
-            Your Cart is empty!
-          </p>
-          <?}else{?>
-        <div style="background-color: #cfcfcf; padding: 15px;">
-          <ul class="ul_st">
-            <li class="li_st">
-              <span><b>Cart Subtotal:</b></span>
-              <span class="float-right"><b>£<?=$total?></b></span>
-            </li>
-          </ul>
-        </div>
-        <hr>
-        <?foreach ($inCart as $value) {?>
-        <div class="">
-        <!-- <div class=""><a href="javascript:void(0);" onclick="deleteCartOffline(this)"><span class="float-right positn" style="font-size:30px;  color:#d76a46">&times</span></a></div> -->
-       <div class="row mt-2" style=" font: 18px;">
-       <div class="col-md-5 col-5 pimg mt-2" style="width:100px;height:100px;">
-       <img src="<?=$value['image']?>">
-       </div>
-       <div class="col-md-7 col-7 mt-2 fsize " >
-         <ul class="ul_st">
-           <li class="li_st"><span><?=$value['name']?></span></li>
-           <li class="li_st"><span>Qty:&nbsp; <?=$value['quantity']?></span></li>
-           <li class="li_st"><span>£<?=$value['price']?></span></li>
-         </ul>
-        </div>
+                        $total = $total + $price;
+                    }
+                }
+            }?>
+              <div class="col-md-12" style="background:#ffffff;padding:27px 40px">
+                <a href="javascript:void(0)" class="closebtn" id="account_open_close" onclick="closeNav2()">×</a>
+                <h4>My Cart</h4>
+                <hr>
+                <h6>Order Summary</h6>
+                <?if (empty(count($inCart))) {?>
+                <br />
+                <p>
+                  Your Cart is empty!
+                </p>
+                <?} else {?>
+                <div style="background-color: #cfcfcf; padding: 15px;">
+                  <ul class="ul_st">
+                    <li class="li_st">
+                      <span><b>Cart Subtotal:</b></span>
+                      <span class="float-right"><b>£<?=$total?></b></span>
+                    </li>
+                  </ul>
+                </div>
+                <hr>
+                <?foreach ($inCart as $value) {?>
+                <div class="">
+                  <!-- <div class=""><a href="javascript:void(0);" onclick="deleteCartOffline(this)"><span class="float-right positn" style="font-size:30px;  color:#d76a46">&times</span></a></div> -->
+                  <div class="row mt-2" style=" font: 18px;">
+                    <div class="col-md-5 col-5 pimg mt-2" style="width:100px;height:100px;">
+                      <img src="<?=$value['image']?>">
+                    </div>
+                    <div class="col-md-7 col-7 mt-2 fsize ">
+                      <ul class="ul_st">
+                        <li class="li_st"><span><?=$value['name']?></span></li>
+                        <li class="li_st"><span>Qty:&nbsp; <?=$value['quantity']?></span></li>
+                        <li class="li_st"><span>£<?=$value['price']?></span></li>
+                      </ul>
+                    </div>
 
-      </div>
-    </div>
-<?}?>
-      <hr>
-      <div class="w-100" style="display:flex; justify-content: center;">
-         <button class="chk" onclick="location.href='<?=base_url()?>Home/view_cart'">
-        View cart
-        </button>
-      </div>
-      <?}?>
-        </div>
+                  </div>
+                </div>
+                <?}?>
+                <hr>
+                <div class="w-100" style="display:flex; justify-content: center;">
+                  <button class="chk" onclick="location.href='<?=base_url()?>Home/view_cart'">
+                    View cart
+                  </button>
+                </div>
+                <?}?>
+              </div>
               <!-- <a href="addresssetting.html">ACCOUNT SETTINGS</a>
               <a href="My Addresses.html">ADDRESSES</a>
               <a href="Address form.html">ADDRESS Form</a>
@@ -2475,17 +2419,17 @@ $category_data= $this->db->get();
             <div id="" class="ch234 hide newUserProfile">
               <?if (!empty($this->session->userdata('user_data'))) {?>
 
-            <li class="fa fa-user dropdown bbh" >
-          <i class="fa fa-caret-down btn_change_change media_q_change2 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown " aria-expanded="false" style="width: 10px;margin-top: -5px;margin-left: 1px;">
-          </i>
-        <div class="dropdown-menu dd2_menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item dropdown-item2" href="<?=base_url()?>Home/my_orders/<?=base64_encode($this->session->userdata('user_id'))?>" style="color:unset">My Orders</a>
-          <a class="dropdown-item dropdown-item2" href="<?=base_url()?>/User_login/user_logout" style="color:unset">logout</a>
-        </div>
-</li>
+              <li class="fa fa-user dropdown bbh">
+                <i class="fa fa-caret-down btn_change_change media_q_change2 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown " aria-expanded="false" style="width: 10px;margin-top: -5px;margin-left: 1px;">
+                </i>
+                <div class="dropdown-menu dd2_menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item dropdown-item2" href="<?=base_url()?>Home/my_orders/<?=base64_encode($this->session->userdata('user_id'))?>" style="color:unset">My Orders</a>
+                  <a class="dropdown-item dropdown-item2" href="<?=base_url()?>/User_login/user_logout" style="color:unset">logout</a>
+                </div>
+              </li>
 
               <?} else {?>
-              <i class="bbj fa fa-user openbtn btn_change_change media_q_change2" aria-hidden="true" onclick="check_sign()" id="myBtn" ></i>
+              <i class="bbj fa fa-user openbtn btn_change_change media_q_change2" aria-hidden="true" onclick="check_sign()" id="myBtn"></i>
 
               <?}?>
             </div>
@@ -2513,27 +2457,28 @@ $category_data= $this->db->get();
               ?>
 
             <div id="count">
-            <li class="hide dontHide modifiedCart"><a href="javascript:void(0);" style="color: unset;" id="account_open_close" onclick="openNav2()"><span class="count modifiedNewCount" >
-                  <?if (!empty($count)) {
+              <li class="hide dontHide modifiedCart"><a href="javascript:void(0);" style="color: unset;" id="account_open_close" onclick="openNav2()"><span class="count modifiedNewCount">
+                    <?if (!empty($count)) {
                   echo $count;
               } else {
                   echo 0;
               }?>
-                </span><i class="fa fa-shopping-bag NONE1 btn_change_change dontHide" aria-hidden="true"></i>
-              </a></li>
+                  </span><i class="fa fa-shopping-bag NONE1 btn_change_change dontHide" aria-hidden="true"></i>
+                </a></li>
             </div>
 
             <!-- <?if (!empty($this->session->userdata('user_data'))) {
                   $user_id = $this->session->userdata('user_id'); ?>
             <li class="media_q_change1 hide" style="font-size: 17px;"><a href="<?=base_url()?>Home/my_orders/<?=base64_encode($user_id)?>" style="color: unset;"><i class='fa fa-truck btn_change_change' style='font-size: 19px'></i></a></li>
-            <?}?> -->
+            <?php
+              }?> -->
           </ul>
         </div>
       </div>
     </div>
   </header>
-<!-- ==================google_url================- -->
-  <?
+  <!-- ==================google_url================- -->
+  <?php
   include_once APPPATH . "vendor/autoload.php";
   $google_client = new Google_Client();
   $google_client->setClientId(G_ID); //Define your ClientID
@@ -2541,14 +2486,14 @@ $category_data= $this->db->get();
   $google_client->setRedirectUri(G_redirect); //Define your Redirect Uri
   $google_client->addScope('email');
   $google_client->addScope('profile');
-  if(!empty($this->session->userdata('access_token'))){
-  $g_url="";
-  }else{
-  $g_url=$google_client->createAuthUrl();
+  if (!empty($this->session->userdata('access_token'))) {
+      $g_url="";
+  } else {
+      $g_url=$google_client->createAuthUrl();
   }
   ?>
 
-<!-- =============== Sign up model ======================== -->
+  <!-- =============== Sign up model ======================== -->
 
   <div id="myModals1" class="modal1 close3" style="z-index:1000;">
     <!-- Modal content -->
@@ -2562,10 +2507,11 @@ $category_data= $this->db->get();
     flex-direction: column;
     /* align-items: center; */
     justify-content: center;
-"> -->  <div class="logosection " style="display: flex;flex-direction:column;justify-content: center;">
-<div class="w-100 center">
-  <img src="<?=base_url()?>assets/frontend/assets/img/web_logo2.png" alt="Logo" title="Orange tree" style="width:50%">
-</div>
+"> -->
+        <div class="logosection " style="display: flex;flex-direction:column;justify-content: center;">
+          <div class="w-100 center">
+            <img src="<?=base_url()?>assets/frontend/assets/img/web_logo2.png" alt="Logo" title="Orange tree" style="width:50%">
+          </div>
           <div class="badge  text-black mt-4 textres" style=" text-align: center;
     font-size: 18px;
     color: #000;
@@ -2585,8 +2531,7 @@ $category_data= $this->db->get();
     background: #fff;"><img class="social" src="<?=base_url()?>assets/frontend/assets/img/f32.svg" alt="social"> Sign In With Facebook</button>
             </div>
             <div class="col-md-6 respns2" style="text-align:left; padding-left: 10px;">
-              <button class="btn" onclick="window.location.href='<?=$g_url?>';"
-              style="text-transform: None;
+              <button class="btn" onclick="window.location.href='<?=$g_url?>';" style="text-transform: None;
     font-size: 12px;
     width: auto;
     cursor: pointer;
@@ -2614,48 +2559,48 @@ $category_data= $this->db->get();
           <div class="text-black text-wrap textres1 textmar mdty" style="font-size: 12px;
     margin-bottom: 15px;font-weight:unset;font-weight:400;    line-height: 2;color:black">
             <p style="padding-top:30px;">
-Creating an account has many benefits: check out faster, keep more than one address, track orders and more.
+              Creating an account has many benefits: check out faster, keep more than one address, track orders and more.
             </p>
           </div>
           <div>
           </div>
-            <div class="form_method_name">
-              <!-- <input type="hidden" name="previous_url" value="<?=current_url()?>"> -->
-              <div class="row g-3">
-                <div class="col-sm-6">
-                  <input type="text" class="form-control formset" placeholder="First name" aria-label="First name" name="fname">
-                </div>
-                <div class="col-sm-6">
-                  <input type="text" class="form-control formset" placeholder="Last name" aria-label="Last name" name="lname">
-                </div>
+          <div class="form_method_name">
+            <!-- <input type="hidden" name="previous_url" value="<?=current_url()?>"> -->
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <input type="text" class="form-control formset" placeholder="First name" aria-label="First name" name="fname">
+              </div>
+              <div class="col-sm-6">
+                <input type="text" class="form-control formset" placeholder="Last name" aria-label="Last name" name="lname">
+              </div>
 
+            </div>
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <input type="text" class="form-control formset" placeholder="email" aria-label="Email" name="email">
               </div>
-              <div class="row g-3">
-                <div class="col-sm-6">
-                  <input type="text" class="form-control formset" placeholder="email" aria-label="Email" name="email">
-                </div>
-                <div class="col-sm-6">
-                  <input type="text" class="form-control formset" placeholder="phonumber" aria-label="Phone nnuber" name="phone" maxlength="10" minlength="10" onkeypress="return isNumberKey(event)">
-                </div>
+              <div class="col-sm-6">
+                <input type="text" class="form-control formset" placeholder="phonumber" aria-label="Phone nnuber" name="phone" maxlength="10" minlength="10" onkeypress="return isNumberKey(event)">
+              </div>
 
+            </div>
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <input type="password" class="form-control formset" placeholder="password" aria-label=" Password" name="password">
               </div>
-              <div class="row g-3">
-                <div class="col-sm-6">
-                  <input type="password" class="form-control formset" placeholder="password" aria-label=" Password" name="password">
-                </div>
-                <div class="col-sm-6">
-                  <input type="password" class="form-control formset" placeholder="confirm" aria-label="Confirm Password" name="confirm_password">
-                </div>
+              <div class="col-sm-6">
+                <input type="password" class="form-control formset" placeholder="confirm" aria-label="Confirm Password" name="confirm_password">
               </div>
-              <div class="g-recaptcha mt-4" data-sitekey=<?=CAPTCHA_KEY_HTML?>></div>
-              <div>
-                <button class="button btnres" type="submit" style="font-size: 14px;
+            </div>
+            <div class="g-recaptcha mt-4" data-sitekey=<?=CAPTCHA_KEY_HTML?>></div>
+            <div>
+              <button class="button btnres" type="submit" style="font-size: 14px;
     text-transform: uppercase;
     font-weight: 400;
     letter-spacing: 2px;">CREATE AN ACCOUNT</button>
-              </div>
             </div>
-            <div class="badge  text-black text-wrap textresp" style="color: #000;
+          </div>
+          <div class="badge  text-black text-wrap textresp" style="color: #000;
     padding: 0 5px;
     text-transform: none;
     font-size: 12px;
@@ -2663,7 +2608,7 @@ Creating an account has many benefits: check out faster, keep more than one addr
     margin-top: 20px;
     display: flex;
     justify-content: center;" id="pop_myBtn">
-              <span style="    color: #000;
+            <span style="    color: #000;
     padding: 0 5px;
     text-transform: none;
     font-size: 12px;
@@ -2672,13 +2617,13 @@ Creating an account has many benefits: check out faster, keep more than one addr
     text-transform: capitalize;
     letter-spacing: 1px;
     color: #d76a46;font-weight:900;"> <b>Sign In</b></span></a>
-            </div>
-            <div class="d-flex justify-content-center" style="display: block;font-size: 12px; flex-direction: column;">
-              <?if(empty($this->session->userdata('guest_data'))){?>
-              <p style="margin-bottom:0px; text-align: center;">or</p>
-              <a href="/checkout" style="color: #d76a46; text-align: center;">Proceed as guest</a>
-              <?}?>
-            </div>
+          </div>
+          <div class="d-flex justify-content-center" style="display: block;font-size: 12px; flex-direction: column;">
+            <?if (empty($this->session->userdata('guest_data'))) {?>
+            <p style="margin-bottom:0px; text-align: center;">or</p>
+            <a href="/checkout" style="color: #d76a46; text-align: center;">Proceed as guest</a>
+            <?}?>
+          </div>
         </form>
       </div>
     </div>
@@ -2712,8 +2657,7 @@ Creating an account has many benefits: check out faster, keep more than one addr
     "><img class="social" src="<?=base_url()?>assets/frontend/assets/img/f32.svg" alt="social"> Sign In With Facebook</button>
             </div>
             <div class="col-md-6 respns2" style="text-align: left; padding-left: 10px;">
-              <button class="btn" onclick="window.location.href='<?=$g_url?>';"
-               style="text-transform: None;
+              <button class="btn" onclick="window.location.href='<?=$g_url?>';" style="text-transform: None;
     font-size: 12px;
     width: auto;
     cursor: pointer;
@@ -2752,7 +2696,7 @@ Creating an account has many benefits: check out faster, keep more than one addr
                 <input placeholder="Password" name="password" value="" type="password" class="setcolumn">
               </div>
             </div>
-            <div class="g-recaptcha mt-4" data-sitekey=<?=CAPTCHA_KEY_HTML?> ></div>
+            <div class="g-recaptcha mt-4" data-sitekey=<?=CAPTCHA_KEY_HTML?>></div>
             <div class="badge  text-black text-wrap textres" style="font-size:12px;font-weight:400;font-family:'Gotham light';padding-top: 1.5rem;">
               <a href="<?=base_url()?>User_login/forget_password" style="color:#d76a46"><span>Forget Password</span></a>
             </div>
@@ -2774,12 +2718,12 @@ Creating an account has many benefits: check out faster, keep more than one addr
     margin-top: 20px; font-weight:900;"> <b>Sign Up</b></span>
             </div>
           </div>
-              <div class="d-flex justify-content-center" style="display: block; font-size: 12px; flex-direction: column;">
-                <?if(empty($this->session->userdata('guest_data')) ){?>
-                  <p style="margin-bottom:0px; text-align: center;">or</p>
-                <a href="<?=base_url()?>/User_login/guest_mode" style="color: #d76a46; text-align: center;font-weight:900;">Proceed as guest</a>
-                <?}?>
-              </div>
+          <div class="d-flex justify-content-center" style="display: block; font-size: 12px; flex-direction: column;">
+            <?if (empty($this->session->userdata('guest_data'))) {?>
+            <p style="margin-bottom:0px; text-align: center;">or</p>
+            <a href="<?=base_url()?>/User_login/guest_mode" style="color: #d76a46; text-align: center;font-weight:900;">Proceed as guest</a>
+            <?}?>
+          </div>
         </form>
 
       </div>
@@ -2813,11 +2757,11 @@ Creating an account has many benefits: check out faster, keep more than one addr
     }
 
     // When the user clicks on <span> (x), close the modal
-    window.onload = function(){
+    window.onload = function() {
       span1.onclick = function() {
         modal1.style.display = "none";
       }
-};
+    };
 
 
     // When the user clicks anywhere outside of the modal, close it
@@ -2846,14 +2790,14 @@ Creating an account has many benefits: check out faster, keep more than one addr
     var span1 = document.getElementsByClassName("close")[0];
 
     // When the user clicks on the button, open the modal
-    window.onload = function(){
+    window.onload = function() {
       btn1.onclick = function() {
         modal.style.display = "block";
         modal1.style.display = "none";
 
       }
-};
-  // When the user clicks on <span> (x), close the modal
+    };
+    // When the user clicks on <span> (x), close the modal
     span1.onclick = function() {
       modal.style.display = "none";
     }
@@ -2863,7 +2807,7 @@ Creating an account has many benefits: check out faster, keep more than one addr
       if (event.target == modal) {
         modal.style.display = "none";
         document.body.style.overflow = '';
-      }else{
+      } else {
         // document.body.style.overflow = 'hidden';
 
       }
@@ -2897,4 +2841,12 @@ Creating an account has many benefits: check out faster, keep more than one addr
         return false;
       return true;
     }
+  </script>
+  <script>
+    var input = document.getElementById("search");
+    input.addEventListener("keyup", function(event) {
+      if (event.keyCode === 13) {
+        event.preventDefault();
+      }
+    });
   </script>
