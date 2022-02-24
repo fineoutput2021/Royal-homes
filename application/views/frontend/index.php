@@ -5,37 +5,37 @@
 .ggty{display: block!important; min-height:51px;}}
 
 @media (min-width: 375px){
-.ggty{display: block!important;min-height:65px;  }}
+.ggty{display: block!important;min-height:50px;  }}
 
 /* @media (min-width: 375px and min-height:812px){
 .ggty{display: block!important;min-height:53px;  }} */
 
 @media screen and (min-device-width: 375px) and (device-height: 667px)
   {
-.ggty{display: block!important;min-height:53px!important;  }
+.ggty{display: block!important;min-height:50px!important;  }
 }
 
 @media screen and (device-width: 375px) and (device-height: 812px)
    {
-.ggty{display: block!important;min-height:65px!important;  }
+.ggty{display: block!important;min-height:50px!important;  }
 }
 
 @media screen and (device-width: 390px) and (device-height: 844px)
    {
-.ggty{display: block!important;min-height:52px!important;  }
+.ggty{display: block!important;min-height:58px!important;  }
 }
 
 @media (min-width: 390px){
-.ggty{display: block!important; min-height:54px; }}
+.ggty{display: block!important; min-height:60px; }}
 
 @media (min-width: 414px){
-.ggty{display: block!important; min-height:59px;}}
+.ggty{display: block!important; min-height:72px;}}
 
 
 /* @media (min-width: 390px){
 .ggty{  display: block!important; min-height:68px; }} */
 @media (width: 412px){
-.ggty{  display: block!important; min-height: 73px; }
+.ggty{  display: block!important; min-height: 72px; }
 }
 @media (max-width: 640px){
   .mbjj{padding:0px!important;}
