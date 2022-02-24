@@ -1762,7 +1762,7 @@ margin-top: -44px;
       }
 
       .newMoblSearchCont {
-        left:-220px;
+        left:-226px;
         top: 16px;
       }
 
@@ -1909,8 +1909,8 @@ margin-top: -44px;
       }
 
       .newMoblSearchCont {
-        margin-top: 20px;
-        left: -220px;
+        top:20px;
+        left: -208px;
       }
 
       .modifiedCart {
