@@ -613,9 +613,9 @@ setTimeout(function() {
   <section class="new_lunc overflow-hidden bg-white">
     <div class="container-fluid bg-white" style="padding: 0px;">
       <div class="row bg-white">
-        <div class="col-md-12 bg-white">
+        <div class="col-md-12 bg-white ">
 
-          <h2 style="font-size: 28px; margin-left: 36px; font-weight: 300; color: #4e4e4e;">You may also Like</h2>
+          <h2 style="font-size: 28px; margin-left: 36px; font-weight: 300; color: #4e4e4e;text-align:center;">You may also Like</h2>
         </div>
       </div>
       <div class="row bg-white">
@@ -652,7 +652,7 @@ setTimeout(function() {
     <div class="container-fluid bg-white" style="padding:0px;">
       <div class="row bg-white">
         <div class="col-md-12 bg-white">
-          <h2 style="font-size: 28px; margin-left: 36px; font-weight: 300; color: #4e4e4e;">
+          <h2 style="font-size: 28px; margin-left: 36px; font-weight: 300; color: #4e4e4e; tesxt-align:center;">
             More from collection</h2>
         </div>
       </div>

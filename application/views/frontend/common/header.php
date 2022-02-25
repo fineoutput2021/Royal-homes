@@ -300,7 +300,7 @@
     input[type=url] {
       background: #fff;
       background-clip: padding-box;
-      border-bottom: 1px solid #c2c2c2;
+      /* border-bottom: 1px solid #c2c2c2; */
       border-radius: 1px;
       font-size: 14px;
       height: 32px;
@@ -311,7 +311,9 @@
       box-sizing: border-box;
       margin-top: 20px;
     }
-
+  /* input[type=text], input[type=search]{
+  border: 0px!important;
+    } */
     input[type=email],
     input[type=number],
     input[type=password],
@@ -319,7 +321,7 @@
     input[type=text] input[type=url] {
       background: #fff;
       background-clip: padding-box;
-      /* border: 1px solid #c2c2c2; */
+      border: 1px solid #c2c2c2;
       border-bottom: 1px solid #ccc;
       border-radius: 1px;
 
@@ -327,6 +329,7 @@
       /* height: 32px; */
       line-height: 1.42857143;
       padding: 0 9px;
+
       vertical-align: baseline;
       width: 100%;
       box-sizing: border-box;
@@ -369,7 +372,7 @@
 
       #mobch13 {
         margin-left: -214px;
-margin-top: -44px;
+        margin-top: -44px;
         /* margin-right: 30px;
         margin-right: 200px;
         margin-left: -2px;
@@ -385,7 +388,7 @@ margin-top: -44px;
       input[type=url] {
         background: #fff;
         background-clip: padding-box;
-        /* border: 1px solid #c2c2c2; */
+        border: 1px solid #c2c2c2;
         border-radius: 1px;
         font-size: 14px;
         height: 24px !important;
@@ -502,12 +505,12 @@ margin-top: -44px;
     input[type=url] {
       background: #fff;
       background-clip: padding-box;
-      /* border: 1px solid #c2c2c2; */
-      border-radius: 1px;
+      border: 1px solid #c2c2c2 ;
+      /* border-radius: 1px; */
       font-size: 14px;
-      height: 32px;
+      height: 42px;
       line-height: 1.42857143;
-      padding: 0 9px;
+      padding: 0 13px;
       vertical-align: baseline;
       width: 100%;
       box-sizing: border-box;
@@ -1383,14 +1386,14 @@ margin-top: -44px;
 
     .modifiedUl {
       display: block;
-      margin-top:20px;
+      margin-top: 20px;
     }
 
     .modifiedSearch {
 
       overflow: hidden;
       position: relative;
-      top:8px;
+      top: 8px;
       width: 74px !important;
     }
 
@@ -1420,7 +1423,7 @@ margin-top: -44px;
       display: none;
       position: absolute;
       top: 16px;
-      left:-215px;
+      left: -215px;
       width: 100vw !important;
     }
 
@@ -1437,7 +1440,7 @@ margin-top: -44px;
       left: 176px;
       color: white;
       padding: 0 !important;
-      padding-top: 15px !important;
+      /* padding-top: 15px !important; */
       transition: left 400ms linear;
     }
 
@@ -1550,7 +1553,7 @@ margin-top: -44px;
         height: 0;
         transition: height 400ms linear;
         /* width: 100vw; */
-        left:-215px;
+        left: -215px;
         width: 100vw !important;
         /* background-color: green; */
       }
@@ -1572,7 +1575,7 @@ margin-top: -44px;
         width: 30%;
         height: 100%;
         width: 20% !important;
-        height: 20px   !important;
+        height: 20px !important;
         padding: 0;
         font-size: .9rem;
         color: white;
@@ -1583,7 +1586,7 @@ margin-top: -44px;
       }
 
       .newSearchIcon {
-        /* display: none; */
+        display: none!important;
         width: 30%;
         height: 50%;
         /* background-color: red; */
@@ -1601,7 +1604,7 @@ margin-top: -44px;
         margin-right: 12px;
         margin-left: 28px;
         margin-top: 25px !important; */
-        margin-top: 0px!important;
+        margin-top: 0px !important;
       }
 
       .modifiedSearch {
@@ -1675,7 +1678,7 @@ margin-top: -44px;
         flex-direction: column;
         align-items: end;
         margin-top: 25px !important; */
-        margin-top: 0px!important;
+        margin-top: 0px !important;
 
       }
 
@@ -1684,10 +1687,12 @@ margin-top: -44px;
         right: -50px;
 
       }
+
       .newMoblSearchCont {
-        left:-197px;
+        left: -197px;
         top: 16px;
       }
+
       /* .newMoblSearchCont {
       left:-215px;
         height: 40px;
@@ -1750,7 +1755,7 @@ margin-top: -44px;
         /* display: flex;
         flex-direction: column;
         align-items: end; */
-        margin-top: 0px!important;
+        margin-top: 0px !important;
 
       }
 
@@ -1762,14 +1767,14 @@ margin-top: -44px;
       }
 
       .newMoblSearchCont {
-        left:-226px;
+        left: -226px;
         top: 16px;
       }
 
       .modifiedCart {
         position: relative;
         top: -6px;
-    right: -18px;
+        right: -18px;
       }
 
       .count {
@@ -1823,7 +1828,7 @@ margin-top: -44px;
         /* display: flex;
         flex-direction: column;
         align-items: end; */
-        margin-top: 0px!important;
+        margin-top: 0px !important;
 
       }
 
@@ -1835,14 +1840,14 @@ margin-top: -44px;
       }
 
       .newMoblSearchCont {
-        left:-220px;
+        left: -220px;
         top: 16px;
       }
 
       .modifiedCart {
         position: relative;
         top: -6px;
-    right: -18px;
+        right: -18px;
       }
 
       .count {
@@ -1898,7 +1903,7 @@ margin-top: -44px;
         align-items: end;
         margin-right: 0px !important;
         margin-top: 22px !important; */
-        margin-top: 0px!important;
+        margin-top: 0px !important;
 
       }
 
@@ -1909,7 +1914,7 @@ margin-top: -44px;
       }
 
       .newMoblSearchCont {
-        top:20px;
+        top: 20px;
         left: -208px;
       }
 
@@ -1973,7 +1978,7 @@ margin-top: -44px;
         align-items: end;
         margin-right: 0px !important;
         margin-top: 22px !important; */
-        margin-top: 0px!important;
+        margin-top: 0px !important;
 
       }
 
@@ -1985,14 +1990,14 @@ margin-top: -44px;
 
       .newMoblSearchCont {
         /* margin-top: 20px; */
-        top:5px;
-      left: -200px;
+        top: 5px;
+        left: -200px;
       }
 
       .modifiedCart {
         position: relative;
         top: -6px;
-      right: -18px;
+        right: -18px;
       }
 
       .count {
@@ -2047,7 +2052,7 @@ margin-top: -44px;
         flex-direction: column;
         align-items: end;
         margin-top: 25px !important; */
-        margin-top: 0px!important;
+        margin-top: 0px !important;
 
       }
 
@@ -2058,13 +2063,13 @@ margin-top: -44px;
 
       .newMoblSearchCont {
         margin-top: 20px;
-left: -170px;
+        left: -170px;
       }
 
       .modifiedCart {
         position: relative;
         top: -6px;
-      right: -18px;
+        right: -18px;
       }
 
       .count {
@@ -2121,7 +2126,7 @@ left: -170px;
         flex-direction: column;
         align-items: end;
         margin-top: 12px !important; */
-        margin-top: 0px!important;
+        margin-top: 0px !important;
 
       }
 
@@ -2131,14 +2136,14 @@ left: -170px;
       }
 
       .newMoblSearchCont {
-    left:-215px;
-    top: 16px;
+        left: -215px;
+        top: 16px;
       }
 
       .modifiedCart {
         position: relative;
         top: -6px;
-      right: -18px;
+        right: -18px;
       }
 
       .count {
@@ -2209,6 +2214,43 @@ left: -170px;
       color: white !important;
       background-color: #d76a46 !important;
       text-decoration: none !important;
+    }
+  </style>
+  <style media="screen">
+    .search-boxy {
+      width: 100%;
+      position: relative;
+      display: flex;
+    }
+
+    .search-inputy {
+      margin: 0px !important;
+      width: 100%;
+      padding: 10px;
+      border: 0px !important;
+      /* border-radius:10px 0 0 10px ; */
+      /* border-right: none; */
+      outline: none;
+      font-size: 20px;
+      color: black;
+      /* border-bottom: : 4px!important ; */
+      background: none;
+    }
+
+    .search-buttony {
+      text-align: center;
+      height: 44px;
+      width: 45px;
+      outline: none;
+      cursor: pointer;
+      border: 0px !important;
+      /* border-radius: 0 10px 10px 0 ; */
+      /* border-left: none; */
+      background: none;
+      font-size: 20px;
+      /* border-left: 4px solid #111d5e; */
+
+
     }
   </style>
 </head>
@@ -2285,110 +2327,125 @@ $category_data= $this->db->get();
           </div>
         </div>
 
-              <!--=========== mobile navigation     =================    -->
-    <div class="col-md-4 col-xs-6 menu" style="padding:0px!important">
-        <ul class="modifiedUl" style="">
+        <!--=========== mobile navigation     =================    -->
+        <div class="col-md-4 col-xs-6 menu" style="padding:0px!important">
+          <ul class="modifiedUl" style="">
 
-              <div id="mySidenav" class="sidenav" style="z-index:99">
-                <div class="w-100 center mb-2" style="background-color: black;">
-                  <a href="javascript:void(0);" class="rqwa" style="width:85%;">
-                    <img src="<?=base_url()?>assets/frontend/assets/img/web_logo.png" id="logohed" alt="logo">
-                  </a>
+            <div id="mySidenav" class="sidenav" style="z-index:99; ">
+              <div class="w-100 center " style="background-color: black;">
+                <a href="javascript:void(0);" class="rqwa" style="width:85%;">
+                  <img src="<?=base_url()?>assets/frontend/assets/img/web_logo.png" id="logohed" alt="logo">
+                </a>
+              </div>
+              <a href="javascript:void(0)" id="menucloseopen" class="closebtn" onclick="closeNav()">&times</a>
+
+              <form action="<?=base_url()?>Home/search" method="get" enctype="multipart/form-data">
+
+                <div class="search-boxy">
+                  <input type="text" class="search-inputy" style="" placeholder="Search..">
+
+                  <button class="search-buttony">
+                    <i class="fa fa-search" style="font-size:17px;"></i>
+                  </button>
                 </div>
-                <a href="javascript:void(0)" id="menucloseopen" class="closebtn" onclick="closeNav()">&times</a>
-                <div id="accordion" role="tablist">
-                  <?php
+
+
+              </form>
+
+              <div id="accordion" role="tablist">
+                <?php
             foreach ($category_data->result() as $data) {
+              $this->db->select('*');
+                    $this->db->from('tbl_subcategory');
+                    $this->db->where('category_id', $data->id);
+                    $subdata= $this->db->get();
+                    $subcheck=$subdata->row();
                 ?>
 
-                  <div class="card" style="background:unset">
-                    <div class="card-header" role="tab" id="heading_<?=$data->id?>">
-                      <h5 class="mb-0">
-                        <a class="collapsed" data-toggle="collapse" href="#collapse_<?=$data->id?>" aria-expanded="false" aria-controls="collapse_<?=$data->id?>">
-                          <span onclick="all_cat(this)" url="<?=$data->url?>"><?=$data->categoryname?></span>
-                        </a>
-                      </h5>
-                    </div>
-                    <?php
-          $this->db->select('*');
-                $this->db->from('tbl_subcategory');
-                $this->db->where('category_id', $data->id);
-                $subdata= $this->db->get();
-                $subcheck=$subdata->row();
-                if (!empty($subcheck)) {?>
-                    <div id="collapse_<?=$data->id?>" class="collapse" role="tabpanel" aria-labelledby="heading_<?=$data->id?>" data-parent="#accordion">
-                      <div class="card-body" style="color:white">
-                        <!-- <ul style="display:unset;line-height:1.7!important"> -->
-                        <div class="row">
-
-                          <?foreach ($subdata->result() as $sub) {
-                    ?>
-                          <!-- <li><a href="<?=base_url()?>Home/all_Product/<?=base64_encode($sub->id)?>/<?=base64_encode(2)?>"><?php echo $sub->subcategory ?></a></li> -->
-                          <div class="col-6 pb-1" style="text-align: left;">
-                            <span><a style="color:black" href="<?=base_url()?>Home/all_Product/<?=$sub->url?>"><?php echo $sub->subcategory ?></a></span>
-                          </div>
-                          <?php
-                } ?>
-                        </div>
-
-                        <!-- </ul> -->
-                        <div class="mt-2 w-100 center">
-                          <img src="<?=base_url().$data->image?>" class="img-fluid p-3" />
-                          <img src="<?=base_url().$data->image2?>" class="img-fluid p-3" />
-                        </div>
-
-                      </div>
-                    </div>
-                    <?} ?>
+                <div class="card" style="background:unset">
+                  <div class="card-header" role="tab" id="heading_<?=$data->id?>">
+                    <h5 class="mb-0">
+                      <a class="collapsed" style="color:black" <? if (!empty($subcheck)) {?>data-toggle="collapse"<?}?> href="#collapse_<?=$data->id?>" aria-expanded="false" aria-controls="collapse_<?=$data->id?>">
+                        <span onclick="all_cat(this)"  url="<?=$data->url?>"><?=$data->categoryname?></span>
+                      </a>
+                    </h5>
                   </div>
                   <?php
-            }?>
-                  <div class="mt-2">
-                    <ul class="newSideBarExtrOpt" style="list-style-type:none; text-align: center;">
-                      <?if (!empty($this->session->userdata('user_data'))) {?>
-                      <li class="myNewLi">
-                        <a href="<?=base_url()?>Home/view_wishlist/<?=base64_encode($this->session->userdata('user_id'))?>">
-                          <span class="myNewSpanBtn">
-                            WishList
-                          </span>
-                        </a>
-                        <a href="<?=base_url()?>Home/my_orders/<?=base64_encode($this->session->userdata('user_id'))?>">
-                          <span class="myNewSpanBtn">
-                            My Orders
-                          </span>
-                        </a>
-                      </li>
-                      <?}?>
-                      <?if (empty($this->session->userdata('user_data'))) {?>
-                      <li id="myLoginReg" class="myNewLi" style="color: #d76a46; font-size:26px;" onclick="userLoginReg()">
-                        Login/Resigter
-                      </li>
-                      <?} else {?>
-                      <a href="<?=base_url()?>/User_login/user_logout">
-                        <li id="myLogOut" class="myNewLi">
-                          Logout
-                        </li>
-                      </a>
-                      <?}?>
-                    </ul>
+
+                if (!empty($subcheck)) {?>
+                  <div id="collapse_<?=$data->id?>" class="collapse" role="tabpanel" aria-labelledby="heading_<?=$data->id?>" data-parent="#accordion">
+                    <div class="card-body" style="color:white">
+                      <!-- <ul style="display:unset;line-height:1.7!important"> -->
+                      <div class="row">
+
+                        <?foreach ($subdata->result() as $sub) {
+                    ?>
+                        <!-- <li><a href="<?=base_url()?>Home/all_Product/<?=base64_encode($sub->id)?>/<?=base64_encode(2)?>"><?php echo $sub->subcategory ?></a></li> -->
+                        <div class="col-6 pb-1" style="text-align: left;">
+                          <span><a style="color:black" href="<?=base_url()?>Home/all_Product/<?=$sub->url?>"><?php echo $sub->subcategory ?></a></span>
+                        </div>
+                        <?php
+                } ?>
+                      </div>
+
+                      <!-- </ul> -->
+                      <div class="mt-2 w-100 center">
+                        <img src="<?=base_url().$data->image?>" class="img-fluid p-3" />
+                        <img src="<?=base_url().$data->image2?>" class="img-fluid p-3" />
+                      </div>
+
+                    </div>
                   </div>
+                  <?} ?>
+                </div>
+                <?php
+            }?>
+                <div class="mt-2">
+                  <ul class="newSideBarExtrOpt" style="list-style-type:none; text-align: center;">
+                    <?if (!empty($this->session->userdata('user_data'))) {?>
+                    <li class="myNewLi">
+                      <a href="<?=base_url()?>Home/view_wishlist/<?=base64_encode($this->session->userdata('user_id'))?>">
+                        <span class="myNewSpanBtn">
+                          WishList
+                        </span>
+                      </a>
+                      <a href="<?=base_url()?>Home/my_orders/<?=base64_encode($this->session->userdata('user_id'))?>">
+                        <span class="myNewSpanBtn">
+                          My Orders
+                        </span>
+                      </a>
+                    </li>
+                    <?}?>
+                    <?if (empty($this->session->userdata('user_data'))) {?>
+                    <li id="myLoginReg" class="myNewLi" style="color: #d76a46; font-size:26px;" onclick="userLoginReg()">
+                      Login/Resigter
+                    </li>
+                    <?} else {?>
+                    <a href="<?=base_url()?>/User_login/user_logout">
+                      <li id="myLogOut" class="myNewLi">
+                        Logout
+                      </li>
+                    </a>
+                    <?}?>
+                  </ul>
                 </div>
               </div>
-              <span class="media_q_change" onclick="openNav()"><button class="modifiedBurger" style="background:none;border:none;color:#d76a46;font-size:25px; margin-left:-50px;margin-top:-19px ;"><i class="fa fa-bars"></i></button>
-              </span>
+            </div>
+            <span class="media_q_change" onclick="openNav()"><button class="modifiedBurger" style="background:none;border:none;color:#d76a46;font-size:25px; margin-left:-50px;margin-top:-19px ;"><i class="fa fa-bars"></i></button>
+            </span>
 
-              <div class=" sl modifiedSearch">
+            <div class=" sl modifiedSearch">
               <i class="fa fa-search btn_change_change sb newSearchIcon" aria-hidden="true" onclick="newClickHandler()"></i>
               <!-- ****************** WEB INPUT *********************************  -->
               <form action="<?=base_url()?>Home/search" method="get" enctype="multipart/form-data">
-                <input type="text" style="color:black; width:83%!important;" name="search" class="newSearchInput" id="search" placeholder="Search" required />
+                <input type="text" style="color:black; width:83%!important; top:-14px;" name="search" class="newSearchInput" id="search" placeholder="Search" required />
               </form>
 
               <!-- ****************** MOBILE INPUT *********************************  -->
               <form action="<?=base_url()?>Home/search" method="get" enctype="multipart/form-data">
                 <div class="newMoblSearchCont">
-                  <input type="text" name="search" class="newSearchInptMobl" placeholder="Search"  style="height:20px!important;"/>
-                  <button type="submit" name="button" class="newSearchBtn">Search</button>
+                  <input type="text" name="search" class="newSearchInptMobl" placeholder="Search" style="height:20px!important;" />
+                  <button type="submit" name="button" class="newSearchBtn" style="">Search</button>
                 </div>
               </form>
             </div>
@@ -2942,3 +2999,5 @@ $category_data= $this->db->get();
       }
     });
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>

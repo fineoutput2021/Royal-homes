@@ -27,7 +27,7 @@
 
   .product-thumbs .swiper-slide img {
     border: 2px #e66b47;
-    padding: 1px;
+    /* padding: 1px; */
     object-fit: contain;
     cursor: pointer;
 
@@ -102,7 +102,7 @@
     width: 100px;
     /* height: 100px;
 width: 100px; */
-    margin-left: 172px!important;
+    margin-left: 55px;
   }
 
   .btn:focus {
@@ -151,6 +151,10 @@ width: 100px; */
       font-size: 15px !important;
       font-family: 'Gotham Light' !important;
     }
+    .slimg {
+      margin-left: 0px;
+    }
+
   }
 
   @media (min-width:896px) {
@@ -158,9 +162,6 @@ width: 100px; */
       /* margin-left: 35px; */
     }
 
-    .slimg {
-      margin-left: 117px;
-    }
 
     .rrcs {
       display: flex;
@@ -974,45 +975,45 @@ margin-top: 20px;
     <div class="col-lg-1"> </div>
 
     <div class="col-lg-6">
-      <div class="accordion" id="accordionExample">
+      <div class="accordion" id="accordionExample2">
         <div class="card">
-          <div class="card-header" id="headingOne">
+          <div class="card-header" id="headingOn2e">
             <h2 class="mb-0">
-              <button class="btn btnm btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <button class="btn btnm btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne2" aria-expanded="true" aria-controls="collapseOne2">
                 details
               </button>
             </h2>
           </div>
 
-          <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div id="collapseOne2" class="collapse show" aria-labelledby="headingOne2" data-parent="#accordionExample2">
             <div class="card-body">
               <?=$product_data->productdescription?>
             </div>
           </div>
         </div>
         <div class="card">
-          <div class="card-header" id="headingTwo">
+          <div class="card-header" id="headingTwo2">
             <h2 class="mb-0">
-              <button class="btn btnm btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              <button class="btn btnm btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo2">
                 Care Instruction
               </button>
             </h2>
           </div>
-          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+          <div id="collapseTwo2" class="collapse" aria-labelledby="headingTwo2" data-parent="#accordionExample2">
             <div class="card-body">
               <?=$product_data->careinstruction?>
             </div>
           </div>
         </div>
         <div class="card">
-          <div class="card-header" id="headingThree">
+          <div class="card-header" id="headingThree2">
             <h2 class="mb-0">
-              <button class="btn btnm btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              <button class="btn btnm btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree2" aria-expanded="false" aria-controls="collapseThree2">
                 Shipping & Return
               </button>
             </h2>
           </div>
-          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+          <div id="collapseThree2" class="collapse" aria-labelledby="headingThree2" data-parent="#accordionExample2">
             <div class="card-body">
 
               <p><i class="bi bi-circle"></i>Returns of goods will be accepted only for Damaged/Defective products.
@@ -1034,28 +1035,28 @@ margin-top: 20px;
           </div>
         </div>
         <div class="card">
-          <div class="card-header" id="headingfour">
+          <div class="card-header" id="headingfour2">
             <h2 class="mb-0">
-              <button class="btn btnm btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
+              <button class="btn btnm btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapsefour2" aria-expanded="false" aria-controls="collapsefour2">
                 Warranty
               </button>
             </h2>
           </div>
-          <div id="collapsefour" class="collapse" aria-labelledby="headingfour" data-parent="#accordionExample">
+          <div id="collapsefour2" class="collapse" aria-labelledby="headingfour2" data-parent="#accordionExample2">
             <div class="card-body">
               And lastly, the placeholder content for the third and final accordion panel. This panel is hidden by default.
             </div>
           </div>
         </div>
         <div class="card">
-          <div class="card-header" id="headingfive">
+          <div class="card-header" id="headingfive2">
             <h2 class="mb-0">
-              <button class="btn btnm btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapsefive" aria-expanded="false" aria-controls="collapsefive" style="box-shadow:#ffffff;">
+              <button class="btn btnm btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapsefive2" aria-expanded="false" aria-controls="collapsefive2" style="box-shadow:#ffffff;">
                 Features
               </button>
             </h2>
           </div>
-          <div id="collapsefive" class="collapse" aria-labelledby="headingfive" data-parent="#accordionExample">
+          <div id="collapsefive2" class="collapse" aria-labelledby="headingfive2" data-parent="#accordionExample2">
             <div class="card-body">
               And lastly, the placeholder content for the third and final accordion panel. This panel is hidden by default.
             </div>
@@ -1079,7 +1080,7 @@ margin-top: 20px;
     <div class="row bg-white">
       <div class="col-md-12 bg-white">
 
-        <h2 style="font-size: 28px; margin-left: 36px; font-weight: 300; color: #4e4e4e; text-align: center;">You may also Like</h2>
+        <h2 style="font-size: 28px; font-weight: 300; color: #4e4e4e; text-align: center;">You may also Like</h2>
       </div>
     </div>
     <div class="row bg-white">
@@ -1122,7 +1123,7 @@ margin-top: 20px;
   <div class="container-fluid bg-white" style="padding:0px;">
     <div class="row bg-white">
       <div class="col-md-12 bg-white">
-        <h2 style="font-size: 28px; margin-left: 36px; font-weight: 300; color: #4e4e4e;text-align: center;">
+        <h2 style="font-size: 28px;  font-weight: 300; color: #4e4e4e;text-align: center;">
           More from collection</h2>
       </div>
     </div>
@@ -1267,16 +1268,18 @@ span.onclick = function() {
       resizeObserver: true,
     });
     var productThumbs = new Swiper('.product-thumbs', {
-      spaceBetween: 0,
-      centeredSlides: true,
+      spaceBetween: 10,
+      centeredSlides: false,
       loop: true,
       slideToClickedSlide: true,
       direction: 'horizontal',
       slidesPerView: 4,
       loopedSlides: 0,
+
+
     });
     productSlider.controller.control = productThumbs;
-    productThumbs.controller.control = productSlider;
+    // productThumbs.controller.control = productSlider;
 
 
 

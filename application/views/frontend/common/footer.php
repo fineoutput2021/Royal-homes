@@ -36,7 +36,7 @@
                                                                 <!-- height: 590px; -->
 <section class="footer overflow-hidden heimed1 mt-3" style="">
                                                                                 <!-- Line-height:1.3rem; -->
-  <div class="container-fluid my-5 heimed11 mt-3" style="max-width: 90%; ">
+  <div class="container-fluid heimed11 mt-3" style="max-width: 90%; ">
     <div class="row mt-3"  >
       <div class="col-md-12 text-center mt-5 mb-5">
         <div class="col-5 mx-auto ">
@@ -209,7 +209,7 @@ function loadSuccessNotify(succ_message){
                  from: "top",
                  align: "right"
              },
-             offset: 20,
+             offset: 0,
              spacing: 10,
              z_index: 1031,
              delay: 1000,
@@ -248,7 +248,7 @@ function loadSuccessNotify(succ_message){
                      from: "top",
                      align: "right"
                  },
-                 offset: 20,
+                 offset: 0,
                  spacing: 10,
                  z_index: 1031,
                  delay: 1000,
@@ -299,7 +299,7 @@ function loadSuccessNotify(succ_message){
                             from: "top",
                             align: "right"
                         },
-                        offset: 20,
+                        offset: 0,
                         spacing: 10,
                         z_index: 1031,
                         delay: 5000,
@@ -337,7 +337,7 @@ function loadSuccessNotify(succ_message){
                                from: "top",
                                align: "right"
                            },
-                           offset: 20,
+                           offset: 0,
                            spacing: 10,
                            z_index: 1031,
                            delay: 5000,
@@ -398,7 +398,7 @@ function loadSuccessNotify(succ_message){
                             from: "top",
                             align: "right"
                         },
-                        offset: 20,
+                        offset: 0,
                         spacing: 10,
                         z_index: 1031,
                         delay: 5000,
@@ -438,7 +438,7 @@ function loadSuccessNotify(succ_message){
                                from: "top",
                                align: "right"
                            },
-                           offset: 20,
+                           offset: 0,
                            spacing: 10,
                            z_index: 1031,
                            delay: 5000,
@@ -501,7 +501,7 @@ function wishlist(obj) {
             from: "top",
             align: "right"
           },
-          offset: 20,
+          offset: 0,
           spacing: 10,
           z_index: 1031,
           delay: 1000,
@@ -540,7 +540,7 @@ function wishlist(obj) {
             from: "top",
             align: "right"
           },
-          offset: 20,
+          offset: 0,
           spacing: 10,
           z_index: 1031,
           delay: 5000,
@@ -732,7 +732,7 @@ $('.say').slick({
 // }
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
 function openNav() {
-  document.getElementById("mySidenav").style.width = "100%";
+  document.getElementById("mySidenav").style.width = "70%";
   // document.getElementById("main").style.marginLeft = "0px";
   document.getElementById("menucloseopen").addEventListener("click", () => { closeNav() });
   document.getElementById("menucloseopen").removeEventListener("click", () => { openNav() });

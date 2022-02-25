@@ -93,7 +93,7 @@ font-size: 18px;
       </div>
 
       <!-- address input -->
-      <div class="form-outline mb-4">
+      <div class="form-outline col-md-12" >
         <label class="form-label" for="address">Address<span class="sp">*</span></label>
         <textarea class="form-control" id="address" name="address" rows="4" required onkeyup='saveValue(this);'></textarea>
       </div>

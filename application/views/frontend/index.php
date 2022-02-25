@@ -353,14 +353,14 @@
   <h2 class="text-center wwwq" style="color: gray;font-weight: bolder;">The Royal Homes
     Promise</h2>
   <div class="container-fluid">
-    <div class="row">
+    <div class="row" style="margin-bottom:0px!important">
       <div class="col-md-3 col-12">
         <ul>
           <li>
             <div class="img_1"><img  class="w_50"src="<?=base_url()?>assets/frontend/assets/img/25.jpg" alt="" style="width: 80%;"></div>
             <h2 style="text-align: center;letter-spacing: 2px; font-size: 22px; font-style: italic;">
               Crafted in <br>India</h2>
-            <br>
+
             <p style="text-align:center; color: #3e3938; line-height: 31px;;">
               Handmade in India for global market, patronising craft, providing livelihood with focus on
               sustainability and environment.</p>
@@ -373,7 +373,7 @@
             <div class="img_1"><img src="<?=base_url()?>assets/frontend/assets/img/24.jpg" alt="" style="width: 80%;"></div>
             <h2 style="text-align: center;letter-spacing: 2px; font-size: 22px; font-style: italic;">
               Sustainable<br>Materials</h2>
-            <br>
+
             <p style="text-align:center; color: #3e3938; line-height: 31px;;">
               Handmade in India for global market, patronising craft, providing livelihood with focus on
               sustainability and environment.</p>
@@ -387,7 +387,7 @@
             <div class="img_1"><img src="<?=base_url()?>assets/frontend/assets/img/23.jpg" alt="" style="width: 80%;"></div>
             <h2 style="text-align: center;letter-spacing: 2px; font-size: 22px; font-style: italic;">
               Contemporary <br>Urbanised Design</h2>
-            <br>
+
             <p style="text-align:center; color: #3e3938; line-height: 31px;;">
               Handmade in India for global market, patronising craft, providing livelihood with focus on
               sustainability and environment.</p>
@@ -401,7 +401,7 @@
             <div class="img_1"><img src="<?=base_url()?>assets/frontend/assets/img/22.jpg" alt="" style="width: 80%;"></div>
             <h2 style="text-align: center;letter-spacing: 2px; font-size: 22px; font-style: italic;">
               Legacy of <br>22 Years</h2>
-            <br>
+
             <p style="text-align:center; color: #3e3938; line-height: 31px;;">
               Handmade in India for global market, patronising craft, providing livelihood with focus on
               sustainability and environment.</p>
