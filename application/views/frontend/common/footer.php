@@ -178,7 +178,7 @@ location.replace("<?=base_url()?>Home/all_Product/"+url);
 $(document).ready(function() {
 <?php if(!empty($this->session->flashdata('emessage'))){ ?>
  var fail_message = '<?php echo $this->session->flashdata('emessage')?>';
- loadSuccessNotify(fail_message);
+ loadErrorNotify(fail_message);
 <?php  } ?>
 
 <?php  if(!empty($this->session->flashdata('validationemessage'))){
@@ -234,7 +234,7 @@ function loadSuccessNotify(succ_message){
 
     function loadErrorNotify(message){
       $.notify({
-                 icon: 'fa fa-cancel',
+                 icon: 'fa fa-times',
                  title: 'Alert!',
                  message: message
              },{
@@ -323,7 +323,7 @@ function loadSuccessNotify(succ_message){
        }else if(response.data == false){
          var msg = response.data_message;
                $.notify({
-                           icon: 'fa fa-cancel',
+                           icon: 'fa fa-times',
                            title: 'Alert!',
                            message: msg
                        },{
@@ -424,7 +424,7 @@ function loadSuccessNotify(succ_message){
        }else if(response.data == false){
          var msg = response.data_message;
                $.notify({
-                           icon: 'fa fa-cancel',
+                           icon: 'fa fa-times',
                            title: 'Alert!',
                            message: msg
                        },{
@@ -526,7 +526,7 @@ function wishlist(obj) {
 
       } else if (response.data == false) {
         $.notify({
-          icon: 'fa fa-cancel',
+          icon: 'fa fa-times',
           title: '',
           message: response.data_message
         }, {

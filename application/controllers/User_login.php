@@ -245,6 +245,7 @@ class User_login extends CI_Controller
                         $finalResponse = json_decode($receiveData, true);
 
                         if ($finalResponse['success']) {
+
                             $this->db->select('*');
                             $this->db->from('tbl_users');
                             $this->db->where('email', $email);
@@ -259,7 +260,6 @@ class User_login extends CI_Controller
                             $cur_date=date("Y-m-d H:i:s");
 
                             // $user_name  = $user_data->fname." ".$user_data->lname;
-                            $user_name  = $user_data->fname;
                             // echo $user_name;
                             // exit;
                             if (!empty($user_data)) {
@@ -268,6 +268,7 @@ class User_login extends CI_Controller
                                     $this->session->set_userdata('user_id', $user_data->id);
                                     $this->session->set_userdata('user_name', $user_name);
 
+                                    $user_name  = $user_data->fname;
 
                                     //insert cart data into cart table---------
                                     $cart_data = $this->session->userdata('cart_data');
