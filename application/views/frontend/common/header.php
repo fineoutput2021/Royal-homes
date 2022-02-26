@@ -300,7 +300,7 @@
     input[type=url] {
       background: #fff;
       background-clip: padding-box;
-      /* border-bottom: 1px solid #c2c2c2; */
+      border-bottom: 1px solid #c2c2c2;
       border-radius: 1px;
       font-size: 14px;
       height: 32px;
@@ -505,7 +505,7 @@
     input[type=url] {
       background: #fff;
       background-clip: padding-box;
-      border: 1px solid #c2c2c2 ;
+      /* border: 1px solid #c2c2c2 ; */
       /* border-radius: 1px; */
       font-size: 14px;
       height: 42px;
@@ -1393,8 +1393,8 @@
 
       overflow: hidden;
       position: relative;
-      top: 8px;
-      width: 74px !important;
+      /* top: 8px; */
+      width: 100px !important;
     }
 
     .modifiedNewCount {
@@ -1415,7 +1415,7 @@
       position: relative;
       /* color: red; */
       right: -78%;
-      top: 5px;
+      top: 14px;
       z-index: 2;
     }
 
@@ -2333,7 +2333,7 @@ $category_data= $this->db->get();
 
             <div id="mySidenav" class="sidenav" style="z-index:99; ">
               <div class="w-100 center " style="background-color: black;">
-                <a href="javascript:void(0);" class="rqwa" style="width:85%;">
+                <a href="javascript:void(0);" class="rqwa" style="width:100%;">
                   <img src="<?=base_url()?>assets/frontend/assets/img/web_logo.png" id="logohed" alt="logo">
                 </a>
               </div>
@@ -2438,16 +2438,16 @@ $category_data= $this->db->get();
               <i class="fa fa-search btn_change_change sb newSearchIcon" aria-hidden="true" onclick="newClickHandler()"></i>
               <!-- ****************** WEB INPUT *********************************  -->
               <form action="<?=base_url()?>Home/search" method="get" enctype="multipart/form-data">
-                <input type="text" style="color:black; width:83%!important; top:-14px;" name="search" class="newSearchInput" id="search" placeholder="Search" required />
+                <input type="text" style="color:black; width:100%!important; top:-7px; border:0px 0px 1px 0px solid #c2c2c2;" name="search" class="newSearchInput" id="search" placeholder="Search" required />
               </form>
 
               <!-- ****************** MOBILE INPUT *********************************  -->
-              <form action="<?=base_url()?>Home/search" method="get" enctype="multipart/form-data">
+              <!-- <form action="<?=base_url()?>Home/search" method="get" enctype="multipart/form-data">
                 <div class="newMoblSearchCont">
                   <input type="text" name="search" class="newSearchInptMobl" placeholder="Search" style="height:20px!important;" />
                   <button type="submit" name="button" class="newSearchBtn" style="">Search</button>
                 </div>
-              </form>
+              </form> -->
             </div>
             <?if (!empty($this->session->userdata('user_data'))) {
                 $user_id = $this->session->userdata('user_id');
