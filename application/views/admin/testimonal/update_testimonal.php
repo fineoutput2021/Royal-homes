@@ -1,9 +1,13 @@
 <div class="content-wrapper">
 <section class="content-header">
    <h1>
-  Update Testimonal
+  Update Testimonial
   </h1>
-
+  <ol class="breadcrumb">
+    <li><a href="<?php echo base_url() ?>dcadmin/home"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+    <li><a href="<?php echo base_url() ?>dcadmin/estimonal/view_testimonal"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i>  View Testimonials </a></li>
+    <!-- <li class="active">View Categories</li> -->
+  </ol>
 </section>
 <section class="content">
 <div class="row">
@@ -11,7 +15,7 @@
 
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Update Testimonal </h3>
+                        <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Update Testimonial </h3>
                     </div>
 
                              <? if(!empty($this->session->flashdata('smessage'))){  ?>
@@ -36,7 +40,7 @@
                         <div class="table-responsive">
                             <table class="table table-hover">
 <tr>
-<td> <strong>Image</strong>  <span style="color:red;">*</span></strong> </td>
+<td> <strong>Image</strong>  <span style="color:red;"></span></strong> </td>
 <td> <input type="file" name="image"  class="form-control" placeholder="" />
 <?php if($testimonal_data->image!=""){ ?> <img id="slide_img_path" height=200 width=300 src="<?php echo base_url().$testimonal_data->image; ?> "> <?php }else{ ?> Sorry No File Found <?php } ?>  </td>
 </tr>

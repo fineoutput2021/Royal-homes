@@ -69,6 +69,7 @@
                        $zapak=$this->db->update('tbl_subcategory', $data_update);
 
                             if($zapak!=0){
+                              $this->session->set_flashdata('smessage','Status updated successfully');
                             redirect("dcadmin/launchesslider/view_launchesslider","refresh");
                                     }
                                     else
@@ -87,6 +88,7 @@
                          $zapak=$this->db->update('tbl_subcategory', $data_update);
 
                              if($zapak!=0){
+                                 $this->session->set_flashdata('smessage','Status updated successfully');
                              redirect("dcadmin/launchesslider/view_launchesslider","refresh");
                                      }
                                      else

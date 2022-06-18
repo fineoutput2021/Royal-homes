@@ -186,7 +186,7 @@ if(empty($c_data)){
              $last_id=$this->db->update('tbl_coupancode', $data_insert);
            }
                        if($last_id!=0){
-                               $this->session->set_flashdata('smessage','Data inserted successfully');
+                               $this->session->set_flashdata('smessage','Data updated successfully');
                                redirect("dcadmin/coupancode/view_coupancode","refresh");
                               }
                                else
@@ -244,6 +244,7 @@ if(empty($c_data)){
                        $zapak=$this->db->update('tbl_coupancode', $data_update);
 
                             if($zapak!=0){
+                               $this->session->set_flashdata('smessage','Status updated successfully');
                             redirect("dcadmin/coupancode/view_coupancode","refresh");
                                     }
                                     else
@@ -262,6 +263,7 @@ if(empty($c_data)){
                          $zapak=$this->db->update('tbl_coupancode', $data_update);
 
                              if($zapak!=0){
+                                $this->session->set_flashdata('smessage','Status updated successfully');
                              redirect("dcadmin/coupancode/view_coupancode","refresh");
                                      }
                                      else
@@ -308,7 +310,7 @@ if(empty($c_data)){
 
  $zapak=$this->db->delete('tbl_coupancode', array('id' => $id));
  if($zapak!=0){
-
+  $this->session->set_flashdata('smessage','Couponcode deleted successfully');
         redirect("dcadmin/coupancode/view_coupancode","refresh");
                 }
                 else

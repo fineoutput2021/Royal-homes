@@ -2,17 +2,22 @@
         <div class="content-wrapper">
         <section class="content-header">
         <h1>
-          View Coupancode
+          View Couponcode
         </h1>
+        <ol class="breadcrumb">
+          <li><a href="<?php echo base_url() ?>dcadmin/home"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+          <li><a href="<?php echo base_url() ?>dcadmin/coupancode/view_coupancode"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i>  View Couponcode  </a></li>
+          <!-- <li class="active">View Categories</li> -->
+        </ol>
         </section>
         <section class="content">
         <div class="row">
         <div class="col-lg-12">
         <a class="btn btn-info cticket" href="<?php echo base_url() ?>dcadmin/coupancode/add_coupancode"
-        role="button" style="margin-bottom:12px;"> Add coupancode</a>
+        role="button" style="margin-bottom:12px;"> Add couponcode</a>
         <div class="panel panel-default">
         <div class="panel-heading">
-        <h3 class="panel-title"><i class="fa fa-money fa-fw"></i>View coupancode</h3>
+        <h3 class="panel-title"><i class="fa fa-money fa-fw"></i>View couponcode</h3>
         </div>
         <div class="panel panel-default">
 
@@ -59,9 +64,9 @@
  	 <td><?php echo $data->name ?></td>
  	 <!-- <td><?php $data->startdate ?></td> -->
  	 <td><?php echo $data->expdate ?></td>
- 	 <td><?php echo $data->minorder ?></td>
- 	 <td><?php echo $data->giftpercent ?></td>
- 	 <td><?php echo $data->maxorder ?></td>
+ 	 <td>₹<?php echo $data->minorder ?></td>
+ 	 <td><?php echo $data->giftpercent ?>%</td>
+ 	 <td>₹<?php echo $data->maxorder ?></td>
 
 
 
@@ -127,7 +132,7 @@
         <script type="text/javascript">
 
         $(document).ready(function(){
-    
+
 
         $(document.body).on('click', '.dCnf', function() {
         var i=$(this).attr("mydata");

@@ -1,16 +1,21 @@
 <div class="content-wrapper">
   <section class="content-header">
     <h1>
-      View Corporate_brochers
+      View Corporate Brochers
     </h1>
+    <ol class="breadcrumb">
+      <li><a href="<?php echo base_url() ?>dcadmin/home"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+      <li><a href="<?php echo base_url() ?>dcadmin/Corporate_brochers/view_corporate_brochers"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> View Corporate Brochers </a></li>
+      <!-- <li class="active">View Team</li> -->
+    </ol>
   </section>
   <section class="content">
     <div class="row">
       <div class="col-lg-12">
-        <a class="btn btn-info cticket" href="<?php echo base_url() ?>dcadmin/corporate_brochers/add_corporate_brochers" role="button" style="margin-bottom:12px;"> Add corporate_brochers</a>
+        <a class="btn btn-info cticket" href="<?php echo base_url() ?>dcadmin/corporate_brochers/add_corporate_brochers" role="button" style="margin-bottom:12px;"> Add corporate brochers</a>
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title"><i class="fa fa-money fa-fw"></i>View corporate_brochers</h3>
+            <h3 class="panel-title"><i class="fa fa-money fa-fw"></i>View corporate Brochers</h3>
           </div>
           <div class="panel panel-default">
 
@@ -52,7 +57,6 @@
                       <td><?php echo $i ?> </td>
 
                       <!-- <td><?php echo $data->title ?></td> -->
-
                       <td>
                         <?php if($data->file!=""){
                       echo base_url().$data->file;
@@ -136,7 +140,7 @@
 <script src="<?php echo base_url() ?>assets/admin/plugins/datatables/dataTables.bootstrap.js"></script>
 <script type="text/javascript">
   $(document).ready(function() {
-    
+
 
     $(document.body).on('click', '.dCnf', function() {
       var i = $(this).attr("mydata");

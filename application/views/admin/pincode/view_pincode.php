@@ -4,6 +4,11 @@
         <h1>
           View Pincode
         </h1>
+        <ol class="breadcrumb">
+          <li><a href="<?php echo base_url() ?>dcadmin/home"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+          <li><a href="<?php echo base_url() ?>dcadmin/pincode/view_pincode"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i>  View Pincode </a></li>
+          <!-- <li class="active">View Categories</li> -->
+        </ol>
         </section>
         <section class="content">
         <div class="row">
@@ -53,7 +58,7 @@
         <td><?php echo $i ?> </td>
 
  	 <td><?php echo $data->pincode ?></td>
- 	 <td><?php echo $data->shippingcharge ?></td>
+ 	 <td>₹<?php echo $data->shippingcharge ?></td>
 
 
 
@@ -119,7 +124,7 @@
         <script type="text/javascript">
 
         $(document).ready(function(){
-    
+
 
         $(document.body).on('click', '.dCnf', function() {
         var i=$(this).attr("mydata");

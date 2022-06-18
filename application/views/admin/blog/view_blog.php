@@ -3,6 +3,11 @@
     <h1>
       View Blog
     </h1>
+    <ol class="breadcrumb">
+      <li><a href="<?php echo base_url() ?>dcadmin/home"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+      <li><a href="<?php echo base_url() ?>dcadmin/blog/view_blog"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i>  View Blog </a></li>
+      <!-- <li class="active">View Categories</li> -->
+    </ol>
   </section>
   <section class="content">
     <div class="row">

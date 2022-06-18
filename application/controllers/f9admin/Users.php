@@ -116,7 +116,10 @@ public function add_users(){
 
 
           $last_id=$this->base_model->insert_table("tbl_users",$data_insert,1) ;
-
+					if($last_id!=0){
+					$this->session->set_flashdata('smessage','Data inserted successfully');
+					redirect("dcadmin/users/view_users","refresh");
+									}
           }
           if($typ==2){
 
@@ -151,53 +154,31 @@ public function add_users(){
             $last_id=$this->db->update('tbl_users', $data_insert);
 
           }
-
-
                               if($last_id!=0){
-
-                              $this->session->set_flashdata('smessage','Data inserted successfully');
-
+                              $this->session->set_flashdata('smessage','Data updated successfully');
                               redirect("dcadmin/users/view_users","refresh");
-
                                       }
-
                                       else
-
                                       {
-
                                 	 $this->session->set_flashdata('emessage','Sorry error occured');
                               		   redirect($_SERVER['HTTP_REFERER']);
-
-
                                       }
-
-
               }
             else{
 
 $this->session->set_flashdata('emessage',validation_errors());
      redirect($_SERVER['HTTP_REFERER']);
-
             }
-
             }
           else{
-
 $this->session->set_flashdata('emessage','Please insert some data, No data available');
      redirect($_SERVER['HTTP_REFERER']);
-
           }
           }
           else{
-
 			redirect("login/admin_login","refresh");
-
-
           }
-
           }
-
-
 					public function update_users($idd){
 
 					                 if(!empty($this->session->userdata('admin_data'))){
@@ -249,7 +230,7 @@ public function delete_users($idd){
 
                          									 $zapak=$this->db->delete('tbl_users', array('id' => $id));
                          									 if($zapak!=0){
-
+  $this->session->set_flashdata('smessage','User deleted successfully');
                          								 	redirect("dcadmin/users/view_users","refresh");
                          								 					}
                          								 					else
@@ -297,6 +278,7 @@ public function updateuserStatus($idd,$t){
         $zapak=$this->db->update('tbl_users', $data_update);
 
              if($zapak!=0){
+							   $this->session->set_flashdata('smessage','Status updated successfully');
              redirect("dcadmin/users/view_users","refresh");
                      }
                      else
@@ -315,6 +297,7 @@ public function updateuserStatus($idd,$t){
           $zapak=$this->db->update('tbl_users', $data_update);
 
               if($zapak!=0){
+								  $this->session->set_flashdata('smessage','Status updated successfully');
               redirect("dcadmin/users/view_users","refresh");
                       }
                       else

@@ -3,7 +3,11 @@
 <h1>
 Update Products
 </h1>
-
+<ol class="breadcrumb">
+  <li><a href="<?php echo base_url() ?>dcadmin/home"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+  <li><a href="<?php echo base_url() ?>dcadmin/products/view_products"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i>  View Products </a></li>
+  <!-- <li class="active">View Categories</li> -->
+</ol>
 </section>
 <section class="content">
 <div class="row">
@@ -107,7 +111,7 @@ if ($data->id==$cat[0]) {
 </tr>
 
 <tr>
-<td> <strong>Image</strong>  <span style="color:red;">*</span></strong> </td>
+<td> <strong>Image</strong>  <span style="color:red;"></span></strong> </td>
 <td> <input type="file" name="image"  class="form-control" placeholder=""  value="<?=$products_data->image?>" />
   <?php if ($products_data->image!="") { ?>
   <img id="slide_img_path" height=50 width=100 src="<?php echo base_url().$products_data->image

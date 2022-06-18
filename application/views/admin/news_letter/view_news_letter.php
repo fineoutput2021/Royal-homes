@@ -4,9 +4,9 @@
             View News Letter
             </h1>
             <ol class="breadcrumb">
-              <li><a href="<?php echo base_url() ?>admin/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
-              <li><a href="<?php echo base_url() ?>admin/college"><i class="fa fa-dashboard"></i> All News Letter </a></li>
-              <li class="active"> View News Letter</li>
+              <li><a href="<?php echo base_url() ?>dcadmin/home"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+              <!-- <li><a href="<?php echo base_url() ?>admin/college"><i class="fa fa-dashboard"></i> All News Letter </a></li>
+              <li class="active"> View News Letter</li> -->
             </ol>
           </section>
           <section class="content">
@@ -115,7 +115,7 @@
         <script src="<?php echo base_url() ?>assets/admin/plugins/datatables/dataTables.bootstrap.js"></script>
         <script type="text/javascript">
           $(document).ready(function() {
-        
+
 
             $(document.body).on('click', '.dCnf', function() {
               var i = $(this).attr("mydata");

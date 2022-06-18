@@ -4,9 +4,9 @@
       <?=$heading;?>
     </h1>
     <ol class="breadcrumb">
-      <li><a href="<?php echo base_url() ?>dcadmin/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li><a href="<?php echo base_url() ?>dcadmin/orders/view_orders"><i class="fa fa-dashboard"></i> All <?=$heading;?> </a></li>
-      <li class="active">View <?=$heading;?></li>
+      <li><a href="<?php echo base_url() ?>dcadmin/home"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+      <!-- <li><a href="<?php echo base_url() ?>dcadmin/orders/view_orders"><i class="fa fa-dashboard"></i> View <?=$heading;?> </a></li> -->
+      <!-- <li class="active">View <?=$heading;?></li> -->
     </ol>
   </section>
   <section class="content">

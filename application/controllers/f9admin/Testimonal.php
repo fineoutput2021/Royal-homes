@@ -130,7 +130,8 @@ $img0='image';
 
 
 
-
+$file_check=($_FILES['image']['error']);
+if ($file_check!=4) {
          $image_upload_folder = FCPATH . "assets/uploads/testimonal/";
                      if (!file_exists($image_upload_folder))
                      {
@@ -140,7 +141,7 @@ $img0='image';
                      $this->upload_config = array(
                              'upload_path'   => $image_upload_folder,
                              'file_name' => $new_file_name,
-                             'allowed_types' =>'xlsx|csv|xls|pdf|doc|docx|txt|jpg|jpeg|png',
+                             'allowed_types' =>'jpg|jpeg|png',
                              'max_size'      => 25000
                      );
                      $this->upload->initialize($this->upload_config);
@@ -149,8 +150,8 @@ $img0='image';
                          $upload_error = $this->upload->display_errors();
                          // echo json_encode($upload_error);
 
-           //$this->session->set_flashdata('emessage',$upload_error);
-             //redirect($_SERVER['HTTP_REFERER']);
+           $this->session->set_flashdata('emessage',$upload_error);
+             redirect($_SERVER['HTTP_REFERER']);
                      }
                      else
                      {
@@ -165,7 +166,7 @@ $img0='image';
 
                          // echo json_encode($file_info);
                      }
-
+}
 
 
 
@@ -182,7 +183,10 @@ $img0='image';
 
 
            $last_id=$this->base_model->insert_table("tbl_testimonal",$data_insert,1) ;
-
+           if($last_id!=0){
+                   $this->session->set_flashdata('smessage','Data inserted successfully');
+                   redirect("dcadmin/testimonal/view_testimonal","refresh");
+                  }
            }
            if($typ==2){
 
@@ -198,10 +202,8 @@ $img0='image';
 
 
 $img0='image';
-
-
-
-
+$file_check=($_FILES['image']['error']);
+if ($file_check!=4) {
          $image_upload_folder = FCPATH . "assets/uploads/testimonal/";
                      if (!file_exists($image_upload_folder))
                      {
@@ -211,7 +213,7 @@ $img0='image';
                      $this->upload_config = array(
                              'upload_path'   => $image_upload_folder,
                              'file_name' => $new_file_name,
-                             'allowed_types' =>'xlsx|csv|xls|pdf|doc|docx|txt|jpg|jpeg|png',
+                             'allowed_types' =>'jpg|jpeg|png',
                              'max_size'      => 25000
                      );
                      $this->upload->initialize($this->upload_config);
@@ -220,8 +222,8 @@ $img0='image';
                          $upload_error = $this->upload->display_errors();
                          // echo json_encode($upload_error);
 
-           //$this->session->set_flashdata('emessage',$upload_error);
-             //redirect($_SERVER['HTTP_REFERER']);
+           $this->session->set_flashdata('emessage',$upload_error);
+             redirect($_SERVER['HTTP_REFERER']);
                      }
                      else
                      {
@@ -236,7 +238,7 @@ $img0='image';
 
                          // echo json_encode($file_info);
                      }
-
+}
 
 
 
@@ -253,7 +255,7 @@ if(!empty($img)) { if(empty($nnnn0)){ $nnnn0 = $img; } }else{ if(empty($nnnn0)){
              $last_id=$this->db->update('tbl_testimonal', $data_insert);
            }
                        if($last_id!=0){
-                               $this->session->set_flashdata('smessage','Data inserted successfully');
+                               $this->session->set_flashdata('smessage','Data updated successfully');
                                redirect("dcadmin/testimonal/view_testimonal","refresh");
                               }
                                else
@@ -311,6 +313,7 @@ if(!empty($img)) { if(empty($nnnn0)){ $nnnn0 = $img; } }else{ if(empty($nnnn0)){
                        $zapak=$this->db->update('tbl_testimonal', $data_update);
 
                             if($zapak!=0){
+                               $this->session->set_flashdata('smessage','Status updated successfully');
                             redirect("dcadmin/testimonal/view_testimonal","refresh");
                                     }
                                     else
@@ -329,6 +332,7 @@ if(!empty($img)) { if(empty($nnnn0)){ $nnnn0 = $img; } }else{ if(empty($nnnn0)){
                          $zapak=$this->db->update('tbl_testimonal', $data_update);
 
                              if($zapak!=0){
+                                $this->session->set_flashdata('smessage','Status updated successfully');
                              redirect("dcadmin/testimonal/view_testimonal","refresh");
                                      }
                                      else
@@ -370,7 +374,7 @@ if(!empty($img)) { if(empty($nnnn0)){ $nnnn0 = $img; } }else{ if(empty($nnnn0)){
 
  $zapak=$this->db->delete('tbl_testimonal', array('id' => $id));
  if($zapak!=0){
-
+ $this->session->set_flashdata('smessage','Testimonial deleted successfully');
         redirect("dcadmin/testimonal/view_testimonal","refresh");
                 }
                 else

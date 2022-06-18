@@ -4,9 +4,9 @@
           Update New User
           </h1>
           <ol class="breadcrumb">
-           <li><a href="<?php echo base_url() ?>admin/dashboard"><i class="fa fa-dashboard"></i>Home</a></li>
-            <li><a href="<?php echo base_url() ?>admin/college"><i class="fa fa-dashboard"></i> Update Users </a></li>
-
+            <li><a href="<?php echo base_url() ?>dcadmin/home"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li><a href="<?php echo base_url() ?>dcadmin/users/view_users"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i>  View Users </a></li>
+            <!-- <li class="active">View Categories</li> -->
           </ol>
         </section>
     <section class="content">

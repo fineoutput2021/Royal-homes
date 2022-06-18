@@ -1,9 +1,13 @@
 <div class="content-wrapper">
 <section class="content-header">
    <h1>
-  Update Coupancode
+  Update Couponcode
   </h1>
-
+  <ol class="breadcrumb">
+    <li><a href="<?php echo base_url() ?>dcadmin/home"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+    <li><a href="<?php echo base_url() ?>dcadmin/coupancode/view_coupancode"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i>  View Couponcode  </a></li>
+    <!-- <li class="active">View Categories</li> -->
+  </ol>
 </section>
 <section class="content">
 <div class="row">
@@ -11,7 +15,7 @@
 
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Update Coupancode </h3>
+                        <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Update Couponcode </h3>
                     </div>
 
                              <? if(!empty($this->session->flashdata('smessage'))){  ?>
@@ -45,7 +49,7 @@
 </tr> -->
 <tr>
 <td> <strong>Expire Date</strong>  <span style="color:red;">*</span></strong> </td>
-<td> <input type="date" name="enddate"  class="form-control" placeholder="" required value="<?=$coupancode_data->expdate;?>" />  </td>
+<td> <input type="date" id="datepicker" name="enddate"  class="form-control" placeholder="" required value="<?=$coupancode_data->expdate;?>" />  </td>
 </tr>
 <tr>
 <td> <strong>Cart Amount </strong>  <span style="color:red;">*</span></strong> </td>
@@ -83,6 +87,24 @@
                 </div>
     </section>
   </div>
+  <script>
+  $(function(){
+      var dtToday = new Date();
+
+      var month = dtToday.getMonth() + 1;
+      var day = dtToday.getDate();
+      var year = dtToday.getFullYear();
+      if(month < 10)
+         month = '0' + month.toString();
+     if(day < 10)
+         day = '0' + day.toString();
+
+     var maxDate = year + '-' + month + '-' + day;
+     // alert(maxDate);
+
+      $('#datepicker').attr('min', maxDate);
+  });
+  </script>
 
 
 <script type="text/javascript" src=" <?php echo base_url()  ?>assets/slider/ajaxupload.3.5.js"></script>

@@ -36,8 +36,9 @@
 	<!-- //web-fonts -->
 </head>
 
+
 <body>
-	<div class="video-w3l" data-vide-bg="<? echo base_url() ?>assets/admin/login/video/1">
+	<div class="video-w3l" data-vide-bg="<? echo base_url() ?>assets/admin/login/images/9.jpg">
 		<!--header-->
 		<div class="header-w3l">
 			<h1>
@@ -50,7 +51,7 @@
 		<div class="main-content-agile">
 			<div class="sub-main-w3">
 				<h2>Login Here
-					<i class="fa fa-hand-o-down" aria-hidden="true"></i>
+					<!-- <i class="fa fa-hand-o-down" aria-hidden="true"></i> -->
 				</h2>
 						<? if(!empty($this->session->flashdata('smessage'))){ ?>
 				    <div class="alert alert-success">
@@ -73,7 +74,7 @@
 					</div>
 					<div class="sub-w3l">
 
-						<a href="#" id="butpas">Forgot Password?</a>
+						<!-- <a href="#" id="butpas">Forgot Password?</a> -->
 						<div class="clear"></div>
 					</div>
 					<div class="right-w3l">

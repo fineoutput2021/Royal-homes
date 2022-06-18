@@ -93,14 +93,15 @@
                            $this->upload_config = array(
                                                                 'upload_path'   => $image_upload_folder,
                                                                 'file_name' => $new_file_name,
-                                                                'allowed_types' =>'xlsx|csv|xls|pdf|doc|docx|txt|jpg|jpeg|png',
+                                                                'allowed_types' =>'jpg|jpeg|png',
                                                                 'max_size'      => 25000
                                                         );
                            $this->upload->initialize($this->upload_config);
                            if (!$this->upload->do_upload($img1)) {
                                $upload_error = $this->upload->display_errors();
                                // echo json_encode($upload_error);
-                               echo $upload_error;
+                               $this->session->set_flashdata('emessage', 'Some error occured');
+                               redirect($_SERVER['HTTP_REFERER']);
                            } else {
                                $file_info = $this->upload->data();
 
@@ -120,7 +121,7 @@
                                $this->db->where('id', $id);
                                $zapak=$this->db->update('tbl_corporate_banner', $data_update);
                                if (!empty($zapak)) {
-                                   $this->session->set_flashdata('smessage', 'Successfully Updated');
+                                   $this->session->set_flashdata('smessage', 'Data updated successfully');
                                    redirect("dcadmin/Corporate_orders/view_corporate_banner");
                                } else {
                                    $this->session->set_flashdata('emessage', 'Some error occured');
@@ -158,6 +159,7 @@
                        $zapak=$this->db->update('tbl_corporate_banner', $data_update);
 
                        if ($zapak!=0) {
+                         $this->session->set_flashdata('smessage', 'Status updated successfully');
                            redirect("dcadmin/Corporate_orders/view_corporate_banner", "refresh");
                        } else {
                            $this->session->set_flashdata('emessage', 'Sorry error occured');
@@ -174,6 +176,7 @@
                        $zapak=$this->db->update('tbl_corporate_banner', $data_update);
 
                        if ($zapak!=0) {
+                         $this->session->set_flashdata('smessage', 'Status updated successfully');
                            redirect("dcadmin/Corporate_orders/view_corporate_banner", "refresh");
                        } else {
                            $this->session->set_flashdata('emessage', 'Sorry error occured');

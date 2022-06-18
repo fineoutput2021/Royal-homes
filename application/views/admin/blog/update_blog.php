@@ -3,7 +3,11 @@
     <h1>
       Update Blog
     </h1>
-
+    <ol class="breadcrumb">
+      <li><a href="<?php echo base_url() ?>dcadmin/home"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+      <li><a href="<?php echo base_url() ?>dcadmin/blog/view_blog"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i>  View Blog </a></li>
+      <!-- <li class="active">View Categories</li> -->
+    </ol>
   </section>
   <section class="content">
     <div class="row">
@@ -54,7 +58,7 @@
                          </td>
                     </tr>
                     <tr>
-                      <td> <strong>image</strong> <span style="color:red;">*</span></strong> </td>
+                      <td> <strong>image</strong> <span style="color:red;"></span></strong> </td>
                       <td> <input type="file" name="image" class="form-control" placeholder="" />
                         <?php if ($blog_data->image!="") { ?> <img id="slide_img_path" height=200 width=300 src="<?php echo base_url().$blog_data->image; ?> "> <?php } else { ?> Sorry No File Found <?php } ?>
                         <label style="color:red;">Size 1024*640</label>

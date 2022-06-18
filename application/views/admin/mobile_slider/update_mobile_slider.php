@@ -3,7 +3,11 @@
     <h1>
       Update Mobile Slider
     </h1>
-
+    <ol class="breadcrumb">
+      <li><a href="<?php echo base_url() ?>dcadmin/home"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+      <li><a href="<?php echo base_url() ?>dcadmin/slider/view_slider"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> View Mobile Slider </a></li>
+      <!-- <li class="active">View Team</li> -->
+    </ol>
   </section>
   <section class="content">
     <div class="row">
@@ -36,7 +40,7 @@
                 <div class="table-responsive">
                   <table class="table table-hover">
                     <tr>
-                      <td> <strong>image</strong> <span style="color:red;">*</span></strong> </td>
+                      <td> <strong>image</strong> <span style="color:red;"></span></strong> </td>
                       <td> <input type="file" name="image" class="form-control" placeholder="" />
                         <?php if($mobile_slider_data->image!=""){ ?> <img id="slide_img_path" height=200 width=300 src="<?php echo base_url().$mobile_slider_data->image; ?> "> <?php }else{ ?> Sorry No File Found <?php } ?>
                         <label style="color:red;">Size:700*1080</label>

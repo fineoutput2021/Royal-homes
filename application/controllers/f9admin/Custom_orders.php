@@ -90,14 +90,15 @@
                            $this->upload_config = array(
                                                      'upload_path'   => $image_upload_folder,
                                                      'file_name' => $new_file_name,
-                                                     'allowed_types' =>'xlsx|csv|xls|pdf|doc|docx|txt|jpg|jpeg|png',
+                                                     'allowed_types' =>'jpg|jpeg|png',
                                                      'max_size'      => 25000
                                              );
                            $this->upload->initialize($this->upload_config);
                            if (!$this->upload->do_upload($img1)) {
                                $upload_error = $this->upload->display_errors();
                                // echo json_encode($upload_error);
-                               echo $upload_error;
+                               $this->session->set_flashdata('emessage', $upload_error);
+                               redirect($_SERVER['HTTP_REFERER']);
                            } else {
                                $file_info = $this->upload->data();
 
@@ -155,6 +156,7 @@
                        $zapak=$this->db->update('tbl_custom_banner', $data_update);
 
                        if ($zapak!=0) {
+                              $this->session->set_flashdata('smessage', ' Status Updated Successfully');
                            redirect("dcadmin/Custom_orders/view_custom_banner", "refresh");
                        } else {
                            $this->session->set_flashdata('emessage', 'Sorry error occured');
@@ -171,6 +173,7 @@
                        $zapak=$this->db->update('tbl_custom_banner', $data_update);
 
                        if ($zapak!=0) {
+                            $this->session->set_flashdata('smessage', ' Status Updated Successfully');
                            redirect("dcadmin/Custom_orders/view_custom_banner", "refresh");
                        } else {
                            $this->session->set_flashdata('emessage', 'Sorry error occured');

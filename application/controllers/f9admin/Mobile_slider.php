@@ -128,7 +128,8 @@ $img0='image';
 
 
 
-
+$file_check=($_FILES['image']['error']);
+if ($file_check!=4) {
          $image_upload_folder = FCPATH . "assets/uploads/mobile_slider/";
                      if (!file_exists($image_upload_folder))
                      {
@@ -147,8 +148,8 @@ $img0='image';
                          $upload_error = $this->upload->display_errors();
                          // echo json_encode($upload_error);
 
-           //$this->session->set_flashdata('emessage',$upload_error);
-             //redirect($_SERVER['HTTP_REFERER']);
+           $this->session->set_flashdata('emessage',$upload_error);
+             redirect($_SERVER['HTTP_REFERER']);
                      }
                      else
                      {
@@ -163,7 +164,7 @@ $img0='image';
 
                          // echo json_encode($file_info);
                      }
-
+}
 
 
 
@@ -179,7 +180,10 @@ $img0='image';
 
 
            $last_id=$this->base_model->insert_table("tbl_mobile_slider",$data_insert,1) ;
-
+           if($last_id!=0){
+                   $this->session->set_flashdata('smessage','Data inserted successfully');
+                   redirect("dcadmin/mobile_slider/view_mobile_slider","refresh");
+                  }
            }
            if($typ==2){
 
@@ -198,7 +202,8 @@ $img0='image';
 
 
 
-
+$file_check=($_FILES['image']['error']);
+if ($file_check!=4) {
          $image_upload_folder = FCPATH . "assets/uploads/mobile_slider/";
                      if (!file_exists($image_upload_folder))
                      {
@@ -217,8 +222,8 @@ $img0='image';
                          $upload_error = $this->upload->display_errors();
                          // echo json_encode($upload_error);
 
-           //$this->session->set_flashdata('emessage',$upload_error);
-             //redirect($_SERVER['HTTP_REFERER']);
+           $this->session->set_flashdata('emessage',$upload_error);
+             redirect($_SERVER['HTTP_REFERER']);
                      }
                      else
                      {
@@ -233,7 +238,7 @@ $img0='image';
 
                          // echo json_encode($file_info);
                      }
-
+}
 
 
 
@@ -249,7 +254,7 @@ if(!empty($img)) { if(empty($nnnn0)){ $nnnn0 = $img; } }else{ if(empty($nnnn0)){
              $last_id=$this->db->update('tbl_mobile_slider', $data_insert);
            }
                        if($last_id!=0){
-                               $this->session->set_flashdata('smessage','Data inserted successfully');
+                               $this->session->set_flashdata('smessage','Data updated successfully');
                                redirect("dcadmin/mobile_slider/view_mobile_slider","refresh");
                               }
                                else
@@ -277,8 +282,6 @@ if(!empty($img)) { if(empty($nnnn0)){ $nnnn0 = $img; } }else{ if(empty($nnnn0)){
            else{
 
        redirect("login/admin_login","refresh");
-
-
            }
 
            }
@@ -307,6 +310,8 @@ if(!empty($img)) { if(empty($nnnn0)){ $nnnn0 = $img; } }else{ if(empty($nnnn0)){
                        $zapak=$this->db->update('tbl_mobile_slider', $data_update);
 
                             if($zapak!=0){
+                              $this->session->set_flashdata('smessage','Status updated successfully');
+
                             redirect("dcadmin/mobile_slider/view_mobile_slider","refresh");
                                     }
                                     else
@@ -325,6 +330,7 @@ if(!empty($img)) { if(empty($nnnn0)){ $nnnn0 = $img; } }else{ if(empty($nnnn0)){
                          $zapak=$this->db->update('tbl_mobile_slider', $data_update);
 
                              if($zapak!=0){
+                               $this->session->set_flashdata('smessage','Status updated successfully');
                              redirect("dcadmin/mobile_slider/view_mobile_slider","refresh");
                                      }
                                      else
@@ -373,6 +379,7 @@ if(!empty($img)) { if(empty($nnnn0)){ $nnnn0 = $img; } }else{ if(empty($nnnn0)){
  if($zapak!=0){
         // $path = FCPATH .$img;
         //   unlink($path);
+        $this->session->set_flashdata('smessage','Mobile Slider deleted successfully');
         redirect("dcadmin/mobile_slider/view_mobile_slider","refresh");
                 }
                 else

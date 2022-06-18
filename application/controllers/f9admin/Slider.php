@@ -93,7 +93,8 @@
                            $last_id = 0;
                            if ($typ==1) {
                                $img0='image';
-
+                               $file_check=($_FILES['image']['error']);
+                               if ($file_check!=4) {
                                $image_upload_folder = FCPATH . "assets/uploads/Slider/";
                                if (!file_exists($image_upload_folder)) {
                                    mkdir($image_upload_folder, DIR_WRITE_MODE, true);
@@ -102,16 +103,16 @@
                                $this->upload_config = array(
                              'upload_path'   => $image_upload_folder,
                              'file_name' => $new_file_name,
-                             'allowed_types' =>'xlsx|csv|xls|pdf|doc|docx|txt|jpg|jpeg|png',
+                             'allowed_types' =>'jpg|jpeg|png',
                              'max_size'      => 25000
                      );
                                $this->upload->initialize($this->upload_config);
                                if (!$this->upload->do_upload($img0)) {
                                    $upload_error = $this->upload->display_errors();
-                               // echo json_encode($upload_error);
+                                   // echo json_encode($upload_error);
 
-           //$this->session->set_flashdata('emessage',$upload_error);
-             //redirect($_SERVER['HTTP_REFERER']);
+                                   $this->session->set_flashdata('emessage', $upload_error);
+                                   redirect($_SERVER['HTTP_REFERER']);
                                } else {
                                    $file_info = $this->upload->data();
 
@@ -123,7 +124,7 @@
 
                                    // echo json_encode($file_info);
                                }
-
+}
                                $data_insert = array(
                                  'image'=>$nnnn0,
                                  'link'=>$link,
@@ -135,6 +136,10 @@
 
 
                                $last_id=$this->base_model->insert_table("tbl_slider", $data_insert, 1) ;
+                               if ($last_id!=0) {
+                                   $this->session->set_flashdata('smessage', 'Data inserted successfully');
+                                   redirect("dcadmin/slider/view_slider", "refresh");
+                               }
                            }
                            if ($typ==2) {
                                $idw=base64_decode($iw);
@@ -151,38 +156,38 @@
                                $img0='image';
 
 
-
-
-                               $image_upload_folder = FCPATH . "assets/uploads/Slider/";
-                               if (!file_exists($image_upload_folder)) {
-                                   mkdir($image_upload_folder, DIR_WRITE_MODE, true);
-                               }
-                               $new_file_name="Slider".date("Ymdhms");
-                               $this->upload_config = array(
+                               $file_check=($_FILES['image']['error']);
+                               if ($file_check!=4) {
+                                   $image_upload_folder = FCPATH . "assets/uploads/Slider/";
+                                   if (!file_exists($image_upload_folder)) {
+                                       mkdir($image_upload_folder, DIR_WRITE_MODE, true);
+                                   }
+                                   $new_file_name="Slider".date("Ymdhms");
+                                   $this->upload_config = array(
                              'upload_path'   => $image_upload_folder,
                              'file_name' => $new_file_name,
-                             'allowed_types' =>'xlsx|csv|xls|pdf|doc|docx|txt|jpg|jpeg|png',
+                             'allowed_types' =>'jpg|jpeg|png',
                              'max_size'      => 25000
                      );
-                               $this->upload->initialize($this->upload_config);
-                               if (!$this->upload->do_upload($img0)) {
-                                   $upload_error = $this->upload->display_errors();
-                               // echo json_encode($upload_error);
+                                   $this->upload->initialize($this->upload_config);
+                                   if (!$this->upload->do_upload($img0)) {
+                                       $upload_error = $this->upload->display_errors();
+                                       // echo json_encode($upload_error);
 
-           //$this->session->set_flashdata('emessage',$upload_error);
-             //redirect($_SERVER['HTTP_REFERER']);
-                               } else {
-                                   $file_info = $this->upload->data();
+                                       $this->session->set_flashdata('emessage', $upload_error);
+                                       redirect($_SERVER['HTTP_REFERER']);
+                                   } else {
+                                       $file_info = $this->upload->data();
 
-                                   $videoNAmePath = "assets/uploads/Slider/".$new_file_name.$file_info['file_ext'];
-                                   $file_info['new_name']=$videoNAmePath;
-                                   // $this->step6_model->updateappIconImage($imageNAmePath,$appInfoId);
-                                   $nnnn=$file_info['file_name'];
-                                   $nnnn0=$videoNAmePath;
+                                       $videoNAmePath = "assets/uploads/Slider/".$new_file_name.$file_info['file_ext'];
+                                       $file_info['new_name']=$videoNAmePath;
+                                       // $this->step6_model->updateappIconImage($imageNAmePath,$appInfoId);
+                                       $nnnn=$file_info['file_name'];
+                                       $nnnn0=$videoNAmePath;
 
-                                   // echo json_encode($file_info);
+                                       // echo json_encode($file_info);
+                                   }
                                }
-
 
 
 
@@ -208,7 +213,7 @@
                                $last_id=$this->db->update('tbl_slider', $data_insert);
                            }
                            if ($last_id!=0) {
-                               $this->session->set_flashdata('smessage', 'Data inserted successfully');
+                               $this->session->set_flashdata('smessage', 'Data updated successfully');
                                redirect("dcadmin/slider/view_slider", "refresh");
                            } else {
                                $this->session->set_flashdata('emessage', 'Sorry error occured');
@@ -248,6 +253,7 @@
                        $zapak=$this->db->update('tbl_slider', $data_update);
 
                        if ($zapak!=0) {
+                           $this->session->set_flashdata('smessage', 'Status updated successfully');
                            redirect("dcadmin/slider/view_slider", "refresh");
                        } else {
                            $this->session->set_flashdata('emessage', 'Sorry error occured');
@@ -264,6 +270,7 @@
                        $zapak=$this->db->update('tbl_slider', $data_update);
 
                        if ($zapak!=0) {
+                           $this->session->set_flashdata('smessage', 'Status updated successfully');
                            redirect("dcadmin/slider/view_slider", "refresh");
                        } else {
                            $this->session->set_flashdata('emessage', 'Sorry error occured');
@@ -300,6 +307,7 @@
                        if ($zapak!=0) {
                            // $path = FCPATH .$img;
                            // unlink($path);
+                           $this->session->set_flashdata('smessage', 'Web Slider deleted successfully');
                            redirect("dcadmin/slider/view_slider", "refresh");
                        } else {
                            $this->session->set_flashdata('emessage', 'Sorry error occured');

@@ -4,9 +4,9 @@
       Update Corporate Banner
     </h1>
     <ol class="breadcrumb">
-      <li><a href="<?php echo base_url() ?>admin/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li><a href="<?php echo base_url() ?>admin/college"><i class="fa fa-dashboard"></i> Update Corporate Banner </a></li>
-
+      <li><a href="<?php echo base_url() ?>dcadmin/home"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+      <li><a href="<?php echo base_url() ?>dcadmin/Corporate_orders/view_corporate_banner"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> Corporate Banner </a></li>
+      <!-- <li class="active">View Corporate Banner</li> -->
     </ol>
   </section>
   <section class="content">
@@ -41,7 +41,7 @@
                   <table class="table table-hover">
 
                     <tr>
-                      <td> <strong>Image</strong> <span style="color:red;">*</span></strong> </td>
+                      <td> <strong>Image</strong> <span style="color:red;"></span></strong> </td>
                       <td>
                         <input type="file" name="image" class="form-control" placeholder="" value="" />
                         <img src="<?=base_url().$corporate_banner_data->image?>" height="50" width="100" alt="">

@@ -4,9 +4,9 @@
       Update Two-Images
     </h1>
     <ol class="breadcrumb">
-      <li><a href="<?php echo base_url() ?>admin/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li><a href="<?php echo base_url() ?>admin/college"><i class="fa fa-dashboard"></i> All Two-Images </a></li>
-
+      <li><a href="<?php echo base_url() ?>dcadmin/home"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+      <li><a href="<?php echo base_url() ?>dcadmin/Bannerimages/view_Image_two"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> View Image-2 </a></li>
+      <!-- <li class="active">View Team</li> -->
     </ol>
   </section>
   <section class="content">
@@ -48,7 +48,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <td> <strong>Image-I</strong> <span style="color:red;">*</span></strong> </td>
+                      <td> <strong>Image-I</strong> <span style="color:red;"></span></strong> </td>
                       <td>
                         <input type="file" name="image_first" class="form-control" placeholder="" value="<?=$image_two->image_first?>" />
 
@@ -69,7 +69,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <td> <strong>Image-II</strong> <span style="color:red;">*</span></strong> </td>
+                      <td> <strong>Image-II</strong> <span style="color:red;"></span></strong> </td>
                       <td>
                         <input type="file" name="image_two" class="form-control" placeholder="" value="" />
                         <?php if($image_two->image_two!=""){  ?>

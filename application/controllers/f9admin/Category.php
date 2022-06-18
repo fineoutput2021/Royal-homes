@@ -109,7 +109,8 @@ public function add_category(){
 								  						{
 								  							$upload_error = $this->upload->display_errors();
 								  							// echo json_encode($upload_error);
-								  							echo $upload_error;
+																$this->session->set_flashdata('emessage','Sorry error occured');
+															 	 redirect($_SERVER['HTTP_REFERER']);
 								  						}
 								  						else
 								  						{
@@ -143,7 +144,8 @@ public function add_category(){
 								  						{
 								  							$upload_error = $this->upload->display_errors();
 								  							// echo json_encode($upload_error);
-								  							echo $upload_error;
+																$this->session->set_flashdata('emessage','Sorry error occured');
+																	redirect($_SERVER['HTTP_REFERER']);
 								  						}
 								  						else
 								  						{
@@ -185,12 +187,11 @@ public function add_category(){
                     'date'=>$cur_date
                     );
 
-
-
-
-
           $last_id=$this->base_model->insert_table("tbl_category",$data_insert,1) ;
-
+					if($last_id!=0){
+					$this->session->set_flashdata('smessage','Data inserted successfully');
+					redirect("dcadmin/category/view_category","refresh");
+									}
           }
           if($typ==2){
 
@@ -235,61 +236,34 @@ if(!empty($nnn1)){
                     );
 
 
-
-
           	$this->db->where('id', $idw);
             $last_id=$this->db->update('tbl_category', $data_insert);
 
           }
-
-
                               if($last_id!=0){
-
-                              $this->session->set_flashdata('smessage','Data inserted successfully');
-
+                              $this->session->set_flashdata('smessage','Data updated successfully');
                               redirect("dcadmin/category/view_category","refresh");
-
                                       }
-
                                       else
-
                                       {
-
                                 	 $this->session->set_flashdata('emessage','Sorry error occured');
                               		   redirect($_SERVER['HTTP_REFERER']);
-
-
                                       }
-
-
               }
             else{
-
 $this->session->set_flashdata('emessage',validation_errors());
      redirect($_SERVER['HTTP_REFERER']);
-
             }
-
             }
           else{
-
 $this->session->set_flashdata('emessage','Please insert some data, No data available');
      redirect($_SERVER['HTTP_REFERER']);
-
           }
           }
           else{
-
 			redirect("login/admin_login","refresh");
-
-
           }
-
           }
-
-
-
-
 					public function update_category($idd){
 
 					                 if(!empty($this->session->userdata('admin_data'))){
@@ -335,40 +309,61 @@ public function delete_category($idd){
          // echo $this->session->userdata('image');
          // echo $this->session->userdata('position');
          // exit;
-                 									 $id=base64_decode($idd);
+				 $id=base64_decode($idd);
 
-        if($this->load->get_var('position')=="Super Admin"){
+				 if ($this->load->get_var('position')=="Super Admin") {
+						 $zapak=$this->db->delete('tbl_category', array('id' => $id));
+								 $this->db->select('*');
+								 $this->db->from('tbl_subcategory');
+								 $this->db->like('category_id', $id);
+								 $sub_data= $this->db->get();
 
-                         									 $zapak=$this->db->delete('tbl_category', array('id' => $id));
-                         									 // $zapak2=$this->db->delete('tbl_products', array('category_id' => $id));
-                         									 // $zapak2=$this->db->delete('tbl_subcategory', array('category_id' => $id));
-                         									 if($zapak!=0){
+								 foreach ($sub_data->result() as $subcat) {
+										 $sub_delete=$this->db->delete('tbl_subcategory', array('id' => $subcat->id));
+										 $this->db->select('*');
+										 $this->db->from('tbl_products');
+										 $this->db->like('subcategory', $subcat->id);
+										 $product_data= $this->db->get();
+										 foreach ($product_data->result() as $pro) {
+												 $sub = json_decode($pro->subcategory);
+												 $i=0;
+												 foreach ($sub as $value) {
+														 if ($value==$id) {
+																 $i=1;
+														 }
+												 }
+												 if ($i==1) {
+														 if (count($sub)==1) {
+																 $delete=$this->db->delete('tbl_products', array('id' => $pro->id));
+																 // $delete2=$this->db->delete('tbl_type', array('product_id' => $pro->id));
+														 } else {
+																 if (($key = array_search($id, $sub)) !== false) {
+																		 unset($sub[$key]);
+																		 $data_update = array('subcategory'=>json_encode($sub));
+																		 $this->db->where('id', $pro->id);
+																		 $zapak=$this->db->update('tbl_products', $data_update);
+																 }
+														 }
+												 }
+										 }
+								 }
 
-                         								 	redirect("dcadmin/category/view_category","refresh");
-                         								 					}
-                         								 					else
-                         								 					{
-                         								 						echo "Error";
-                         								 						exit;
-                         								 					}
-                       }
-                       else{
-                       $data['e']="Sorry You Don't Have Permission To Delete Anything.";
-                       	// exit;
-                       	$this->load->view('errors/error500admin',$data);
-                       }
-
-
-             }
-             else{
-
-                 $this->load->view('admin/login/index');
-             }
-
-             }
-
-
-
+						 if ($zapak!=0) {
+						 $this->session->set_flashdata('smessage', 'Category deleted successfully');
+								 redirect("dcadmin/Category/view_category", "refresh");
+						 } else {
+							 $this->session->set_flashdata('emessage', 'Some unknown error occured');
+				 redirect($_SERVER['HTTP_REFERER']);
+						 }
+				 } else {
+					 $this->session->set_flashdata('emessage', 'Sorry You Dont Have Permission To Delete Anything');
+			 redirect($_SERVER['HTTP_REFERER']);
+				 }
+		 } else {
+				 $this->session->set_flashdata('emessage', 'Sorry you not a super admin you dont have permission to delete anything');
+				 redirect($_SERVER['HTTP_REFERER']);
+		 }
+	 }
 public function updatecategoryStatus($idd,$t){
 
          if(!empty($this->session->userdata('admin_data'))){
@@ -393,6 +388,7 @@ public function updatecategoryStatus($idd,$t){
         $zapak=$this->db->update('tbl_category', $data_update);
 
              if($zapak!=0){
+							 $this->session->set_flashdata('smessage','Status updated successfully');
              redirect("dcadmin/category/view_category","refresh");
                      }
                      else
@@ -411,19 +407,16 @@ public function updatecategoryStatus($idd,$t){
           $zapak=$this->db->update('tbl_category', $data_update);
 
               if($zapak!=0){
+								$this->session->set_flashdata('smessage','Status updated successfully');
               redirect("dcadmin/category/view_category","refresh");
                       }
                       else
                       {
-
           $data['e']="Error Occured";
                           	// exit;
         	$this->load->view('errors/error500admin',$data);
                       }
            }
-
-
-
        }
        else{
 
@@ -431,8 +424,4 @@ public function updatecategoryStatus($idd,$t){
        }
 
        }
-
-
-
-
 }

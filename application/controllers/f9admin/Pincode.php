@@ -141,7 +141,10 @@
 
 
   $last_id=$this->base_model->insert_table("tbl_pincode",$data_insert,1) ;
-// }
+  if($last_id!=0){
+          $this->session->set_flashdata('smessage','Data inserted successfully');
+          redirect("dcadmin/pincode/view_pincode","refresh");
+         }
 
 
            }
@@ -169,7 +172,7 @@
              $last_id=$this->db->update('tbl_pincode', $data_insert);
            }
                        if($last_id!=0){
-                               $this->session->set_flashdata('smessage','Data inserted successfully');
+                               $this->session->set_flashdata('smessage','Data updated successfully');
                                redirect("dcadmin/pincode/view_pincode","refresh");
                               }
                                else
@@ -227,6 +230,7 @@
                        $zapak=$this->db->update('tbl_pincode', $data_update);
 
                             if($zapak!=0){
+                               $this->session->set_flashdata('smessage','Status updated successfully');
                             redirect("dcadmin/pincode/view_pincode","refresh");
                                     }
                                     else
@@ -245,6 +249,7 @@
                          $zapak=$this->db->update('tbl_pincode', $data_update);
 
                              if($zapak!=0){
+                                $this->session->set_flashdata('smessage','Status updated successfully');
                              redirect("dcadmin/pincode/view_pincode","refresh");
                                      }
                                      else
@@ -293,6 +298,7 @@
  if($zapak!=0){
         // $path = FCPATH .$img;
         //   unlink($path);
+         $this->session->set_flashdata('smessage','Pincode deleted successfully');
         redirect("dcadmin/pincode/view_pincode","refresh");
                 }
                 else

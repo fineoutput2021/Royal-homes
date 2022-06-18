@@ -129,7 +129,8 @@ $img1='Image';
 
 
 
-
+$file_check=($_FILES['image']['error']);
+if ($file_check!=4) {
          $image_upload_folder = FCPATH . "assets/uploads/sellerslider/";
                      if (!file_exists($image_upload_folder))
                      {
@@ -139,7 +140,7 @@ $img1='Image';
                      $this->upload_config = array(
                              'upload_path'   => $image_upload_folder,
                              'file_name' => $new_file_name,
-                             'allowed_types' =>'xlsx|csv|xls|pdf|doc|docx|txt|jpg|jpeg|png',
+                             'allowed_types' =>'jpg|jpeg|png',
                              'max_size'      => 25000
                      );
                      $this->upload->initialize($this->upload_config);
@@ -148,8 +149,8 @@ $img1='Image';
                          $upload_error = $this->upload->display_errors();
                          // echo json_encode($upload_error);
 
-           //$this->session->set_flashdata('emessage',$upload_error);
-             //redirect($_SERVER['HTTP_REFERER']);
+           $this->session->set_flashdata('emessage',$upload_error);
+             redirect($_SERVER['HTTP_REFERER']);
                      }
                      else
                      {
@@ -164,7 +165,7 @@ $img1='Image';
 
                          // echo json_encode($file_info);
                      }
-
+}
 
 
 
@@ -172,7 +173,8 @@ $img2='Image1';
 
 
 
-
+$file_check=($_FILES['image']['error']);
+if ($file_check!=4) {
          $image_upload_folder = FCPATH . "assets/uploads/sellerslider/";
                      if (!file_exists($image_upload_folder))
                      {
@@ -182,7 +184,7 @@ $img2='Image1';
                      $this->upload_config = array(
                              'upload_path'   => $image_upload_folder,
                              'file_name' => $new_file_name,
-                             'allowed_types' =>'xlsx|csv|xls|pdf|doc|docx|txt|jpg|jpeg|png',
+                             'allowed_types' =>'jpg|jpeg|png',
                              'max_size'      => 25000
                      );
                      $this->upload->initialize($this->upload_config);
@@ -191,8 +193,8 @@ $img2='Image1';
                          $upload_error = $this->upload->display_errors();
                          // echo json_encode($upload_error);
 
-           //$this->session->set_flashdata('emessage',$upload_error);
-             //redirect($_SERVER['HTTP_REFERER']);
+           $this->session->set_flashdata('emessage',$upload_error);
+             redirect($_SERVER['HTTP_REFERER']);
                      }
                      else
                      {
@@ -207,7 +209,7 @@ $img2='Image1';
 
                          // echo json_encode($file_info);
                      }
-
+}
 
 
 
@@ -215,7 +217,8 @@ $img3='Image2';
 
 
 
-
+$file_check=($_FILES['image']['error']);
+if ($file_check!=4) {
          $image_upload_folder = FCPATH . "assets/uploads/sellerslider/";
                      if (!file_exists($image_upload_folder))
                      {
@@ -225,7 +228,7 @@ $img3='Image2';
                      $this->upload_config = array(
                              'upload_path'   => $image_upload_folder,
                              'file_name' => $new_file_name,
-                             'allowed_types' =>'xlsx|csv|xls|pdf|doc|docx|txt|jpg|jpeg|png',
+                             'allowed_types' =>'jpg|jpeg|png',
                              'max_size'      => 25000
                      );
                      $this->upload->initialize($this->upload_config);
@@ -234,8 +237,8 @@ $img3='Image2';
                          $upload_error = $this->upload->display_errors();
                          // echo json_encode($upload_error);
 
-           //$this->session->set_flashdata('emessage',$upload_error);
-             //redirect($_SERVER['HTTP_REFERER']);
+           $this->session->set_flashdata('emessage',$upload_error);
+             redirect($_SERVER['HTTP_REFERER']);
                      }
                      else
                      {
@@ -250,7 +253,7 @@ $img3='Image2';
 
                          // echo json_encode($file_info);
                      }
-
+}
 
 
 
@@ -258,7 +261,8 @@ $img4='Image3';
 
 
 
-
+$file_check=($_FILES['image']['error']);
+if ($file_check!=4) {
          $image_upload_folder = FCPATH . "assets/uploads/sellerslider/";
                      if (!file_exists($image_upload_folder))
                      {
@@ -268,7 +272,7 @@ $img4='Image3';
                      $this->upload_config = array(
                              'upload_path'   => $image_upload_folder,
                              'file_name' => $new_file_name,
-                             'allowed_types' =>'xlsx|csv|xls|pdf|doc|docx|txt|jpg|jpeg|png',
+                             'allowed_types' =>'jpg|jpeg|png',
                              'max_size'      => 25000
                      );
                      $this->upload->initialize($this->upload_config);
@@ -277,8 +281,8 @@ $img4='Image3';
                          $upload_error = $this->upload->display_errors();
                          // echo json_encode($upload_error);
 
-           //$this->session->set_flashdata('emessage',$upload_error);
-             //redirect($_SERVER['HTTP_REFERER']);
+           $this->session->set_flashdata('emessage',$upload_error);
+             redirect($_SERVER['HTTP_REFERER']);
                      }
                      else
                      {
@@ -293,7 +297,7 @@ $img4='Image3';
 
                          // echo json_encode($file_info);
                      }
-
+}
 
 
 
@@ -312,7 +316,10 @@ $img4='Image3';
 
 
            $last_id=$this->base_model->insert_table("tbl_sellerslider",$data_insert,1) ;
-
+           if($last_id!=0){
+                   $this->session->set_flashdata('smessage','Data inserted successfully');
+                   redirect("dcadmin/sellerslider/view_sellerslider","refresh");
+                  }
            }
            if($typ==2){
 
@@ -331,7 +338,8 @@ $img1='Image';
 
 
 
-
+$file_check=($_FILES['image']['error']);
+if ($file_check!=4) {
          $image_upload_folder = FCPATH . "assets/uploads/sellerslider/";
                      if (!file_exists($image_upload_folder))
                      {
@@ -341,7 +349,7 @@ $img1='Image';
                      $this->upload_config = array(
                              'upload_path'   => $image_upload_folder,
                              'file_name' => $new_file_name,
-                             'allowed_types' =>'xlsx|csv|xls|pdf|doc|docx|txt|jpg|jpeg|png',
+                             'allowed_types' =>'jpg|jpeg|png',
                              'max_size'      => 25000
                      );
                      $this->upload->initialize($this->upload_config);
@@ -350,8 +358,8 @@ $img1='Image';
                          $upload_error = $this->upload->display_errors();
                          // echo json_encode($upload_error);
 
-           //$this->session->set_flashdata('emessage',$upload_error);
-             //redirect($_SERVER['HTTP_REFERER']);
+           $this->session->set_flashdata('emessage',$upload_error);
+             redirect($_SERVER['HTTP_REFERER']);
                      }
                      else
                      {
@@ -366,7 +374,7 @@ $img1='Image';
 
                          // echo json_encode($file_info);
                      }
-
+}
 
 
 
@@ -374,7 +382,8 @@ $img2='Image1';
 
 
 
-
+$file_check=($_FILES['image']['error']);
+if ($file_check!=4) {
          $image_upload_folder = FCPATH . "assets/uploads/sellerslider/";
                      if (!file_exists($image_upload_folder))
                      {
@@ -384,7 +393,7 @@ $img2='Image1';
                      $this->upload_config = array(
                              'upload_path'   => $image_upload_folder,
                              'file_name' => $new_file_name,
-                             'allowed_types' =>'xlsx|csv|xls|pdf|doc|docx|txt|jpg|jpeg|png',
+                             'allowed_types' =>'jpg|jpeg|png',
                              'max_size'      => 25000
                      );
                      $this->upload->initialize($this->upload_config);
@@ -393,8 +402,8 @@ $img2='Image1';
                          $upload_error = $this->upload->display_errors();
                          // echo json_encode($upload_error);
 
-           //$this->session->set_flashdata('emessage',$upload_error);
-             //redirect($_SERVER['HTTP_REFERER']);
+           $this->session->set_flashdata('emessage',$upload_error);
+             redirect($_SERVER['HTTP_REFERER']);
                      }
                      else
                      {
@@ -409,7 +418,7 @@ $img2='Image1';
 
                          // echo json_encode($file_info);
                      }
-
+}
 
 
 
@@ -417,7 +426,8 @@ $img3='Image2';
 
 
 
-
+$file_check=($_FILES['image']['error']);
+if ($file_check!=4) {
          $image_upload_folder = FCPATH . "assets/uploads/sellerslider/";
                      if (!file_exists($image_upload_folder))
                      {
@@ -427,7 +437,7 @@ $img3='Image2';
                      $this->upload_config = array(
                              'upload_path'   => $image_upload_folder,
                              'file_name' => $new_file_name,
-                             'allowed_types' =>'xlsx|csv|xls|pdf|doc|docx|txt|jpg|jpeg|png',
+                             'allowed_types' =>'jpg|jpeg|png',
                              'max_size'      => 25000
                      );
                      $this->upload->initialize($this->upload_config);
@@ -436,8 +446,8 @@ $img3='Image2';
                          $upload_error = $this->upload->display_errors();
                          // echo json_encode($upload_error);
 
-           //$this->session->set_flashdata('emessage',$upload_error);
-             //redirect($_SERVER['HTTP_REFERER']);
+           $this->session->set_flashdata('emessage',$upload_error);
+             redirect($_SERVER['HTTP_REFERER']);
                      }
                      else
                      {
@@ -452,7 +462,7 @@ $img3='Image2';
 
                          // echo json_encode($file_info);
                      }
-
+}
 
 
 
@@ -460,7 +470,8 @@ $img4='Image3';
 
 
 
-
+$file_check=($_FILES['image']['error']);
+if ($file_check!=4) {
          $image_upload_folder = FCPATH . "assets/uploads/sellerslider/";
                      if (!file_exists($image_upload_folder))
                      {
@@ -470,7 +481,7 @@ $img4='Image3';
                      $this->upload_config = array(
                              'upload_path'   => $image_upload_folder,
                              'file_name' => $new_file_name,
-                             'allowed_types' =>'xlsx|csv|xls|pdf|doc|docx|txt|jpg|jpeg|png',
+                             'allowed_types' =>'jpg|jpeg|png',
                              'max_size'      => 25000
                      );
                      $this->upload->initialize($this->upload_config);
@@ -479,8 +490,8 @@ $img4='Image3';
                          $upload_error = $this->upload->display_errors();
                          // echo json_encode($upload_error);
 
-           //$this->session->set_flashdata('emessage',$upload_error);
-             //redirect($_SERVER['HTTP_REFERER']);
+           $this->session->set_flashdata('emessage',$upload_error);
+             redirect($_SERVER['HTTP_REFERER']);
                      }
                      else
                      {
@@ -495,7 +506,7 @@ $img4='Image3';
 
                          // echo json_encode($file_info);
                      }
-
+}
 
 
 

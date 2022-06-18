@@ -227,7 +227,7 @@ class Orders extends CI_finecontrol
                 $zapak=$this->db->update('tbl_order1', $data_update);
 
                 if ($zapak!=0) {
-                    $this->session->set_flashdata('smessage', 'Status Updated Successfully');
+                    $this->session->set_flashdata('smessage', 'Order Status Updated Successfully');
                     redirect($_SERVER['HTTP_REFERER']);
                 } else {
                     $this->session->set_flashdata('emessage', 'Some error occured');

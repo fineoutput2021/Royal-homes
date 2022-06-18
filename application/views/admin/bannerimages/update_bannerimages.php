@@ -3,7 +3,11 @@
    <h1>
   Update Image-I
   </h1>
-
+  <ol class="breadcrumb">
+    <li><a href="<?php echo base_url() ?>dcadmin/home"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+    <li><a href="<?php echo base_url() ?>dcadmin/bannerimages/view_bannerimages"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> View Image-1 </a></li>
+    <!-- <li class="active">View Team</li> -->
+  </ol>
 </section>
 <section class="content">
 <div class="row">
@@ -40,14 +44,14 @@
 <td> <input type="text" name="imagename"  class="form-control" placeholder=""  value="<?=$bannerimages_data->imagename;?>" />  </td>
 </tr>
 <tr>
-<td> <strong>Web Image </strong>  <span style="color:red;">*</span></strong> </td>
+<td> <strong>Web Image </strong>  <span style="color:red;"></span></strong> </td>
 <td> <input type="file" name="image1"  class="form-control" placeholder=""  value="<?=$bannerimages_data->image1;?>"/>
   <?php if($bannerimages_data->image1!=""){ ?> <img id="slide_img_path" height=200 width=300 src="<?php echo base_url().$bannerimages_data->image1; ?> "> <?php }else{ ?> Sorry No File Found <?php } ?>
   <label style="color:red">Size:3501*1751</label>
 </td>
 </tr>
 <tr>
-<td> <strong>Mobile Image</strong>  <span style="color:red;">*</span></strong> </td>
+<td> <strong>Mobile Image</strong>  <span style="color:red;"></span></strong> </td>
 <td> <input type="file" name="image2"  class="form-control" placeholder="" value="<?$bannerimages_data->image2;?>"/>
   <?php if($bannerimages_data->image2!=""){ ?> <img id="slide_img_path" height=200 width=300 src="<?php  echo base_url().$bannerimages_data->image2; ?> "> <?php }else{ ?> Sorry No File Found <?php } ?>
     <label style="color:red">Size:840*1680</label>

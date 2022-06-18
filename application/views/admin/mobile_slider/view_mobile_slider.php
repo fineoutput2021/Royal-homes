@@ -3,6 +3,11 @@
     <h1>
       View Mobile Slider
     </h1>
+    <ol class="breadcrumb">
+      <li><a href="<?php echo base_url() ?>dcadmin/home"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+      <li><a href="<?php echo base_url() ?>dcadmin/slider/view_slider"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> View Mobile Slider </a></li>
+      <!-- <li class="active">View Team</li> -->
+    </ol>
   </section>
   <section class="content">
     <div class="row">

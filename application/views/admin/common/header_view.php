@@ -17,6 +17,43 @@
     <link href="<?php echo base_url() ?>assets/admin/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url() ?>assets/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
   <style>
+  /* / ==============================Custom theme=========================================== / */
+  .custom_btn{
+    color: white;
+    background-color: hsl(353deg 91% 53%);
+  }
+  .custom_btn:hover{
+    color: white;
+    background-color: grey;
+  }
+  .custom_header{
+    color: white;
+    background-color: #d76a46 !important;
+  }
+  .custom_header>a:hover{
+    color: #fff;
+    background: hsl(353deg 91% 53%) !important;
+    border-left-color: hsl(353deg 91% 53%);
+  }
+  .custom_header>li>a:hover{
+    color: #fff;
+    background: #262626;
+    border-left-color: hsl(353deg 91% 53%);
+  }
+  .active>a{
+    color: #fff;
+    background: hsl(353deg 91% 53%) !important;
+    border-color: hsl(353deg 91% 53%) !important;
+  }
+.skin-blue .sidebar-menu>li>.treeview-menu{
+    color: #d76a46 !important;;
+    background-color: #d76a46;
+  }
+  .skin-blue .sidebar-menu>li>a:hover{
+    color: #d76a46;
+    background: #262626;
+    border-left-color: hsl(353deg 91% 53%);
+  }
   label{
   	margin:5px;
   }
@@ -150,20 +187,20 @@
   }
   </style>
   </head>
-  <body class="skin-blue">
+  <body class=" #d76a46">
     <div class="wrapper">
 
-      <header class="main-header">
+      <header class="main-header custom_header">
         <!-- Logo -->
-        <a href="<?=base_url().ADMIN_URL ?>/home" class="logo"><b><? echo SITE_NAME; ?></b></a>
+        <a href="<?=base_url().ADMIN_URL ?>/home" class="logo custom_header"><b><? echo SITE_NAME; ?></b></a>
         <!-- Header Navbar: style can be found in header.less -->
-        <nav class="navbar navbar-static-top" role="navigation">
+        <nav class="navbar navbar-static-top custom_header" role="navigation">
           <!-- Sidebar toggle button-->
           <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
             <span class="sr-only">Toggle navigation</span>
           </a>
           <!-- Navbar Right Menu -->
-          <div class="navbar-custom-menu">
+          <div class="navbar-custom-menu custom_header">
             <ul class="nav navbar-nav">
 
               <li class="dropdown user user-menu">
@@ -188,7 +225,7 @@
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
-                  <li class="user-header">
+                  <li class="user-header custom_header">
 <?
                     if(!empty($imgr)){
 ?>
@@ -262,7 +299,7 @@
             <div class="pull-left info">
               <p> <? print_r($user_name); ?></p>
 
-              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+              <!-- <a href="#"><i class="fa fa-circle text-success"></i> Online</a> -->
             </div>
           </div>
           <!-- search form -->
@@ -298,7 +335,7 @@
                               $dawwa=$dsaww->row();
                               if(empty($dawwa)){
                                 echo base_url().ADMIN_URL."/".$sd['url'].'">';?>
-                                <i class="fa fa-files-o"></i>
+                                <i class="fa fa-bullseye"></i>
                                 <span><? echo $sd['name'] ?></span>
                                 <span class="label label-primary pull-right"></span>
                                 </a>
@@ -307,7 +344,7 @@
                               <?
                               }
                               else{
-                                echo '#"> <i class="fa fa-files-o"></i>
+                                echo '#"> <i class="fa fa-bullseye"></i>
                                 <span>'.$sd['name'].'</span>
                                 <span class="label label-primary pull-right"></span>
                               </a>
@@ -319,7 +356,7 @@
                             foreach($dsa->result() as $data) { ?>
 
 
-                              <li><a href="<? echo base_url().ADMIN_URL ?>/<? echo $data->url; ?>"><i class="fa fa-circle-o"></i><?php echo $data->name; ?></a></li>
+                              <li><a href="<? echo base_url().ADMIN_URL ?>/<? echo $data->url; ?>"><i class="fa fa-bullseye"></i><?php echo $data->name; ?></a></li>
                               <?
                               }
                               ?>

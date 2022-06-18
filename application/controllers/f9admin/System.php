@@ -72,9 +72,9 @@ class System extends CI_finecontrol
 
                     $p1=$da->password;
 
-                    if ($new2==$p1) {
+                    if (md5($old)==$p1) {
                         $data_update = array(
-                                                                        'password'=>$p1,
+                                                                        'password'=>$new2,
 
                                                                         );
 
@@ -82,6 +82,7 @@ class System extends CI_finecontrol
                         $zapak=$this->db->update('tbl_team', $data_update);
 
                         if ($zapak!=0) {
+
                             // redirect("admin/home/view_team","refresh");
                             echo "<div class='alert alert-success'>
   <strong>Success!</strong> Password Changed Successfully

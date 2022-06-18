@@ -4,9 +4,9 @@
       Add New Banners
     </h1>
     <ol class="breadcrumb">
-      <li><a href="<?php echo base_url() ?>dcadmin/dashboard"><i class="fa fa-dashboard"></i>Home</a></li>
-      <li><a href="<?php echo base_url() ?>dcadmin/banners/view_banners"><i class="fa fa-dashboard"></i> All Banners </a></li>
-
+      <li><a href="<?php echo base_url() ?>dcadmin/home"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+      <li><a href="<?php echo base_url() ?>dcadmin/banners/view_banners"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> View Banners </a></li>
+      <!-- <li class="active">View Team</li> -->
     </ol>
   </section>
   <section class="content">
@@ -53,7 +53,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <td> <strong>Image</strong> <span style="color:red;">*</span></strong> </td>
+                      <td> <strong>Image</strong> <span style="color:red;"></span></strong> </td>
                       <td>
                         <input type="file" name="banner_image" class="form-control" placeholder=""  value="" />
                       </td>

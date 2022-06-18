@@ -4,9 +4,8 @@
               Add Discount Percentage
             </h1>
             <ol class="breadcrumb">
-              <li><a href="<?php echo base_url() ?>admin/dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
-              <li><a href="<?php echo base_url() ?>admin/college"><i class="fa fa-dashboard"></i> Discount Percentage </a></li>
-
+              <li><a href="<?php echo base_url() ?>dcadmin/home"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+              <li><a href="<?php echo base_url() ?>dcadmin/Abandoncart/view_Abandon_cart"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i>  View Abandoncart </a></li>
             </ol>
           </section>
           <section class="content">

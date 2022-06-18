@@ -94,7 +94,8 @@ class Banners extends CI_finecontrol
                         if (!$this->upload->do_upload($img1)) {
                             $upload_error = $this->upload->display_errors();
                             // echo json_encode($upload_error);
-                            echo $upload_error;
+                            $this->session->set_flashdata('emessage', $upload_error);
+                            redirect($_SERVER['HTTP_REFERER']);
                         } else {
                             $file_info = $this->upload->data();
 
@@ -137,6 +138,11 @@ class Banners extends CI_finecontrol
 
 
                         $last_id=$this->base_model->insert_table("tbl_banners_six", $data_insert, 1) ;
+                        if ($last_id!=0) {
+                            $this->session->set_flashdata('smessage', 'Data inserted successfully');
+
+                            redirect("dcadmin/banners/view_banners", "refresh");
+                        }
                     }
                     if ($typ==2) {
                         $idw=base64_decode($iw);
@@ -161,7 +167,7 @@ if(!empty($image)){
 
 
                     if ($last_id!=0) {
-                        $this->session->set_flashdata('smessage', 'Data inserted successfully');
+                        $this->session->set_flashdata('smessage', 'Data updated successfully');
 
                         redirect("dcadmin/banners/view_banners", "refresh");
                     } else {
@@ -222,8 +228,9 @@ if(!empty($image)){
             $id=base64_decode($idd);
 
             if ($this->load->get_var('position')=="Super Admin") {
-                $zapak=$this->db->delete('tbl_banners', array('id' => $id));
+                $zapak=$this->db->delete('tbl_banners_six', array('id' => $id));
                 if ($zapak!=0) {
+                    $this->session->set_flashdata('smessage', 'Banner deleted successfully');
                     redirect("dcadmin/banners/view_banners", "refresh");
                 } else {
                     echo "Error";
@@ -257,9 +264,10 @@ if(!empty($image)){
          );
 
                 $this->db->where('id', $id);
-                $zapak=$this->db->update('tbl_banners', $data_update);
+                $zapak=$this->db->update('tbl_banners_six', $data_update);
 
                 if ($zapak!=0) {
+                    $this->session->set_flashdata('smessage', 'Status updated successfully');
                     redirect("dcadmin/banners/view_banners", "refresh");
                 } else {
                     echo "Error";
@@ -273,9 +281,10 @@ if(!empty($image)){
           );
 
                 $this->db->where('id', $id);
-                $zapak=$this->db->update('tbl_banners', $data_update);
+                $zapak=$this->db->update('tbl_banners_six', $data_update);
 
                 if ($zapak!=0) {
+                    $this->session->set_flashdata('smessage', 'Status updated successfully');
                     redirect("dcadmin/banners/view_banners", "refresh");
                 } else {
                     $data['e']="Error Occured";

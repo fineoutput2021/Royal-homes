@@ -126,7 +126,8 @@ $img1='file';
 
 
 
-
+$file_check=($_FILES['image']['error']);
+if ($file_check!=4) {
          $image_upload_folder = FCPATH . "assets/uploads/corporate_brochers/";
                      if (!file_exists($image_upload_folder))
                      {
@@ -161,7 +162,123 @@ $img1='file';
 
                          // echo json_encode($file_info);
                      }
+}
 
+
+
+$img2='image';
+$file_check=($_FILES['image']['error']);
+if ($file_check!=4) {
+         $image_upload_folder = FCPATH . "assets/uploads/corporate_brochers/";
+                     if (!file_exists($image_upload_folder))
+                     {
+                         mkdir($image_upload_folder, DIR_WRITE_MODE, true);
+                     }
+                     $new_file_name="corporate_brochers".date("Ymdhms");
+                     $this->upload_config = array(
+                             'upload_path'   => $image_upload_folder,
+                             'file_name' => $new_file_name,
+                             'allowed_types' =>'jpg|jpeg|png',
+                             'max_size'      => 25000
+                     );
+                     $this->upload->initialize($this->upload_config);
+                     if (!$this->upload->do_upload($img2))
+                     {
+                         $upload_error = $this->upload->display_errors();
+                         // echo json_encode($upload_error);
+
+           $this->session->set_flashdata('emessage',$upload_error);
+             redirect($_SERVER['HTTP_REFERER']);
+                     }
+                     else
+                     {
+
+                         $file_info = $this->upload->data();
+
+                         $videoNAmePath = "assets/uploads/corporate_brochers/".$new_file_name.$file_info['file_ext'];
+                         $file_info['new_name']=$videoNAmePath;
+                         // $this->step6_model->updateappIconImage($imageNAmePath,$appInfoId);
+                         $nnnn=$file_info['file_name'];
+                         $nnnn2=$videoNAmePath;
+
+                         // echo json_encode($file_info);
+}
+ }
+
+
+
+
+           $data_insert = array(
+                  // 'title'=>$title,
+  'file'=>$nnnn1,
+  'image'=>$nnnn2,
+                     'ip' =>$ip,
+                     'added_by' =>$addedby,
+                     'is_active' =>1,
+                     'date'=>$cur_date
+                     );
+
+
+           $last_id=$this->base_model->insert_table("tbl_corporate_brochers",$data_insert,1) ;
+           if($last_id!=0){
+                   $this->session->set_flashdata('smessage','Data inserted successfully');
+                   redirect("dcadmin/corporate_brochers/view_corporate_brochers","refresh");
+                  }
+           }
+           if($typ==2){
+
+    $idw=base64_decode($iw);
+
+
+ $this->db->select('*');
+ $this->db->from('tbl_corporate_brochers');
+ $this->db->where('id',$idw);
+ $dsa=$this->db->get();
+ $da=$dsa->row();
+
+
+
+$img1='file';
+
+
+
+$file_check=($_FILES['image']['error']);
+if ($file_check!=4) {
+         $image_upload_folder = FCPATH . "assets/uploads/corporate_brochers/";
+                     if (!file_exists($image_upload_folder))
+                     {
+                         mkdir($image_upload_folder, DIR_WRITE_MODE, true);
+                     }
+                     $new_file_name="corporate_brochers".date("Ymdhms");
+                     $this->upload_config = array(
+                             'upload_path'   => $image_upload_folder,
+                             'file_name' => $new_file_name,
+                             'allowed_types' =>'pdf',
+                             'max_size'      => 25000
+                     );
+                     $this->upload->initialize($this->upload_config);
+                     if (!$this->upload->do_upload($img1))
+                     {
+                         $upload_error = $this->upload->display_errors();
+                         // echo json_encode($upload_error);
+
+           $this->session->set_flashdata('emessage',$upload_error);
+             redirect($_SERVER['HTTP_REFERER']);
+                     }
+                     else
+                     {
+
+                         $file_info = $this->upload->data();
+
+                         $videoNAmePath = "assets/uploads/corporate_brochers/".$new_file_name.$file_info['file_ext'];
+                         $file_info['new_name']=$videoNAmePath;
+                         // $this->step6_model->updateappIconImage($imageNAmePath,$appInfoId);
+                         $nnnn=$file_info['file_name'];
+                         $nnnn1=$videoNAmePath;
+
+                         // echo json_encode($file_info);
+                     }
+}
 
 
 
@@ -169,7 +286,8 @@ $img2='image';
 
 
 
-
+$file_check=($_FILES['image']['error']);
+if ($file_check!=4) {
          $image_upload_folder = FCPATH . "assets/uploads/corporate_brochers/";
                      if (!file_exists($image_upload_folder))
                      {
@@ -204,122 +322,7 @@ $img2='image';
 
                          // echo json_encode($file_info);
                      }
-
-
-
-
-           $data_insert = array(
-                  // 'title'=>$title,
-  'file'=>$nnnn1,
-  'image'=>$nnnn2,
-
-                     'ip' =>$ip,
-                     'added_by' =>$addedby,
-                     'is_active' =>1,
-                     'date'=>$cur_date
-                     );
-
-
-           $last_id=$this->base_model->insert_table("tbl_corporate_brochers",$data_insert,1) ;
-
-           }
-           if($typ==2){
-
-    $idw=base64_decode($iw);
-
-
- $this->db->select('*');
- $this->db->from('tbl_corporate_brochers');
- $this->db->where('id',$idw);
- $dsa=$this->db->get();
- $da=$dsa->row();
-
-
-
-$img1='file';
-
-
-
-
-         $image_upload_folder = FCPATH . "assets/uploads/corporate_brochers/";
-                     if (!file_exists($image_upload_folder))
-                     {
-                         mkdir($image_upload_folder, DIR_WRITE_MODE, true);
-                     }
-                     $new_file_name="corporate_brochers".date("Ymdhms");
-                     $this->upload_config = array(
-                             'upload_path'   => $image_upload_folder,
-                             'file_name' => $new_file_name,
-                             'allowed_types' =>'xlsx|csv|xls|pdf|doc|docx|txt|jpg|jpeg|png',
-                             'max_size'      => 25000
-                     );
-                     $this->upload->initialize($this->upload_config);
-                     if (!$this->upload->do_upload($img1))
-                     {
-                         $upload_error = $this->upload->display_errors();
-                         // echo json_encode($upload_error);
-
-           //$this->session->set_flashdata('emessage',$upload_error);
-             //redirect($_SERVER['HTTP_REFERER']);
-                     }
-                     else
-                     {
-
-                         $file_info = $this->upload->data();
-
-                         $videoNAmePath = "assets/uploads/corporate_brochers/".$new_file_name.$file_info['file_ext'];
-                         $file_info['new_name']=$videoNAmePath;
-                         // $this->step6_model->updateappIconImage($imageNAmePath,$appInfoId);
-                         $nnnn=$file_info['file_name'];
-                         $nnnn1=$videoNAmePath;
-
-                         // echo json_encode($file_info);
-                     }
-
-
-
-
-$img2='image';
-
-
-
-
-         $image_upload_folder = FCPATH . "assets/uploads/corporate_brochers/";
-                     if (!file_exists($image_upload_folder))
-                     {
-                         mkdir($image_upload_folder, DIR_WRITE_MODE, true);
-                     }
-                     $new_file_name="corporate_brochers".date("Ymdhms");
-                     $this->upload_config = array(
-                             'upload_path'   => $image_upload_folder,
-                             'file_name' => $new_file_name,
-                             'allowed_types' =>'xlsx|csv|xls|pdf|doc|docx|txt|jpg|jpeg|png',
-                             'max_size'      => 25000
-                     );
-                     $this->upload->initialize($this->upload_config);
-                     if (!$this->upload->do_upload($img2))
-                     {
-                         $upload_error = $this->upload->display_errors();
-                         // echo json_encode($upload_error);
-
-           //$this->session->set_flashdata('emessage',$upload_error);
-             //redirect($_SERVER['HTTP_REFERER']);
-                     }
-                     else
-                     {
-
-                         $file_info = $this->upload->data();
-
-                         $videoNAmePath = "assets/uploads/corporate_brochers/".$new_file_name.$file_info['file_ext'];
-                         $file_info['new_name']=$videoNAmePath;
-                         // $this->step6_model->updateappIconImage($imageNAmePath,$appInfoId);
-                         $nnnn=$file_info['file_name'];
-                         $nnnn2=$videoNAmePath;
-
-                         // echo json_encode($file_info);
-                     }
-
-
+}
 
 
  if(!empty($da)){ $img = $da ->file;
@@ -336,7 +339,7 @@ if(!empty($img)) { if(empty($nnnn2)){ $nnnn2 = $img; } }else{ if(empty($nnnn2)){
              $last_id=$this->db->update('tbl_corporate_brochers', $data_insert);
            }
                        if($last_id!=0){
-                               $this->session->set_flashdata('smessage','Data inserted successfully');
+                               $this->session->set_flashdata('smessage','Data updated successfully');
                                redirect("dcadmin/corporate_brochers/view_corporate_brochers","refresh");
                               }
                                else
@@ -394,6 +397,7 @@ if(!empty($img)) { if(empty($nnnn2)){ $nnnn2 = $img; } }else{ if(empty($nnnn2)){
                        $zapak=$this->db->update('tbl_corporate_brochers', $data_update);
 
                             if($zapak!=0){
+                               $this->session->set_flashdata('smessage','Status updated successfully');
                             redirect("dcadmin/corporate_brochers/view_corporate_brochers","refresh");
                                     }
                                     else
@@ -412,6 +416,7 @@ if(!empty($img)) { if(empty($nnnn2)){ $nnnn2 = $img; } }else{ if(empty($nnnn2)){
                          $zapak=$this->db->update('tbl_corporate_brochers', $data_update);
 
                              if($zapak!=0){
+                                $this->session->set_flashdata('smessage','Status updated successfully');
                              redirect("dcadmin/corporate_brochers/view_corporate_brochers","refresh");
                                      }
                                      else
@@ -460,6 +465,7 @@ if(!empty($img)) { if(empty($nnnn2)){ $nnnn2 = $img; } }else{ if(empty($nnnn2)){
  if($zapak!=0){
         // $path = FCPATH .$img;
         //   unlink($path);
+         $this->session->set_flashdata('smessage','Corporate brochers data deleted successfully');
         redirect("dcadmin/corporate_brochers/view_corporate_brochers","refresh");
                 }
                 else

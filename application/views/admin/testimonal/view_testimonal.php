@@ -1,16 +1,21 @@
 <div class="content-wrapper">
   <section class="content-header">
     <h1>
-      View Testimonal
+      View Testimonial
     </h1>
+    <ol class="breadcrumb">
+      <li><a href="<?php echo base_url() ?>dcadmin/home"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+      <li><a href="<?php echo base_url() ?>dcadmin/estimonal/view_testimonal"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i>  View Testimonials </a></li>
+      <!-- <li class="active">View Categories</li> -->
+    </ol>
   </section>
   <section class="content">
     <div class="row">
       <div class="col-lg-12">
-        <a class="btn btn-info cticket" href="<?php echo base_url() ?>dcadmin/testimonal/add_testimonal" role="button" style="margin-bottom:12px;"> Add testimonal</a>
+        <a class="btn btn-info cticket" href="<?php echo base_url() ?>dcadmin/testimonal/add_testimonal" role="button" style="margin-bottom:12px;"> Add testimonial</a>
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title"><i class="fa fa-money fa-fw"></i>View testimonal</h3>
+            <h3 class="panel-title"><i class="fa fa-money fa-fw"></i>View testimonial</h3>
           </div>
           <div class="panel panel-default">
 
@@ -127,7 +132,7 @@
 <script src="<?php echo base_url() ?>assets/admin/plugins/datatables/dataTables.bootstrap.js"></script>
 <script type="text/javascript">
   $(document).ready(function() {
-  
+
 
     $(document.body).on('click', '.dCnf', function() {
       var i = $(this).attr("mydata");

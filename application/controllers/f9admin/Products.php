@@ -227,7 +227,8 @@
 
 
 
-
+                               $file_check=($_FILES['image']['error']);
+                               if ($file_check!=4) {
                                $image_upload_folder = FCPATH . "assets/uploads/products/";
                                if (!file_exists($image_upload_folder)) {
                                    mkdir($image_upload_folder, DIR_WRITE_MODE, true);
@@ -236,7 +237,7 @@
                                $this->upload_config = array(
                              'upload_path'   => $image_upload_folder,
                              'file_name' => $new_file_name,
-                             'allowed_types' =>'xlsx|csv|xls|pdf|doc|docx|txt|jpg|jpeg|png',
+                             'allowed_types' =>'jpg|jpeg|png',
                              'max_size'      => 25000
                      );
                                $this->upload->initialize($this->upload_config);
@@ -244,8 +245,8 @@
                                    $upload_error = $this->upload->display_errors();
                                // echo json_encode($upload_error);
 
-           //$this->session->set_flashdata('emessage',$upload_error);
-             //redirect($_SERVER['HTTP_REFERER']);
+           $this->session->set_flashdata('emessage',$upload_error);
+             redirect($_SERVER['HTTP_REFERER']);
                                } else {
                                    $file_info = $this->upload->data();
 
@@ -257,7 +258,7 @@
 
                                    // echo json_encode($file_info);
                                }
-
+}
 
 
 
@@ -265,7 +266,8 @@
 
 
 
-
+                               $file_check=($_FILES['image']['error']);
+                               if ($file_check!=4) {
                                $image_upload_folder = FCPATH . "assets/uploads/products/";
                                if (!file_exists($image_upload_folder)) {
                                    mkdir($image_upload_folder, DIR_WRITE_MODE, true);
@@ -274,7 +276,7 @@
                                $this->upload_config = array(
                              'upload_path'   => $image_upload_folder,
                              'file_name' => $new_file_name,
-                             'allowed_types' =>'xlsx|csv|xls|pdf|doc|docx|txt|jpg|jpeg|png',
+                             'allowed_types' =>'jpg|jpeg|png',
                              'max_size'      => 25000
                      );
                                $this->upload->initialize($this->upload_config);
@@ -282,8 +284,8 @@
                                    $upload_error = $this->upload->display_errors();
                                // echo json_encode($upload_error);
 
-           //$this->session->set_flashdata('emessage',$upload_error);
-             //redirect($_SERVER['HTTP_REFERER']);
+           $this->session->set_flashdata('emessage',$upload_error);
+             redirect($_SERVER['HTTP_REFERER']);
                                } else {
                                    $file_info = $this->upload->data();
 
@@ -295,7 +297,7 @@
 
                                    // echo json_encode($file_info);
                                }
-
+}
 
 
 
@@ -303,7 +305,8 @@
 
 
 
-
+                               $file_check=($_FILES['image']['error']);
+                               if ($file_check!=4) {
                                $image_upload_folder = FCPATH . "assets/uploads/products/";
                                if (!file_exists($image_upload_folder)) {
                                    mkdir($image_upload_folder, DIR_WRITE_MODE, true);
@@ -312,7 +315,7 @@
                                $this->upload_config = array(
                              'upload_path'   => $image_upload_folder,
                              'file_name' => $new_file_name,
-                             'allowed_types' =>'xlsx|csv|xls|pdf|doc|docx|txt|jpg|jpeg|png',
+                             'allowed_types' =>'jpg|jpeg|png',
                              'max_size'      => 25000
                      );
                                $this->upload->initialize($this->upload_config);
@@ -320,8 +323,8 @@
                                    $upload_error = $this->upload->display_errors();
                                // echo json_encode($upload_error);
 
-           //$this->session->set_flashdata('emessage',$upload_error);
-             //redirect($_SERVER['HTTP_REFERER']);
+           $this->session->set_flashdata('emessage',$upload_error);
+             redirect($_SERVER['HTTP_REFERER']);
                                } else {
                                    $file_info = $this->upload->data();
 
@@ -333,7 +336,7 @@
 
                                    // echo json_encode($file_info);
                                }
-
+}
 
 
 
@@ -341,7 +344,8 @@
 
 
 
-
+                               $file_check=($_FILES['image']['error']);
+                               if ($file_check!=4) {
                                $image_upload_folder = FCPATH . "assets/uploads/products/";
                                if (!file_exists($image_upload_folder)) {
                                    mkdir($image_upload_folder, DIR_WRITE_MODE, true);
@@ -350,7 +354,7 @@
                                $this->upload_config = array(
                              'upload_path'   => $image_upload_folder,
                              'file_name' => $new_file_name,
-                             'allowed_types' =>'xlsx|csv|xls|pdf|doc|docx|txt|jpg|jpeg|png',
+                             'allowed_types' =>'jpg|jpeg|png',
                              'max_size'      => 25000
                      );
                                $this->upload->initialize($this->upload_config);
@@ -358,8 +362,8 @@
                                    $upload_error = $this->upload->display_errors();
                                // echo json_encode($upload_error);
 
-           //$this->session->set_flashdata('emessage',$upload_error);
-             //redirect($_SERVER['HTTP_REFERER']);
+           $this->session->set_flashdata('emessage',$upload_error);
+             redirect($_SERVER['HTTP_REFERER']);
                                } else {
                                    $file_info = $this->upload->data();
 
@@ -371,7 +375,7 @@
 
                                    // echo json_encode($file_info);
                                }
-
+}
 
 
 
@@ -403,6 +407,10 @@
 
 
                                $last_id=$this->base_model->insert_table("tbl_products", $data_insert, 1) ;
+                               if ($last_id!=0) {
+                                   $this->session->set_flashdata('smessage', 'Data updated successfully');
+                                   redirect("dcadmin/products/view_products", "refresh");
+                               }
                            }
                            if ($typ==2) {
                                $idw=base64_decode($iw);
@@ -420,7 +428,8 @@
 
 
 
-
+                               $file_check=($_FILES['image']['error']);
+                               if ($file_check!=4) {
                                $image_upload_folder = FCPATH . "assets/uploads/products/";
                                if (!file_exists($image_upload_folder)) {
                                    mkdir($image_upload_folder, DIR_WRITE_MODE, true);
@@ -429,7 +438,7 @@
                                $this->upload_config = array(
                              'upload_path'   => $image_upload_folder,
                              'file_name' => $new_file_name,
-                             'allowed_types' =>'xlsx|csv|xls|pdf|doc|docx|txt|jpg|jpeg|png',
+                             'allowed_types' =>'jpg|jpeg|png',
                              'max_size'      => 25000
                      );
                                $this->upload->initialize($this->upload_config);
@@ -437,8 +446,8 @@
                                    $upload_error = $this->upload->display_errors();
                                // echo json_encode($upload_error);
 
-           //$this->session->set_flashdata('emessage',$upload_error);
-             //redirect($_SERVER['HTTP_REFERER']);
+           $this->session->set_flashdata('emessage',$upload_error);
+             redirect($_SERVER['HTTP_REFERER']);
                                } else {
                                    $file_info = $this->upload->data();
 
@@ -450,7 +459,7 @@
 
                                    // echo json_encode($file_info);
                                }
-
+}
 
 
 
@@ -467,7 +476,7 @@
                                $this->upload_config = array(
                              'upload_path'   => $image_upload_folder,
                              'file_name' => $new_file_name,
-                             'allowed_types' =>'xlsx|csv|xls|pdf|doc|docx|txt|jpg|jpeg|png',
+                             'allowed_types' =>'jpg|jpeg|png',
                              'max_size'      => 25000
                      );
                                $this->upload->initialize($this->upload_config);
@@ -475,8 +484,8 @@
                                    $upload_error = $this->upload->display_errors();
                                // echo json_encode($upload_error);
 
-           //$this->session->set_flashdata('emessage',$upload_error);
-             //redirect($_SERVER['HTTP_REFERER']);
+           $this->session->set_flashdata('emessage',$upload_error);
+             redirect($_SERVER['HTTP_REFERER']);
                                } else {
                                    $file_info = $this->upload->data();
 
@@ -496,7 +505,8 @@
 
 
 
-
+                               $file_check=($_FILES['image']['error']);
+                               if ($file_check!=4) {
                                $image_upload_folder = FCPATH . "assets/uploads/products/";
                                if (!file_exists($image_upload_folder)) {
                                    mkdir($image_upload_folder, DIR_WRITE_MODE, true);
@@ -505,7 +515,7 @@
                                $this->upload_config = array(
                              'upload_path'   => $image_upload_folder,
                              'file_name' => $new_file_name,
-                             'allowed_types' =>'xlsx|csv|xls|pdf|doc|docx|txt|jpg|jpeg|png',
+                             'allowed_types' =>'jpg|jpeg|png',
                              'max_size'      => 25000
                      );
                                $this->upload->initialize($this->upload_config);
@@ -513,8 +523,8 @@
                                    $upload_error = $this->upload->display_errors();
                                // echo json_encode($upload_error);
 
-           //$this->session->set_flashdata('emessage',$upload_error);
-             //redirect($_SERVER['HTTP_REFERER']);
+           $this->session->set_flashdata('emessage',$upload_error);
+             redirect($_SERVER['HTTP_REFERER']);
                                } else {
                                    $file_info = $this->upload->data();
 
@@ -526,7 +536,7 @@
 
                                    // echo json_encode($file_info);
                                }
-
+}
 
 
 
@@ -534,7 +544,8 @@
 
 
 
-
+                               $file_check=($_FILES['image']['error']);
+                               if ($file_check!=4) {
                                $image_upload_folder = FCPATH . "assets/uploads/products/";
                                if (!file_exists($image_upload_folder)) {
                                    mkdir($image_upload_folder, DIR_WRITE_MODE, true);
@@ -543,7 +554,7 @@
                                $this->upload_config = array(
                              'upload_path'   => $image_upload_folder,
                              'file_name' => $new_file_name,
-                             'allowed_types' =>'xlsx|csv|xls|pdf|doc|docx|txt|jpg|jpeg|png',
+                             'allowed_types' =>'jpg|jpeg|png',
                              'max_size'      => 25000
                      );
                                $this->upload->initialize($this->upload_config);
@@ -551,8 +562,8 @@
                                    $upload_error = $this->upload->display_errors();
                                // echo json_encode($upload_error);
 
-           //$this->session->set_flashdata('emessage',$upload_error);
-             //redirect($_SERVER['HTTP_REFERER']);
+           $this->session->set_flashdata('emessage',$upload_error);
+             redirect($_SERVER['HTTP_REFERER']);
                                } else {
                                    $file_info = $this->upload->data();
 
@@ -564,7 +575,7 @@
 
                                    // echo json_encode($file_info);
                                }
-
+}
 
 
 
@@ -695,6 +706,7 @@
                        $zapak=$this->db->update('tbl_products', $data_update);
 
                        if ($zapak!=0) {
+$this->session->set_flashdata('smessage', 'Status updated successfully');
                            redirect("dcadmin/products/view_products", "refresh");
                        } else {
                            $this->session->set_flashdata('emessage', 'Sorry error occured');
@@ -711,6 +723,7 @@
                        $zapak=$this->db->update('tbl_products', $data_update);
 
                        if ($zapak!=0) {
+                         $this->session->set_flashdata('smessage', 'Status updated successfully');
                            redirect("dcadmin/products/view_products", "refresh");
                        } else {
                            $this->session->set_flashdata('emessage', 'Sorry error occured');
@@ -747,6 +760,7 @@
                        if ($zapak!=0) {
                            $path = FCPATH .$img;
                            unlink($path);
+                                $this->session->set_flashdata('smessage', 'Product deleted successfully');
                            redirect("dcadmin/products/view_products", "refresh");
                        } else {
                            $this->session->set_flashdata('emessage', 'Sorry error occured');

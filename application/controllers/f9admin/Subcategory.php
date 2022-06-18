@@ -114,41 +114,37 @@
                            $cur_date=date("Y-m-d H:i:s");
                            $addedby=$this->session->userdata('admin_id');
 
-$this->load->library('upload');
-    $img1='image';
+                           $this->load->library('upload');
+                           $img1='image';
 
-      $file_check=($_FILES['image']['error']);
-      if($file_check!=4){
-    	$image_upload_folder = FCPATH . "assets/uploads/subcategory/";
-  						if (!file_exists($image_upload_folder))
-  						{
-  							mkdir($image_upload_folder, DIR_WRITE_MODE, true);
-  						}
-  						$new_file_name="subcategory".date("Ymdhms");
-  						$this->upload_config = array(
-  								'upload_path'   => $image_upload_folder,
-  								'file_name' => $new_file_name,
-  								'allowed_types' =>'xlsx|csv|xls|pdf|doc|docx|txt|jpg|jpeg|png',
-  								'max_size'      => 25000
-  						);
-  						$this->upload->initialize($this->upload_config);
-  						if (!$this->upload->do_upload($img1))
-  						{
-  							$upload_error = $this->upload->display_errors();
-  							// echo json_encode($upload_error);
-  							echo $upload_error;
-  						}
-  						else
-  						{
+                           $file_check=($_FILES['image']['error']);
+                           if ($file_check!=4) {
+                               $image_upload_folder = FCPATH . "assets/uploads/subcategory/";
+                               if (!file_exists($image_upload_folder)) {
+                                   mkdir($image_upload_folder, DIR_WRITE_MODE, true);
+                               }
+                               $new_file_name="subcategory".date("Ymdhms");
+                               $this->upload_config = array(
+                                'upload_path'   => $image_upload_folder,
+                                'file_name' => $new_file_name,
+                                'allowed_types' =>'jpg|jpeg|png',
+                                'max_size'      => 25000
+                        );
+                               $this->upload->initialize($this->upload_config);
+                               if (!$this->upload->do_upload($img1)) {
+                                   $upload_error = $this->upload->display_errors();
+                                   // echo json_encode($upload_error);
+                                   $this->session->set_flashdata('emessage', 'Sorry error occured');
+                                   redirect($_SERVER['HTTP_REFERER']);
+                               } else {
+                                   $file_info = $this->upload->data();
 
-  							$file_info = $this->upload->data();
-
-  							$videoNAmePath = "assets/uploads/subcategory/".$new_file_name.$file_info['file_ext'];
-  							// $this->step6_model->updateappIconImage($imageNAmePath,$appInfoId);
-  							$image=$videoNAmePath;
-  							// echo json_encode($file_info);
-  						}
-      }
+                                   $videoNAmePath = "assets/uploads/subcategory/".$new_file_name.$file_info['file_ext'];
+                                   // $this->step6_model->updateappIconImage($imageNAmePath,$appInfoId);
+                                   $image=$videoNAmePath;
+                                   // echo json_encode($file_info);
+                               }
+                           }
                            $typ=base64_decode($t);
                            $last_id = 0;
 
@@ -171,6 +167,10 @@ $this->load->library('upload');
 
 
                                $last_id=$this->base_model->insert_table("tbl_subcategory", $data_insert, 1) ;
+                               if ($last_id!=0) {
+                                   $this->session->set_flashdata('smessage', 'Data inserted successfully');
+                                   redirect("dcadmin/subcategory/view_subcategory", "refresh");
+                               }
                            }
                            if ($typ==2) {
                                $idw=base64_decode($iw);
@@ -185,8 +185,8 @@ $this->load->library('upload');
 
 
 
-if(!empty($image)){
-                               $data_insert = array(
+                               if (!empty($image)) {
+                                   $data_insert = array(
                   'category_id'=>$category_id,
   'subcategory'=>$subcategory,
   'description'=>$description,
@@ -195,8 +195,8 @@ if(!empty($image)){
 
 
                      );
-                   }else{
-                     $data_insert = array(
+                               } else {
+                                   $data_insert = array(
         'category_id'=>$category_id,
 'subcategory'=>$subcategory,
 'description'=>$description,
@@ -204,12 +204,12 @@ if(!empty($image)){
 
 
            );
-                   }
+                               }
                                $this->db->where('id', $idw);
                                $last_id=$this->db->update('tbl_subcategory', $data_insert);
                            }
                            if ($last_id!=0) {
-                               $this->session->set_flashdata('smessage', 'Data inserted successfully');
+                               $this->session->set_flashdata('smessage', 'Data updated successfully');
                                redirect("dcadmin/subcategory/view_subcategory", "refresh");
                            } else {
                                $this->session->set_flashdata('emessage', 'Sorry error occured');
@@ -249,6 +249,7 @@ if(!empty($image)){
                        $zapak=$this->db->update('tbl_subcategory', $data_update);
 
                        if ($zapak!=0) {
+                           $this->session->set_flashdata('smessage', 'Status updated successfully');
                            redirect("dcadmin/subcategory/view_subcategory", "refresh");
                        } else {
                            $this->session->set_flashdata('emessage', 'Sorry error occured');
@@ -265,6 +266,7 @@ if(!empty($image)){
                        $zapak=$this->db->update('tbl_subcategory', $data_update);
 
                        if ($zapak!=0) {
+                           $this->session->set_flashdata('smessage', 'Status updated successfully');
                            redirect("dcadmin/subcategory/view_subcategory", "refresh");
                        } else {
                            $this->session->set_flashdata('emessage', 'Sorry error occured');
@@ -299,6 +301,7 @@ if(!empty($image)){
 
                        $zapak=$this->db->delete('tbl_subcategory', array('id' => $id));
                        if ($zapak!=0) {
+                           $this->session->set_flashdata('smessage', 'Subcategory deleted successfully');
                            redirect("dcadmin/subcategory/view_subcategory", "refresh");
                        } else {
                            $this->session->set_flashdata('emessage', 'Sorry error occured');
