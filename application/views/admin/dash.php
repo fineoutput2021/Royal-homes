@@ -12,11 +12,13 @@
           </ol>
         </section>
 
+
         <!-- Main content -->
         <section class="content">
           <!-- Info boxes -->
           <div class="row">
             <div class="col-md-3 col-sm-6 col-xs-12">
+              <a href="<?=base_url()?>dcadmin/users/view_users">
               <div class="info-box">
                 <span class="info-box-icon bg-aqua"><i class="fa fa-users"></i></span>
                 <div class="info-box-content">
@@ -30,6 +32,7 @@
               </div><!-- /.info-box -->
             </div><!-- /.col -->
             <div class="col-md-3 col-sm-6 col-xs-12">
+              <a href="<?=base_url()?>dcadmin/products/view_products">
               <div class="info-box">
                 <span class="info-box-icon bg-red"><i class="fa fa-users"></i></span>
                 <div class="info-box-content">
@@ -42,25 +45,8 @@
                 </div><!-- /.info-box-content -->
               </div><!-- /.info-box -->
             </div><!-- /.col -->
-
-            <!-- fix for small devices only -->
-            <div class="clearfix visible-sm-block"></div>
-
             <div class="col-md-3 col-sm-6 col-xs-12">
-              <div class="info-box">
-                <span class="info-box-icon bg-green"><i class="fa fa-truck"></i></span>
-                <div class="info-box-content">
-                  <span class="info-box-text">Total Orders</span>
-                  <span class="info-box-number"><?          $this->db->select('*');
-                  $this->db->from('tbl_order1');
-
-                  $order1= $this->db->count_all_results(); echo $order1;
-
-                  ?></span>
-                </div><!-- /.info-box-content -->
-              </div><!-- /.info-box -->
-            </div><!-- /.col -->
-            <div class="col-md-3 col-sm-6 col-xs-12">
+              <a href="<?=base_url()?>dcadmin/Orders/view_new_orders">
               <div class="info-box">
                 <span class="info-box-icon bg-yellow"><i class="fa fa-truck"></i></span>
                 <div class="info-box-content">
