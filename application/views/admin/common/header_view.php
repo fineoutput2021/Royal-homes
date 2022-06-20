@@ -16,24 +16,30 @@
     <link href="<?php echo base_url() ?>assets/admin/plugins/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url() ?>assets/admin/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url() ?>assets/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
+    <!--start excel header cdn ------>
+    <link href="https://cdn.datatables.net/buttons/1.6.1/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
+</script>
+<!--end excel ------>
   <style>
   /* / ==============================Custom theme=========================================== / */
   .custom_btn{
     color: white;
-    background-color: hsl(353deg 91% 53%);
+    background-color:#d76a46;
   }
   .custom_btn:hover{
-    color: white;
-    background-color: grey;
+    color: orange;
+    background-color: white;
   }
   .custom_header{
     color: white;
     background-color: #d76a46 !important;
   }
   .custom_header>a:hover{
-    color: #fff;
-    background: hsl(353deg 91% 53%) !important;
-    border-left-color: hsl(353deg 91% 53%);
+    color:  #d76a46;
+    background: white !important;
+    border-left-color: black;
   }
   .custom_header>li>a:hover{
     color: #fff;
@@ -41,18 +47,32 @@
     border-left-color: hsl(353deg 91% 53%);
   }
   .active>a{
-    color: #fff;
-    background: hsl(353deg 91% 53%) !important;
+    color:  white ;
+    background: #d76a46 !important;
     border-color: hsl(353deg 91% 53%) !important;
   }
 .skin-blue .sidebar-menu>li>.treeview-menu{
-    color: #d76a46 !important;;
+    color: #d76a46!important;;
     background-color: #d76a46;
   }
   .skin-blue .sidebar-menu>li>a:hover{
     color: #d76a46;
     background: #262626;
     border-left-color: hsl(353deg 91% 53%);
+  }
+  .sidebar-menu>li>a {
+    color:black;
+  }
+  .sidebar-menu>li>a:hover{
+    color:white;
+    background-color:#d76a46;
+  }
+  .sidebar-menu .treeview-menu>li>a {
+    color:black;
+  }
+  .sidebar-menu .treeview-menu>li>a:hover{
+    color:white;
+    background-color:#d76a46;
   }
   label{
   	margin:5px;
@@ -196,8 +216,8 @@
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top custom_header" role="navigation">
           <!-- Sidebar toggle button-->
-          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-            <span class="sr-only">Toggle navigation</span>
+          <a href="#" class="sidebar-toggle" style="color:black" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation #d76a46</span>
           </a>
           <!-- Navbar Right Menu -->
           <div class="navbar-custom-menu custom_header">
@@ -322,12 +342,13 @@
 // print_r($sidebar);
 // exit;
             foreach($sidebar as $sd){
-
+              $currentURL = current_url();
+                                         $urls= base_url().ADMIN_URL."/".$sd['url'];
 
 
                             ?>
                             <li class="treeview">
-                              <a href="<?
+                              <a style="<?php if($currentURL == $urls){ echo 'background-color:#d76a46; color: white; border-left-color: #f4956e;';}?>" href="<?
                               $this->db->select('*');
                               $this->db->from('tbl_admin_sidebar2');
                               $this->db->where('main_id',$sd['id']);

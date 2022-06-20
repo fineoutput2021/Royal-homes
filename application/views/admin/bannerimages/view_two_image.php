@@ -19,7 +19,7 @@
                            $da=$dsa->row();
                            if (empty($da)) {
                                ?>
-        <a class="btn btn-info cticket" href="<?php echo base_url() ?>dcadmin/Bannerimages/add_two_images" role="button" style="margin-bottom:12px;"> Add Two-Image</a>
+        <a class="btn custom_btn" href="<?php echo base_url() ?>dcadmin/Bannerimages/add_two_images" role="button" style="margin-bottom:12px;"> Add Two-Image</a>
         <?php
                            } ?>
         <div class="panel panel-default">

@@ -12,7 +12,7 @@
   <section class="content">
     <div class="row">
       <div class="col-lg-12">
-        <!-- <a class="btn btn-info cticket" href="<?php base_url() ?>dcadmin/products/add_products"
+        <!-- <a class="btn custom_btn" href="<?php base_url() ?>dcadmin/products/add_products"
         role="button" style="margin-bottom:12px;"> Add products</a> -->
         <div class="panel panel-default">
           <div class="panel-heading">

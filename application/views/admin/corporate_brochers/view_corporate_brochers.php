@@ -12,7 +12,7 @@
   <section class="content">
     <div class="row">
       <div class="col-lg-12">
-        <a class="btn btn-info cticket" href="<?php echo base_url() ?>dcadmin/corporate_brochers/add_corporate_brochers" role="button" style="margin-bottom:12px;"> Add corporate brochers</a>
+        <a class="btn custom_btn" href="<?php echo base_url() ?>dcadmin/corporate_brochers/add_corporate_brochers" role="button" style="margin-bottom:12px;"> Add corporate brochers</a>
         <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title"><i class="fa fa-money fa-fw"></i>View corporate Brochers</h3>

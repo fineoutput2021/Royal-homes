@@ -21,7 +21,7 @@
                       if(empty($da)){
 
                       ?>
-        <a class="btn btn-info cticket" href="<?php echo base_url() ?>dcadmin/bannerimages/add_bannerimages"
+        <a class="btn custom_btn" href="<?php echo base_url() ?>dcadmin/bannerimages/add_bannerimages"
         role="button" style="margin-bottom:12px;"> Add Images-I</a>
 
       <? } ?>
