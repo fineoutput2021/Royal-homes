@@ -591,9 +591,10 @@
                        // $img=$da->image;
 
                        $zapak=$this->db->delete('tbl_bannerimages', array('id' => $id));
-                       if ($zapak!=0) {
+
                            // $path = FCPATH .$img;
                            //   unlink($path);
+                           if ($zapak!=0) {
                            $this->session->set_flashdata('smessage', 'Bannner image deleted successfully');
                            redirect("dcadmin/Bannerimages/view_bannerimages", "refresh");
                        } else {

@@ -207,7 +207,10 @@ class System extends CI_finecontrol
                     $services=$this->input->post('services');
                     $password=$this->input->post('password');
                     $img1='fileToUpload1';
-
+                    if(empty($service) && empty($services)){
+                    								$this->session->set_flashdata('emessage','select services to proceed');
+                    								 redirect($_SERVER['HTTP_REFERER']);
+                    							}
                     if ($service==999) {
                         $ser='["999"]';
                     } else {
@@ -278,6 +281,10 @@ class System extends CI_finecontrol
                                                     );
 
                     $last_id=$this->base_model->insert_table("tbl_team", $data_insert, 1) ;
+                    if($zapak!=0){
+                  				 $this->session->set_flashdata('smessage','Team add successfully');
+                  				 redirect("admin/system/view_team","refresh");
+                  				 				}
 
 
                     if (!empty($last_id)) {

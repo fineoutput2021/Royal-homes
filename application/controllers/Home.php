@@ -41,7 +41,7 @@ class Home extends CI_Controller
 
         $this->db->select('*');
         $this->db->from('tbl_bannerimages');
-        //$this->db->where('id',$usr);
+
         $data['banner_images']= $this->db->get()->row();
 
         $this->db->select('*');

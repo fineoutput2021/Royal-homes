@@ -88,6 +88,7 @@
                           </div>
                         </div>
 
+
                         <div style="display:none" id="cnfbox<?php echo $i ?>">
                           <p> Are you sure delete this </p>
                           <a href="<?php echo base_url() ?>dcadmin/banners/delete_banners/<?php echo base64_encode($data->id); ?>" class="btn btn-danger">Yes</a>

@@ -37,7 +37,9 @@ flex-direction: column-reverse !important;
       </p>
     </div>
     <div class="col-md-8 p-0">
+      <?if(!empty($custom_banner->image)){?>
       <img src="<?=base_url().$custom_banner->image?>" class="img-fluid" />
+      <?}?>
     </div>
   </div>
   <hr />

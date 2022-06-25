@@ -74,6 +74,9 @@
     color:white;
     background-color:#d76a46;
   }
+  .sidebar-menu li.header{
+    color:#d76a46;
+  }
   label{
   	margin:5px;
   }
@@ -360,7 +363,6 @@
                                 <span><? echo $sd['name'] ?></span>
                                 <span class="label label-primary pull-right"></span>
                                 </a>
-
                               </li>
                               <?
                               }

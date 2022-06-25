@@ -43,7 +43,7 @@
                     <tr>
                       <td> <strong>Title</strong> <span style="color:red;">*</span></strong> </td>
                       <td>
-                        <input type="text" name="categoryname" class="form-control" placeholder="" value="<?= $category->categoryname; ?>" />
+                        <input type="text" name="categoryname" class="form-control" placeholder=""required value="<?= $category->categoryname; ?>" />
                       </td>
                     </tr>
                     <tr>

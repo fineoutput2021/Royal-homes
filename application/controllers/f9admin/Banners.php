@@ -27,7 +27,7 @@ class Banners extends CI_finecontrol
 
             $this->db->select('*');
             $this->db->from('tbl_banners_six');
-            $this->db->where('is_active', 1);
+            // $this->db->where('is_active', 1);
             $data['banner_data']= $this->db->get();
 
 
@@ -228,6 +228,12 @@ if(!empty($image)){
             $id=base64_decode($idd);
 
             if ($this->load->get_var('position')=="Super Admin") {
+              $this->db->select('*');
+              $this->db->from('tbl_banners_six');
+              $this->db->where('id', $id);
+              $dsa= $this->db->get();
+              $da=$dsa->row();
+
                 $zapak=$this->db->delete('tbl_banners_six', array('id' => $id));
                 if ($zapak!=0) {
                     $this->session->set_flashdata('smessage', 'Banner deleted successfully');
@@ -269,10 +275,9 @@ if(!empty($image)){
                 if ($zapak!=0) {
                     $this->session->set_flashdata('smessage', 'Status updated successfully');
                     redirect("dcadmin/banners/view_banners", "refresh");
-                } else {
-                    echo "Error";
-                    exit;
-                }
+                } else {$this->session->set_flashdata('emessage', 'Sorry error occured');
+                 redirect($_SERVER['HTTP_REFERER']);
+             }
             }
             if ($t=="inactive") {
                 $data_update = array(
@@ -287,9 +292,8 @@ if(!empty($image)){
                     $this->session->set_flashdata('smessage', 'Status updated successfully');
                     redirect("dcadmin/banners/view_banners", "refresh");
                 } else {
-                    $data['e']="Error Occured";
-                    // exit;
-                    $this->load->view('errors/error500admin', $data);
+                    $this->session->set_flashdata('emessage', 'Sorry error occured');
+                    redirect($_SERVER['HTTP_REFERER']);
                 }
             }
         } else {

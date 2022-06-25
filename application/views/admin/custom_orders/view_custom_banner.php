@@ -5,7 +5,7 @@
   </h1>
   <ol class="breadcrumb">
     <li><a href="<?php echo base_url() ?>dcadmin/home"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-    <li><a href="<?php echo base_url() ?>dcadmin/custom_orders/view_custom_banner"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> View Brochers </a></li>
+    <li><a href="<?php echo base_url() ?>dcadmin/custom_orders/view_custom_banner"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> View Custom Banner </a></li>
     <!-- <li class="active">View Team</li> -->
   </ol>
 </section>
