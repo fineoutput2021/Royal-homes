@@ -126,7 +126,7 @@ $img1='file';
 
 
 
-$file_check=($_FILES['image']['error']);
+$file_check=($_FILES['file']['error']);
 if ($file_check!=4) {
          $image_upload_folder = FCPATH . "assets/uploads/corporate_brochers/";
                      if (!file_exists($image_upload_folder))
@@ -242,7 +242,7 @@ $img1='file';
 
 
 
-$file_check=($_FILES['image']['error']);
+$file_check=($_FILES['file']['error']);
 if ($file_check!=4) {
          $image_upload_folder = FCPATH . "assets/uploads/corporate_brochers/";
                      if (!file_exists($image_upload_folder))

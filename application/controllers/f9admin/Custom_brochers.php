@@ -106,7 +106,7 @@
 
 
 
-                       $file_check=($_FILES['image']['error']);
+                       $file_check=($_FILES['file']['error']);
                        if ($file_check!=4) {
                        $image_upload_folder = FCPATH . "assets/uploads/custom_brochers/";
                        if (!file_exists($image_upload_folder)) {
@@ -214,7 +214,7 @@
 
 
 
-                       $file_check=($_FILES['image']['error']);
+                       $file_check=($_FILES['file']['error']);
                        if ($file_check!=4) {
                        $image_upload_folder = FCPATH . "assets/uploads/custom_brochers/";
                        if (!file_exists($image_upload_folder)) {
@@ -245,9 +245,7 @@
 
                            // echo json_encode($file_info);
                        }
-}
-
-
+         }
 
                        $img2='image';
 

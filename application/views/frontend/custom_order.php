@@ -11,6 +11,7 @@ flex-direction: column-reverse !important;
 </style>
 <div class="ggty" style="line-height:5rem;"></div>
 <section>
+    <?if(!empty($custom_banner)){?>
   <div class="row reverse m-3" style="border:1px solid #ccc">
     <!-- <div class="col-xs-12 "> -->
     <div class="col-md-4 ">
@@ -37,12 +38,13 @@ flex-direction: column-reverse !important;
       </p>
     </div>
     <div class="col-md-8 p-0">
-      <?if(!empty($custom_banner->image)){?>
+  <?if(!empty($custom_banner)){?>
       <img src="<?=base_url().$custom_banner->image?>" class="img-fluid" />
       <?}?>
     </div>
   </div>
   <hr />
+  <?}?>
   <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8 mb-4">

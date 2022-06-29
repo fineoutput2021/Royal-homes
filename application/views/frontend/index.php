@@ -229,7 +229,7 @@
 
 
 <!--Start Get the look-->
-
+<?if(!empty($banner_images)){?>
 <section class="get_look overflow-hidden">
   <div class="container-fluid npde">
     <h2 class="text-center py-5"><?=$banner_images->imagename?></h2>
@@ -249,7 +249,7 @@
     </div>
   </div>
 </section>
-
+<?}?>
 <!--End Get the look-->
 
 <!-- Start Best Seller-->
