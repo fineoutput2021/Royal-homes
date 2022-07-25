@@ -2405,6 +2405,11 @@ $category_data= $this->db->get();
                   <ul class="newSideBarExtrOpt" style="list-style-type:none; text-align: center;">
                     <?if (!empty($this->session->userdata('user_data'))) {?>
                     <li class="myNewLi">
+                      <a href="<?=base_url()?>Home/my_profile/<?=base64_encode($this->session->userdata('user_id'))?>">
+                        <span class="myNewSpanBtn">
+                          My Profile
+                        </span>
+                      </a>
                       <a href="<?=base_url()?>Home/view_wishlist/<?=base64_encode($this->session->userdata('user_id'))?>">
                         <span class="myNewSpanBtn">
                           WishList
@@ -2573,6 +2578,7 @@ $category_data= $this->db->get();
                 <i class="fa fa-caret-down btn_change_change media_q_change2 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown " aria-expanded="false" style="width: 10px;margin-top: -5px;margin-left: 1px;">
                 </i>
                 <div class="dropdown-menu dd2_menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item dropdown-item2" href="<?=base_url()?>Home/my_profile/<?=base64_encode($this->session->userdata('user_id'))?>" style="color:unset">My Profile</a>
                   <a class="dropdown-item dropdown-item2" href="<?=base_url()?>Home/my_orders/<?=base64_encode($this->session->userdata('user_id'))?>" style="color:unset">My Orders</a>
                   <a class="dropdown-item dropdown-item2" href="<?=base_url()?>/User_login/user_logout" style="color:unset">logout</a>
                 </div>

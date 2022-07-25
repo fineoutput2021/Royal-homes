@@ -860,9 +860,13 @@ $('.sub').click(function () {
 
 window.onload = function() {
     var $recaptcha = document.querySelector('#g-recaptcha-response');
+    var $recaptchaCustom = document.querySelector('#g-recaptcha-response-custom');
 
     if($recaptcha) {
         $recaptcha.setAttribute("required", "required");
+    }
+    if($recaptchaCustom) {
+        $recaptchaCustom.setAttribute("required", "required");
     }
 };
 

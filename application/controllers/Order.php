@@ -448,7 +448,8 @@ class Order extends CI_Controller
                         $total= $order_data->total_amount;
                         //------chech minimum order amount----------
                         if ($total>=$promo_data->minorder) {
-                            $discount = $total * $promo_data->giftpercent;
+                            $discount = $total * $promo_data->giftpercent/100;
+                            // echo $discount; exit;
                             //----calculating macx discount-------
                             if ($discount<=$promo_data->maxorder) {
                                 $p_discount  = $discount;

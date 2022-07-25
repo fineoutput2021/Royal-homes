@@ -99,7 +99,7 @@
                     </tr>
                     <tr>
                       <td colspan="2">
-                        <input type="submit" class="btn btn-default" value="save">
+                      <a href="<?=base_url()?>dcadmin/home">  <input type="submit" class="btn btn-default" value="save"></a>
                       </td>
                     </tr>
 

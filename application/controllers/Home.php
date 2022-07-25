@@ -270,6 +270,26 @@ class Home extends CI_Controller
         }
     }
 
+    //--------my profile------
+    public function my_profile($idd)
+    {
+        if (!empty($this->session->userdata('user_data'))) {
+            $user_id=base64_decode($idd);
+            $data['id']=$idd;
+
+            $this->db->select('*');
+            $this->db->from('tbl_users');
+            $this->db->where('id', $user_id);
+            $data['user_data']= $this->db->get()->row();
+
+            $this->load->view('frontend/common/header', $data);
+            $this->load->view('frontend/my_profile');
+            $this->load->view('frontend/common/footer');
+        } else {
+            redirect("/", "refresh");
+        }
+    }
+
     //--------cancel order---------
     public function cancel_order()
     {
@@ -435,6 +455,7 @@ class Home extends CI_Controller
         $this->load->helper('security');
         $this->load->library('upload');
         if ($this->input->post()) {
+          // echo "hi"; exit;
             $this->form_validation->set_rules('name', 'name', 'required|xss_clean|trim');
             $this->form_validation->set_rules('email', 'email', 'required|xss_clean|trim');
             $this->form_validation->set_rules('c_name', 'c_name', 'required|xss_clean|trim');
@@ -450,6 +471,7 @@ class Home extends CI_Controller
                 $phone=$this->input->post('phone');
                 $message=$this->input->post('message');
                 $captcha_response=$this->input->post('g-recaptcha-response');
+                echo $captcha_response; exit;
                 if ($captcha_response !="") {
 
                                   ///------- Recaptcha check ------------
@@ -795,7 +817,7 @@ class Home extends CI_Controller
                     redirect($_SERVER['HTTP_REFERER']);
                 }
             } else {
-                $this->session->set_flashdata('emessage', validation_errors());
+                $this->session->set_flashdata('emessage', 'validation_errors()');
                 redirect($_SERVER['HTTP_REFERER']);
             }
         } else {

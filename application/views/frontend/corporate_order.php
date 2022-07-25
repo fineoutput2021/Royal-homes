@@ -134,7 +134,7 @@ flex-direction: column-reverse !important;
             </div>
             </div>
             <div class="col-md-12 col-10">
-            <div class="g-recaptcha" data-sitekey=<?=CAPTCHA_KEY_HTML?> name="captcha_response"></div>
+            <div class="g-recaptcha" id="g-recaptcha-response-custom" data-sitekey=<?=CAPTCHA_KEY_HTML?> name="g-recaptcha-response"></div>
           </div>
 
             <!-- Checkbox -->

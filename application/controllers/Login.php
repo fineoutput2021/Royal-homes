@@ -9,6 +9,7 @@ function __construct()
 		}
 
 		function admin_login(){
+			// echo "hi"; exit;
 if(!empty($this->session->userdata('admin_data'))){
 
 
