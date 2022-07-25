@@ -1,4 +1,30 @@
 <style>
+.label{display: inline;
+    padding: 0.2em 0.6em 0.3em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25em;
+  }
+  .bg-yellow{
+    background-color: #f39c12 !important;
+  }
+  .bg-aqua{
+    background-color: #00c0ef !important;
+  }
+  .bg-blue{
+     background-color: #0073b7 !important;
+ }
+ .bg-green{
+    background-color: #00a65a !important;
+ }
+ .bg-red{
+    background-color: #dd4b39 !important;
+}
   .text-small {
     font-size: 12px;
     line-height: 20px;
@@ -147,6 +173,21 @@
                 <?php
                                 $newdate = new DateTime($data_order1->date);
                                 echo $newdate->format('j F, Y');   #d-m-Y  // March 10, 2001, 5:16 pm?>
+              </span>
+            </div>
+            <div class="col-6 d-flex align-items-center mb-4 two_btn justify-content-end">
+              <span class="sp_od_web" style="color:black">Order Status :
+                <?php if($data_order1->order_status==1){ ?>
+                  <span class="label bg-yellow">Pending</span>
+                  <?php } elseif ($data_order1->order_status==2){ ?>
+                  <span class="label bg-aqua">Accepted</span>
+                  <?php		}elseif ($data_order1->order_status==3){ ?>
+                  <span class="label bg-blue">Dispatched</span>
+                  <?php		} elseif ($data_order1->order_status==4){ ?>
+                  <span class="label bg-green">Delivered</span>
+                  <?}elseif ($data_order1->order_status==5){ ?>
+                  <span class="label bg-red">Rejected</span>
+                  <?php		}   ?>
               </span>
             </div>
 

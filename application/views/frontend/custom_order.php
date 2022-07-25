@@ -81,7 +81,7 @@ flex-direction: column-reverse !important;
               <div class="col">
                 <div class="form-outline">
                   <label class="form-label" for="phone">Phone<span class="sp">*</span></label>
-                  <input type="text" id="phone" name="phone" maxlength="10" minlength="10" class="form-control mt-1" required />
+                  <input type="text" id="phone" name="phone" onkeypress="return isNumberKey(event)" maxlength="10" minlength="10" class="form-control mt-1" required />
                 </div>
               </div>
             </div>
@@ -96,7 +96,7 @@ flex-direction: column-reverse !important;
 
           <div class="g-recaptcha mt-4" data-sitekey=<?=CAPTCHA_KEY_HTML?> name="captcha_response"></div>
         </div>
-            <!-- Checkbox -->
+
             <div class="form-check d-flex justify-content-center mb-2">
               <button class="chk" style="width:30%">Submit</button>
             </div>
@@ -107,3 +107,12 @@ flex-direction: column-reverse !important;
     <div class="col-md-2"></div>
   </div>
 </section>
+
+<script>
+function isNumberKey(evt){
+var charCode = (evt.which) ? evt.which : evt.keyCode
+if (charCode > 31 && (charCode < 48 || charCode > 57))
+    return false;
+return true;
+}
+</script>

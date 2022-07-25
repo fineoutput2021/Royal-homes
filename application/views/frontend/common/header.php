@@ -2718,28 +2718,28 @@ $category_data= $this->db->get();
             <!-- <input type="hidden" name="previous_url" value="<?=current_url()?>"> -->
             <div class="row g-3">
               <div class="col-sm-6">
-                <input type="text" class="form-control formset" placeholder="First name" aria-label="First name" name="fname">
+                <input type="text" class="form-control formset" required placeholder="First name" aria-label="First name" name="fname">
               </div>
               <div class="col-sm-6">
-                <input type="text" class="form-control formset" placeholder="Last name" aria-label="Last name" name="lname">
-              </div>
-
-            </div>
-            <div class="row g-3">
-              <div class="col-sm-6">
-                <input type="text" class="form-control formset" placeholder="email" aria-label="Email" name="email">
-              </div>
-              <div class="col-sm-6">
-                <input type="text" class="form-control formset" placeholder="phonumber" aria-label="Phone nnuber" name="phone" maxlength="10" minlength="10" onkeypress="return isNumberKey(event)">
+                <input type="text" class="form-control formset" required placeholder="Last name" aria-label="Last name" name="lname">
               </div>
 
             </div>
             <div class="row g-3">
               <div class="col-sm-6">
-                <input type="password" class="form-control formset" placeholder="password" aria-label=" Password" name="password">
+                <input type="text" class="form-control formset" required placeholder="email" aria-label="Email" name="email">
               </div>
               <div class="col-sm-6">
-                <input type="password" class="form-control formset" placeholder="confirm" aria-label="Confirm Password" name="confirm_password">
+                <input type="text" class="form-control formset" required placeholder="phonumber" aria-label="Phone nnuber" name="phone" maxlength="10" minlength="10" onkeypress="return isNumberKey(event)">
+              </div>
+
+            </div>
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <input type="password" class="form-control formset" required placeholder="password" aria-label=" Password" name="password">
+              </div>
+              <div class="col-sm-6">
+                <input type="password" class="form-control formset" required placeholder="confirm" aria-label="Confirm Password" name="confirm_password">
               </div>
             </div>
             <div class="g-recaptcha mt-4" data-sitekey=<?=CAPTCHA_KEY_HTML?>></div>
@@ -2838,12 +2838,12 @@ $category_data= $this->db->get();
             <!-- <input type="hidden" name="previous_url" value="<?=current_url()?>"> -->
             <div class="field email required">
               <div class="control" style="margin-top:13px;">
-                <input placeholder="Email" name="email" type="email" class="input-text setcolumn" title="Email">
+                <input placeholder="Email" name="email" required type="email" class="input-text setcolumn" title="Email">
               </div>
             </div>
             <div class="field email required">
               <div class="control" style="margin-top:13px;">
-                <input placeholder="Password" name="password" value="" type="password" class="setcolumn">
+                <input placeholder="Password" name="password" required value="" type="password" class="setcolumn">
               </div>
             </div>
             <div class="g-recaptcha mt-4" data-sitekey=<?=CAPTCHA_KEY_HTML?>></div>

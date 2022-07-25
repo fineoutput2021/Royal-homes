@@ -80,7 +80,7 @@ flex-direction: column-reverse !important;
               <div class="col-md-6 col-12">
                 <div class="form-outline">
                   <label class="form-label" for="phone">Phone<span class="sp">*</span></label>
-                  <input type="text" id="phone" name="phone" maxlength="10" minlength="10" class="form-control mt-0" required />
+                  <input type="text" id="phone" name="phone" onkeypress="return isNumberKey(event)" maxlength="10" minlength="10" class="form-control mt-0" required />
                 </div>
               </div>
             </div>
@@ -148,3 +148,12 @@ flex-direction: column-reverse !important;
     <div class="col-md-2"></div>
   </div>
 </section>
+
+<script>
+function isNumberKey(evt){
+var charCode = (evt.which) ? evt.which : evt.keyCode
+if (charCode > 31 && (charCode < 48 || charCode > 57))
+    return false;
+return true;
+}
+</script>
