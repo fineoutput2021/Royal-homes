@@ -50,25 +50,25 @@
           Navigate
         </h5>
         <ul class="mb-4  mt-4 p-0 mobile-inlist">
-          <li class="head"><a href="/bedroom"><span class="heading" style="font-weight: normal; font-family: gotham light">BEDROOM</span></a></li>
+          <li class="head"><span class="heading" style="font-weight: normal; font-family: gotham light">BEDROOM</span></li>
           <li><a  class="myNewFontFam" href="/bedroom/beds" style="color: gray;">Beds</a></li>
           <li><a  class="myNewFontFam" href="/living/side-tables" style="color: gray;">Side Tables</a></li>
         </ul>
         <ul class="mb-4  mt-4 p-0 mobile-inlist">
-          <li class="head"><a href="/dining"><span class="heading" style="font-weight: normal; font-family: gotham light">DINING</span></a></li>
+          <li class="head"><span class="heading" style="font-weight: normal; font-family: gotham light">DINING</span></li>
           <li><a  class="myNewFontFam" href="/dining/dining-table" style="color: gray;">Tables</a></li>
           <li><a  class="myNewFontFam" href="/dining/chairs" style="color: gray;">Chairs</a></li>
         </ul>
         <ul class="mb-4  mt-4 p-0 mobile-inlist">
-          <li class="head"><a href="/living"><span class="heading" style="font-weight: normal; font-family: gotham light">LIVING</span></a></li>
+          <li class="head"><span class="heading" style="font-weight: normal; font-family: gotham light">LIVING</span></li>
           <li><a  class="myNewFontFam" href="/living/sofas" style="color: gray;">Sofas</a></li>
           <li><a  class="myNewFontFam" href="/living/lounger-chairs" style="color: gray;">Chairs</a></li>
         </ul>
 
         <ul class="mb-4  mt-4 p-0 mobile-inlist">
-          <li class="head light"><a href="/lighting"><span class="heading"
-                style="font-size: 16px;font-weight: normal; font-family: gotham light">LIGHTING</span></a></li>
-          <li class="head"><a href="/decor"><span class="heading" style="font-weight: normal; font-family: gotham light">DECOR</span></a></li>
+          <li class="head light"><span class="heading"
+                style="font-size: 16px;font-weight: normal; font-family: gotham light">LIGHTING</span></li>
+          <li class="head"><span class="heading" style="font-weight: normal; font-family: gotham light">DECOR</span></li>
         </ul>
       </div>
       <div class="col-md-3 heimed11">
@@ -83,7 +83,7 @@
             <a href="mailto:care@orangetree.in"><img src="https://www.orangetree.in/pub/media/wysiwyg/email.jpg"
                 style="width: 150px !important;" alt="email"></a>
           </p>
-          <a href="contact us.html" style="font-size: 16px;text-decoration: none;">Visit Us</a>
+          <a href="#" style="font-size: 16px;text-decoration: none;">Visit Us</a>
         </h5>
         <br>
         <!-- <br> -->

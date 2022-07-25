@@ -41,6 +41,33 @@
     <!--products--->
     <div class="row">
       <?php $i=1; foreach($search_data->result() as $search) {
+        $category=json_decode($search->category);
+        $cat_del=0;
+foreach ($category as $key) {
+  $this->db->select('*');
+  $this->db->from('tbl_category');
+  $this->db->where('id',$key);
+  $this->db->where('is_active',1);
+  $cat= $this->db->get()->row();
+  if(empty($cat)){
+    $cat_del=1;
+  }
+}
+//subcategory
+$subcategory=json_decode($search->subcategory);
+// print_r($data);die();
+$sub_del=0;
+foreach ($subcategory as $key2) {
+  $this->db->select('*');
+  $this->db->from('tbl_subcategory');
+  $this->db->where('id',$key2);
+  $this->db->where('is_active',1);
+  $cat= $this->db->get()->row();
+  if(empty($cat)){
+    $sub_del=1;
+  }
+}
+if($cat_del==0 && $sub_del==0){
         $discount=(int)$search->mrp-(int)$search->selling_price;
         $percent=0;
         if($discount>0){
@@ -82,7 +109,7 @@
           <?}?>
         </div>
       </div>
-      <?}}else{?>
+      <?}}}else{?>
         <center>
         </br>
           <h4>No result found</h4>

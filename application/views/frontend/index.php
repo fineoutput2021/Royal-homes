@@ -172,11 +172,18 @@
     <h2 class="text-center py-5" style="margin-bottom: -32px;">New Launches
     </h2>
     <ul class="nav nav-tabs" id="myTab" role="tablist">
-      <?php $i=0; foreach($launch_sub_data->result() as $sub) { ?>
+      <?php $i=0; foreach($launch_sub_data->result() as $sub) {
+      $this->db->select('*');
+      $this->db->from('tbl_category');
+      $this->db->where('is_active', 1);
+      $this->db->where('id', $sub->category_id);
+      $cat_data= $this->db->get()->row();
+      if(!empty($cat_data)){
+        ?>
       <li class="nav-item fdff active" style="margin-bottom: 0px;">
         <a class="new <?if($i==0){echo'active';}?>" id="home_tab_<?=$sub->id?>" data-toggle="tab" href="#home_<?=$sub->id?>" role="tab" aria-controls="home_<?=$sub->id?>" aria-selected="<?if($i==0){echo 'true';}else{echo 'false';}?>"><?=$sub->subcategory?></a>
       </li>
-      <?$i++;}?>
+      <?$i++;}}?>
     </ul>
     <div class="tab-content" id="myTabContent">
       <?php $i=0; foreach($launch_sub_data->result() as $sub2) {
@@ -187,7 +194,7 @@
         $this->db->order_by('rand()');
         $this->db->limit(10);
         $new_launch_data= $this->db->get();
-
+  
          ?>
       <div class="tab-pane fade <?if($i==0){echo "show active";}?>" id="home_<?=$sub2->id?>" role="tabpanel" aria-labelledby="home_tab_<?=$sub2->id?>">
       <div class="your-class">

@@ -2277,6 +2277,7 @@ $category_data= $this->db->get();
                 $this->db->select('*');
      $this->db->from('tbl_subcategory');
      $this->db->where('category_id', $data->id);
+     $this->db->where('is_active', 1);
      $subdata= $this->db->get();
      $subcheck=$subdata->row();
      if (!empty($subcheck)) {

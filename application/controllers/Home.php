@@ -53,6 +53,7 @@ class Home extends CI_Controller
         $this->db->select('*');
         $this->db->from('tbl_testimonal');
         $this->db->order_by('rand()');
+          $this->db->where('is_active', 1);
         $data['data_testimonal']= $this->db->get();
 
         $this->db->select('*');

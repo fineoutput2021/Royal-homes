@@ -224,9 +224,9 @@
 
                            if ($typ==1) {
                                $img2='image';
+                               $nnnn2="";
 
-
-
+                               if(!empty($_FILES['image']))
                                $file_check=($_FILES['image']['error']);
                                if ($file_check!=4) {
                                $image_upload_folder = FCPATH . "assets/uploads/products/";
@@ -263,10 +263,10 @@
 
 
                                $img3='image1';
+                               $nnnn3="";
 
-
-
-                               $file_check=($_FILES['image']['error']);
+                               if(!empty($_FILES['image1']))
+                               $file_check=($_FILES['image1']['error']);
                                if ($file_check!=4) {
                                $image_upload_folder = FCPATH . "assets/uploads/products/";
                                if (!file_exists($image_upload_folder)) {
@@ -302,10 +302,10 @@
 
 
                                $img4='image2';
+                               $nnnn4="";
 
-
-
-                               $file_check=($_FILES['image']['error']);
+                               if(!empty($_FILES['image2']))
+                               $file_check=($_FILES['image2']['error']);
                                if ($file_check!=4) {
                                $image_upload_folder = FCPATH . "assets/uploads/products/";
                                if (!file_exists($image_upload_folder)) {
@@ -341,10 +341,10 @@
 
 
                                $img5='image3';
+                               $nnnn5="";
 
-
-
-                               $file_check=($_FILES['image']['error']);
+                               if(!empty($_FILES['image3']))
+                               $file_check=($_FILES['image3']['error']);
                                if ($file_check!=4) {
                                $image_upload_folder = FCPATH . "assets/uploads/products/";
                                if (!file_exists($image_upload_folder)) {
@@ -425,9 +425,9 @@
 
 
                                $img2='image';
+                               $nnnn2="";
 
-
-
+                               if(!empty($_FILES['image']))
                                $file_check=($_FILES['image']['error']);
                                if ($file_check!=4) {
                                $image_upload_folder = FCPATH . "assets/uploads/products/";
@@ -464,10 +464,10 @@
 
 
                                $img3='image1';
+                               $nnnn3="";
 
-
-
-                               $file_check=($_FILES['image']['error']);
+                               if(!empty($_FILES['image1']))
+                               $file_check=($_FILES['image1']['error']);
                                if ($file_check!=4) {
                                $image_upload_folder = FCPATH . "assets/uploads/products/";
                                if (!file_exists($image_upload_folder)) {
@@ -503,10 +503,10 @@
 
 
                                $img4='image2';
+                               $nnnn4="";
 
-
-
-                               $file_check=($_FILES['image']['error']);
+                               if(!empty($_FILES['image2']))
+                               $file_check=($_FILES['image2']['error']);
                                if ($file_check!=4) {
                                $image_upload_folder = FCPATH . "assets/uploads/products/";
                                if (!file_exists($image_upload_folder)) {
@@ -542,10 +542,10 @@
 
 
                                $img5='image3';
+                               $nnnn5="";
 
-
-
-                               $file_check=($_FILES['image']['error']);
+                               if(!empty($_FILES['image3']))
+                               $file_check=($_FILES['image3']['error']);
                                if ($file_check!=4) {
                                $image_upload_folder = FCPATH . "assets/uploads/products/";
                                if (!file_exists($image_upload_folder)) {
