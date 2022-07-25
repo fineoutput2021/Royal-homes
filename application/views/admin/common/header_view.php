@@ -77,8 +77,8 @@
   .sidebar-menu li.header{
     color:#d76a46;
   }
-   a{
-    color: white ;
+    a{
+    color: black ;
    }
 a:hover{
   color: #d76a46;
