@@ -1,7 +1,7 @@
 <div class="content-wrapper">
 <section class="content-header">
    <h1>
-  Update Broacher
+  Update Brochure
   </h1>
 
 </section>
@@ -11,7 +11,7 @@
 
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Update Broacher </h3>
+                        <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Update Brochure </h3>
                     </div>
 
                              <? if(!empty($this->session->flashdata('smessage'))){  ?>
@@ -40,7 +40,7 @@
 <td> <input type="text" name="name"  class="form-control" placeholder="" required value="<?=$broacher_data->name;?>" />  </td>
 </tr>
 <tr>
-<td> <strong>Broacher</strong>  <span style="color:red;">*</span></strong> </td>
+<td> <strong>Brochure</strong>  <span style="color:red;">*</span></strong> </td>
 <td> <input type="file" name="broacher"  class="form-control" placeholder="" />
 <?php if($broacher_data->broacher!=""){ ?> <img id="slide_img_path" height=200 width=300 src="<?php echo base_url().$broacher_data->broacher; ?> "> <?php }else{ ?> Sorry No File Found <?php } ?>  </td>
 </tr>

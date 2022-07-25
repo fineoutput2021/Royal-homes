@@ -1,7 +1,7 @@
 <div class="content-wrapper">
 <section class="content-header">
 <h1>
-Add New Broacher
+Add New Brochure
 </h1>
 
 </section>
@@ -11,7 +11,7 @@ Add New Broacher
 
 <div class="panel panel-default">
 <div class="panel-heading">
-<h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Add New Broacher</h3>
+<h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Add New Brochure</h3>
 </div>
 
 <? if(!empty($this->session->flashdata('smessage'))){  ?>
@@ -40,7 +40,7 @@ if(!empty($this->session->flashdata('emessage'))){  ?>
 <td> <input type="text" name="name"  class="form-control" placeholder="" required value="" />  </td>
 </tr>
 <tr>
-<td> <strong>Broacher</strong>  <span style="color:red;">*</span></strong> </td>
+<td> <strong>Brochure</strong>  <span style="color:red;">*</span></strong> </td>
 <td> <input type="file" name="broacher"  class="form-control" placeholder="" required value="" />  </td>
 </tr>
 

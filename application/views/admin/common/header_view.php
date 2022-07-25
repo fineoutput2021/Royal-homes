@@ -49,7 +49,7 @@
   .active>a{
     color:  white ;
     background: #d76a46 !important;
-    border-color: hsl(353deg 91% 53%) !important;
+    border-color: #d76a46;
   }
 .skin-blue .sidebar-menu>li>.treeview-menu{
     color: #d76a46!important;;
@@ -77,6 +77,15 @@
   .sidebar-menu li.header{
     color:#d76a46;
   }
+   a{
+    color: white ;
+   }
+a:hover{
+  color: #d76a46;
+}
+.nav>li>a:hover{
+  background-color: #ffff;
+}
   label{
   	margin:5px;
   }
@@ -208,6 +217,9 @@
   .popup-close:hover:before {
     background: #fff;
   }
+  /* a{
+    color: white !important;
+  } */
   </style>
   </head>
   <body class=" #d76a46">

@@ -1,11 +1,11 @@
 <div class="content-wrapper">
   <section class="content-header">
     <h1>
-      Update Corporate Brochers
+      Update Corporate Brochure
     </h1>
     <ol class="breadcrumb">
       <li><a href="<?php echo base_url() ?>dcadmin/home"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-      <li><a href="<?php echo base_url() ?>dcadmin/Corporate_brochers/view_corporate_brochers"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> View Corporate Brochers </a></li>
+      <li><a href="<?php echo base_url() ?>dcadmin/Corporate_brochers/view_corporate_brochers"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> View Corporate Brochure </a></li>
       <!-- <li class="active">View Team</li> -->
     </ol>
   </section>
@@ -15,7 +15,7 @@
 
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Update Corporate Brochers </h3>
+            <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Update Corporate Brochure </h3>
           </div>
 
           <? if(!empty($this->session->flashdata('smessage'))){  ?>

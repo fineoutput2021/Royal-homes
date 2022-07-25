@@ -1,21 +1,21 @@
 <div class="content-wrapper">
   <section class="content-header">
     <h1>
-      View Custom Brochers
+      View Custom Brochure
     </h1>
     <ol class="breadcrumb">
       <li><a href="<?php echo base_url() ?>dcadmin/home"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-      <li><a href="<?php echo base_url() ?>dcadmin/custom_brochers/view_custom_brochers"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> View Brochers </a></li>
+      <li><a href="<?php echo base_url() ?>dcadmin/custom_brochers/view_custom_brochers"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> View Brochure </a></li>
       <!-- <li class="active">View Team</li> -->
     </ol>
   </section>
   <section class="content">
     <div class="row">
       <div class="col-lg-12">
-        <a class="btn custom_btn" href="<?php echo base_url() ?>dcadmin/custom_brochers/add_custom_brochers" role="button" style="margin-bottom:12px;"> Add Brochers</a>
+        <a class="btn custom_btn" href="<?php echo base_url() ?>dcadmin/custom_brochers/add_custom_brochers" role="button" style="margin-bottom:12px;"> Add Brochure</a>
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title"><i class="fa fa-money fa-fw"></i>View custom Brochers</h3>
+            <h3 class="panel-title"><i class="fa fa-money fa-fw"></i>View custom Brochure</h3>
           </div>
           <div class="panel panel-default">
 

@@ -1,16 +1,16 @@
 <div class="content-wrapper">
   <section class="content-header">
     <h1>
-      View Broacher
+      View Brochure
     </h1>
   </section>
   <section class="content">
     <div class="row">
       <div class="col-lg-12">
-        <a class="btn custom_btn" href="<?php echo base_url() ?>dcadmin/broacher/add_broacher" role="button" style="margin-bottom:12px;"> Add broacher</a>
+        <a class="btn custom_btn" href="<?php echo base_url() ?>dcadmin/broacher/add_broacher" role="button" style="margin-bottom:12px;"> Add Brochure</a>
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title"><i class="fa fa-money fa-fw"></i>View broacher</h3>
+            <h3 class="panel-title"><i class="fa fa-money fa-fw"></i>View Brochure</h3>
           </div>
           <div class="panel panel-default">
 
@@ -38,7 +38,7 @@
                       <th>#</th>
 
                       <th>Name</th>
-                      <th>Broacher</th>
+                      <th>Brochure</th>
 
 
                       <th>Status</th>
