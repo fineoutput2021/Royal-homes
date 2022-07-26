@@ -149,11 +149,8 @@
             <div class="col-12 col-lg-2 col-md-2 mb-1">
               <img src="<?php echo  base_url()?>assets/frontend/assets/img/user.jpg">
             </div>
-            <div class="col-12 col-lg-10 col-md-10">
-
-              <h4><?=$user_data->fname." ".$user_data->lname?> </h4>
-              <p>First Name: <?=$user_data->fname?></p>
-              <p>Last Name: <?=$user_data->lname?></p>
+            <div class="col-12 col-lg-10 col-md-10 mt-3">
+              <h4 class="mb-3"><?=$user_data->fname." ".$user_data->lname?></h4>
               <p>Phone: <?=$user_data->phone?> </p>
               <p>Email: <?=$user_data->email?> </p>
             </div>

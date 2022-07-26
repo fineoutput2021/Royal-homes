@@ -1,3 +1,5 @@
+
+
 <?php
 
 if (! defined('BASEPATH')) {
@@ -259,16 +261,17 @@ class User_login extends CI_Controller
                             date_default_timezone_set("Asia/Calcutta");
                             $cur_date=date("Y-m-d H:i:s");
 
-                            // $user_name  = $user_data->fname." ".$user_data->lname;
+
                             // echo $user_name;
                             // exit;
                             if (!empty($user_data)) {
                                 if ($user_data->password==md5($password)) {
+                                    $user_name  = $user_data->fname." ".$user_data->lname;
                                     $this->session->set_userdata('user_data', 1);
                                     $this->session->set_userdata('user_id', $user_data->id);
                                     $this->session->set_userdata('user_name', $user_name);
 
-                                    $user_name  = $user_data->fname;
+                                    // $user_name  = $user_data->fname;
 
                                     //insert cart data into cart table---------
                                     $cart_data = $this->session->userdata('cart_data');
