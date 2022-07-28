@@ -106,16 +106,16 @@
                            $last_id = 0;
                            if ($typ==1) {
                                $img1='image1';
+                               $nnnn1="";
 
 
-
-                               $file_check=($_FILES['image']['error']);
+                               $file_check=($_FILES['image1']['error']);
                                if ($file_check!=4) {
                                $image_upload_folder = FCPATH . "assets/uploads/bannerimages/";
                                if (!file_exists($image_upload_folder)) {
                                    mkdir($image_upload_folder, DIR_WRITE_MODE, true);
                                }
-                               $new_file_name="bannerimages".date("Ymdhms");
+                               $new_file_name="image1".date("Ymdhms");
                                $this->upload_config = array(
                              'upload_path'   => $image_upload_folder,
                              'file_name' => $new_file_name,
@@ -146,16 +146,16 @@
 
 
                                $img2='image2';
+                               $nnnn2="";
 
 
-
-                               $file_check=($_FILES['image']['error']);
+                               $file_check=($_FILES['image2']['error']);
                                if ($file_check!=4) {
                                $image_upload_folder = FCPATH . "assets/uploads/bannerimages/";
                                if (!file_exists($image_upload_folder)) {
                                    mkdir($image_upload_folder, DIR_WRITE_MODE, true);
                                }
-                               $new_file_name="bannerimages2".date("Ymdhms");
+                               $new_file_name="image2".date("Ymdhms");
                                $this->upload_config = array(
                              'upload_path'   => $image_upload_folder,
                              'file_name' => $new_file_name,
@@ -180,100 +180,12 @@
 }
 
 
-//
-                               // $img3='image3';
-//
-//
-//
-//
-//          $image_upload_folder = FCPATH . "assets/uploads/bannerimages/";
-//                      if (!file_exists($image_upload_folder))
-//                      {
-//                          mkdir($image_upload_folder, DIR_WRITE_MODE, true);
-//                      }
-//                      $new_file_name="bannerimages3".date("Ymdhms");
-//                      $this->upload_config = array(
-//                              'upload_path'   => $image_upload_folder,
-//                              'file_name' => $new_file_name,
-//                              'allowed_types' =>'xlsx|csv|xls|pdf|doc|docx|txt|jpg|jpeg|png',
-//                              'max_size'      => 25000
-//                      );
-//                      $this->upload->initialize($this->upload_config);
-//                      if (!$this->upload->do_upload($img3))
-//                      {
-//                          $upload_error = $this->upload->display_errors();
-//                          // echo json_encode($upload_error);
-//
-//            //$this->session->set_flashdata('emessage',$upload_error);
-//              //redirect($_SERVER['HTTP_REFERER']);
-//                      }
-//                      else
-//                      {
-//
-//                          $file_info = $this->upload->data();
-//
-//                          $videoNAmePath = "assets/uploads/bannerimages/".$new_file_name.$file_info['file_ext'];
-//                          $file_info['new_name']=$videoNAmePath;
-//                          // $this->step6_model->updateappIconImage($imageNAmePath,$appInfoId);
-//                          $nnnn=$file_info['file_name'];
-//                          $nnnn3=$videoNAmePath;
-//
-//                          // echo json_encode($file_info);
-//                      }
-//
-//
-//
-//
-                               // $img4='image4';
-//
-//
-//
-//
-//          $image_upload_folder = FCPATH . "assets/uploads/bannerimages/";
-//                      if (!file_exists($image_upload_folder))
-//                      {
-//                          mkdir($image_upload_folder, DIR_WRITE_MODE, true);
-//                      }
-//                      $new_file_name="bannerimages4".date("Ymdhms");
-//                      $this->upload_config = array(
-//                              'upload_path'   => $image_upload_folder,
-//                              'file_name' => $new_file_name,
-//                              'allowed_types' =>'xlsx|csv|xls|pdf|doc|docx|txt|jpg|jpeg|png',
-//                              'max_size'      => 25000
-//                      );
-//                      $this->upload->initialize($this->upload_config);
-//                      if (!$this->upload->do_upload($img4))
-//                      {
-//                          $upload_error = $this->upload->display_errors();
-//                          // echo json_encode($upload_error);
-//
-//            //$this->session->set_flashdata('emessage',$upload_error);
-//              //redirect($_SERVER['HTTP_REFERER']);
-//                      }
-//                      else
-//                      {
-//
-//                          $file_info = $this->upload->data();
-//
-//                          $videoNAmePath = "assets/uploads/bannerimages/".$new_file_name.$file_info['file_ext'];
-//                          $file_info['new_name']=$videoNAmePath;
-//                          // $this->step6_model->updateappIconImage($imageNAmePath,$appInfoId);
-//                          $nnnn=$file_info['file_name'];
-//                          $nnnn4=$videoNAmePath;
-//
-//                          // echo json_encode($file_info);
-//                      }
-
-
-
-
                                $data_insert = array(
-                  'imagename'=>$imagename,
+                                   'imagename'=>$imagename,
   'image1'=>$nnnn1,
+  'image2'=>$nnnn2,
   'link'=>$link,
-  // 'image2'=>$nnnn2,
-  // 'image3'=>$nnnn3,
-  // 'image4'=>$nnnn4,
+
 
                      'ip' =>$ip,
                      'added_by' =>$addedby,
@@ -301,16 +213,16 @@
 
 
                                $img1='image1';
+                               $nnnn1="";
 
 
-
-                               $file_check=($_FILES['image']['error']);
+                               $file_check=($_FILES['image1']['error']);
                                if ($file_check!=4) {
                                $image_upload_folder = FCPATH . "assets/uploads/bannerimages/";
                                if (!file_exists($image_upload_folder)) {
                                    mkdir($image_upload_folder, DIR_WRITE_MODE, true);
                                }
-                               $new_file_name="bannerimages".date("Ymdhms");
+                               $new_file_name="image1".date("Ymdhms");
                                $this->upload_config = array(
                              'upload_path'   => $image_upload_folder,
                              'file_name' => $new_file_name,
@@ -340,16 +252,16 @@
 
 
                                $img2='image2';
+                               $nnnn2="";
 
 
-
-                               $file_check=($_FILES['image']['error']);
+                               $file_check=($_FILES['image2']['error']);
                                if ($file_check!=4) {
                                $image_upload_folder = FCPATH . "assets/uploads/bannerimages/";
                                if (!file_exists($image_upload_folder)) {
                                    mkdir($image_upload_folder, DIR_WRITE_MODE, true);
                                }
-                               $new_file_name="bannerimages2".date("Ymdhms");
+                               $new_file_name="image2".date("Ymdhms");
                                $this->upload_config = array(
                              'upload_path'   => $image_upload_folder,
                              'file_name' => $new_file_name,
@@ -373,129 +285,27 @@
                                }
 }
 
-//
-//
-                               // $img3='image3';
-//
-//
-//
-//
-//          $image_upload_folder = FCPATH . "assets/uploads/bannerimages/";
-//                      if (!file_exists($image_upload_folder))
-//                      {
-//                          mkdir($image_upload_folder, DIR_WRITE_MODE, true);
-//                      }
-//                      $new_file_name="bannerimages3".date("Ymdhms");
-//                      $this->upload_config = array(
-//                              'upload_path'   => $image_upload_folder,
-//                              'file_name' => $new_file_name,
-//                              'allowed_types' =>'xlsx|csv|xls|pdf|doc|docx|txt|jpg|jpeg|png',
-//                              'max_size'      => 25000
-//                      );
-//                      $this->upload->initialize($this->upload_config);
-//                      if (!$this->upload->do_upload($img3))
-//                      {
-//                          $upload_error = $this->upload->display_errors();
-//                          // echo json_encode($upload_error);
-//
-//            //$this->session->set_flashdata('emessage',$upload_error);
-//              //redirect($_SERVER['HTTP_REFERER']);
-//                      }
-//                      else
-//                      {
-//
-//                          $file_info = $this->upload->data();
-//
-//                          $videoNAmePath = "assets/uploads/bannerimages/".$new_file_name.$file_info['file_ext'];
-//                          $file_info['new_name']=$videoNAmePath;
-//                          // $this->step6_model->updateappIconImage($imageNAmePath,$appInfoId);
-//                          $nnnn=$file_info['file_name'];
-//                          $nnnn3=$videoNAmePath;
-//
-//                          // echo json_encode($file_info);
-//                      }
-//
-//
-//
-//
-                               // $img4='image4';
-//
-//
-//
-//
-//          $image_upload_folder = FCPATH . "assets/uploads/bannerimages/";
-//                      if (!file_exists($image_upload_folder))
-//                      {
-//                          mkdir($image_upload_folder, DIR_WRITE_MODE, true);
-//                      }
-//                      $new_file_name="bannerimages4".date("Ymdhms");
-//                      $this->upload_config = array(
-//                              'upload_path'   => $image_upload_folder,
-//                              'file_name' => $new_file_name,
-//                              'allowed_types' =>'xlsx|csv|xls|pdf|doc|docx|txt|jpg|jpeg|png',
-//                              'max_size'      => 25000
-//                      );
-//                      $this->upload->initialize($this->upload_config);
-//                      if (!$this->upload->do_upload($img4))
-//                      {
-//                          $upload_error = $this->upload->display_errors();
-//                          // echo json_encode($upload_error);
-//
-//            //$this->session->set_flashdata('emessage',$upload_error);
-//              //redirect($_SERVER['HTTP_REFERER']);
-//                      }
-//                      else
-//                      {
-//
-//                          $file_info = $this->upload->data();
-//
-//                          $videoNAmePath = "assets/uploads/bannerimages/".$new_file_name.$file_info['file_ext'];
-//                          $file_info['new_name']=$videoNAmePath;
-//                          // $this->step6_model->updateappIconImage($imageNAmePath,$appInfoId);
-//                          $nnnn=$file_info['file_name'];
-//                          $nnnn4=$videoNAmePath;
-//
-//                          // echo json_encode($file_info);
-//                      }
+if (empty($nnnn1)) {
+                          $nnnn1=$da->image1;
+                      }
+                      if (empty($nnnn2)) {
+                          $nnnn2=$da->image2;
+                      }
 
-
-
-
-                               if (!empty($da)) {
-                                   $img = $da ->image1;
-                                   if (!empty($img)) {
-                                       if (empty($nnnn1)) {
-                                           $nnnn1 = $img;
-                                       }
-                                   } else {
-                                       if (empty($nnnn1)) {
-                                           $nnnn1= "";
-                                       }
-                                   }
-                               }
-                               if (!empty($da)) {
-                                   $img = $da ->image2;
-                                   if (!empty($img)) {
-                                       if (empty($nnnn2)) {
-                                           $nnnn2 = $img;
-                                       }
-                                   } else {
-                                       if (empty($nnnn2)) {
-                                           $nnnn2= "";
-                                       }
-                                   }
-                               }
-
-                               $data_insert = array(
+                      if (!empty($nnnn1)) {         $data_insert = array(
                   'imagename'=>$imagename,
   'image1'=>$nnnn1,
   'image2'=>$nnnn2,
   'link'=>$link
-
-  // 'image3'=>$nnnn3,
-  // 'image4'=>$nnnn4,
-
                      );
+            }
+else{
+  $data_insert = array(
+'imagename'=>$imagename,
+'link'=>$link
+
+   );
+}
                                $this->db->where('id', $idw);
                                $last_id=$this->db->update('tbl_bannerimages', $data_insert);
                            }

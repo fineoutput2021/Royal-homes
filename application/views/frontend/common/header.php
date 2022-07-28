@@ -514,7 +514,7 @@
       vertical-align: baseline;
       width: 100%;
       box-sizing: border-box;
-      text-transform: lowercase;
+      /* text-transform: lowercase; */
     }
 
     .formset {

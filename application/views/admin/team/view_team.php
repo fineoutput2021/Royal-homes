@@ -120,7 +120,7 @@
                               <?php } else { ?>
                               <li><a href="<?php echo base_url() ?>dcadmin/system/updateteamStatus/<?php echo base64_encode($data->id) ?>/active">Active</a></li>
                               <?php		}   ?>
-
+    <li><a href="<?php echo base_url() ?>dcadmin/System/update_team/<?php echo base64_encode($data->id) ?>/active">Edit</a></
                               <li><a href="javascript:;" class="dCnf" mydata="<?php echo $i ?>">Delete User</a></li>
                             </ul>
                           </div>

@@ -242,9 +242,9 @@ a:hover{
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 
 <?
-                  if(!empty($imgr)){
+                  if(!empty($image)){
 ?>
-<img src="<? echo base_url() ?>assets/uploads/team/<? echo $imgr; ?>" class="img-circle" style="width:30px;height:30px;" alt="User Image"/>
+<img src="<? echo base_url() ?><? echo $image; ?>" class="img-circle" style="width:30px;height:30px;" alt="User Image"/>
 <?
                   }
                   else{
@@ -262,9 +262,9 @@ a:hover{
                   <!-- User image -->
                   <li class="user-header custom_header">
 <?
-                    if(!empty($imgr)){
+                    if(!empty($image)){
 ?>
-            <img src="<? echo base_url() ?>assets/uploads/team/<? echo $imgr; ?>" class="img-circle" style="width:70px;height:70px;" alt="User Image"/>
+            <img src="<? echo base_url() ?><? echo $image; ?>" class="img-circle" style="width:70px;height:70px;" alt="User Image"/>
 <?
                     }
                     else{
@@ -316,9 +316,9 @@ a:hover{
           <div class="user-panel">
             <div class="pull-left image">
             <?
-              if(!empty($imgr)){
+              if(!empty($image)){
 ?>
-      <img src="<? echo base_url() ?>assets/uploads/team/<? echo $imgr; ?>" class="img-circle" alt="User Image"/>
+      <img src="<? echo base_url()?><? echo $image; ?>" class="img-circle" alt="User Image"/>
 <?
               }
               else{

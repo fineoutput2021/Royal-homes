@@ -43,6 +43,7 @@
       <?php $i=1; foreach($search_data->result() as $search) {
         $category=json_decode($search->category);
         $cat_del=0;
+        if(!empty($category)){
 foreach ($category as $key) {
   $this->db->select('*');
   $this->db->from('tbl_category');
@@ -53,10 +54,12 @@ foreach ($category as $key) {
     $cat_del=1;
   }
 }
+}
 //subcategory
 $subcategory=json_decode($search->subcategory);
 // print_r($data);die();
 $sub_del=0;
+if(!empty($subcategory)){
 foreach ($subcategory as $key2) {
   $this->db->select('*');
   $this->db->from('tbl_subcategory');
@@ -66,6 +69,7 @@ foreach ($subcategory as $key2) {
   if(empty($cat)){
     $sub_del=1;
   }
+}
 }
 if($cat_del==0 && $sub_del==0){
         $discount=(int)$search->mrp-(int)$search->selling_price;

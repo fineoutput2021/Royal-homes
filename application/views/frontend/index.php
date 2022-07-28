@@ -194,7 +194,7 @@
         $this->db->order_by('rand()');
         $this->db->limit(10);
         $new_launch_data= $this->db->get();
-  
+
          ?>
       <div class="tab-pane fade <?if($i==0){echo "show active";}?>" id="home_<?=$sub2->id?>" role="tabpanel" aria-labelledby="home_tab_<?=$sub2->id?>">
       <div class="your-class">
@@ -315,7 +315,7 @@
 
 
 <!---Start Latest--->
-
+<?if(!empty($image_two)){?>
 <section class="new_lunc overflow-hidden t_slider">
   <div class="container-fluid npde">
     <h2 class="text-center py-5"><?=$image_two->heading_first;?></h2>
@@ -351,7 +351,7 @@
   </div>
   </div>
 </section>
-
+<?}?>
 <!--End Latest-->
 
 <!--Start Promise-->

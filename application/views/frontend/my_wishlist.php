@@ -128,6 +128,7 @@
         $pro= $this->db->get()->row();
         ?>
       <div class="col-md-3 p-2">
+        <a href="<?=base_url()?>Home/product_details/<?=$pro->url?>" style="color:unset">
         <img src="<?=base_url().$pro->image?>" class="img-fluid" />
         <div class="discount">New</div>
         <h5><?=$pro->productname?></h5><s style="font-size: 12px;text-decoration: line-through;color:red">(£<?=$pro->mrp?>)</s>  <span style="font-weight: bold; font-size: 12px;"> £<?=$pro->selling_price?></span>

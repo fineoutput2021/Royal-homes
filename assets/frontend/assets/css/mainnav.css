@@ -9,7 +9,7 @@
     box-sizing: border-box;
     text-decoration: none;
     font-family: myfont;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
     outline: none;
     transition: all .1s linear;
     border: none;

@@ -106,7 +106,7 @@
       </div>
       <div class="col-md-3">
 
-        <h5 class="myNewFontFam"><a  class="myNewFontFam" href="about us.html" style="font-size: 16px;font-weight: normal;">About us</a></h5>
+        <h5 class="myNewFontFam"><a  class="myNewFontFam" href="#" style="font-size: 16px;font-weight: normal;">About us</a></h5>
 
         <p style="font-size: 16px; text-align: left ; color: gray; font-family: gotham light">For over two decades Basant has been exporting
           Home decor products to some of the best brands in the world.

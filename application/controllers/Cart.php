@@ -257,7 +257,6 @@ class Cart extends CI_Controller
                 $response['data'] = '';
                 $response['data_message'] = '';
                 if (!empty($this->session->userdata('user_data'))) {
-
                     $user_id = $this->session->userdata('user_id');
 
                     $this->db->select('*');
@@ -266,9 +265,7 @@ class Cart extends CI_Controller
                     $pro_data= $this->db->get()->row();
                     //-----check inventory------
                     if (!empty($pro_data->inventory)) {
-
                         if ($pro_data->inventory >= $quantity) {
-
                             $this->db->select('*');
                             $this->db->from('tbl_cart');
                             $this->db->where('user_id', $user_id);
@@ -283,7 +280,6 @@ class Cart extends CI_Controller
                       );
                                 $last_id=$this->base_model->insert_table("tbl_cart", $cart_insert, 1) ;
                                 if (!empty($last_id)) {
-
                                     $respone['data'] = true;
                                     $respone['data_message'] ="Item successfully deleted in your cart";
                                     echo json_encode($respone);
@@ -292,10 +288,10 @@ class Cart extends CI_Controller
                                     $respone['data_message'] ="Some error occured";
                                     echo json_encode($respone);
                                 }
-                            }else{
-                              $respone['data'] = false;
-                              $respone['data_message'] ="Item is already in your cart";
-                              echo json_encode($respone);
+                            } else {
+                                $respone['data'] = false;
+                                $respone['data_message'] ="Item is already in your cart";
+                                echo json_encode($respone);
                             }
                             ///---inventory out of stock--------
                         } else {
@@ -474,21 +470,38 @@ class Cart extends CI_Controller
                 //----------add to wishlist----
                 if ($status=="add") {
                     if (empty($wishcheck)) {
-                        $data_insert = array('user_id'=>$user_id,
+                        $this->db->select('*');
+                        $this->db->from('tbl_products');
+                        $this->db->where('id', $product_id);
+                        $pro_data= $this->db->get()->row();
+                        //-----check inventory------
+                        if (!empty($pro_data->inventory)) {
+                            if ($pro_data->inventory >= $quantity) {
+                                $data_insert = array('user_id'=>$user_id,
           'product_id'=>$product_id,
           'ip' =>$ip,
           'date'=>$cur_date
           );
 
-                        $last_id=$this->base_model->insert_table("tbl_wishlist", $data_insert, 1) ;
+                                $last_id=$this->base_model->insert_table("tbl_wishlist", $data_insert, 1) ;
 
-                        if (!empty($last_id)) {
-                            $respone['data'] = true;
-                            $respone['data_message'] ='Item successfully added in your wishlist';
-                            echo json_encode($respone);
+                                if (!empty($last_id)) {
+                                    $respone['data'] = true;
+                                    $respone['data_message'] ='Item successfully added in your wishlist';
+                                    echo json_encode($respone);
+                                } else {
+                                    $respone['data'] = false;
+                                    $respone['data_message'] ='Some error occured';
+                                    echo json_encode($respone);
+                                }
+                            } else {
+                                $respone['data'] = false;
+                                $respone['data_message'] ='Product is out of stock';
+                                echo json_encode($respone);
+                            }
                         } else {
                             $respone['data'] = false;
-                            $respone['data_message'] ='Some error occured';
+                            $respone['data_message'] ='Product is out of stock';
                             echo json_encode($respone);
                         }
                     } else {
@@ -512,36 +525,53 @@ class Cart extends CI_Controller
                 }
                 //---------move to cart--------
                 elseif ($status=="move") {
-                              $this->db->select('*');
-                  $this->db->from('tbl_cart');
-                  $this->db->where('user_id',$wishcheck->user_id);
-                  $this->db->where('product_id',$wishcheck->product_id);
-                  $wish_check= $this->db->get()->row();
-                  if(empty($wish_check)){
-                    $cart_insert = array('user_id'=>$wishcheck->user_id,
+                    $this->db->select('*');
+                    $this->db->from('tbl_cart');
+                    $this->db->where('user_id', $wishcheck->user_id);
+                    $this->db->where('product_id', $wishcheck->product_id);
+                    $wish_check= $this->db->get()->row();
+                    if (empty($wish_check)) {
+                          $this->db->select('*');
+                          $this->db->from('tbl_products');
+                          $this->db->where('id', $wishcheck->product_id);
+                          $pro_data= $this->db->get()->row();
+                          //-----check inventory------
+                          if (!empty($pro_data->inventory)) {
+                              if ($pro_data->inventory >= $quantity) {
+                        $cart_insert = array('user_id'=>$wishcheck->user_id,
                           'product_id'=>$wishcheck->product_id,
                           'quantity'=>1,
                           'ip' =>$ip,
                           'date'=>$cur_date
                           );
 
-                    $cart_id=$this->base_model->insert_table("tbl_cart", $cart_insert, 1) ;
-                    if (!empty($cart_id)) {
-                        $delete=$this->db->delete('tbl_wishlist', array('user_id' => $user_id,'product_id'=>$product_id));
-                        $respone['data'] = true;
-                        $respone['data_message'] ='Item successfully added in your cart';
-                        echo json_encode($respone);
+                        $cart_id=$this->base_model->insert_table("tbl_cart", $cart_insert, 1) ;
+                        if (!empty($cart_id)) {
+                            $delete=$this->db->delete('tbl_wishlist', array('user_id' => $user_id,'product_id'=>$product_id));
+                            $respone['data'] = true;
+                            $respone['data_message'] ='Item successfully added in your cart';
+                            echo json_encode($respone);
+                        } else {
+                            $respone['data'] = false;
+                            $respone['data_message'] ='Some error occured';
+                            echo json_encode($respone);
+                        }
+                      } else {
+                          $respone['data'] = false;
+                          $respone['data_message'] ='Product is out of stock';
+                          echo json_encode($respone);
+                      }
+                  } else {
+                      $respone['data'] = false;
+                      $respone['data_message'] ='Product is out of stock';
+                      echo json_encode($respone);
+                  }
                     } else {
                         $respone['data'] = false;
-                        $respone['data_message'] ='Some error occured';
+                        $respone['data_message'] ='Product is already in your cart';
                         echo json_encode($respone);
                     }
-                }else{
-                  $respone['data'] = false;
-                  $respone['data_message'] ='Product is already in your cart';
-                  echo json_encode($respone);
                 }
-              }
             } else {
                 $respone['data'] = false;
                 $respone['data_message'] =validation_errors();
