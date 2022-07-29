@@ -139,7 +139,7 @@ flex-direction: column-reverse !important;
 
             <!-- Checkbox -->
             <div class="form-check d-flex justify-content-center mb-2">
-              <button class="chk" style="width:30%">Submit</button>
+              <button class="chk" style="width:40%">Submit</button>
             </div>
           </form>
         </div>

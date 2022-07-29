@@ -706,8 +706,8 @@ margin-top: 20px;
                     </div>
       </div> -->
 
-        <div class="image-container9">
-          <div class="image9 detail-view" id="zoom" style="background-image: url(<?=base_url()?>assets/frontend/assets/img/ggf.jpg);">
+        <div class="image-container9 zoomimgwidth">
+          <div class="image9 detail-view" id="zoom" style="margin-top:45px;background-image: url(<?=base_url()?>assets/frontend/assets/img/ggf.jpg);">
   	<!-- <img src="<?=base_url()?>assets/frontend/assets/img/ggf.jpg"/> -->
           </div>
         </div>

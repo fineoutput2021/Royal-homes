@@ -2538,7 +2538,11 @@ $category_data= $this->db->get();
                   </ul>
                 </div>
                 <hr>
+                <div class="col-md-12 cartscrollbar" style="max-height:50vh;overflow-y:auto;">
+
+
                 <?foreach ($inCart as $value) {?>
+
                 <div class="">
                   <!-- <div class=""><a href="javascript:void(0);" onclick="deleteCartOffline(this)"><span class="float-right positn" style="font-size:30px;  color:#d76a46">&times</span></a></div> -->
                   <div class="row mt-2" style=" font: 18px;">
@@ -2556,6 +2560,7 @@ $category_data= $this->db->get();
                   </div>
                 </div>
                 <?}?>
+                  </div>
                 <hr>
                 <div class="w-100" style="display:flex; justify-content: center;">
                   <button class="chk" onclick="location.href='<?=base_url()?>Home/view_cart'">

@@ -10,7 +10,33 @@ body{
     font-family: 'Muli' sans-serif !important;
 }
 
+body::-webkit-scrollbar
+{
+  display: block;
+  background: #fff;
+  width: 3px;
+}
+body::-webkit-scrollbar-thumb
+{
+  display: block;
+  background: #d67a46;
+}
+.cartscrollbar::-webkit-scrollbar {
+  display: block !important;
+  background: #fff;
+  width: 3px;
+}
+.cartscrollbar::-webkit-scrollbar-thumb
+{
+  display: block;
+  background: #d67a46;
+}
 
+@media (max-width: 600px)
+{
+  .zoomimgwidth
+  {max-width:70% !important;}
+}
 /* header start */
 
 .menu ul{

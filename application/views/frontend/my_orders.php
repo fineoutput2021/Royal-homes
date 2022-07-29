@@ -72,7 +72,7 @@
     border: none;
     background: #fff;
     outline: 0 !important;
-    border-right: 1px solid lightgrey;
+    /* border-right: 1px solid lightgrey; */
   }
 
   .can_btn:hover {
@@ -164,9 +164,9 @@
     <div class="container bg-white order_cont mb-5">
       <div class="row">
         <div class="col-12">
-          <div class="row">
-            <div class="col-6 d-flex align-items-center mb-4 two_btn">
-              <button class="float-left order_small mr-4" style="color:white;background:#d76a46">Order
+          <div class="row text-center">
+            <div class="col-12 col-md-6 d-flex align-items-center mb-4 two_btn">
+              <button class=" order_small mr-4" style="color:white;background:#d76a46;width:150px">Order
                 #<?=$data_order1->id; ?>
               </button>
               <span class="sp_od_web" style="color:black">Order Placed :
@@ -175,8 +175,8 @@
                                 echo $newdate->format('j F, Y');   #d-m-Y  // March 10, 2001, 5:16 pm?>
               </span>
             </div>
-            <div class="col-6 d-flex align-items-center mb-4 two_btn justify-content-end">
-              <span class="sp_od_web" style="color:black">Order Status :
+            <div class="col-12 col-md-6 d-flex align-items-center mb-4 two_btn justify-content-end d-block">
+              <span class="" style="color:black">Order Status :
                 <?php if($data_order1->order_status==1){ ?>
                   <span class="label bg-yellow">Pending</span>
                   <?php } elseif ($data_order1->order_status==2){ ?>
@@ -246,8 +246,8 @@
             <div class="col-8 col-lg-10 col-md-10">
 
               <h4><?=$o_product_name; ?> </h4>
-              <p>Quantity: <?=$order2->quantity; ?></p>
-              <p>Price: £<?=$order2->total_amount; ?></p>
+              <p style="text-align:left;">Quantity: <?=$order2->quantity; ?></p>
+              <p style="text-align:left;">Price: £<?=$order2->total_amount; ?></p>
             </div>
           </div>
         </div>
@@ -256,23 +256,50 @@
                                     }
                                 } ?>
 
+
+
         <div class="col-12 mt-3 pt-3 pb-3 " style="border-top: 1px solid lightgrey;">
           <div class="row">
-            <div class="col-12 col-sm-2 col-md-2 col-lg-2 mt-5 mt-lg-0">
-              <?php if ($data_order1->order_status == 3) {?>
-              <button class="can_btn" style="color:orange !important;"><i class="fa fa-truck pr-2"></i>Dispatched</button>
-              <?php } elseif ($data_order1->order_status == 4) { ?>
-              <button class="can_btn" style="color:green !important;"><i class="fa fa-check pr-2"></i>Delivered</button>
-              <?php } elseif ($data_order1->order_status == 5) { ?>
-              <button class="can_btn" style="color:red"><i class="fa fa-times pr-2"></i>Cancelled</button>
-              <?php } else { ?>
-              <a href="">
-                <button class="can_btn" onclick=cancel_order('<?=base64_encode($data_order1->id)?>') style="color:red"><i class="fa fa-times pr-2"></i>Cancel Order</button>
-              </a>
-              <?php } ?>
-
+            <div class="container-fluid p-0">
+              <div class="row">
+                <div class="col-12 col-md-6"> Promocode <span style="float:right">  <?php if (!empty($data_order1->promocode_id)) {
+                                  $this->db->select('*');
+                      $this->db->from('tbl_coupancode');
+                      $this->db->where('id',$data_order1->promocode_id);
+                      $promodata= $this->db->get()->row();
+                                      echo $promodata->name.'  ';
+                                  }else{
+                                    echo 'NA ';
+                                   } ?></span> </div>
+                <div class="col-12 col-md-6"> Promocode Discount:  <span style="float:right"> £<?php
+                              if (!empty($data_order1->p_discount)) {
+                                  echo $data_order1->p_discount.' ';
+                              } else {
+                                  echo '0  ';
+                              } ?></</span></div>
+                <div class="col-12 col-md-6"> Delivery Charge:  <span style="float:right"> £ <?php
+                          echo $data_order1->delivery_charge.'  '; ?></span> </div>
+                <div class="col-12 col-md-6"> Total Amount:  <span style="float:right"> £ <?=$data_order1->final_amount; ?></span> </div>
+              </div>
             </div>
-            <div class="col-12 col-sm-10 col-md-10 col-lg-10 d-flex align-items-center ab_p_h" style="justify-content: space-between;">
+
+              <div class="col-12 col-sm-12 col-md-12 col-lg-12 mt-5 mt-lg-0">
+                <?php if ($data_order1->order_status == 3) {?>
+                <button class="can_btn" style="color:orange !important;"><i class="fa fa-truck pr-2"></i>Dispatched</button>
+                <?php } elseif ($data_order1->order_status == 4) { ?>
+                <button class="can_btn" style="color:green !important;"><i class="fa fa-check pr-2"></i>Delivered</button>
+                <?php } elseif ($data_order1->order_status == 5) { ?>
+                <button class="can_btn" style="color:red"><i class="fa fa-times pr-2"></i>Cancelled</button>
+                <?php } else { ?>
+                <a href="" >
+                  <button class="can_btn" onclick=cancel_order('<?=base64_encode($data_order1->id)?>') style="color:red;border:none;"><i class="fa fa-times pr-2"></i>Cancel Order</button>
+                </a>
+                <?php } ?>
+
+              </div>
+
+
+            <!-- <div class="col-12 col-sm-10 col-md-10 col-lg-10 d-flex align-items-center ab_p_h" style="justify-content: space-between;padding:0px 0px;">
               <p class="mb-0 text-small">Promocode :
 
                 <?php if (!empty($data_order1->promocode_id)) {
@@ -300,7 +327,7 @@
 
 
               <h5 class="mb-0">Total Amount: £<?=$data_order1->final_amount; ?></h5>
-            </div>
+            </div>-->
           </div>
         </div>
 
@@ -313,6 +340,8 @@
     <h2>No Orders</h2>
     <?}}?>
   </div>
+
+
   <br>
 </section>
 <script>
